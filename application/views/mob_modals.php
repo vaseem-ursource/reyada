@@ -821,7 +821,7 @@
                 <div class="pull-left" style="width: 80%;">
                 <div class="select-wrapper"   style="width: 100%;"> 
                   <select> 
-                        <option value="option-1">CRYSTAL TOWN</option> 
+                        <option value="option-1">CRYSTAL TOWNs</option> 
                         <option value="option-2">MABANEE 1 </option> 
                   </select> 
                 </div>
