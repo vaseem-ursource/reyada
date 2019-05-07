@@ -32,7 +32,7 @@
                     <?php endif; ?>
                     <form  enctype="multipart/form-data" action="<?php echo base_url('Categories/Insert');?>" method="post" class="form-horizontal form-label-left input_mask"> 
 
-                    <div class="form-group has-feedback">
+                   <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">                    
                         <label class="">Title</label>
                           <input type="text" class="form-control" name="title" id="title" required="true">
                    </div>
