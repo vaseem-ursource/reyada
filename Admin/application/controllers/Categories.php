@@ -87,7 +87,7 @@ class Categories extends CI_Controller {
 			);
 			return $this->display_status(
 				$this->Categories_model->update_categories_db($category_id,$data),
-				'Category Deleted Successfully','Failed to Delete Category',1
+				'Category Deleted Successfully','Failed to Delete Categorybbbb',1
 			);
 		}
 
