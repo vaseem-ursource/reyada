@@ -16,3 +16,8 @@
 
     <!-- Custom Theme Style -->
     <link href="<?= base_url()?>assets/build/css/custom.min.css" rel="stylesheet">
+
+   <!-- PNotify -->
+   <link href="<?= base_url('assets/vendors/pnotify/dist/pnotify.css');?>" rel="stylesheet">
+   <link href="<?= base_url('assets/vendors/pnotify/dist/pnotify.buttons.css');?>" rel="stylesheet">
+   <link href="<?= base_url('assets/vendors/pnotify/dist/pnotify.nonblock.css');?>" rel="stylesheet">
