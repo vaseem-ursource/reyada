@@ -25,26 +25,11 @@ class Categories extends CI_Controller {
 			{
 				$redirect=0;
 			}
-			
-			// if(isset($_FILES["image"]["name"]))  
-			// {  
-			// $image =  $this->resize_image('image');
-			// $cat_image = $image['image_thumb'];
-			// $image = $image['image_path'];
-			// } 
 
-			// if(isset($_FILES["icon"]["name"]))  
-			// {  
-			// $icon =  $this->resize_image('icon');
-			// $cat_logo = $icon['image_thumb'];
-			// $icon = $icon['image_path'];
-			// } 
-			
-			date_default_timezone_set('Asia/Kuwait');
 			$data = array(
 			'title' => $this->input->post('title'),
 			'created_date' => date('Y-m-d H:i:s'),
-			'modified_date' => date('Y-m-d H:i:s'),
+			'modified_date' =>'',
 			'modified_by' => '', 
 				// 'modified_by' => $this->session->userdata('user_name'),   
 			'is_deleted' => 'No',    
@@ -64,10 +49,8 @@ class Categories extends CI_Controller {
 
 		public function Update(){ 
 			$category_id=$this->input->post('catId');
-			date_default_timezone_set('Asia/Kuwait');
 			$data = array(
 				'title' => $this->input->post('title'),
-				'created_date' => date('Y-m-d H:i:s'),
 				'modified_date' => date('Y-m-d H:i:s'),
 				'modified_by' => '', 
 					// 'modified_by' => $this->session->userdata('user_name'),   

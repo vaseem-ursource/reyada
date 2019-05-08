@@ -21,3 +21,19 @@
    <link href="<?= base_url('assets/vendors/pnotify/dist/pnotify.css');?>" rel="stylesheet">
    <link href="<?= base_url('assets/vendors/pnotify/dist/pnotify.buttons.css');?>" rel="stylesheet">
    <link href="<?= base_url('assets/vendors/pnotify/dist/pnotify.nonblock.css');?>" rel="stylesheet">
+   
+   <!-- AJAX -->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+    <!-- bootstrap-wysiwyg -->
+    <link href=""<?= base_url('assets/vendors/google-code-prettify/bin/prettify.min.');?>" rel="stylesheet">
+
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+   <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js" ></script>
+   <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.flash.min.js" ></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js" ></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js" ></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js" ></script>
+   <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js" ></script>
+   <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js" ></script>
