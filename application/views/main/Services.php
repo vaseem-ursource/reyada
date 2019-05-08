@@ -1,4 +1,3 @@
-
 <!--==========================
     Intro Section
   ============================-->
@@ -57,12 +56,12 @@
                     <div class="col-md-6"> 
                         <h5 class="text-justify">Crystal Tower – Floor 24. Ahmed AlJaber st. Kuwait City, Kuwait.</h5> 
                         <h4 class="text-uppercase"><i class="fa fa-map-marker"></i> CRYSTAL TOWER</h4> 
-                        <h4 class="text-uppercase"><i class="fa fa-angle-right"></i></h4> 
+                        <h4 class="text-uppercase" data-toggle="modal" data-target="#yesnomodal"><i class="fa fa-angle-right"></i></h4> 
                     </div> 
                     <div class="col-md-6"> 
                         <h5 class="text-justify">Mabanee 1 Building – First Floor. Salhiya St. Kuwait City, Kuwait.</h5> 
-                        <h4 class="text-uppercase"><i class="fa fa-map-marker"></i> THE OTHER</h4> 
-                        <h6 class="align-middle">Book a <i class="fa fa-angle-right align-middle"></i></h6> 
+                        <h4 class="text-uppercase"><i class="fa fa-map-marker"></i> MABANEE 1</h4> 
+                        <h6 class="align-middle" data-toggle="modal" data-target="#yesnomodal">Book a <i class="fa fa-angle-right align-middle"></i></h6> 
                     </div> 
                 </div> 
             </div> 
@@ -100,7 +99,7 @@
                     <div class="col-md-12"> 
                         <h5 class="text-justify">Reyada offers hot and cold beverages at the self-service coffee station.</h5> 
                         <!-- <h5 class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</h5>  -->
-                        <h5 class="text-uppercase text-right"><img src="image/services/clock.png" width="25px" height="25px" alt=""> Open From 9 AM to 9 PM</h5> 
+                        <h5 class="text-uppercase text-right"><img src="<?= base_url()?>image/services/clock.png" width="25px" height="25px" alt=""> Open From 9 AM to 9 PM</h5> 
                         
                     </div> 
                      
@@ -127,7 +126,7 @@
                                                <br> Front Desk operations are from 9am to 5pm.
                                                <br> 24/7 access.</h5> 
                         <!-- <h5 class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</h5>  -->
-                        <h5 class="text-uppercase text-right"><img src="image/services/clock.png" width="25px" height="25px" alt=""> Open From 9 AM to 9 PM</h5> 
+                        <h5 class="text-uppercase text-right"><img src="<?= base_url()?>image/services/clock.png" width="25px" height="25px" alt=""> Open From 9 AM to 9 PM</h5> 
                     </div> 
                      
                 </div> 
@@ -154,9 +153,10 @@
                         <h5 class="text-justify">Our meeting rooms are designed and equipped with state-of-the-art technology that will help you conduct your meetings with great ease. 
                                                 <br>As a Reyada Member, you can utilize your meeting room credit at any of our locations.</h5> 
                         <!-- <h5 class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</h5>  -->
-                        <h5 class="text-left"><img src="image/services/clock.png" width="25px" height="25px" alt=""> Open From 9 AM to 9 PM</h5> 
-                        <h5 class="text-left"><img src="image/services/range.png" width="25px" height="25px" alt=""> Flexible date and time usage</h5> 
-                        <h5 class="text-right">Book a meeting <i class="fa fa-angle-right align-middle"></i></h5> 
+                        <h5 class="text-left"><img src="<?= base_url()?>image/services/clock.png" width="25px" height="25px" alt=""> Open From 9 AM to 9 PM</h5> 
+                        <h5 class="text-left"><img src="<?= base_url()?>image/services/range.png" width="25px" height="25px" alt=""> Flexible date and time usage</h5> 
+                        <h5 class="text-right" data-toggle="modal" data-target="#yesnomodal">Book a meeting <i class="fa fa-angle-right align-middle"></i></h5>
+                         
                     </div> 
                      
                 </div> 
@@ -273,7 +273,7 @@
                     <div class="col-md-12 pr-0"> 
                         <h5 class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis.</h5> 
                         <h5 class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</h5> 
-                        <h5 class="text-uppercase text-right"><img src="image/services/clock.png" width="25px" height="25px" alt=""> Open From 9 AM to 9 PM</h5> 
+                        <h5 class="text-uppercase text-right"><img src="<?= base_url()?>image/services/clock.png" width="25px" height="25px" alt=""> Open From 9 AM to 9 PM</h5> 
                         
                     </div> 
                      
@@ -298,7 +298,7 @@
                     <div class="col-md-12"> 
                         <h5 class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis.</h5> 
                         <h5 class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</h5> 
-                        <h5 class="text-uppercase text-right"><img src="image/services/clock.png" width="25px" height="25px" alt=""> Open From 9 AM to 9 PM</h5> 
+                        <h5 class="text-uppercase text-right"><img src="<?= base_url()?>image/services/clock.png" width="25px" height="25px" alt=""> Open From 9 AM to 9 PM</h5> 
                     </div> 
                      
                 </div> 
@@ -324,8 +324,8 @@
                     <div class="col-md-12"> 
                         <h5 class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis.</h5> 
                         <h5 class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</h5> 
-                        <h5 class="text-left"><img src="image/services/clock.png" width="25px" height="25px" alt=""> Open From 9 AM to 9 PM</h5> 
-                        <h5 class="text-left"><img src="image/services/range.png" width="25px" height="25px" alt=""> Flexible date and time usage</h5> 
+                        <h5 class="text-left"><img src="<?= base_url()?>image/services/clock.png" width="25px" height="25px" alt=""> Open From 9 AM to 9 PM</h5> 
+                        <h5 class="text-left"><img src="<?= base_url()?>image/services/range.png" width="25px" height="25px" alt=""> Flexible date and time usage</h5> 
                         <h5 class="text-right">Book a meeting <i class="fa fa-angle-right align-middle"></i></h5> 
                     </div> 
                      
@@ -416,20 +416,19 @@
                 <div class="col-md-6 pt-5">
                     <span class="pull-right">1 <span style="border-bottom: 1px solid black;width:20px;height:3px; display: inline-block;vertical-align: middle;"></span> 3</span><br>
                     <span class="pull-right">PAY AS YOU GO</span><br>
-                    <span class="pull-right text-justify pt-4">Designed for those always on the move
-                   Designed for those always on the move. Get 1 – day access of co-working space credit and pay 5 kd for any additional day. 
+                    <span class="pull-right text-justify pt-4">Designed for those always on the move. Get 1 – day access of co-working space credit and pay 5 kd for any additional day. 
                     Get access of 1 - hour meeting room credit. Additional charge of 7.5 kd per hour.</span>
                     <div class="col-md-12 row px-0 py-3 m-0">
                         <div class="col-md-4 text-center p-1"  style="width:33.33%">
-                            <span class="border border-secondary rounded-circle text-center badge w-100 pt-4 pb-4">9am - 9pm</span><br>
+                            <span class="text-center badge w-100 pt-4 pb-4">9am - 9pm</span><br>
                             <i style="font-size:small">Access</i> 
                         </div>
                         <div class="col-md-4 text-center p-1" style="width:33.33%">
-                            <span class="border border-secondary rounded-circle text-center badge w-100 pt-4 pb-4">1 h</span><br>
+                            <span class="text-center badge w-100 pt-4 pb-4">1 h</span><br>
                             <i style="font-size:small">Meeting Room Credit</i> 
                         </div>
                         <div class="col-md-4 text-center p-1" style="width:33.33%">
-                            <span class="border border-secondary rounded-circle text-center badge w-100 pt-4 pb-4">Full</span><br>
+                            <span class="text-center badge w-100 pt-4 pb-4">Full</span><br>
                             <i style="font-size:small">Amenities</i> 
                         </div>
                     </div>
@@ -474,15 +473,15 @@
                     Perfect for the rising entrepreneur. Get daily access to the co-working space with 3 - hours of meeting room credit. Additional charge of 7.5 kd per hour.</span>
                     <div class="col-md-12 row px-0 py-3 mt-3">
                         <div class="col-md-4 text-center p-1 py-1"  style="width:33.33%">
-                            <span class="border border-secondary rounded-circle text-center badge w-100 pt-4 pb-4">9am - 9pm</span><br>
+                            <span class="text-center badge w-100 pt-4 pb-4">9am - 9pm</span><br>
                             <i style="font-size:small">Access</i> 
                         </div>
                         <div class="col-md-4 text-center p-1 py-1"  style="width:33.33%">
-                            <span class="border border-secondary rounded-circle text-center badge w-100 pt-4 pb-4">3 h</span><br>
+                            <span class="text-center badge w-100 pt-4 pb-4">3 h</span><br>
                             <i style="font-size:small">Meeting Room Credit</i> 
                         </div>
                         <div class="col-md-4 text-center p-1"  style="width:33.33%">
-                            <span class="border border-secondary rounded-circle text-center badge w-100 pt-4 pb-4">Full</span><br>
+                            <span class="text-center badge w-100 pt-4 pb-4">Full</span><br>
                             <i style="font-size:small">Amenities</i> 
                         </div>
                     </div>
@@ -504,15 +503,15 @@
                     Ideal workspace for stable businesses, freelancers and entrepreneurs. Get 24/7 access to your office with a minimum of 5 - hours of meeting room credit. Additional charge of 7.5 per hour.</span>
                     <div class="col-md-12 row px-0 py-3 mt-3">
                         <div class="col-md-4 text-center p-1" style="width:33.33%">
-                            <span class="border border-secondary rounded-circle text-center badge w-100 pt-4 pb-4">24/7</span><br>
+                            <span class="text-center badge w-100 pt-4 pb-4">24/7</span><br>
                             <i style="font-size:small">Access</i> 
                         </div>
                         <div class="col-md-4 text-center p-1" style="width:33.33%">
-                            <span class="border border-secondary rounded-circle text-center badge w-100 pt-4 pb-4">5 h</span><br>
+                            <span class="text-center badge w-100 pt-4 pb-4">5 h</span><br>
                             <i style="font-size:small">Meeting Room Credit</i> 
                         </div>
                         <div class="col-md-4 text-center p-1" style="width:33.33%">
-                            <span class="border border-secondary rounded-circle text-center badge w-100 pt-4 pb-4">Full</span><br>
+                            <span class="text-center badge w-100 pt-4 pb-4">Full</span><br>
                             <i style="font-size:small">Amenities</i> 
                         </div>
                     </div>

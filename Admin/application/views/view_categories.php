@@ -55,7 +55,20 @@
                           <td><?= $row->is_deleted;?></td>
                           <td><?= $row->is_active;?></td>
                           <td>
-                             <a href="<?=base_url('Categories/Edit?id='.$row->cat_id.'"')?>" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
+                             <a href="<?=base_url('Categories/Edit?id='.$row->cat_id.'"')?>" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit fa-lg"></i></a>
+                             <?php
+                             if($row->is_active == 'Active' || $row->is_active == 'active'){ 
+                               $status_color = 'text-success'; 
+                             }else{ 
+                               $status_color = 'text-danger'; 
+                             } 
+                             ?> 
+                             <a href="<?=base_url('Categories/Status?id='.$row->cat_id.'"')?>" data-toggle="tooltip" data-placement="top" title="Change Status (Active/Deactive)"><i class="fa fa-toggle-on fa-lg <?=$status_color?>"></i></a>
+                             <?php 
+                             if($row->is_deleted != 'Yes'){
+                             ?>
+                             <a href="<?=base_url('Categories/Delete?id='.$row->cat_id.'"')?>" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash fa-lg"></i></a>                         
+                             <?php } ?>
                           </td>
                         </tr>
                     <?php } ?>

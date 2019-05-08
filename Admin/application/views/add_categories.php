@@ -40,8 +40,8 @@
                         <label>Is Active</label>
                           <select class="dropdown-toggle form-control" name="IsActive" id="IsActive" required="true">
                             <option>-- Select Status --</option> 
-                            <option value="active">Active</option> 
-                            <option value="inactive">Inactive</option> 
+                            <option value="Active">Active</option> 
+                            <option value="Inactive">Inactive</option> 
                         </select>
                    </div>
                   <div class="form-group">

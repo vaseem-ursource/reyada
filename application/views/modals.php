@@ -12,7 +12,7 @@
         <div class="col-md-12 col-sm-12 col-xs-12 row" style="padding-top:10%; padding-left: 18%;" class="px-5">
             <h6 style="color:black;" style="font-size: 16px;" class="text-justify ml-5 m-0">LET US<br><br>REACH YOU!
               <br><br>
-               </h6>
+            </h6>
         </div>
         <form action="" style="width:95%; padding-top:5px; padding-left:20%" class="m-0">
           <div class="col-md-12 col-sm-12 col-xs-12 row">
@@ -62,10 +62,10 @@
 	    <a href="#submit" style="color:#000;" class="float-right"><span class="align-middle" data-toggle="modal" data-target="#modalsubmit">Submit</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
             <!-- </form>             -->
             </div>
-            </div>
-            </form>
-            </article>
-            </div>
+           </div>
+          </form>
+        </article>
+      </div>
       <div class="right-half1">
        <button type="button" class="close p-4 text-white" data-dismiss="modal">&#10006</button>
         <h6 style="color:white; font-size: 16px; padding-top: 25%" class="px-5 m-5 text-justify">CALL US.
@@ -93,7 +93,7 @@
       <div class="modal-body p-0 m-0">
       <section class="container">
         <div class="left-half pr-0">
-          <div>
+           <div>
               <img src="image/modalimg/a1.png" class="img-fluid  position-relative pull-right" width="170" height="150" style="padding-top: 30%; left:20px;">
               <h6 style="color:white; position: absolute; bottom:30px; font-size: 14px;" class="p-5 text-justify"><small>JOIN OUR COMMUNITY
               <br><br>
@@ -102,12 +102,12 @@
               <a href="#signup" style="color:white;"><span class="align-middle" data-toggle="modal" data-target="#modalsignup">SIGN UP</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
               </small></h6>
             </div>
-          </div>
-          <div class="right-half" class="clearfix" style="background:url('image/modalimg/A15.jpg') center  no-repeat;background-size: cover;">
-            <button type="button" class="close p-4" data-dismiss="modal">&#10006</button>
+        </div>
+        <div class="right-half" class="clearfix" style="background:url('image/modalimg/A15.jpg') center  no-repeat;background-size: cover;">
+          <button type="button" class="close p-4" data-dismiss="modal">&#10006</button>
             <article>
             <div>
-              <form>
+            <form>
               <h6 style="color:black;" class="text-center">WELCOME BACK!</h6><br>
             <div class="group">
               <input type="text"><span class="highlight"></span><span class="bar"></span>
@@ -120,8 +120,8 @@
             <a href="#" class="text-p text-secondary float-right">Forgot password?</a>
                   <br><br><br>
             <a href="#login" style="color:black;"><span class="align-middle" data-toggle="modal" data-target="#modalLoginsuccess">LOGIN</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
-             </form>
-              </div>
+            </form>
+            </div>
             </article>
          </div>
     </section>
@@ -171,7 +171,7 @@ $ripples.on('animationend webkitAnimationEnd mozAnimationEnd oanimationend MSAni
 
 });
 
-  </script>
+</script>
 					 
   <!--==========================
     End Login Modal
@@ -455,7 +455,7 @@ $("#addClassMob").click(function () {
   </div>
 </div>
 
-<!-- End Thankyou Modal-->
+<!-- End Thankyou Modal -->
 
 <!-- <script>
   $(function(){

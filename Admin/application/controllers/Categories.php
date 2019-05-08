@@ -25,13 +25,11 @@ class Categories extends CI_Controller {
 			{
 				$redirect=0;
 			}
-
 			$data = array(
 			'title' => $this->input->post('title'),
 			'created_date' => date('Y-m-d H:i:s'),
 			'modified_date' =>'',
 			'modified_by' => '', 
-				// 'modified_by' => $this->session->userdata('user_name'),   
 			'is_deleted' => 'No',    
 			'is_active' => $this->input->post('IsActive'), 
 			);
@@ -62,6 +60,23 @@ class Categories extends CI_Controller {
 				'Category Updated Successfully','Failed to Update Category',1
 		);
 		}
+
+		public function Status(){ 
+			$cat_id=$this->input->get('id'); 
+			$status=$this->Categories_model->get_categories_on_id($cat_id)->is_active; 
+			if($status == 'Active' || $status == 'active'){ 
+					 $status = 'Inactive'; 
+			}else{ 
+					 $status='Active'; 
+			} 
+			$data = array( 
+					 'is_active' => $status 
+			); 
+			return $this->display_status( 
+					 $this->Categories_model->update_categories_db($cat_id,$data), 
+					 'Article Status Changed','Failed to Change Status Article',1,0 
+			); 
+    }
 
 		public function Delete(){
 			$category_id=$this->input->get('id');

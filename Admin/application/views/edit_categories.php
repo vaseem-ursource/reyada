@@ -21,13 +21,13 @@
                         <label>Is Active</label>
                           <select class="dropdown-toggle form-control" name="IsActive" id="IsActive" required="true">
                             <option><?=$Categories->is_active?></option> 
-                            <option value="active">Active</option> 
-                            <option value="inactive">Inactive</option> 
+                            <option value="Active">Active</option> 
+                            <option value="Inactive">Inactive</option> 
                         </select>
                    </div>
                       <div class="form-group">
-                        <div class="col-md-12 col-sm-12 col-xs-12 text-center">
-                          <a href="<?= base_url('Admin/Categories');?>"><button type="button" class="btn btn-primary">Cancel</button></a>
+                        <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3 col-sm-offset-3">
+                          <a href="<?= base_url('Categories');?>"><button type="button" class="btn btn-primary">Cancel</button></a>
                           <button type="submit" class="btn btn-success">Update</button>
                         </div>
                       </div>
