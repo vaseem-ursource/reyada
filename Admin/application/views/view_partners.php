@@ -3,9 +3,9 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Categories<small>View</small></h2>
+                    <h2>Partners<small>View</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
-                     <a href="<?= base_url('Categories/Add');?>" class="btn btn-primary">Add <i class="fa fa-plus-square"></i></a>
+                     <a href="<?= base_url('Partners/Add');?>" class="btn btn-primary">Add <i class="fa fa-plus-square"></i></a>
                     </ul>
                     <div class="clearfix"></div>
                                    
@@ -35,35 +35,29 @@
                       <thead>
                         <tr>
                           <!-- <th>Parent Category</th> -->
-                          <th>Title</th>
-                          <th>Created Date</th>
-                          <th>Modified Date</th>
-                          <th>Modified By</th>
-                          <th>Is Deleted</th>
-                          <th>Is Active</th>
+                          <th>Company Name</th>
+                          <th>Address</th>
+                          <th>Phone</th>
+                          <th>Person Incharge</th>
+                          <th>Email</th>
+                          <th>Password</th>
+                          <th>Comments</th>
                           <th>Action</th>
                         </tr>
                       </thead>
 
                     <tbody>
-                    <?php foreach ($Categories->result() as $row){ ?> 
+                    <?php foreach ($Partners->result() as $row){ ?> 
                         <tr>
-                          <td><?= $row->title;?></td>
-                          <td><?= $row->created_date;?></td>
-                          <td><?= $row->modified_date;?></td>
-                          <td><?= $row->modified_by;?></td>
-                          <td><?= $row->is_deleted;?></td>
-                          <td><?= $row->is_active;?></td>
+                          <td><?= $row->company_name;?></td>
+                          <td><?= $row->address;?></td>
+                          <td><?= $row->phone;?></td>
+                          <td><?= $row->person_incharge;?></td>
+                          <td><?= $row->email;?></td>
+                          <td><?= $row->password;?></td>
+                          <td><?= $row->comments;?></td>
                           <td>
-                             <a href="<?=base_url('Categories/Edit?id='.$row->cat_id.'"')?>" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
-                             <?php
-                             if($row->is_active == 'Active' || $row->is_active == 'active'){ 
-                               $status_color = 'text-success'; 
-                             }else{ 
-                               $status_color = 'text-danger'; 
-                             } 
-                             ?> 
-                             <a href="<?=base_url('Categories/Status?id='.$row->cat_id.'"')?>" data-toggle="tooltip" data-placement="top" title="Change Status (Active/Deactive)"><i class="fa fa-toggle-on fa-lg <?=$status_color?>"></i></a>
+                             <a href="<?=base_url('Partners/Edit?id='.$row->partner_id.'"')?>" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
                           </td>
                         </tr>
                     <?php } ?>

@@ -1,0 +1,106 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class AdminUsers extends CI_Controller {
+	public function index()
+	{
+		$data['title'] = 'Admin Users';
+		$data['AdminUsers'] = $this->AdminUsers_model->get_all_admin_users();
+		$this->load->view('view_admin_user',$data);
+    }
+
+    public function Add()
+		{
+        $data['title'] = 'Admin Users';
+        $data['Partners'] = $this->AdminUsers_model->get_all_partners();
+		$this->load->view('add_admin_user',$data);
+		}
+		
+		public function Insert()
+		{	
+			if(isset($_POST['insert']))
+			{
+				$redirect=1;
+			}
+			elseif(isset($_POST['save']))
+			{
+				$redirect=0;
+			}
+			$data = array(
+			'email' => $this->input->post('email'),
+			'password' => $this->input->post('password'),
+			'role' => $this->input->post('role'),
+			'partner_id' => $this->input->post('partnerId'),
+			'status' => $this->input->post('status'),   
+			);
+			return $this->display_status(
+				$this->AdminUsers_model->insert_admin_users_db($data),
+				'Admin User Inserted Successfully','Failed to Insert Admin User',$redirect);
+		}
+
+	
+		public function Edit(){ 
+			$admin_id=$this->input->get('id');
+            $data['AdminUsers'] = $this->AdminUsers_model->get_admin_user_on_id($admin_id);
+            $data['Partners'] = $this->AdminUsers_model->get_all_partners();            
+			$this->load->view("edit_admin_user.php",$data);
+		}
+
+		public function Update(){ 
+			$admin_id=$this->input->post('admin_id');
+			$data = array(
+                'email' => $this->input->post('email'),
+                'password' => $this->input->post('password'),
+                'role' => $this->input->post('role'),
+                'partner_id' => $this->input->post('partnerId'),
+                'status' => $this->input->post('status'), 
+			);
+			return $this->display_status(
+				$this->AdminUsers_model->update_admin_users_db($admin_id,$data),
+				'Admin User Updated Successfully','Failed to Update Admin User',1
+		);
+		}
+
+		public function Status(){ 
+			$admin_id=$this->input->get('id'); 
+			$status=$this->AdminUsers_model->get_admin_user_on_id($admin_id)->status; 
+			if($status == 'Active' || $status == 'active'){ 
+					 $status = 'Inactive'; 
+			}else{ 
+					 $status='Active'; 
+			} 
+			$data = array( 
+					 'status' => $status 
+			); 
+			return $this->display_status( 
+					 $this->AdminUsers_model->update_admin_users_db($admin_id,$data), 
+					 'Admin User Status Changed','Failed to Change Status Admin User',1,0 
+			); 
+ }
+
+		private function display_status($status,$success,$fail,$redirect)
+		{
+				if($status)
+				{
+						$this->session->set_flashdata('success', $success);
+				}
+				else{
+						$this->session->set_flashdata('warning', $fail);
+				}
+				if($redirect==1)
+				{
+					return redirect('AdminUsers');
+				}
+				else
+				{
+				  return redirect('AdminUsers/Add');
+				}
+		}
+    
+    
+    public function __construct()
+    {
+		parent::__construct();
+				$this->load->model("AdminUsers_model",'AdminUsers_model');
+    }
+}?>
