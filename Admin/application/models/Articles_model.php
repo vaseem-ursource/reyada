@@ -29,5 +29,24 @@
                         ->update('articles',$data);
         }
        
+        public function get_all_comments($article_id){
+            return $this->db
+                        ->where('article_id',$article_id)                               
+                        ->get('comments');
+        }
+
+        public function get_comments($comment_id){
+            $query = $this->db
+                         ->where('comment_id',$comment_id)
+                         ->get('comments');
+             return $query->row();
+         }
+
+         public function update_comments_db($comment_id,$data){
+            return $this->db
+                        ->where('comment_id',$comment_id)
+                        ->update('comments',$data);
+        }
+       
 }
 ?>

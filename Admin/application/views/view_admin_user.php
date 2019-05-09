@@ -31,7 +31,6 @@
                       <thead>
                         <tr>
                           <th>Email</th>
-                          <th>Password</th>
                           <th>Role</th>
                           <th>Partner</th>
                           <th>Status</th>
@@ -43,7 +42,6 @@
                     <?php foreach ($AdminUsers->result() as $row){ ?> 
                         <tr>
                           <td><?= $row->email;?></td>
-                          <td><?= $row->password;?></td>
                           <td><?= $row->role;?></td>
                           <td><?= $row->company_name;?></td>
                           <td><?= $row->status;?></td>

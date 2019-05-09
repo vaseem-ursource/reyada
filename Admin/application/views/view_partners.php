@@ -40,7 +40,6 @@
                           <th>Phone</th>
                           <th>Person Incharge</th>
                           <th>Email</th>
-                          <th>Password</th>
                           <th>Comments</th>
                           <th>Action</th>
                         </tr>
@@ -54,7 +53,6 @@
                           <td><?= $row->phone;?></td>
                           <td><?= $row->person_incharge;?></td>
                           <td><?= $row->email;?></td>
-                          <td><?= $row->password;?></td>
                           <td><?= $row->comments;?></td>
                           <td>
                              <a href="<?=base_url('Partners/Edit?id='.$row->partner_id.'"')?>" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>

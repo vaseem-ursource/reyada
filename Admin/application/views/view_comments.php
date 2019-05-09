@@ -4,9 +4,9 @@
                 <div class="x_panel">
                   <div class="x_title">
                     <h2>Comments<small>View</small></h2>
-                    <ul class="nav navbar-right panel_toolbox">
+                    <!-- <ul class="nav navbar-right panel_toolbox">
                      <a href="<?= base_url('Comments/Add');?>" class="btn btn-primary">Add <i class="fa fa-plus-square"></i></a>
-                    </ul>
+                    </ul> -->
                     <div class="clearfix"></div>
                                    
                   </div>
@@ -31,9 +31,8 @@
                       <thead>
                         <tr>
                           <th>Title</th>
-                          <th>Discription</th>
+                          <th>Description</th>
                           <th>Posted Date</th>
-                          <th>Article</th>
                           <th>Is Deleted</th>
                           <th>Action</th>
                         </tr>
@@ -43,12 +42,16 @@
                     <?php foreach ($Comments->result() as $row){ ?> 
                         <tr>
                           <td><?= $row->title;?></td>
-                          <td><?= $row->discription;?></td>
+                          <td><?= $row->description;?></td>
                           <td><?= $row->posted_date;?></td>
-                          <td><?= $row->article_id;?></td>
                           <td><?= $row->is_deleted;?></td>
                           <td>
-                             <a href="<?=base_url('Comments/Edit?id='.$row->comment_id.'"')?>" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
+                          <?php 
+                             if($row->is_deleted != 'Yes'){
+                             ?>
+                             <a href="<?=base_url('Articles/DeleteComment?id='.$row->comment_id.'"')?>" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash fa-lg"></i></a>
+                             <?php } ?>
+                             <a href="<?=base_url('Articles/View?id='.$row->comment_id.'"')?>" data-toggle="tooltip" data-placement="top" title="View"><i class="fa fa-eye fa-lg"></i></a>                         
                           </td>
                         </tr>
                     <?php } ?>
