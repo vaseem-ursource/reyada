@@ -57,7 +57,8 @@
                           <td><?= $row->password;?></td>
                           <td><?= $row->comments;?></td>
                           <td>
-                             <a href="<?=base_url('Partners/Edit?id='.$row->partner_id.'"')?>" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
+                             <a href="<?=base_url('Partners/Edit?id='.$row->partner_id.'"')?>" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit fa-lg"></i></a>
+                             <a href="<?=base_url('Partners/Change?id='.$row->partner_id.'"')?>" data-toggle="tooltip" data-placement="top" title="Change Password"><i class="fa fa-key fa-lg"></i></a>
                           </td>
                         </tr>
                     <?php } ?>

@@ -52,7 +52,7 @@
                           <td><?= $row->sub_title;?></td>
                           <td><?= $row->author;?></td>
                           <td><img src="<?= base_url().$row->image_url;?>" width="60" height="auto" alt=""></td>
-                          <td><?= $row->cat_id;?></td>
+                          <td><?= $row->title;?></td>
                           <td><?= $row->posted_date;?></td>
                           <td>
                              <a href="<?=base_url('Articles/Edit?id='.$row->article_id.'"')?>" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
