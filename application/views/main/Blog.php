@@ -97,52 +97,32 @@
           <h4 class="text-left text-dark">Last News</h4>
         </div>
         <div class="row">
-            <div class="col-lg-9 col-md-9 wow fadeInUp px-3 text-justify">
+             <div class="col-lg-9 col-md-9 wow fadeInUp px-3 text-justify">
                 <div class="row">
+                 <?php
+                 if(!$Article->result()){
+                   echo "<h4 class='text-center'>No Article Found</h4>";
+                 }
+                 foreach($Article->result() as $row){?>  
                     <div class="col-lg-6 col-md-6 wow fadeInUp p-1 d-flex">
                         <div class="card shadow-sm">
-                            <img class="card-img-top" src="<?= base_url()?>image/articles/a1.jpeg" height="250px" alt="Card image cap">
+                            <img class="card-img-top" src="<?= base_url().'Admin/'.$row->image_url;?>" height="250px" alt="Card image cap">
                             <div class="card-body">
-                                <small>22, Jan 19</small>
-                                <h6 class="card-title pt-1"><b>Lorem Ipsum Neque porro</b></h6>
-                                <p class="card-text text-justify lap">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators</p>
-                                <a href="Article.php"><i class="fa fa-angle-right fa-2x no-bottom position-absolute pb-1 text-dark"></i></a>
+                                <?php 
+                                $date = explode("-",$row->posted_date);
+                                $day = explode(" ",$date[2]);
+                                $dateObj   = DateTime::createFromFormat('!m', $date[1]); 
+                                $monthName = $dateObj->format('F');
+                                ?>
+                                <small><?= $day[0].', '.$monthName.' '.$date[0]?></small>
+                                <h6 class="card-title pt-1"><b><?= $row->title;?></b></h6>
+                                <p class="card-text text-justify lap"><?= substr($row->description,0,300).'....';?></p>
+                                <a href="<?=base_url('Main/Article?id='.$row->article_id)?>"><i class="fa fa-angle-right fa-2x no-bottom position-absolute pb-1 text-dark"></i></a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-6 wow fadeInUp p-1 d-flex lap">
-                        <div class="card shadow-sm">
-                            <img class="card-img-top" src="<?= base_url()?>image/articles/a4.jpg" height="250px" alt="Card image cap">
-                            <div class="card-body">
-                                <small>22, Jan 19</small>
-                                <h6 class="card-title pt-1"><b>Lorem Ipsum Neque porro</b></h6>
-                                <p class="card-text text-justify lap">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
-                                <a href="Article.php"><i class="fa fa-angle-right fa-2x no-bottom position-absolute pb-1 text-dark"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 wow fadeInUp p-1 d-flex lap">
-                        <div class="card shadow-sm">
-                            <img class="card-img-top" src="<?= base_url()?>image/articles/a2.jpg" height="250px" alt="Card image cap">
-                            <div class="card-body">
-                                <small>22, Jan 19</small>
-                                <h6 class="card-title pt-1"><b>Lorem Ipsum Neque porro</b></h6>
-                                <p class="card-text text-justify lap">Some quick example text to build on the card title and make up the bulk of the card's content.It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                                <a href="Article.php"><i class="fa fa-angle-right fa-2x no-bottom position-absolute pb-1 text-dark"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 wow fadeInUp p-1 d-flex lap">
-                        <div class="card shadow-sm">
-                            <img class="card-img-top" src="<?= base_url()?>image/articles/a3.jpg" height="250px" alt="Card image cap">
-                            <div class="card-body">
-                                <small>22, Jan 19</small>
-                                <h6 class="card-title pt-1"><b>Lorem Ipsum Neque porro</b></h6>
-                                <p class="card-text text-justify lap">Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32</p>
-                                <a href="Article.php"><i class="fa fa-angle-right fa-2x no-bottom position-absolute pb-1 text-dark"></i></a>
-                            </div>
-                        </div>
-                    </div>
+                  <?php } ?>
+                    
                 </div>
                 <div class="center pt-5">
                     <ul class="pagination">
@@ -165,13 +145,9 @@
                           <li><input type="checkbox" checked=""><i></i>
                            <h6><span style="border-left:2px solid #343a40;padding:4px"></span> Category</h6>
                             <div class="artlist">
-                              <a href="#"><div class="artlist_content" >All Categories</div></a>
-                              <a href="#"><div class="artlist_content">Startup News</div></a>
-                              <a href="#"><div class="artlist_content">Founder Talk</div></a>
-                              <a href="#"><div class="artlist_content">Mentor Tips</div></a>
-                              <a href="#"><div class="artlist_content">Business</div></a>
-                              <a href="#"><div class="artlist_content">Events</div></a>
-                              <a href="#"><div class="artlist_content">Reviews</div></a>
+                              <?php foreach($Categories->result() as $row){?>  
+                              <a href="<?= base_url('Main/blog_category?id='.$row->cat_id)?>"><div class="artlist_content text-capitalize" ><?= $row->title;?></div></a>
+                              <?php } ?>
                             </div>
                           </li>
                           <li><input type="checkbox" checked=""><i></i>

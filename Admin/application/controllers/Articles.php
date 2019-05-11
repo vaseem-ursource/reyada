@@ -142,6 +142,31 @@ class Articles extends CI_Controller {
 			);
 		}
 				
+		public function ViewComments()
+		{
+			$article_id=$this->input->get('id');
+			$data['Comments'] = $this->Articles_model->get_all_comments($article_id);
+			$this->load->view('view_comments',$data);
+		}
+
+		public function View(){ 
+			$comment_id=$this->input->get('id');
+			$data['Comments'] = $this->Articles_model->get_comments($comment_id);
+			$this->load->view("view_comments_details",$data);
+	  }
+
+		public function DeleteComment(){
+			$comment_id=$this->input->get('id');
+			$data = array(
+				'is_deleted' => 'Yes'
+			);
+			return $this->display_status(
+				$this->Articles_model->update_comments_db($comment_id,$data),
+				'Comment Deleted Successfully','Failed to Delete Comment',1,0
+			);
+		}
+
+
 		private function resize_image($image){
 			$config['upload_path'] = base_url().'uploads/articles/';
 					 $config['allowed_types'] = 'png|jpg|jpeg';
@@ -196,6 +221,14 @@ class Articles extends CI_Controller {
 				{
 				  return redirect('Articles/Add');
 				}
+				// if($redirect==3)
+				// {
+				// 	return redirect('Articles/ViewComments');
+				// }
+				// else
+				// {
+	
+				// }
 		}
     
     
