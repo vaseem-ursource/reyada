@@ -4,6 +4,7 @@
                 <div class="x_panel">
                   <div class="x_title">
                     <h2>Partners<small>View</small></h2>
+                   
                     <ul class="nav navbar-right panel_toolbox">
                      <a href="<?= base_url('Partners/Add');?>" class="btn btn-primary">Add <i class="fa fa-plus-square"></i></a>
                     </ul>
@@ -68,4 +69,5 @@
                 </div>
               </div>
             </div> 
+
 <?php include('footer.php');?>

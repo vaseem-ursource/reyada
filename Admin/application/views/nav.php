@@ -27,15 +27,17 @@
               <div class="menu_section">
                 <ul class="nav side-menu">
                   </li>
-                  <li><a href="<?= base_url('Categories');?>"><i class="fa fa-edit"></i> Categories</a>
+                  <li><a href="<?= base_url('Categories');?>"><i class="fa fa-list-alt"></i> Categories</a>
                   </li>
-                  <li><a href="<?= base_url('Articles');?>"><i class="fa fa-edit"></i> Articles</a>
+                  <li><a href="<?= base_url('Articles');?>"><i class="fa fa-newspaper-o"></i> Articles</a>
                   </li>
-                  <li><a href="<?= base_url('Partners');?>"><i class="fa fa-edit"></i> Partners</a>
+                  <li><a href="<?= base_url('Partners');?>"><i class="fa fa-share-alt"></i> Partners</a>
                   </li>
-                  <li><a href="<?= base_url('AdminUsers');?>"><i class="fa fa-edit"></i> Admin Users</a>
+                  <li><a href="<?= base_url('AdminUsers');?>"><i class="fa fa-user"></i> Admin Users</a>
                   </li>
-                  <li><a href="<?= base_url('Contactus');?>"><i class="fa fa-edit"></i> Contactus</a>
+                  <li><a href="<?= base_url('Members');?>"><i class="fa fa-group"></i> Members</a>
+                  </li>
+                  <li><a href="<?= base_url('Contactus');?>"><i class="fa fa-phone"></i> Contactus</a>
                   </li>
                 </ul>
               </div>
@@ -57,7 +59,6 @@
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                     <img src="<?= base_url('assets/images/user_image.jpg');?>" alt="">John Doe
-                    <span class=" fa fa-angle-down"></span>
                   </a>
                 </li>
 
