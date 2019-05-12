@@ -28,9 +28,16 @@
                    </script>
                     <?php endif; ?>
                     <div class="x_content">
-                        <table id="datatable" class="table table-striped table-bordered"><thead><tr><th>Company Name</th><th>Address</th><th>Phone</th><th>Person Incharge</th><th>Email</th></tr></thead><tbody>
-
-                        </tbody></table>
+                        <table id="datatable" class="table table-striped table-bordered">
+                          <thead>
+                            <tr>
+                              <th>Full Name</th>
+                              <th>Email</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                          </tbody>
+                        </table>
                     </div>
                 </div>
               </div>
@@ -42,15 +49,15 @@ $(document).ready(function() {
     var password = 'view1Sonic!';
       $.ajax({
         type: 'GET',
-        url: 'https://spaces.nexudus.com/api/spaces/bookings',
+        url: 'https://spaces.nexudus.com/api/spaces/coworkers',
         beforeSend: function (xhr) {
             xhr.setRequestHeader ("Authorization", "Basic " + btoa(username + ":" + password));
         },
         dataType: 'json',
-        success: function(bookings){
+        success: function(coworkers){
           var table = $('#datatable').DataTable( );
-          $.each(bookings.Records,function(key,value){
-            table.row.add($('<tr> <td>'+value.CoworkerFullName+'</td><td>'+value.ResourceId+'</td><td>'+value.ResourceName+'</td><td>'+value.CoworkerFullName+'</td><td>'+value.CoworkerFullName+'</td></tr>')).draw(false);
+          $.each(coworkers.Records,function(key,value){
+            table.row.add($('<tr> <td>'+value.FullName+'</td><td>'+value.Email+'</td></tr>')).draw(false);
           });
            },
         color: '#c0392b',

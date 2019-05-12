@@ -98,33 +98,13 @@
         </div>
         <div class="row">
              <div class="col-lg-9 col-md-9 wow fadeInUp px-3 text-justify">
-                <div class="row">
-                 <?php
-                 if(!$Article->result()){
-                   echo "<h4 class='text-center'>No Article Found</h4>";
-                 }
-                 foreach($Article->result() as $row){?>  
-                    <div class="col-lg-6 col-md-6 wow fadeInUp p-1 d-flex">
-                        <div class="card shadow-sm">
-                            <img class="card-img-top" src="<?= base_url().'Admin/'.$row->image_url;?>" height="250px" alt="Card image cap">
-                            <div class="card-body">
-                                <?php 
-                                $date = explode("-",$row->posted_date);
-                                $day = explode(" ",$date[2]);
-                                $dateObj   = DateTime::createFromFormat('!m', $date[1]); 
-                                $monthName = $dateObj->format('F');
-                                ?>
-                                <small><?= $day[0].', '.$monthName.' '.$date[0]?></small>
-                                <h6 class="card-title pt-1"><b><?= $row->title;?></b></h6>
-                                <p class="card-text text-justify lap"><?= substr($row->description,0,300).'....';?></p>
-                                <a href="<?=base_url('Main/Article?id='.$row->article_id)?>"><i class="fa fa-angle-right fa-2x no-bottom position-absolute pb-1 text-dark"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                  <?php } ?>
-                    
+                <div class="row" id="list1">
+                                 
                 </div>
                 <div class="center pt-5">
+                    <div id='pagination' class="pagination1"></div>
+                </div>
+                <!-- <div class="center pt-5">
                     <ul class="pagination">
                         <li><a id="prev">❮</a></li>
                         <li><a id="test1" href="#">1</a></li>
@@ -134,7 +114,7 @@
                         <li><a href="#">5</a></li>
                         <li><a href="#" id="next">❯</a></li>
                     </ul>
-                </div>
+                </div> -->
             </div>
 
             <div class="col-lg-3 col-md-3 wow fadeInUp p-1 lap">
@@ -210,7 +190,85 @@
             </div>
         </div>
     </div>
+    
 
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type='text/javascript'>
+   $(document).ready(function(){
+
+     // Detect pagination click
+     $('#pagination').on('click','a',function(e){
+       e.preventDefault(); 
+      //  var pageno = e.target.text;
+       var length = $(this).prop('href').split("/").length;
+      //  var pageno = e.target.text;
+      var pageno = $(this).prop('href').split("/")[length-1];
+      //  var pageno = $(this).attr('data-ci-pagination-page');
+       loadPagination(pageno);
+     });
+
+     loadPagination(0);
+
+     // Load pagination
+     function loadPagination(pagno){
+       $.ajax({
+         url: '<?=base_url()?>Main/loadRecord/'+pagno,
+         type: 'get',
+         dataType: 'json',
+         success: function(response){
+            $('#pagination').html(response.pagination);
+            // createTable(response.result,response.row);
+            var articleList="";
+            $.each(response.result,function(key,value){
+              var posteddate=value.posted_date;
+              posteddate=posteddate.split('-');
+              postedday=posteddate[2].split(' ');
+            articleList = articleList+'<div class="col-lg-6 col-md-6 wow fadeInUp p-1 d-flex w-100">'+
+                        '<div class="card shadow-sm w-100">'+
+                            '<img class="card-img-top" src="<?= base_url()?>Admin/'+value.image_url+'" height="250px" alt="Card image cap">'+
+                            '<div class="card-body">'+
+                                '<small>'+postedday[0]+', '+GetMonthName(posteddate[1])+' '+posteddate[0]+'</small>'+
+                                '<h6 class="card-title pt-1"><b>'+value.title+'</b></h6>'+
+                                '<p class="card-text text-justify lap">'+value.description+'</p>'+
+                                '<a href="<?=base_url()?>Main/Article?id='+value.article_id+'"><i class="fa fa-angle-right fa-2x no-bottom position-absolute pb-1 text-dark"></i></a>'+
+                            '</div>'+
+                        '</div>'+
+                   '</div>'
+
+              });
+              function GetMonthName(monthNumber) {
+                    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+                    return months[monthNumber - 1];
+              }
+              $('#list1').html(articleList);
+
+         }
+       });
+     }
+
+    //  // Create table list
+    //  function createTable(result,sno){
+    //    sno = Number(sno);
+    //    $('#postsList tbody').empty();
+    //    for(index in result){
+    //       var id = result[index].id;
+    //       var title = result[index].title;
+    //       var content = result[index].content;
+    //       content = content.substr(0, 60) + " ...";
+    //       var link = result[index].link;
+    //       sno+=1;
+
+    //       var tr = "<tr>";
+    //       tr += "<td>"+ sno +"</td>";
+    //       tr += "<td><a href='"+ link +"' target='_blank' >"+ title +"</a></td>";
+    //       tr += "<td>"+ content +"</td>";
+    //       tr += "</tr>";
+    //       $('#postsList tbody').append(tr);
+ 
+    //     }
+      // }
+    });
+    </script>
 <script>
   $(function(){
         $("#addClassBlog").click(function () {

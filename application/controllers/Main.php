@@ -10,6 +10,8 @@ class main extends CI_Controller
         parent::__construct();
 		$this->load->model("Main_model",'Main_model');
         $this->lang->load('auth');
+         // Load Pagination library
+        $this->load->library('pagination');
     }
     
     function index()
@@ -38,7 +40,6 @@ class main extends CI_Controller
         $data['Article'] = $this->Main_model->get_all_article();
 		$data['Categories'] = $this->Main_model->get_all_categories();        
         $this->load->view('index', $data);
-
     }
 
     function blog_category()
@@ -65,5 +66,38 @@ class main extends CI_Controller
 
     }
 
+    public function loadRecord($rowno=0){
+
+        // Row per page
+        $rowperpage = 6;
+    
+        // Row position
+        if($rowno != 0){
+          $rowno = ($rowno-1) * $rowperpage;
+        }
+     
+        // All records count
+        $allcount = $this->Main_model->getrecordCount();
+    
+        // Get records
+        $users_record = $this->Main_model->getData($rowno,$rowperpage);
+     
+        // Pagination Configuration
+        $config['base_url'] = base_url().'Main/loadRecord';
+        $config['use_page_numbers'] = TRUE;
+        $config['total_rows'] = $allcount;
+        $config['per_page'] = $rowperpage;
+    
+        // Initialize
+        $this->pagination->initialize($config);
+    
+        // Initialize $data Array
+        $data['pagination'] = $this->pagination->create_links();
+        $data['result'] = $users_record;
+        $data['row'] = $rowno;
+    
+        echo json_encode($data);
+     
+      }
     
 }
