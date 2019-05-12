@@ -19,11 +19,15 @@
                    </div>
                    <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">                    
                         <label class="">Password</label>
-                          <input type="password" class="form-control" name="password" id="password" value="<?=$AdminUsers->password;?>" required="true">
+                          <input type="password" class="form-control" name="password" id="password" value="<?=$AdminUsers->password;?>">
                    </div>
-                   <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">                    
-                        <label class="">Role</label>
-                          <input type="text" class="form-control" name="role" id="role" value="<?=$AdminUsers->role;?>" required="true">
+                   <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                        <label>Role</label>
+                          <select class="dropdown-toggle form-control" name="role" id="role" required="true">
+                            <option value="<?=$AdminUsers->role;?>"><?=$AdminUsers->role;?></option> 
+                            <option value="Admin">Admin</option> 
+                            <option value="Partner">Partner</option> 
+                        </select>
                    </div>
                    <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
                     <label>Partner</label>
