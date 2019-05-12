@@ -821,3 +821,29 @@ background-color:grey;
 .owl-dots{
   display: none;
 }
+
+.pagination1 { 
+  display: inline-block; 
+  padding: 0; 
+  margin: 0; 
+  } 
+  
+.pagination1  {display: inline;} 
+  
+  .pagination1  a { 
+  color: #343a40; 
+  padding: 8px 16px; 
+  text-decoration: none; 
+  transition: background-color .3s; 
+  
+  } 
+  
+  .pagination1 strong { 
+  
+  color: #343a40; 
+  border: 1px solid #343a40; 
+  padding: 8px 16px; 
+
+  } 
+  
+  .pagination1  a:hover:not(.active) {background-color:#fff;border: 1px solid #343a40;} 

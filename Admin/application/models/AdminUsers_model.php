@@ -6,6 +6,7 @@
 
         public function get_all_admin_users(){
             return $this->db
+                        ->select('admin_users.email as admin_email,role,partners.company_name,status,admin_users.admin_id')
                         ->join('partners', 'partners.partner_id = admin_users.partner_id', 'left')
                         ->get('admin_users');
         }

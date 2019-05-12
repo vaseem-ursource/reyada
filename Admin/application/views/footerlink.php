@@ -68,5 +68,4 @@
     <script src="<?= base_url('assets/vendors/jszip/dist/jszip.min.js');?>" ></script>
     <script src="<?= base_url('assets/vendors/pdfmake/build/pdfmake.min.js');?>" ></script>
     <script src="<?= base_url('assets/vendors/pdfmake/build/vfs_fonts.js');?>" ></script>
-    <script src="<?= base_url('assets/datatable/js/dataTables.checkboxes.min.js');?>" ></script>
 	

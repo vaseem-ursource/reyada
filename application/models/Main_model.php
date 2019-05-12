@@ -31,5 +31,26 @@
                         ->get('articles');
         }
 
+        // Fetch records
+        public function getData($rowno,$rowperpage) {
+        
+            $this->db->select('*');
+            $this->db->from('articles');
+            $this->db->limit($rowperpage, $rowno);  
+            $query = $this->db->get();
+        
+            return $query->result_array();
+        }
+
+        // Select total records
+        public function getrecordCount() {
+
+            $this->db->select('count(*) as allcount');
+            $this->db->from('articles');
+            $query = $this->db->get();
+            $result = $query->result_array();
+        
+            return $result[0]['allcount'];
+        }
     }
     ?>

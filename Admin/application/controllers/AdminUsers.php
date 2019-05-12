@@ -35,7 +35,7 @@ class AdminUsers extends CI_Controller {
 			);
 			return $this->display_status(
 				$this->AdminUsers_model->insert_admin_users_db($data),
-				'Admin User Inserted Successfully','Failed to Insert Admin User',$redirect);
+				'Admin User Inserted Successfully','Failed to Insert Admin User',$redirect,0);
 		}
 
 	
@@ -57,7 +57,7 @@ class AdminUsers extends CI_Controller {
 			);
 			return $this->display_status(
 				$this->AdminUsers_model->update_admin_users_db($admin_id,$data),
-				'Admin User Updated Successfully','Failed to Update Admin User',1
+				'Admin User Updated Successfully','Failed to Update Admin User',1,0
 		);
 		}
 
@@ -76,9 +76,32 @@ class AdminUsers extends CI_Controller {
 					 $this->AdminUsers_model->update_admin_users_db($admin_id,$data), 
 					 'Admin User Status Changed','Failed to Change Status Admin User',1,0 
 			); 
- }
+ 		}
 
-		private function display_status($status,$success,$fail,$redirect)
+		public function Change()
+		{
+			$admin_id=$this->input->get('id'); 
+			$data['title'] = 'Change Password';
+			$data['AdminUserId'] = $admin_id;
+			$this->load->view('partners_change_password',$data);
+		}
+
+		public function UpdatePassword(){ 
+			$admin_user_id=$this->input->post('admin_user_id');
+			$password=$this->AdminUsers_model->get_admin_user_on_id($admin_user_id)->password; 
+			if($password != $this->input->post('oldPassword')){
+				$this->display_status(1,'Old Password Doesnot Matched','Old Password Doesnot Matched',2,$admin_user_id
+				);
+			}
+			$data = array(
+                'password' => $this->input->post('newPassword'),
+			);
+			return $this->display_status(
+				$this->AdminUsers_model->update_admin_users_db($admin_user_id,$data),
+				'Admin User Updated Successfully','Failed to Update Admin User',1,0
+		);
+		}
+		private function display_status($status,$success,$fail,$redirect,$admin_user_id)
 		{
 				if($status)
 				{
@@ -90,6 +113,10 @@ class AdminUsers extends CI_Controller {
 				if($redirect==1)
 				{
 					return redirect('AdminUsers');
+				}
+				elseif($redirect==2)
+				{
+					return redirect('AdminUsers/Change?id='.$admin_user_id);
 				}
 				else
 				{

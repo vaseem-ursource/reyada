@@ -5,7 +5,9 @@
         }
 
         public function get_all_articles(){
-            return $this->db->get('articles');
+            return $this->db
+                        ->join('categories','categories.cat_id = articles.cat_id','left')
+                        ->get('articles');
         }
 
         public function get_all_categories(){

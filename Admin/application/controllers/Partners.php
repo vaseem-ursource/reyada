@@ -38,7 +38,7 @@ class Partners extends CI_Controller {
 			);
 			return $this->display_status(
 				$this->Partners_model->insert_partners_db($data),
-				'Partner Inserted Successfully','Failed to Insert Partner',$redirect);
+				'Partner Inserted Successfully','Failed to Insert Partner',$redirect,0);
 		}
 
 	
@@ -62,22 +62,35 @@ class Partners extends CI_Controller {
 			);
 			return $this->display_status(
 				$this->Partners_model->update_partners_db($partner_id,$data),
-				'Partner Updated Successfully','Failed to Update Partner',1
+				'Partner Updated Successfully','Failed to Update Partner',1,0
 		);
 		}
 
-		public function Delete(){
-			$category_id=$this->input->get('id');
-			$data = array(
-				'is_deleted' => 'Yes'
-			);
-			return $this->display_status(
-				$this->Categories_model->update_categories_db($category_id,$data),
-				'Category Deleted Successfully','Failed to Delete Category',1
-			);
+		public function Change()
+		{
+			$partner_id=$this->input->get('id'); 
+			$data['title'] = 'Change Password';
+			$data['PartnerId'] = $partner_id;
+			$this->load->view('partners_change_password',$data);
 		}
 
-		private function display_status($status,$success,$fail,$redirect)
+		public function UpdatePassword(){ 
+			$partner_id=$this->input->post('partner_id');
+			$password=$this->Partners_model->get_partner_on_id($partner_id)->password; 
+			if($password != $this->input->post('oldPassword')){
+				$this->display_status(1,'Old Password Doesnot Matched','Old Password Doesnot Matched',2,$partner_id
+				);
+			}
+			$data = array(
+                'password' => $this->input->post('newPassword'),
+			);
+			return $this->display_status(
+				$this->Partners_model->update_partners_db($admin_user_id,$data),
+				'Password Changed Successfully','Failed to Change Password',1,0
+		);
+		}
+
+		private function display_status($status,$success,$fail,$redirect,$partner_id)
 		{
 				if($status)
 				{
@@ -89,6 +102,10 @@ class Partners extends CI_Controller {
 				if($redirect==1)
 				{
 					return redirect('Partners');
+				}	
+				elseif($redirect==2)
+				{
+					return redirect('Partners/Change?id='.$partner_id);
 				}
 				else
 				{
