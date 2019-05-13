@@ -34,10 +34,6 @@
                           <input type="email" class="form-control" name="email" id="email" value="<?=$Partners->email;?>" required="true">
                    </div>
                    <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">                    
-                        <label class="">Password</label>
-                          <input type="password" class="form-control" name="password" id="password" value="<?=$Partners->password;?>" required="true">
-                   </div>
-                   <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">                    
                         <label class="">Comments</label>
                           <input type="text" class="form-control" name="comments" id="comments" value="<?=$Partners->comments;?>" required="true">
                    </div>

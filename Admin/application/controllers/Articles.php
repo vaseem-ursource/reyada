@@ -117,7 +117,8 @@ class Articles extends CI_Controller {
 		public function Delete(){
 			$article_id=$this->input->get('id');
 			$data = array(
-				'is_deleted' => 'Yes'
+				'is_deleted' => 'Yes',
+				'is_active' =>'Yes'
 			);
 			return $this->display_status(
 				$this->Articles_model->update_articles_db($article_id,$data),
@@ -157,12 +158,13 @@ class Articles extends CI_Controller {
 
 		public function DeleteComment(){
 			$comment_id=$this->input->get('id');
+			$article_id=$this->input->get('article');
 			$data = array(
 				'is_deleted' => 'Yes'
 			);
 			return $this->display_status(
 				$this->Articles_model->update_comments_db($comment_id,$data),
-				'Comment Deleted Successfully','Failed to Delete Comment',1,0
+				'Comment Deleted Successfully','Failed to Delete Comment',3,$article_id
 			);
 		}
 
@@ -213,28 +215,35 @@ class Articles extends CI_Controller {
 				{
 					return redirect('Articles');
 				}
-				if($redirect==2)
+				elseif($redirect==2)
 				{
 					return redirect('Articles/Edit?id='.$article_id);
+				}
+			
+				elseif($redirect==3)
+				{
+					return redirect('Articles/ViewComments?id='.$article_id);
 				}
 				else
 				{
 				  return redirect('Articles/Add');
 				}
-				// if($redirect==3)
-				// {
-				// 	return redirect('Articles/ViewComments');
-				// }
-				// else
-				// {
-	
-				// }
 		}
     
     
     public function __construct()
     {
 		parent::__construct();
+				if($this->session->userdata('user_name')){
+				}
+				else{
+					redirect(base_url('Login'));  
+				}  
 				$this->load->model("Articles_model",'Articles_model');
+				if($this->session->userdata('role') == 'admin' || $this->session->userdata('role') == 'Admin'){
+				}
+				else{
+					redirect(base_url('Members'));  
+				}     
     }
 }?>

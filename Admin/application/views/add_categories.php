@@ -38,8 +38,8 @@
                    </div>
                    <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
                         <label>Is Active</label>
-                          <select class="dropdown-toggle form-control" name="IsActive" id="IsActive" required="true">
-                            <option>-- Select Status --</option> 
+                          <select class="dropdown-toggle form-control" name="IsActive" id="IsActive" required>
+                            <option value="">-- Select Status --</option> 
                             <option value="Active">Active</option> 
                             <option value="Inactive">Inactive</option> 
                         </select>

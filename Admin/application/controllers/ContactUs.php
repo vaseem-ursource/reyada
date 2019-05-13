@@ -18,7 +18,17 @@ class ContactUs extends CI_Controller {
     public function __construct()
     {
 		parent::__construct();
-				$this->load->model("ContactUs_model",'ContactUs_model');
+		if($this->session->userdata('user_name')){
+		}
+		else{
+			redirect(base_url('Login'));  
+		}  
+        $this->load->model("ContactUs_model",'ContactUs_model');
+         if($this->session->userdata('role') == 'admin' || $this->session->userdata('role') == 'Admin'){
+		}
+		else{
+		  redirect(base_url('Members'));  
+		}     
     }
 }
 ?>

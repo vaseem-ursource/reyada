@@ -16,7 +16,7 @@
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
-                <h2>John Doe</h2>
+                <h2><?= $this->session->userdata('user_name'); ?></h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -26,7 +26,9 @@
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
                 <ul class="nav side-menu">
-                  </li>
+                <?php
+                  if($this->session->userdata('role') == 'admin' || $this->session->userdata('role') == 'Admin'){ ?>
+
                   <li><a href="<?= base_url('Categories');?>"><i class="fa fa-list-alt"></i> Categories</a>
                   </li>
                   <li><a href="<?= base_url('Articles');?>"><i class="fa fa-newspaper-o"></i> Articles</a>
@@ -35,9 +37,15 @@
                   </li>
                   <li><a href="<?= base_url('AdminUsers');?>"><i class="fa fa-user"></i> Admin Users</a>
                   </li>
+                  <?php } ?>
                   <li><a href="<?= base_url('Members');?>"><i class="fa fa-group"></i> Members</a>
                   </li>
+                  <?php
+                  if($this->session->userdata('role') == 'admin' || $this->session->userdata('role') == 'Admin'){ ?>
                   <li><a href="<?= base_url('ContactUs');?>"><i class="fa fa-phone"></i> Contactus</a>
+                  </li>
+                  <?php } ?>
+                  <li><a href="<?= base_url('Login/Logout');?>"><i class="fa fa-sign-out"></i>Log out</a>
                   </li>
                 </ul>
               </div>
@@ -58,7 +66,7 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="<?= base_url('assets/images/user_image.jpg');?>" alt="">John Doe
+                    <img src="<?= base_url('assets/images/user_image.jpg');?>" alt=""><?= $this->session->userdata('user_name'); ?>
                   </a>
                 </li>
 

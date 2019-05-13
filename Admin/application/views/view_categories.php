@@ -36,9 +36,6 @@
                         <tr>
                           <!-- <th>Parent Category</th> -->
                           <th>Title</th>
-                          <th>Created Date</th>
-                          <th>Modified Date</th>
-                          <th>Modified By</th>
                           <th>Is Deleted</th>
                           <th>Is Active</th>
                           <th>Action</th>
@@ -49,9 +46,6 @@
                     <?php foreach ($Categories->result() as $row){ ?> 
                         <tr>
                           <td><?= $row->title;?></td>
-                          <td><?= $row->created_date;?></td>
-                          <td><?= $row->modified_date;?></td>
-                          <td><?= $row->modified_by;?></td>
                           <td><?= $row->is_deleted;?></td>
                           <td><?= $row->is_active;?></td>
                           <td>
