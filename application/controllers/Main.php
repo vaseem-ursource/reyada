@@ -67,7 +67,7 @@ class main extends CI_Controller
     }
 
     public function loadRecord($rowno=0){
-
+        $search_text=$this->input->get('search_text');
         // Row per page
         $rowperpage = 6;
     

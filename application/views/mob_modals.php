@@ -8,7 +8,7 @@
               <div class="left-half w-100 pr-0">
                 <div>
                   <button type="button" class="close p-2 text-white" style="z-index:999;float:right;opacity:1" data-dismiss="modal">&#10006</button>
-                    <img src="image/modalimg/a1.png" class="img-fluid  position-absolute pull-right" width="170" height="150" style="top: 30%;right: 0;">
+                    <img src="<?=base_url()?>image/modalimg/a1.png" class="img-fluid  position-absolute pull-right" width="170" height="150" style="top: 30%;right: 0;">
                     <h6 style="color:white; position: absolute; bottom:20%; font-size: 14px;" class="p-5 text-justify"><small>JOIN OUR COMMUNITY
                     <br><br>
                     Lorem ipsum dolor sit amet, consectetur adipiscin LoremLorem ipsum dolor sit amet, consectetur adipiscin Lorem

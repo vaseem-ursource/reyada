@@ -37,7 +37,7 @@
                   </li>
                   <li><a href="<?= base_url('Members');?>"><i class="fa fa-group"></i> Members</a>
                   </li>
-                  <li><a href="<?= base_url('Contactus');?>"><i class="fa fa-phone"></i> Contactus</a>
+                  <li><a href="<?= base_url('ContactUs');?>"><i class="fa fa-phone"></i> Contactus</a>
                   </li>
                 </ul>
               </div>

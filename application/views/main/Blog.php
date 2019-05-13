@@ -180,11 +180,11 @@
                 <form action="" method="" autocomplete="off" class="pl-0">
                     <div  class="lap">
                         <i class="fa fa-search fa-2x" aria-hidden="true" style="padding-top:25px;padding-right:15px"></i>
-                        <input type="text" placeholder="search..." value="" name="term" >
+                        <input type="text" placeholder="search..." value="" name="search_article" id="search_article">
                     </div>
                     <div style="padding-top:25%" class="mob">
                         <i class="fa fa-search fa-2x" aria-hidden="true" style="padding-top:25px;padding-right:15px"></i>
-                        <input type="text" placeholder="search..." value="" name="term" >
+                        <input type="text" placeholder="search..." value="" name="mob_search_article"  id="mob_search_article">
                     </div>
                 </form>
             </div>
@@ -194,8 +194,14 @@
 
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type='text/javascript'>
+      //Search Bar
+      $("search_article").keypress(function(){
+        alert('dg');
+      var search_text = $("search_article").text();
+        loadPagination(0,search_text);
+      });
    $(document).ready(function(){
-
+    
      // Detect pagination click
      $('#pagination').on('click','a',function(e){
        e.preventDefault(); 
@@ -204,17 +210,20 @@
       //  var pageno = e.target.text;
       var pageno = $(this).prop('href').split("/")[length-1];
       //  var pageno = $(this).attr('data-ci-pagination-page');
-       loadPagination(pageno);
+       loadPagination(pageno,'');
      });
+ 
+     loadPagination(0,'');
 
-     loadPagination(0);
+    
 
      // Load pagination
-     function loadPagination(pagno){
+     function loadPagination(pagno,search_text){
        $.ajax({
          url: '<?=base_url()?>Main/loadRecord/'+pagno,
          type: 'get',
          dataType: 'json',
+         data:{'search_text':search_text},
          success: function(response){
             $('#pagination').html(response.pagination);
             // createTable(response.result,response.row);
@@ -245,31 +254,8 @@
          }
        });
      }
-
-    //  // Create table list
-    //  function createTable(result,sno){
-    //    sno = Number(sno);
-    //    $('#postsList tbody').empty();
-    //    for(index in result){
-    //       var id = result[index].id;
-    //       var title = result[index].title;
-    //       var content = result[index].content;
-    //       content = content.substr(0, 60) + " ...";
-    //       var link = result[index].link;
-    //       sno+=1;
-
-    //       var tr = "<tr>";
-    //       tr += "<td>"+ sno +"</td>";
-    //       tr += "<td><a href='"+ link +"' target='_blank' >"+ title +"</a></td>";
-    //       tr += "<td>"+ content +"</td>";
-    //       tr += "</tr>";
-    //       $('#postsList tbody').append(tr);
- 
-    //     }
-      // }
     });
-    </script>
-<script>
+  
   $(function(){
         $("#addClassBlog").click(function () {
             $('#qnimateblog').addClass('popup-box-on');
@@ -283,4 +269,7 @@
            $('#qnimateblog').removeClass('popup-box-on');
         });
   })
+
+
+ 
 </script>
