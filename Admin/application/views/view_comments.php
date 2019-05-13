@@ -46,12 +46,12 @@
                           <td><?= $row->posted_date;?></td>
                           <td><?= $row->is_deleted;?></td>
                           <td>
-                          <?php 
+                             <a href="<?=base_url('Articles/View?id='.$row->comment_id)?>" data-toggle="tooltip" data-placement="top" title="View"><i class="fa fa-eye fa-lg"></i></a>                         
+                             <?php 
                              if($row->is_deleted != 'Yes'){
                              ?>
-                             <a href="<?=base_url('Articles/DeleteComment?id='.$row->comment_id.'"')?>" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash fa-lg"></i></a>
+                             <a href="<?=base_url('Articles/DeleteComment?id='.$row->comment_id.'&article='.$row->article_id)?>" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash fa-lg"></i></a>
                              <?php } ?>
-                             <a href="<?=base_url('Articles/View?id='.$row->comment_id.'"')?>" data-toggle="tooltip" data-placement="top" title="View"><i class="fa fa-eye fa-lg"></i></a>                         
                           </td>
                         </tr>
                     <?php } ?>

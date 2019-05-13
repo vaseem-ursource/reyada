@@ -15,11 +15,7 @@
 
                    <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">                    
                         <label class="">Email</label>
-                          <input type="email" class="form-control" name="email" id="email" value="<?=$AdminUsers->email;?>" required="true">
-                   </div>
-                   <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">                    
-                        <label class="">Password</label>
-                          <input type="password" class="form-control" name="password" id="password" value="<?=$AdminUsers->password;?>">
+                          <input type="email" class="form-control" name="email" id="email" value="<?=$AdminUsers->admin_email;?>" required="true">
                    </div>
                    <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
                         <label>Role</label>

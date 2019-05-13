@@ -8,17 +8,11 @@
                     <h2>Articles<small>Add Articles</small></h2>
                     <div class="clearfix"></div>
                   </div>
-                  <?php 
+                    <?php 
                       if($status=$this->session->flashdata('success')):
                       $status_class=$this->session->flashdata('success')
-                      ?>
-                      <!-- <div class="alert alert-success alert-dismissible fade in" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
-                        </button>
-                        <strong><?= $status ?></strong>
-                      </div> -->
-
-                      <script>
+                    ?>
+                    <script>
                     $(document).ready(function(){
                     new PNotify({
                     title: 'Success!',
@@ -136,12 +130,12 @@
 
                    <div class="form-group has-feedback col-md-12 col-sm-12 col-xs-12">
                         <label class="">Image</label>
-                        <input class="btn btn-default form-control" type="file" name="image_url" id="image_url" accept="image/png, image/jpeg">
+                        <input class="btn btn-default form-control" type="file" name="image_url" id="image_url" accept="image/png, image/jpeg" required>
                    </div>
                    <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
                         <label>Categories</label>
                           <select class="dropdown-toggle form-control" name="category" id="category" required="true">
-                            <option>-- Select Category --</option> 
+                            <option value="">-- Select Category --</option> 
                             <?php foreach($Categories->result() as $row){?>
                             <option value="<?= $row->cat_id;?>"><?= $row->title;?>
                             </option>
@@ -151,7 +145,7 @@
                    <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
                         <label>Is Active</label>
                           <select class="dropdown-toggle form-control" name="is_active" id="is_active" required="true">
-                            <option>-- Select Status --</option> 
+                            <option value="">-- Select Status --</option> 
                             <option value="active">Active</option> 
                             <option value="inactive">Inactive</option> 
                         </select>

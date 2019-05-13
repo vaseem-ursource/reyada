@@ -81,7 +81,9 @@ class Categories extends CI_Controller {
 		public function Delete(){
 			$category_id=$this->input->get('id');
 			$data = array(
-				'is_deleted' => 'Yes'
+				'is_deleted' => 'Yes',
+				'is_active' =>'Inactive'
+
 			);
 			return $this->display_status(
 				$this->Categories_model->update_categories_db($category_id,$data),
@@ -112,6 +114,16 @@ class Categories extends CI_Controller {
     public function __construct()
     {
 		parent::__construct();
+				if($this->session->userdata('user_name')){
+				}
+				else{
+					redirect(base_url('Login'));  
+				}  
 				$this->load->model("Categories_model",'Categories_model');
+				if($this->session->userdata('role') == 'admin' || $this->session->userdata('role') == 'Admin'){
+				}
+				else{
+					redirect(base_url('Members'));  
+				}     
     }
 }?>

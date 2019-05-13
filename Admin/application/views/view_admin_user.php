@@ -41,7 +41,7 @@
                     <tbody>
                     <?php foreach ($AdminUsers->result() as $row){ ?> 
                         <tr>
-                          <td><?= $row->email;?></td>
+                          <td><?= $row->admin_email;?></td>
                           <td><?= $row->role;?></td>
                           <td><?= $row->company_name;?></td>
                           <td><?= $row->status;?></td>

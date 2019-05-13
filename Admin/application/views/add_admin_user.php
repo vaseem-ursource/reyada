@@ -38,7 +38,7 @@
                    <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
                         <label>Role</label>
                           <select class="dropdown-toggle form-control" name="role" id="role" required="true">
-                            <option>-- Select Role --</option> 
+                            <option value="">-- Select Role --</option> 
                             <option value="Admin">Admin</option> 
                             <option value="Partner">Partner</option> 
                         </select>
@@ -47,7 +47,7 @@
                     <label>Partner</label>
                     <select name="partnerId" class="dropdown-toggle form-control" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopoup="true" aria-expanded="false">
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <option>-- Select Partner --</option> 
+                    <option value="">-- Select Partner --</option> 
                     <?php foreach($Partners->result() as $row){ ?>
                     <option class="dropdown-item" value="<?= $row->partner_id;?>"><?= $row->company_name;?></option>
 
@@ -58,7 +58,7 @@
                    <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
                         <label>Status</label>
                           <select class="dropdown-toggle form-control" name="status" id="status" required="true">
-                            <option>-- Select Status --</option> 
+                            <option value="">-- Select Status --</option> 
                             <option value="Active">Active</option> 
                             <option value="Inactive">Inactive</option> 
                         </select>

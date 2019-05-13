@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Shaha Store</title>
+    <title>Reyadah</title>
 
     <!-- Bootstrap -->
     <link href="<?= base_url('assets/vendors/bootstrap/dist/css/bootstrap.min.css');?>" rel="stylesheet">
@@ -40,10 +40,10 @@
               <strong><?= $status ?></strong>
             </div>
           <?php endif; ?>
-            <form class="form-horizontal form-label-left input_mask" action="<?php echo base_url('Admin/Login/Verify');?>" method="post">
+            <form class="form-horizontal form-label-left input_mask" action="<?php echo base_url('Login/Verify');?>" method="post">
               <h1>Login Form</h1>
               <div>
-                <input type="text" id="username" name="username" class="form-control" placeholder="Username" required="" />
+                <input type="email" id="email" name="email" class="form-control" placeholder="Email" required="" />
               </div>
               <div>
                 <input type="password" id="password" name="password" class="form-control" placeholder="Password" required="" />
@@ -57,11 +57,6 @@
               <div class="separator">
                 <div class="clearfix"></div>
                 <br />
-
-                <!-- <div>
-                  <h1><i class="fa fa-h-square"></i> Shaha Store</h1>
-                  <p>©2019 All Rights Reserved.<br /> Developed By <a href="http://www.sainxo.com" target="_new">SAINXO Technologies</a></p>
-                </div> -->
               </div>
             </form>
           </section>

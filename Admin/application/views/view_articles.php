@@ -55,7 +55,7 @@
                           <td><?= $row->title;?></td>
                           <td><?= $row->posted_date;?></td>
                           <td>
-                             <a href="<?=base_url('Articles/Edit?id='.$row->article_id.'"')?>" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
+                             <a href="<?=base_url('Articles/Edit?id='.$row->article_id.'"')?>" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit fa-lg"></i></a>
                              <?php 
                              if($row->is_active == 'Active' || $row->is_active == 'active'){
                                $status_color = 'text-success';
