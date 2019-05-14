@@ -40,8 +40,8 @@
                           <th>Address</th>
                           <th>Phone</th>
                           <th>Person Incharge</th>
-                          <th>Email</th>
                           <th>Comments</th>
+                          <th>Statsu</th>
                           <th>Action</th>
                         </tr>
                       </thead>
@@ -53,8 +53,8 @@
                           <td><?= $row->address;?></td>
                           <td><?= $row->phone;?></td>
                           <td><?= $row->person_incharge;?></td>
-                          <td><?= $row->email;?></td>
                           <td><?= $row->comments;?></td>
+                          <td><?= $row->status;?></td>
                           <td>
                              <a href="<?=base_url('Partners/Edit?id='.$row->partner_id.'"')?>" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit fa-lg"></i></a>
                              <a href="<?=base_url('Partners/Change?id='.$row->partner_id.'"')?>" data-toggle="tooltip" data-placement="top" title="Change Password"><i class="fa fa-key fa-lg"></i></a>
