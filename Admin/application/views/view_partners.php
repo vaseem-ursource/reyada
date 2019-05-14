@@ -57,6 +57,14 @@
                           <td><?= $row->status;?></td>
                           <td>
                              <a href="<?=base_url('Partners/Edit?id='.$row->partner_id.'"')?>" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit fa-lg"></i></a>
+                             <?php
+                             if($row->status == 'Active' || $row->status == 'active'){ 
+                               $status_color = 'text-success'; 
+                             }else{ 
+                               $status_color = 'text-danger'; 
+                             } 
+                             ?> 
+                             <a href="<?=base_url('Partners/Status?id='.$row->partner_id.'"')?>" data-toggle="tooltip" data-placement="top" title="Change Status (Active/Deactive)"><i class="fa fa-toggle-on fa-lg <?=$status_color?>"></i></a>
                           </td>
                         </tr>
                     <?php } ?>
