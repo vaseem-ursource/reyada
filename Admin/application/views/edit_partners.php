@@ -19,11 +19,11 @@
                    </div>
                    <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">                    
                         <label class="">Address</label>
-                          <input type="text" class="form-control" name="address" id="address" value="<?=$Partners->address;?>" required="true">
+                          <textarea class="form-control" name="address" id="address" required="true"><?=$Partners->address;?></textarea>
                    </div>
                    <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">                    
                         <label class="">Phone</label>
-                          <input type="text" class="form-control" name="phone" id="phone" value="<?=$Partners->phone;?>" required="true">
+                          <input type="text" class="form-control" name="phone" id="phone" value="<?=$Partners->phone;?>" maxlength="20" required="true">
                    </div>
                    <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">                    
                         <label class="">Person Incharge</label>
@@ -35,7 +35,7 @@
                    </div> -->
                    <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">                    
                         <label class="">Comments</label>
-                          <input type="text" class="form-control" name="comments" id="comments" value="<?=$Partners->comments;?>" required="true">
+                          <textarea class="form-control" name="comments" id="comments"><?=$Partners->comments;?></textarea>
                    </div>
                    <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
                         <label>Status</label>

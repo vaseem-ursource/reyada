@@ -33,7 +33,7 @@ class Partners extends CI_Controller {
 			'phone' => $this->input->post('phone'),
 			'person_incharge' => $this->input->post('personIncharge'),
 			'comments' => $this->input->post('comments'), 
-			'status' => $this->input->post('staus'), 
+			'status' => $this->input->post('status'), 
 			);
 			$this->Partners_model->insert_partners_db($data);
 			$partner_id = $this->db->insert_id();
