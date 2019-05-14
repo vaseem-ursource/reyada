@@ -33,7 +33,7 @@ class Partners extends CI_Controller {
 			'phone' => $this->input->post('phone'),
 			'person_incharge' => $this->input->post('personIncharge'),
 			'email' => $this->input->post('email'),   
-			'password' => $this->input->post('password'),
+			'password' => md5($this->input->post('password')),
 			'comments' => $this->input->post('comments'), 
 			);
 			return $this->display_status(
@@ -57,7 +57,6 @@ class Partners extends CI_Controller {
 			'phone' => $this->input->post('phone'),
 			'person_incharge' => $this->input->post('personIncharge'),
 			'email' => $this->input->post('email'),   
-			'password' => $this->input->post('password'),
 			'comments' => $this->input->post('comments'),
 			);
 			return $this->display_status(
@@ -77,12 +76,12 @@ class Partners extends CI_Controller {
 		public function UpdatePassword(){ 
 			$partner_id=$this->input->post('partner_id');
 			$password=$this->Partners_model->get_partner_on_id($partner_id)->password; 
-			if($password != $this->input->post('oldPassword')){
+			if(md5($password) != md5($this->input->post('oldPassword'))){
 				$this->display_status(1,'Old Password Doesnot Matched','Old Password Doesnot Matched',2,$partner_id
 				);
 			}
 			$data = array(
-                'password' => $this->input->post('newPassword'),
+                'password' => md5($this->input->post('newPassword')),
 			);
 			return $this->display_status(
 				$this->Partners_model->update_partners_db($admin_user_id,$data),

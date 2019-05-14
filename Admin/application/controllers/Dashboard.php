@@ -6,4 +6,19 @@ class Dashboard extends CI_Controller {
 	{
 		$this->load->view('dashboard');
 	}
+
+	public function __construct()
+    {
+		parent::__construct();
+				if($this->session->userdata('user_name')){
+				}
+				else{
+					redirect(base_url('Login'));  
+				}  
+				if($this->session->userdata('role') == 'admin' || $this->session->userdata('role') == 'Admin'){
+				}
+				else{
+					redirect(base_url('Members'));  
+				}     
+    }
 }

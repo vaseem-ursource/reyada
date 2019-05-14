@@ -14,7 +14,7 @@
               <br><br>
             </h6>
         </div>
-        <form action="" style="width:95%; padding-top:5px; padding-left:20%" class="m-0">
+        <form action="<?= base_url('Main/contactus')?>" style="width:95%; padding-top:5px; padding-left:20%" class="m-0">
           <div class="col-md-12 col-sm-12 col-xs-12 row">
            
             <div class="col-md-6" style="color:black; padding-right:10%" style="font-size: 16px;">
@@ -22,19 +22,19 @@
             <h6 style="color:black;" style="font-size: 16px;" class="text-justify">
             <small>Ask us a question, we’ll get back to you shortly.</small></h6>
                    <div class="group">
-                        <input type="text"><span class="highlight"></span><span class="bar"></span>
+                        <input type="text" name="full_name" id="full_name"><span class="highlight"></span><span class="bar"></span>
                         <label>Full Name</label>
                     </div>
                     <div class="group">
-                        <input type="text"><span class="highlight"></span><span class="bar"></span>
+                        <input type="text" name="email" id="email"><span class="highlight"></span><span class="bar"></span>
                         <label>Email</label>
                     </div>
                     <div class="group">
-                        <input type="text"><span class="highlight"></span><span class="bar"></span>
+                        <input type="text" name="phone" id="phone"><span class="highlight"></span><span class="bar"></span>
                         <label>Phone Number</label>
                     </div>
                     <div class="group">
-                        <input type="text"><span class="highlight"></span><span class="bar"></span>
+                        <input type="text" name="company" id="company"><span class="highlight"></span><span class="bar"></span>
                         <label>Company Name</label>
                     </div>
                  <!-- </form> -->
@@ -43,24 +43,24 @@
             <!-- <form action="" style="padding-top:0px; padding-left:50px;" class="m-0"> -->
             <h6 style="color:black;" class="text-left"><small>Subject of inquiry: (membership – workspaces – packages - other)</small></h6> 
                     <div class="group">
-                        <input type="checkbox">
+                        <input type="checkbox" name="membership" id="membership">
                         <span style="color:#999; font-size: 11px;">About membership</span>
                     </div>
                     <div class="group">
-                        <input type="checkbox">
+                        <input type="checkbox" name="workspace" id="workspace">
                        <span style="color:#999; font-size: 11px;"> Finding workspace</span>
                     </div>
                     <div class="group">
-                        <input type="checkbox">
+                        <input type="checkbox" name="somethingelse" id="somethingelse">
                         <span style="color:#999; font-size: 11px;">something else</span>
                     </div><br>
                     <div class="group">
-                        <input type="text"><span class="highlight"></span><span class="bar"></span>
+                        <input type="text" name="notes" id="notes"><span class="highlight"></span><span class="bar"></span>
                         <label>Notes</label>
                     </div>
                     <br><br>
-	    <a href="#submit" style="color:#000;" class="float-right"><span class="align-middle" data-toggle="modal" data-target="#modalsubmit">Submit</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
-            <!-- </form>             -->
+	                  <a href="#submit" style="color:#000;" class="float-right"><span class="align-middle" data-toggle="modal" data-target="#modalsubmit">Submit</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
+            <!-- </form> -->
             </div>
            </div>
           </form>

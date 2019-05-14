@@ -4,7 +4,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-building"></i> <span>Reyada</span></a>
+              <a href="./" class="site_title"><img src="<?= base_url('assets/images/logo.png')?>" alt="" width="50px"><span> Reyada</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -15,8 +15,7 @@
                 <img src="<?= base_url('assets/images/user_image.jpg');?>" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
-                <span>Welcome,</span>
-                <h2><?= $this->session->userdata('user_name'); ?></h2>
+                <span>Welcome,<br><?= substr($this->session->userdata('user_name'),0,15);?> </span>
               </div>
             </div>
             <!-- /menu profile quick info -->

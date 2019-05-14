@@ -1,3 +1,4 @@
+<link rel="icon" href="<?= base_url('assets/images/favicon.png')?>" type="image/png" sizes="16x16">
  <!-- Bootstrap -->
  <link href="<?= base_url()?>assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->

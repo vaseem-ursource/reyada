@@ -97,7 +97,27 @@ class main extends CI_Controller
         $data['row'] = $rowno;
     
         echo json_encode($data);
-     
       }
+
+    function contactus()
+    {
+        $data = array(
+        'title' => $this->input->post('full_name'),
+        'created_date' => $this->input->post('email'),
+        'modified_date' =>$this->input->post('phone'),
+        'modified_by' => $this->input->post('company'),
+        'is_deleted' => $this->input->post('membership'),   
+        'is_active' => $this->input->post('workspace'), 
+        'is_active' => $this->input->post('somethingelse'), 
+        'is_active' => $this->input->post('notes'), 
+        'is_active' => $this->input->post('IsActive'), 
+        'is_active' => $this->input->post('IsActive'), 
+        'is_active' => $this->input->post('IsActive'), 
+        );
+        return $this->display_status(
+            $this->Categories_model->insert_categories_db($data),
+            'Category Inserted Successfully','Failed to Insert Category',$redirect);
+
+    }
     
 }

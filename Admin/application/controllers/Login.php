@@ -13,7 +13,7 @@ class Login extends CI_Controller {
 		$email=trim($this->input->post('email'));
         $password=trim($this->input->post('password'));
 
-        $data=$this->Login_model->verify_credential($email,$password);
+        $data=$this->Login_model->verify_credential($email,md5($password));
 
         if($data){          
             $user_name=$data->email;
@@ -21,7 +21,7 @@ class Login extends CI_Controller {
             $this->session->set_userdata('user_name', $user_name);
             $this->session->set_userdata('role', $roles);   
             if($roles == 'admin' || $roles == 'Admin'){
-                redirect(base_url('ContactUs'));  
+                redirect(base_url('Dashboard'));  
             }
             else{
                 redirect(base_url('Members'));  

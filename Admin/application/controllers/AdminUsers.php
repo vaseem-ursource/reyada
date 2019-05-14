@@ -28,7 +28,7 @@ class AdminUsers extends CI_Controller {
 			}
 			$data = array(
 			'email' => $this->input->post('email'),
-			'password' => $this->input->post('password'),
+			'password' => md5($this->input->post('password')),
 			'role' => $this->input->post('role'),
 			'partner_id' => $this->input->post('partnerId'),
 			'status' => $this->input->post('status'),   
@@ -89,12 +89,12 @@ class AdminUsers extends CI_Controller {
 		public function UpdatePassword(){ 
 			$admin_user_id=$this->input->post('admin_user_id');
 			$password=$this->AdminUsers_model->get_admin_user_on_id($admin_user_id)->password; 
-			if($password != $this->input->post('oldPassword')){
+			if(md5($password) != md5($this->input->post('oldPassword'))){
 				$this->display_status(1,'Old Password Doesnot Matched','Old Password Doesnot Matched',2,$admin_user_id
 				);
 			}
 			$data = array(
-                'password' => $this->input->post('newPassword'),
+                'password' => md5($this->input->post('newPassword')),
 			);
 			return $this->display_status(
 				$this->AdminUsers_model->update_admin_users_db($admin_user_id,$data),

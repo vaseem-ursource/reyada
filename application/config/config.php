@@ -15,6 +15,7 @@
 |
 */
 $config['base_url']	= 'http://localhost/Reyadah-Az/';
+// $config['base_url'] = 'http://reyada.ursource.org/';
 date_default_timezone_set('Asia/Kuwait');
 
 //testgit 
