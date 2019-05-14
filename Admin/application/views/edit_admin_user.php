@@ -17,7 +17,7 @@
                         <label class="">Email</label>
                           <input type="email" class="form-control" name="email" id="email" value="<?=$AdminUsers->admin_email;?>" required="true">
                    </div>
-                   <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                   <!-- <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
                         <label>Role</label>
                           <select class="dropdown-toggle form-control" name="role" id="role" required="true">
                             <option value="<?=$AdminUsers->role;?>"><?=$AdminUsers->role;?></option> 
@@ -36,7 +36,7 @@
                     <?php }?>
                     </div>
                     </select>
-                   </div>
+                   </div> -->
                    <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback"> 
                         <label>Ststus</label> 
                           <select class="dropdown-toggle form-control" name="status" id="status" required="true"> 

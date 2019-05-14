@@ -83,7 +83,7 @@ class AdminUsers extends CI_Controller {
 			$admin_id=$this->input->get('id'); 
 			$data['title'] = 'Change Password';
 			$data['AdminUserId'] = $admin_id;
-			$this->load->view('partners_change_password',$data);
+			$this->load->view('admin_change_password',$data);
 		}
 
 		public function UpdatePassword(){ 
