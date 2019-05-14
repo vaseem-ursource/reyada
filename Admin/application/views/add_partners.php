@@ -52,6 +52,10 @@
                           <input type="password" class="form-control" name="password" id="password" required="true">
                    </div>
                    <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">                    
+                        <label class="">Confirm Password</label>
+                          <input type="password" class="form-control" name="cnf_password" id="cnf_password" required="true">
+                   </div>
+                   <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">                    
                         <label class="">Comments</label>
                           <input type="text" class="form-control" name="comments" id="comments" required="true">
                    </div>
@@ -77,6 +81,20 @@
         
             <div class="col-md-3"></div>
           </div>
-          
+          <script> 
+          var password = document.getElementById("password") 
+            , cnf_password = document.getElementById("cnf_password"); 
+ 
+          function validatePassword(){ 
+            if(password.value != cnf_password.value) { 
+              cnf_password.setCustomValidity("Passwords Don't Match"); 
+            } else { 
+              cnf_password.setCustomValidity(''); 
+            } 
+          } 
+ 
+          password.onchange = validatePassword; 
+          cnf_password.onkeyup = validatePassword; 
+          </script>
         
 <?php include('footer.php');?>

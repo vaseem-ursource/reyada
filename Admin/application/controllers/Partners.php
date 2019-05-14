@@ -73,6 +73,22 @@ class Partners extends CI_Controller {
 				'Partner Updated Successfully','Failed to Update Partner',1,0
 		);
 		}
+		public function Status(){ 
+			$partner_id=$this->input->get('id'); 
+			$status=$this->Partners_model->get_partner_on_id($partner_id)->status; 
+			if($status == 'Active' || $status == 'active'){ 
+					 $status = 'Inactive'; 
+			}else{ 
+					 $status='Active'; 
+			} 
+			$data = array( 
+					 'status' => $status 
+			); 
+			return $this->display_status( 
+					 $this->Partners_model->update_partners_db($partner_id,$data), 
+					 'Admin User Status Changed','Failed to Change Status Admin User',1,0 
+			); 
+ 		}
 
 		private function display_status($status,$success,$fail,$redirect,$partner_id)
 		{
