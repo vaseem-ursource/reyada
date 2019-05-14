@@ -17,28 +17,8 @@
                         <label class="">Email</label>
                           <input type="email" class="form-control" name="email" id="email" value="<?=$AdminUsers->admin_email;?>" required="true">
                    </div>
-                   <!-- <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
-                        <label>Role</label>
-                          <select class="dropdown-toggle form-control" name="role" id="role" required="true">
-                            <option value="<?=$AdminUsers->role;?>"><?=$AdminUsers->role;?></option> 
-                            <option value="Admin">Admin</option> 
-                            <option value="Partner">Partner</option> 
-                        </select>
-                   </div>
-                   <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
-                    <label>Partner</label>
-                    <select name="partnerId" class="dropdown-toggle form-control" id="dropdownMenuButton" value="<?=$AdminUsers->partner_id;?>" data-toggle="dropdown" aria-haspopoup="true" aria-expanded="false">
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <option value="<?=$AdminUsers->partner_id;?>"><?=$AdminUsers->company_name;?></option> 
-                    <?php foreach($Partners->result() as $row){ ?>
-                    <option class="dropdown-item" value="<?= $row->partner_id;?>"><?= $row->company_name;?></option>
-
-                    <?php }?>
-                    </div>
-                    </select>
-                   </div> -->
                    <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback"> 
-                        <label>Ststus</label> 
+                        <label>Status</label> 
                           <select class="dropdown-toggle form-control" name="status" id="status" required="true"> 
                             <option value="<?=$AdminUsers->status?>"><?=$AdminUsers->status?></option>  
                               <?php 

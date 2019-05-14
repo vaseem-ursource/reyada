@@ -19,8 +19,7 @@
 
         public function get_admin_user_on_id($admin_id){
             $query = $this->db
-                        ->select('admin_users.email as admin_email,role,partners.partner_id,partners.company_name,admin_users.status,admin_users.admin_id')
-                        ->join('partners', 'partners.partner_id = admin_users.partner_id', 'left')
+                        ->select('admin_users.email as admin_email,admin_users.status,admin_users.admin_id')
                         ->where('admin_id',$admin_id)
                         ->get('admin_users');
             return $query->row();

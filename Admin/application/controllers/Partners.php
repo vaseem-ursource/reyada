@@ -74,30 +74,6 @@ class Partners extends CI_Controller {
 		);
 		}
 
-		public function Change()
-		{
-			$partner_id=$this->input->get('id'); 
-			$data['title'] = 'Change Password';
-			$data['PartnerId'] = $partner_id;
-			$this->load->view('partners_change_password',$data);
-		}
-
-		public function UpdatePassword(){ 
-			$partner_id=$this->input->post('partner_id');
-			$password=$this->Partners_model->get_partner_on_id($partner_id)->password; 
-			if(md5($password) != md5($this->input->post('oldPassword'))){
-				$this->display_status(1,'Old Password Doesnot Matched','Old Password Doesnot Matched',2,$partner_id
-				);
-			}
-			$data = array(
-                'password' => md5($this->input->post('newPassword')),
-			);
-			return $this->display_status(
-				$this->Partners_model->update_partners_db($admin_user_id,$data),
-				'Password Changed Successfully','Failed to Change Password',1,0
-		);
-		}
-
 		private function display_status($status,$success,$fail,$redirect,$partner_id)
 		{
 				if($status)
