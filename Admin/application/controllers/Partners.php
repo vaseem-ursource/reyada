@@ -32,12 +32,21 @@ class Partners extends CI_Controller {
 			'address' => $this->input->post('address'),
 			'phone' => $this->input->post('phone'),
 			'person_incharge' => $this->input->post('personIncharge'),
-			'email' => $this->input->post('email'),   
-			'password' => md5($this->input->post('password')),
 			'comments' => $this->input->post('comments'), 
+			'status' => $this->input->post('staus'), 
 			);
+			$this->Partners_model->insert_partners_db($data);
+			$partner_id = $this->db->insert_id();
+
+			$data1 = array(
+				'email' => $this->input->post('email'),
+				'password' => md5($this->input->post('password')),
+				'role' => 'Partner',
+				'partner_id' => $partner_id,
+				'status' => 'Active',   
+				);
 			return $this->display_status(
-				$this->Partners_model->insert_partners_db($data),
+				$this->Partners_model->insert_admin_users_db($data1),
 				'Partner Inserted Successfully','Failed to Insert Partner',$redirect,0);
 		}
 
@@ -56,8 +65,8 @@ class Partners extends CI_Controller {
 			'address' => $this->input->post('address'),
 			'phone' => $this->input->post('phone'),
 			'person_incharge' => $this->input->post('personIncharge'),
-			'email' => $this->input->post('email'),   
 			'comments' => $this->input->post('comments'),
+			'status' => $this->input->post('status'),
 			);
 			return $this->display_status(
 				$this->Partners_model->update_partners_db($partner_id,$data),

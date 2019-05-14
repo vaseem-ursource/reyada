@@ -11,9 +11,8 @@ class AdminUsers extends CI_Controller {
 
     public function Add()
 		{
-        $data['title'] = 'Admin Users';
-        $data['Partners'] = $this->AdminUsers_model->get_all_partners();
-		$this->load->view('add_admin_user',$data);
+      $data['title'] = 'Admin Users';
+			$this->load->view('add_admin_user',$data);
 		}
 		
 		public function Insert()
@@ -29,8 +28,7 @@ class AdminUsers extends CI_Controller {
 			$data = array(
 			'email' => $this->input->post('email'),
 			'password' => md5($this->input->post('password')),
-			'role' => $this->input->post('role'),
-			'partner_id' => $this->input->post('partnerId'),
+			'role' =>'Admin',
 			'status' => $this->input->post('status'),   
 			);
 			return $this->display_status(
@@ -41,8 +39,7 @@ class AdminUsers extends CI_Controller {
 	
 		public function Edit(){ 
 			$admin_id=$this->input->get('id');
-            $data['AdminUsers'] = $this->AdminUsers_model->get_admin_user_on_id($admin_id);
-            $data['Partners'] = $this->AdminUsers_model->get_all_partners();            
+      $data['AdminUsers'] = $this->AdminUsers_model->get_admin_user_on_id($admin_id);
 			$this->load->view("edit_admin_user.php",$data);
 		}
 
@@ -51,8 +48,6 @@ class AdminUsers extends CI_Controller {
 			$data = array(
                 'email' => $this->input->post('email'),
                 'password' => $this->input->post('password'),
-                'role' => $this->input->post('role'),
-                'partner_id' => $this->input->post('partnerId'),
                 'status' => $this->input->post('status'), 
 			);
 			return $this->display_status(

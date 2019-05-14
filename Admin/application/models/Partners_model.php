@@ -3,6 +3,9 @@
         public function insert_partners_db($data){
             return $this->db->insert('partners', $data);
         }
+        public function insert_admin_users_db($data){
+            return $this->db->insert('admin_users', $data);
+        }
 
         public function get_all_partners(){
             return $this->db->get('partners');
