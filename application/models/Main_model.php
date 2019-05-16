@@ -32,10 +32,12 @@
         }
 
         // Fetch records
-        public function getData($rowno,$rowperpage) {
+        public function getData($rowno,$rowperpage,$search_text) {
         
             $this->db->select('*');
             $this->db->from('articles');
+            $this->db->or_like('title',$search_text);
+            $this->db->or_like('sub_title',$search_text);
             $this->db->limit($rowperpage, $rowno);  
             $query = $this->db->get();
         
@@ -52,5 +54,10 @@
         
             return $result[0]['allcount'];
         }
+
+        public function insert_contactus_db($data){
+            return $this->db->insert('contact_us', $data);
+        }
+
     }
     ?>

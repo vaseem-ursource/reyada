@@ -5,13 +5,15 @@
         }
 
         public function get_all_articles(){
-            return $this->db
+            return $this->db->select('articles.*,categories.title as category_title')
                         ->join('categories','categories.cat_id = articles.cat_id','left')
+                        ->where('articles.is_deleted','No')
                         ->get('articles');
         }
 
         public function get_all_categories(){
             return $this->db
+            		->where('is_active','Active')
                         ->where('is_deleted','No')
                         ->get('categories');
         }

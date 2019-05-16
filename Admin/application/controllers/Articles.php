@@ -65,7 +65,7 @@ class Articles extends CI_Controller {
 			$article_id=$this->input->get('id');
 			$data['Categories'] = $this->Articles_model->get_all_categories();
 			$data['Articles'] = $this->Articles_model->get_articles_on_id($article_id);
-			$this->load->view("edit_Articles.php",$data);
+			$this->load->view("edit_articles.php",$data);
 		}
 
 		public function Update(){ 

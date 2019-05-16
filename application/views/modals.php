@@ -14,7 +14,7 @@
               <br><br>
             </h6>
         </div>
-        <form action="<?= base_url('Main/contactus')?>" style="width:95%; padding-top:5px; padding-left:20%" class="m-0">
+        <form action="<?= base_url('Main/contactus')?>" style="width:95%; padding-top:5px; padding-left:20%" method="post" class="m-0">
           <div class="col-md-12 col-sm-12 col-xs-12 row">
            
             <div class="col-md-6" style="color:black; padding-right:10%" style="font-size: 16px;">
@@ -59,7 +59,8 @@
                         <label>Notes</label>
                     </div>
                     <br><br>
-	                  <a href="#submit" style="color:#000;" class="float-right"><span class="align-middle" data-toggle="modal" data-target="#modalsubmit">Submit</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
+                    <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Submit <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
+	                  <!-- <input type="submit" value="submit"> -->
             <!-- </form> -->
             </div>
            </div>
@@ -456,6 +457,35 @@ $("#addClassMob").click(function () {
 </div>
 
 <!-- End Thankyou Modal -->
+
+
+<!--Thankyou for contact Modal-->
+<div id="contact_thankyou" class="modal fade bs-example-modal-xs" role="dialog ">
+  <div class="modal-dialog modal-xs modal-dialog-center" style="height:300px;" >
+ <!-- Modal content-->
+   <div class="modal-content pt-5 mt-5" style="padding-top:25%; vertical-align: middle;">
+     <div class="modal-body p-0 m-0">
+      <section class="container">
+       <div class="tmodal">
+        <div>
+          <h6 style="color:black; position: absolute; bottom:30px; font-size: 14px;" class="p-5 text-justify text-left">
+          <small>THANK YOU FOR CONTACTING US
+          <br><br>
+	        For further questions and inquiries<br>
+                  +(965) 2297 0270<br>
+                    info@reyada.co
+	        <br><br>
+	        <a href="#" style="color:black;"  data-dismiss="modal"><span class="align-middle" id ="homeModal">HOME</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
+	        </small></h6>
+        </div>
+       </div>
+      </section>
+    </div>
+   </div>
+  </div>
+</div>
+
+<!-- End Thankyou for contact Modal -->
 
 <!-- <script>
   $(function(){

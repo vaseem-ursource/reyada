@@ -174,7 +174,7 @@
 
 
     <div id="qnimateblog" class="off">
-        <div id="search" class="open" style="height:500px;background-color:#F8F8F8; ">
+        <div id="search" class="open" style="height:320px;background-color:#F8F8F8; ">
             <button data-widget="remove" id="removeClassblog" class="close text-dark" type="button">×</button>
             <div style="padding-top:5%;" class="">
                 <form action="" method="" autocomplete="off" class="pl-0">
@@ -195,11 +195,51 @@
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type='text/javascript'>
       //Search Bar
-      $("search_article").keypress(function(){
-        alert('dg');
-      var search_text = $("search_article").text();
-        loadPagination(0,search_text);
+      $("#search_article").keyup(function(){
+      var search_text = this.value;
+        loadPagination01(0,search_text);
       });
+
+       // Load pagination
+     function loadPagination01(pagno,search_text){
+       $.ajax({
+         url: '<?=base_url()?>Main/loadRecord/'+pagno,
+         type: 'get',
+         dataType: 'json',
+         data:{'search_text':search_text},
+         success: function(response){
+            $('#pagination').html(response.pagination);
+            // createTable(response.result,response.row);
+            var articleList="";
+            $.each(response.result,function(key,value){
+              var posteddate=value.posted_date;
+              posteddate=posteddate.split('-');
+              postedday=posteddate[2].split(' ');
+            articleList = articleList+'<div class="col-lg-6 col-md-6 wow fadeInUp p-1 d-flex w-100">'+
+                        '<div class="card shadow-sm w-100">'+
+                            '<img class="card-img-top" src="<?= base_url()?>Admin/'+value.image_url+'" height="250px" alt="Card image cap">'+
+                            '<div class="card-body">'+
+                                '<small>'+postedday[0]+', '+GetMonthName(posteddate[1])+' '+posteddate[0]+'</small>'+
+                                '<h6 class="card-title pt-1"><b>'+value.title+'</b></h6>'+
+                                '<p class="card-text text-justify lap">'+value.description+'</p>'+
+                                '<a href="<?=base_url()?>Main/Article?id='+value.article_id+'"><i class="fa fa-angle-right fa-2x no-bottom position-absolute pb-1 text-dark"></i></a>'+
+                            '</div>'+
+                        '</div>'+
+                   '</div>'
+
+              });
+              function GetMonthName(monthNumber) {
+                    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+                    return months[monthNumber - 1];
+              }
+              $('#list1').html(articleList);
+
+         }
+       });
+     }
+
+
+
    $(document).ready(function(){
     
      // Detect pagination click

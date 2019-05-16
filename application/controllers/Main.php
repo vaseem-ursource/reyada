@@ -80,7 +80,7 @@ class main extends CI_Controller
         $allcount = $this->Main_model->getrecordCount();
     
         // Get records
-        $users_record = $this->Main_model->getData($rowno,$rowperpage);
+        $users_record = $this->Main_model->getData($rowno,$rowperpage,$search_text);
      
         // Pagination Configuration
         $config['base_url'] = base_url().'Main/loadRecord';
@@ -101,23 +101,55 @@ class main extends CI_Controller
 
     function contactus()
     {
+        $subject="";
+        if($this->input->post('membership')){
+            $subject = $subject.'About membership';
+        }
+        if($this->input->post('workspace')){
+            if($subject != ''){
+                $subject = $subject.', Finding workspace';
+            }else{
+                $subject = $subject.'Finding workspace';
+            }
+        }
+        if($this->input->post('somethingelse')){
+            if($subject != ''){
+                $subject = $subject.', Something else';
+            }else{
+                $subject = $subject.'Something else';
+            }
+        }        
         $data = array(
-        'title' => $this->input->post('full_name'),
-        'created_date' => $this->input->post('email'),
-        'modified_date' =>$this->input->post('phone'),
-        'modified_by' => $this->input->post('company'),
-        'is_deleted' => $this->input->post('membership'),   
-        'is_active' => $this->input->post('workspace'), 
-        'is_active' => $this->input->post('somethingelse'), 
-        'is_active' => $this->input->post('notes'), 
-        'is_active' => $this->input->post('IsActive'), 
-        'is_active' => $this->input->post('IsActive'), 
-        'is_active' => $this->input->post('IsActive'), 
+        'name' => $this->input->post('full_name'),
+        'email' => $this->input->post('email'),
+        'phone' =>$this->input->post('phone'),
+        'company_name' => $this->input->post('company'),
+        'subject' => $subject,   
+        'message' => $this->input->post('notes'),
+        'posted_date' => date('Y-m-d H:i:s')
         );
-        return $this->display_status(
-            $this->Categories_model->insert_categories_db($data),
-            'Category Inserted Successfully','Failed to Insert Category',$redirect);
+        $this->Main_model->insert_contactus_db($data);
+        $this->session->set_flashdata('contact','true');
+        redirect('./');
+    }
 
+    private function display_status($status,$success,$fail,$redirect)
+    {
+            if($status)
+            {
+                    $this->session->set_flashdata('success', $success);
+            }
+            else{
+                    $this->session->set_flashdata('warning', $fail);
+            }
+            if($redirect==1)
+            {
+                return redirect('./');
+            }
+            else
+            {
+              return redirect('./');
+            }
     }
     
 }

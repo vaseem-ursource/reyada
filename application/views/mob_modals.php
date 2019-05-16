@@ -316,27 +316,27 @@
           <button type="button" class="close p-4 text-black position-absolute pull-right" style="right:0px" data-dismiss="modal">&#10006</button>
 
         </div>
-        <form action="" style="width:100%;" class="m-0 p-0">
+        <form action="<?= base_url('Main/contactus')?>" style="width:100%;"  method="post" class="m-0 p-0">
           <div class="col-md-12 col-sm-12 col-xs-12 row p-0">
            
             <div class="col-md-12" style="color:black; padding-right:10%" style="font-size: 16px;">
             
             <h6 style="color:black;" style="font-size: 16px;" class="text-justify">
             <small>Lorem ipsum dolor sit amet, consectetur adipiscin Lorem</small></h6>
-                   <div class="group">
-                        <input type="text"><span class="highlight"></span><span class="bar"></span>
+            <div class="group">
+                        <input type="text" name="full_name" id="full_name"><span class="highlight"></span><span class="bar"></span>
                         <label>Full Name</label>
                     </div>
                     <div class="group">
-                        <input type="text"><span class="highlight"></span><span class="bar"></span>
+                        <input type="text" name="email" id="email"><span class="highlight"></span><span class="bar"></span>
                         <label>Email</label>
                     </div>
                     <div class="group">
-                        <input type="text"><span class="highlight"></span><span class="bar"></span>
+                        <input type="text" name="phone" id="phone"><span class="highlight"></span><span class="bar"></span>
                         <label>Phone Number</label>
                     </div>
                     <div class="group">
-                        <input type="text"><span class="highlight"></span><span class="bar"></span>
+                        <input type="text" name="company" id="company"><span class="highlight"></span><span class="bar"></span>
                         <label>Company Name</label>
                     </div>
                  <!-- </form> -->
@@ -344,24 +344,24 @@
                 <div class="col-md-12 px-4" style="color:black;" style="font-size: 16px;">
                 <!-- <form action="" style="padding-top:0px; padding-left:50px;" class="m-0"> -->
                 <h6 style="color:black;" class="text-left"><small><br>Subject :</small></h6><br> 
-                    <div class="group">
-                        <input type="checkbox">
+                <div class="group">
+                        <input type="checkbox" name="membership" id="membership">
                         <span style="color:#999; font-size: 11px;">About membership</span>
                     </div>
                     <div class="group">
-                        <input type="checkbox">
+                        <input type="checkbox" name="workspace" id="workspace">
                        <span style="color:#999; font-size: 11px;"> Finding workspace</span>
                     </div>
                     <div class="group">
-                        <input type="checkbox">
+                        <input type="checkbox" name="somethingelse" id="somethingelse">
                         <span style="color:#999; font-size: 11px;">something else</span>
                     </div><br>
                     <div class="group">
-                        <input type="text"><span class="highlight"></span><span class="bar"></span>
+                        <input type="text" name="notes" id="notes"><span class="highlight"></span><span class="bar"></span>
                         <label>Notes</label>
                     </div>
                     <br>
-	                   <a href="#submit" style="color:#000;" class="float-right pb-3"><span class="align-middle" data-toggle="modal" data-target="#modalsubmit">Submit</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
+                    <button type="submit"  style="border: 0px;background-color: transparent;padding-bottom:5px;" class="float-right">Submit <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
                    
             <!-- </form>             -->
             </div>

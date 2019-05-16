@@ -52,7 +52,7 @@
                           <td><?= $row->sub_title;?></td>
                           <td><?= $row->author;?></td>
                           <td><img src="<?= base_url().$row->image_url;?>" width="60" height="auto" alt=""></td>
-                          <td><?= $row->title;?></td>
+                          <td><?= $row->category_title;?></td>
                           <td><?= $row->posted_date;?></td>
                           <td>
                              <a href="<?=base_url('Articles/Edit?id='.$row->article_id.'"')?>" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit fa-lg"></i></a>
@@ -64,8 +64,12 @@
                              }
                              ?>
                              <a href="<?=base_url('Articles/Status?id='.$row->article_id.'"')?>" data-toggle="tooltip" data-placement="top" title="Change Status (Active/Deactive)"><i class="fa fa-toggle-on fa-lg <?=$status_color?>"></i></a>
-                             <a href="<?=base_url('Articles/Delete?id='.$row->article_id.'"')?>" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash fa-lg"></i></a>
-                             <a href="<?=base_url('Articles/ViewComments?id='.$row->article_id.'"')?>" data-toggle="tooltip" data-placement="top" title="View Comments"><i class="fa fa-eye fa-lg"></i></a>                          
+                            
+                             <a href="<?=base_url('Articles/ViewComments?id='.$row->article_id.'"')?>" data-toggle="tooltip" data-placement="top" title="View Comments"><i class="fa fa-eye fa-lg"></i></a>  
+                             <?php 
+                             if($row->is_deleted == 'No' || $row->is_deleted == 'no'){ ?>
+                              <a href="<?=base_url('Articles/Delete?id='.$row->article_id.'"')?>" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash fa-lg"></i></a>          
+                              <?php   } ?>              
                           </td>
                         </tr>
                     <?php } ?>
