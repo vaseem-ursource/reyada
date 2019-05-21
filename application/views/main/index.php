@@ -55,8 +55,8 @@
         <div class="col-md-6 position-absolute lap" style="bottom: 20px; left: 50px;">
           <h4 class="text-white" ><i class="fa fa-map-marker"></i> CRYSTAL TOWER</h4>
         </div>
-        <div class="col-md-6 position-absolute lap"  style="bottom: 20px; right: 50px;">
-            <h2 class="text-white text-right">B<a href="#booking" data-toggle="modal" data-target="#bookingmodal" class="anchor text-white">oo</a>king.</span></h2>
+        <div class="col-md-6 position-absolute lap"  style="bottom: 20px; right: 50px;color:white;">
+            <h2 class="text-white text-right"><a style="color:white;" href="#" id="bookingbutton">Booking</a></h2>
         </div>
         <div class="col-md-6  position-absolute mob " style="bottom: 10%;">
             <h4 class="text-white  text-right" ><i class="fa fa-map-marker"></i> CRYSTAL TOWER</h4>
