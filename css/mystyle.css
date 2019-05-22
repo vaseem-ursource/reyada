@@ -783,7 +783,7 @@ border-right: 0px;
 /* border-radius: 4px;        */
 width: 100%;       
 padding: 10px;       
-font-size: 16px;       
+font-size: 14px;       
 color:#fff;       
     
 /* Here's the code we need */       
@@ -793,7 +793,9 @@ color:#fff;
  -o-appearance: none;       
      appearance: none;       
 } 
-    
+ .select-fontsize{
+   font-size:12px;
+ }   
 .select-wrapper {       
 position: relative;            
 }       
