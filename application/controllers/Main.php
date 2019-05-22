@@ -8,7 +8,7 @@ class main extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this->lang->load('auth');
+        // $this->lang->load('auth');
     }
     
     function index()
