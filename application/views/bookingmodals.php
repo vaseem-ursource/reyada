@@ -314,15 +314,6 @@
                                         </div>
                                     </div>
                                 </small>
-<<<<<<< HEAD
-                                <!-- <br><br><br><br><br>
-                MAKE A BOOKING
-                <br><br>
-                <small>Lorem Ipsum is simply ing industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.Lorem ipsum dolor sit amet,
-                </small> -->
-
-=======
->>>>>>> 24fa2538d5f8d7a96dcdb48a31ac1bad928f10e0
                             </h6>
                             <h6 style="color:white; position: absolute; left:40px; right:30px; bottom:35%; font-size: 14px; border-bottom:1px solid #fff"
                                 class="mx-5 text-justify">BOOK A MEETING ROOM

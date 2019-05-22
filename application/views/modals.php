@@ -93,22 +93,6 @@
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-body p-0 m-0">
-<<<<<<< HEAD
-      <section class="container">
-        <div class="left-half pr-0">
-           <div>
-              <img src="<?=base_url()?>image/modalimg/a1.png" class="img-fluid  position-relative pull-right" width="170" height="150" style="padding-top: 30%; left:20px;">
-              <h6 style="color:white; position: absolute; bottom:30px; font-size: 14px;" class="p-5 text-justify"><small>JOIN OUR COMMUNITY
-              <br><br>
-              Sign up and become a part of the Reyada Community.
-              <br><br>
-              <a href="#signup" style="color:white;"><span class="align-middle" data-toggle="modal" data-target="#modalsignup">SIGN UP</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
-              </small></h6>
-            </div>
-        </div>
-        <div class="right-half" class="clearfix" style="background:url('<?=base_url()?>image/modalimg/A15.jpg') center  no-repeat;background-size: cover;">
-          <button type="button" class="close p-4" data-dismiss="modal">&#10006</button>
-=======
         <section class="container">
           <div class="left-half pr-0">
             <div>
@@ -128,7 +112,6 @@
           <div class="right-half" class="clearfix"
             style="background:url('image/modalimg/A15.jpg') center  no-repeat;background-size: cover;">
             <button type="button" class="close p-4" data-dismiss="modal">&#10006</button>
->>>>>>> 24fa2538d5f8d7a96dcdb48a31ac1bad928f10e0
             <article>
               <div>
                 <form>
