@@ -25,6 +25,14 @@
             return $query->row();
         }
 
+        public function get_comments($article_id){
+        return $query = $this->db
+                        ->where('article_id',$article_id)
+                        ->where('is_deleted','No')
+                        ->get('comments');
+             
+        }
+
         public function get_article_by_category($cat_id){
             return $this->db
                         ->where('cat_id',$cat_id)
@@ -35,19 +43,25 @@
         public function getData($rowno,$rowperpage,$search_text) {
         
             $this->db->select('*');
-            $this->db->from('articles');
-            $this->db->or_like('title',$search_text);
-            $this->db->or_like('sub_title',$search_text);
+            $this->db->where('is_deleted','No');
+            $this->db->where('is_active','Active');
+            $this->db->like('title',$search_text);
+            $this->db->like('sub_title',$search_text);
             $this->db->limit($rowperpage, $rowno);  
+            $this->db->from('articles');
             $query = $this->db->get();
         
             return $query->result_array();
         }
 
         // Select total records
-        public function getrecordCount() {
+        public function getrecordCount($search_text) {
 
             $this->db->select('count(*) as allcount');
+            $this->db->where('is_deleted','No');
+            $this->db->where('is_active','Active');
+            $this->db->like('title',$search_text);
+            $this->db->like('sub_title',$search_text);
             $this->db->from('articles');
             $query = $this->db->get();
             $result = $query->result_array();

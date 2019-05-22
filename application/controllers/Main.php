@@ -61,6 +61,7 @@ class main extends CI_Controller
         $data['file_name'] = 'Article';
         $data['header_name'] = 'header';
         $data['Article'] = $this->Main_model->get_article_on_id($article_id);
+        $data['Comments'] = $this->Main_model->get_comments($article_id);
 		$data['Categories'] = $this->Main_model->get_all_categories();                
         $this->load->view('index', $data);
 
@@ -77,7 +78,7 @@ class main extends CI_Controller
         }
      
         // All records count
-        $allcount = $this->Main_model->getrecordCount();
+        $allcount = $this->Main_model->getrecordCount($search_text);
     
         // Get records
         $users_record = $this->Main_model->getData($rowno,$rowperpage,$search_text);

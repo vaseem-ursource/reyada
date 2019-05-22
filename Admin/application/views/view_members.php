@@ -1,8 +1,22 @@
 <?php include('header.php');?>
+<style>
+#loading {
+    background: url('../img/loader/loader2.gif') no-repeat center center;
+    position: absolute;
+    top: 0;
+    left: 0 ;
+    height: 100%;
+    width: 100%;
+    z-index: 9999999;
+}
+</style>
 <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
+                  <div id="loading"></div>
+
                   <div class="x_title">
+
                     <h2>Members<small>View</small></h2>
                     <div class="clearfix"></div>
                                    
@@ -27,7 +41,9 @@
                    });
                    </script>
                     <?php endif; ?>
+            
                     <div class="x_content">
+                   
                         <table id="datatable" class="table table-striped table-bordered">
                           <thead>
                             <tr>
@@ -47,6 +63,7 @@
 $(document).ready(function() {
     var username = 'aeraf@ursource.org';
     var password = 'view1Sonic!';
+    $('#loading').show();
       $.ajax({
         type: 'GET',
         url: 'https://spaces.nexudus.com/api/spaces/coworkers',
@@ -60,6 +77,9 @@ $(document).ready(function() {
             table.row.add($('<tr> <td>'+value.FullName+'</td><td>'+value.Email+'</td></tr>')).draw(false);
           });
            },
+           complete: function(){
+              $('#loading').hide();
+          },
         color: '#c0392b',
         error: function() {
 
@@ -69,5 +89,6 @@ $(document).ready(function() {
 $(document).ready( function () {
     $('#datatable').DataTable();
 } );
+
 </script>
 <?php include('footer.php');?>

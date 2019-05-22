@@ -139,7 +139,7 @@
                           <select class="dropdown-toggle form-control" name="is_active" id="is_active" required="true">
                             <option value="<?=$Articles->is_active?>"><?=$Articles->is_active?></option> 
                               <?php
-                                if($Articles->is_active == 'Active' || 'active'){ ?>
+                                if($Articles->is_active == 'Active' || $Articles->is_active == 'active'){ ?>
                                   <option value="Inactive">Inactive</option> 
                                 <?php }else{ ?>
                                 <option value="Active">Active</option> 

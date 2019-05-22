@@ -174,7 +174,7 @@
 
 
     <div id="qnimateblog" class="off">
-        <div id="search" class="open" style="height:320px;background-color:#F8F8F8; ">
+        <div id="search" class="open" style="height:400px;background-color:#F8F8F8;position:absolute ">
             <button data-widget="remove" id="removeClassblog" class="close text-dark" type="button">×</button>
             <div style="padding-top:5%;" class="">
                 <form action="" method="" autocomplete="off" class="pl-0">
@@ -221,7 +221,8 @@
                             '<div class="card-body">'+
                                 '<small>'+postedday[0]+', '+GetMonthName(posteddate[1])+' '+posteddate[0]+'</small>'+
                                 '<h6 class="card-title pt-1"><b>'+value.title+'</b></h6>'+
-                                '<p class="card-text text-justify lap">'+value.description+'</p>'+
+                                '<h6 class="card-title"><b>'+value.sub_title+'</b></h6>'+
+                                '<p class="card-text text-justify lap">'+value.description.substring(0,500)+'</p>'+
                                 '<a href="<?=base_url()?>Main/Article?id='+value.article_id+'"><i class="fa fa-angle-right fa-2x no-bottom position-absolute pb-1 text-dark"></i></a>'+
                             '</div>'+
                         '</div>'+
@@ -278,7 +279,8 @@
                             '<div class="card-body">'+
                                 '<small>'+postedday[0]+', '+GetMonthName(posteddate[1])+' '+posteddate[0]+'</small>'+
                                 '<h6 class="card-title pt-1"><b>'+value.title+'</b></h6>'+
-                                '<p class="card-text text-justify lap">'+value.description+'</p>'+
+                                '<h6 class="card-title"><b>'+value.sub_title+'</b></h6>'+
+                                '<p class="card-text text-justify lap">'+value.description.substring(0,500)+'</p>'+
                                 '<a href="<?=base_url()?>Main/Article?id='+value.article_id+'"><i class="fa fa-angle-right fa-2x no-bottom position-absolute pb-1 text-dark"></i></a>'+
                             '</div>'+
                         '</div>'+

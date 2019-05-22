@@ -37,7 +37,7 @@
             <div class="alert alert-md alert-danger alert-dismissible fade in" role="alert">
               <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
               </button>
-              <strong><?= $status ?></strong>
+              <strong style="letter-spacing:2px"><?= $status ?></strong>
             </div>
           <?php endif; ?>
             <form class="form-horizontal form-label-left input_mask" action="<?php echo base_url('Login/Verify');?>" method="post">
