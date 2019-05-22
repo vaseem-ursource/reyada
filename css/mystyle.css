@@ -776,11 +776,14 @@ background-color: transparent;
     
 select {       
 background: transparent;       
-border: 0px;       
-border-radius: 4px;       
+border-bottom: 1px solid rgb(141, 138, 138);    
+border-top:0px;
+border-left:0px;
+border-right: 0px;   
+/* border-radius: 4px;        */
 width: 100%;       
 padding: 10px;       
-font-size: 16px;       
+font-size: 14px;       
 color:#fff;       
     
 /* Here's the code we need */       
@@ -790,7 +793,9 @@ color:#fff;
  -o-appearance: none;       
      appearance: none;       
 } 
-    
+ .select-fontsize{
+   font-size:12px;
+ }   
 .select-wrapper {       
 position: relative;            
 }       
@@ -821,3 +826,29 @@ background-color:grey;
 .owl-dots{
   display: none;
 }
+
+.pagination1 { 
+  display: inline-block; 
+  padding: 0; 
+  margin: 0; 
+  } 
+  
+.pagination1  {display: inline;} 
+  
+  .pagination1  a { 
+  color: #343a40; 
+  padding: 8px 16px; 
+  text-decoration: none; 
+  transition: background-color .3s; 
+  
+  } 
+  
+  .pagination1 strong { 
+  
+  color: #343a40; 
+  border: 1px solid #343a40; 
+  padding: 8px 16px; 
+
+  } 
+  
+  .pagination1  a:hover:not(.active) {background-color:#fff;border: 1px solid #343a40;} 

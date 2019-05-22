@@ -7,9 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Gentelella Alela! | </title>
+    <title> Reyadah Admin Panel</title>
     <?php include('headerlink.php');?>    
   </head>
 
   <body class="nav-md">
   <?php include('nav.php');?>    
+  

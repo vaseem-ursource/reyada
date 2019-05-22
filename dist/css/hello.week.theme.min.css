@@ -15,13 +15,13 @@
   color: #fff; }
 
 .hello-week .day.is-today {
-  /* background-color: #ff3860; */
+  background-color: #ff3860;
   font-weight: bolder;
   color: #000000; }
 
 .hello-week .day.is-selected {
-  /* background-color: #7fcbc3 !important;
-  color: #fff !important;  */
+  background-color: #7fcbc3 !important;
+  color: #fff !important; 
   font-weight: bolder;
   color: #000000;
 }

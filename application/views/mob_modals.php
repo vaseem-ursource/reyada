@@ -8,7 +8,7 @@
               <div class="left-half w-100 pr-0">
                 <div>
                   <button type="button" class="close p-2 text-white" style="z-index:999;float:right;opacity:1" data-dismiss="modal">&#10006</button>
-                    <img src="image/modalimg/a1.png" class="img-fluid  position-absolute pull-right" width="170" height="150" style="top: 30%;right: 0;">
+                    <img src="<?=base_url()?>image/modalimg/a1.png" class="img-fluid  position-absolute pull-right" width="170" height="150" style="top: 30%;right: 0;">
                     <h6 style="color:white; position: absolute; bottom:20%; font-size: 14px;" class="p-5 text-justify"><small>JOIN OUR COMMUNITY
                     <br><br>
                     Lorem ipsum dolor sit amet, consectetur adipiscin LoremLorem ipsum dolor sit amet, consectetur adipiscin Lorem
@@ -316,27 +316,27 @@
           <button type="button" class="close p-4 text-black position-absolute pull-right" style="right:0px" data-dismiss="modal">&#10006</button>
 
         </div>
-        <form action="" style="width:100%;" class="m-0 p-0">
+        <form action="<?= base_url('Main/contactus')?>" style="width:100%;"  method="post" class="m-0 p-0">
           <div class="col-md-12 col-sm-12 col-xs-12 row p-0">
            
             <div class="col-md-12" style="color:black; padding-right:10%" style="font-size: 16px;">
             
             <h6 style="color:black;" style="font-size: 16px;" class="text-justify">
             <small>Lorem ipsum dolor sit amet, consectetur adipiscin Lorem</small></h6>
-                   <div class="group">
-                        <input type="text"><span class="highlight"></span><span class="bar"></span>
+            <div class="group">
+                        <input type="text" name="full_name" id="full_name2"><span class="highlight"></span><span class="bar"></span>
                         <label>Full Name</label>
                     </div>
                     <div class="group">
-                        <input type="text"><span class="highlight"></span><span class="bar"></span>
+                        <input type="text" name="email" id="email2"><span class="highlight"></span><span class="bar"></span>
                         <label>Email</label>
                     </div>
                     <div class="group">
-                        <input type="text"><span class="highlight"></span><span class="bar"></span>
+                        <input type="text" name="phone" id="phone1"><span class="highlight"></span><span class="bar"></span>
                         <label>Phone Number</label>
                     </div>
                     <div class="group">
-                        <input type="text"><span class="highlight"></span><span class="bar"></span>
+                        <input type="text" name="company" id="company"><span class="highlight"></span><span class="bar"></span>
                         <label>Company Name</label>
                     </div>
                  <!-- </form> -->
@@ -344,24 +344,24 @@
                 <div class="col-md-12 px-4" style="color:black;" style="font-size: 16px;">
                 <!-- <form action="" style="padding-top:0px; padding-left:50px;" class="m-0"> -->
                 <h6 style="color:black;" class="text-left"><small><br>Subject :</small></h6><br> 
-                    <div class="group">
-                        <input type="checkbox">
+                <div class="group">
+                        <input type="checkbox" name="membership" id="membership">
                         <span style="color:#999; font-size: 11px;">About membership</span>
                     </div>
                     <div class="group">
-                        <input type="checkbox">
+                        <input type="checkbox" name="workspace" id="workspace2">
                        <span style="color:#999; font-size: 11px;"> Finding workspace</span>
                     </div>
                     <div class="group">
-                        <input type="checkbox">
+                        <input type="checkbox" name="somethingelse" id="somethingelse2">
                         <span style="color:#999; font-size: 11px;">something else</span>
                     </div><br>
                     <div class="group">
-                        <input type="text"><span class="highlight"></span><span class="bar"></span>
+                        <input type="text" name="notes" id="notes2"><span class="highlight"></span><span class="bar"></span>
                         <label>Notes</label>
                     </div>
                     <br>
-	                   <a href="#submit" style="color:#000;" class="float-right pb-3"><span class="align-middle" data-toggle="modal" data-target="#modalsubmit">Submit</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
+                    <button type="submit"  style="border: 0px;background-color: transparent;padding-bottom:5px;" class="float-right">Submit <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
                    
             <!-- </form>             -->
             </div>
@@ -823,7 +823,6 @@
                   <select> 
                         <option value="option-1">CRYSTAL TOWN</option> 
                         <option value="option-2">MABANEE 1 </option> 
-                        <option value="option-3">MABANEE 2</option> 
                   </select> 
                 </div>
                 </div>
