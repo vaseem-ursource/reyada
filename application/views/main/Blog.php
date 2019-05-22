@@ -97,54 +97,14 @@
           <h4 class="text-left text-dark">Last News</h4>
         </div>
         <div class="row">
-            <div class="col-lg-9 col-md-9 wow fadeInUp px-3 text-justify">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 wow fadeInUp p-1 d-flex">
-                        <div class="card shadow-sm">
-                            <img class="card-img-top" src="<?= base_url()?>image/articles/a1.jpeg" height="250px" alt="Card image cap">
-                            <div class="card-body">
-                                <small>22, Jan 19</small>
-                                <h6 class="card-title pt-1"><b>Lorem Ipsum Neque porro</b></h6>
-                                <p class="card-text text-justify lap">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators</p>
-                                <a href="Article.php"><i class="fa fa-angle-right fa-2x no-bottom position-absolute pb-1 text-dark"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 wow fadeInUp p-1 d-flex lap">
-                        <div class="card shadow-sm">
-                            <img class="card-img-top" src="<?= base_url()?>image/articles/a4.jpg" height="250px" alt="Card image cap">
-                            <div class="card-body">
-                                <small>22, Jan 19</small>
-                                <h6 class="card-title pt-1"><b>Lorem Ipsum Neque porro</b></h6>
-                                <p class="card-text text-justify lap">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
-                                <a href="Article.php"><i class="fa fa-angle-right fa-2x no-bottom position-absolute pb-1 text-dark"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 wow fadeInUp p-1 d-flex lap">
-                        <div class="card shadow-sm">
-                            <img class="card-img-top" src="<?= base_url()?>image/articles/a2.jpg" height="250px" alt="Card image cap">
-                            <div class="card-body">
-                                <small>22, Jan 19</small>
-                                <h6 class="card-title pt-1"><b>Lorem Ipsum Neque porro</b></h6>
-                                <p class="card-text text-justify lap">Some quick example text to build on the card title and make up the bulk of the card's content.It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                                <a href="Article.php"><i class="fa fa-angle-right fa-2x no-bottom position-absolute pb-1 text-dark"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 wow fadeInUp p-1 d-flex lap">
-                        <div class="card shadow-sm">
-                            <img class="card-img-top" src="<?= base_url()?>image/articles/a3.jpg" height="250px" alt="Card image cap">
-                            <div class="card-body">
-                                <small>22, Jan 19</small>
-                                <h6 class="card-title pt-1"><b>Lorem Ipsum Neque porro</b></h6>
-                                <p class="card-text text-justify lap">Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32</p>
-                                <a href="Article.php"><i class="fa fa-angle-right fa-2x no-bottom position-absolute pb-1 text-dark"></i></a>
-                            </div>
-                        </div>
-                    </div>
+             <div class="col-lg-9 col-md-9 wow fadeInUp px-3 text-justify">
+                <div class="row" id="list1">
+                                 
                 </div>
                 <div class="center pt-5">
+                    <div id='pagination' class="pagination1"></div>
+                </div>
+                <!-- <div class="center pt-5">
                     <ul class="pagination">
                         <li><a id="prev">❮</a></li>
                         <li><a id="test1" href="#">1</a></li>
@@ -154,7 +114,7 @@
                         <li><a href="#">5</a></li>
                         <li><a href="#" id="next">❯</a></li>
                     </ul>
-                </div>
+                </div> -->
             </div>
 
             <div class="col-lg-3 col-md-3 wow fadeInUp p-1 lap">
@@ -165,13 +125,9 @@
                           <li><input type="checkbox" checked=""><i></i>
                            <h6><span style="border-left:2px solid #343a40;padding:4px"></span> Category</h6>
                             <div class="artlist">
-                              <a href="#"><div class="artlist_content" >All Categories</div></a>
-                              <a href="#"><div class="artlist_content">Startup News</div></a>
-                              <a href="#"><div class="artlist_content">Founder Talk</div></a>
-                              <a href="#"><div class="artlist_content">Mentor Tips</div></a>
-                              <a href="#"><div class="artlist_content">Business</div></a>
-                              <a href="#"><div class="artlist_content">Events</div></a>
-                              <a href="#"><div class="artlist_content">Reviews</div></a>
+                              <?php foreach($Categories->result() as $row){?>  
+                              <a href="<?= base_url('Main/blog_category?id='.$row->cat_id)?>"><div class="artlist_content text-capitalize" ><?= $row->title;?></div></a>
+                              <?php } ?>
                             </div>
                           </li>
                           <li><input type="checkbox" checked=""><i></i>
@@ -218,24 +174,130 @@
 
 
     <div id="qnimateblog" class="off">
-        <div id="search" class="open" style="height:500px;background-color:#F8F8F8; ">
+        <div id="search" class="open" style="height:400px;background-color:#F8F8F8;position:absolute ">
             <button data-widget="remove" id="removeClassblog" class="close text-dark" type="button">×</button>
             <div style="padding-top:5%;" class="">
                 <form action="" method="" autocomplete="off" class="pl-0">
                     <div  class="lap">
                         <i class="fa fa-search fa-2x" aria-hidden="true" style="padding-top:25px;padding-right:15px"></i>
-                        <input type="text" placeholder="search..." value="" name="term" >
+                        <input type="text" placeholder="search..." value="" name="search_article" id="search_article">
                     </div>
                     <div style="padding-top:25%" class="mob">
                         <i class="fa fa-search fa-2x" aria-hidden="true" style="padding-top:25px;padding-right:15px"></i>
-                        <input type="text" placeholder="search..." value="" name="term" >
+                        <input type="text" placeholder="search..." value="" name="mob_search_article"  id="mob_search_article">
                     </div>
                 </form>
             </div>
         </div>
     </div>
+    
 
-<script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type='text/javascript'>
+      //Search Bar
+      $("#search_article").keyup(function(){
+      var search_text = this.value;
+        loadPagination01(0,search_text);
+      });
+
+       // Load pagination
+     function loadPagination01(pagno,search_text){
+       $.ajax({
+         url: '<?=base_url()?>Main/loadRecord/'+pagno,
+         type: 'get',
+         dataType: 'json',
+         data:{'search_text':search_text},
+         success: function(response){
+            $('#pagination').html(response.pagination);
+            // createTable(response.result,response.row);
+            var articleList="";
+            $.each(response.result,function(key,value){
+              var posteddate=value.posted_date;
+              posteddate=posteddate.split('-');
+              postedday=posteddate[2].split(' ');
+            articleList = articleList+'<div class="col-lg-6 col-md-6 wow fadeInUp p-1 d-flex w-100">'+
+                        '<div class="card shadow-sm w-100">'+
+                            '<img class="card-img-top" src="<?= base_url()?>Admin/'+value.image_url+'" height="250px" alt="Card image cap">'+
+                            '<div class="card-body">'+
+                                '<small>'+postedday[0]+', '+GetMonthName(posteddate[1])+' '+posteddate[0]+'</small>'+
+                                '<h6 class="card-title pt-1"><b>'+value.title+'</b></h6>'+
+                                '<h6 class="card-title"><b>'+value.sub_title+'</b></h6>'+
+                                '<p class="card-text text-justify lap">'+value.description.substring(0,500)+'</p>'+
+                                '<a href="<?=base_url()?>Main/Article?id='+value.article_id+'"><i class="fa fa-angle-right fa-2x no-bottom position-absolute pb-1 text-dark"></i></a>'+
+                            '</div>'+
+                        '</div>'+
+                   '</div>'
+
+              });
+              function GetMonthName(monthNumber) {
+                    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+                    return months[monthNumber - 1];
+              }
+              $('#list1').html(articleList);
+
+         }
+       });
+     }
+
+
+
+   $(document).ready(function(){
+    
+     // Detect pagination click
+     $('#pagination').on('click','a',function(e){
+       e.preventDefault(); 
+      //  var pageno = e.target.text;
+       var length = $(this).prop('href').split("/").length;
+      //  var pageno = e.target.text;
+      var pageno = $(this).prop('href').split("/")[length-1];
+      //  var pageno = $(this).attr('data-ci-pagination-page');
+       loadPagination(pageno,'');
+     });
+ 
+     loadPagination(0,'');
+
+    
+
+     // Load pagination
+     function loadPagination(pagno,search_text){
+       $.ajax({
+         url: '<?=base_url()?>Main/loadRecord/'+pagno,
+         type: 'get',
+         dataType: 'json',
+         data:{'search_text':search_text},
+         success: function(response){
+            $('#pagination').html(response.pagination);
+            // createTable(response.result,response.row);
+            var articleList="";
+            $.each(response.result,function(key,value){
+              var posteddate=value.posted_date;
+              posteddate=posteddate.split('-');
+              postedday=posteddate[2].split(' ');
+            articleList = articleList+'<div class="col-lg-6 col-md-6 wow fadeInUp p-1 d-flex w-100">'+
+                        '<div class="card shadow-sm w-100">'+
+                            '<img class="card-img-top" src="<?= base_url()?>Admin/'+value.image_url+'" height="250px" alt="Card image cap">'+
+                            '<div class="card-body">'+
+                                '<small>'+postedday[0]+', '+GetMonthName(posteddate[1])+' '+posteddate[0]+'</small>'+
+                                '<h6 class="card-title pt-1"><b>'+value.title+'</b></h6>'+
+                                '<h6 class="card-title"><b>'+value.sub_title+'</b></h6>'+
+                                '<p class="card-text text-justify lap">'+value.description.substring(0,500)+'</p>'+
+                                '<a href="<?=base_url()?>Main/Article?id='+value.article_id+'"><i class="fa fa-angle-right fa-2x no-bottom position-absolute pb-1 text-dark"></i></a>'+
+                            '</div>'+
+                        '</div>'+
+                   '</div>'
+
+              });
+              function GetMonthName(monthNumber) {
+                    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+                    return months[monthNumber - 1];
+              }
+              $('#list1').html(articleList);
+
+         }
+       });
+     }
+    });
+  
   $(function(){
         $("#addClassBlog").click(function () {
             $('#qnimateblog').addClass('popup-box-on');
@@ -249,4 +311,7 @@
            $('#qnimateblog').removeClass('popup-box-on');
         });
   })
+
+
+ 
 </script>

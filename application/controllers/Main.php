@@ -8,7 +8,10 @@ class main extends CI_Controller
     function __construct()
     {
         parent::__construct();
+		$this->load->model("Main_model",'Main_model');
         $this->lang->load('auth');
+         // Load Pagination library
+        $this->load->library('pagination');
     }
     
     function index()
@@ -34,15 +37,32 @@ class main extends CI_Controller
         $data['folder_name'] = 'main';
         $data['file_name'] = 'Blog';
         $data['header_name'] = 'header_blog';
+        $data['Article'] = $this->Main_model->get_all_article();
+		$data['Categories'] = $this->Main_model->get_all_categories();        
+        $this->load->view('index', $data);
+    }
+
+    function blog_category()
+    {
+		$cat_id=$this->input->get('id');
+        $data['folder_name'] = 'main';
+        $data['file_name'] = 'Blog';
+        $data['header_name'] = 'header_blog';
+        $data['Article'] = $this->Main_model->get_article_by_category($cat_id);
+		$data['Categories'] = $this->Main_model->get_all_categories();        
         $this->load->view('index', $data);
 
     }
 
     function article()
     {
+		$article_id=$this->input->get('id');
         $data['folder_name'] = 'main';
         $data['file_name'] = 'Article';
         $data['header_name'] = 'header';
+        $data['Article'] = $this->Main_model->get_article_on_id($article_id);
+        $data['Comments'] = $this->Main_model->get_comments($article_id);
+		$data['Categories'] = $this->Main_model->get_all_categories();                
         $this->load->view('index', $data);
 
     }

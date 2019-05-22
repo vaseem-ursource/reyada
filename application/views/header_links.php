@@ -1,5 +1,6 @@
 <!-- Favicons -->
-<link href="<?= base_url()?>img/favicon.png" rel="icon">
+<!-- <link href="<?= base_url()?>assets/images/favicon.png" rel="icon"> -->
+  <link rel="icon" href="<?= base_url()?>assets/images/favicon.png" type="image/png" sizes="16x16">
   <link href="<?= base_url()?>img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -27,7 +28,3 @@
 
   <!-- Accordian Style -->
   <link rel="stylesheet" href="<?= base_url()?>css/accordian_style.css">
-  <link rel="stylesheet" href="<?= base_url()?>css/toastr.min.css" />
-  <script type="text/javascript"  src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
-  <script type="text/javascript"  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="<?= base_url()?>js/date-format.js"></script>

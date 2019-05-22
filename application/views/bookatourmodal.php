@@ -44,7 +44,6 @@
                   <select> 
                         <option value="option-1">CRYSTAL TOWN</option> 
                         <option value="option-2">MABANEE 1 </option> 
-                        <option value="option-3">MABANEE 2</option> 
                   </select> 
                 </div>
                 </div></small>
@@ -261,7 +260,6 @@
                   <select> 
                         <option value="option-1">CRYSTAL TOWN</option> 
                         <option value="option-2">MABANEE 1 </option> 
-                        <option value="option-3">MABANEE 2</option> 
                   </select> 
                 </div>
                 </div></small>

@@ -76,6 +76,9 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
+	// 'username' => 'hesabfks_reyada',
+	// 'password' => 'ApL!0g2=#kVL',
+	// 'database' => 'hesabfks_reyada_new',
 	'username' => 'root',
 	'password' => '',
 	'database' => 'reyada_db',

@@ -38,14 +38,14 @@
                    </div>
                    <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
                         <label>Is Active</label>
-                          <select class="dropdown-toggle form-control" name="IsActive" id="IsActive" required="true">
-                            <option>-- Select Status --</option> 
-                            <option value="active">Active</option> 
-                            <option value="inactive">Inactive</option> 
+                          <select class="dropdown-toggle form-control" name="IsActive" id="IsActive" required>
+                            <option value="">-- Select Status --</option> 
+                            <option value="Active">Active</option> 
+                            <option value="Inactive">Inactive</option> 
                         </select>
                    </div>
                   <div class="form-group">
-                    <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3 col-sm-offset-3">
+                    <div class="col-md-12 col-sm-12 col-xs-12 text-center">
                       <a href="<?= base_url('Categories');?>"><button type="button" class="btn btn-primary">Cancel</button></a>
                         <button class="btn btn-primary" type="reset">Reset</button>
                         <button type="submit" name="save" class="btn btn-success">Save & Add</button>
