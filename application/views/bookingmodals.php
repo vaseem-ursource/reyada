@@ -859,12 +859,16 @@ $(document).ready(function() {
         var digit_pattern = new RegExp('^[2-9][0-9]*$');
         if (name === '' || email === '' || Address === '' || area === '' || phone === '') {
             $('#message').append('Please fill out all the fields');
+            $('#message').fadeIn().delay(5000).fadeOut();
+
         return false;
         } else if (!(email).match(emailReg)) {
             $('#message').append('Invalid Email...!!!!!!');
+            $('#message').fadeIn().delay(5000).fadeOut();
         return false;
         } else if (!(phone).match(digit_pattern) || phone.length != 8) {
             $('#message').append('Must be Number(8 digits only)');
+            $('#message').fadeIn().delay(5000).fadeOut();
             return false;
         }else {
             return true;
@@ -945,20 +949,29 @@ $(document).ready(function() {
         var digit_pattern = new RegExp('^[2-9][0-9]*$');
         if (name === '' || email === '' || resource === '0' || fromtime === '0' || totime === '0') {
             $('#validation-message').append('All The Fields are Mandatory');
+            $('#validation-message').fadeIn().delay(5000).fadeOut();
+
         return false;
         } else if (!(email).match(emailReg)) {
             $('#validation-message').append('Invalid Email...!!!!!!');
+            $('#validation-message').fadeIn().delay(5000).fadeOut();
+
         return false;
         }
         else if (date < cur_date) {
             $('#validation-message').append('Booking cannot be done for the past date');
+            $('#validation-message').fadeIn().delay(5000).fadeOut();
+
         return false;
         }else if (fromtime == totime) {
             $('#validation-message').append('Start and End time cannot be same');
+            $('#validation-message').fadeIn().delay(5000).fadeOut();
+
         return false;
         }
         else if((ConvertTimeformat(fromtime) < cur_time || ConvertTimeformat(totime) < cur_time) && date == cur_date){
             $('#validation-message').append('Booking cannot be done for the past time');
+            $('#validation-message').fadeIn().delay(5000).fadeOut();
         }
         else {
             return true;
@@ -1053,7 +1066,7 @@ function get_resources(location_id) {
                                     'No Resources Available' + "</a>" +
                                 "</div>";
                 $("#resources").append(resources);
-                $("#select-resource").append("<option value ='0'>" + 'No Resources' + "</option>");
+                $("#select-resource").append("<option value ='0'>" + 'Select Resource' + "</option>");
             }
         }
     });
