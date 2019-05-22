@@ -99,7 +99,7 @@
                                     }
                                 });
                                 </script>
-                            </div><br><br>
+                            </div><br>
                             <div style="padding-left: 40px; padding-right: 30px; padding-top: 10px;" id="meetFormReg">
                                 <div class="row text-left">
                                     <div class="col-md-6">
@@ -113,7 +113,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="group">
-                                            <select name="resource_id" id="select-resource" style="padding:2px !important;">
+                                            <select name="resource_id" id="select-resource" style="padding:2px !important;color:black !important;">
                                             </select>
                                         </div>
                                     </div>
@@ -124,7 +124,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <div class="group">
-                                            <select name="fromtime" id="fromtime" style="padding:2px !important;">
+                                            <select name="fromtime" id="fromtime" style="padding:2px !important;color:black !important;">
                                                 <option value="0">Select Start Time</option>
                                                 <option value="12:00 AM">12:00 AM</option>
                                                 <option value="12:30 AM">12:30 AM</option>
@@ -177,7 +177,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <div class="group">
-                                            <select  name="totime" id="totime" style="padding:2px !important;">
+                                            <select  name="totime" id="totime" style="padding:2px !important;color:black !important;">
                                                 <option value="0">Select End Time</option>
                                                 <option value="12:00 AM">12:00 AM</option>
                                                 <option value="12:30 AM">12:30 AM</option>
@@ -314,12 +314,6 @@
                                         </div>
                                     </div>
                                 </small>
-                                <!-- <br><br><br><br><br>
-                MAKE A BOOKING
-                <br><br>
-                <small>Lorem Ipsum is simply ing industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.Lorem ipsum dolor sit amet,
-                </small> -->
-
                             </h6>
                             <h6 style="color:white; position: absolute; left:40px; right:30px; bottom:35%; font-size: 14px; border-bottom:1px solid #fff"
                                 class="mx-5 text-justify">BOOK A MEETING ROOM
@@ -329,19 +323,10 @@
                                 <small>Lorem Ipsum is simply ing industry. Lorem Ipsum has been the industry's standard
                                     dummy text ever since the 1500s.Lorem ipsum dolor sit amet,</small>
                             </h6>
-                            <!-- <h6 style="color:white; position: absolute; left:40px; right:30px; bottom:5%; font-size: 14px;" class="p-5 text-justify">
-                <div class="col-md-12 col-sm-12 col-xs-12 row">
-                <div class="col-md-6 row p-0 m-0">
-                <a href="#bookatour" style="color:white;"><span class="align-middle" data-toggle="modal" data-target="#modalsignup">Book a tour</span></a>
-               </div>
-               <div class="col-md-6  p-0 m-0 text-right">
-                <a href="#bookroom" style="color:white;"><span class="align-middle" data-toggle="modal" data-target="#yesnomodal">Book a meeting room</span> </a>
-               </div>
-               </div> 
-               </small></h6> -->
                             <h6 style="color:white; position: absolute; left:40px; right:30px; bottom:-50px; font-size: 12px;"
                                 class="p-5 text-justify"><small><b>Reyada</b> | Collaborative workplace
-                                </small></h6>
+                                </small>
+                            </h6>
                         </div>
                     </div>
                     <div class="right-half">
@@ -428,7 +413,8 @@
                                             <a href="#" id="meetSubmitNonReg" style="color:black;"><span
                                                     class="align-middle" data-toggle="modal"
                                                     data-target="#thankyouforbookingmodal">Submit</span> <i
-                                                    class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
+                                                    class="fa fa-angle-right fa-2x pl-1 align-middle"></i>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -583,8 +569,6 @@
                             </h6>
                         </div>
                     </div>
-
-
                     <div class="right-half">
                         <button type="button" class="close p-4" data-dismiss="modal">&#10006</button>
                         <form class="w-100" style="padding: 5em 2em 2em 2em;">
@@ -677,9 +661,7 @@
         </div>
     </div>
 </div>
-<!-- End yes modal -->
 
-<!-- Thank you for booking Modal-->
 <div id="thankyouforRegmodal" class="modal fade bs-example-modal-xs" role="dialog ">
     <div class="modal-dialog modal-xs modal-dialog-center" style="height:350px;">
         <!-- Modal content-->
@@ -932,7 +914,6 @@ $(document).ready(function() {
                         "FromTime":fromTime,
                         "ToTime": toTime,
                     }
-                    console.log(post_array);
                     create_booking(post_array);
                 },
                 error: function(xhr){
@@ -957,6 +938,8 @@ $(document).ready(function() {
         else{
             var date = $('#selected_date').val(); 
         }
+        var dt = new Date();
+        var cur_time = dt.getHours() + ":" + dt.getMinutes();
         var name = $("#fname").val();
         var email = $("#femail").val();
         var resource = $("#select-resource").val();
@@ -978,6 +961,9 @@ $(document).ready(function() {
             $('#validation-message').append('Start and End time cannot be same');
         return false;
         }
+        else if((ConvertTimeformat(fromtime) < cur_time || ConvertTimeformat(totime) < cur_time) && date == cur_date){
+            $('#validation-message').append('Booking cannot be done for the past time');
+        }
         else {
             return true;
         }
@@ -989,20 +975,6 @@ $(document).ready(function() {
         var sh = parseInt(result)+ parseInt(day);
         var new_result = date.substr(0,8) + sh;
         return new_result;
-    }
-
-    function minFromMidnight(tm) {
-        var ampm = tm.substr(-2);
-        var clk;
-        if (tm.length <= 6) {
-            clk = tm.substr(0, 4);
-        } else {
-            clk = tm.substr(0, 5);
-        }
-        var m = parseInt(clk.match(/\d+$/)[0], 10);
-        var h = parseInt(clk.match(/^\d+/)[0], 10);
-        h += (ampm.match(/pm/i)) ? 12 : 0;
-        return h * 60 + m;
     }
 
     function ConvertTimeformat(time) {
@@ -1105,11 +1077,11 @@ function get_bookings(res_id) {
                 $.each(Bookings, (key, booking) => {
                     var bookings = 
                     "<div class='col-md-6 p-0 m-0'>"+ 
-                        "<span style='color: #fff; font-size: 14px;'>"+"<br>"+ moment(booking.FromTime).format('h:mm a') +"<br>"+"</span>"+
-                        "<span style='color: #fff; font-size: 11px;'>"+ moment(booking.ToTime).format('h:mm a') +"<br>"+"</span>"+
+                        "<span style='color: #fff; font-size: 14px;'>"+"<br>"+ booking.FromTime +"<br>"+"</span>"+
+                        "<span style='color: #fff; font-size: 11px;'>"+ booking.ToTime +"<br>"+"</span>"+
                     "</div>"+
                     "<div class='col-md-6 p-0 m-0'>"+
-                        "<span style='color: #fff; font-size: 12px;'>"+"<br>"+ moment(booking.FromTime).format('MMMM Do YYYY') +"<br>"+"</span>"+
+                        "<span style='color: #fff; font-size: 12px;'>"+"<br>"+ booking.FromTime+"<br>"+"</span>"+
                         "<span style='color: #fff; font-size: 11px;'>"+ booking.CoworkerFullName +"<br>"+"</span>"+
                     "</div>";
                     $("#bookings").append(bookings);
@@ -1149,7 +1121,7 @@ function create_booking(data){
         },
         error: function(data){
             $('.whole_div').hide(); 
-            toastr.error(data.responseJSON.Message);
+            toastr.error('This resource is already booked for the selected time.please change the timings');
         }
     })
 }

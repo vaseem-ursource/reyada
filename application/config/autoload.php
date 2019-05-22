@@ -52,7 +52,7 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array('database', 'session','upload','ion_auth');
+$autoload['libraries'] = array('database', 'session','upload');
 
 
 /*
@@ -109,7 +109,7 @@ $autoload['language'] = array();
 |
 */
 
-$autoload['model'] = array('ion_auth_model');
+// $autoload['model'] = array('ion_auth_model');
 
 
 /* End of file autoload.php */
