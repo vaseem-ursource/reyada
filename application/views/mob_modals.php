@@ -324,15 +324,15 @@
             <h6 style="color:black;" style="font-size: 16px;" class="text-justify">
             <small>Lorem ipsum dolor sit amet, consectetur adipiscin Lorem</small></h6>
             <div class="group">
-                        <input type="text" name="full_name" id="full_name"><span class="highlight"></span><span class="bar"></span>
+                        <input type="text" name="full_name" id="full_name2"><span class="highlight"></span><span class="bar"></span>
                         <label>Full Name</label>
                     </div>
                     <div class="group">
-                        <input type="text" name="email" id="email"><span class="highlight"></span><span class="bar"></span>
+                        <input type="text" name="email" id="email2"><span class="highlight"></span><span class="bar"></span>
                         <label>Email</label>
                     </div>
                     <div class="group">
-                        <input type="text" name="phone" id="phone"><span class="highlight"></span><span class="bar"></span>
+                        <input type="text" name="phone" id="phone1"><span class="highlight"></span><span class="bar"></span>
                         <label>Phone Number</label>
                     </div>
                     <div class="group">
@@ -349,15 +349,15 @@
                         <span style="color:#999; font-size: 11px;">About membership</span>
                     </div>
                     <div class="group">
-                        <input type="checkbox" name="workspace" id="workspace">
+                        <input type="checkbox" name="workspace" id="workspace2">
                        <span style="color:#999; font-size: 11px;"> Finding workspace</span>
                     </div>
                     <div class="group">
-                        <input type="checkbox" name="somethingelse" id="somethingelse">
+                        <input type="checkbox" name="somethingelse" id="somethingelse2">
                         <span style="color:#999; font-size: 11px;">something else</span>
                     </div><br>
                     <div class="group">
-                        <input type="text" name="notes" id="notes"><span class="highlight"></span><span class="bar"></span>
+                        <input type="text" name="notes" id="notes2"><span class="highlight"></span><span class="bar"></span>
                         <label>Notes</label>
                     </div>
                     <br>

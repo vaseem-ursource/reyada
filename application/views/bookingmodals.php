@@ -99,7 +99,7 @@
                                     }
                                 });
                                 </script>
-                            </div><br>
+                            </div>
                             <div style="padding-left: 40px; padding-right: 30px; padding-top: 10px;" id="meetFormReg">
                                 <div class="row text-left">
                                     <div class="col-md-6">
@@ -113,7 +113,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="group">
-                                            <select name="resource_id" id="select-resource" style="padding:2px !important;color:black !important;">
+                                            <select  class="select-fontsize" name="resource_id" id="select-resource" style="padding:5px !important;color:black !important;">
                                             </select>
                                         </div>
                                     </div>
@@ -124,7 +124,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <div class="group">
-                                            <select name="fromtime" id="fromtime" style="padding:2px !important;color:black !important;">
+                                            <select class="select-fontsize" name="fromtime" id="fromtime" style="padding:5px !important;color:black !important;">
                                                 <option value="0">Select Start Time</option>
                                                 <option value="12:00 AM">12:00 AM</option>
                                                 <option value="12:30 AM">12:30 AM</option>
@@ -177,7 +177,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <div class="group">
-                                            <select  name="totime" id="totime" style="padding:2px !important;color:black !important;">
+                                            <select class="select-fontsize" name="totime" id="totime" style="padding:5px !important;color:black !important;">
                                                 <option value="0">Select End Time</option>
                                                 <option value="12:00 AM">12:00 AM</option>
                                                 <option value="12:30 AM">12:30 AM</option>
@@ -228,16 +228,16 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
+                                        <div class="group text-danger">
+                                            <span id="validation-message"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
                                         <div class="group" style="text-align: right;">
                                             <a href="#" id="meetSubmit" style="color:black;"><span class="align-middle">Submit</span>
                                                 <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i>
                                             </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="group text-danger">
-                                            <span id="validation-message"></span>
                                         </div>
                                     </div>
                                 </div>
@@ -816,11 +816,13 @@ $(document).ready(function() {
     });
 
     $("#location-drp-dwn").change(function() {
+        $('.whole_div').show();
         var location_id = $(this).val();
         get_resources(location_id);
     });
 
     $(document).on('click','.resource',function() {
+        $('.whole_div').show();
         var resource_id = $(this).attr("data-id");
         get_bookings(resource_id);
     });
@@ -882,12 +884,6 @@ $(document).ready(function() {
             var time1 = ConvertTimeformat($("#fromtime").val());
             var time2 = ConvertTimeformat($("#totime").val());
             var fromTime = date +'T'+  time1  + 'Z'; 
-            if(time2 == '00:00' || time2 == '00:30'){
-                var toTime = addDays(date) +'T'+  time2 + 'Z';  
-            }
-            else{
-                var toTime = date +'T'+  time2  + 'Z'; 
-            }
             post_array =
             {
                 "FullName": $("#fname").val(),
@@ -1037,6 +1033,7 @@ function get_resources(location_id) {
         success: function(resources) {
             var resources = resources.Records;
             if (resources.length != 0) {
+                $('.whole_div').hide();
                 var res_id = resources[0].Id;
                 $.each(resources, (key, resource) => {
                     var resources = "<div class='col-md-6 row p-0 m-0'>" +
@@ -1050,6 +1047,7 @@ function get_resources(location_id) {
                 })
                 get_bookings(res_id);
             } else {
+                $('.whole_div').hide();
                 var resources = "<div class='col-md-6 row p-0 m-0'>" +
                                     "<a href='#' style='color:white;font-size:12px;' id='the'>" +
                                     'No Resources Available' + "</a>" +
@@ -1072,27 +1070,31 @@ function get_bookings(res_id) {
         },
         dataType: 'json',
         success: function(bookings) {
+            $('.whole_div').hide();
             var Bookings = bookings.Records;
             if (Bookings.length != '0') {
                 $.each(Bookings, (key, booking) => {
                     var bookings = 
                     "<div class='col-md-6 p-0 m-0'>"+ 
-                        "<span style='color: #fff; font-size: 14px;'>"+"<br>"+ booking.FromTime +"<br>"+"</span>"+
-                        "<span style='color: #fff; font-size: 11px;'>"+ booking.ToTime +"<br>"+"</span>"+
+                        "<span style='color: #fff; font-size: 14px;'>"+"<br>"+ moment(booking.FromTime ).format('h:mm a')+"<br>"+"</span>"+
+                        "<span style='color: #fff; font-size: 11px;'>"+moment(booking.ToTime ).format('h:mm a')+"<br>"+"</span>"+
                     "</div>"+
                     "<div class='col-md-6 p-0 m-0'>"+
-                        "<span style='color: #fff; font-size: 12px;'>"+"<br>"+ booking.FromTime+"<br>"+"</span>"+
-                        "<span style='color: #fff; font-size: 11px;'>"+ booking.CoworkerFullName +"<br>"+"</span>"+
+                        "<span style='color: #fff; font-size: 12px;'>"+"<br>"+moment(booking.FromTime ).format('YYYY-MM-DD')+"<br>"+"</span>"+
+                        "<span style='color: #fff; font-size: 11px;'>"+ booking.ResourceName +"<br>"+"</span>"+
+                        "<span style='color: #fff; font-size: 10px;'>"+ booking.CoworkerFullName +"<br>"+"</span>"+
                     "</div>";
                     $("#bookings").append(bookings);
                 })
             } else {
+                $('.whole_div').hide();
                 var bookings = "<small>" + "<br>" + 'No Booking Available' + "</small>";
                 $("#bookings").append(bookings);
             }
 
         },
         error: function() {
+            $('.whole_div').hide();
             var bookings = "<small>" + "<br>" + 'No Booking Available' + "</small>";
             $("#bookings").append(bookings);
         }

@@ -26,15 +26,15 @@
                         <label>Full Name</label>
                     </div>
                     <div class="group">
-                        <input type="text" name="email" id="email"><span class="highlight"></span><span class="bar"></span>
+                        <input type="text" name="email" id="email3"><span class="highlight"></span><span class="bar"></span>
                         <label>Email</label>
                     </div>
                     <div class="group">
-                        <input type="text" name="phone" id="phone"><span class="highlight"></span><span class="bar"></span>
+                        <input type="text" name="phone" id="phone2"><span class="highlight"></span><span class="bar"></span>
                         <label>Phone Number</label>
                     </div>
                     <div class="group">
-                        <input type="text" name="company" id="company"><span class="highlight"></span><span class="bar"></span>
+                        <input type="text" name="company" id="company2"><span class="highlight"></span><span class="bar"></span>
                         <label>Company Name</label>
                     </div>
                  <!-- </form> -->
@@ -43,7 +43,7 @@
             <!-- <form action="" style="padding-top:0px; padding-left:50px;" class="m-0"> -->
             <h6 style="color:black;" class="text-left"><small>Subject of inquiry: (membership – workspaces – packages - other)</small></h6> 
                     <div class="group">
-                        <input type="checkbox" name="membership" id="membership">
+                        <input type="checkbox" name="membership" id="membership2">
                         <span style="color:#999; font-size: 11px;">About membership</span>
                     </div>
                     <div class="group">
