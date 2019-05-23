@@ -483,6 +483,33 @@
 
 <!-- End Thankyou Modal-->
 
+<!--Thankyou for contact Modal-->
+<div id="contact_thankyou" class="modal fade bs-example-modal-xs" role="dialog ">
+  <div class="modal-dialog modal-xs modal-dialog-center" style="height:300px;" >
+ <!-- Modal content-->
+   <div class="modal-content pt-5 mt-5" style="padding-top:25%; vertical-align: middle;">
+     <div class="modal-body p-0 m-0">
+      <section class="container">
+       <div class="tmodal">
+        <div>
+          <h6 style="color:black; position: absolute; bottom:30px; font-size: 14px;" class="p-5 text-justify text-left">
+          <small>THANK YOU FOR CONTACTING US
+          <br><br>
+	        For further questions and inquiries<br>
+                  +(965) 2297 0270<br>
+                    info@reyada.co
+	        <br><br>
+	        <a href="#" style="color:black;"  data-dismiss="modal"><span class="align-middle" id ="homeModal">HOME</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
+	        </small></h6>
+        </div>
+       </div>
+      </section>
+    </div>
+   </div>
+  </div>
+</div>
+
+<!-- End Thankyou for contact Modal -->
 <!-- <script>
   $(function(){
 $("#addClass").click(function () {
