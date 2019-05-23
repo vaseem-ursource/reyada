@@ -882,6 +882,7 @@ $(document).ready(function() {
     }
 
     $("#pickDateTour").click(function(e) {
+        $('#confirmtour').empty();
         if (tour_form_validation())
         {
             $('#tour_fname').val($("#t_name").val());
@@ -889,7 +890,7 @@ $(document).ready(function() {
             $('#tour_address').val($("#t_address").val());
             $('#tour_state').val($("#t_area").val());
             $('#tour_mobile').val($("#t_mobile").val());
-            $('#confirmtour').append('+965 ' + $("#phone").val());
+            $('#confirmtour').append('<b>'+ '+965 ' + $("#t_mobile").val() + '</b>');
             $("#pickdatemodalfortour").modal("show");
             $("#tourFormReg").show();
         }
@@ -927,7 +928,7 @@ $(document).ready(function() {
         }
     }
     $('#toursubmit').click(function(e){
-        // $('.whole_div').show();
+        $('.whole_div').show();
         if(tour_validation()){
             if($('#tour_selected_date').val() == ""){
                 var date = cur_date; 
@@ -937,7 +938,6 @@ $(document).ready(function() {
             }
             var time1 = ConvertTimeformat($("#tourtime").val());
             var fromTime = date +'T'+  time1  + 'Z'; 
-        } 
         post_array =
         {
             "FullName": $("#tour_fname").val(),
@@ -956,14 +956,13 @@ $(document).ready(function() {
             url: base_url + 'main/book_a_tour',
             data: post_array, 
                 success: function(data) {
-                console.log(data);
                 if(data.status != 200){
-                $('#error_msg_signup').text(data.message);
-                $('#error_msg_signup').fadeIn().delay(5000).fadeOut();
+                $('.whole_div').hide();
+                toastr.error(data.message);
                 }else{
-                $('#success_msg_signup').text(data.message);
-                $('#success_msg_signup').fadeIn().delay(5000).fadeOut();
-                location.reload();
+                    $('.whole_div').hide();
+                    $('#thankyouforbooktourNonRegmodal').modal('show');
+                    $("#pickdatemodalfortour").modal("hide");
                 }
                 },
                 error: function(jqxhr, status, error) {
@@ -972,6 +971,7 @@ $(document).ready(function() {
                 console.log(error);
                 }
             })
+        }   
     })
 
     $("#meetSubmit").click(function(e) {

@@ -447,7 +447,7 @@
         <div>
         <form style="width:80%; padding-top: 90px;">
         <h6 style="color:black;" class="text-center">THANK YOU FOR YOUR BOOKING</h6>
-        <h6 style="color:black;" class="text-center" id="confirmtour"><b>+965 2297 0270</b></h6>  
+        <h6 style="color:black;" class="text-center" id="confirmtour"></h6>  
         </form>      
         </div>
        </div>
