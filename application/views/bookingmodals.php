@@ -14,7 +14,7 @@
                                     <i class="fa fa-map-marker fa-lg pull-left pt-1 mt-2"></i>
                                     <div class="pull-left" style="width: 90%;">
                                         <div class="select-wrapper" style="width: 100%;">
-                                            <select id="location-drp-dwn">
+                                            <select class="location-drp-dwn">
                                             </select>
                                         </div>
                                     </div>
@@ -230,7 +230,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="group text-danger">
-                                            <span id="validation-message"></span>
+                                            <span id="validation_message"></span>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -735,7 +735,6 @@
                                                 <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i>
                                             </a>
                                         </div>
-                                        <!-- <button  id="pickdate" type="submit">Pick date and time</button> -->
                                     </div>
                                     <div class="col-md-12">
                                         <div class="group">
@@ -756,6 +755,7 @@ $(document).ready(function() {
     var password = 'view1Sonic!';
     var size = 1000;
     var cur_date = '<?php echo date("Y-m-d") ?>';
+    var base_url = '<?= base_url(); ?>';
 
     get_locations();
 
@@ -769,6 +769,12 @@ $(document).ready(function() {
         $("#bookingmodal").modal("hide");
         $("#yesnomodal").modal("hide");
         $("#nomodal").modal("show");
+    });
+
+    $(document).on("click", "#noModalTour", function() {
+        $("#bookingmodal").modal("hide");
+        $("#yesnomodalfortour").modal("hide");
+        $("#nomodalfortour").modal("show");
     });
 
     $("#meetFormNonReg").hide();
@@ -815,7 +821,7 @@ $(document).ready(function() {
         $("#meetMobFormReg").show();
     });
 
-    $("#location-drp-dwn").change(function() {
+    $(".location-drp-dwn").change(function() {
         $('.whole_div').show();
         var location_id = $(this).val();
         get_resources(location_id);
@@ -829,7 +835,7 @@ $(document).ready(function() {
 
     $("#pickDate").click(function(e) {
         $('#confirmBooking').empty();
-        if (user_form_validation())
+        if (mr_form_validation())
         {
             $('#fname').val($("#fullname").val());
             $('#femail').val($("#email").val());
@@ -847,8 +853,8 @@ $(document).ready(function() {
             return false;  
         }
     })
-
-    function user_form_validation() {
+    
+    function mr_form_validation() {
         $('#message').empty();
         var name = $("#fullname").val();
         var Address = $("#fulladdress").val();
@@ -875,6 +881,99 @@ $(document).ready(function() {
         }
     }
 
+    $("#pickDateTour").click(function(e) {
+        if (tour_form_validation())
+        {
+            $('#tour_fname').val($("#t_name").val());
+            $('#tour_email').val($("#t_email").val());
+            $('#tour_address').val($("#t_address").val());
+            $('#tour_state').val($("#t_area").val());
+            $('#tour_mobile').val($("#t_mobile").val());
+            $('#confirmtour').append('+965 ' + $("#phone").val());
+            $("#pickdatemodalfortour").modal("show");
+            $("#tourFormReg").show();
+        }
+        else{
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            return false;  
+        }
+        
+    })
+
+    function tour_form_validation() {
+        $('#t_message').empty();
+        var name = $("#t_name").val();
+        var Address = $("#t_address").val();
+        var area = $("#t_area").val();
+        var phone = $("#t_mobile").val();
+        var email = $("#t_email").val();
+        var emailReg = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
+        var digit_pattern = new RegExp('^[2-9][0-9]*$');
+        if (name === '' || email === '' || Address === '' || area === '' || phone === '') {
+            $('#t_message').append('Please fill out all the fields');
+            $('#t_message').fadeIn().delay(5000).fadeOut();
+        return false;
+        } else if (!(email).match(emailReg)) {
+            $('#t_message').append('Invalid Email...!!!!!!');
+            $('#t_message').fadeIn().delay(5000).fadeOut();
+        return false;
+        } else if (!(phone).match(digit_pattern) || phone.length != 8) {
+            $('#t_message').append('Must be Number(8 digits only)');
+            $('#t_message').fadeIn().delay(5000).fadeOut();
+            return false;
+        }else {
+            return true;
+        }
+    }
+    $('#toursubmit').click(function(e){
+        // $('.whole_div').show();
+        if(tour_validation()){
+            if($('#tour_selected_date').val() == ""){
+                var date = cur_date; 
+            }
+            else{
+                var date = $('#tour_selected_date').val(); 
+            }
+            var time1 = ConvertTimeformat($("#fromtime").val());
+            var fromTime = date +'T'+  time1  + 'Z'; 
+        } 
+        post_array =
+        {
+            "FullName": $("#tour_fname").val(),
+            "Email": $("#tour_email").val(),
+            "CountryId": '1113',
+            "MobilePhone":$("#tour_mobile").val(),
+            "SimpleTimeZoneId": '2029',
+            "CityName":$("#tour_state").val(),
+            "Address": $("#tour_address").val(),
+            "FromTime":fromTime,
+
+        }
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            url: base_url + 'main/book_a_tour',
+            data: post_array, 
+                success: function(data) {
+                console.log(data);
+                if(data.status != 200){
+                $('#error_msg_signup').text(data.message);
+                $('#error_msg_signup').fadeIn().delay(5000).fadeOut();
+                }else{
+                $('#success_msg_signup').text(data.message);
+                $('#success_msg_signup').fadeIn().delay(5000).fadeOut();
+                location.reload();
+                }
+                },
+                error: function(jqxhr, status, error) {
+                console.log(jqxhr);
+                console.log(status);
+                console.log(error);
+                }
+            })
+    })
+
     $("#meetSubmit").click(function(e) {
         $('.whole_div').show();
         if (booking_validation())
@@ -888,6 +987,7 @@ $(document).ready(function() {
             var time1 = ConvertTimeformat($("#fromtime").val());
             var time2 = ConvertTimeformat($("#totime").val());
             var fromTime = date +'T'+  time1  + 'Z'; 
+            var toTime = date +'T'+  time2  + 'Z'; 
             post_array =
             {
                 "FullName": $("#fname").val(),
@@ -931,7 +1031,7 @@ $(document).ready(function() {
 
 
     function booking_validation() {
-        $('#validation-message').empty();
+        $('#validation_message').empty();
         if($('#selected_date').val() == ""){
             var date = cur_date; 
         }
@@ -948,30 +1048,77 @@ $(document).ready(function() {
         var emailReg = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
         var digit_pattern = new RegExp('^[2-9][0-9]*$');
         if (name === '' || email === '' || resource === '0' || fromtime === '0' || totime === '0') {
-            $('#validation-message').append('All The Fields are Mandatory');
-            $('#validation-message').fadeIn().delay(5000).fadeOut();
+            $('#validation_message').append('All The Fields are Mandatory');
+            $('#validation_message').fadeIn().delay(5000).fadeOut();
 
         return false;
         } else if (!(email).match(emailReg)) {
-            $('#validation-message').append('Invalid Email...!!!!!!');
-            $('#validation-message').fadeIn().delay(5000).fadeOut();
+            $('#validation_message').append('Invalid Email...!!!!!!');
+            $('#validation_message').fadeIn().delay(5000).fadeOut();
 
         return false;
         }
         else if (date < cur_date) {
-            $('#validation-message').append('Booking cannot be done for the past date');
-            $('#validation-message').fadeIn().delay(5000).fadeOut();
+            $('#validation_message').append('Booking cannot be done for the past date');
+            $('#validation_message').fadeIn().delay(5000).fadeOut();
 
         return false;
         }else if (fromtime == totime) {
-            $('#validation-message').append('Start and End time cannot be same');
-            $('#validation-message').fadeIn().delay(5000).fadeOut();
+            $('#validation_message').append('Start and End time cannot be same');
+            $('#validation_message').fadeIn().delay(5000).fadeOut();
 
         return false;
         }
         else if((ConvertTimeformat(fromtime) < cur_time || ConvertTimeformat(totime) < cur_time) && date == cur_date){
-            $('#validation-message').append('Booking cannot be done for the past time');
-            $('#validation-message').fadeIn().delay(5000).fadeOut();
+            $('#validation_message').append('Booking cannot be done for the past time');
+            $('#validation_message').fadeIn().delay(5000).fadeOut();
+        }
+        else {
+            return true;
+        }
+    }
+
+    function tour_validation() {
+        $('#tour_validation_message').empty();
+        if($('#tour_selected_date').val() == ""){
+            var date = cur_date; 
+        }
+        else{
+            var date = $('#tour_selected_date').val(); 
+        }
+        var dt = new Date();
+        var cur_time = dt.getHours() + ":" + dt.getMinutes();
+        var name = $("#tour_fname").val();
+        var email =  $("#tour_email").val();
+        var location = $("#tour_location").val();
+        var fromtime = $("#fromtime").val();
+        var emailReg = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
+        var digit_pattern = new RegExp('^[2-9][0-9]*$');
+        if (name === '' || email === '' || location === '0' || fromtime === '0' ) {
+            $('#tour_validation_message').append('All The Fields are Mandatory');
+            $('#tour_validation_message').fadeIn().delay(5000).fadeOut();
+
+        return false;
+        } else if (!(email).match(emailReg)) {
+            $('#tour_validation_message').append('Invalid Email...!!!!!!');
+            $('#tour_validation_message').fadeIn().delay(5000).fadeOut();
+
+        return false;
+        }
+        else if (date < cur_date) {
+            $('#tour_validation_message').append('Booking cannot be done for the past date');
+            $('#tour_validation_message').fadeIn().delay(5000).fadeOut();
+
+        return false;
+        }else if (fromtime == totime) {
+            $('#tour_validation_message').append('Start and End time cannot be same');
+            $('#tour_validation_message').fadeIn().delay(5000).fadeOut();
+
+        return false;
+        }
+        else if((ConvertTimeformat(fromtime) < cur_time || ConvertTimeformat(totime) < cur_time) && date == cur_date){
+            $('#tour_validation_message').append('Booking cannot be done for the past time');
+            $('#tour_validation_message').fadeIn().delay(5000).fadeOut();
         }
         else {
             return true;
@@ -1017,15 +1164,16 @@ function get_locations(){
             
             if (location.length != 0) {
                 $.each(locations.Records, (key, location) => {
-                    $("#location-drp-dwn").append("<option value ='" +location.Id + " '>" + location.Name + "</option>");
+                    $(".location-drp-dwn").append("<option value ='" +location.Id + " '>" + location.Name + "</option>");
+                    $(".location").append("<option value ='" +location.Id + " '>" + location.Name + "</option>");
                 });
                 get_resources(location[0].Id);
             } else {
-                $("#location-drp-dwn").append("<option value ='0'>" +'No Locations' + "</option>");
+                $(".location-drp-dwn").append("<option value ='0'>" +'No Locations' + "</option>");
             }
         },
         error: function(xhr) {
-            $("#location-drp-dwn").append("<option value ='0'>" + 'No Locations' +"</option>");
+            $(".location-drp-dwn").append("<option value ='0'>" + 'No Locations' +"</option>");
         }
     });
 }
