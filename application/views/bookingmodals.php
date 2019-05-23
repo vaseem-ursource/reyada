@@ -935,7 +935,7 @@ $(document).ready(function() {
             else{
                 var date = $('#tour_selected_date').val(); 
             }
-            var time1 = ConvertTimeformat($("#fromtime").val());
+            var time1 = ConvertTimeformat($("#tourtime").val());
             var fromTime = date +'T'+  time1  + 'Z'; 
         } 
         post_array =
@@ -1091,7 +1091,7 @@ $(document).ready(function() {
         var name = $("#tour_fname").val();
         var email =  $("#tour_email").val();
         var location = $("#tour_location").val();
-        var fromtime = $("#fromtime").val();
+        var fromtime = $("#tourtime").val();
         var emailReg = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
         var digit_pattern = new RegExp('^[2-9][0-9]*$');
         if (name === '' || email === '' || location === '0' || fromtime === '0' ) {
@@ -1116,7 +1116,7 @@ $(document).ready(function() {
 
         return false;
         }
-        else if((ConvertTimeformat(fromtime) < cur_time || ConvertTimeformat(totime) < cur_time) && date == cur_date){
+        else if(ConvertTimeformat(fromtime) < cur_time && date == cur_date){
             $('#tour_validation_message').append('Booking cannot be done for the past time');
             $('#tour_validation_message').fadeIn().delay(5000).fadeOut();
         }
