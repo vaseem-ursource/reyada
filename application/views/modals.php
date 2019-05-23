@@ -1,40 +1,40 @@
 <!-- Contact Us Modal -->
 
 <div id="modalcontact" class="modal fade bs-example-modal-xl" role="dialog ">
-  <div class="modal-dialog modal-xl" style="height:600px;">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-body p-0 m-0">
-        <section class="container">
-          <div class="left-half1">
-            <article>
-              <div class="col-md-12 col-sm-12 col-xs-12 row" style="padding-top:10%; padding-left: 18%;" class="px-5">
-                <h6 style="color:black;" style="font-size: 16px;" class="text-justify ml-5 m-0">LET US<br><br>REACH YOU!
-                  <br><br>
-                </h6>
-              </div>
-              <form action="" style="width:95%; padding-top:5px; padding-left:20%" class="m-0">
-                <div class="col-md-12 col-sm-12 col-xs-12 row">
-
-                  <div class="col-md-6" style="color:black; padding-right:10%" style="font-size: 16px;">
-
-                    <h6 style="color:black;" style="font-size: 16px;" class="text-justify">
-                      <small>Ask us a question, we’ll get back to you shortly.</small></h6>
-                    <div class="group">
-                      <input type="text"><span class="highlight"></span><span class="bar"></span>
-                      <label>Full Name</label>
+ <div class="modal-dialog modal-xl" style="height:600px;">
+<!-- Modal content-->
+  <div class="modal-content">
+    <div class="modal-body p-0 m-0">
+      <section class="container">
+        <div class="left-half1">
+        <article>
+        <div class="col-md-12 col-sm-12 col-xs-12 row" style="padding-top:10%; padding-left: 18%;" class="px-5">
+            <h6 style="color:black;" style="font-size: 16px;" class="text-justify ml-5 m-0">LET US<br><br>REACH YOU!
+              <br><br>
+            </h6>
+        </div>
+        <form action="<?= base_url('Main/contactus')?>" style="width:95%; padding-top:5px; padding-left:20%" method="post" class="m-0">
+          <div class="col-md-12 col-sm-12 col-xs-12 row">
+           
+            <div class="col-md-6" style="color:black; padding-right:10%" style="font-size: 16px;">
+            
+            <h6 style="color:black;" style="font-size: 16px;" class="text-justify">
+            <small>Ask us a question, we’ll get back to you shortly.</small></h6>
+                   <div class="group">
+                        <input type="text" name="full_name" id="full_name" required><span class="highlight"></span><span class="bar"></span>
+                        <label>Full Name</label>
                     </div>
                     <div class="group">
-                      <input type="text"><span class="highlight"></span><span class="bar"></span>
-                      <label>Email</label>
+                        <input type="text" name="email" id="email3" required><span class="highlight"></span><span class="bar"></span>
+                        <label>Email</label>
                     </div>
                     <div class="group">
-                      <input type="text"><span class="highlight"></span><span class="bar"></span>
-                      <label>Phone Number</label>
+                        <input type="text" name="phone" id="phone2" required><span class="highlight"></span><span class="bar"></span>
+                        <label>Phone Number</label>
                     </div>
                     <div class="group">
-                      <input type="text"><span class="highlight"></span><span class="bar"></span>
-                      <label>Company Name</label>
+                        <input type="text" name="company" id="company2" required><span class="highlight"></span><span class="bar"></span>
+                        <label>Company Name</label>
                     </div>
                     <!-- </form> -->
                   </div>
@@ -55,8 +55,8 @@
                       <span style="color:#999; font-size: 11px;">something else</span>
                     </div><br>
                     <div class="group">
-                      <input type="text"><span class="highlight"></span><span class="bar"></span>
-                      <label>Notes</label>
+                        <input type="text" name="notes" id="notes" required><span class="highlight"></span><span class="bar"></span>
+                        <label>Notes</label>
                     </div>
                     <br><br>
                     <a href="#submit" style="color:#000;" class="float-right"><span class="align-middle"
