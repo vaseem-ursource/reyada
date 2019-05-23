@@ -21,19 +21,19 @@
             <h6 style="color:black;" style="font-size: 16px;" class="text-justify">
             <small>Ask us a question, we’ll get back to you shortly.</small></h6>
                    <div class="group">
-                        <input type="text" name="full_name" id="full_name"><span class="highlight"></span><span class="bar"></span>
+                        <input type="text" name="full_name" id="full_name" required><span class="highlight"></span><span class="bar"></span>
                         <label>Full Name</label>
                     </div>
                     <div class="group">
-                        <input type="text" name="email" id="email3"><span class="highlight"></span><span class="bar"></span>
+                        <input type="text" name="email" id="email3" required><span class="highlight"></span><span class="bar"></span>
                         <label>Email</label>
                     </div>
                     <div class="group">
-                        <input type="text" name="phone" id="phone2"><span class="highlight"></span><span class="bar"></span>
+                        <input type="text" name="phone" id="phone2" required><span class="highlight"></span><span class="bar"></span>
                         <label>Phone Number</label>
                     </div>
                     <div class="group">
-                        <input type="text" name="company" id="company2"><span class="highlight"></span><span class="bar"></span>
+                        <input type="text" name="company" id="company2" required><span class="highlight"></span><span class="bar"></span>
                         <label>Company Name</label>
                     </div>
                  <!-- </form> -->
@@ -51,7 +51,7 @@
                     </div>
                     <div class="group">
                         <input type="checkbox" name="somethingelse" id="somethingelse">
-                        <span style="color:#999; font-size: 11px;">something else</span>
+                        <span style="color:#999; font-size: 11px;" required>something else</span>
                     </div><br>
                     <div class="group">
                         <input type="text" name="notes" id="notes"><span class="highlight"></span><span class="bar"></span>
