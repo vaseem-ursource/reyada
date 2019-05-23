@@ -416,5 +416,152 @@ class main extends CI_Controller
               return redirect('./');
             }
     }
+
+    public function book_a_tour(){
+
+        $p_data = $this->input->post();
+        $j_data['FullName'] = $p_data['FullName'];
+        $j_data['GuessedFirstNameForInvoice'] = "";
+        $j_data['GuessedLastNameForInvoice'] = "";
+        $j_data['GuessedFirstName'] = null;
+        $j_data['GuessedLastName'] = null;
+        $j_data['Salutation'] = null;
+        $j_data['Address'] = null;
+        $j_data['PostCode'] = null;
+        $j_data['CityName'] = null;
+        $j_data['State'] = null;
+        $j_data['Email'] = $p_data['Email'];
+        $j_data['Active'] = false;
+        $j_data['DiscountCode'] = null;
+        $j_data['RefererGuid'] = "";
+        $j_data['ReferenceNumber'] = null;
+        $j_data['IsNew'] = true;
+        $j_data['CheckedIn'] = false;
+        $j_data['SignUpToNewsletter'] = false;
+        $j_data['DeleteAvatar'] = false;
+        $j_data['DeleteBanner'] = false;
+        $j_data['AvatarUrl'] = "/en/coworker/getavatar/0";
+        $j_data['ProfileUrl'] = "/en/directory/profile/0/";
+        $j_data['CountryId'] = 1113;
+        $j_data['SimpleTimeZoneId'] = 2029;
+        $j_data['IsMember'] = false;
+        $j_data['CancellationDate'] = null;
+        $j_data['UtcCancellationDate'] = null;
+        $j_data['AbsoluteCancellationDate'] = null;
+        $j_data['DoNotProcessInvoicesAutomatically'] = false;
+        $j_data['MobilePhone'] = $p_data['MobilePhone'];
+        $j_data['LandLine'] =null;        
+        $j_data['NickName'] = null;
+        $j_data['BusinessArea'] = null;
+        $j_data['Position'] = null;
+        $j_data['CompanyName'] = null;
+        $j_data['ProfileTags'] = null;
+        $j_data['ProfileTagsSpaces'] = null;
+        $j_data['ProfileTagsList'] = [];
+        $j_data['ProfileSummary'] = null;
+        $j_data['ProfileSummaryHtml'] = "";
+        $j_data['ProfileWebsite'] = null;
+        $j_data['Url'] = "http://.spaces.nexudus.com/Public/Directory/Profile/0//";
+        $j_data['Gender'] = "0";
+        $j_data['ProfileIsPublic'] = false;
+        $j_data['RegistrationDate'] = null;
+        $j_data['UtcRegistrationDate'] = null;
+        $j_data['DateOfBirth'] = null;
+        $j_data['UtcDateOfBirth'] = null;
+        $j_data['Twitter'] = null;
+        $j_data['Skype'] = null;
+        $j_data['Facebook'] = null;
+        $j_data['Linkedin'] = null;
+        $j_data['Google'] = null;
+        $j_data['Telegram'] = null;
+        $j_data['Github'] = null;
+        $j_data['Pinterest'] = null;
+        $j_data['Flickr'] = null;
+        $j_data['Instagram'] = null;
+        $j_data['Vimeo'] = null;
+        $j_data['Tumblr'] = null;
+        $j_data['Blogger'] = null;
+        $j_data['HasContactDetails'] = false;
+        $j_data['BillingName'] = null;
+        $j_data['BillingEmail'] = null;
+        $j_data['BillingAddress'] = null;
+        $j_data['BillingPostCode'] = null;
+        $j_data['BillingCityName'] = null;
+        $j_data['BillingState'] = null;
+        $j_data['TaxIDNumber'] = null;
+        $j_data['CardNumber'] = null;
+        $j_data['AccessPincode'] = null;
+        $j_data['Custom1'] = null;
+        $j_data['Custom2'] = null;
+        $j_data['Custom3'] = null;
+        $j_data['Custom4'] = null;
+        $j_data['Custom5'] = null;
+        $j_data['Custom6'] = null;
+        $j_data['Custom7'] = null;
+        $j_data['Custom8'] = null;
+        $j_data['Custom9'] = null;
+        $j_data['Custom10'] = null;
+        $j_data['Custom11'] = null;
+        $j_data['Custom12'] = null;
+        $j_data['Custom13'] = null;
+        $j_data['Custom14'] = null;
+        $j_data['Custom15'] = null;
+        $j_data['Custom16'] = null;
+        $j_data['Custom17'] = null;
+        $j_data['Custom18'] = null;
+        $j_data['Custom19'] = null;
+        $j_data['Custom20'] = null;
+        $j_data['Custom21'] = null;
+        $j_data['Custom22'] = null;
+        $j_data['Custom23'] = null;
+        $j_data['Custom24'] = null;
+        $j_data['Custom25'] = null;
+        $j_data['Custom26'] = null;
+        $j_data['Custom27'] = null;
+        $j_data['Custom28'] = null;
+        $j_data['Custom29'] = null;
+        $j_data['Custom30'] = null;
+        $j_data['EmailForInvoice'] = null;
+        $j_data['AddressForInvoice'] = "Not Available";
+        $j_data['PostCodeForInvoice'] = "Not Available";
+        $j_data['CityForInvoice'] = "Not Available";
+        $j_data['StateForInvoice'] = "Not Available";
+        $j_data['FullNameForInvoice'] = "";
+        $j_data['GeneralTermsAccepted'] = false;
+        $j_data['AgeInDays'] = 0.0000012655752314814815;
+        $j_data['HasBanner'] = false;
+        $j_data['Id'] = 0;
+        $j_data['IdString'] = "0";
+        $j_data['UpdatedOn'] = null;
+        $j_data['CreatedOn'] = "2019-05-21T11:20:56";
+        $j_data['UniqueId'] = "cd694a808a625e2ea3sj";
+        $j_data['IsNull'] = false;
+        // $j_data['Password'] = 'Demo1234';
+        // $j_data['PasswordConfirm'] = 'Demo1234';
+        $j_data['GeneralTermsAcceptedOnline'] = false;
+        $j_data['Country'] = array('Id' => 1113);
+        $j_data['Avatar'] = null;
+        $j_data['TourDate'] = $p_data['FromTime'];
+        $j_data['hasBillingDetails'] = false;
+        $j_data['isPayingMember'] = false;
+        $j_data['ProfileTagsArray'] = [];
+        
+        $s_data = json_encode(array('base64avatar' => null, 'Coworker' => $j_data, 'Team' => new stdClass()));
+        $url = "https://reyada.spaces.nexudus.com/en/signup?_resource=,&_depth=1";
+        $headers = array(
+            'Content-Type: application/json',
+            'Content-Length: ' . strlen($s_data)
+        );
+        $output = $this->post_with_curl($url, $s_data, $headers);
+        if(isset($output->RedirectTo) && !empty($output->RedirectTo)){
+                $json['message'] = 'registered successfully';
+                $json['status'] = 200;
+        }else{
+            $json['message'] = 'some error occured while processing your request';
+            $json['status'] = 500;
+        }
+
+        print_r(json_encode($json));
+    }
     
 }
