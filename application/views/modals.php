@@ -1,89 +1,87 @@
 <!-- Contact Us Modal -->
 
 <div id="modalcontact" class="modal fade bs-example-modal-xl" role="dialog ">
-  <div class="modal-dialog modal-xl" style="height:600px;">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-body p-0 m-0">
-        <section class="container">
-          <div class="left-half1">
-            <article>
-              <div class="col-md-12 col-sm-12 col-xs-12 row" style="padding-top:10%; padding-left: 18%;" class="px-5">
-                <h6 style="color:black;" style="font-size: 16px;" class="text-justify ml-5 m-0">LET US<br><br>REACH YOU!
-                  <br><br>
-                </h6>
-              </div>
-              <form action="" style="width:95%; padding-top:5px; padding-left:20%" class="m-0">
-                <div class="col-md-12 col-sm-12 col-xs-12 row">
-
-                  <div class="col-md-6" style="color:black; padding-right:10%" style="font-size: 16px;">
-
-                    <h6 style="color:black;" style="font-size: 16px;" class="text-justify">
-                      <small>Ask us a question, we’ll get back to you shortly.</small></h6>
-                    <div class="group">
-                      <input type="text"><span class="highlight"></span><span class="bar"></span>
-                      <label>Full Name</label>
-                    </div>
-                    <div class="group">
-                      <input type="text"><span class="highlight"></span><span class="bar"></span>
-                      <label>Email</label>
-                    </div>
-                    <div class="group">
-                      <input type="text"><span class="highlight"></span><span class="bar"></span>
-                      <label>Phone Number</label>
-                    </div>
-                    <div class="group">
-                      <input type="text"><span class="highlight"></span><span class="bar"></span>
-                      <label>Company Name</label>
-                    </div>
-                    <!-- </form> -->
-                  </div>
-                  <div class="col-md-6" style="color:black; padding-left: 10%;" style="font-size: 16px;">
-                    <!-- <form action="" style="padding-top:0px; padding-left:50px;" class="m-0"> -->
-                    <h6 style="color:black;" class="text-left"><small>Subject of inquiry: (membership – workspaces –
-                        packages - other)</small></h6>
-                    <div class="group">
-                      <input type="checkbox">
-                      <span style="color:#999; font-size: 11px;">About membership</span>
-                    </div>
-                    <div class="group">
-                      <input type="checkbox">
-                      <span style="color:#999; font-size: 11px;"> Finding workspace</span>
-                    </div>
-                    <div class="group">
-                      <input type="checkbox">
-                      <span style="color:#999; font-size: 11px;">something else</span>
-                    </div><br>
-                    <div class="group">
-                      <input type="text"><span class="highlight"></span><span class="bar"></span>
-                      <label>Notes</label>
-                    </div>
-                    <br><br>
-                    <a href="#submit" style="color:#000;" class="float-right"><span class="align-middle"
-                        data-toggle="modal" data-target="#modalsubmit">Submit</span> <i
-                        class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
-                    <!-- </form>             -->
-                  </div>
-                </div>
-              </form>
-            </article>
-          </div>
-          <div class="right-half1">
-            <button type="button" class="close p-4 text-white" data-dismiss="modal">&#10006</button>
-            <h6 style="color:white; font-size: 16px; padding-top: 25%" class="px-5 m-5 text-justify">CALL US.
-              <br><br><br>
-              <small style="color:white; font-size: 14px;">
-                Give us a call during our office hours and inquire about our services.
-                <br><br><br>
-              </small>
-              +(965) 2297 0270
+ <div class="modal-dialog modal-xl" style="height:600px;">
+<!-- Modal content-->
+  <div class="modal-content">
+    <div class="modal-body p-0 m-0">
+      <section class="container">
+        <div class="left-half1">
+        <article>
+        <div class="col-md-12 col-sm-12 col-xs-12 row" style="padding-top:10%; padding-left: 18%;" class="px-5">
+            <h6 style="color:black;" style="font-size: 16px;" class="text-justify ml-5 m-0">LET US<br><br>REACH YOU!
               <br><br>
             </h6>
-          </div>
-        </section>
+        </div>
+        <form action="<?= base_url('Main/contactus')?>" style="width:95%; padding-top:5px; padding-left:20%" method="post" class="m-0">
+          <div class="col-md-12 col-sm-12 col-xs-12 row">
+           
+            <div class="col-md-6" style="color:black; padding-right:10%" style="font-size: 16px;">
+            
+            <h6 style="color:black;" style="font-size: 16px;" class="text-justify">
+            <small>Ask us a question, we’ll get back to you shortly.</small></h6>
+                   <div class="group">
+                        <input type="text" name="full_name" id="full_name" required><span class="highlight"></span><span class="bar"></span>
+                        <label>Full Name</label>
+                    </div>
+                    <div class="group">
+                        <input type="text" name="email" id="email3" required><span class="highlight"></span><span class="bar"></span>
+                        <label>Email</label>
+                    </div>
+                    <div class="group">
+                        <input type="text" name="phone" id="phone2" required><span class="highlight"></span><span class="bar"></span>
+                        <label>Phone Number</label>
+                    </div>
+                    <div class="group">
+                        <input type="text" name="company" id="company2" required><span class="highlight"></span><span class="bar"></span>
+                        <label>Company Name</label>
+                    </div>
+                 <!-- </form> -->
+            </div>
+            <div class="col-md-6" style="color:black; padding-left: 10%;" style="font-size: 16px;">
+            <!-- <form action="" style="padding-top:0px; padding-left:50px;" class="m-0"> -->
+            <h6 style="color:black;" class="text-left"><small>Subject of inquiry: (membership – workspaces – packages - other)</small></h6> 
+                    <div class="group">
+                        <input type="checkbox" name="membership" id="membership2">
+                        <span style="color:#999; font-size: 11px;">About membership</span>
+                    </div>
+                    <div class="group">
+                        <input type="checkbox" name="workspace" id="workspace">
+                       <span style="color:#999; font-size: 11px;"> Finding workspace</span>
+                    </div>
+                    <div class="group">
+                        <input type="checkbox" name="somethingelse" id="somethingelse">
+                        <span style="color:#999; font-size: 11px;">something else</span>
+                    </div><br>
+                    <div class="group">
+                        <input type="text" name="notes" id="notes" required><span class="highlight"></span><span class="bar"></span>
+                        <label>Notes</label>
+                    </div>
+                    <br><br>
+                    <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Submit <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
+	                  <!-- <input type="submit" value="submit"> -->
+            <!-- </form> -->
+            </div>
+           </div>
+          </form>
+        </article>
       </div>
-    </div>
+      <div class="right-half1">
+       <button type="button" class="close p-4 text-white" data-dismiss="modal">&#10006</button>
+        <h6 style="color:white; font-size: 16px; padding-top: 25%" class="px-5 m-5 text-justify">CALL US.
+        <br><br><br>
+        <small style="color:white; font-size: 14px;">
+         Give us a call during our office hours and inquire about our services.
+         <br><br><br>
+        </small>
+        +(965) 2297 0270
+        <br><br>
+         </h6>
+      </div>
+    </section>
+   </div>
   </div>
+ </div>
 </div>
 <!-- End Contact Us Modal-->
 
@@ -484,6 +482,33 @@
 </div>
 
 <!-- End Thankyou Modal-->
+
+<!--Thankyou for contact Modal-->
+<div id="contact_thankyou" class="modal fade bs-example-modal-xs" role="dialog ">
+  <div class="modal-dialog modal-xs modal-dialog-center" style="height:300px;" >
+ <!-- Modal content-->
+   <div class="modal-content pt-5 mt-5" style="padding-top:25%; vertical-align: middle;">
+     <div class="modal-body p-0 m-0">
+      <section class="container">
+       <div class="tmodal">
+        <div>
+          <h6 style="color:black; position: absolute; bottom:30px; font-size: 14px;" class="p-5 text-justify text-left">
+          <small>THANK YOU FOR CONTACTING US
+          <br><br>
+	        For further questions and inquiries<br>
+                  +(965) 2297 0270<br>
+                    info@reyada.co
+	        <br><br>
+	        <a href="#" style="color:black;"  data-dismiss="modal"><span class="align-middle" id ="homeModal">HOME</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
+	        </small></h6>
+        </div>
+       </div>
+      </section>
+    </div>
+   </div>
+  </div>
+</div>
+<!-- End Thankyou for contact Modal -->
 
 <!-- <script>
   $(function(){
