@@ -180,7 +180,11 @@ class main extends CI_Controller
 
         $s_data = json_encode(array('base64avatar' => null, 'Coworker' => $j_data, 'Team' => new stdClass()));
         $url = "https://reyada.spaces.nexudus.com/en/signup?_resource=,&_depth=1";
-        $output = $this->post_with_curl($url, $s_data);
+        $headers = array(
+            'Content-Type: application/json',
+            'Content-Length: ' . strlen($s_data)
+        );
+        $output = $this->post_with_curl($url, $s_data, $headers);
 
         if(isset($output->RedirectTo) && !empty($output->RedirectTo)){
             if($this->signin($p_data['Email'], $p_data['Password'])){
@@ -198,35 +202,69 @@ class main extends CI_Controller
         print_r(json_encode($json));
     }
 
-    public function signin($user_id = null, $password = null){
-        $url = "https://spaces.nexudus.com/api/sys/users/token";
+    public function signin($username = null, $password = null){
+        $url = "https://reyada.spaces.nexudus.com/en/profile?_resource=Coworker";
         $json['message'] = 'some error occured while processing your request';
         $json['status'] = 500;
 
-        if(empty($user_id) && empty($password)){
+        if(empty($username) && empty($password)){
             $p_data = $this->input->post();
-            $s_data = json_encode(array('email' => $p_data['email'], 'password' => $p_data['password'], 'validityInMinutes' => 60));
-            $output = $this->post_with_curl($url, $s_data);
+
+            $username = $p_data['email'];
+            $password = $p_data['password'];
+
+            $headers = array(
+                'Content-Type: application/json',
+                'Authorization: Basic '. base64_encode("$username:$password")
+            );
+            
+            $output = $this->post_with_curl($url, null, $headers);
 
             if(!empty($output)){
-                $json['message'] = $output->Message;
-                $json['status'] = $output->Status;
+                $json['message'] = 'Logged in successfully';
+                $json['status'] = 200;
+                $json['html'] = json_encode($output);
 
-                if($output->Status == 200){
-                    $this->session->set_userdata('user_access_token', $output->Value);
-                    $this->session->set_userdata('is_logged_in', true);
-                }
+                $user_info = array(
+                    'Id' => $output->Id,
+                    'FullName' => $output->FullName,
+                    'Address' => $output->Address,
+                    'CityName' => $output->CityName,
+                    'MobilePhone' => $output->MobilePhone,
+                    'Email' => $output->Email
+                );
+
+                $this->session->set_userdata('user_info', $user_info);
+                $this->session->set_userdata('is_logged_in', true);
             }
 
             print_r(json_encode($json));
         }else{
-            $s_data = json_encode(array('email' => $user_id, 'password' => $password, 'validityInMinutes' => 60));
-            $output = $this->post_with_curl($url, $s_data);
 
-            if($output->Status == 200){
-                $this->session->set_userdata('user_access_token', $output->Value);
+            $headers = array(
+                'Content-Type: application/json',
+                'Authorization: Basic '. base64_encode("$username:$password")
+            );
+            
+            $output = $this->post_with_curl($url, null, $headers);
+
+            if(!empty($output)){
+                $json['message'] = 'Logged in successfully';
+                $json['status'] = 200;
+
+                $user_info = array(
+                    'Id' => $output->Id,
+                    'FullName' => $output->FullName,
+                    'Address' => $output->Address,
+                    'CityName' => $output->CityName,
+                    'MobilePhone' => $output->MobilePhone,
+                    'Email' => $output->Email
+                );
+
+                $this->session->set_userdata('user_info', $user_info);
                 $this->session->set_userdata('is_logged_in', true);
                 return true;
+                
             }else{
                 return false;
             }
@@ -234,14 +272,18 @@ class main extends CI_Controller
 
     }
 
-    public function post_with_curl($url, $s_data){
+    public function post_with_curl($url, $p_data = null, $headers){
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-        curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $s_data);
+        
+        if(!empty($p_data)){
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $p_data);
+        }
+
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json', 'Content-Length: ' . strlen($s_data)));
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         $result = curl_exec($ch);
         $output = json_decode($result);
         curl_close($ch);

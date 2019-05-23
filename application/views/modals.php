@@ -36,52 +36,54 @@
                         <input type="text" name="company" id="company2" required><span class="highlight"></span><span class="bar"></span>
                         <label>Company Name</label>
                     </div>
-                 <!-- </form> -->
-            </div>
-            <div class="col-md-6" style="color:black; padding-left: 10%;" style="font-size: 16px;">
-            <!-- <form action="" style="padding-top:0px; padding-left:50px;" class="m-0"> -->
-            <h6 style="color:black;" class="text-left"><small>Subject of inquiry: (membership – workspaces – packages - other)</small></h6> 
+                    <!-- </form> -->
+                  </div>
+                  <div class="col-md-6" style="color:black; padding-left: 10%;" style="font-size: 16px;">
+                    <!-- <form action="" style="padding-top:0px; padding-left:50px;" class="m-0"> -->
+                    <h6 style="color:black;" class="text-left"><small>Subject of inquiry: (membership – workspaces –
+                        packages - other)</small></h6>
                     <div class="group">
-                        <input type="checkbox" name="membership" id="membership2">
-                        <span style="color:#999; font-size: 11px;">About membership</span>
+                      <input type="checkbox">
+                      <span style="color:#999; font-size: 11px;">About membership</span>
                     </div>
                     <div class="group">
-                        <input type="checkbox" name="workspace" id="workspace">
-                       <span style="color:#999; font-size: 11px;"> Finding workspace</span>
+                      <input type="checkbox">
+                      <span style="color:#999; font-size: 11px;"> Finding workspace</span>
                     </div>
                     <div class="group">
-                        <input type="checkbox" name="somethingelse" id="somethingelse">
-                        <span style="color:#999; font-size: 11px;">something else</span>
+                      <input type="checkbox">
+                      <span style="color:#999; font-size: 11px;">something else</span>
                     </div><br>
                     <div class="group">
                         <input type="text" name="notes" id="notes" required><span class="highlight"></span><span class="bar"></span>
                         <label>Notes</label>
                     </div>
                     <br><br>
-                    <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Submit <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
-	                  <!-- <input type="submit" value="submit"> -->
-            <!-- </form> -->
-            </div>
-           </div>
-          </form>
-        </article>
+                    <a href="#submit" style="color:#000;" class="float-right"><span class="align-middle"
+                        data-toggle="modal" data-target="#modalsubmit">Submit</span> <i
+                        class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
+                    <!-- </form>             -->
+                  </div>
+                </div>
+              </form>
+            </article>
+          </div>
+          <div class="right-half1">
+            <button type="button" class="close p-4 text-white" data-dismiss="modal">&#10006</button>
+            <h6 style="color:white; font-size: 16px; padding-top: 25%" class="px-5 m-5 text-justify">CALL US.
+              <br><br><br>
+              <small style="color:white; font-size: 14px;">
+                Give us a call during our office hours and inquire about our services.
+                <br><br><br>
+              </small>
+              +(965) 2297 0270
+              <br><br>
+            </h6>
+          </div>
+        </section>
       </div>
-      <div class="right-half1">
-       <button type="button" class="close p-4 text-white" data-dismiss="modal">&#10006</button>
-        <h6 style="color:white; font-size: 16px; padding-top: 25%" class="px-5 m-5 text-justify">CALL US.
-        <br><br><br>
-        <small style="color:white; font-size: 14px;">
-         Give us a call during our office hours and inquire about our services.
-         <br><br><br>
-        </small>
-        +(965) 2297 0270
-        <br><br>
-         </h6>
-      </div>
-    </section>
-   </div>
+    </div>
   </div>
- </div>
 </div>
 <!-- End Contact Us Modal-->
 
@@ -483,33 +485,6 @@
 
 <!-- End Thankyou Modal-->
 
-<!--Thankyou for contact Modal-->
-<div id="contact_thankyou" class="modal fade bs-example-modal-xs" role="dialog ">
-  <div class="modal-dialog modal-xs modal-dialog-center" style="height:300px;" >
- <!-- Modal content-->
-   <div class="modal-content pt-5 mt-5" style="padding-top:25%; vertical-align: middle;">
-     <div class="modal-body p-0 m-0">
-      <section class="container">
-       <div class="tmodal">
-        <div>
-          <h6 style="color:black; position: absolute; bottom:30px; font-size: 14px;" class="p-5 text-justify text-left">
-          <small>THANK YOU FOR CONTACTING US
-          <br><br>
-	        For further questions and inquiries<br>
-                  +(965) 2297 0270<br>
-                    info@reyada.co
-	        <br><br>
-	        <a href="#" style="color:black;"  data-dismiss="modal"><span class="align-middle" id ="homeModal">HOME</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
-	        </small></h6>
-        </div>
-       </div>
-      </section>
-    </div>
-   </div>
-  </div>
-</div>
-<!-- End Thankyou for contact Modal -->
-
 <!-- <script>
   $(function(){
 $("#addClass").click(function () {
@@ -601,7 +576,7 @@ $("#addClass").click(function () {
             }else{
               $('#success_msg_signin').text(data.message);
               $('#success_msg_signin').fadeIn().delay(5000).fadeOut();
-              location.reload();
+              // location.reload();
             }
         },
         error: function(jqxhr, status, error) {
