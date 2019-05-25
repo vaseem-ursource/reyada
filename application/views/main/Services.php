@@ -636,40 +636,27 @@
         </div>
 
         <div class="row">
-          <div class="col-lg-4 col-md-4 wow fadeInUp p-1 d-flex">
-              <div class="card shadow-sm">
-                  <img class="card-img-top" src="<?= base_url()?>image/articles/a1.jpeg" alt="Card image cap">
-                  <div class="card-body">
-                    <small>22, Jan 19</small>
-                    <h5 class="card-title"><b>Lorem Ipsum Neque porro</b></h5>
-                    <p class="card-text text-justify">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="Blog.php"><i class="fa fa-angle-right fa-2x no-bottom position-absolute pb-1 text-dark"></i></a>
-                  </div>
-                </div>
-          </div>
-          <div class="col-lg-4 col-md-4 wow fadeInUp p-1 d-flex lap">
-              <div class="card shadow-sm">
-                  <img class="card-img-top" src="<?= base_url()?>image/articles/a2.jpg" alt="Card image cap">
-                  <div class="card-body">
-                    <small>22, Jan 19</small>
-                    <h5 class="card-title"><b>Lorem Ipsum Neque porro</b></h5>
-                    <p class="card-text text-justify">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="Blog.php"><i class="fa fa-angle-right fa-2x no-bottom position-absolute pb-1 text-dark"></i></a>
-                  </div>
-                </div>
-          </div>
-          <div class="col-lg-4 col-md-4 wow fadeInUp p-1 d-flex lap">
-              <div class="card shadow-sm">
-                  <img class="card-img-top" src="<?= base_url()?>image/articles/a3.jpg" alt="Card image cap">
-                  <div class="card-body">
-                    <small>22, Jan 19</small>
-                    <h5 class="card-title"><b>Lorem Ipsum Neque porro</b></h5>
-                    <p class="card-text text-justify">Some quick example text to build on the card title and make up the bulk of the card's content.</p><br>
-                    <a href="Blog.php"><i class="fa fa-angle-right fa-2x no-bottom position-absolute pb-1 text-dark"></i></a>
-                  </div>
-                </div>
-          </div>
+        <?php 
+         foreach ($RecentArticle->result() as $row){ 
+            $posteddate=explode('-',$row->posted_date);
+            $postedday=explode(' ',$posteddate[2]);
+            $dateObj   = DateTime::createFromFormat('!m', $posteddate[1]); 
+            $monthName = $dateObj->format('F'); 
+        ?>
 
+            <div class="col-lg-4 col-md-4 wow fadeInUp p-1 d-flex w-100">
+                <div class="card shadow-sm w-100">
+                <img class="card-img-top" src="<?= base_url()?>Admin/<?=$row->image_url?>" height="250px" alt="Card image cap">
+                    <div class="card-body">
+                        <small><?= $postedday[0].', '.$monthName.' '.$postedday[0];?></small>
+                        <h6 class="card-title pt-1"><b><?= $row->title;?></b></h6>
+                        <h6 class="card-title"><b><?= $row->sub_title;?></b></h6>
+                        <p class="card-text text-justify lap"><?= substr($row->description,0,500);?></p>
+                        <a href="<?=base_url()?>Main/Article?id='<?= $row->article_id;?>"><i class="fa fa-angle-right fa-2x no-bottom position-absolute pb-1 text-dark"></i></a>
+                    </div>
+                </div>
+            </div>
+         <?php } ?>
         </div>
 
       </div>

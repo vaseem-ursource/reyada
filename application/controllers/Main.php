@@ -18,6 +18,8 @@ class main extends CI_Controller
         $data['folder_name'] = 'main';
         $data['file_name'] = 'index';
         $data['header_name'] = 'header';
+        $data['RecentArticle'] = $this->Main_model->get_recent_articles();  
+
         $this->load->view('index', $data);
 
     }
@@ -27,8 +29,8 @@ class main extends CI_Controller
         $data['folder_name'] = 'main';
         $data['file_name'] = 'Services';
         $data['header_name'] = 'header';
+        $data['RecentArticle'] = $this->Main_model->get_recent_articles();  
         $this->load->view('index', $data);
-
     }
 
     // function blog()
