@@ -594,14 +594,18 @@ $("#addClass").click(function () {
         url: base_url + 'main/signin',
         data: post_array,
         success: function(data) {
-            console.log(data);
             if(data.status != 200){
-              $('#error_msg_signin').text(data.message);
-              $('#error_msg_signin').fadeIn().delay(5000).fadeOut();
+              toastr.error('Username or Password incorrect');
+              // $('#error_msg_signin').text(data.message);
+              // $('#error_msg_signin').fadeIn().delay(5000).fadeOut();
             }else{
-              $('#success_msg_signin').text(data.message);
-              $('#success_msg_signin').fadeIn().delay(5000).fadeOut();
-              // location.reload();
+              // $('#success_msg_signin').text(data.message);
+              // $('#success_msg_signin').fadeIn().delay(5000).fadeOut();
+              toastr.success('Logged in successfully');
+              setTimeout(function() {
+                  location.reload();
+              }, 2000);
+              
             }
         },
         error: function(jqxhr, status, error) {

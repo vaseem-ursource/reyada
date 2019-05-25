@@ -12,6 +12,9 @@
     <?php include("header_links.php");?>
 </head>
 <body>
+    <?php $user_info = $this->session->userdata('user_info') ?>
+    <?php $is_logged_in = $this->session->userdata('is_logged_in') ?>
+
     <?php include $header_name . '.php'; ?>
     <div class="content-wrapper">
           <div class="whole_div"

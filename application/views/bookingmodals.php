@@ -31,14 +31,10 @@
                                     class="p-5 text-justify booking-option">
                                     <div class="col-md-12 col-sm-12 col-xs-12 row">
                                         <div class="col-md-6 row p-0 m-0">
-                                            <a href="#" style="color:white;"><span class="align-middle"
-                                                    data-toggle="modal" data-target="#yesnomodalfortour">Book a
-                                                    tour</span></a>
+                                            <a href="#" style="color:white;"><span class="align-middle" id="toor_book">Book a tour</span></a>
                                         </div>
                                         <div class="col-md-6  p-0 m-0 text-right">
-                                            <a href="#" style="color:white;"><span class="align-middle"
-                                                    data-toggle="modal" data-target="#yesnomodal">Book a meeting
-                                                    room</span> </a>
+                                            <a href="#" style="color:white;"><span class="align-middle" id="mr_book">Book a meeting room</span></a>
                                         </div>
                                     </div>
                                     </small>
@@ -52,7 +48,7 @@
                     <div class="right-half">
                         <button type="button" class="close p-4" data-dismiss="modal">&#10006</button>
 
-                        <form class="w-100" style="padding: 5em 2em 2em 2em;">
+                        <form class="w-100" style="padding: 3em 2em 2em 2em;">
                             <div class="hello-week01">
                                 <script>
                                 const prev = document.querySelector('.demo-prev');
@@ -103,6 +99,7 @@
                             <div style="padding-left: 40px; padding-right: 30px; padding-top: 10px;" id="meetFormReg">
                                 <div class="row text-left">
                                     <div class="col-md-6">
+                                    <input name="cowerker_id" id="cowerker_id"  type="hidden">
                                     <input name="selected_date" id="selected_date"  type="hidden">
                                     <input name="address"  id="address" type="hidden">
                                     <input name="mobile" id="mobile" type="hidden">
@@ -167,6 +164,7 @@
                                                 <option value="7:30 PM">7:30 PM</option>
                                                 <option value="8:00 PM">8:00 PM</option>
                                                 <option value="8:30 PM">8:30 PM</option>
+                                                <option value="9:00 PM">9:00 PM</option>
                                                 <option value="9:30 PM">9:30 PM</option>
                                                 <option value="10:00 PM">10:00 PM</option>
                                                 <option value="10:30 PM">10:30 PM</option>
@@ -220,6 +218,7 @@
                                                 <option value="7:30 PM">7:30 PM</option>
                                                 <option value="8:00 PM">8:00 PM</option>
                                                 <option value="8:30 PM">8:30 PM</option>
+                                                <option value="9:00 PM">9:00 PM</option>
                                                 <option value="9:30 PM">9:30 PM</option>
                                                 <option value="10:00 PM">10:00 PM</option>
                                                 <option value="10:30 PM">10:30 PM</option>
@@ -268,12 +267,13 @@
                                     dummy text ever since the 1500s.Lorem ipsum dolor sit amet,
                                     <br><br>
                                     <a href="#" id="yesModal" style="color:black;"><span class="align-middle"
-                                            data-toggle="modal" data-target="#yesmodal">YES</span> <i
+                                            data-toggle="modal" data-target="#modalLogin">YES</span> <i
                                             class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
                                     <a href="#" id="noModal" style="color:black;"><span class="align-middle"
                                             style="padding-left: 40px;">NO</span> <i
                                             class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
-                                </small></h6>
+                                </small>
+                            </h6>
                         </div>
                     </div>
                 </section>
@@ -281,16 +281,6 @@
         </div>
     </div>
 </div>
-
-<!-- End book meeting room Modal-->
-
-<!--click on No Modal-->
-
-
-<!-- End No Modal-->
-
-<!-- Pick date Modal -->
-
 <div id="pickdatemodal" class="modal fade bs-example-modal-xl" role="dialog ">
     <div class="modal-dialog modal-xl" style="height:600px;">
         <!-- Modal content-->
@@ -426,10 +416,6 @@
         </div>
     </div>
 </div>
-
-<!-- End pick date modal -->
-
-<!-- Thank you for booking Modal-->
 <div id="thankyouforbookingmodal" class="modal fade bs-example-modal-xs" role="dialog ">
     <div class="modal-dialog modal-xs modal-dialog-center" style="height:350px;">
         <!-- Modal content-->
@@ -450,11 +436,6 @@
         </div>
     </div>
 </div>
-
-<!-- End Thank you for booking Modal-->
-
-<!-- Yes Modal1 -->
-
 <div id="yesmodal" class="modal modal-child fade bs-example-modal-xl" role="dialog ">
     <div class="modal-dialog modal-xl" style="height:600px;">
         <!-- Modal content-->
@@ -664,7 +645,6 @@
 
 <div id="thankyouforRegmodal" class="modal fade bs-example-modal-xs" role="dialog ">
     <div class="modal-dialog modal-xs modal-dialog-center" style="height:350px;">
-        <!-- Modal content-->
         <div class="modal-content" style="padding-top:0%; vertical-align: middle;">
             <div class="modal-body p-0 m-0">
                 <section class="container">
@@ -682,8 +662,6 @@
         </div>
     </div>
 </div>
-
-<!-- End Thank you for booking Modal-->
 <div id="nomodal" class="modal fade bs-example-modal-xs" role="dialog ">
     <div class="modal-dialog modal-xs modal-dialog-center" style="height:350px;">
         <!-- Modal content-->
@@ -756,7 +734,9 @@ $(document).ready(function() {
     var size = 1000;
     var cur_date = '<?php echo date("Y-m-d") ?>';
     var base_url = '<?= base_url(); ?>';
-
+    var is_logged_in = '<?= $is_logged_in ?>';
+    var user_info = <?php echo json_encode($user_info); ?>; 
+    console.log(user_info);
     get_locations();
 
     $(document).on("click", "#bookingbutton", function() {
@@ -764,7 +744,30 @@ $(document).ready(function() {
         $(".booking-option").show();
         $("#meetFormReg").hide();
     });
-
+    $(document).on("click","#mr_book",function(){
+        if(is_logged_in == 1){
+            $('#fname').val(user_info.FullName);
+            $('#femail').val(user_info.Email);
+            $('#cowerker_id').val(user_info.Id);
+            $("#meetFormReg").show(); 
+        }else{
+            $("#yesnomodal").modal('show');
+        } 
+    });
+    $(document).on("click","#toor_book",function(){
+        $('#confirmtour').empty();
+        if(is_logged_in == 1){
+            $('#tour_fname').val(user_info.FullName);
+            $('#tour_email').val(user_info.Email);
+            $('#cowerker_id').val(user_info.Id);
+            $('#confirmtour').append('<b>'+ '+965 ' + user_info.MobilePhone + '</b>');            
+            $("#bookingmodal").modal("hide");
+            $("#pickdatemodalfortour").modal('show');
+            $("#tourFormReg").show(); 
+        }else{
+            $("#yesnomodalfortour").modal('show');
+        } 
+    });
     $(document).on("click", "#noModal", function() {
         $("#bookingmodal").modal("hide");
         $("#yesnomodal").modal("hide");
@@ -988,39 +991,58 @@ $(document).ready(function() {
             var time2 = ConvertTimeformat($("#totime").val());
             var fromTime = date +'T'+  time1  + 'Z'; 
             var toTime = date +'T'+  time2  + 'Z'; 
-            post_array =
-            {
-                "FullName": $("#fname").val(),
-                "Email": $("#femail").val(),
-                "CountryId": '1113',
-                "MobilePhone":$("#mobile").val(),
-                "SimpleTimeZoneId": '2029',
-                "CityName":$("#state").val(),
-                "Address":$("#fulladdress").val(),
+            if(is_logged_in == 1 ){
+                post_array =
+                {
+                    "CoworkerId": user_info.Id,
+                    "ResourceId": $("#select-resource").val(),
+                    "FromTime":fromTime,
+                    "ToTime": toTime,
+                };
+                myJSON = JSON.stringify(post_array);
+                console.log(myJSON)
+                create_booking(myJSON);
             }
-            $.ajax({
-                type: 'POST',
-                url: 'https://spaces.nexudus.com/api/spaces/coworkers',
-                beforeSend: function(xhr) {
-                    xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + password));
-                },
-                data: post_array,
-                dataType: 'json', 
-                success: function(data){
-                    post_array =
-                    {
-                        "CoworkerId": data.Value.Id,
-                        "ResourceId": $("#select-resource").val(),
-                        "FromTime":fromTime,
-                        "ToTime": toTime,
-                    }
-                    create_booking(post_array);
-                },
-                error: function(xhr){
-
+            else
+            {
+                post_array =
+                {
+                    "FullName": $("#fname").val(),
+                    "Email": $("#femail").val(),
+                    "CountryId": '1113',
+                    "MobilePhone":$("#mobile").val(),
+                    "SimpleTimeZoneId": '2029',
+                    "CityName":$("#state").val(),
+                    "Address":$("#fulladdress").val(),
                 }
-            })
-        }
+                $.ajax({
+                    type: 'POST',
+                    url: 'https://spaces.nexudus.com/api/spaces/coworkers',
+                    beforeSend: function(xhr) {
+                        xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + password));
+                    },
+                    data: post_array,
+                    dataType: 'json', 
+                    success: function(data){
+                        post_array =
+                        {
+                            "CoworkerId": data.Value.Id,
+                            "ResourceId": $("#select-resource").val(),
+                            "FromTime":fromTime,
+                            "ToTime": toTime,
+                        };
+                        myJSON = JSON.stringify(post_array);
+                        console.log(myJSON);
+                        create_booking(myJSON);
+                    },
+                    error: function(xhr){
+
+                    }
+                })
+            }
+                
+            }
+
         else{
             $('.whole_div').hide();
             e.preventDefault();
@@ -1265,6 +1287,9 @@ function get_bookings(res_id) {
 function create_booking(data){
     $.ajax({
         type: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
         url: 'https://spaces.nexudus.com/api/spaces/bookings',
         beforeSend: function(xhr) {
             xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + password));

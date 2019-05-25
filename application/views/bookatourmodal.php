@@ -46,9 +46,8 @@
                         <option value="option-2">MABANEE 1 </option> 
                   </select> 
                 </div>
-                </div></small>
-            
-
+                </div>
+                </small>
                 </h6>
                 <h6 style="color:white; position: absolute; left:40px; right:30px; bottom:35%; font-size: 14px; border-bottom:1px solid #fff" class="mx-5 text-justify">BOOK A TOUR
                 </h6>
@@ -288,7 +287,7 @@
                     <div class="right-half">
                         <button type="button" class="close p-4" data-dismiss="modal">&#10006</button>
 
-                        <form class="w-100" style="padding: 5em 2em 2em 2em;">
+                        <form class="w-100" style="padding: 3em 2em 2em 2em;">
                             <div class="hello-week05">
                                 <script>
                                 // const prev = document.querySelector('.demo-prev');
