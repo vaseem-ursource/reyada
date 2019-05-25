@@ -557,12 +557,12 @@ $("#addClass").click(function () {
         success: function(data) {
             console.log(data);
             if(data.status != 200){
-              $('#error_msg_signup').text(data.message);
-              $('#error_msg_signup').fadeIn().delay(5000).fadeOut();
+              toastr.error('some error occured while processing your request')
             }else{
-              $('#success_msg_signup').text(data.message);
-              $('#success_msg_signup').fadeIn().delay(5000).fadeOut();
-              location.reload();
+              toastr.error('Logged in Successfully')
+              setTimeout(function(){
+                  location.reload();
+              }, 3000)   
             }
         },
         error: function(jqxhr, status, error) {
