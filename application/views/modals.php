@@ -557,9 +557,9 @@ $("#addClass").click(function () {
         success: function(data) {
             console.log(data);
             if(data.status != 200){
-              toastr.error('some error occured while processing your request')
+              toastr.error('some error occured while processing your request');
             }else{
-              toastr.error('Logged in Successfully')
+              toastr.error('Logged in Successfully');
               setTimeout(function(){
                   location.reload();
               }, 3000)   
