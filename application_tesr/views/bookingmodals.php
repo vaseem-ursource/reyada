@@ -1001,7 +1001,6 @@ $(document).ready(function() {
                     "ToTime": toTime,
                 };
                 myJSON = JSON.stringify(post_array);
-                console.log(myJSON)
                 create_booking(myJSON);
             }
             else
@@ -1033,7 +1032,6 @@ $(document).ready(function() {
                             "ToTime": toTime,
                         };
                         myJSON = JSON.stringify(post_array);
-                        console.log(myJSON);
                         create_booking(myJSON);
                     },
                     error: function(xhr){

@@ -1,3 +1,4 @@
+
   <section id="intro" class="clearfix align-middle" style="background:url('<?= base_url()?>image/home1.jpg') center  no-repeat;background-size: cover;height:100vh">
     <div class="container d-flex h-100">
       <div class="row justify-content-center align-self-center">
@@ -397,7 +398,7 @@
         </div>
 
         <div class="row">
-           <?php 
+        <?php 
          foreach ($RecentArticle->result() as $row){ 
             $posteddate=explode('-',$row->posted_date);
             $postedday=explode(' ',$posteddate[2]);
@@ -407,7 +408,7 @@
 
             <div class="col-lg-4 col-md-4 wow fadeInUp p-1 d-flex w-100">
                 <div class="card shadow-sm w-100">
-                <img class="card-img-top" src="<?= base_url()?>Admin/<?=$row->image_url?>" height="250px" alt="Card image cap">
+                    <img class="card-img-top" src="<?= base_url()?>Admin/<?=$row->image_url?>" height="250px" alt="Card image cap">
                     <div class="card-body">
                         <small><?= $postedday[0].', '.$monthName.' '.$postedday[0];?></small>
                         <h6 class="card-title pt-1"><b><?= $row->title;?></b></h6>
@@ -418,6 +419,7 @@
                 </div>
             </div>
          <?php } ?>
+
         </div>
 
       </div>

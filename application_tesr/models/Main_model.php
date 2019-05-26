@@ -72,12 +72,14 @@
         public function insert_contactus_db($data){
             return $this->db->insert('contact_us', $data);
         }
-	public function get_recent_articles(){
+
+        public function get_recent_articles(){
             return $this->db
                         ->where('is_deleted','No')
                         ->where('is_active','Active')
                         ->limit(3)
                         ->get('articles');
         }
+
     }
     ?>

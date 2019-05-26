@@ -636,7 +636,7 @@
         </div>
 
         <div class="row">
-           <?php 
+        <?php 
          foreach ($RecentArticle->result() as $row){ 
             $posteddate=explode('-',$row->posted_date);
             $postedday=explode(' ',$posteddate[2]);

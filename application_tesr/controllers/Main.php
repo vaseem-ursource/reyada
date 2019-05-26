@@ -18,7 +18,6 @@ class main extends CI_Controller
         $data['folder_name'] = 'main';
         $data['file_name'] = 'index';
         $data['header_name'] = 'header';
-        $data['RecentArticle'] = $this->Main_model->get_recent_articles();  
         $this->load->view('index', $data);
 
     }
@@ -28,7 +27,6 @@ class main extends CI_Controller
         $data['folder_name'] = 'main';
         $data['file_name'] = 'Services';
         $data['header_name'] = 'header';
-        $data['RecentArticle'] = $this->Main_model->get_recent_articles();  
         $this->load->view('index', $data);
 
     }
@@ -95,7 +93,7 @@ class main extends CI_Controller
         $j_data['ProfileSummary'] = null;
         $j_data['ProfileSummaryHtml'] = "";
         $j_data['ProfileWebsite'] = $p_data['ProfileWebsite'];
-        $j_data['Url'] = "http://.spaces.nexudus.com/Public/Directory/Profile/0//";
+        $j_data['Url'] = "http://spaces.nexudus.com/Public/Directory/Profile/0//";
         $j_data['Gender'] = "NotSet";
         $j_data['ProfileIsPublic'] = false;
         $j_data['RegistrationDate'] = null;
@@ -562,6 +560,7 @@ class main extends CI_Controller
         {
             $url = "https://copyofreyadatestaccount.spaces.nexudus.com/en/signup?_resource=,&_depth=1";
         }
+       
         $headers = array(
             'Content-Type: application/json',
             'Content-Length: ' . strlen($s_data)
