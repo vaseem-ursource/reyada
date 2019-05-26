@@ -951,6 +951,7 @@ $(document).ready(function() {
             "CityName":$("#tour_state").val(),
             "Address": $("#tour_address").val(),
             "FromTime":fromTime,
+            "location":$('#tour_location').val(),
 
         }
         $.ajax({
@@ -1000,7 +1001,6 @@ $(document).ready(function() {
                     "ToTime": toTime,
                 };
                 myJSON = JSON.stringify(post_array);
-                console.log(myJSON)
                 create_booking(myJSON);
             }
             else
@@ -1032,7 +1032,6 @@ $(document).ready(function() {
                             "ToTime": toTime,
                         };
                         myJSON = JSON.stringify(post_array);
-                        console.log(myJSON);
                         create_booking(myJSON);
                     },
                     error: function(xhr){
@@ -1187,7 +1186,7 @@ function get_locations(){
             if (location.length != 0) {
                 $.each(locations.Records, (key, location) => {
                     $(".location-drp-dwn").append("<option value ='" +location.Id + " '>" + location.Name + "</option>");
-                    $(".location").append("<option value ='" +location.Id + " '>" + location.Name + "</option>");
+                    $(".location").append("<option value ='" +location.WebAddress + " '>" + location.Name + "</option>");
                 });
                 get_resources(location[0].Id);
             } else {
