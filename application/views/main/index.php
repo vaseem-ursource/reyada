@@ -54,15 +54,15 @@
         <div class="col-md-6 position-absolute lap" style="bottom: 20px; left: 50px;">
           <h4 class="text-white" ><i class="fa fa-map-marker"></i> CRYSTAL TOWER</h4>
         </div>
-        <div class="col-md-6 position-absolute lap"  style="bottom: 20px; right: 50px;color:white;">
+        <div class="col-md-6 position-absolute"  style="bottom: 20px; right: 50px;color:white;">
             <h2 class="text-white text-right"><a style="color:white;" href="#" id="bookingbutton">Booking</a></h2>
         </div>
         <div class="col-md-6  position-absolute mob " style="bottom: 10%;">
             <h4 class="text-white  text-right" ><i class="fa fa-map-marker"></i> CRYSTAL TOWER</h4>
           </div>
-          <div class="col-md-6 position-absolute mob"  style="bottom: 20%;right:5%">
+          <!-- <div class="col-md-6 position-absolute mob"  style="bottom: 20%;right:5%">
               <h2 class="text-white text-right">B<a href="#"  data-toggle="modal" data-target="#mobModalBooking" class="anchor text-white">oo</a>king.</span></h2>
-          </div>
+          </div> -->
     
   
         <!--<div class="col-md-6 intro-img order-md-last order-first">

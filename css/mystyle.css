@@ -875,4 +875,15 @@ background-color:grey;
 
   } 
   
-  .pagination1  a:hover:not(.active) {background-color:#fff;border: 1px solid #343a40;} 
+  .pagination1  a:hover:not(.active) {background-color:#fff;border: 1px solid #343a40;
+  } 
+
+  @media (min-width: 992px){
+     .modal-lg, .modal-xl {
+    max-width: 85%;  
+  }
+}
+.bg-black{
+  background: #000;
+  color:#fff;
+}

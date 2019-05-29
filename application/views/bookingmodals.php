@@ -1,59 +1,58 @@
 <!-- Booking Modal1 -->
 
-<div id="bookingmodal" class="modal modal-child fade bs-example-modal-xl" role="dialog ">
-    <div class="modal-dialog modal-xl" style="height:600px;">
-        <div class="modal-content">
-            <div class="modal-body p-0 m-0">
-                <!-- <div class="row">
-                    <div class="col-md-4" style="background-color:red;"></div>
-                    <div class="col-md-8"  style="background-color:yellow;"></div>
-                </div> -->
-                <section class="container">
-                    <div class="left-half pr-0">
-                        <div>
-                            <h6 style="color:white; font-modal-childsize: 20px; padding-top: 20%"class="px-5 m-5 text-justify">
-                            <span id="new-date"><?php echo date("j F Y") ?></span>
-                                <br><br>
-                                <small style="color:white; font-size: 14px;">
-                                    <i class="fa fa-map-marker fa-lg pull-left pt-1 mt-2"></i>
-                                    <div class="pull-left" style="width: 90%;">
-                                        <div class="select-wrapper" style="width: 100%;">
-                                            <select class="location-drp-dwn">
-                                            </select>
-                                        </div>
-                                    </div>
-                                </small>
-                            </h6>
-                            <h6 style="color:white; position: absolute; top: 235px; left:100px; right:30px; font-size: 14px;"
-                                class="text-justify bg-black">
-                                <div class="col-md-12 col-sm-12 col-xs-12 row" id="resources">
-                                </div>
-                                <br>
-                                <div class="col-md-12 col-sm-12 col-xs-12 row" id="bookings" style="overflow-y:auto;max-height: 200px">
-                                </div>
-                                <h6 style="color:white; position: absolute; left:40px; right:30px; bottom:5px; font-size: 13px;width:100%;"
-                                    class="p-5 text-justify booking-option">
-                                    <div class="col-md-12 col-sm-12 col-xs-12 row">
-                                        <div class="col-md-6 row p-0 m-0">
-                                            <a href="#" style="color:white;"><span class="align-middle" id="toor_book">Book a tour</span></a>
-                                        </div>
-                                        <div class="col-md-6  p-0 m-0 text-right">
-                                            <a href="#" style="color:white;"><span class="align-middle" id="mr_book">Book a meeting room</span></a>
-                                        </div>
-                                    </div>
-                                    </small>
-                                </h6>
-                                <h6 style="color:white; position: absolute; left:40px; right:30px; bottom:-50px; font-size: 12px;"
-                                    class="p-5 text-justify"><small><b>Reyada</b> | Collaborative workplace
-                                    </small>
-                                </h6>
+<div class="modal fade" id="bookingmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog  modal-lg" role="document">
+    <div class="modal-content" style="overflow-y:auto">
+      <div class="modal-body p-0">
+        <div class="row">
+            <div class="col-md-4 bg-black">
+                <button type="button" class="close mob text-white" style="opacity:1;" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 style="color:white; font-modal-childsize: 20px; padding-top: 8%"class="px-5 m-5 text-center">
+                    <span id="new-date"><?php echo date("j F Y") ?></span>
+                </h4>
+                <h6 style="color:white; font-modal-childsize: 20px; padding-top: 5%"class="px-2 m-4 mb-5 text-justify">
+                    <small style="color:white; font-size: 14px;" class="">
+                        <i class="fa fa-map-marker fa-lg pt-1 mt-2"></i>
+                        <div class="pull-right" style="width: 90%;">
+                            <div class="select-wrapper" style="width: 100%;">
+                                <select class="location-drp-dwn">
+                                </select>
+                            </div>
                         </div>
+                    </small>
+                </h6>
+                <h6 style="color:white; font-size: 14px;"
+                    class="text-justify bg-black px-2 m-4 mb-3">
+                    <div class="col-md-12 col-sm-12 col-xs-12 row" id="resources">
                     </div>
-                    <div class="right-half">
-                        <button type="button" class="close p-4" data-dismiss="modal">&#10006</button>
-
-                        <form class="w-100" style="padding: 3em 2em 2em 2em;">
-                            <div class="hello-week01">
+                    <br>
+                    <div class="col-md-12 col-sm-12 col-xs-12 row" id="bookings" style="overflow-y:auto;max-height: 200px">
+                    </div>
+                    <h6 style="color:white; position: absolute; left:20px; right:20px; top:75%; font-size: 13px;width:100%;"
+                        class="py-5 px-3 text-justify booking-option">
+                        <div class="col-md-12 col-sm-12 col-xs-12  my-3  row">
+                            <div class="col row p-0 m-0">
+                                <a href="#" style="color:white;"><span class="align-middle" id="toor_book">Book a tour</span></a>
+                            </div>
+                            <div class="col  p-0 m-0 text-right">
+                                <a href="#" style="color:white;"><span class="align-middle" id="mr_book">Book a meeting room</span></a>
+                            </div>
+                        </div>
+                        </small>
+                    </h6>
+                    <h6 style="color:white; position: absolute; left:40px; right:30px; bottom:-50px; font-size: 12px;"
+                        class="p-5 text-justify"><small><b>Reyada</b> | Collaborative workplace
+                        </small>
+                    </h6>
+            </div>
+            <div class="col-md-8 bg-white">
+                 <button type="button" class="close lap" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <form class="w-100" style="padding: 3em 2em 2em 2em;">
+                            <div class="hello-week01" style="text-align: -webkit-center;">
                                 <script>
                                 const prev = document.querySelector('.demo-prev');
                                 const next = document.querySelector('.demo-next');
@@ -100,7 +99,7 @@
                                 });
                                 </script>
                             </div>
-                            <div style="padding-left: 40px; padding-right: 30px; padding-top: 10px;" id="meetFormReg">
+                            <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px;" id="meetFormReg">
                                 <div class="row text-left">
                                     <div class="col-md-6">
                                     <input name="cowerker_id" id="cowerker_id"  type="hidden">
@@ -246,11 +245,12 @@
                                 </div>
                             </div>
                         </form>
-                    </div>
-                </section>
             </div>
         </div>
+      </div>
+     
     </div>
+  </div>
 </div>
 <!-- End Booking Modal -->
 
@@ -667,7 +667,7 @@
     </div>
 </div>
 <div id="nomodal" class="modal fade bs-example-modal-xs" role="dialog ">
-    <div class="modal-dialog modal-xs modal-dialog-center" style="height:350px;">
+    <div class="modal-dialog modal-xs modal-dialog-center" style="height:400px;">
         <!-- Modal content-->
         <div class="modal-content" style="padding-top:0%; vertical-align: middle;">
             <div class="modal-body p-0 m-0">
