@@ -4,6 +4,10 @@
     <div class="modal-dialog modal-xl" style="height:600px;">
         <div class="modal-content">
             <div class="modal-body p-0 m-0">
+                <!-- <div class="row">
+                    <div class="col-md-4" style="background-color:red;"></div>
+                    <div class="col-md-8"  style="background-color:yellow;"></div>
+                </div> -->
                 <section class="container">
                     <div class="left-half pr-0">
                         <div>
@@ -745,10 +749,12 @@ $(document).ready(function() {
         $("#meetFormReg").hide();
     });
     $(document).on("click","#mr_book",function(){
+        $('#confirmBooking').empty();
         if(is_logged_in == 1){
             $('#fname').val(user_info.FullName);
             $('#femail').val(user_info.Email);
             $('#cowerker_id').val(user_info.Id);
+            $('#confirmBooking').append('<b>'+ '+965 ' + user_info.MobilePhone + '</b>'); 
             $("#meetFormReg").show(); 
         }else{
             $("#yesnomodal").modal('show');
@@ -1309,6 +1315,7 @@ function create_booking(data){
             }
         },
         error: function(data){
+            console.log(data);
             $('.whole_div').hide(); 
             toastr.error('This resource is already booked for the selected time.please change the timings');
         }

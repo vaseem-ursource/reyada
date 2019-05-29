@@ -550,6 +550,30 @@ display: block;
 opacity: 1; 
 } 
 
+input[type=radio] { 
+  width: 12px; 
+  height: 12px; 
+  margin-right: 5px; 
+  vertical-align: center; 
+  border-radius: 50%;
+  border: 1px solid #343a40; 
+  } 
+
+  input[type=radio]:after
+  { 
+    content: ""; 
+    /* border-bottom: 10px solid white; */ 
+    border-top: 5px solid white; 
+    display: block; 
+    opacity: 1; 
+  }
+
+  input[type=radio]:checked:after
+  { 
+    border-bottom: 5px solid #343a40; 
+    border-top: 5px solid #343a40; 
+  } 
+
 footer img:hover { opacity: .83; } 
 
 footer img:focus , footer a:focus { outline: none; } 

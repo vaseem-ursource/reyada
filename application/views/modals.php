@@ -298,7 +298,7 @@
                     <div class="row">
                       <div class="col-md-6">
                         <div class="group">
-                          <input type="text" name="full_name" ><span class="highlight"></span><span class="bar"></span>
+                          <input type="text" name="complete_name" ><span class="highlight"></span><span class="bar"></span>
                           <label> Full Name</label>
                         </div>
                       </div>
@@ -380,13 +380,13 @@
                     <div class="row">
                       <div class="col-md-6">
                         <div class="group">
-                          <input type="checkbox" style="margin-top:15px;">
+                          <input type="radio" style="margin-top:15px;">
                           <span style="font-size: 11px;">Coworking membership</span>
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="group">
-                          <input type="checkbox" style="margin-top:15px;">
+                          <input type="radio" style="margin-top:15px;">
                           <span style="font-size: 11px;">Meeting room membership</span>
                         </div>
                       </div>
@@ -535,45 +535,47 @@ $("#addClass").click(function () {
 
   $(document).on("click", "#continuebtn", function () {
 
-    post_array =
-    {
-        "FullName": $('[name="full_name"]').val(),
-        "CompanyName": $('[name="company_name"]').val(),
-        "Email": $('[name="signup_email"]').val(),
-        "ProfileWebsite": $('[name="profile_website"]').val(),
-        "MobilePhone": $('[name="mobile_phone"]').val(),
-        "BillingAddress": $('[name="billing_address"]').val(),
-        "Password": $('[name="password"]').val(),
-        "PasswordConfirm": $('[name="confirm_password"]').val(),
-        "BusinessArea": $('[name="business_area"]').val(),
-        "SignUpToNewsletter": $('[name="receive_news_letter"]').val()
-    }
+    // post_array =
+    // {
+    //     "FullName": $('[name="complete_name"]').val(),
+    //     "CompanyName": $('[name="company_name"]').val(),
+    //     "Email": $('[name="signup_email"]').val(),
+    //     "ProfileWebsite": $('[name="profile_website"]').val(),
+    //     "MobilePhone": $('[name="mobile_phone"]').val(),
+    //     "BillingAddress": $('[name="billing_address"]').val(),
+    //     "Password": $('[name="password"]').val(),
+    //     "PasswordConfirm": $('[name="confirm_password"]').val(),
+    //     "BusinessArea": $('[name="business_area"]').val(),
+    //     "SignUpToNewsletter": $('[name="receive_news_letter"]').val()
+    // }
 
-    $.ajax({
-        type: 'POST',
-        dataType: 'json',
-        url: base_url + 'main/signup',
-        data: post_array,
-        success: function(data) {
-            console.log(data);
-            if(data.status != 200){
-              toastr.error('some error occured while processing your request');
-            }else{
-              toastr.error('Logged in Successfully');
-              setTimeout(function(){
-                  location.reload();
-              }, 3000)   
-            }
-        },
-        error: function(jqxhr, status, error) {
-          console.log(jqxhr);
-          console.log(status);
-          console.log(error);
-        }
-    });
+    // $.ajax({
+    //     type: 'POST',
+    //     dataType: 'json',
+    //     url: base_url + 'main/signup',
+    //     data: post_array,
+    //     success: function(data) {
+    //         console.log(data);
+    //         if(data.status != 200){
+    //           toastr.error('some error occured while processing your request');
+    //         }else{
+    //           toastr.success('Logged in Successfully');
+    //            $(".firstSignup").css('display', 'none');
+    //            $(".secondSignup").css('display', 'block');
+    //           // setTimeout(function(){
+    //           //     location.reload();
+    //           // }, 3000)   
+    //         }
+    //     },
+    //     error: function(jqxhr, status, error) {
+    //       console.log(jqxhr);
+    //       console.log(status);
+    //       console.log(error);
+    //     }
+    // });
 
-    // $(".firstSignup").css('display', 'none');
-    // $(".secondSignup").css('display', 'block');
+    $(".firstSignup").css('display', 'none');
+    $(".secondSignup").css('display', 'block');
     
   });
 

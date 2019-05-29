@@ -1,5 +1,4 @@
 <?php
-
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
@@ -61,11 +60,11 @@ class main extends CI_Controller
         $j_data['GuessedLastName'] = null;
         $j_data['Salutation'] = null;
         $j_data['Address'] = $p_data['BillingAddress'];
-        $j_data['PostCode'] = "Zip";
+        $j_data['PostCode'] = 753951;
         $j_data['CityName'] = $p_data['BusinessArea'];
         $j_data['State'] = $p_data['BusinessArea'];
         $j_data['Email'] = $p_data['Email'];
-        $j_data['Active'] = false;
+        $j_data['Active'] = true;
         $j_data['DiscountCode'] = null;
         $j_data['RefererGuid'] = "";
         $j_data['ReferenceNumber'] = null;
@@ -181,7 +180,7 @@ class main extends CI_Controller
         $j_data['ProfileTagsArray'] = [];
 
         $s_data = json_encode(array('base64avatar' => null, 'Coworker' => $j_data, 'Team' => new stdClass()));
-        $url = "https://reyada.spaces.nexudus.com/en/signup?_resource=,&_depth=1";
+        $url = "https://reyadatestaccount.spaces.nexudus.com/en/signup?_resource=,&_depth=1";
         $headers = array(
             'Content-Type: application/json',
             'Content-Length: ' . strlen($s_data)
@@ -205,7 +204,7 @@ class main extends CI_Controller
     }
 
     public function signin($username = null, $password = null){
-        $url = "https://reyada.spaces.nexudus.com/en/profile?_resource=Coworker";
+        $url = "https://reyadatestaccount.spaces.nexudus.com/en/profile?_resource=Coworker";
         $json['message'] = 'some error occured while processing your request';
         $json['status'] = 500;
 
