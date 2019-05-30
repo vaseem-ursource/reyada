@@ -273,7 +273,7 @@
 
           <div class="left-half pr-0">
             <div>
-              <img src="image/modalimg/a1.png" class="img-fluid  position-relative pull-right" width="170" height="150"
+              <img src="<?= base_url()?>image/modalimg/a1.png" class="img-fluid  position-relative pull-right" width="170" height="150"
                 style="padding-top: 30%; left:20px;">
                 <h6 style="color:white; position: absolute; bottom:30px; font-size: 14px;" class="p-5 text-justify"><small>WELCOME BACK!
                   <br><br>
@@ -287,7 +287,7 @@
           </div>
 
           <div class="right-half" class="clearfix"
-            style="background:url('image/modalimg/A15.jpg') center  no-repeat;background-size: cover;">
+            style="background:url('<?= base_url()?>image/modalimg/A15.jpg') center  no-repeat;background-size: cover;">
             <button type="button" class="close p-4" data-dismiss="modal">&#10006</button>
             <article>
               <div>
@@ -379,50 +379,41 @@
                     <span style="color:black;" class="text-left">Select your subscription plan</span><br><br>
                     <div class="row">
                       <div class="col-md-6">
-                        <div class="group">
-                          <input type="radio" style="margin-top:15px;">
-                          <span style="font-size: 11px;">Coworking membership</span>
-                        </div>
+                      <label class="test_container">Coworking Memberships
+                        <input type="radio" class="plans_type" checked="checked" checked="checked" value="Coworking Memberships" name="radio">
+                        <span class="checkmark"></span>
+                      </label>
                       </div>
                       <div class="col-md-6">
-                        <div class="group">
-                          <input type="radio" style="margin-top:15px;">
-                          <span style="font-size: 11px;">Meeting room membership</span>
-                        </div>
+                        <label class="test_container">Meeting Room Memberships
+                          <input type="radio"  class="plans_type" value="Meeting Room Memberships" name="radio">
+                          <span class="checkmark"></span>
+                        </label>
                       </div>
                       <div class="col-md-12">
                         <div class="group">
-                          <input type="email"><span class="highlight"></span><span class="bar"></span>
-                          <label>Membership</label>
+                        <select class="price_plans" id="price_plans" style="color:black;">
+                        </select>
                         </div>
                       </div>
                       <div class="col-md-6">
-                        <div class="group">
-                          <span style="color: #000; font-size: 11px;">Annually<br>
-                            One-time annual membership free.</span>
+                        <div class="group plan_heading">
+                         
                         </div>
                       </div>
                       <div class="col-md-6">
-                        <div class="group">
-                          <span style="color: #000; font-size: 11px;">Includes:<br>
-                            _1 day access (9.00AM-9.00PM)<br>
-                            _Additional access: 10KD/day<br>
-                            _1 hour meeting room credits<br>
-                            _Additional on-demand upon booking starting from 9KD/hour.
-                          </span>
+                        <div class="group plan_desc">
+                          
                         </div>
                       </div>
                       <div class="col-md-12">
-                        <div class="group">
-                          <input type="text"><span class="highlight"></span><span class="bar"></span>
-                          <label>Choose a Start Date</label>
+                        <span>Choose a Start Date</span>
+                        <div class="group" >
+                          <input type="date" id='datetimepicker1'><span class="highlight"></span><span class="bar"></span>
                         </div>
                       </div>
-
                       <br><br>
                       <br><br>
-                      
-                      
                       <div class="col-md-12">
                         <a href="#" id="signUpBtn" style="color:black;" class="float-left"><span class="align-middle">SIGN UP</span> <i
                             class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
@@ -434,8 +425,6 @@
                         <a href="#" style="color:black;" id="second"><span class="align-middle">2</span></a>
                       </div>
                     </div>
-
-
                 </form>
               </div>
           </div>
@@ -524,55 +513,72 @@ $("#addClass").click(function () {
 <!--End Login Modal-->
 <!-- End Thankyou Modal-->
 <script>
+  $(document).ready(function(){
+  var cur_date = '<?php echo date("Y-m-d") ?>';
+  var username = 'aeraf@ursource.org';
+  var password = 'view1Sonic!';
   var base_url = '<?= base_url(); ?>';
-  $(document).ready(function () {
-    $(".secondSignup").hide();
-    $(".continuebtn").click(function () {
-      $(".secondSignup").show();
-    });
+
+  $(".secondSignup").hide();
+
+  $(".continuebtn").click(function () {
+    $(".secondSignup").show();
   });
 
+  var price_plan = $("input[name='radio']:checked").val();
+
+  get_price_plans(price_plan);
+
+  $(".plans_type").click(function(){
+    $('.whole_div').show();
+    get_price_plans($(this).val());
+  });
+
+  $(".price_plans").change(function(){
+    $('.whole_div').show();
+    get_price_details($(this).val());
+  });
 
   $(document).on("click", "#continuebtn", function () {
 
-    // post_array =
-    // {
-    //     "FullName": $('[name="complete_name"]').val(),
-    //     "CompanyName": $('[name="company_name"]').val(),
-    //     "Email": $('[name="signup_email"]').val(),
-    //     "ProfileWebsite": $('[name="profile_website"]').val(),
-    //     "MobilePhone": $('[name="mobile_phone"]').val(),
-    //     "BillingAddress": $('[name="billing_address"]').val(),
-    //     "Password": $('[name="password"]').val(),
-    //     "PasswordConfirm": $('[name="confirm_password"]').val(),
-    //     "BusinessArea": $('[name="business_area"]').val(),
-    //     "SignUpToNewsletter": $('[name="receive_news_letter"]').val()
-    // }
+    post_array =
+    {
+        "FullName": $('[name="complete_name"]').val(),
+        "CompanyName": $('[name="company_name"]').val(),
+        "Email": $('[name="signup_email"]').val(),
+        "ProfileWebsite": $('[name="profile_website"]').val(),
+        "MobilePhone": $('[name="mobile_phone"]').val(),
+        "BillingAddress": $('[name="billing_address"]').val(),
+        "Password": $('[name="password"]').val(),
+        "PasswordConfirm": $('[name="confirm_password"]').val(),
+        "BusinessArea": $('[name="business_area"]').val(),
+        "SignUpToNewsletter": $('[name="receive_news_letter"]').val()
+    }
 
-    // $.ajax({
-    //     type: 'POST',
-    //     dataType: 'json',
-    //     url: base_url + 'main/signup',
-    //     data: post_array,
-    //     success: function(data) {
-    //         console.log(data);
-    //         if(data.status != 200){
-    //           toastr.error('some error occured while processing your request');
-    //         }else{
-    //           toastr.success('Logged in Successfully');
-    //            $(".firstSignup").css('display', 'none');
-    //            $(".secondSignup").css('display', 'block');
-    //           // setTimeout(function(){
-    //           //     location.reload();
-    //           // }, 3000)   
-    //         }
-    //     },
-    //     error: function(jqxhr, status, error) {
-    //       console.log(jqxhr);
-    //       console.log(status);
-    //       console.log(error);
-    //     }
-    // });
+    $.ajax({
+        type: 'POST',
+        dataType: 'json',
+        url: base_url + 'main/signup',
+        data: post_array,
+        success: function(data) {
+            console.log(data);
+            if(data.status != 200){
+              toastr.error('some error occured while processing your request');
+            }else{
+              toastr.success('Logged in Successfully');
+               $(".firstSignup").css('display', 'none');
+               $(".secondSignup").css('display', 'block');
+              // setTimeout(function(){
+              //     location.reload();
+              // }, 3000)   
+            }
+        },
+        error: function(jqxhr, status, error) {
+          console.log(jqxhr);
+          console.log(status);
+          console.log(error);
+        }
+    });
 
     $(".firstSignup").css('display', 'none');
     $(".secondSignup").css('display', 'block');
@@ -580,7 +586,35 @@ $("#addClass").click(function () {
   });
 
   $(document).on("click", "#signUpBtn", function () {
-    
+    var selected_date = $('#datetimepicker1').val();
+    var selected_date = selected_date.replace("/", "-");
+    var tariff_guid = $('#price_plans').val();
+    if(selected_date == ""){
+      toastr.error('please select date');
+    }
+    else if(selected_date < cur_date){
+      toastr.error('Cannot select the past date');
+    }
+    else{
+      post_array = {
+        "tariff_guid": tariff_guid,
+        "selected_date": selected_date
+      }
+      $.ajax({ 
+        type: 'POST',
+        dataType: 'json',
+        url: base_url + 'main/subscription_plan',
+        data: post_array,
+        success: function(data) {
+           console.log(data);
+        },
+        error: function(jqxhr, status, error) {
+          console.log(jqxhr);
+          console.log(status);
+          console.log(error);
+        }
+      });
+    }
   });
 
   $(document).on("click", "#loginButtonForm", function () {
@@ -618,4 +652,68 @@ $("#addClass").click(function () {
     });
   
   });
+
+  function get_price_plans(plan_name = null){
+    $(".price_plans").empty();
+      $.ajax({
+        type: 'GET',
+        url: 'https://spaces.nexudus.com/api/billing/tariffs?Tariff_GroupName=' + plan_name,
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + password));
+        },
+        dataType: 'json', 
+        success: function(data){
+          var price_plans = data.Records;
+          $.each(price_plans, (key, price_plan) => {
+            $('.whole_div').hide();
+            $('.price_plans').append("<option value ='"+price_plan.UniqueId +"'>" + price_plan.Name + "</option>");
+          })
+          get_price_details(price_plans[0].UniqueId);
+        },
+        error: function(xhr){
+
+        }
+    })
+  }
+
+  function get_price_details(plan_id = null){
+    $('.plan_heading').empty();
+    $('.plan_desc').empty();
+      $.ajax({
+        type: 'GET',
+        url: 'https://spaces.nexudus.com/api/billing/tariffs?UniqueId=' + plan_id,
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + password));
+        },
+        dataType: 'json', 
+        success: function(data){
+          $('.whole_div').hide();
+          var price_detail = data.Records;
+          if(price_detail[0].InvoiceEvery == 1) {
+            duration = 'Monthly';
+          }
+          else if(price_detail[0].InvoiceEvery == 4){
+            duration = 'Quarterly';
+          }
+          else if(price_detail[0].InvoiceEvery == 12){
+            duration = 'Annually';
+          }
+          else{
+            duration = 'every ' + price_detail[0].InvoiceEvery +'  months' ;
+          }
+          var price_head = "<span style='color: #000; font-size: 11px;'>" + duration + '  ('+ price_detail[0].Price + ' ' + price_detail[0].CurrencyCode + ')'+ "</span>";
+          $('.plan_heading').append(price_head);
+          $('.plan_desc').html(price_detail[0].Description);
+                         
+        },
+        error: function(jqxhr, status, error) {
+          console.log(jqxhr);
+          console.log(status);
+          console.log(error);
+        }
+    })
+  }
+
+});
+ 
 </script>

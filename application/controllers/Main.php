@@ -272,6 +272,15 @@ class main extends CI_Controller
         }
 
     }
+    public function subscription_plan(){
+        $p_data = $this->input->post();
+        $url = 'https://reyadatestaccount.spaces.nexudus.com/en/profile/newcontract?tariffguid='.$p_data['tariff_guid'].'&startdate='.$p_data['selected_date'];
+        $headers = array(
+            'content-type: application/json',
+            'content-length: ' . strlen($url),
+        );
+        $output = $this->post_with_curl($url, null, $headers);
+    }
 
     public function post_with_curl($url, $p_data = null, $headers){
         $ch = curl_init($url);

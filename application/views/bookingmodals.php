@@ -1213,8 +1213,7 @@ function get_resources(location_id) {
     $("#bookings").empty();
     $.ajax({
         type: 'GET',
-        url: 'https://spaces.nexudus.com/api/spaces/resources?Resource_Business=' +
-            location_id,
+        url: 'https://spaces.nexudus.com/api/spaces/resources?Resource_Business=' +location_id,
         beforeSend: function(xhr) {
             xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" +
                 password));
