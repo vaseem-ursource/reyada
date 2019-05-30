@@ -25,18 +25,52 @@
 
 <!-- End book tour Modal-->
 
+
+
+<div class="modal fade" id="yesmodalfortour1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog  modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-body p-0">
+        <div class="row">
+            <div class="col-md-4 bg-black">
+                <button type="button" class="close mob text-white" style="opacity:1;" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                
+            </div>
+            <div class="col-md-8 bg-white">
+                 <button type="button" class="close lap" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+               
+            </div>
+        </div>
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
 <!-- Book a tour yes Modal -->
 
-<div id="yesmodalfortour" class="modal fade bs-example-modal-xl" role="dialog ">
-  <div class="modal-dialog modal-xl" style="height:600px;">
+<div id="yesmodalfortour" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg"  role="document">
   <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-body p-0 m-0">
-         <section class="container">
-            <div class="left-half pr-0">
-                <div>
-                <h6 style="color:white; font-modal-childsize: 20px; padding-top: 20%" class="px-5 m-5 text-justify">THURSDAY<br>14 FEBRUARY
-                <br><br>
+    <div class="modal-content" style="overflow-y:auto">
+      <div class="modal-body p-0">
+        <div class="row">
+          <div class="col-md-4 bg-black">
+                <button type="button" class="close mob text-white" style="opacity:1;" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 style="color:white; font-modal-childsize: 20px; padding-top: 8%"class="px-5 m-5 text-center">THURSDAY<br>14 FEBRUARY
+                </h4>
+                <h6 style="color:white; font-modal-childsize: 20px; padding-top: 5%"class="px-2 m-4 mb-5 text-justify">
                 <small style="color:white; font-size: 14px;">
                 <i class="fa fa-map-marker fa-lg pull-left pt-1 mt-2"></i>
                 <div class="pull-left" style="width: 80%;">
@@ -49,21 +83,23 @@
                 </div>
                 </small>
                 </h6>
-                <h6 style="color:white; position: absolute; left:40px; right:30px; bottom:35%; font-size: 14px; border-bottom:1px solid #fff" class="mx-5 text-justify">BOOK A TOUR
+                <h6 style="color:white; position: absolute;  bottom:35%; font-size: 14px; border-bottom:1px solid #fff" class="mx-5 text-justify">BOOK A TOUR
                 </h6>
-               <h6 style="color:white; position: absolute; left:40px; right:30px; bottom:15%; font-size: 14px;" class="p-5 text-justify">
+               <h6 style="color:white; position: absolute; bottom:15%; font-size: 14px;" class="p-5 text-justify">
                 <small>Lorem Ipsum is simply ing industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.Lorem ipsum dolor sit amet,</small>
                </h6>
                <h6 style="color:white; position: absolute; left:40px; right:30px; bottom:-50px; font-size: 12px;" class="p-5 text-justify"><small><b>Reyada</b> | Collaborative workplace
                </small></h6>
-                </div>
             </div>
-            <div class="right-half"> 
-            <button type="button" class="close p-4" data-dismiss="modal">&#10006</button> 
+
+            <div class="col-md-8 bg-white">
+                <button type="button" class="close lap" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
            
               <form class="w-100" style="padding: 5em 2em 2em 2em;"> 
                 
-                <div class="hello-week04" id="tourCalforReg"> 
+                <div class="hello-week04" style="text-align: -webkit-center;" id="tourCalforReg"> 
                  <script>
             // const prev = document.querySelector('.demo-prev');
             // const next = document.querySelector('.demo-next');
@@ -101,7 +137,7 @@
 // })
 </script>
                 </div> 
-                <div  style="padding-left: 40px; padding-right: 30px; padding-top: 10px;" id="tourFormforReg">
+                <div  style="padding-left: 10px; padding-right: 10px; padding-top: 10px;" id="tourFormforReg">
         <div class="row text-left">
             <div class="col-md-6">
               <div class="group">
@@ -142,7 +178,7 @@
         </div>
               </form> 
             </div>
-       </section>
+        </div>
      </div>
     </div>
   </div>
@@ -183,7 +219,7 @@
 
 <!--click on No tour Modal-->
 <div id="nomodalfortour" class="modal fade bs-example-modal-xs" role="dialog ">
-  <div class="modal-dialog modal-xs modal-dialog-center" style="height:350px;" >
+  <div class="modal-dialog modal-xs modal-dialog-center" style="height:400px;" >
  <!-- Modal content-->
    <div class="modal-content" style="padding-top:0%; vertical-align: middle;">
      <div class="modal-body p-0 m-0">
@@ -247,26 +283,29 @@
 
 <!-- Pick date Modal for tour -->
 
-<div id="pickdatemodalfortour" class="modal fade bs-example-modal-xl" role="dialog ">
-<div class="modal-dialog modal-xl" style="height:600px;">
-        <div class="modal-content">
-            <div class="modal-body p-0 m-0">
-                <section class="container">
-                    <div class="left-half pr-0">
-                        <div>
-                            <h6 style="color:white; font-modal-childsize: 20px; padding-top: 20%"class="px-5 m-5 text-justify">
+<div id="pickdatemodalfortour" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+<div class="modal-dialog modal-lg"  role="document">
+        <div class="modal-content" style="overflow-y:auto">
+            <div class="modal-body p-0">
+              <div class="row">
+                  <div class="col-md-4 bg-black">
+                      <button type="button" class="close mob text-white" style="opacity:1;" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 style="color:white; font-modal-childsize: 20px; padding-top: 8%"class="px-5 m-5 text-center">
                             <span id="tourdate"><?php echo date("j F Y") ?></span>
-                                <br><br>
-                                <small style="color:white; font-size: 14px;">
-                                    <i class="fa fa-map-marker fa-lg pull-left pt-1 mt-2"></i>
-                                    <div class="pull-left" style="width: 90%;">
-                                        <div class="select-wrapper" style="width: 100%;">
-                                            <select class="location">
-                                            </select>
-                                        </div>
-                                    </div>
-                                </small>
-                            </h6>
+                    </h4>
+                    <h6 style="color:white; font-modal-childsize: 20px; padding-top: 5%"class="px-2 m-4 mb-5 text-justify">
+                          <small style="color:white; font-size: 14px;">
+                              <i class="fa fa-map-marker fa-lg pull-left pt-1 mt-2"></i>
+                              <div class="pull-left" style="width: 90%;">
+                                  <div class="select-wrapper" style="width: 100%;">
+                                      <select class="location">
+                                      </select>
+                                  </div>
+                              </div>
+                          </small>
+                      </h6>
                             <h6 style="color:white; position: absolute; top: 235px; left:100px; right:30px; font-size: 14px;"
                                 class="text-justify bg-black">
                                 <div class="col-md-12 col-sm-12 col-xs-12 row" id="resources">
@@ -274,21 +313,22 @@
                                 <br>
                                 <div class="col-md-12 col-sm-12 col-xs-12 row" id="bookings" style="overflow-y:auto;max-height: 200px">
                                 </div>
-                                <h6 style="color:white; position: absolute; left:40px; right:30px; bottom:35%; font-size: 14px; border-bottom:1px solid #fff" class="mx-5 text-justify">BOOK A TOUR</h6>
-                                <h6 style="color:white; position: absolute; left:40px; right:30px; bottom:15%; font-size: 14px;" class="p-5 text-justify">
+                                <h6 style="color:white; position: absolute; bottom:35%; font-size: 14px; border-bottom:1px solid #fff" class="mx-5 text-justify">BOOK A TOUR</h6>
+                                <h6 style="color:white; position: absolute;bottom:15%; font-size: 14px;" class="p-5 text-justify">
                                   <small>Lorem Ipsum is simply ing industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.Lorem ipsum dolor sit amet,</small>
                                 </h6>
                                 <h6 style="color:white; position: absolute; left:40px; right:30px; bottom:-50px; font-size: 12px;"
                                     class="p-5 text-justify"><small><b>Reyada</b> | Collaborative workplace
                                     </small>
                                 </h6>
-                        </div>
                     </div>
-                    <div class="right-half">
-                        <button type="button" class="close p-4" data-dismiss="modal">&#10006</button>
+                    <div class="col-md-8 bg-white">
+                        <button type="button" class="close lap" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
 
                         <form class="w-100" style="padding: 3em 2em 2em 2em;">
-                            <div class="hello-week05">
+                            <div class="hello-week05" style="text-align: -webkit-center;">
                                 <script>
                                 // const prev = document.querySelector('.demo-prev');
                                 // const next = document.querySelector('.demo-next');
@@ -335,7 +375,7 @@
                                 });
                                 </script>
                             </div>
-                            <div style="padding-left: 40px; padding-right: 30px; padding-top: 10px;" id="tourFormReg">
+                            <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px;" id="tourFormReg">
                                 <div class="row text-left">
                                     <div class="col-md-6">
                                     <input name="selected_date" id="tour_selected_date"  type="hidden">
@@ -426,7 +466,7 @@
                             </div>
                         </form>
                     </div>
-                </section>
+                              </div>
             </div>
         </div>
     </div>

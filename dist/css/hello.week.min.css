@@ -7,8 +7,9 @@
   .hello-week .navigation {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: baseline;
     padding: 0;
+    width: fit-content;
    }
   .hello-week .prev,
   .hello-week .next {
@@ -68,13 +69,13 @@ padding-bottom:20px;
     }
 
     .hello-week  .navigation .periodtime{
-        font-size:xx-large;
-        padding-right: 20px;
+        font-size:x-large;
+        padding-right: 10px;
     }
 
     .hello-week  .navigation .periodyear{
-      font-size:xx-large;
-      padding-left: 20px;
+      font-size: x-large;
+      padding-left: 10px;
     }
 
     .hello-weekMob01  .navigation{
