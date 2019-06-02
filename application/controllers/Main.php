@@ -179,6 +179,8 @@ class main extends CI_Controller
         $j_data['isPayingMember'] = false;
         $j_data['ProfileTagsArray'] = [];
 
+        
+
         $s_data = json_encode(array('base64avatar' => null, 'Coworker' => $j_data, 'Team' => new stdClass()));
         $url = "https://reyadatestaccount.spaces.nexudus.com/en/signup?_resource=,&_depth=1";
         $headers = array(
@@ -189,6 +191,8 @@ class main extends CI_Controller
 
         if(isset($output->RedirectTo) && !empty($output->RedirectTo)){
             if($this->signin($p_data['Email'], $p_data['Password'])){
+                $this->session->set_userdata('username', $p_data['Email']);
+                $this->session->set_userdata('password', $p_data['Password']);
                 $json['message'] = 'registered successfully';
                 $json['status'] = 200;
             }else{
@@ -272,14 +276,47 @@ class main extends CI_Controller
         }
 
     }
+
+    public function get_access_token($username,$password){
+        $p_data['email'] = $username;
+        $p_data['password'] = $password;
+        $p_data['validityInMinutes'] = 30; 
+        $s_data = json_encode($p_data);
+        $url = 'https://spaces.nexudus.com/api/sys/users/token';
+        $headers = array(
+            'Content-Type: application/json'
+        );
+        $output = $this->post_with_curl($url, $s_data, $headers);
+        if($output->Status == 200){
+            return $output->Value;
+        }
+        else{
+            return false;
+        }
+        
+    }
+
     public function subscription_plan(){
         $p_data = $this->input->post();
-        $url = 'https://reyadatestaccount.spaces.nexudus.com/en/profile/newcontract?tariffguid='.$p_data['tariff_guid'].'&startdate='.$p_data['selected_date'];
-        $headers = array(
-            'content-type: application/json',
-            'content-length: ' . strlen($url),
-        );
-        $output = $this->post_with_curl($url, null, $headers);
+        $username = $this->session->userdata('username');
+        $password = $this->session->userdata('password');
+        $access_token = $this->get_access_token($username,$password);
+        if(!empty($access_token)){
+            $url = 'https://reyadatestaccount.spaces.nexudus.com/en/profile/newcontract?tariffguid='.$p_data['tariff_guid'].'&startdate='.$p_data['selected_date'];
+            $headers = array(
+                'content-type: application/json',
+                'Authorization: Bearer '. $access_token
+            );
+            $output = $this->post_with_curl($url, null, $headers);
+            if(isset($output->RedirectTo) && !empty($output->RedirectTo)){
+                $json['message'] = 'registered successfully';
+                $json['status'] = 200;
+            }else{
+                $json['message'] = 'some error occured while processing your request';
+                $json['status'] = 500;
+            }
+        }
+        print_r(json_encode($json));
     }
 
     public function post_with_curl($url, $p_data = null, $headers){

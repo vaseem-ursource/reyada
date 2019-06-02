@@ -540,7 +540,7 @@ $("#addClass").click(function () {
   });
 
   $(document).on("click", "#continuebtn", function () {
-
+    $('.whole_div').show();
     post_array =
     {
         "FullName": $('[name="complete_name"]').val(),
@@ -565,7 +565,8 @@ $("#addClass").click(function () {
             if(data.status != 200){
               toastr.error('some error occured while processing your request');
             }else{
-              toastr.success('Logged in Successfully');
+              $('.whole_div').hide();
+              toastr.success('Registered Succesfully');
                $(".firstSignup").css('display', 'none');
                $(".secondSignup").css('display', 'block');
               // setTimeout(function(){
@@ -580,12 +581,10 @@ $("#addClass").click(function () {
         }
     });
 
-    $(".firstSignup").css('display', 'none');
-    $(".secondSignup").css('display', 'block');
-    
   });
 
   $(document).on("click", "#signUpBtn", function () {
+    $('.whole_div').show();
     var selected_date = $('#datetimepicker1').val();
     var selected_date = selected_date.replace("/", "-");
     var tariff_guid = $('#price_plans').val();
@@ -606,9 +605,13 @@ $("#addClass").click(function () {
         url: base_url + 'main/subscription_plan',
         data: post_array,
         success: function(data) {
-           console.log(data);
+          if(data.status == 200){
+            toastr.success('Plan Added Successfully');
+          }
         },
         error: function(jqxhr, status, error) {
+          $('.whole_div').hide();
+          toastr.error('some error occured while processing your request');
           console.log(jqxhr);
           console.log(status);
           console.log(error);
@@ -632,11 +635,7 @@ $("#addClass").click(function () {
         success: function(data) {
             if(data.status != 200){
               toastr.error('Username or Password incorrect');
-              // $('#error_msg_signin').text(data.message);
-              // $('#error_msg_signin').fadeIn().delay(5000).fadeOut();
             }else{
-              // $('#success_msg_signin').text(data.message);
-              // $('#success_msg_signin').fadeIn().delay(5000).fadeOut();
               toastr.success('Logged in successfully');
               setTimeout(function() {
                   location.reload();

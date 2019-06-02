@@ -1079,28 +1079,29 @@ $(document).ready(function() {
         if (name === '' || email === '' || resource === '0' || fromtime === '0' || totime === '0') {
             $('#validation_message').append('All The Fields are Mandatory');
             $('#validation_message').fadeIn().delay(5000).fadeOut();
-
+            $('.whole_div').hide();
         return false;
         } else if (!(email).match(emailReg)) {
             $('#validation_message').append('Invalid Email...!!!!!!');
             $('#validation_message').fadeIn().delay(5000).fadeOut();
-
+            $('.whole_div').hide();
         return false;
         }
         else if (date < cur_date) {
             $('#validation_message').append('Booking cannot be done for the past date');
             $('#validation_message').fadeIn().delay(5000).fadeOut();
-
+            $('.whole_div').hide();
         return false;
         }else if (fromtime == totime) {
             $('#validation_message').append('Start and End time cannot be same');
             $('#validation_message').fadeIn().delay(5000).fadeOut();
-
+            $('.whole_div').hide();
         return false;
         }
         else if((ConvertTimeformat(fromtime) < cur_time || ConvertTimeformat(totime) < cur_time) && date == cur_date){
             $('#validation_message').append('Booking cannot be done for the past time');
             $('#validation_message').fadeIn().delay(5000).fadeOut();
+            $('.whole_div').hide();
         }
         else {
             return true;
@@ -1126,28 +1127,29 @@ $(document).ready(function() {
         if (name === '' || email === '' || location === '0' || fromtime === '0' ) {
             $('#tour_validation_message').append('All The Fields are Mandatory');
             $('#tour_validation_message').fadeIn().delay(5000).fadeOut();
-
+            $('.whole_div').hide();
         return false;
         } else if (!(email).match(emailReg)) {
             $('#tour_validation_message').append('Invalid Email...!!!!!!');
             $('#tour_validation_message').fadeIn().delay(5000).fadeOut();
-
+            $('.whole_div').hide();
         return false;
         }
         else if (date < cur_date) {
             $('#tour_validation_message').append('Booking cannot be done for the past date');
             $('#tour_validation_message').fadeIn().delay(5000).fadeOut();
-
+            $('.whole_div').hide();
         return false;
         }else if (fromtime == totime) {
             $('#tour_validation_message').append('Start and End time cannot be same');
             $('#tour_validation_message').fadeIn().delay(5000).fadeOut();
-
+            $('.whole_div').hide();
         return false;
         }
         else if(ConvertTimeformat(fromtime) < cur_time && date == cur_date){
             $('#tour_validation_message').append('Booking cannot be done for the past time');
             $('#tour_validation_message').fadeIn().delay(5000).fadeOut();
+            $('.whole_div').hide();
         }
         else {
             return true;
