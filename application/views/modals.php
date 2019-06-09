@@ -541,46 +541,50 @@ $("#addClass").click(function () {
 
   $(document).on("click", "#continuebtn", function () {
     $('.whole_div').show();
-    post_array =
-    {
-        "FullName": $('[name="complete_name"]').val(),
-        "CompanyName": $('[name="company_name"]').val(),
-        "Email": $('[name="signup_email"]').val(),
-        "ProfileWebsite": $('[name="profile_website"]').val(),
-        "MobilePhone": $('[name="mobile_phone"]').val(),
-        "BillingAddress": $('[name="billing_address"]').val(),
-        "Password": $('[name="password"]').val(),
-        "PasswordConfirm": $('[name="confirm_password"]').val(),
-        "BusinessArea": $('[name="business_area"]').val(),
-        "SignUpToNewsletter": $('[name="receive_news_letter"]').val()
-    }
+    var check_passowrd = validate_sign_up_form($('[name="password"]').val(),$('[name="confirm_password"]').val(), $('[name="complete_name"]').val(),
+    $('[name="company_name"]').val(),$('[name="signup_email"]').val(),$('[name="profile_website"]').val(),$('[name="mobile_phone"]').val(),$('[name="business_area"]').val());
+    if(check_passowrd == true){
+      post_array =
+      {
+          "FullName": $('[name="complete_name"]').val(),
+          "CompanyName": $('[name="company_name"]').val(),
+          "Email": $('[name="signup_email"]').val(),
+          "ProfileWebsite": $('[name="profile_website"]').val(),
+          "MobilePhone": $('[name="mobile_phone"]').val(),
+          "BillingAddress": $('[name="billing_address"]').val(),
+          "Password": $('[name="password"]').val(),
+          "PasswordConfirm": $('[name="confirm_password"]').val(),
+          "BusinessArea": $('[name="business_area"]').val(),
+          "SignUpToNewsletter": $('[name="receive_news_letter"]').val()
+      }
 
-    $.ajax({
-        type: 'POST',
-        dataType: 'json',
-        url: base_url + 'main/signup',
-        data: post_array,
-        success: function(data) {
-            console.log(data);
-            if(data.status != 200){
-              $('.whole_div').hide();
-              toastr.error('some error occured while processing your request');
-            }else{
-              $('.whole_div').hide();
-              toastr.success('Registered Succesfully');
-               $(".firstSignup").css('display', 'none');
-               $(".secondSignup").css('display', 'block');
-              // setTimeout(function(){
-              //     location.reload();
-              // }, 3000)   
-            }
-        },
-        error: function(jqxhr, status, error) {
-          console.log(jqxhr);
-          console.log(status);
-          console.log(error);
-        }
-    });
+      $.ajax({
+          type: 'POST',
+          dataType: 'json',
+          url: base_url + 'main/signup',
+          data: post_array,
+          success: function(data) {
+              console.log(data);
+              if(data.status != 200){
+                $('.whole_div').hide();
+                toastr.error(data.message);
+              }else{
+                $('.whole_div').hide();
+                toastr.success('Registered Succesfully');
+                $(".firstSignup").css('display', 'none');
+                $(".secondSignup").css('display', 'block');
+                // setTimeout(function(){
+                //     location.reload();
+                // }, 3000)   
+              }
+          },
+          error: function(jqxhr, status, error) {
+            console.log(jqxhr);
+            console.log(status);
+            console.log(error);
+          }
+      });
+    }
 
   });
 
@@ -652,6 +656,56 @@ $("#addClass").click(function () {
     });
   
   });
+
+  function validate_sign_up_form(password,confirm_password,complete_name,company_name,signup_email,profile_website,mobile_phone,business_area){
+    $('#error_msg_signup').empty();
+    if (complete_name === '' || company_name === '' || signup_email === '' || profile_website === '' || mobile_phone === '' || business_area === '') {
+        $('#error_msg_signup').append('All The Fields are Mandatory');
+        $('#error_msg_signup').fadeIn().delay(5000).fadeOut();
+        $('.whole_div').hide();
+    return false;
+    }
+    if (!(signup_email).match(/^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i)){
+        $('#error_msg_signup').append('Invalid Email...!!!!!!');
+        $('#error_msg_signup').fadeIn().delay(5000).fadeOut();
+        $('.whole_div').hide();
+    return false;
+    }
+    if (!(mobile_phone).match(new RegExp('^[2-9][0-9]*$')) || mobile_phone.length != 8) {
+        $('#error_msg_signup').append('Invalid MObile Number(must be 8 digits only)');
+        $('#error_msg_signup').fadeIn().delay(5000).fadeOut();
+        $('.whole_div').hide();
+        return false;
+    }
+    if (!password.match(/([!,%,&,@,#,$,^,*,?,_,~])/)){
+      $('#error_msg_signup').append('password Should contain one special character');
+      $('#error_msg_signup').fadeIn().delay(5000).fadeOut();
+      $('.whole_div').hide();
+      return false;
+    }
+    if (password != confirm_password){
+      $('#error_msg_signup').append('Password and confirm password should be same');
+      $('#error_msg_signup').fadeIn().delay(5000).fadeOut();
+      $('.whole_div').hide();
+      return false;
+    }
+    if(password.length < 7){
+      $('#error_msg_signup').append('Password should contain more than 8 characters');
+      $('#error_msg_signup').fadeIn().delay(5000).fadeOut();
+      $('.whole_div').hide();
+      return false;
+    }
+    if(!password.match(/([a-z].*[A-Z])|([A-Z].*[a-z])/)){
+      $('#error_msg_signup').append('password Should contain both lower and uppercase characters');
+      $('#error_msg_signup').fadeIn().delay(5000).fadeOut();
+      $('.whole_div').hide();
+      return false;
+    }
+    else{
+      return true;
+    }
+
+  }
 
   function get_price_plans(plan_name = null){
     $(".price_plans").empty();

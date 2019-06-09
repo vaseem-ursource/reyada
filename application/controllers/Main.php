@@ -196,7 +196,7 @@ class main extends CI_Controller
                 $json['message'] = 'registered successfully';
                 $json['status'] = 200;
             }else{
-                $json['message'] = 'some error occured while logging in, please login manually with the information provided';
+                $json['message'] = 'There is a user already with the similar email';
                 $json['status'] = 500;
             }
         }else{
