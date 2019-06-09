@@ -563,6 +563,7 @@ $("#addClass").click(function () {
         success: function(data) {
             console.log(data);
             if(data.status != 200){
+              $('.whole_div').hide();
               toastr.error('some error occured while processing your request');
             }else{
               $('.whole_div').hide();

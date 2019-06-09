@@ -2,7 +2,7 @@
 
 <div class="modal fade" id="bookingmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
   <div class="modal-dialog  modal-lg" role="document">
-    <div class="modal-content" style="overflow-y:auto">
+    <div class="modal-content">
       <div class="modal-body p-0">
         <div class="row">
             <div class="col-md-4 bg-black">
@@ -28,7 +28,7 @@
                     <div class="col-md-12 col-sm-12 col-xs-12 row" id="resources">
                     </div>
                     <br>
-                    <div class="col-md-12 col-sm-12 col-xs-12 row" id="bookings" style="overflow-y:auto;max-height: 200px">
+                    <div class="col-md-12 col-sm-12 col-xs-12 row booking-div" id="bookings">
                     </div>
                     <h6 style="color:white; position: absolute; left:20px; right:20px; top:75%; font-size: 13px;width:100%;"
                         class="py-5 px-3 text-justify booking-option">
@@ -42,10 +42,11 @@
                         </div>
                         </small>
                     </h6>
-                    <h6 style="color:white; position: absolute; left:40px; right:30px; bottom:-50px; font-size: 12px;"
-                        class="p-5 text-justify"><small><b>Reyada</b> | Collaborative workplace
+                    <h6 style="color:white; position: absolute; left:40px; right:30px; bottom:-50px; font-size: 16px;"
+                        class="p-5 text-center"><small><b>Reyada</b> | Collaborative workplace
                         </small>
                     </h6>
+                </h6>
             </div>
             <div class="col-md-8 bg-white">
                  <button type="button" class="close lap" data-dismiss="modal" aria-label="Close">
@@ -98,7 +99,7 @@
                                     }
                                 });
                                 </script>
-                            </div>
+                            </div><br>
                             <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px;" id="meetFormReg">
                                 <div class="row text-left">
                                     <div class="col-md-6">
@@ -1227,7 +1228,7 @@ function get_resources(location_id) {
                 $('.whole_div').hide();
                 var res_id = resources[0].Id;
                 $.each(resources, (key, resource) => {
-                    var resources = "<div class='col-md-6 row p-0 m-0'>" +
+                    var resources = "<div class='col-md-6 col-sm-6 row p-0 m-0'>" +
                         "<span  class='resource' style='color:white;font-size:12px;cursor:pointer' data-id ='" +resource.Id +"'>" + resource.Name + "</span>" +
                         // "<small>" + "<br>" + resource.ResourceTypeName +
                         // "</small>" +
@@ -1239,12 +1240,12 @@ function get_resources(location_id) {
                 get_bookings(res_id);
             } else {
                 $('.whole_div').hide();
-                var resources = "<div class='col-md-6 row p-0 m-0'>" +
+                var resources = "<div class='col-md-6 col-sm-6 row p-0 m-0'>" +
                                     "<a href='#' style='color:white;font-size:12px;' id='the'>" +
                                     'No Resources Available' + "</a>" +
                                 "</div>";
                 $("#resources").append(resources);
-                $("#select-resource").append("<option value ='0'>" + 'Select Resource' + "</option>");
+                $("#select-resource").append("<option value ='0'>" + 'No Resources Available' + "</option>");
             }
         }
     });
@@ -1266,14 +1267,14 @@ function get_bookings(res_id) {
             if (Bookings.length != '0') {
                 $.each(Bookings, (key, booking) => {
                     var bookings = 
-                    "<div class='col-md-6 p-0 m-0'>"+ 
-                        "<span style='color: #fff; font-size: 14px;'>"+"<br>"+ moment(booking.FromTime ).format('h:mm a')+"<br>"+"</span>"+
-                        "<span style='color: #fff; font-size: 11px;'>"+moment(booking.ToTime ).format('h:mm a')+"<br>"+"</span>"+
+                    "<div class='col-md-6 col-sm-6 p-0 m-0'>"+ 
+                        "<span style='color: #fff; font-size: 16px;'>"+"<br>"+ moment(booking.FromTime ).format('h:mm a')+"<br>"+"</span>"+
+                        "<span style='color: #fff; font-size: 13px;'>"+moment(booking.ToTime ).format('h:mm a')+"<br>"+"</span>"+
                     "</div>"+
-                    "<div class='col-md-6 p-0 m-0'>"+
-                        "<span style='color: #fff; font-size: 12px;'>"+"<br>"+moment(booking.FromTime ).format('YYYY-MM-DD')+"<br>"+"</span>"+
-                        "<span style='color: #fff; font-size: 11px;'>"+ booking.ResourceName +"<br>"+"</span>"+
-                        "<span style='color: #fff; font-size: 10px;'>"+ booking.CoworkerFullName +"<br>"+"</span>"+
+                    "<div class='col-md-6 col-sm-6 p-0 m-0'>"+
+                        "<span style='color: #fff; font-size: 14px;'>"+"<br>"+moment(booking.FromTime ).format('YYYY-MM-DD')+"<br>"+"</span>"+
+                        "<span style='color: #fff; font-size: 12px;'>"+ booking.ResourceName +"<br>"+"</span>"+
+                        "<span style='color: #fff; font-size: 12px;'>"+ booking.CoworkerFullName +"<br>"+"</span>"+
                     "</div>";
                     $("#bookings").append(bookings);
                 })

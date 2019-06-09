@@ -943,6 +943,10 @@ background-color:grey;
   padding: 8px 16px; 
 
   } 
+  .booking-div{
+    overflow-y:auto;
+    max-height: 200px
+  }
   
   .pagination1  a:hover:not(.active) {background-color:#fff;border: 1px solid #343a40;
   } 
@@ -951,6 +955,7 @@ background-color:grey;
      .modal-lg, .modal-xl {
     max-width: 85%;  
   }
+  
 }
 .bg-black{
   background: #000;
