@@ -1,3 +1,4 @@
+
   <section id="intro" class="clearfix align-middle" style="background:url('<?= base_url()?>image/home1.jpg') center  no-repeat;background-size: cover;height:100vh">
     <div class="container d-flex h-100">
       <div class="row justify-content-center align-self-center">
@@ -107,10 +108,20 @@
     ============================-->
     <section id="about">
       <div class="container p-0 m-0">
-        <div class="row p-0 m-0  align-middle">
+        <div class="row p-0 m-0  align-middle" >
 
-          <div class="col-md-6 col-sm-12 p-0 m-0 ">
-              <img src="<?= base_url()?>image/arabic.png" class="img-fluid" alt="">
+          <div class="col-md-6 p-0 m-0" style="height:200px">
+            <span class='a'>تعاون </span>
+            <span class='b'>مبادرة </span>
+            <span class='c'>ابتكار </span>
+            <span class='d'>سعادة </span>
+            <span class='e'>تفاؤل </span>
+            <span class='f'>نجاح </span>
+            <span class='g'>شجاعة </span>
+            <span class='h'>احترام  </span>
+            <span class='i'>تطور  </span>
+            <span class='j'>طموح  </span>
+            <span class='k'>ريادة  </span>
            </div>
 
           <div class="col-md-6 col-sm-12 pl-5">
@@ -128,7 +139,6 @@
       </div>
 
     </section><!-- #about -->
-
 
     <!--==========================
       Amenities Title
@@ -484,8 +494,9 @@
 // });
 
 $(document).on("click", "#bookingmodal", function () {
-         $("#bookingmodal").modal("show"); 
-         });
+  $("#bookingmodal").modal("show"); 
+});
 </script>
+
 
  

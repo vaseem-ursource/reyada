@@ -1266,13 +1266,15 @@ function get_bookings(res_id) {
             var Bookings = bookings.Records;
             if (Bookings.length != '0') {
                 $.each(Bookings, (key, booking) => {
+                    var fromtime = moment.tz(booking.FromTime, "Asia/Kuwait");
+                    var totime =   moment.tz(booking.ToTime, "Asia/Kuwait");
                     var bookings = 
                     "<div class='col-md-6 col-sm-6 p-0 m-0'>"+ 
-                        "<span style='color: #fff; font-size: 16px;'>"+"<br>"+ moment(booking.FromTime ).format('h:mm a')+"<br>"+"</span>"+
-                        "<span style='color: #fff; font-size: 13px;'>"+moment(booking.ToTime ).format('h:mm a')+"<br>"+"</span>"+
+                        "<span style='color: #fff; font-size: 16px;'>"+"<br>"+ moment(fromtime).format('h:mm a')+"<br>"+"</span>"+
+                        "<span style='color: #fff; font-size: 13px;'>"+moment(totime).format('h:mm a')+"<br>"+"</span>"+
                     "</div>"+
                     "<div class='col-md-6 col-sm-6 p-0 m-0'>"+
-                        "<span style='color: #fff; font-size: 14px;'>"+"<br>"+moment(booking.FromTime ).format('YYYY-MM-DD')+"<br>"+"</span>"+
+                        "<span style='color: #fff; font-size: 14px;'>"+"<br>"+moment(fromtime).format('YYYY-MM-DD')+"<br>"+"</span>"+
                         "<span style='color: #fff; font-size: 12px;'>"+ booking.ResourceName +"<br>"+"</span>"+
                         "<span style='color: #fff; font-size: 12px;'>"+ booking.CoworkerFullName +"<br>"+"</span>"+
                     "</div>";
