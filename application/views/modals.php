@@ -54,7 +54,7 @@
                         <span style="color:#999; font-size: 11px;" required>something else</span>
                     </div><br>
                     <div class="group">
-                        <input type="text" name="notes" id="notes"><span class="highlight"></span><span class="bar"></span>
+                        <input type="text" name="notes" id="notes" required><span class="highlight"></span><span class="bar"></span>
                         <label>Notes</label>
                     </div>
                     <br><br>
@@ -611,7 +611,11 @@ $("#addClass").click(function () {
         data: post_array,
         success: function(data) {
           if(data.status == 200){
+            $('.whole_div').hide();
             toastr.success('Plan Added Successfully');
+            setTimeout(function(){
+                location.reload();
+            }, 3000) 
           }
         },
         error: function(jqxhr, status, error) {

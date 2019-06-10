@@ -109,7 +109,7 @@
                                     <input name="mobile" id="mobile" type="hidden">
                                     <input name="state" id="state" type="hidden">
                                         <div class="group">
-                                            <input name="name" id="fname" type="text" placeholder="Full Name"><span class="highlight"></span><span class="bar"></span>
+                                            <input name="name" id="fname" type="text" placeholder="Full Name" <?= ($is_logged_in == 'is_logged_in' ? 'readonly' : null);?> ><span class="highlight"></span><span class="bar"></span>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -120,7 +120,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="group">
-                                            <input name="email" id="femail" type="email" placeholder="Email"><span class="highlight"></span><span class="bar"></span>
+                                            <input name="email" id="femail" type="email" placeholder="Email" <?= ($is_logged_in == 'is_logged_in' ? 'readonly' : null);?>><span class="highlight"></span><span class="bar"></span>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
