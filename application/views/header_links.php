@@ -15,11 +15,10 @@
   <link href="<?= base_url()?>lib/ionicons/css/ionicons.min.css" rel="stylesheet">
   <link href="<?= base_url()?>lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
   <link href="<?= base_url()?>lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-
   <link href="<?= base_url()?>dist/css/hello.week.min.css" rel="stylesheet">
   <link href="<?= base_url()?>dist/css/hello.week.theme.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"/>
   <script src="<?= base_url()?>dist/hello.week.min.js"></script>
-
   <!-- Main Stylesheet File -->
   <link href="<?= base_url()?>css/style.css" rel="stylesheet">
   <link href="<?= base_url()?>css/mystyle.css" rel="stylesheet">
@@ -30,5 +29,16 @@
   <link rel="stylesheet" href="<?= base_url()?>css/accordian_style.css">
   <link rel="stylesheet" href="<?= base_url()?>css/toastr.min.css" />
   <script type="text/javascript"  src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
+  <script src="<?= base_url()?>js/moment-timezone-with-data-10-year-range.min.js"></script>
   <script type="text/javascript"  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
   <script src="<?= base_url()?>js/date-format.js"></script>
+  <script type="text/javascript">
+    $(function () {
+    $("#datepicker").datepicker({ 
+          autoclose: true, 
+          todayHighlight: true,
+          zIndex: 2048,
+    }).datepicker('update', new Date());
+  });
+  </script>

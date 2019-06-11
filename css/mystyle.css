@@ -391,16 +391,16 @@ input:focus { outline: none; border-bottom: 0px solid #000;}
 
 /* Label */ 
 
-label { 
+label:not(.test_container) { 
    color: #999;  
    font-size: 14px; 
    font-weight: normal; 
    position: absolute; 
 pointer-events: none; 
 text-align: left; 
-   /* left: 5px; */ 
+   left: 5px; 
 top: 5px; 
-/* bottom: 0px; */ 
+bottom: 0px; 
    transition: all 0.2s ease; 
 } 
 
@@ -534,6 +534,7 @@ footer a:hover {
    color: #666; 
 text-decoration: underline; 
 } 
+
 input[type=checkbox] { 
 width: 12px; 
 height: 12px; 
@@ -549,8 +550,75 @@ border-top: 5px solid white;
 display: block; 
 opacity: 1; 
 } 
+ 
+/* custom radio button */
+/* The container */
+.test_container {
+  display: block;
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 13px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 
-input[type=radio] { 
+/* Hide the browser's default radio button */
+.test_container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 15px;
+  width: 15px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.test_container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.test_container input:checked ~ .checkmark {
+  background-color: #000;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.test_container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.test_container .checkmark:after {
+ 	top: 5.5px;
+	left: 6px;
+	width: 4px;
+	height: 4px;
+	border-radius: 50%;
+	background: white;
+}
+/* custom radio button ends here */
+
+
+
+/* input[type=radio] { 
   width: 12px; 
   height: 12px; 
   margin-right: 5px; 
@@ -562,7 +630,8 @@ input[type=radio] {
   input[type=radio]:after
   { 
     content: ""; 
-    /* border-bottom: 10px solid white; */ 
+  border: 1px solid #343a40; 
+    border-bottom: 10px solid white; 
     border-top: 5px solid white; 
     display: block; 
     opacity: 1; 
@@ -572,7 +641,7 @@ input[type=radio] {
   { 
     border-bottom: 5px solid #343a40; 
     border-top: 5px solid #343a40; 
-  } 
+  }  */
 
 footer img:hover { opacity: .83; } 
 
@@ -874,6 +943,10 @@ background-color:grey;
   padding: 8px 16px; 
 
   } 
+  .booking-div{
+    overflow-y:auto;
+    max-height: 200px
+  }
   
   .pagination1  a:hover:not(.active) {background-color:#fff;border: 1px solid #343a40;
   } 
@@ -882,8 +955,175 @@ background-color:grey;
      .modal-lg, .modal-xl {
     max-width: 85%;  
   }
+  
 }
 .bg-black{
   background: #000;
   color:#fff;
+}
+
+/* fadein fadeout section in home page */
+span.a {
+  color: grey;
+  opacity:0;
+  position: relative;
+  margin-left:10px;
+  font-size:45px;
+  -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+  -webkit-animation-iteration-count: infinite; /* Safari 4.0 - 8.0 */
+  animation-name: example;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+span.b {
+  color: grey;
+  opacity:0;
+  position: relative;
+  margin-left:45px;
+  font-size:45px;
+  -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+  -webkit-animation-iteration-count: infinite; /* Safari 4.0 - 8.0 */
+  animation-name: example;
+  animation-duration:11s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+span.c {
+  color: grey;
+  opacity:0;
+  position: relative;
+  margin-left:70px;
+  font-size:45px;
+  -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+  -webkit-animation-iteration-count: infinite; /* Safari 4.0 - 8.0 */
+  animation-name: example;
+  animation-duration: 14s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+span.d {
+  color: grey;
+  opacity:0;
+  position: relative;
+  margin-left:100px;
+  font-size:45px;
+  -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+  -webkit-animation-iteration-count: infinite; /* Safari 4.0 - 8.0 */
+  animation-name: example;
+  animation-duration: 16s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+span.e {
+  color: grey;
+  opacity:0;
+  position: relative;
+  margin-left:120px;
+  font-size:45px;
+  -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+  -webkit-animation-iteration-count: infinite; /* Safari 4.0 - 8.0 */
+  animation-name: example;
+  animation-duration: 18s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+span.f {
+  color: grey;
+  opacity:0;
+  position: relative;
+  margin-left:145px;
+  font-size:45px;
+  -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+  -webkit-animation-iteration-count: infinite; /* Safari 4.0 - 8.0 */
+  animation-name: example;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+span.g {
+  color: grey;
+  opacity:0;
+  position: relative;
+  margin-left:70px;
+  font-size:45px;
+  -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+  -webkit-animation-iteration-count: infinite; /* Safari 4.0 - 8.0 */
+  animation-name: example;
+  animation-duration:22s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+span.h {
+  color: grey;
+  opacity:0;
+  position: relative;
+  margin-left:50px;
+  font-size:45px;
+  -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+  -webkit-animation-iteration-count: infinite; /* Safari 4.0 - 8.0 */
+  animation-name: example;
+  animation-duration: 24s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+span.i {
+  color: grey;
+  opacity:0;
+  position: relative;
+  margin-left:20px;
+  font-size:45px;
+  -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+  -webkit-animation-iteration-count: infinite; /* Safari 4.0 - 8.0 */
+  animation-name: example;
+  animation-duration:26s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+span.j {
+  color: grey;
+  opacity:0;
+  position: relative;
+  margin-left:170px;
+  font-size:45px;
+  -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+  -webkit-animation-iteration-count: infinite; /* Safari 4.0 - 8.0 */
+  animation-name: example;
+  animation-duration: 28s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+span.k {
+  color: black;
+  opacity:0;
+  position: relative;
+  margin-left:0px;
+  font-size:45px;
+  -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+  -webkit-animation-iteration-count: infinite; /* Safari 4.0 - 8.0 */
+  animation-name: example;
+  animation-duration: 30s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+@keyframes example {
+  0%   {color:grey; left:0px; top:0px; opacity:0;}
+  25%  {color:black; left:0px; top:0px;opacity:1}
+}
+@media only screen and (max-width: 600px) {
+  span.a,span.b,span.c,span.d,span.e,span.f,span.g,span.h,span.i,span.j,span.k {
+    font-size:25px;
+  }
+}
 }
