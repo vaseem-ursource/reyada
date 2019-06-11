@@ -845,7 +845,9 @@ $(document).ready(function() {
 
     $("#pickDate").click(function(e) {
         $('#confirmBooking').empty();
-        if (mr_form_validation())
+        var id = 'message';
+        var valiadte_form = mr_form_validation($("#fullname").val(),$("#email").val(),$("#fulladdress").val(),$("#area").val(),$("#phone").val(),id)
+        if (valiadte_form == true)
         {
             $('#fname').val($("#fullname").val());
             $('#femail').val($("#email").val());
@@ -863,37 +865,12 @@ $(document).ready(function() {
             return false;  
         }
     })
-    
-    function mr_form_validation() {
-        $('#message').empty();
-        var name = $("#fullname").val();
-        var Address = $("#fulladdress").val();
-        var area = $("#area").val();
-        var phone = $("#phone").val();
-        var email = $("#email").val();
-        var emailReg = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
-        var digit_pattern = new RegExp('^[2-9][0-9]*$');
-        if (name === '' || email === '' || Address === '' || area === '' || phone === '') {
-            $('#message').append('Please fill out all the fields');
-            $('#message').fadeIn().delay(5000).fadeOut();
-
-        return false;
-        } else if (!(email).match(emailReg)) {
-            $('#message').append('Invalid Email...!!!!!!');
-            $('#message').fadeIn().delay(5000).fadeOut();
-        return false;
-        } else if (!(phone).match(digit_pattern) || phone.length != 8) {
-            $('#message').append('Must be Number(8 digits only)');
-            $('#message').fadeIn().delay(5000).fadeOut();
-            return false;
-        }else {
-            return true;
-        }
-    }
 
     $("#pickDateTour").click(function(e) {
         $('#confirmtour').empty();
-        if (tour_form_validation())
+        var id = 't_message';
+        var valiadte_form = mr_form_validation($("#t_name").val(),$("#t_email").val(),$("#t_address").val(),$("#t_area").val(),$("#t_mobile").val(),id)
+        if (valiadte_form == true)
         {
             $('#tour_fname').val($("#t_name").val());
             $('#tour_email').val($("#t_email").val());
@@ -911,32 +888,29 @@ $(document).ready(function() {
         }
         
     })
-
-    function tour_form_validation() {
-        $('#t_message').empty();
-        var name = $("#t_name").val();
-        var Address = $("#t_address").val();
-        var area = $("#t_area").val();
-        var phone = $("#t_mobile").val();
-        var email = $("#t_email").val();
+    
+    function mr_form_validation(fullname,email,fulladdress,area,phone,id) {
+        $('#'+id).empty();
         var emailReg = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
         var digit_pattern = new RegExp('^[2-9][0-9]*$');
-        if (name === '' || email === '' || Address === '' || area === '' || phone === '') {
-            $('#t_message').append('Please fill out all the fields');
-            $('#t_message').fadeIn().delay(5000).fadeOut();
+        if (fullname === '' || email === '' || fulladdress === '' || area === '' || phone === '') {
+            $('#'+id).append('Please fill out all the fields');
+            $('#'+id).fadeIn().delay(5000).fadeOut();
+
         return false;
         } else if (!(email).match(emailReg)) {
-            $('#t_message').append('Invalid Email...!!!!!!');
-            $('#t_message').fadeIn().delay(5000).fadeOut();
+            $('#'+id).append('Invalid Email...!!!!!!');
+            $('#'+id).fadeIn().delay(5000).fadeOut();
         return false;
         } else if (!(phone).match(digit_pattern) || phone.length != 8) {
-            $('#t_message').append('Must be Number(8 digits only)');
-            $('#t_message').fadeIn().delay(5000).fadeOut();
+            $('#'+id).append('phone must be Number(8 digits only)');
+            $('#'+id).fadeIn().delay(5000).fadeOut();
             return false;
         }else {
             return true;
         }
     }
+
     $('#toursubmit').click(function(e){
         $('.whole_div').show();
         if(tour_validation()){
@@ -989,26 +963,28 @@ $(document).ready(function() {
         $('.whole_div').show();
         if (booking_validation())
         {
+            var time1 = $("#fromtime").val();
+            var time2 = $("#totime").val();
             if($('#selected_date').val() == ""){
                 var date = cur_date; 
             }
             else{
                 var date = $('#selected_date').val(); 
             }
-            var time1 = ConvertTimeformat($("#fromtime").val());
-            var time2 = ConvertTimeformat($("#totime").val());
-            var fromTime = date +'T'+  time1  + 'Z'; 
-            var toTime = date +'T'+  time2  + 'Z'; 
+            
+            var time1 = ConvertTimeformat(moment(time1, 'h:mm A').subtract('hours', 3).format('h:mm A'));
+            var time2 = ConvertTimeformat(moment(time2, 'h:mm A').subtract('hours', 3).format('h:mm A'));
+            var fromTime = date +'T'+ time1 +'Z'; 
+            var toTime   = date +'T'+ time2 +'Z';
             if(is_logged_in == 1 ){
                 post_array =
                 {
                     "CoworkerId": user_info.Id,
                     "ResourceId": $("#select-resource").val(),
-                    "FromTime":fromTime,
-                    "ToTime": toTime,
+                    "FromTime":time1,
+                    "ToTime": time2,
                 };
                 myJSON = JSON.stringify(post_array);
-                console.log(myJSON)
                 create_booking(myJSON);
             }
             else
@@ -1040,7 +1016,6 @@ $(document).ready(function() {
                             "ToTime": toTime,
                         };
                         myJSON = JSON.stringify(post_array);
-                        console.log(myJSON);
                         create_booking(myJSON);
                     },
                     error: function(xhr){
@@ -1157,13 +1132,13 @@ $(document).ready(function() {
         }
     }
 
-    function addDays(date) {
-        var result = date.substr(8);
-        var day = '1';
-        var sh = parseInt(result)+ parseInt(day);
-        var new_result = date.substr(0,8) + sh;
-        return new_result;
-    }
+    // function addDays(date) {
+    //     var result = date.substr(8);
+    //     var day = '1';
+    //     var sh = parseInt(result)+ parseInt(day);
+    //     var new_result = date.substr(0,8) + sh;
+    //     return new_result;
+    // }
 
     function ConvertTimeformat(time) {
         var hours = Number(time.match(/^(\d+)/)[1]);
@@ -1178,152 +1153,147 @@ $(document).ready(function() {
         var selected_time = sHours + ":" + sMinutes;
         return selected_time;
     }
-    
-
-// var indiaTime = new Date().toLocaleString("en-US", {timeZone: "Asia/Kuwait"});
-// indiaTime = new Date(indiaTime);
-// console.log('India time: '+indiaTime.toLocaleString())
-function get_locations(){
-    $.ajax({
-        type: 'GET',
-        url: 'https://spaces.nexudus.com/api/sys/businesses',
-        beforeSend: function(xhr) {
-            xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + password));
-        },
-        dataType: 'json',
-        success: function(locations) {
-            var location = locations.Records;
-            
-            if (location.length != 0) {
-                $.each(locations.Records, (key, location) => {
-                    $(".location-drp-dwn").append("<option value ='" +location.Id + " '>" + location.Name + "</option>");
-                    $(".location").append("<option value ='" +location.WebAddress + " '>" + location.Name + "</option>");
-                });
-                get_resources(location[0].Id);
-            } else {
-                $(".location-drp-dwn").append("<option value ='0'>" +'No Locations' + "</option>");
+    function get_locations(){
+        $.ajax({
+            type: 'GET',
+            url: 'https://spaces.nexudus.com/api/sys/businesses',
+            beforeSend: function(xhr) {
+                xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + password));
+            },
+            dataType: 'json',
+            success: function(locations) {
+                var location = locations.Records;
+                
+                if (location.length != 0) {
+                    $.each(locations.Records, (key, location) => {
+                        $(".location-drp-dwn").append("<option value ='" +location.Id + " '>" + location.Name + "</option>");
+                        $(".location").append("<option value ='" +location.WebAddress + " '>" + location.Name + "</option>");
+                    });
+                    get_resources(location[0].Id);
+                } else {
+                    $(".location-drp-dwn").append("<option value ='0'>" +'No Locations' + "</option>");
+                }
+            },
+            error: function(xhr) {
+                $(".location-drp-dwn").append("<option value ='0'>" + 'No Locations' +"</option>");
             }
-        },
-        error: function(xhr) {
-            $(".location-drp-dwn").append("<option value ='0'>" + 'No Locations' +"</option>");
-        }
-    });
-}
+        });
+    }
 
-function get_resources(location_id) {
-    $("#resources").empty();
-    $("#select-resource").empty();
-    $("#bookings").empty();
-    $.ajax({
-        type: 'GET',
-        url: 'https://spaces.nexudus.com/api/spaces/resources?Resource_Business=' +location_id,
-        beforeSend: function(xhr) {
-            xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" +
-                password));
-        },
-        dataType: 'json',
-        success: function(resources) {
-            var resources = resources.Records;
-            if (resources.length != 0) {
-                $('.whole_div').hide();
-                var res_id = resources[0].Id;
-                $.each(resources, (key, resource) => {
+    function get_resources(location_id) {
+        $("#resources").empty();
+        $("#select-resource").empty();
+        $("#bookings").empty();
+        $.ajax({
+            type: 'GET',
+            url: 'https://spaces.nexudus.com/api/spaces/resources?Resource_Business=' +location_id,
+            beforeSend: function(xhr) {
+                xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" +
+                    password));
+            },
+            dataType: 'json',
+            success: function(resources) {
+                var resources = resources.Records;
+                if (resources.length != 0) {
+                    $('.whole_div').hide();
+                    var res_id = resources[0].Id;
+                    $.each(resources, (key, resource) => {
+                        var resources = "<div class='col-md-6 col-sm-6 row p-0 m-0'>" +
+                            "<span  class='resource' style='color:white;font-size:12px;cursor:pointer' data-id ='" +resource.Id +"'>" + resource.Name + "</span>" +
+                            // "<small>" + "<br>" + resource.ResourceTypeName +
+                            // "</small>" +
+                            "</div>";
+                        $("#resources").append(resources);
+                        $("#select-resource").append("<option value ='" +resource.Id + " '>" + resource.Name + "</option>");
+                        
+                    })
+                    get_bookings(res_id);
+                } else {
+                    $('.whole_div').hide();
                     var resources = "<div class='col-md-6 col-sm-6 row p-0 m-0'>" +
-                        "<span  class='resource' style='color:white;font-size:12px;cursor:pointer' data-id ='" +resource.Id +"'>" + resource.Name + "</span>" +
-                        // "<small>" + "<br>" + resource.ResourceTypeName +
-                        // "</small>" +
-                        "</div>";
+                                        "<a href='#' style='color:white;font-size:12px;' id='the'>" +
+                                        'No Resources Available' + "</a>" +
+                                    "</div>";
                     $("#resources").append(resources);
-                    $("#select-resource").append("<option value ='" +resource.Id + " '>" + resource.Name + "</option>");
-                    
-                })
-                get_bookings(res_id);
-            } else {
-                $('.whole_div').hide();
-                var resources = "<div class='col-md-6 col-sm-6 row p-0 m-0'>" +
-                                    "<a href='#' style='color:white;font-size:12px;' id='the'>" +
-                                    'No Resources Available' + "</a>" +
-                                "</div>";
-                $("#resources").append(resources);
-                $("#select-resource").append("<option value ='0'>" + 'No Resources Available' + "</option>");
+                    $("#select-resource").append("<option value ='0'>" + 'No Resources Available' + "</option>");
+                }
             }
-        }
-    });
-}
+        });
+    }
 
-function get_bookings(res_id) {
-    $("#bookings").empty();
-    $.ajax({
-        type: 'GET',
-        url: 'https://spaces.nexudus.com/api/spaces/bookings?Booking_Resource=' + res_id + '&size=' + size ,
-        beforeSend: function(xhr) {
-            xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" +
-                password));
-        },
-        dataType: 'json',
-        success: function(bookings) {
-            $('.whole_div').hide();
-            var Bookings = bookings.Records;
-            if (Bookings.length != '0') {
-                $.each(Bookings, (key, booking) => {
-                    var fromtime = moment.tz(booking.FromTime, "Asia/Kuwait");
-                    var totime =   moment.tz(booking.ToTime, "Asia/Kuwait");
-                    var bookings = 
-                    "<div class='col-md-6 col-sm-6 p-0 m-0'>"+ 
-                        "<span style='color: #fff; font-size: 16px;'>"+"<br>"+ moment(fromtime).format('h:mm a')+"<br>"+"</span>"+
-                        "<span style='color: #fff; font-size: 13px;'>"+moment(totime).format('h:mm a')+"<br>"+"</span>"+
-                    "</div>"+
-                    "<div class='col-md-6 col-sm-6 p-0 m-0'>"+
-                        "<span style='color: #fff; font-size: 14px;'>"+"<br>"+moment(fromtime).format('YYYY-MM-DD')+"<br>"+"</span>"+
-                        "<span style='color: #fff; font-size: 12px;'>"+ booking.ResourceName +"<br>"+"</span>"+
-                        "<span style='color: #fff; font-size: 12px;'>"+ booking.CoworkerFullName +"<br>"+"</span>"+
-                    "</div>";
+    function get_bookings(res_id) {
+        $("#bookings").empty();
+        $.ajax({
+            type: 'GET',
+            url: 'https://spaces.nexudus.com/api/spaces/bookings?Booking_Resource=' + res_id + '&size=' + size ,
+            beforeSend: function(xhr) {
+                xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" +
+                    password));
+            },
+            dataType: 'json',
+            success: function(bookings) {
+                $('.whole_div').hide();
+                var Bookings = bookings.Records;
+                if (Bookings.length != '0') {
+                    $.each(Bookings, (key, booking) => {
+                        var fromtime = moment.tz(booking.FromTime, "Asia/Kuwait");
+                        var totime =   moment.tz(booking.ToTime, "Asia/Kuwait");
+                        var bookings = 
+                        "<div class='col-md-6 col-sm-6 p-0 m-0'>"+ 
+                            "<span style='color: #fff; font-size: 16px;'>"+"<br>"+ moment(fromtime).format('h:mm a')+"<br>"+"</span>"+
+                            "<span style='color: #fff; font-size: 13px;'>"+moment(totime).format('h:mm a')+"<br>"+"</span>"+
+                        "</div>"+
+                        "<div class='col-md-6 col-sm-6 p-0 m-0'>"+
+                            "<span style='color: #fff; font-size: 14px;'>"+"<br>"+moment(fromtime).format('YYYY-MM-DD')+"<br>"+"</span>"+
+                            "<span style='color: #fff; font-size: 12px;'>"+ booking.ResourceName +"<br>"+"</span>"+
+                            "<span style='color: #fff; font-size: 12px;'>"+ booking.CoworkerFullName +"<br>"+"</span>"+
+                        "</div>";
+                        $("#bookings").append(bookings);
+                    })
+                } else {
+                    $('.whole_div').hide();
+                    var bookings = "<small>" + "<br>" + 'No Booking Available' + "</small>";
                     $("#bookings").append(bookings);
-                })
-            } else {
+                }
+
+            },
+            error: function() {
                 $('.whole_div').hide();
                 var bookings = "<small>" + "<br>" + 'No Booking Available' + "</small>";
                 $("#bookings").append(bookings);
             }
+        })
+    }
 
-        },
-        error: function() {
-            $('.whole_div').hide();
-            var bookings = "<small>" + "<br>" + 'No Booking Available' + "</small>";
-            $("#bookings").append(bookings);
-        }
-    })
-}
-
-function create_booking(data){
-    $.ajax({
-        type: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        url: 'https://spaces.nexudus.com/api/spaces/bookings',
-        beforeSend: function(xhr) {
-            xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + password));
-        },
-        data: data,
-        dataType: 'json', 
-        success: function(data){
-            if(data.Status == 200){
-                $('.whole_div').hide();
-                $("#bookingmodal").modal("hide");
-                $('#thankyouforRegmodal').modal('show');
-            }
-            else{
+    function create_booking(data){
+        $.ajax({
+            type: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            url: 'https://spaces.nexudus.com/api/spaces/bookings',
+            beforeSend: function(xhr) {
+                xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + password));
+            },
+            data: data,
+            dataType: 'json', 
+            success: function(data){
+                if(data.Status == 200){
+                    $('.whole_div').hide();
+                    $("#bookingmodal").modal("hide");
+                    $('#thankyouforRegmodal').modal('show');
+                }
+                else{
+                    $('.whole_div').hide(); 
+                    toastr.error('some error occured while processing');
+                }
+            },
+            error: function(data){
+                console.log(data);
                 $('.whole_div').hide(); 
-                toastr.error('some error occured while processing');
+                toastr.error('This resource is already booked for the selected time.please change the timings');
             }
-        },
-        error: function(data){
-            console.log(data);
-            $('.whole_div').hide(); 
-            toastr.error('This resource is already booked for the selected time.please change the timings');
-        }
-    })
-}
+        })
+    }
 });
 </script>
