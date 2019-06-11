@@ -594,9 +594,11 @@ $("#addClass").click(function () {
     var selected_date = selected_date.replace("/", "-");
     var tariff_guid = $('#price_plans').val();
     if(selected_date == ""){
+      $('.whole_div').hide();
       toastr.error('please select date');
     }
     else if(selected_date < cur_date){
+      $('.whole_div').hide();
       toastr.error('Cannot select the past date');
     }
     else{
