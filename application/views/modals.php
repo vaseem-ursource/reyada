@@ -280,11 +280,7 @@
 
           <div class="left-half pr-0">
             <div>
-<<<<<<< HEAD
-              <img src="<?= base_url();?>image/modalimg/a1.png" class="img-fluid  position-relative pull-right" width="170" height="150"
-=======
               <img src="<?= base_url()?>image/modalimg/a1.png" class="img-fluid  position-relative pull-right" width="170" height="150"
->>>>>>> be92f376e473d80f782a756a7e21c071a58e5f44
                 style="padding-top: 30%; left:20px;">
                 <h6 style="color:white; position: absolute; bottom:30px; font-size: 14px;" class="p-5 text-justify"><small>WELCOME BACK!
                   <br><br>
