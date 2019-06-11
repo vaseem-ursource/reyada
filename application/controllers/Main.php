@@ -299,10 +299,14 @@ class main extends CI_Controller
 
     function blog()
     {
+        $data['search']="";
+        if($this->input->post('term')){
+            $data['search']=$this->input->post('term');
+        }
+        $data['Article'] = $this->Main_model->get_all_article();
         $data['folder_name'] = 'main';
         $data['file_name'] = 'Blog';
         $data['header_name'] = 'header_blog';
-        $data['Article'] = $this->Main_model->get_all_article();
 		$data['Categories'] = $this->Main_model->get_all_categories();        
         $this->load->view('index', $data);
     }

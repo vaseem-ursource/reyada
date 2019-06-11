@@ -651,8 +651,8 @@
                         <small><?= $postedday[0].', '.$monthName.' '.$postedday[0];?></small>
                         <h6 class="card-title pt-1"><b><?= $row->title;?></b></h6>
                         <h6 class="card-title"><b><?= $row->sub_title;?></b></h6>
-                        <p class="card-text text-justify lap"><?= substr($row->description,0,500);?></p>
-                        <a href="<?=base_url()?>Main/Article?id='<?= $row->article_id;?>"><i class="fa fa-angle-right fa-2x no-bottom position-absolute pb-1 text-dark"></i></a>
+                        <div class="card-text text-justify lap" style="height:250px;overflow:hidden"><?= $row->description;?></div><br>
+                        <a href="<?=base_url()?>Main/Article?id=<?=$row->article_id;?>"><i class="fa fa-angle-right fa-2x no-bottom position-absolute pb-1 text-dark"></i></a>
                     </div>
                 </div>
             </div>
