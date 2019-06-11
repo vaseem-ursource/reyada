@@ -1,6 +1,19 @@
 <!--==========================
    Header
   ============================-->
+  <style>
+    .fade-in {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 1s linear;
+}
+
+.fade-out {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 1s, opacity 1s linear;
+}
+    </style>
   <header id="header">
     <div class="container">
       <div class="logo float-left mob">
@@ -34,3 +47,19 @@
       
     </div>
   </header><!-- #header -->
+  <script>
+$(function () {
+  var lastScrollTop = 0;
+  var $navbar = $('#header');
+
+  $(window).scroll(function(event){
+    var st = $(this).scrollTop();
+    if (st > lastScrollTop) { // scroll down
+      $navbar.fadeOut()
+    } else { // scroll up
+      $navbar.fadeIn()
+    }
+    lastScrollTop = st;
+  });
+});
+</script>

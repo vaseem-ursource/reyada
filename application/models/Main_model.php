@@ -8,6 +8,7 @@
             return $this->db
                         ->where('is_deleted','No')
                         ->where('is_active','Active')
+                         ->order_by('posted_date','desc')
                         ->get('articles');
         }
 
@@ -36,6 +37,7 @@
         public function get_article_by_category($cat_id){
             return $this->db
                         ->where('cat_id',$cat_id)
+                         ->order_by('posted_date','desc')
                         ->get('articles');
         }
 
@@ -46,8 +48,8 @@
             $this->db->where('is_deleted','No');
             $this->db->where('is_active','Active');
             $this->db->like('title',$search_text);
-            $this->db->like('sub_title',$search_text);
             $this->db->limit($rowperpage, $rowno);  
+            $this->db->order_by('posted_date','desc');
             $this->db->from('articles');
             $query = $this->db->get();
         
@@ -61,13 +63,27 @@
             $this->db->where('is_deleted','No');
             $this->db->where('is_active','Active');
             $this->db->like('title',$search_text);
-            $this->db->like('sub_title',$search_text);
             $this->db->from('articles');
             $query = $this->db->get();
             $result = $query->result_array();
         
             return $result[0]['allcount'];
         }
+
+         // Fetch Searched records
+         public function get_searched_article($search_text) {
+        
+            $this->db->select('*');
+            $this->db->where('is_deleted','No');
+            $this->db->where('is_active','Active');
+            $this->db->like('title',$search_text);
+            $this->db->order_by('posted_date','desc');
+            $this->db->from('articles');
+            $query = $this->db->get();
+        
+            return $query;
+        }
+
 
         public function insert_contactus_db($data){
             return $this->db->insert('contact_us', $data);
@@ -76,6 +92,7 @@
             return $this->db
                         ->where('is_deleted','No')
                         ->where('is_active','Active')
+                        ->order_by('posted_date','desc')
                         ->limit(3)
                         ->get('articles');
         }

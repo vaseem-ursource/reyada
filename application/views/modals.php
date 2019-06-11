@@ -190,12 +190,19 @@
   <div id="search" class="open">
     <button data-widget="remove" id="removeClass" class="close text-dark" type="button">×</button>
     <div style="padding-top:15%;" class="">
-      <form action="" method="" autocomplete="off">
+      <form action="<?= base_url('Main/blog');?>" method="post" autocomplete="off">
         <i class="fa fa-search fa-2x" style="padding-top:25px;padding-right:10px" aria-hidden="true"></i>
         <input type="text" placeholder="search..." value="" name="term" id="term">
         <!-- <button class="btn btn-lg btn-site" type="submit"><span class="glyphicon glyphicon-search"></span> Search</button> -->
       </form>
     </div>
+    <script>
+        // $('#term').keypress(function (e) {
+        //     if (e.which == 13 || event.keyCode == 13) {
+        //         alert('enter key is pressed');
+        //     }
+        // });
+    </script>
     <div class="align-self-center" style="padding-left:30%;padding-right:25%;position:absolute">
       <!-- <nav class="main-nav  d-lg-block align-self-center" > -->
       <ul class="align-self-center main-nav-menu d-lg-block align-self-center">

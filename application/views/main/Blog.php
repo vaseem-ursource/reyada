@@ -98,6 +98,7 @@
         </div>
         <div class="row">
              <div class="col-lg-9 col-md-9 wow fadeInUp px-3 text-justify">
+             <input type="text" name="main_search" id="main_search" value="<?= $search;?>" hidden>
                 <div class="row" id="list1">
                                  
                 </div>
@@ -194,6 +195,11 @@
 
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type='text/javascript'>
+    //Mobile Search Bar
+      $("#mob_search_article").keyup(function(){
+      var search_text = this.value;
+        loadPagination01(0,search_text);
+      });
       //Search Bar
       $("#search_article").keyup(function(){
       var search_text = this.value;
@@ -222,7 +228,7 @@
                                 '<small>'+postedday[0]+', '+GetMonthName(posteddate[1])+' '+posteddate[0]+'</small>'+
                                 '<h6 class="card-title pt-1"><b>'+value.title+'</b></h6>'+
                                 '<h6 class="card-title"><b>'+value.sub_title+'</b></h6>'+
-                                '<p class="card-text text-justify lap">'+value.description.substring(0,500)+'</p>'+
+                                '<div class="card-text text-justify lap" style="height:250px;overflow:hidden">'+value.description+'</div><br>'+
                                 '<a href="<?=base_url()?>Main/Article?id='+value.article_id+'"><i class="fa fa-angle-right fa-2x no-bottom position-absolute pb-1 text-dark"></i></a>'+
                             '</div>'+
                         '</div>'+
@@ -242,7 +248,7 @@
 
 
    $(document).ready(function(){
-    
+  
      // Detect pagination click
      $('#pagination').on('click','a',function(e){
        e.preventDefault(); 
@@ -280,7 +286,7 @@
                                 '<small>'+postedday[0]+', '+GetMonthName(posteddate[1])+' '+posteddate[0]+'</small>'+
                                 '<h6 class="card-title pt-1"><b>'+value.title+'</b></h6>'+
                                 '<h6 class="card-title"><b>'+value.sub_title+'</b></h6>'+
-                                '<p class="card-text text-justify lap">'+value.description.substring(0,500)+'</p>'+
+                                '<div class="card-text text-justify lap" style="height:250px;overflow:hidden">'+value.description+'</div><br>'+
                                 '<a href="<?=base_url()?>Main/Article?id='+value.article_id+'"><i class="fa fa-angle-right fa-2x no-bottom position-absolute pb-1 text-dark"></i></a>'+
                             '</div>'+
                         '</div>'+
@@ -296,6 +302,44 @@
          }
        });
      }
+     var main_search = $('#main_search').val();
+      if (main_search!=""){ 
+      $.ajax({
+         url: '<?=base_url()?>Main/loadRecord/0',
+         type: 'get',
+         dataType: 'json',
+         data:{'search_text':main_search},
+         success: function(response){
+            $('#pagination').html(response.pagination);
+            // createTable(response.result,response.row);
+            var articleList="";
+            $.each(response.result,function(key,value){
+              var posteddate=value.posted_date;
+              posteddate=posteddate.split('-');
+              postedday=posteddate[2].split(' ');
+              articleList = articleList+'<div class="col-lg-6 col-md-6 wow fadeInUp p-1 d-flex w-100">'+
+                        '<div class="card shadow-sm w-100">'+
+                            '<img class="card-img-top" src="<?= base_url()?>Admin/'+value.image_url+'" height="250px" alt="Card image cap">'+
+                            '<div class="card-body">'+
+                                '<small>'+postedday[0]+', '+GetMonthName(posteddate[1])+' '+posteddate[0]+'</small>'+
+                                '<h6 class="card-title pt-1"><b>'+value.title+'</b></h6>'+
+                                '<h6 class="card-title"><b>'+value.sub_title+'</b></h6>'+
+                                '<div class="card-text text-justify lap" style="height:250px;overflow:hidden">'+value.description+'</div><br>'+
+                                '<a href="<?=base_url()?>Main/Article?id='+value.article_id+'"><i class="fa fa-angle-right fa-2x no-bottom position-absolute pb-1 text-dark"></i></a>'+
+                            '</div>'+
+                        '</div>'+
+                   '</div>'
+
+              });
+              function GetMonthName(monthNumber) {
+                    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+                    return months[monthNumber - 1];
+              }
+              $('#list1').html(articleList);
+
+         }
+       });
+      } 
     });
   
   $(function(){
