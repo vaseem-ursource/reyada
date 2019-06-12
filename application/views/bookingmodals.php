@@ -981,8 +981,8 @@ $(document).ready(function() {
                 {
                     "CoworkerId": user_info.Id,
                     "ResourceId": $("#select-resource").val(),
-                    "FromTime":time1,
-                    "ToTime": time2,
+                    "FromTime":fromTime,
+                    "ToTime": toTime,
                 };
                 myJSON = JSON.stringify(post_array);
                 create_booking(myJSON);
@@ -1266,6 +1266,7 @@ $(document).ready(function() {
     }
 
     function create_booking(data){
+        console.log(data);
         $.ajax({
             type: 'POST',
             headers: {
@@ -1291,7 +1292,7 @@ $(document).ready(function() {
             error: function(data){
                 console.log(data);
                 $('.whole_div').hide(); 
-                toastr.error('This resource is already booked for the selected time.please change the timings');
+                toastr.error(data.responseJSON.Message);
             }
         })
     }
