@@ -738,6 +738,8 @@ $(document).ready(function() {
     var password = 'view1Sonic!';
     var size = 1000;
     var cur_date = '<?php echo date("Y-m-d") ?>';
+    console.log(cur_date);
+
     var base_url = '<?= base_url(); ?>';
     var is_logged_in = '<?= $is_logged_in ?>';
     var user_info = <?php echo json_encode($user_info); ?>; 
@@ -971,7 +973,6 @@ $(document).ready(function() {
             else{
                 var date = $('#selected_date').val(); 
             }
-            
             var time1 = ConvertTimeformat(moment(time1, 'h:mm A').subtract('hours', 3).format('h:mm A'));
             var time2 = ConvertTimeformat(moment(time2, 'h:mm A').subtract('hours', 3).format('h:mm A'));
             var fromTime = date +'T'+ time1 +'Z'; 
@@ -1050,6 +1051,8 @@ $(document).ready(function() {
         var resource = $("#select-resource").val();
         var fromtime = $("#fromtime").val();
         var totime = $("#totime").val();
+        console.log(fromtime);
+        console.log(totime);
         var emailReg = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
         var digit_pattern = new RegExp('^[2-9][0-9]*$');
         if (name === '' || email === '' || resource === '0' || fromtime === '0' || totime === '0') {
@@ -1132,13 +1135,21 @@ $(document).ready(function() {
         }
     }
 
-    // function addDays(date) {
-    //     var result = date.substr(8);
-    //     var day = '1';
-    //     var sh = parseInt(result)+ parseInt(day);
-    //     var new_result = date.substr(0,8) + sh;
-    //     return new_result;
-    // }
+    function addDay(date) {
+        var result = date.substr(8);
+        var day = '1';
+        var sh = parseInt(result)+ parseInt(day);
+        var new_result = date.substr(0,8) + sh;
+        return new_result;
+    }
+
+    function subtract_day(date) {
+        var result = date.substr(8);
+        var day = '1';
+        var sh = parseInt(result) - parseInt(day);
+        var new_result = date.substr(0,8) + sh;
+        return new_result;
+    }
 
     function ConvertTimeformat(time) {
         var hours = Number(time.match(/^(\d+)/)[1]);
@@ -1167,7 +1178,7 @@ $(document).ready(function() {
                 if (location.length != 0) {
                     $.each(locations.Records, (key, location) => {
                         $(".location-drp-dwn").append("<option value ='" +location.Id + " '>" + location.Name + "</option>");
-                        $(".location").append("<option value ='" +location.WebAddress + " '>" + location.Name + "</option>");
+                        $(".location").append("<option value ='"+location.WebAddress+"'>" + location.Name + "</option>");
                     });
                     get_resources(location[0].Id);
                 } else {
