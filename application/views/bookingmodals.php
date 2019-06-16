@@ -738,12 +738,9 @@ $(document).ready(function() {
     var password = 'view1Sonic!';
     var size = 1000;
     var cur_date = '<?php echo date("Y-m-d") ?>';
-    console.log(cur_date);
-
     var base_url = '<?= base_url(); ?>';
     var is_logged_in = '<?= $is_logged_in ?>';
     var user_info = <?php echo json_encode($user_info); ?>; 
-    console.log(user_info);
     get_locations();
 
     $(document).on("click", "#bookingbutton", function() {
@@ -848,7 +845,7 @@ $(document).ready(function() {
     $("#pickDate").click(function(e) {
         $('#confirmBooking').empty();
         var id = 'message';
-        var valiadte_form = mr_form_validation($("#fullname").val(),$("#email").val(),$("#fulladdress").val(),$("#area").val(),$("#phone").val(),id)
+        var valiadte_form = form_validation($("#fullname").val(),$("#email").val(),$("#fulladdress").val(),$("#area").val(),$("#phone").val(),id)
         if (valiadte_form == true)
         {
             $('#fname').val($("#fullname").val());
@@ -871,7 +868,7 @@ $(document).ready(function() {
     $("#pickDateTour").click(function(e) {
         $('#confirmtour').empty();
         var id = 't_message';
-        var valiadte_form = mr_form_validation($("#t_name").val(),$("#t_email").val(),$("#t_address").val(),$("#t_area").val(),$("#t_mobile").val(),id)
+        var valiadte_form = form_validation($("#t_name").val(),$("#t_email").val(),$("#t_address").val(),$("#t_area").val(),$("#t_mobile").val(),id)
         if (valiadte_form == true)
         {
             $('#tour_fname').val($("#t_name").val());
@@ -891,7 +888,7 @@ $(document).ready(function() {
         
     })
     
-    function mr_form_validation(fullname,email,fulladdress,area,phone,id) {
+    function form_validation(fullname,email,fulladdress,area,phone,id) {
         $('#'+id).empty();
         var emailReg = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
         var digit_pattern = new RegExp('^[2-9][0-9]*$');
@@ -962,7 +959,7 @@ $(document).ready(function() {
     })
 
     $("#meetSubmit").click(function(e) {
-        $('.whole_div').show();
+        // $('.whole_div').show();
         if (booking_validation())
         {
             var time1 = $("#fromtime").val();
@@ -972,6 +969,9 @@ $(document).ready(function() {
             }
             else{
                 var date = $('#selected_date').val(); 
+            }
+            if(time1 <= '2:30 AM'){
+                 var date = subtract_day(date); 
             }
             var time1 = ConvertTimeformat(moment(time1, 'h:mm A').subtract('hours', 3).format('h:mm A'));
             var time2 = ConvertTimeformat(moment(time2, 'h:mm A').subtract('hours', 3).format('h:mm A'));
@@ -990,39 +990,39 @@ $(document).ready(function() {
             }
             else
             {
-                post_array =
-                {
-                    "FullName": $("#fname").val(),
-                    "Email": $("#femail").val(),
-                    "CountryId": '1113',
-                    "MobilePhone":$("#mobile").val(),
-                    "SimpleTimeZoneId": '2029',
-                    "CityName":$("#state").val(),
-                    "Address":$("#fulladdress").val(),
-                }
-                $.ajax({
-                    type: 'POST',
-                    url: 'https://spaces.nexudus.com/api/spaces/coworkers',
-                    beforeSend: function(xhr) {
-                        xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + password));
-                    },
-                    data: post_array,
-                    dataType: 'json', 
-                    success: function(data){
-                        post_array =
-                        {
-                            "CoworkerId": data.Value.Id,
-                            "ResourceId": $("#select-resource").val(),
-                            "FromTime":fromTime,
-                            "ToTime": toTime,
-                        };
-                        myJSON = JSON.stringify(post_array);
-                        create_booking(myJSON);
-                    },
-                    error: function(xhr){
+                // post_array =
+                // {
+                //     "FullName": $("#fname").val(),
+                //     "Email": $("#femail").val(),
+                //     "CountryId": '1113',
+                //     "MobilePhone":$("#mobile").val(),
+                //     "SimpleTimeZoneId": '2029',
+                //     "CityName":$("#state").val(),
+                //     "Address":$("#fulladdress").val(),
+                // }
+                // $.ajax({
+                //     type: 'POST',
+                //     url: 'https://spaces.nexudus.com/api/spaces/coworkers',
+                //     beforeSend: function(xhr) {
+                //         xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + password));
+                //     },
+                //     data: post_array,
+                //     dataType: 'json', 
+                //     success: function(data){
+                //         post_array =
+                //         {
+                //             "CoworkerId": data.Value.Id,
+                //             "ResourceId": $("#select-resource").val(),
+                //             "FromTime":fromTime,
+                //             "ToTime": toTime,
+                //         };
+                //         myJSON = JSON.stringify(post_array);
+                //         create_booking(myJSON);
+                //     },
+                //     error: function(xhr){
 
-                    }
-                })
+                //     }
+                // })
             }
                 
             }
@@ -1051,32 +1051,40 @@ $(document).ready(function() {
         var resource = $("#select-resource").val();
         var fromtime = $("#fromtime").val();
         var totime = $("#totime").val();
-        console.log(fromtime);
-        console.log(totime);
+        var st_time = ConvertTimeformat($("#fromtime").val());
+        var end_time = ConvertTimeformat($("#totime").val());
         var emailReg = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
         var digit_pattern = new RegExp('^[2-9][0-9]*$');
         if (name === '' || email === '' || resource === '0' || fromtime === '0' || totime === '0') {
             $('#validation_message').append('All The Fields are Mandatory');
             $('#validation_message').fadeIn().delay(5000).fadeOut();
             $('.whole_div').hide();
-        return false;
-        } else if (!(email).match(emailReg)) {
+            return false;
+        }
+        if (st_time > end_time){
+            $('#validation_message').append('end time should be greater than start time'); 
+            $('#validation_message').fadeIn().delay(5000).fadeOut();
+            $('.whole_div').hide();
+            return false;       
+        } 
+        else if (!(email).match(emailReg)) {
             $('#validation_message').append('Invalid Email...!!!!!!');
             $('#validation_message').fadeIn().delay(5000).fadeOut();
             $('.whole_div').hide();
-        return false;
+            return false;
         }
         else if (date < cur_date) {
             $('#validation_message').append('Booking cannot be done for the past date');
             $('#validation_message').fadeIn().delay(5000).fadeOut();
             $('.whole_div').hide();
-        return false;
+            return false;
         }else if (fromtime == totime) {
             $('#validation_message').append('Start and End time cannot be same');
             $('#validation_message').fadeIn().delay(5000).fadeOut();
             $('.whole_div').hide();
-        return false;
+            return false;
         }
+         
         else if((ConvertTimeformat(fromtime) < cur_time || ConvertTimeformat(totime) < cur_time) && date == cur_date){
             $('#validation_message').append('Booking cannot be done for the past time');
             $('#validation_message').fadeIn().delay(5000).fadeOut();
@@ -1164,6 +1172,14 @@ $(document).ready(function() {
         var selected_time = sHours + ":" + sMinutes;
         return selected_time;
     }
+    
+    function get_minutes(time)
+    {
+        var timeArr = time.split(":");
+        var minutes = timeArr[0] * 60 + timeArr[1];
+        return minutes;
+    }
+
     function get_locations(){
         $.ajax({
             type: 'GET',
