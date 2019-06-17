@@ -17,29 +17,26 @@
           <div class="col-md-12 col-sm-12 col-xs-12 row">
            
             <div class="col-md-6" style="color:black; padding-right:10%" style="font-size: 16px;">
-            
-            <h6 style="color:black;" style="font-size: 16px;" class="text-justify">
-            <small>Ask us a question, we’ll get back to you shortly.</small></h6>
-                   <div class="group">
-                        <input type="text" name="full_name" id="full_name" required><span class="highlight"></span><span class="bar"></span>
-                        <label>Full Name</label>
-                    </div>
-                    <div class="group">
-                        <input type="text" name="email" id="email3" required><span class="highlight"></span><span class="bar"></span>
-                        <label>Email</label>
-                    </div>
-                    <div class="group">
-                        <input type="text" name="phone" id="phone2" required><span class="highlight"></span><span class="bar"></span>
-                        <label>Phone Number</label>
-                    </div>
-                    <div class="group">
-                        <input type="text" name="company" id="company2" required><span class="highlight"></span><span class="bar"></span>
-                        <label>Company Name</label>
-                    </div>
-                 <!-- </form> -->
+              <h6 style="color:black;" style="font-size: 16px;" class="text-justify">
+              <small>Ask us a question, we’ll get back to you shortly.</small></h6>
+                <div class="group">
+                    <input type="text" name="full_name" id="full_name" required><span class="highlight"></span><span class="bar"></span>
+                    <label>Full Name</label>
+                </div>
+                <div class="group">
+                    <input type="text" name="email" id="email3" required><span class="highlight"></span><span class="bar"></span>
+                    <label>Email</label>
+                </div>
+                <div class="group">
+                    <input type="text" name="phone" id="phone2" required><span class="highlight"></span><span class="bar"></span>
+                    <label>Phone Number</label>
+                </div>
+                <div class="group">
+                    <input type="text" name="company" id="company2" required><span class="highlight"></span><span class="bar"></span>
+                    <label>Company Name</label>
+                </div>
             </div>
             <div class="col-md-6" style="color:black; padding-left: 10%;" style="font-size: 16px;">
-            <!-- <form action="" style="padding-top:0px; padding-left:50px;" class="m-0"> -->
             <h6 style="color:black;" class="text-left"><small>Subject of inquiry: (membership – workspaces – packages - other)</small></h6> 
                     <div class="group">
                         <input type="checkbox" name="membership" id="membership2">
@@ -59,8 +56,6 @@
                     </div>
                     <br><br>
                     <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Submit <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
-	                  <!-- <input type="submit" value="submit"> -->
-            <!-- </form> -->
             </div>
            </div>
           </form>
@@ -504,21 +499,6 @@
    </div>
   </div>
 </div>
-
-<!-- End Thankyou for contact Modal -->
-<!-- <script>
-  $(function(){
-$("#addClass").click(function () {
-          $('#mobModalLogin1').addClass('popup-box-on');
-            });
-          
-            $("#removeClass").click(function () {
-          $('#mobModalLogin1').removeClass('popup-box-on');
-            });
-  })
-  </script> -->
-<!--End Login Modal-->
-<!-- End Thankyou Modal-->
 <script>
   $(document).ready(function(){
   var cur_date = '<?php echo date("Y-m-d") ?>';
