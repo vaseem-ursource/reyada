@@ -990,39 +990,39 @@ $(document).ready(function() {
             }
             else
             {
-                // post_array =
-                // {
-                //     "FullName": $("#fname").val(),
-                //     "Email": $("#femail").val(),
-                //     "CountryId": '1113',
-                //     "MobilePhone":$("#mobile").val(),
-                //     "SimpleTimeZoneId": '2029',
-                //     "CityName":$("#state").val(),
-                //     "Address":$("#fulladdress").val(),
-                // }
-                // $.ajax({
-                //     type: 'POST',
-                //     url: 'https://spaces.nexudus.com/api/spaces/coworkers',
-                //     beforeSend: function(xhr) {
-                //         xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + password));
-                //     },
-                //     data: post_array,
-                //     dataType: 'json', 
-                //     success: function(data){
-                //         post_array =
-                //         {
-                //             "CoworkerId": data.Value.Id,
-                //             "ResourceId": $("#select-resource").val(),
-                //             "FromTime":fromTime,
-                //             "ToTime": toTime,
-                //         };
-                //         myJSON = JSON.stringify(post_array);
-                //         create_booking(myJSON);
-                //     },
-                //     error: function(xhr){
+                post_array =
+                {
+                    "FullName": $("#fname").val(),
+                    "Email": $("#femail").val(),
+                    "CountryId": '1113',
+                    "MobilePhone":$("#mobile").val(),
+                    "SimpleTimeZoneId": '2029',
+                    "CityName":$("#state").val(),
+                    "Address":$("#fulladdress").val(),
+                }
+                $.ajax({
+                    type: 'POST',
+                    url: 'https://spaces.nexudus.com/api/spaces/coworkers',
+                    beforeSend: function(xhr) {
+                        xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + password));
+                    },
+                    data: post_array,
+                    dataType: 'json', 
+                    success: function(data){
+                        post_array =
+                        {
+                            "CoworkerId": data.Value.Id,
+                            "ResourceId": $("#select-resource").val(),
+                            "FromTime":fromTime,
+                            "ToTime": toTime,
+                        };
+                        myJSON = JSON.stringify(post_array);
+                        create_booking(myJSON);
+                    },
+                    error: function(xhr){
 
-                //     }
-                // })
+                    }
+                })
             }
                 
             }

@@ -571,7 +571,6 @@ $("#addClass").click(function () {
           url: base_url + 'main/signup',
           data: post_array,
           success: function(data) {
-              console.log(data);
               if(data.status != 200){
                 $('.whole_div').hide();
                 toastr.error(data.message);
@@ -580,9 +579,6 @@ $("#addClass").click(function () {
                 toastr.success('Registered Succesfully');
                 $(".firstSignup").css('display', 'none');
                 $(".secondSignup").css('display', 'block');
-                // setTimeout(function(){
-                //     location.reload();
-                // }, 3000)   
               }
           },
           error: function(jqxhr, status, error) {
@@ -592,7 +588,6 @@ $("#addClass").click(function () {
           }
       });
     }
-
   });
 
   $(document).on("click", "#signUpBtn", function () {
@@ -768,9 +763,15 @@ $("#addClass").click(function () {
           else{
             duration = 'every ' + price_detail[0].InvoiceEvery +'  months' ;
           }
-          var price_head = "<span style='color: #000; font-size: 11px;'>" + duration + '  ('+ price_detail[0].Price + ' ' + price_detail[0].CurrencyCode + ')'+ "</span>";
+            var desc_head = price_detail[0].Description.split(".");
+            var desc = price_detail[0].Description.replace(/<p>/g, "<span style='color: #000; font-size: 14px;line-height:30px;'>");  
+            desc = desc.replace(/<\/p>/g,"</span><br>"); 
+            desc = desc.split(".");
+          var price_head = "<span style='color: #000; font-size: 12px;'>" + duration + '  ('+ price_detail[0].Price + ' ' + price_detail[0].CurrencyCode + ')'+ "</span>"+
+                           "<span style='color: #000; font-size: 13px;'>" + desc_head[0] + "</span>";
+         
           $('.plan_heading').append(price_head);
-          $('.plan_desc').html(price_detail[0].Description);
+          $('.plan_desc').html(desc.slice(1));
                          
         },
         error: function(jqxhr, status, error) {
