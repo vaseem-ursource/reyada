@@ -286,367 +286,6 @@
         </div>
     </div>
 </div>
-<div id="pickdatemodal" class="modal fade bs-example-modal-xl" role="dialog ">
-    <div class="modal-dialog modal-xl" style="height:600px;">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-body p-0 m-0">
-                <section class="container">
-                    <div class="left-half pr-0">
-                        <div>
-                            <h6 style="color:white; font-modal-childsize: 20px; padding-top: 20%"
-                                class="px-5 m-5 text-justify">THURSDAY<br>14 FEBRUARY
-                                <br><br>
-                                <small style="color:white; font-size: 14px;">
-                                    <i class="fa fa-map-marker fa-lg pull-left pt-1 mt-2"></i>
-                                    <div class="pull-left" style="width: 80%;">
-                                        <div class="select-wrapper" style="width: 100%;">
-                                            <select>
-                                                <option value="option-1">CRYSTAL TOWN</option>
-                                                <option value="option-2">MABANEE 1 </option>
-                                                <option value="option-3">MABANEE 2</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </small>
-                            </h6>
-                            <h6 style="color:white; position: absolute; left:40px; right:30px; bottom:35%; font-size: 14px; border-bottom:1px solid #fff"
-                                class="mx-5 text-justify">BOOK A MEETING ROOM
-                            </h6>
-                            <h6 style="color:white; position: absolute; left:40px; right:30px; bottom:15%; font-size: 14px;"
-                                class="p-5 text-justify">
-                                <small>Lorem Ipsum is simply ing industry. Lorem Ipsum has been the industry's standard
-                                    dummy text ever since the 1500s.Lorem ipsum dolor sit amet,</small>
-                            </h6>
-                            <h6 style="color:white; position: absolute; left:40px; right:30px; bottom:-50px; font-size: 12px;"
-                                class="p-5 text-justify"><small><b>Reyada</b> | Collaborative workplace
-                                </small>
-                            </h6>
-                        </div>
-                    </div>
-                    <div class="right-half">
-                        <button type="button" class="close p-4" data-dismiss="modal">&#10006</button>
-
-                        <form class="w-100" style="padding: 5em 2em 2em 2em;">
-                            <div class="hello-week02" id="meetCalNonReg">
-                                <script>
-                                // const prev = document.querySelector('.demo-prev');
-                                // const next = document.querySelector('.demo-next');
-
-                                const myCalendar02 = new HelloWeek({
-                                    selector: '.hello-week02',
-                                    lang: 'en',
-                                    langFolder: '<?= base_url()?>dist/langs/',
-                                    format: 'dd/mm/yyyy',
-                                    weekShort: true,
-                                    monthShort: false,
-                                    multiplePick: false,
-                                    defaultDate: false,
-                                    todayHighlight: true,
-                                    daysSelected: null, // ['2019-02-26', '2019-03-01', '2019-03-02', '2019-03-03']
-                                    disablePastDays: false,
-                                    disabledDaysOfWeek: false,
-                                    disableDates: false,
-                                    weekStart: 0, // 0 (Sunday) to 6 (Saturday).
-                                    daysHighlight: false,
-                                    range: false,
-                                    rtl: false,
-                                    locked: false,
-                                    minDate: false,
-                                    maxDate: false,
-                                    nav: ['‹', '›'],
-                                    onLoad: () => {
-                                        /** callback function */
-                                    },
-                                    onChange: () => {
-                                        /** callback function */
-                                    },
-                                    onSelect: () => {
-                                        /** callback function */
-                                    },
-                                    onClear: () => {
-                                        /** callback function */
-                                    }
-                                });
-                                </script>
-                            </div>
-                            <div style="padding-left: 40px; padding-right: 30px; padding-top: 10px;"
-                                id="meetFormNonReg">
-                                <div class="row text-left">
-                                    <div class="col-md-6">
-                                        <div class="group">
-                                            <input type="text"><span class="highlight"></span><span class="bar"></span>
-                                            <label> Full Name</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="group">
-                                            <input type="text"><span class="highlight"></span><span class="bar"></span>
-                                            <label>Meeting Room</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="group">
-                                            <input type="email"><span class="highlight"></span><span class="bar"></span>
-                                            <label>Email</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="group">
-                                            <input type="text"><span class="highlight"></span><span class="bar"></span>
-                                            <label>Start Time</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="group">
-                                            <input type="text"><span class="highlight"></span><span class="bar"></span>
-                                            <label>End Time</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="group" style="text-align: right;">
-                                            <a href="#" id="meetSubmitNonReg" style="color:black;"><span
-                                                    class="align-middle" data-toggle="modal"
-                                                    data-target="#thankyouforbookingmodal">Submit</span> <i
-                                                    class="fa fa-angle-right fa-2x pl-1 align-middle"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </section>
-            </div>
-        </div>
-    </div>
-</div>
-<div id="thankyouforbookingmodal" class="modal fade bs-example-modal-xs" role="dialog ">
-    <div class="modal-dialog modal-xs modal-dialog-center" style="height:350px;">
-        <!-- Modal content-->
-        <div class="modal-content" style="padding-top:0%; vertical-align: middle;">
-            <div class="modal-body p-0 m-0">
-                <section class="container">
-                    <div class="tmodal">
-                        <button type="button" class="close p-4" data-dismiss="modal">&#10006</button>
-                        <div>
-                            <form style="width:80%; padding-top: 90px;">
-                                <h6 style="color:black;" class="text-center">THANK YOU FOR YOUR BOOKING</h6>
-                                <h6 style="color:black;" class="text-center"><b>+965 2297 0270</b></h6>
-                            </form>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </div>
-    </div>
-</div>
-<div id="yesmodal" class="modal modal-child fade bs-example-modal-xl" role="dialog ">
-    <div class="modal-dialog modal-xl" style="height:600px;">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-body p-0 m-0">
-                <section class="container">
-                    <div class="left-half pr-0">
-                        <div>
-                            <h6 style="color:white; font-modal-childsize: 20px; padding-top: 20%"
-                                class="px-5 m-5 text-justify">THURSDAY<br>14 FEBRUARY
-                                <br><br>
-                                <small style="color:white; font-size: 14px;">
-                                    <i class="fa fa-map-marker fa-lg pull-left pt-1 mt-2"></i>
-                                    <div class="pull-left" style="width: 80%;">
-                                        <div class="select-wrapper" style="width: 100%;">
-                                            <select>
-                                                <option value="option-1">CRYSTAL TOWN</option>
-                                                <option value="option-2">MABANEE 1 </option>
-                                                <option value="option-3">MABANEE 2</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </small>
-                            </h6>
-                            <h6 style="color:white; position: absolute; top: 235px; left:100px; right:30px; font-size: 14px;"
-                                class="text-justify bg-black">
-                                <div class="col-md-12 col-sm-12 col-xs-12 row">
-                                    <div class="col-md-6 row p-0 m-0">
-                                        <a href="#" onlick="javascript(0)" style="color:white;" id="the">THE PYRAMID</a>
-                                    </div>
-                                    <div class="col-md-6  p-0 m-0 text-right">
-                                        <a href="#" onlick="javascript(0)" style="color:white;"
-                                            id="boardroom">BOARDROOM</a>
-                                    </div>
-                                    <div class="col-md-12  p-0 m-0">
-                                        <small><br>
-                                            Lorem Ipsum is simply ing industry. Lorem Ipsum has been the industry's
-                                        </small>
-                                    </div>
-                                </div>
-                                <!-- The pyramid -->
-                                <div class="col-md-12 col-sm-12 col-xs-12 row" id="theDiv" style="overflow-y:auto;height: 200px;">
-                                    <div class="col-md-6 p-0 m-0">
-                                        <span style="color: #fff; font-size: 14px;"><br>09.00<br></span>
-                                        <span style="color: #fff; font-size: 11px;">09.30 am<br></span>
-                                        <span style="color: #fff; font-size: 14px;"><br>06.30<br></span>
-                                        <span style="color: #fff; font-size: 11px;">09.30 pm<br></span>
-                                        <span style="color: #fff; font-size: 14px;"><br>06.30<br></span>
-                                        <span style="color: #fff; font-size: 11px;">09.30 pm<br></span>
-                                        <span style="color: #fff; font-size: 14px;"><br>09.00<br></span>
-                                        <span style="color: #fff; font-size: 11px;">09.30 am<br></span>
-                                        <span style="color: #fff; font-size: 14px;"><br>09.00<br></span>
-                                        <span style="color: #fff; font-size: 11px;">09.30 am<br></span>
-                                        <span style="color: #fff; font-size: 14px;"><br>09.00<br></span>
-                                        <span style="color: #fff; font-size: 11px;">09.30 am<br></span>
-                                        <span style="color: #fff; font-size: 14px;"><br>09.00<br></span>
-                                        <span style="color: #fff; font-size: 11px;">09.30 am<br></span>
-                                        <span style="color: #fff; font-size: 14px;"><br>09.00<br></span>
-                                        <span style="color: #fff; font-size: 11px;">09.30 am<br></span>
-                                    </div>
-                                    <div class="col-md-6 p-0 m-0">
-                                        <span style="color: #fff; font-size: 14px;"><br>Company name<br></span>
-                                        <span style="color: #fff; font-size: 11px;">Sunday 3rd march<br></span>
-                                        <span style="color: #fff; font-size: 14px;"><br>Company name<br></span>
-                                        <span style="color: #fff; font-size: 11px;">Sunday 3rd march<br></span>
-                                        <span style="color: #fff; font-size: 14px;"><br>Company name<br></span>
-                                        <span style="color: #fff; font-size: 11px;">Sunday 3rd march<br></span>
-                                        <span style="color: #fff; font-size: 14px;"><br>Company name<br></span>
-                                        <span style="color: #fff; font-size: 11px;">Sunday 3rd march<br></span>
-                                        <span style="color: #fff; font-size: 14px;"><br>Company name<br></span>
-                                        <span style="color: #fff; font-size: 11px;">Sunday 3rd march<br></span>
-                                        <span style="color: #fff; font-size: 14px;"><br>Company name<br></span>
-                                        <span style="color: #fff; font-size: 11px;">Sunday 3rd march<br></span>
-                                        <span style="color: #fff; font-size: 14px;"><br>Company name<br></span>
-                                        <span style="color: #fff; font-size: 11px;">Sunday 3rd march<br></span>
-                                    </div>
-                                </div>
-                                <!-- End the pyramid -->
-
-                                <!-- Boardroom -->
-                                <div class="col-md-12 col-sm-12 col-xs-12 row" id="boardroomDiv" style="overflow-y:auto;height: 200px;">
-                                    <div class="col-md-6 p-0 m-0">
-                                        <span style="color: #fff; font-size: 14px;"><br>07.00<br></span>
-                                        <span style="color: #fff; font-size: 11px;">09.30 am<br></span>
-                                        <span style="color: #fff; font-size: 14px;"><br>05.30<br></span>
-                                        <span style="color: #fff; font-size: 11px;">09.30 pm<br></span>
-                                        <span style="color: #fff; font-size: 14px;"><br>06.30<br></span>
-                                        <span style="color: #fff; font-size: 11px;">09.30 pm<br></span>
-                                        <span style="color: #fff; font-size: 14px;"><br>09.00<br></span>
-                                        <span style="color: #fff; font-size: 11px;">09.30 am<br></span>
-                                    </div>
-                                    <div class="col-md-6 p-0 m-0">
-                                        <span style="color: #fff; font-size: 14px;"><br>Company<br></span>
-                                        <span style="color: #fff; font-size: 11px;">Sunday 3rd january<br></span>
-                                        <span style="color: #fff; font-size: 14px;"><br>Company name<br></span>
-                                        <span style="color: #fff; font-size: 11px;">Sunday 3rd march<br></span>
-                                        <span style="color: #fff; font-size: 14px;"><br>Company name<br></span>
-                                        <span style="color: #fff; font-size: 11px;">Sunday 3rd march<br></span>
-                                        <span style="color: #fff; font-size: 14px;"><br>Company name<br></span>
-                                        <span style="color: #fff; font-size: 11px;">Sunday 3rd march<br></span>
-                                    </div>
-                                </div>
-                                <!-- End boardroom -->
-                                <h6 style="color:white; position: absolute; left:100px; right:30px; bottom:40px;"><i
-                                        class="fa fa-angle-down fa-2x"></i></h6>
-
-                                </small>
-                            </h6>
-                            <h6 style="color:white; position: absolute; left:40px; right:30px; bottom:-50px; font-size: 12px;"
-                                class="p-5 text-justify"><small><b>Reyada</b> | Collaborative workplace
-                                </small>
-                            </h6>
-                        </div>
-                    </div>
-                    <div class="right-half">
-                        <button type="button" class="close p-4" data-dismiss="modal">&#10006</button>
-                        <form class="w-100" style="padding: 5em 2em 2em 2em;">
-                            <div class="hello-week03" id="meetCal">
-                                <script>
-                                // const prev = document.querySelector('.demo-prev');
-                                // const next = document.querySelector('.demo-next');
-                                const myCalendar03 = new HelloWeek({
-                                    selector: '.hello-week03',
-                                    lang: 'en',
-                                    langFolder: '<?= base_url()?>dist/langs/',
-                                    format: 'dd/mm/yyyy',
-                                    weekShort: true,
-                                    monthShort: false,
-                                    multiplePick: false,
-                                    defaultDate: false,
-                                    todayHighlight: true,
-                                    daysSelected: null, // ['2019-02-26', '2019-03-01', '2019-03-02', '2019-03-03']
-                                    disablePastDays: false,
-                                    disabledDaysOfWeek: false,
-                                    disableDates: false,
-                                    weekStart: 0, // 0 (Sunday) to 6 (Saturday).
-                                    daysHighlight: false,
-                                    range: false,
-                                    rtl: false,
-                                    locked: false,
-                                    minDate: false,
-                                    maxDate: false,
-                                    nav: ['‹', '›'],
-                                    onLoad: () => {
-                                        /** callback function */
-                                    },
-                                    onChange: () => {
-                                        /** callback function */
-                                    },
-                                    onSelect: () => {
-                                        /** callback function */
-                                    },
-                                    onClear: () => {
-                                        /** callback function */
-                                    }
-                                });
-                                </script>
-                            </div>
-
-                            <div style="padding-left: 40px; padding-right: 30px; padding-top: 10px;" id="meetFormReg">
-                                <div class="row text-left">
-                                    <div class="col-md-6">
-                                        <div class="group">
-                                            <input type="text"><span class="highlight"></span><span class="bar"></span>
-                                            <label> Full Name</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="group">
-                                            <input type="text"><span class="highlight"></span><span class="bar"></span>
-                                            <label>Meeting Room</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="group">
-                                            <input type="email"><span class="highlight"></span><span class="bar"></span>
-                                            <label>Email</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="group">
-                                            <input type="text"><span class="highlight"></span><span class="bar"></span>
-                                            <label>Start Time</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="group">
-                                            <input type="text"><span class="highlight"></span><span class="bar"></span>
-                                            <label>End Time</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="group" style="text-align: right;">
-                                        <a href="#" id="meetSubmit" style="color:black;"><span class="align-middle" >Submit</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>                  
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-
-                </section>
-            </div>
-        </div>
-    </div>
-</div>
 
 <div id="thankyouforRegmodal" class="modal fade bs-example-modal-xs" role="dialog ">
     <div class="modal-dialog modal-xs modal-dialog-center" style="height:350px;">
@@ -959,25 +598,23 @@ $(document).ready(function() {
     })
 
     $("#meetSubmit").click(function(e) {
-        // $('.whole_div').show();
+        $('.whole_div').show();
         if (booking_validation())
         {
-            var time1 = $("#fromtime").val();
-            var time2 = $("#totime").val();
+            var start_time = $("#fromtime").val();
+            var end_time = $("#totime").val();
             if($('#selected_date').val() == ""){
                 var date = cur_date; 
             }
             else{
                 var date = $('#selected_date').val(); 
             }
-            if(time1 <= '2:30 AM'){
-                 var date = subtract_day(date); 
-            }
-            var time1 = ConvertTimeformat(moment(time1, 'h:mm A').subtract('hours', 3).format('h:mm A'));
-            var time2 = ConvertTimeformat(moment(time2, 'h:mm A').subtract('hours', 3).format('h:mm A'));
-            var fromTime = date +'T'+ time1 +'Z'; 
-            var toTime   = date +'T'+ time2 +'Z';
+            var time1 = ConvertTimeformat(moment(start_time, 'h:mm A').subtract(3,'hours').format('h:mm A'));
+            var time2 = ConvertTimeformat(moment(end_time, 'h:mm A').subtract(3,'hours').format('h:mm A'));
+            var fromTime = date+'T'+ time1 +'Z'; 
+            var toTime   = date+'T'+ time2 +'Z';
             if(is_logged_in == 1 ){
+                
                 post_array =
                 {
                     "CoworkerId": user_info.Id,
@@ -1051,22 +688,19 @@ $(document).ready(function() {
         var resource = $("#select-resource").val();
         var fromtime = $("#fromtime").val();
         var totime = $("#totime").val();
-        var st_time = ConvertTimeformat($("#fromtime").val());
-        var end_time = ConvertTimeformat($("#totime").val());
         var emailReg = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
         var digit_pattern = new RegExp('^[2-9][0-9]*$');
+        if($("#fromtime").val() != '0' || $("#totime").val() != '0'){
+            var st_time = ConvertTimeformat($("#fromtime").val());
+            var end_time = ConvertTimeformat($("#totime").val());
+        }
+        
         if (name === '' || email === '' || resource === '0' || fromtime === '0' || totime === '0') {
             $('#validation_message').append('All The Fields are Mandatory');
             $('#validation_message').fadeIn().delay(5000).fadeOut();
             $('.whole_div').hide();
             return false;
         }
-        if (st_time > end_time){
-            $('#validation_message').append('end time should be greater than start time'); 
-            $('#validation_message').fadeIn().delay(5000).fadeOut();
-            $('.whole_div').hide();
-            return false;       
-        } 
         else if (!(email).match(emailReg)) {
             $('#validation_message').append('Invalid Email...!!!!!!');
             $('#validation_message').fadeIn().delay(5000).fadeOut();
@@ -1085,11 +719,12 @@ $(document).ready(function() {
             return false;
         }
          
-        else if((ConvertTimeformat(fromtime) < cur_time || ConvertTimeformat(totime) < cur_time) && date == cur_date){
-            $('#validation_message').append('Booking cannot be done for the past time');
-            $('#validation_message').fadeIn().delay(5000).fadeOut();
-            $('.whole_div').hide();
-        }
+        // else if((ConvertTimeformat(fromtime) < cur_time || ConvertTimeformat(totime) < cur_time) && date == cur_date){
+        //     $('#validation_message').append('Booking cannot be done for the past time');
+        //     $('#validation_message').fadeIn().delay(5000).fadeOut();
+        //     $('.whole_div').hide();
+        //     return false;
+        // }
         else {
             return true;
         }
