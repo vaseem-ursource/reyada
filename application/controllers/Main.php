@@ -638,11 +638,11 @@ class main extends CI_Controller
             'Content-Length: ' . strlen($s_data)
         );
         $output = $this->post_with_curl($url, $s_data, $headers);
-        if(isset($output->RedirectTo) && !empty($output->RedirectTo)){
-                $json['message'] = 'Booked successfully';
+        if($output->RedirectTo == '/en/Profile/Tariff' && !empty($output->RedirectTo)){
+                    $json['message'] = 'Booked successfully';
                 $json['status'] = 200;
         }else{
-            $json['message'] = 'some error occured while processing your request';
+            $json['message'] = 'There is a user with this email address already.';
             $json['status'] = 500;
         }
 
