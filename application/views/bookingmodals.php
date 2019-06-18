@@ -402,8 +402,6 @@ $(document).ready(function() {
     $(document).on("click","#toor_book",function(){
         $('#confirmtour').empty();
         if(is_logged_in == 1){
-            $('#tour_fname').val(user_info.FullName);
-            $('#tour_email').val(user_info.Email);
             $('#cowerker_id').val(user_info.Id);
             $('#confirmtour').append('<b>'+ '+965 ' + user_info.MobilePhone + '</b>');            
             $("#bookingmodal").modal("hide");
@@ -718,13 +716,6 @@ $(document).ready(function() {
             $('.whole_div').hide();
             return false;
         }
-         
-        // else if((ConvertTimeformat(fromtime) < cur_time || ConvertTimeformat(totime) < cur_time) && date == cur_date){
-        //     $('#validation_message').append('Booking cannot be done for the past time');
-        //     $('#validation_message').fadeIn().delay(5000).fadeOut();
-        //     $('.whole_div').hide();
-        //     return false;
-        // }
         else {
             return true;
         }

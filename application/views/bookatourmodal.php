@@ -383,7 +383,7 @@
                                     <input name="mobile" id="tour_mobile" type="hidden">
                                     <input name="state" id="tour_state" type="hidden">
                                         <div class="group">
-                                            <input name="name" id="tour_fname" type="text" placeholder="Full Name" <?= ($is_logged_in == 'is_logged_in' ? 'readonly' : null);?>><span class="highlight"></span><span class="bar"></span>
+                                            <input name="name" id="tour_fname" type="text" placeholder="Full Name" ><span class="highlight"></span><span class="bar"></span>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -394,7 +394,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="group">
-                                            <input name="email" id="tour_email" type="email" placeholder="Email" <?= ($is_logged_in == 'is_logged_in' ? 'readonly' : null);?>><span class="highlight"></span><span class="bar"></span>
+                                            <input name="email" id="tour_email" type="email" placeholder="Email" ><span class="highlight"></span><span class="bar"></span>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
