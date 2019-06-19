@@ -17,29 +17,26 @@
           <div class="col-md-12 col-sm-12 col-xs-12 row">
            
             <div class="col-md-6" style="color:black; padding-right:10%" style="font-size: 16px;">
-            
-            <h6 style="color:black;" style="font-size: 16px;" class="text-justify">
-            <small>Ask us a question, we’ll get back to you shortly.</small></h6>
-                   <div class="group">
-                        <input type="text" name="full_name" id="full_name" required><span class="highlight"></span><span class="bar"></span>
-                        <label>Full Name</label>
-                    </div>
-                    <div class="group">
-                        <input type="text" name="email" id="email3" required><span class="highlight"></span><span class="bar"></span>
-                        <label>Email</label>
-                    </div>
-                    <div class="group">
-                        <input type="text" name="phone" id="phone2" required><span class="highlight"></span><span class="bar"></span>
-                        <label>Phone Number</label>
-                    </div>
-                    <div class="group">
-                        <input type="text" name="company" id="company2" required><span class="highlight"></span><span class="bar"></span>
-                        <label>Company Name</label>
-                    </div>
-                 <!-- </form> -->
+              <h6 style="color:black;" style="font-size: 16px;" class="text-justify">
+              <small>Ask us a question, we’ll get back to you shortly.</small></h6>
+                <div class="group">
+                    <input type="text" name="full_name" id="full_name" required><span class="highlight"></span><span class="bar"></span>
+                    <label>Full Name</label>
+                </div>
+                <div class="group">
+                    <input type="text" name="email" id="email3" required><span class="highlight"></span><span class="bar"></span>
+                    <label>Email</label>
+                </div>
+                <div class="group">
+                    <input type="text" name="phone" id="phone2" required><span class="highlight"></span><span class="bar"></span>
+                    <label>Phone Number</label>
+                </div>
+                <div class="group">
+                    <input type="text" name="company" id="company2" required><span class="highlight"></span><span class="bar"></span>
+                    <label>Company Name</label>
+                </div>
             </div>
             <div class="col-md-6" style="color:black; padding-left: 10%;" style="font-size: 16px;">
-            <!-- <form action="" style="padding-top:0px; padding-left:50px;" class="m-0"> -->
             <h6 style="color:black;" class="text-left"><small>Subject of inquiry: (membership – workspaces – packages - other)</small></h6> 
                     <div class="group">
                         <input type="checkbox" name="membership" id="membership2">
@@ -59,8 +56,6 @@
                     </div>
                     <br><br>
                     <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Submit <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
-	                  <!-- <input type="submit" value="submit"> -->
-            <!-- </form> -->
             </div>
            </div>
           </form>
@@ -507,21 +502,6 @@
    </div>
   </div>
 </div>
-
-<!-- End Thankyou for contact Modal -->
-<!-- <script>
-  $(function(){
-$("#addClass").click(function () {
-          $('#mobModalLogin1').addClass('popup-box-on');
-            });
-          
-            $("#removeClass").click(function () {
-          $('#mobModalLogin1').removeClass('popup-box-on');
-            });
-  })
-  </script> -->
-<!--End Login Modal-->
-<!-- End Thankyou Modal-->
 <script>
   $(document).ready(function(){
   var cur_date = '<?php echo date("Y-m-d") ?>';
@@ -574,7 +554,6 @@ $("#addClass").click(function () {
           url: base_url + 'main/signup',
           data: post_array,
           success: function(data) {
-              console.log(data);
               if(data.status != 200){
                 $('.whole_div').hide();
                 toastr.error(data.message);
@@ -583,9 +562,6 @@ $("#addClass").click(function () {
                 toastr.success('Registered Succesfully');
                 $(".firstSignup").css('display', 'none');
                 $(".secondSignup").css('display', 'block');
-                // setTimeout(function(){
-                //     location.reload();
-                // }, 3000)   
               }
           },
           error: function(jqxhr, status, error) {
@@ -595,7 +571,6 @@ $("#addClass").click(function () {
           }
       });
     }
-
   });
 
   $(document).on("click", "#signUpBtn", function () {
@@ -604,9 +579,11 @@ $("#addClass").click(function () {
     var selected_date = selected_date.replace("/", "-");
     var tariff_guid = $('#price_plans').val();
     if(selected_date == ""){
+      $('.whole_div').hide();
       toastr.error('please select date');
     }
     else if(selected_date < cur_date){
+      $('.whole_div').hide();
       toastr.error('Cannot select the past date');
     }
     else{
@@ -769,9 +746,15 @@ $("#addClass").click(function () {
           else{
             duration = 'every ' + price_detail[0].InvoiceEvery +'  months' ;
           }
-          var price_head = "<span style='color: #000; font-size: 11px;'>" + duration + '  ('+ price_detail[0].Price + ' ' + price_detail[0].CurrencyCode + ')'+ "</span>";
+            var desc_head = price_detail[0].Description.split(".");
+            var desc = price_detail[0].Description.replace(/<p>/g, "<span style='color: #000; font-size: 14px;line-height:30px;'>");  
+            desc = desc.replace(/<\/p>/g,"</span><br>"); 
+            desc = desc.split(".");
+          var price_head = "<span style='color: #000; font-size: 12px;'>" + duration + '  ('+ price_detail[0].Price + ' ' + price_detail[0].CurrencyCode + ')'+ "</span>"+
+                           "<span style='color: #000; font-size: 13px;'>" + desc_head[0] + "</span>";
+         
           $('.plan_heading').append(price_head);
-          $('.plan_desc').html(price_detail[0].Description);
+          $('.plan_desc').html(desc.slice(1));
                          
         },
         error: function(jqxhr, status, error) {

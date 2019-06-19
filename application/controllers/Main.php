@@ -236,7 +236,23 @@ class main extends CI_Controller
                     'Address' => $output->Address,
                     'CityName' => $output->CityName,
                     'MobilePhone' => $output->MobilePhone,
-                    'Email' => $output->Email
+                    'Email' => $output->Email,
+                    'DateOfBirth' => $output->DateOfBirth,
+                    'AccessPincode' => $output->AccessPincode,
+                    'Gender' => $output->Gender,
+                    'Twitter' => $output->Twitter,
+                    'Skype' => $output->Skype,
+                    'Facebook' => $output->Facebook,
+                    'Linkedin' => $output->Linkedin,
+                    'Google' => $output->Google,
+                    'Github' => $output->Github,
+                    'Pinterest' => $output->Pinterest,
+                    'Flickr' => $output->Flickr,
+                    'Vimeo' => $output->Vimeo,
+                    'Tumblr' => $output->Tumblr,
+                    'Blogger' => $output->Blogger
+
+                    
                 );
 
                 $this->session->set_userdata('user_info', $user_info);
@@ -263,7 +279,21 @@ class main extends CI_Controller
                     'Address' => $output->Address,
                     'CityName' => $output->CityName,
                     'MobilePhone' => $output->MobilePhone,
-                    'Email' => $output->Email
+                    'Email' => $output->Email,
+                    'DateOfBirth' => $output->DateOfBirth,
+                    'AccessPincode' => $output->AccessPincode,
+                    'Gender' => $output->Gender,
+                    'Twitter' => $output->Twitter,
+                    'Skype' => $output->Skype,
+                    'Facebook' => $output->Facebook,
+                    'Linkedin' => $output->Linkedin,
+                    'Google' => $output->Google,
+                    'Github' => $output->Github,
+                    'Pinterest' => $output->Pinterest,
+                    'Flickr' => $output->Flickr,
+                    'Vimeo' => $output->Vimeo,
+                    'Tumblr' => $output->Tumblr,
+                    'Blogger' => $output->Blogger
                 );
 
                 $this->session->set_userdata('user_info', $user_info);
@@ -315,6 +345,10 @@ class main extends CI_Controller
                 $json['message'] = 'some error occured while processing your request';
                 $json['status'] = 500;
             }
+        }
+        else{
+            $json['message'] = 'some error occured while processing your request';
+            $json['status'] = 500;
         }
         print_r(json_encode($json));
     }
@@ -585,14 +619,12 @@ class main extends CI_Controller
         $j_data['AgeInDays'] = 0.0000012655752314814815;
         $j_data['HasBanner'] = false;
         $j_data['Id'] = 0;
-        $j_data['location'] = $p_data['location'];
+        // $j_data['location'] = $p_data['location'];
         $j_data['IdString'] = "0";
         $j_data['UpdatedOn'] = null;
         $j_data['CreatedOn'] = "2019-05-21T11:20:56";
         $j_data['UniqueId'] = "cd694a808a625e2ea3sj";
         $j_data['IsNull'] = false;
-        // $j_data['Password'] = 'Demo1234';
-        // $j_data['PasswordConfirm'] = 'Demo1234';
         $j_data['GeneralTermsAcceptedOnline'] = false;
         $j_data['Country'] = array('Id' => 1113);
         $j_data['Avatar'] = null;
@@ -600,30 +632,20 @@ class main extends CI_Controller
         $j_data['hasBillingDetails'] = false;
         $j_data['isPayingMember'] = false;
         $j_data['ProfileTagsArray'] = [];
+        $webaddress = $p_data['location'];
         
         $s_data = json_encode(array('base64avatar' => null, 'Coworker' => $j_data, 'Team' => new stdClass()));
-        if($j_data['location'] == "reyadatestaccount ")
-        {
-            $url = "https://reyadatestaccount.spaces.nexudus.com/en/signup?_resource=,&_depth=1";
-        }
-        else if ($j_data['location'] == "reyadatestaccountnetwork ")
-        {
-            $url = "https://reyadatestaccountnetwork.spaces.nexudus.com/en/signup?_resource=,&_depth=1";
-        }
-        else if ($j_data['location'] == "copyofreyadatestaccount ")
-        {
-            $url = "https://copyofreyadatestaccount.spaces.nexudus.com/en/signup?_resource=,&_depth=1";
-        }
+        $url = "https://$webaddress.spaces.nexudus.com/en/signup?_resource=,&_depth=1";
         $headers = array(
             'Content-Type: application/json',
             'Content-Length: ' . strlen($s_data)
         );
         $output = $this->post_with_curl($url, $s_data, $headers);
-        if(isset($output->RedirectTo) && !empty($output->RedirectTo)){
-                $json['message'] = 'registered successfully';
+        if($output->RedirectTo == '/en/Profile/Tariff' && !empty($output->RedirectTo)){
+                    $json['message'] = 'Booked successfully';
                 $json['status'] = 200;
         }else{
-            $json['message'] = 'some error occured while processing your request';
+            $json['message'] = 'There is a user with this email address already.';
             $json['status'] = 500;
         }
 
