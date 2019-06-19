@@ -46,7 +46,7 @@
                     <!-- <hr width="1" size="800" class ="hr1"style ="height:300px;position:absolute;top:-42%;border:1.2px solid #343a40"> --> 
                 </div> 
                 <div class="col-md-1 mr-0" style="padding-left:25px"> 
-                    <hr width="1" size="800" class ="hr1"style ="height:300px;position:absolute;top:-26px;border:1px solid #343a40;background-color:#343a40"> 
+                    <hr width="1" size="800" class ="hr1"style ="height:300px;position:absolute;top:-24%;border:1px solid #343a40;background-color:#343a40"> 
                 </div> 
                  
                 <div class="col-md-10 pt-5  align-self-center row"> 
@@ -395,7 +395,7 @@
         } 
     </script>
 
-<section id="membership" class="section-bg mt-5">
+<section id="services" class="section-bg mt-5">
     <div class="container my-5 py-5">
         <header class="section-header">
           <h3 class="text-dark">Membership</h3>
@@ -536,7 +536,7 @@
     </div>
 </section><!-- #Feature -->
 
-<section id="faq" class="">
+<section id="services" class="">
     <div class="container">
         <header class="section-header">
           <h3 class="text-dark">Frequently Asked Questions</h3>
@@ -547,14 +547,14 @@
                         <li><input type="checkbox" checked=""><i></i>
                         <h6>Do you have any other branch ?</h6>
                         <div class="artlist">
-                           <p class="p-0 m-0 w-100 text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+                           <p class="p-0 m-0 w-100 text-justify">The number of licensed offices differ per location. In our Crystal Tower location we have 9 offices with licenses and in our Mabanee 1 location we have 13 offices with licenses.</p>
                         </div>
                         <hr>
                         </li>
                         <li><input type="checkbox" checked=""><i></i>
                         <h6>How many licensed office do you have ?</h6>
                         <div class="artlist">
-                            <p class="p-0 m-0 w-100 text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+                            <p class="p-0 m-0 w-100 text-justify">The number of licensed offices differ per location. In our Crystal Tower location we have 9 offices with licenses and in our Mabanee 1 location we have 13 offices with licenses.</p>
                         </div>
                         <hr>
                         </li>
@@ -566,7 +566,8 @@
                         <hr class="text-dark">
                         </li>
                         <li><input type="checkbox" checked=""><i></i>
-                        <h6>Does anyonem open private offices when the.. </h6>
+                        <h6>Does anyone open private offices when the 
+member is not there ? </h6>
                         <div class="artlist">
                             <p class="p-0 m-0 w-100 text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
                         </div>
@@ -580,14 +581,14 @@
                         <li><input type="checkbox" checked=""><i></i>
                         <h6>Do you conduct workshop ?</h6>
                         <div class="artlist">
-                           <p class="p-0 m-0 w-100 text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+                           <p class="p-0 m-0 w-100 text-justify">Yes, we do conduct workshop at Reyada as well as host them.</p>
                         </div>
                         <hr>
                         </li>
                         <li><input type="checkbox" checked=""><i></i>
                         <h6>Is there parking and is the parking included ?</h6>
                         <div class="artlist">
-                            <p class="p-0 m-0 w-100 text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+                            <p class="p-0 m-0 w-100 text-justify">All our locations have parking around the building, but it is not included with the Reyada memberships.</p>
                         </div>
                         <hr>
                         </li>
