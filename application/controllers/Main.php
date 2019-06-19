@@ -353,7 +353,8 @@ class main extends CI_Controller
         $data['folder_name'] = 'main';
         $data['file_name'] = 'Blog';
         $data['header_name'] = 'header_blog';
-		$data['Categories'] = $this->Main_model->get_all_categories();        
+        $data['Categories'] = $this->Main_model->get_all_categories();  
+        $data['PopularArticle'] = $this->Main_model->get_popular_article();      
         $this->load->view('index', $data);
     }
 
@@ -364,6 +365,7 @@ class main extends CI_Controller
         $data['file_name'] = 'Blog';
         $data['header_name'] = 'header_blog';
         $data['Article'] = $this->Main_model->get_article_by_category($cat_id);
+        $data['PopularArticle'] = $this->Main_model->get_popular_article(); 
 		$data['Categories'] = $this->Main_model->get_all_categories();        
         $this->load->view('index', $data);
 
@@ -377,7 +379,8 @@ class main extends CI_Controller
         $data['header_name'] = 'header';
         $data['Article'] = $this->Main_model->get_article_on_id($article_id);
         // $data['Comments'] = $this->Main_model->get_comments($article_id);
-		$data['Categories'] = $this->Main_model->get_all_categories();                
+        $data['Categories'] = $this->Main_model->get_all_categories();    
+        $data['PopularArticle'] = $this->Main_model->get_popular_article();                
         $this->load->view('index', $data);
 
     }

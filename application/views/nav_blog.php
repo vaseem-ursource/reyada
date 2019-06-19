@@ -39,7 +39,7 @@
           <li><a href="<?= base_url()?>main/blog">Blog</a></li>
           <li class="lap"><a href="#login" data-toggle="modal" data-target="#modalLogin">Login</a></li>
 		      <li class="mob"><a href="#" onclick="menuClickFunction()" data-toggle="modal" data-target="#mobModalLogin1">Login</a></li>
-		      <li class="lap"><a href="#" id="addClassBlog"><span class="fa fa-search"></span></a></li>
+		      <li class="lap"><a href="#" id="addClassBlog"><i class="fa fa-search"></i></a></li>
           <!-- <a href="#search"><i class="fa fa-search"></i></a> -->
           
         </ul>

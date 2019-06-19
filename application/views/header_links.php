@@ -33,6 +33,22 @@
   <script type="text/javascript"  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
   <script src="<?= base_url()?>js/date-format.js"></script>
+
+  <!-- jssocials -->
+    <link rel="stylesheet" type="text/css" href="<?= base_url();?>jssocials/jssocials.css" />
+    <link rel="stylesheet" type="text/css" href="<?= base_url();?>jssocials/jssocials-theme-minima" />
+    <style>
+    @font-face {
+      font-family: METRIC-REGULAR;
+      src: url("<?= base_url();?>fonts/METRIC-REGULAR.otf");
+      font-weight: bold;
+    }
+
+    * {
+   font-family: METRIC-REGULAR;
+}
+  </style>
+
   <script type="text/javascript">
     $(function () {
     $("#datepicker").datepicker({ 

@@ -12,6 +12,15 @@
                         ->get('articles');
         }
 
+        public function get_popular_article(){
+            return $this->db
+                        ->where('is_deleted','No')
+                        ->where('is_active','Active')
+                        ->limit('6')
+                         ->order_by('posted_date','desc')
+                        ->get('articles');
+        }
+
         public function get_all_categories(){
             return $this->db
                         ->where('is_deleted','No')
