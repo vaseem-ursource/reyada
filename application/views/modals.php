@@ -528,50 +528,48 @@
   });
 
   $(document).on("click", "#continuebtn", function () {
-    // $('.whole_div').show();
-    // var check_passowrd = validate_sign_up_form($('[name="password"]').val(),$('[name="confirm_password"]').val(), $('[name="complete_name"]').val(),
-    // $('[name="company_name"]').val(),$('[name="signup_email"]').val(),$('[name="profile_website"]').val(),$('[name="mobile_phone"]').val(),$('[name="business_area"]').val());
-    // if(check_passowrd == true){
-    //   post_array =
-    //   {
-    //       "FullName": $('[name="complete_name"]').val(),
-    //       "CompanyName": $('[name="company_name"]').val(),
-    //       "Email": $('[name="signup_email"]').val(),
-    //       "ProfileWebsite": $('[name="profile_website"]').val(),
-    //       "MobilePhone": $('[name="mobile_phone"]').val(),
-    //       "BillingAddress": $('[name="billing_address"]').val(),
-    //       "Password": $('[name="password"]').val(),
-    //       "PasswordConfirm": $('[name="confirm_password"]').val(),
-    //       "BusinessArea": $('[name="business_area"]').val(),
-    //       "SignUpToNewsletter": $('[name="receive_news_letter"]').val()
-    //   }
+    $('.whole_div').show();
+    var check_passowrd = validate_sign_up_form($('[name="password"]').val(),$('[name="confirm_password"]').val(), $('[name="complete_name"]').val(),
+    $('[name="company_name"]').val(),$('[name="signup_email"]').val(),$('[name="profile_website"]').val(),$('[name="mobile_phone"]').val(),$('[name="business_area"]').val());
+    if(check_passowrd == true){
+      post_array =
+      {
+          "FullName": $('[name="complete_name"]').val(),
+          "CompanyName": $('[name="company_name"]').val(),
+          "Email": $('[name="signup_email"]').val(),
+          "ProfileWebsite": $('[name="profile_website"]').val(),
+          "MobilePhone": $('[name="mobile_phone"]').val(),
+          "BillingAddress": $('[name="billing_address"]').val(),
+          "Password": $('[name="password"]').val(),
+          "PasswordConfirm": $('[name="confirm_password"]').val(),
+          "BusinessArea": $('[name="business_area"]').val(),
+          "SignUpToNewsletter": $('[name="receive_news_letter"]').val()
+      }
 
-    //   $.ajax({
-    //       type: 'POST',
-    //       dataType: 'json',
-    //       url: base_url + 'main/signup',
-    //       data: post_array,
-    //       success: function(data) {
-    //           if(data.status != 200){
-    //             $('.whole_div').hide();
-    //             toastr.error(data.message);
-    //           }else{
-    //             $('.whole_div').hide();
-    //             toastr.success('Registered Succesfully');
-    //             $(".firstSignup").css('display', 'none');
-    //             $(".secondSignup").css('display', 'block');
-    //           }
-    //       },
-    //       error: function(jqxhr, status, error) {
-    //         $('.whole_div').hide();
-    //         console.log(jqxhr);
-    //         console.log(status);
-    //         console.log(error);
-    //       }
-    //   });
-    // }
-    $(".firstSignup").css('display', 'none');
+      $.ajax({
+          type: 'POST',
+          dataType: 'json',
+          url: base_url + 'main/signup',
+          data: post_array,
+          success: function(data) {
+              if(data.status != 200){
+                $('.whole_div').hide();
+                toastr.error(data.message);
+              }else{
+                $('.whole_div').hide();
+                toastr.success('Registered Succesfully');
+                $(".firstSignup").css('display', 'none');
                 $(".secondSignup").css('display', 'block');
+              }
+          },
+          error: function(jqxhr, status, error) {
+            $('.whole_div').hide();
+            console.log(jqxhr);
+            console.log(status);
+            console.log(error);
+          }
+      });
+    }
   });
 
   $(document).on("click", "#signUpBtn", function () {
