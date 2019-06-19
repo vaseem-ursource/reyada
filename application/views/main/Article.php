@@ -5,7 +5,7 @@
 }
 
 a {
-  color: #c40030;
+  color: #343a40;
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
 }
@@ -398,24 +398,26 @@ button {
                 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
                 <h3 class="text-center pt-3">Share this Article</h3>
-                <h4 class="text-center text-dark pb-5">
+                <div id="share" class="text-center pb-4"></div>
+                <!-- <h4 class="text-center text-dark pb-5">
                     <a href="#"><i class="fa fa-facebook px-3 text-dark"></i></a>
                     <a href="#"><i class="fa fa-linkedin px-3 text-dark"></i></a>
                     <a href="#"><i class="fa fa-twitter px-3 text-dark"></i></a>
-                </h4>
+                    
+                </h4> -->
                <span class="mb-1">Tags : </span>
-               <span class="btn btn-outline-secondary text-uppercase mb-1">START UPS</span>
-               <span class="btn btn-outline-secondary text-uppercase mb-1">Tips</span>
-               <span class="btn btn-outline-secondary text-uppercase mb-1">FreeLance</span>
-               <span class="btn btn-outline-secondary text-uppercase mb-1">News</span>
-               <span class="btn btn-outline-secondary text-uppercase mb-1">START UPS</span>
-               <span class="btn btn-outline-secondary text-uppercase mb-1">FreeLance</span>
-               <span class="btn btn-outline-secondary text-uppercase mb-1">START UPS</span>
-               <span class="btn btn-outline-secondary text-uppercase mb-1">Tips</span>
-               <span class="btn btn-outline-secondary text-uppercase mb-1">FreeLance</span>
-               <span class="btn btn-outline-secondary text-uppercase mb-1">News</span>
-               <span class="btn btn-outline-secondary text-uppercase mb-1">START UPS</span>
-               <span class="btn btn-outline-secondary text-uppercase mb-1">FreeLance</span>
+               <span class="btn border border-secondary rounded text-uppercase mb-1 p-2">START UPS</span>
+               <span class="btn border border-secondary rounded text-uppercase mb-1 p-2">Tips</span>
+               <span class="btn border border-secondary rounded text-uppercase mb-1 p-2">FreeLance</span>
+               <span class="btn border border-secondary rounded text-uppercase mb-1 p-2">News</span>
+               <span class="btn border border-secondary rounded text-uppercase mb-1 p-2">START UPS</span>
+               <span class="btn border border-secondary rounded text-uppercase mb-1 p-2">FreeLance</span>
+               <span class="btn border border-secondary rounded text-uppercase mb-1 p-2">START UPS</span>
+               <span class="btn border border-secondary rounded text-uppercase mb-1 p-2">Tips</span>
+               <span class="btn border border-secondary rounded text-uppercase mb-1 p-2">FreeLance</span>
+               <span class="btn border border-secondary rounded text-uppercase mb-1 p-2">News</span>
+               <span class="btn border border-secondary rounded text-uppercase mb-1 p-2">START UPS</span>
+               <span class="btn border border-secondary rounded text-uppercase mb-1 p-2">FreeLance</span>
             </div>
 
             <div class="col-lg-3 col-md-3 wow fadeInUp p-1 lap">
@@ -434,19 +436,22 @@ button {
                           <li><input type="checkbox" checked=""><i></i>
                             <h6><span style="border-left:2px solid #343a40;padding:4px"></span> Popular Article</h6>
                             <div class="artlist">
-                              <a href="#"><div class="artlist_content">Lorem Ipsum Neque porro<small>Co-Founder</small></div></a>
-                              <a href="#"><div class="artlist_content"> Neque porro Ipsum</div></a>
+                            <?php $i=0; 
+                            foreach($PopularArticle->result() as $row){ ?>
+                            <?php if($i>0){?><hr class="w-25 ml-0" style="color:black;border:1px solid"><?php }  $i++;?>
+                              <a href="<?= base_url('Main/Article?id='.$row->article_id);?>"><div class="artlist_content"><?= $row->title;?></div></a>
+                              <?php } ?>
                             </div>
                           </li>
                           <li><input type="checkbox" checked=""><i></i>
                             <h6><span style="border-left:2px solid #343a40;padding:4px"></span> Popular Tags</h6>
                             <div class="artlist">
                               <div class="artlist_content">
-                                <a href="#"><span class="btn btn-outline-secondary text-uppercase mb-1">START UPS</span></a>
-                                <a href="#"><span class="btn btn-outline-secondary text-uppercase mb-1">Tips</span></a>
-                                <a href="#"><span class="btn btn-outline-secondary text-uppercase mb-1">FreeLance</span></a>
-                                <a href="#"><span class="btn btn-outline-secondary text-uppercase mb-1">News</span></a>
-                                <a href="#"><span class="btn btn-outline-secondary text-uppercase mb-1">START UPS</span></a>
+                                <a href="#"><span class="btn border border-secondary rounded text-uppercase mb-1 p-2">START UPS</span></a>
+                                <a href="#"><span class="btn border border-secondary rounded text-uppercase mb-1 p-2">Tips</span></a>
+                                <a href="#"><span class="btn border border-secondary rounded text-uppercase mb-1 p-2">FreeLance</span></a>
+                                <a href="#"><span class="btn border border-secondary rounded text-uppercase mb-1 p-2">News</span></a>
+                                <a href="#"><span class="btn border border-secondary rounded text-uppercase mb-1 p-2">START UPS</span></a>
                               </div>
                             </div>
                           </li>

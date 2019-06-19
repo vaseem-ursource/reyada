@@ -1,4 +1,11 @@
-
+<style>
+span.dot.active{
+  background:#fff;
+}
+span.dot{
+  background:#ababab;
+}
+</style>
 <!--==========================
     Intro Section
   ============================-->
@@ -49,9 +56,9 @@
                 </div>
             </div>
             <div class="dot-container text-left ml-3" style="background-color:transparent;">
-                  <span class="dot bg-white active" onclick="currentSlide1(1)"></span> 
-                  <span class="dot bg-white" onclick="currentSlide1(2)"></span> 
-                  <span class="dot bg-white" onclick="currentSlide1(3)"></span> 
+                  <span class="dot active" onclick="currentSlide1(1)"></span> 
+                  <span class="dot" onclick="currentSlide1(2)"></span> 
+                  <span class="dot" onclick="currentSlide1(3)"></span> 
                 </div>
             </div>
             <script>
@@ -133,20 +140,23 @@
                           </li>
                           <li><input type="checkbox" checked=""><i></i>
                             <h6><span style="border-left:2px solid #343a40;padding:4px"></span> Popular Article</h6>
-                            <div class="artlist">
-                              <a href="#"><div class="artlist_content">Lorem Ipsum Neque porro<small>Co-Founder</small></div></a>
-                              <a href="#"><div class="artlist_content"> Neque porro Ipsum</div></a>
+                            <div class="artlist"> 
+                            <?php $i=0; 
+                            foreach($PopularArticle->result() as $row){ ?>
+                            <?php if($i>0){?><hr class="w-25 ml-0" style="color:black;border:1px solid"><?php }  $i++;?>
+                              <a href="<?= base_url('Main/Article?id='.$row->article_id);?>"><div class="artlist_content"><?= $row->title;?></div></a>
+                              <?php } ?>
                             </div>
                           </li>
                           <li><input type="checkbox" checked=""><i></i>
                             <h6><span style="border-left:2px solid #343a40;padding:4px"></span> Popular Tags</h6>
                             <div class="artlist">
                               <div class="artlist_content">
-                                <a href="#"><span class="btn btn-outline-secondary text-uppercase mb-1">START UPS</span></a>
-                                <a href="#"><span class="btn btn-outline-secondary text-uppercase mb-1">Tips</span></a>
-                                <a href="#"><span class="btn btn-outline-secondary text-uppercase mb-1">FreeLance</span></a>
-                                <a href="#"><span class="btn btn-outline-secondary text-uppercase mb-1">News</span></a>
-                                <a href="#"><span class="btn btn-outline-secondary text-uppercase mb-1">START UPS</span></a>
+                                <a href="#"><span class="btn border border-secondary rounded text-uppercase mb-1 p-2">START UPS</span></a>
+                                <a href="#"><span class="btn border border-secondary rounded text-uppercase mb-1 p-2">Tips</span></a>
+                                <a href="#"><span class="btn border border-secondary rounded text-uppercase mb-1 p-2">FreeLance</span></a>
+                                <a href="#"><span class="btn border border-secondary rounded text-uppercase mb-1 p-2">News</span></a>
+                                <a href="#"><span class="btn border border-secondary rounded text-uppercase mb-1 p-2">START UPS</span></a>
                               </div>
                             </div>
                           </li>

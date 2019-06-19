@@ -1,4 +1,8 @@
-
+<style>
+span.dot.active{
+  background:#000;
+}
+</style>
   <section id="intro" class="clearfix align-middle" style="background:url('<?= base_url()?>image/home1.jpg') center  no-repeat;background-size: cover;height:100vh">
     <div class="container d-flex h-100">
       <div class="row justify-content-center align-self-center">
@@ -126,13 +130,13 @@
 
           <div class="col-md-6 col-sm-12 pl-5">
             <div class="about-content">
-              <h4>Mission</h4>
+            <h4><b>Mission</b></h4>
               
               <p class="text-justify">Reyada Collaborative Workspace aims to provide for the rising generation of innovative thinkers. Our goal is to build a community of like-minded entrepreneurs and facilitate them with the necessities that a business needs to thrive. At Reyada, workspaces are designed to promote connectivity, enhance creativity and aid the growth of its community. Reyada’s collaborative environment generates endless opportunities for its members. 
               #TOGETHERWECREATE
               </p>
               <!-- <p class="pb-1 mb-1 text-justify ">Aut dolor id. Sint aliquam consequatur ex ex labore. Et quis qui dolor nulla dolores neque. Aspernatur consectetur omnis numquam quaerat. Sed fugiat nisi. Officiis veniam molestiae. Et vel ut quidem alias veritatis repudiandae ut fugit. Est ut eligendi aspernatur nulla voluptates veniam iusto vel quisquam. Fugit ut maxime incidunt accusantium totam repellendus eum error. Et repudiandae eum iste qui et ut ab alias.</p> -->
-			  <i class="fa fa-angle-right fa-2x"></i>
+			 
              </div>
           </div>
         </div>
@@ -143,8 +147,8 @@
     <!--==========================
       Amenities Title
     ============================-->
-    <section id="services" class="section-bg pb-0">
-      <div class="container">
+    <section id="services" class="section-bg py-5">
+      <div class="container py-5">
 
         <header class="section-header">
           <h3 class="text-dark">Amenities</h3>
@@ -226,10 +230,10 @@
     <!--==========================
       Membership
     ============================-->
-    <section id="services" class="section-bg">
+    <section id="services" class="p-0">
       <div class="container-fluid">
         <header class="section-header pb-4">
-          <h3>Membership</h3>
+        <h3 style="color:#343a40">Membership</h3>
         </header>
             <div class="row">
               <div class="col-md-4 memberbox m-0 p-0">
@@ -241,7 +245,7 @@
                   <h4 class="px-5 position-relative">Perfect for</h4>
                   <div class="text-center position-relative"><img src="<?= base_url()?>image/membership/m1.png" style="margin: 25%" width="25%" class="position-relative"></div>
                   <div style="bottom: 0px;position: absolute;">
-                    <h4 class="px-5 position-relative pt-5 text"><span class="align-middle">See </span><i class="fa fa-angle-right fa-2x align-middle"></i></h4>
+                   <a href="<?= base_url('main/Services#payasyougo')?>"><h4 class="px-5 position-relative pt-5 text-white"><span class="align-middle">See </span><i class="fa fa-angle-right fa-2x align-middle"></i></h4></a>
                   </div>
                 </div>
               </div>
@@ -254,7 +258,7 @@
                   <h4 class="px-5 position-relative">Perfect for</h4>
                   <div class="text-center position-relative"><img src="<?= base_url()?>image/membership/m2.png"  style="margin: 25%" width="25%" class="position-relative"></div>
                   <div style="bottom: 0px;position: absolute;">
-                    <h4 class="px-5 position-relative pt-5"><span class="align-middle">See </span><i class="fa fa-angle-right fa-2x align-middle"></i></h4>
+                  <a href="<?= base_url('main/Services#hotdesk')?>"><h4 class="px-5 position-relative pt-5 text-white"><span class="align-middle">See </span><i class="fa fa-angle-right fa-2x align-middle"></i></h4></a>
                   </div>
                 </div>
               </div>
@@ -267,7 +271,7 @@
                   <h4 class="px-5 position-relative">Perfect for</h4>
                   <div class="text-center position-relative"><img src="<?= base_url()?>image/membership/m3.png" style="margin: 25%" width="25%" class="position-relative"></div>
                   <div style="bottom: 0px;position: absolute;">
-                    <h4 class="px-5 position-relative pt-5"><span class="align-middle">See </span><i class="fa fa-angle-right fa-2x align-middle"></i></h4>
+                  <a href="<?= base_url('main/Services#privateoffice')?>"><h4 class="px-5 position-relative pt-5 text-white"><span class="align-middle">See </span><i class="fa fa-angle-right fa-2x align-middle"></i></h4></a>
                   </div>
                 </div>
               </div>
@@ -349,10 +353,9 @@
                   </div>
                 </div>
               </div>
-              
             </div>
                 
-                <div class="dot-container">
+                <div class="dot-container pull-left ml-3">
                   <span class="dot" onclick="currentSlide(1)"></span> 
                   <span class="dot" onclick="currentSlide(2)"></span> 
                   <span class="dot" onclick="currentSlide(3)"></span> 
@@ -403,7 +406,7 @@
     <section id="team" class="">
       <div class="container">
         <div class="section-header pb-2">
-          <h3>Latest Article</h3>
+          <h3 style="color:#343a40">Latest Article</h3>
         </div>
 
         <div class="row">

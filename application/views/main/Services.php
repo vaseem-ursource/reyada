@@ -1,7 +1,7 @@
 <!--==========================
     Intro Section
   ============================-->
-  <section id="intro" class="clearfix align-middle " style="background:url('<?= base_url()?>image/services/service1.jpg') center  no-repeat;background-size: cover;height:60vh;-webkit-filter: brightness(75%); filter: brightness(75%);">
+  <section id="intro" class="clearfix align-middle " style="background:url('<?= base_url()?>image/services/service4.jpg') center  no-repeat;background-size: cover;height:60vh;">
         <div class="intro-info order-md-first order-last position-absolute" style="bottom:0px;left:10%;">
           <h2 class="text-white text-left">Services</h2>
         </div>
@@ -56,12 +56,12 @@
                     <div class="col-md-6"> 
                         <h5 class="text-justify">Crystal Tower – Floor 24. Ahmed AlJaber st. Kuwait City, Kuwait.</h5> 
                         <h4 class="text-uppercase"><i class="fa fa-map-marker"></i> CRYSTAL TOWER</h4> 
-                        <h4 class="text-uppercase" data-toggle="modal" data-target="#yesnomodal"><i class="fa fa-angle-right"></i></h4> 
+                        <a class="text-uppercase" data-toggle="modal" data-target="#yesnomodal" style="cursor: pointer"><i class="fa fa-angle-right"></i></a> 
                     </div> 
                     <div class="col-md-6"> 
                         <h5 class="text-justify">Mabanee 1 Building – First Floor. Salhiya St. Kuwait City, Kuwait.</h5> 
                         <h4 class="text-uppercase"><i class="fa fa-map-marker"></i> MABANEE 1</h4> 
-                        <h6 class="align-middle" data-toggle="modal" data-target="#yesnomodal">Book a <i class="fa fa-angle-right align-middle"></i></h6> 
+                        <a class="align-middle" data-toggle="modal" data-target="#yesnomodal" style="cursor: pointer">Book a <i class="fa fa-angle-right align-middle"></i></a> 
                     </div> 
                 </div> 
             </div> 
@@ -72,9 +72,9 @@
                 <div class="col-md-3 mr-0" > 
                 </div> 
                 <div class="col-md-1 mr-0" style="padding-left:5%"> 
-                    <hr width="1" size="800" class ="hr1"style ="height:300px;position:absolute;top:-33%;border:1px solid #343a40;background-color:#343a40"> 
+                    <hr width="1" size="800" class ="hr1"style ="height:300px;position:absolute;top:-26%;border:1px solid #343a40;background-color:#343a40"> 
                 </div> 
-                <div class="col-md-8 pt-5  align-self-center row"> 
+                <div class="col-md-8 pt-5  align-self-center row mb-5"> 
                     <div class="col-md-12"> 
                         <h2>Fully Furnished</h2> 
                     </div> 
@@ -155,7 +155,7 @@
                         <!-- <h5 class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</h5>  -->
                         <h5 class="text-left"><img src="<?= base_url()?>image/services/clock.png" width="25px" height="25px" alt=""> Open From 9 AM to 9 PM</h5> 
                         <h5 class="text-left"><img src="<?= base_url()?>image/services/range.png" width="25px" height="25px" alt=""> Flexible date and time usage</h5> 
-                        <h5 class="text-right" data-toggle="modal" data-target="#yesnomodal">Book a meeting <i class="fa fa-angle-right align-middle"></i></h5>
+                        <h5 class="text-right" data-toggle="modal" data-target="#yesnomodal"  style="cursor: pointer">Book a meeting <i class="fa fa-angle-right align-middle"></i></h5>
                          
                     </div> 
                      
@@ -396,10 +396,10 @@
     </script>
 
 <section id="services" class="section-bg mt-5">
-    <div class="container">
+    <div class="container my-5 py-5">
         <header class="section-header">
           <h3 class="text-dark">Membership</h3>
-          <p class="text-dark">Reyada memberships are designed to accommodate business teams of all sizes, as well as individuals and freelancers. 
+          <p class="text-dark" style="font-size:large">Reyada memberships are designed to accommodate business teams of all sizes, as well as individuals and freelancers. 
                             <br>Our memberships include services that come along with it, but are not limited to, printing, address, mail and package handling, front desk services, priority event access and more. </p>
         </header>
     </div>
@@ -408,12 +408,13 @@
 <section id="services" class="">
     <div class="container">
         <header class="section-header">
-         <div class="col-md-12 row p-0 m-0">
+         <div class="col-md-12 row p-0 m-0" id="payasyougo">
             <div class="col-md-2">
                <img src="<?= base_url()?>image/membership/m1.png" class="w-50 lap"  alt="">
             </div>
             <div class="col-md-8 row">
                 <div class="col-md-6 pt-5">
+                <span style="position:absolute;top:-25px;left:-25px"><img src="<?= base_url('image/location.png')?>" alt="" width="25px" height="30px"> CRYSTAL TOWER</span>
                     <span class="pull-right">1 <span style="border-bottom: 1px solid black;width:20px;height:3px; display: inline-block;vertical-align: middle;"></span> 3</span><br>
                     <span class="pull-right">PAY AS YOU GO</span><br>
                     <span class="pull-right text-justify pt-4">Designed for those always on the move. Get 1 – day access of co-working space credit and pay 5 kd for any additional day. 
@@ -454,13 +455,14 @@
                
             </div>
         <div>
-        <div class="col-md-12 row pr-0">
+        <div class="col-md-12 row pr-0 my-5 pt-5" id="hotdesk">
             <div class="col-md-2">
                
             </div>
             <div class="col-md-8 row pt-4 pr-0">
                 <div class="col-md-6">
-                    <img src="<?= base_url()?>image/membership/bg2.jpg" class="w-100" alt="">
+                <span style="position:absolute;top:-25px;left:-25px"><img src="<?= base_url('image/location.png')?>" alt="" width="25px" height="30px"> CRYSTAL TOWER</span>
+                    <img src="<?= base_url()?>image/membership/bg2.jpg" class="w-100 mt-4" alt="">
                     <div class="border-right border-secondary p-3 text-right">
                         <span class="pt-3 pl-3">From KWD 75 per month</span><br>
                         <span><i class="fa fa-angle-right fa-2x pt-3 pl-3"></i></span>
@@ -491,11 +493,13 @@
                 <img src="<?= base_url()?>image/membership/m2.png" class="w-50 position-absolute lap" style="bottom:0px;right:0px" alt="">
             </div>
         <div>
-        <div class="col-md-12 row pt-4 pr-0 mr-0">
+        <div class="col-md-12 row pt-4 pr-0 mr-0 my-5 pt-5" id="privateoffice">
+        
             <div class="col-md-2 mt-2">
                <img src="<?= base_url()?>image/membership/m3.png" class="w-50 lap" alt="">
             </div>
             <div class="col-md-8 row pr-0">
+            <span style="position:absolute;top:-25px;left:-25px"><img src="<?= base_url('image/location.png')?>" alt="" width="25px" height="30px"> CRYSTAL TOWER</span>
                 <div class="col-md-6 pt-5">
                     <span class="pull-right">3 <span style="border-bottom: 1px solid black;width:20px;height:3px; display: inline-block;vertical-align: middle;"></span> 3</span><br>
                     <span class="pull-right">PRIVATE OFFICE</span><br>
@@ -532,7 +536,7 @@
     </div>
 </section><!-- #Feature -->
 
-<section id="services" class="section-bg">
+<section id="services" class="">
     <div class="container">
         <header class="section-header">
           <h3 class="text-dark">Frequently Asked Questions</h3>
@@ -543,14 +547,14 @@
                         <li><input type="checkbox" checked=""><i></i>
                         <h6>Do you have any other branch ?</h6>
                         <div class="artlist">
-                           <p class="p-0 m-0 w-100 text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+                           <p class="p-0 m-0 w-100 text-justify">The number of licensed offices differ per location. In our Crystal Tower location we have 9 offices with licenses and in our Mabanee 1 location we have 13 offices with licenses.</p>
                         </div>
                         <hr>
                         </li>
                         <li><input type="checkbox" checked=""><i></i>
                         <h6>How many licensed office do you have ?</h6>
                         <div class="artlist">
-                            <p class="p-0 m-0 w-100 text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+                            <p class="p-0 m-0 w-100 text-justify">The number of licensed offices differ per location. In our Crystal Tower location we have 9 offices with licenses and in our Mabanee 1 location we have 13 offices with licenses.</p>
                         </div>
                         <hr>
                         </li>
@@ -562,7 +566,8 @@
                         <hr class="text-dark">
                         </li>
                         <li><input type="checkbox" checked=""><i></i>
-                        <h6>Does anyonem open private offices when the.. </h6>
+                        <h6>Does anyone open private offices when the 
+member is not there ? </h6>
                         <div class="artlist">
                             <p class="p-0 m-0 w-100 text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
                         </div>
@@ -576,14 +581,14 @@
                         <li><input type="checkbox" checked=""><i></i>
                         <h6>Do you conduct workshop ?</h6>
                         <div class="artlist">
-                           <p class="p-0 m-0 w-100 text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+                           <p class="p-0 m-0 w-100 text-justify">Yes, we do conduct workshop at Reyada as well as host them.</p>
                         </div>
                         <hr>
                         </li>
                         <li><input type="checkbox" checked=""><i></i>
                         <h6>Is there parking and is the parking included ?</h6>
                         <div class="artlist">
-                            <p class="p-0 m-0 w-100 text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+                            <p class="p-0 m-0 w-100 text-justify">All our locations have parking around the building, but it is not included with the Reyada memberships.</p>
                         </div>
                         <hr>
                         </li>

@@ -89,7 +89,7 @@
         <div class="row">
           <div class="col-md-4 bg-black">
             <div>
-              <img src="image/modalimg/a1.png" class="img-fluid  position-relative pull-right" width="170" height="150"
+              <img src="<?= base_url();?>image/modalimg/a1.png" class="img-fluid  position-relative pull-right" width="170" height="150"
                 style="padding-top: 30%; left:20px;">
               <h6 style="color:white; position: absolute; bottom:30px; font-size: 14px;" class="p-5 text-justify">
                 <small>JOIN OUR COMMUNITY
@@ -103,7 +103,7 @@
             </div>
           </div>
           <div class="col-md-8 bg-white" 
-            style="background:url('image/modalimg/A15.jpg') center  no-repeat;background-size: cover;">
+            style="background:url('<?= base_url();?>image/modalimg/A15.jpg') center  no-repeat;background-size: cover;">
             <button type="button" class="close p-4" data-dismiss="modal">&#10006</button>
             <article>
               <div>
@@ -117,7 +117,7 @@
                   </div>
                   <div class="group mb-1">
                     <input name="loginPassword" type="password"><span class="highlight"></span><span class="bar"></span>
-                    <label>Password</label>
+                    <label>Your Password</label>
                   </div>
                   <a href="#" class="text-p text-secondary float-right">Forgot password?</a>
                   <br><br><br>
@@ -198,22 +198,25 @@
         //     }
         // });
     </script>
-    <div class="align-self-center" style="padding-left:30%;padding-right:25%;position:absolute">
+    <div class="row align-self-center">
       <!-- <nav class="main-nav  d-lg-block align-self-center" > -->
-      <ul class="align-self-center main-nav-menu d-lg-block align-self-center">
-
-        <li><a href="#" class="text-dark">ABOUT</a></li>
-        <li><a href="#" class="text-dark">FAQ</a></li>
-        <li><a href="#" class="text-dark">BLOG</a></li>
-        <li><a href="#" class="text-dark">SIGN UP</a></li>
-        <li><a href="#" class="text-dark">MEMBERSHIP</a></li>
-        <li><a href="#" class="text-dark">CONTACT</a></li>
-        <li><a href="#" class="text-dark">THIRD PARTY</a></li>
-        <li><a href="#" class="text-dark text-left">PRIVACY POLICY</a></li>
-
+      <!-- <ul class="align-self-center main-nav-menu d-lg-block align-self-center"> -->
+       <div class="col-12 text-center py-1"><a href="<?= base_url()?>" class="text-dark col">ABOUT</a>
+        <a href="<?= base_url('main/services#faq')?>" class="text-dark col">FAQ</a>
+        <a href="<?= base_url('main/blog')?>" class="text-dark col">BLOG</a>
+      </div>
+       <div class="col-12  text-center py-1">  <a href="#" class="text-dark col">SIGN UP</a>
+        <a href="<?= base_url('main/services#membership')?>" class="text-dark col">MEMBERSHIP</a>
+        <a href="#" class="text-dark col">CONTACT</a>
+      </div>
+      <div class="col-12  text-center py-1">
+      
+        <a href="#" class="text-dark col">THIRD PARTY</a>
+        <a href="#" class="text-dark col">PRIVACY POLICY</a>
+        </div>  
         <!-- <a href="#search"><i class="fa fa-search"></i></a> -->
 
-      </ul>
+      <!-- </ul> -->
     </div>
 
     <footer id="footer" class="section-bg p-0 lap">
@@ -335,7 +338,7 @@
                       <div class="col-md-6">
                         <div class="group">
                           <input type="password" name="password" ><span class="highlight"></span><span class="bar"></span>
-                          <label>Password</label>
+                          <label>Your Password</label>
                         </div>
                       </div>
                       <div class="col-md-6">
@@ -353,7 +356,7 @@
                       <div class="col-md-6">
                         <div class="group">
                           <input type="checkbox" name="receive_news_letter" style="margin-top:15px;">
-                          <span style="color:#999;">Recieve news from reyada</span>
+                          <span style="color:#999;">Recieve news from Reyada</span>
                         </div>
                       </div>
                       <br><br>
@@ -375,7 +378,7 @@
                     </div>
                   </div>
                   <div class="secondSignup">
-                    <h6 style="color:black;" class="text-center">REGISTER</h6><br>
+                    <h6 style="color:black;" class="text-center m-0">REGISTER</h6>
                     <span style="color:black;" class="text-left">Select your subscription plan</span><br><br>
                     <div class="row">
                       <div class="col-md-6">

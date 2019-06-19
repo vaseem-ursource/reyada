@@ -46,7 +46,7 @@
             <li class="mob"><a href="#" onclick="menuClickFunction()" data-toggle="modal" data-target="#modalLogin">Login</a></li>
           <?php } ?>
 
-          <li class="lap"><a href="#" id="addClass"><span class="fa fa-search"></span></a></li>
+          <li class="lap"><a href="#" id="addClass"><i class="fa fa-search"></i></a></li>
         </ul>
       </nav><!-- .main-nav -->
       
