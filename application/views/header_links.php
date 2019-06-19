@@ -8,7 +8,22 @@
   <!-- <link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet"> -->
   <!-- Bootstrap CSS File -->
   <link href="<?= base_url()?>lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+  <style>
+   @font-face {
+       font-family:'METRIC-REGULAR';
+       src:url(../fonts/METRIC-REGULAR.OTF);
+       src:url(../fonts/METRIC-REGULAR.OTF?#iefix) format('embedded-opentype'),
+               url(../fonts/METRIC-REGULAR.OTF) format('woff'),
+               url(../fonts/METRIC-REGULAR.OTF) format('truetype'),
+               url(../fonts/METRIC-REGULAR.OTF#my-font) format('svg');
+       font-weight:normal;
+       font-style:normal;
+   }
+   
+      body.h1,h2,h3,h4,h5,h6,span,div,q,a {
+      font-family: METRIC-REGULAR !important;
+   }
+     </style>
   <!-- Libraries CSS Files -->
   <link href="<?= base_url()?>lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <link href="<?= base_url()?>lib/animate/animate.min.css" rel="stylesheet">
@@ -37,17 +52,6 @@
   <!-- jssocials -->
     <link rel="stylesheet" type="text/css" href="<?= base_url();?>jssocials/jssocials.css" />
     <link rel="stylesheet" type="text/css" href="<?= base_url();?>jssocials/jssocials-theme-minima" />
-    <style>
-    @font-face {
-      font-family: METRIC-REGULAR;
-      src: url("<?= base_url();?>fonts/METRIC-REGULAR.otf");
-      font-weight: bold;
-    }
-
-    * {
-   font-family: METRIC-REGULAR;
-}
-  </style>
 
   <script type="text/javascript">
     $(function () {
