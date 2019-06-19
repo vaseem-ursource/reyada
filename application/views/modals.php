@@ -86,8 +86,8 @@
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-body p-0 m-0">
-        <section class="container">
-          <div class="left-half pr-0">
+        <div class="row">
+          <div class="col-md-4 bg-black">
             <div>
               <img src="image/modalimg/a1.png" class="img-fluid  position-relative pull-right" width="170" height="150"
                 style="padding-top: 30%; left:20px;">
@@ -102,7 +102,7 @@
                 </small></h6>
             </div>
           </div>
-          <div class="right-half" class="clearfix"
+          <div class="col-md-8 bg-white" 
             style="background:url('image/modalimg/A15.jpg') center  no-repeat;background-size: cover;">
             <button type="button" class="close p-4" data-dismiss="modal">&#10006</button>
             <article>
@@ -128,7 +128,7 @@
               </div>
             </article>
           </div>
-        </section>
+        </div>
       </div>
     </div>
   </div>
@@ -270,10 +270,9 @@
   <div class="modal-dialog modal-xl" style="height:600px;">
     <!-- Modal content-->
     <div class="modal-content">
-      <div class="modal-body p-0 m-0">
-        <section class="container">
-
-          <div class="left-half pr-0">
+      <div class="modal-body p-0">
+        <div class="row">
+          <div class="col-md-4 bg-black">
             <div>
               <img src="<?= base_url()?>image/modalimg/a1.png" class="img-fluid  position-relative pull-right" width="170" height="150"
                 style="padding-top: 30%; left:20px;">
@@ -287,8 +286,7 @@
                 </small></h6>
             </div>
           </div>
-
-          <div class="right-half" class="clearfix"
+          <div class="col-md-8 bg-white"
             style="background:url('<?= base_url()?>image/modalimg/A15.jpg') center  no-repeat;background-size: cover;">
             <button type="button" class="close p-4" data-dismiss="modal">&#10006</button>
             <article>
@@ -404,7 +402,7 @@
                         </div>
                       </div>
                       <div class="col-md-6">
-                        <div class="group plan_desc">
+                        <div class="group plan_desc booking-div" >
                           
                         </div>
                       </div>
@@ -432,7 +430,7 @@
           </div>
           </article>
       </div>
-      </section>
+      </div>
     </div>
   </div>
 </div>
@@ -527,47 +525,50 @@
   });
 
   $(document).on("click", "#continuebtn", function () {
-    $('.whole_div').show();
-    var check_passowrd = validate_sign_up_form($('[name="password"]').val(),$('[name="confirm_password"]').val(), $('[name="complete_name"]').val(),
-    $('[name="company_name"]').val(),$('[name="signup_email"]').val(),$('[name="profile_website"]').val(),$('[name="mobile_phone"]').val(),$('[name="business_area"]').val());
-    if(check_passowrd == true){
-      post_array =
-      {
-          "FullName": $('[name="complete_name"]').val(),
-          "CompanyName": $('[name="company_name"]').val(),
-          "Email": $('[name="signup_email"]').val(),
-          "ProfileWebsite": $('[name="profile_website"]').val(),
-          "MobilePhone": $('[name="mobile_phone"]').val(),
-          "BillingAddress": $('[name="billing_address"]').val(),
-          "Password": $('[name="password"]').val(),
-          "PasswordConfirm": $('[name="confirm_password"]').val(),
-          "BusinessArea": $('[name="business_area"]').val(),
-          "SignUpToNewsletter": $('[name="receive_news_letter"]').val()
-      }
+    // $('.whole_div').show();
+    // var check_passowrd = validate_sign_up_form($('[name="password"]').val(),$('[name="confirm_password"]').val(), $('[name="complete_name"]').val(),
+    // $('[name="company_name"]').val(),$('[name="signup_email"]').val(),$('[name="profile_website"]').val(),$('[name="mobile_phone"]').val(),$('[name="business_area"]').val());
+    // if(check_passowrd == true){
+    //   post_array =
+    //   {
+    //       "FullName": $('[name="complete_name"]').val(),
+    //       "CompanyName": $('[name="company_name"]').val(),
+    //       "Email": $('[name="signup_email"]').val(),
+    //       "ProfileWebsite": $('[name="profile_website"]').val(),
+    //       "MobilePhone": $('[name="mobile_phone"]').val(),
+    //       "BillingAddress": $('[name="billing_address"]').val(),
+    //       "Password": $('[name="password"]').val(),
+    //       "PasswordConfirm": $('[name="confirm_password"]').val(),
+    //       "BusinessArea": $('[name="business_area"]').val(),
+    //       "SignUpToNewsletter": $('[name="receive_news_letter"]').val()
+    //   }
 
-      $.ajax({
-          type: 'POST',
-          dataType: 'json',
-          url: base_url + 'main/signup',
-          data: post_array,
-          success: function(data) {
-              if(data.status != 200){
-                $('.whole_div').hide();
-                toastr.error(data.message);
-              }else{
-                $('.whole_div').hide();
-                toastr.success('Registered Succesfully');
-                $(".firstSignup").css('display', 'none');
+    //   $.ajax({
+    //       type: 'POST',
+    //       dataType: 'json',
+    //       url: base_url + 'main/signup',
+    //       data: post_array,
+    //       success: function(data) {
+    //           if(data.status != 200){
+    //             $('.whole_div').hide();
+    //             toastr.error(data.message);
+    //           }else{
+    //             $('.whole_div').hide();
+    //             toastr.success('Registered Succesfully');
+    //             $(".firstSignup").css('display', 'none');
+    //             $(".secondSignup").css('display', 'block');
+    //           }
+    //       },
+    //       error: function(jqxhr, status, error) {
+    //         $('.whole_div').hide();
+    //         console.log(jqxhr);
+    //         console.log(status);
+    //         console.log(error);
+    //       }
+    //   });
+    // }
+    $(".firstSignup").css('display', 'none');
                 $(".secondSignup").css('display', 'block');
-              }
-          },
-          error: function(jqxhr, status, error) {
-            console.log(jqxhr);
-            console.log(status);
-            console.log(error);
-          }
-      });
-    }
   });
 
   $(document).on("click", "#signUpBtn", function () {
@@ -614,7 +615,7 @@
   });
 
   $(document).on("click", "#loginButtonForm", function () {
-    
+    $('.whole_div').show();
     post_array = {
       "email": $('[name="loginEmail"]').val(),
       "password": $('[name="loginPassword"]').val()
@@ -627,8 +628,10 @@
         data: post_array,
         success: function(data) {
             if(data.status != 200){
+              $('.whole_div').hide();
               toastr.error('Username or Password incorrect');
             }else{
+              $('.whole_div').hide();
               toastr.success('Logged in successfully');
               setTimeout(function() {
                   location.reload();
@@ -637,6 +640,7 @@
             }
         },
         error: function(jqxhr, status, error) {
+          $('.whole_div').hide();
           console.log(jqxhr);
           console.log(status);
           console.log(error);
@@ -712,8 +716,11 @@
           })
           get_price_details(price_plans[0].UniqueId);
         },
-        error: function(xhr){
-
+        error: function(jqxhr, status, error) {
+          $('.whole_div').hide();
+          console.log(jqxhr);
+          console.log(status);
+          console.log(error);
         }
     })
   }
@@ -755,6 +762,7 @@
                          
         },
         error: function(jqxhr, status, error) {
+          $('.whole_div').hide();
           console.log(jqxhr);
           console.log(status);
           console.log(error);

@@ -202,22 +202,19 @@
          <a href="#" style="color:black;" id="second"><span class="align-middle"  >2</span></a>
         </div>
     </div>
-
-                    </form>
-                    <script> 
+  </form>
+    <script> 
          $(document).ready(function(){
           $(".secondSignupMob").hide(); 
           $(".continuebtnMob").click(function () {
           $(".secondSignupMob").show(); 
           });
         });
-
-
          $(document).on("click", "#continuebtnMob", function () {
          $(".firstSignupMob").css('display','none'); 
          $(".secondSignupMob").css('display','block'); 
          });
-</script>
+    </script>
 
                   </div>
                 </article>
