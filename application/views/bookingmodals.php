@@ -919,7 +919,6 @@ $(document).ready(function() {
     }
 
     function create_booking(data){
-        console.log(data);
         $.ajax({
             type: 'POST',
             headers: {
@@ -943,9 +942,10 @@ $(document).ready(function() {
                 }
             },
             error: function(data){
-                console.log(data);
+                var message = data.responseJSON.Message.split(".");
+                console.log(message);
                 $('.whole_div').hide(); 
-                toastr.error(data.responseJSON.Message);
+                toastr.error(message[0] + message[1] + '.');
             }
         })
     }
