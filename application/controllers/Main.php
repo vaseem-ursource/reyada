@@ -662,4 +662,24 @@ class main extends CI_Controller
         $this->load->view('index', $data);
     }
     
+    // My Profile
+    function profile()
+    {
+        $data['folder_name'] = 'main';
+        $data['file_name'] = 'MyProfile';
+        $data['header_name'] = 'header_account';
+        // $data['MyAccount'] = $this->Main_model->get_recent_articles();  
+        $this->load->view('index', $data);
+    }
+
+    // My Invoive and Payment
+    function invoice()
+    {
+        $data['folder_name'] = 'main';
+        $data['file_name'] = 'InvoiceAndPayment';
+        $data['header_name'] = 'header_account';
+        // $data['MyAccount'] = $this->Main_model->get_recent_articles();  
+        $this->load->view('index', $data);
+    }
+    
 }

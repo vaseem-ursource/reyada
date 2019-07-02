@@ -3,7 +3,7 @@
         <div class="row"> 
             <div class="col-12 row mb-4">
                 <div class="col-2"></div>
-                <div class="col-10">
+                <div class="col-10 p-0">
                     <img src="<?= base_url('image/location.png');?>" alt="" width="25px"><span> CRYSTAL TOWER</span>
                     <span class="h3 pull-right">Booking.</span>
                 </div>
