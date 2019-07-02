@@ -651,5 +651,15 @@ class main extends CI_Controller
 
         print_r(json_encode($json));
     }
+
+    // My Account
+    function account()
+    {
+        $data['folder_name'] = 'main';
+        $data['file_name'] = 'MyAccount';
+        $data['header_name'] = 'header_account';
+        // $data['MyAccount'] = $this->Main_model->get_recent_articles();  
+        $this->load->view('index', $data);
+    }
     
 }

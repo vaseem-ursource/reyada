@@ -41,7 +41,6 @@
   <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
 
   <!-- Accordian Style -->
-  <link rel="stylesheet" href="<?= base_url()?>css/accordian_style.css">
   <link rel="stylesheet" href="<?= base_url()?>css/toastr.min.css" />
   <script type="text/javascript"  src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
   <script src="<?= base_url()?>js/moment-timezone-with-data-10-year-range.min.js"></script>

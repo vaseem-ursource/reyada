@@ -165,56 +165,56 @@ span.dot.active{
       <div class="container">
 		<div class="row px-5">
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 w-50">
-				 <div class="feature" style="padding:40px">
+				 <div class="feature" style="padding:15%">
 					<img src="<?= base_url()?>image/amenities/f1.png" class="img-fluid img-bottom position-relative" alt="Card Back">
 					<img src="<?= base_url()?>image/amenities/f11.png" class="img-fluid img-top position-relative" alt="Card Front">
 				</div>
 				<h4 class="text-center position-relative pt-2" style="font-size:inherit">FULLY FURNISHED</h4>
 			</div>
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 w-50">
-				 <div class="feature" style="padding:40px">
+				 <div class="feature" style="padding:15%">
 					<img src="<?= base_url()?>image/amenities/f3.png" class="img-fluid img-bottom position-relative" alt="Card Back">
 					<img src="<?= base_url()?>image/amenities/f31.png" class="img-fluid img-top position-relative" alt="Card Front">
 				</div>
 				<h4 class="text-center position-relative pt-2" style="font-size:inherit">HIGH SPEED INTERNET</h4>
 			</div>
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 w-50">
-				 <div class="feature" style="padding:40px">
+				 <div class="feature" style="padding:15%">
 					<img src="<?= base_url()?>image/amenities/f8.png" class="img-fluid img-bottom position-relative" alt="Card Back">
 					<img src="<?= base_url()?>image/amenities/f81.png" class="img-fluid img-top position-relative" alt="Card Front">
 				</div>
 				<h4 class="text-center position-relative pt-2" style="font-size:inherit">PRINT, COPY, FAX, SCAN</h4>
 			</div>
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 w-50">
-				 <div class="feature" style="padding:40px">
+				 <div class="feature" style="padding:15%">
 					<img src="<?= base_url()?>image/amenities/f5.png" class="img-fluid img-bottom position-relative" alt="Card Back">
 					<img src="<?= base_url()?>image/amenities/f51.png" class="img-fluid img-top position-relative" alt="Card Front">
 				</div>
 				<h4 class="text-center position-relative pt-2" style="font-size:inherit">REFRESHMENTS</h4>
 			</div>
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 w-50">
-				 <div class="feature" style="padding:40px">
+				 <div class="feature" style="padding:15%">
 					<img src="<?= base_url()?>image/amenities/f7.png" class="img-fluid img-bottom position-relative" alt="Card Back">
 					<img src="<?= base_url()?>image/amenities/f71.png" class="img-fluid img-top position-relative" alt="Card Front">
 				</div>
 				<h4 class="text-center position-relative pt-2" style="font-size:inherit">MEETING ROOMS</h4>
 			</div>
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 w-50">
-				 <div class="feature" style="padding:40px">
+				 <div class="feature" style="padding:15%">
 					<img src="<?= base_url()?>image/amenities/f6.png" class="img-fluid img-bottom position-relative" alt="Card Back">
 					<img src="<?= base_url()?>image/amenities/f61.png" class="img-fluid img-top position-relative" alt="Card Front">
 				</div>
 				<h4 class="text-center position-relative pt-2" style="font-size:inherit">MONTHLY SUBSCRIPTION</h4>
 			</div>
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 w-50">
-				 <div class="feature" style="padding:40px">
+				 <div class="feature" style="padding:15%">
 					<img src="<?= base_url()?>image/amenities/f4.png" class="img-fluid img-bottom position-relative" alt="Card Back">
 					<img src="<?= base_url()?>image/amenities/f41.png" class="img-fluid img-top position-relative" alt="Card Front">
 				</div>
 				<h4 class="text-center position-relative pt-2" style="font-size:inherit">ONSITE PARKING</h4>
 			</div>
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 w-50">
-				 <div class="feature" style="padding:40px">
+				 <div class="feature" style="padding:15%">
 					<img src="<?= base_url()?>image/amenities/f2.png" class="img-fluid img-bottom position-relative" alt="Card Back">
 					<img src="<?= base_url()?>image/amenities/f21.png" class="img-fluid img-top position-relative" alt="Card Front">
 				</div>
