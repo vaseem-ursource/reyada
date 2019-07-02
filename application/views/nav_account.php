@@ -33,10 +33,9 @@
       <nav class="main-nav float-right d-none d-lg-block" id="myMenu">
         <ul>
           <li ><a href="./" class="text-dark">About Us</a></li>
-          <li><a href="<?= base_url()?>main/services" class="text-dark">Services</a></li>
-          <li class="lap"><a href="#contact" data-toggle="modal" data-target="#modalcontact" class="text-dark">Contact</a></li>
-          <li class="mob"><a href="#contact" onclick="menuClickFunction()" data-toggle="modal" data-target="#mobModalcontact" class="text-dark">Contact</a></li>
-          <li><a href="<?= base_url()?>main/blog" class="text-dark">Blog</a></li>
+          <li><a href="<?= base_url()?>main/services" class="text-dark">Community</a></li>
+          <li class=""><a href="#contact" data-toggle="modal" data-target="#modalcontact" class="text-dark">Help</a></li>
+          <li><a href="<?= base_url()?>main/blog" class="text-dark">Account</a></li>
           
           <?php if($this->session->userdata('is_logged_in')){ ?>
             <li class="lap"><a href="<?= base_url() ?>main/logout" class="text-dark" >Logout</a></li>
