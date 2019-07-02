@@ -1,11 +1,7 @@
 <!--==========================
     Intro Section
   ============================-->
-  <link rel="stylesheet" href="<?= base_url()?>css/accordian_style.css">
-<style>
-i.fa.fa-search::after{
-    background:none;
-}</style>
+
   <section id="intro" class="clearfix align-middle " style="background:url('<?= base_url()?>image/services/service4.jpg') center  no-repeat;background-size: cover;height:60vh;">
         <div class="intro-info order-md-first order-last position-absolute" style="bottom:0px;left:10%;">
           <h2 class="text-white text-left">Services</h2>

@@ -39,7 +39,11 @@
   <link href="<?= base_url()?>css/mystyle.css" rel="stylesheet">
   
   <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
-
+  <link rel="stylesheet" href="<?= base_url()?>css/accordian_style.css">
+<style>
+i.fa.fa-search::after{
+    background:none;
+}</style>
   <!-- Accordian Style -->
   <link rel="stylesheet" href="<?= base_url()?>css/toastr.min.css" />
   <script type="text/javascript"  src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
