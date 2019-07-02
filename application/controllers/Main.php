@@ -661,6 +661,52 @@ class main extends CI_Controller
         // $data['MyAccount'] = $this->Main_model->get_recent_articles();  
         $this->load->view('index', $data);
     }
+
+     // My Account
+    function member()
+    {
+        $data['folder_name'] = 'main';
+        $data['file_name'] = 'Member';
+        $data['header_name'] = 'header_account';
+        
+        // $data['MyAccount'] = $this->Main_model->get_recent_articles();  
+        $this->load->view('index', $data);
+    }
+
+    public function dummy_paggination($rowno=0){
+        $search_text=$this->input->get('search_text');
+        // Row per page
+        $rowperpage = 6;
+    
+        // Row position
+        if($rowno != 0){
+          $rowno = ($rowno-1) * $rowperpage;
+        }
+     
+        // All records count
+        $allcount = $this->Main_model->getrecordCount($search_text);
+    
+        // Get records
+        $users_record = $this->Main_model->getData($rowno,$rowperpage,$search_text);
+     
+        // Pagination Configuration
+        $config['base_url'] = base_url().'Main/loadRecord';
+        $config['use_page_numbers'] = TRUE;
+        $config['total_rows'] = $allcount;
+        $config['per_page'] = $rowperpage;
+    
+        // Initialize
+        $this->pagination->initialize($config);
+    
+        // Initialize $data Array
+        $data['pagination'] = $this->pagination->create_links();
+        $data['result'] = $users_record;
+        $data['row'] = $rowno;
+    
+        echo json_encode($data);
+      }
+
+    
     
     // My Profile
     function profile()
