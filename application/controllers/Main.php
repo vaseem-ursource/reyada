@@ -673,6 +673,17 @@ class main extends CI_Controller
         $this->load->view('index', $data);
     }
 
+      // My Account
+      function profile()
+      {
+          $data['folder_name'] = 'main';
+          $data['file_name'] = 'Profile';
+          $data['header_name'] = 'header_account';
+          
+          // $data['MyAccount'] = $this->Main_model->get_recent_articles();  
+          $this->load->view('index', $data);
+      }
+
     public function dummy_paggination($rowno=0){
         $search_text=$this->input->get('search_text');
         // Row per page
