@@ -719,4 +719,54 @@ class main extends CI_Controller
 
     
     
+    // My Profile
+    function profile()
+    {
+        $data['folder_name'] = 'main';
+        $data['file_name'] = 'MyProfile';
+        $data['header_name'] = 'header_account';
+        // $data['MyAccount'] = $this->Main_model->get_recent_articles();  
+        $this->load->view('index', $data);
+    }
+
+    // My Invoive and Payment
+    function invoice()
+    {
+        $data['folder_name'] = 'main';
+        $data['file_name'] = 'InvoiceAndPayment';
+        $data['header_name'] = 'header_account';
+        // $data['MyAccount'] = $this->Main_model->get_recent_articles();  
+        $this->load->view('index', $data);
+    }
+
+     // My Booking
+     function booking()
+     {
+         $data['folder_name'] = 'main';
+         $data['file_name'] = 'MyBooking';
+         $data['header_name'] = 'header_account';
+         // $data['MyAccount'] = $this->Main_model->get_recent_articles();  
+         $this->load->view('index', $data);
+     }
+
+     // Community events
+     function communityEvents()
+     {
+         $data['folder_name'] = 'main';
+         $data['file_name'] = 'CommunityEvents';
+         $data['header_name'] = 'header_account';
+         // $data['MyAccount'] = $this->Main_model->get_recent_articles();  
+         $this->load->view('index', $data);
+     }
+
+     // Community Booking
+     function communityBooking()
+     {
+         $data['folder_name'] = 'main';
+         $data['file_name'] = 'CommunityBooking';
+         $data['header_name'] = 'header_account';
+         // $data['MyAccount'] = $this->Main_model->get_recent_articles();  
+         $this->load->view('index', $data);
+     }
+    
 }
