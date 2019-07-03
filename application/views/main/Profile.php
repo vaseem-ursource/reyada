@@ -60,22 +60,39 @@ input[type=text]:focus {
     <div class="col-3 p-3 text-center">
         <span class="p-5 rounded-circle h1" style="background-color:#F5F5F5;color:#707070;display: inline-grid">N</span>
     </div>
-    <div class="col-9 p-3">
+    <div class="col-9 p-3 row">
+    <div class="col-12">
         <span class="h5 p-0 " style="letter-spacing: 2px;">YOUR PHOTO</span>
         <span class="p-0 pull-right">Delete <span class="h3">X</span></span>
         <div class="col-12">
-        <label for="fileupload" id="buttonlabel">
-    <span role="button" class="" aria-controls="filename" tabindex="0">
-      CHOOSE FILE
-    </span>
-  </label>
-  <input type="file" id="fileupload">
-  <label for="filename" class="hide">
-    file
-  </label>
-  <input type="text" id="filename" autocomplete="off" readonly placeholder="No File "> 
-        
+            <label for="fileupload" id="buttonlabel">
+                <span role="button" class="" aria-controls="filename" tabindex="0">
+                CHOOSE FILE
+                </span>
+            </label>
+            <input type="file" id="fileupload" >
+            <label for="filename" class="hide">
+                file
+            </label>
+            <input type="text" id="filename" autocomplete="off" readonly placeholder="No File " class="pull-right"> 
         </div>
+    </div>
+    <div class="col-12">
+        <span class="h5 p-0 " style="letter-spacing: 2px;">YOUR PHOTO</span>
+        <span class="p-0 pull-right">Delete <span class="h3">X</span></span>
+        <div class="col-12">
+            <label for="fileupload" id="buttonlabel">
+                <span role="button" class="" aria-controls="filename" tabindex="0">
+                CHOOSE FILE
+                </span>
+            </label>
+            <input type="file" id="fileupload" >
+            <label for="filename" class="hide">
+                file
+            </label>
+            <input type="text" id="filename" autocomplete="off" readonly placeholder="No File " class="pull-right"> 
+        </div>
+    </div>
     </div>
 </div>
 <script>
