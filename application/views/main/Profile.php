@@ -6,7 +6,7 @@
 
 span[role=button] {
   display: table-cell;
-  font-family: Arial;
+  font-family: METRIC-REGULAR;
   font-size: 1rem;
   padding: 15px 15px;
   border-top-left-radius: 0px;
@@ -37,7 +37,7 @@ span[role=button]:focus {
 input[type=text] {
   display: table-cell;
   margin-left: 0px;
-  width: 20rem;
+  /* width: 20rem; */
   font-family: Arial;
   font-size: 1rem;
   padding: 15px 15px;
@@ -64,37 +64,92 @@ input[type=text]:focus {
     <div class="col-12">
         <span class="h5 p-0 " style="letter-spacing: 2px;">YOUR PHOTO</span>
         <span class="p-0 pull-right">Delete <span class="h3">X</span></span>
-        <div class="col-12">
-            <label for="fileupload" id="buttonlabel">
-                <span role="button" class="" aria-controls="filename" tabindex="0">
-                CHOOSE FILE
-                </span>
-            </label>
-            <input type="file" id="fileupload" >
-            <label for="filename" class="hide">
-                file
-            </label>
-            <input type="text" id="filename" autocomplete="off" readonly placeholder="No File " class="pull-right"> 
+        <div class="col-12 row">
+            <div class="col-12 row">
+                <div class="col-4">
+                    <label for="fileupload" id="buttonlabel">
+                        <span role="button" class="" aria-controls="filename" tabindex="0">
+                        CHOOSE FILE
+                        </span>
+                    </label>
+                    <input type="file" id="fileupload" >
+                    <label for="filename" class="hide">
+                        file
+                    </label>
+                </div>
+                <div class="col-8">
+                        <input type="text" id="filename" autocomplete="off" readonly placeholder="No File " class="pull-right"> 
+                </div>
+            </div>
+            <div class="col-12 mt-2 p-0">
+                    <span class="">File smaller than 10 MB and at least 400px by 400px.</span> 
+            </div>
+         
         </div>
+       
     </div>
-    <div class="col-12">
+    <div class="col-12 mt-4 ">
         <span class="h5 p-0 " style="letter-spacing: 2px;">YOUR PHOTO</span>
         <span class="p-0 pull-right">Delete <span class="h3">X</span></span>
-        <div class="col-12">
-            <label for="fileupload" id="buttonlabel">
-                <span role="button" class="" aria-controls="filename" tabindex="0">
-                CHOOSE FILE
-                </span>
-            </label>
-            <input type="file" id="fileupload" >
-            <label for="filename" class="hide">
-                file
-            </label>
-            <input type="text" id="filename" autocomplete="off" readonly placeholder="No File " class="pull-right"> 
+        <div class="col-12 row">
+            <div class="col-12 row">
+                <div class="col-4">
+                    <label for="fileupload" id="buttonlabel">
+                        <span role="button" class="" aria-controls="filename" tabindex="0">
+                        CHOOSE FILE
+                        </span>
+                    </label>
+                    <input type="file" id="fileupload" >
+                    <label for="filename" class="hide">
+                        file
+                    </label>
+                </div>
+                <div class="col-8">
+                        <input type="text" id="filename" autocomplete="off" readonly placeholder="No File " class="pull-right"> 
+                </div>
+            </div>
+            <div class="col-12 mt-2 p-0">
+                    <span class="">File smaller than 10 MB and at least 400px by 400px.</span> 
+            </div>
         </div>
+        <div class="col-12 mt-2 p-0">
+                <a href="#" style="color:black;"><span>See</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a> 
+                <a href="#" style="color:black;" class="pl-3"><span>My</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a> 
+            </div>
     </div>
-    </div>
+   
 </div>
+<div class="section-header pb-1 col-md-12 pl-0">
+            <div class="row p-0"> 
+            <div class="col-12 mt-2 p-0">
+                <div style="border-bottom:1px solid black">
+                    <span class="text-left h4">Professional Profile</span> 
+                </div>
+            </div>
+            <div class="col">
+              <div class="group">
+                  <input type="text"><span class="highlight"></span><span class="bar"></span>
+                  <label>Date</label>
+               </div>
+            </div>
+            <div class="col">
+              <div class="group">
+                  <input type="text"><span class="highlight"></span><span class="bar"></span>
+                  <label>Start Time</label>
+               </div>
+            </div>
+            <div class="col">
+              <div class="group">
+                  <input type="text"><span class="highlight"></span><span class="bar"></span>
+                  <label>End Time</label>
+               </div>
+               <div class="group" style="text-align: right;">
+	              <a href="#" style="color:black;"><span>Find available</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>                  
+               </div>
+            </div>
+        </div>
+        </div>
+        <a href="#"><span class="btn border border-secondary rounded text-uppercase mb-1 p-2">START UPS</span></a>
 <script>
 // trigger upload on space & enter
 // = standard button functionality
