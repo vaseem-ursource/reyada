@@ -38,7 +38,7 @@
         <table class="table table-striped h6 table-borderless" style="color:#000000;">
             <thead>
                 <tr style="background-color:#F5F5F5";>
-                <td><span style="color:black;border:2px solid black;padding:5px 8px 0px 8px"><b>i</b></span> You have no products</th>
+                <td><img src="<?= base_url('image/ii.png');?>" alt="" width="20px"> <span class="pl-3">You have no products</span></td>
                 </tr>
             </thead>
         </table>

@@ -15,12 +15,12 @@
             <tbody>
                 <tr class="border-top border-secondary">
                 <td><b>#C95265170002449 - 5/15/2019</b></td>
-                <td>KD 38.21</td>
+                <td><img src="<?= base_url('image/cloud_down.png');?>" alt="" width="15px" class="pb-3">KD 38.21</td>
                 <td style="color:#6FBC89";><i class="fa fa-check" style="font-size:10px"></i>   Paid on Wednesday, May 15, 2019</td>
                 </tr>
                 <tr>
                 <td><b>#C95265170002449 - 5/15/2019</b></td>
-                <td>KD 38.21</td>
+                <td><img src="<?= base_url('image/cloud_down.png');?>" alt="" width="15px" class="pb-3">KD 38.21</td>
                 <td style="color:#6FBC89";><i class="fa fa-check" style="font-size:10px"></i>   Paid on Wednesday, May 15, 2019</td>
                 </tr>
             </tbody>

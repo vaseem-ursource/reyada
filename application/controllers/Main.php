@@ -662,6 +662,15 @@ class main extends CI_Controller
         $this->load->view('index', $data);
     }
 
+    function myaccount()
+    {
+        $data['folder_name'] = 'main';
+        $data['file_name'] = 'Account';
+        $data['header_name'] = 'header_account';
+        // $data['MyAccount'] = $this->Main_model->get_recent_articles();  
+        $this->load->view('index', $data);
+    }
+
      // My Account
     function member()
     {
