@@ -717,17 +717,6 @@ class main extends CI_Controller
         echo json_encode($data);
       }
 
-    
-    
-    // My Profile
-    function profile()
-    {
-        $data['folder_name'] = 'main';
-        $data['file_name'] = 'MyProfile';
-        $data['header_name'] = 'header_account';
-        // $data['MyAccount'] = $this->Main_model->get_recent_articles();  
-        $this->load->view('index', $data);
-    }
 
     // My Invoive and Payment
     function invoice()
