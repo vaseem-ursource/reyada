@@ -34,25 +34,184 @@ span[role=button]:focus {
   clip: rect(0,0,0,0);
   border: 0;
 }
-input[type=text] {
+/* input[type=text] {
   display: table-cell;
   margin-left: 0px;
   /* width: 20rem; */
-  font-family: Arial;
+  /* font-family: Arial;
   font-size: 1rem;
   padding: 15px 15px;
   
-border:none;
+border:none; */
   
-  background-color: #ffffff;
-}
-input[type=text]:focus {
+  /* background-color: #ffffff; */
+/* } */
+/* input[type=text]:focus {
   box-shadow: 0 0 5px #fff;
   border-color: #fff;
   outline: 2px solid transparent;
+} */
+ul.tools li i:after{
+  background:#fff;
+}
+</style>
+
+<script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/nilsynils/pen/VKQwBJ?depth=everything&order=popularity&page=61&q=tools&show_forks=false" />
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+
+
+
+<style class="cp-pen-styles">
+
+.wrapper {
+  width: 100%;
+  max-width: 800px;
+  background: #fff;
+  margin: 3em auto;
+  padding: 1em 2em;
+  border: 1px solid lightGrey;
+  border-radius: 3px;
+  position: relative;
+}
+.wrapper h2 {
+  margin-top: 0;
 }
 
+.tools {
+  padding: 0;
+  list-style-type: none;
+  display: inline-flex;
+  flex-wrap: wrap;
+  padding: .5em .5em .5em 0;
+  margin: 0;
+}
+.tools li {
+  margin: 0 1em 0 0;
+  color: grey;
+}
+.tools li a {
+  color: grey;
+}
+
+.editableContent *::selection {
+  background: #9dcaff;
+}
+.editableContent:focus {
+  outline: none;
+}
+
+.modal {
+  position: absolute;
+  left: 11em;
+  top: 4.5em;
+  display: none;
+}
+.modal__wrapper {
+  background: #fff;
+  padding: 0 .5em;
+  border: 1px solid lightGrey;
+  border-radius: 3px;
+  transition: all 1s;
+  position: relative;
+  width: 22em;
+}
+.modal__wrapper:after, .modal__wrapper:before {
+  right: 100%;
+  top: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+.modal__wrapper:after {
+  border-color: rgba(255, 255, 255, 0);
+  border-right-color: #fff;
+  border-width: 6px;
+  margin-top: -6px;
+}
+.modal__wrapper:before {
+  border-color: transparent;
+  border-right-color: lightGrey;
+  border-width: 7px;
+  margin-top: -7px;
+}
+.modal input {
+  height: 1.5em;
+  padding: .25em;
+  width: 20em;
+  font-size: 16px;
+  border: 0;
+}
+.modal input:focus {
+  outline: none;
+}
+
+.visible {
+  display: block;
+}
+
+a.highlighted {
+  background: blue;
+  color: white;
+}
+
+.editableContent a:hover {
+  cursor: pointer;
+}
+
+.linkWrapper {
+  position: relative;
+}
+
+.hoverPop {
+  position: absolute;
+  left: 0;
+  top: 2.2em;
+  display: block;
+}
+.hoverPop__wrapper {
+  background: #fff;
+  padding: .5em .5em;
+  border: 1px solid lightGrey;
+  border-radius: 3px;
+  transition: all 1s;
+  position: relative;
+  width: auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.hoverPop__wrapper:after, .hoverPop__wrapper:before {
+  bottom: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+.hoverPop__wrapper:after {
+  border-color: rgba(255, 255, 255, 0);
+  border-bottom-color: #fff;
+  border-width: 6px;
+  margin-left: -6px;
+}
+.hoverPop__wrapper:before {
+  border-color: transparent;
+  border-bottom-color: lightGrey;
+  border-width: 7px;
+  margin-left: -7px;
+}
 </style>
+
+<!-- bootstrap-wysiwyg --> 
+<!-- <link href="<?= base_url('assets/vendors/google-code-prettify/bin/prettify.min.css');?>" rel="stylesheet"> -->
+<!-- Include Editor style. -->
+<!-- <link href='https://cdn.jsdelivr.net/npm/froala-editor@3.0.2/css/froala_editor.pkgd.min.css' rel='stylesheet' type='text/css' /> -->
+
+<!-- Include JS file. -->
+<!-- <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/froala-editor@3.0.2/js/froala_editor.pkgd.min.js'></script> -->
 <div style="border-bottom:1px solid black">
     <span class="text-left h4">Your Profile Page</span> 
 </div>
@@ -129,24 +288,222 @@ input[type=text]:focus {
                 <div class="row">
                   <div class="col-md-5">
                     <div class="group">
-                      <input type="email" name="signup_email"><span class="highlight"></span><span class="bar"></span>
+                      <input type="text" name="companyname"><span class="highlight"></span><span class="bar"></span>
                       <label>Company Name</label>
                     </div>
                   </div>
                   <div class="col-md-5 pl-4">
                     <div class="group">
-                      <input type="email" name="signup_email"><span class="highlight"></span><span class="bar"></span>
+                      <input type="text" name="industry"><span class="highlight"></span><span class="bar"></span>
                       <label>Industry</label>
                     </div>
                   </div>
                   <div class="col-md-5">
                     <div class="group">
-                      <input type="email" name="signup_email"><span class="highlight"></span><span class="bar"></span>
+                      <input type="text" name="role"><span class="highlight"></span><span class="bar"></span>
                       <label>Your role / position</label>
                     </div>
                   </div>
                 </div>
             </form>
+
+            <!-- <div class="col-12 pt-5 mt-5 p-0">
+            <textarea id="froala-editor">Initialize the Froala WYSIWYG HTML Editor on a textarea.</textarea>
+            </div>
+
+            <script>
+  new FroalaEditor('textarea#froala-editor')
+</script> -->
+
+<section class="wrapper mx-0 my-2 p-3" style="min-height:200px;"> 
+	
+	<ul class="tools">
+		<li>
+			<a href='#' data-role='bold'>
+				<i class="fa fa-bold" aria-hidden="true"></i>
+			</a>
+		</li>
+		<li>
+			<a href='#' data-role='italic'>
+				<i class="fa fa-italic" aria-hidden="true"></i>
+			</a>
+		</li>
+		<li>
+			<a href='#' data-role='insertUnorderedList'>
+				<i class="fa fa-list" aria-hidden="true"></i>
+			</a>
+		</li>
+		<li>
+			<a href='#' data-role='insertOrderedList'>
+				<i class="fa fa-list-ol" aria-hidden="true"></i>
+			</a>
+		</li>
+		<li>
+			<a href='#' data-role='createLink'>
+				<i class="fa fa-link" aria-hidden="true"></i>
+			</a>
+		</li>
+		<li>
+			<a href='#' data-role='unlink'>
+				<i class="fa fa-unlink" aria-hidden="true"></i>
+			</a>
+		</li>
+		<li>
+			<a href='#' data-role='insertHorizontalRule'>
+				<i class="fa fa-minus" aria-hidden="true"></i>
+			</a>
+		</li>
+		<li>
+			<a href='#' data-role='insertParagraph'>
+				<i class="fa fa-paragraph" aria-hidden="true"></i>
+			</a>
+		</li>
+		<li>
+			<a href='#' data-role='justifyLeft'>
+				<i class="fa fa-align-left" aria-hidden="true"></i>
+			</a>
+		</li>
+		<li>
+			<a href='#' data-role='justifyCenter'>
+				<i class="fa fa-align-center" aria-hidden="true"></i>
+			</a>
+		</li>
+		<li>
+			<a href='#' data-role='justifyRight'>
+				<i class="fa fa-align-right" aria-hidden="true"></i>
+			</a>
+		</li>
+		<li>
+			<a href='#' data-role='subscript'>
+				<i class="fa fa-subscript" aria-hidden="true"></i>
+			</a>
+		</li>
+		<li>
+			<a href='#' data-role='superscript'>
+				<i class="fa fa-superscript" aria-hidden="true"></i>
+			</a>
+		</li>
+		<li>
+			<a href='#' data-role='underline'>
+				<i class="fa fa-underline" aria-hidden="true"></i>
+			</a>
+		</li>
+	</ul>
+  <hr style="margin:5px">
+	<div class="modal">
+		<div class="modal__wrapper">
+			<form class="urlForm" name="urlForm">
+				<input class="url" name="urlField" placeholder="Add URL" />
+				<i class="fa fa-close closeModal" aria-hidden="true"></i>
+			</form>
+		</div>
+	</div>
+	<div class="editableContent" contenteditable spellcheck="false">
+		
+	</div>
+</section>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://use.fontawesome.com/ce726fce7b.js'></script>
+<script >Array.prototype.map.call(document.querySelectorAll('.tools a:not([data-role="createLink"])'), (action) => {
+	action.addEventListener("click", (e) => {
+		e.preventDefault();
+		document.execCommand(action.dataset.role, false, action.dataset.value);
+	})
+})
+
+// Handle the link modal
+const modal = document.querySelector('.modal');
+const closeModal = () => {
+	modal.classList.remove('visible');
+}
+let closeButton = document.querySelector('.closeModal');
+closeButton.addEventListener('click', closeModal);
+document.addEventListener('keyup', function(e) {
+	if (e.keyCode == 27) {
+		closeModal();
+	}
+});
+let otherClicks = (event) => {
+	if (document.querySelector('.modal').contains(event.target)) {
+		return false;
+	} else {
+		closeModal();
+		window.removeEventListener('click', otherClicks);
+	}
+};
+window.addEventListener('click', otherClicks);
+const anchorLink = document.querySelector('a[data-role="createLink"]');
+
+anchorLink.addEventListener('click', () => {
+	modal.classList.add('visible');
+	window.savedSel = saveSelection();
+	document.urlForm.urlField.value="";
+	document.urlForm.urlField.focus();
+})
+
+
+// Save selected text when URL modal opens. From http://stackoverflow.com/questions/5605401/insert-link-in-contenteditable-element
+function saveSelection() {
+    if (window.getSelection) {
+        sel = window.getSelection();
+        if (sel.getRangeAt && sel.rangeCount) {
+            var ranges = [];
+            for (var i = 0, len = sel.rangeCount; i < len; ++i) {if (window.CP.shouldStopExecution(1)){break;}
+                ranges.push(sel.getRangeAt(i));
+            }
+window.CP.exitedLoop(1);
+
+            return ranges;
+        }
+    } else if (document.selection && document.selection.createRange) {
+        return document.selection.createRange();
+    }
+    return null;
+}
+
+function restoreSelection(savedSel) {
+    if (savedSel) {
+        if (window.getSelection) {
+            sel = window.getSelection();
+            sel.removeAllRanges();
+            for (var i = 0, len = savedSel.length; i < len; ++i) {if (window.CP.shouldStopExecution(2)){break;}
+                sel.addRange(savedSel[i]);
+            }
+window.CP.exitedLoop(2);
+
+        } else if (document.selection && savedSel.select) {
+            savedSel.select();
+        }
+    }
+}
+
+let urlForm = document.querySelector('.urlForm');
+
+urlForm.addEventListener('submit',(e) => {
+	let urlValue = urlForm.querySelector('.url').value;
+	restoreSelection(window.savedSel);
+  	document.execCommand("CreateLink", false, urlValue);
+	closeModal();
+	e.preventDefault();
+})
+
+function getSelectionParentElement() {
+    var parentEl = null, sel;
+    if (window.getSelection) {
+        sel = window.getSelection();
+        if (sel.rangeCount) {
+            parentEl = sel.getRangeAt(0).commonAncestorContainer;
+            if (parentEl.nodeType != 1) {
+                parentEl = parentEl.parentNode;
+            }
+        }
+    } else if ( (sel = document.selection) && sel.type != "Control") {
+        parentEl = sel.createRange().parentElement();
+    }
+    return parentEl;
+}
+//# sourceURL=pen.js
+</script>
+
 
             <div class="col-12 mt-2 p-0">
               <div style="border-bottom:1px solid black">
@@ -180,45 +537,60 @@ input[type=text]:focus {
 
             <div class="col-12 pt-5 p-0">
             <div class="row">
-              <div class="col-5 ">
-                <div style="border-bottom:1px solid black">
-                    <span class="text-left"><b><i class="fa fa-twitter px-2 text-dark pl-0" style="font-size: 15px"></i></b><br>Twitter</span> 
-                </div>
+              <div class="col-md-5">
+                  <div class="group">
+                    <label><b><i class="fa fa-twitter text-dark pl-0" style="font-size: 15px"></i></b></label><br>
+                      <input type="text" name="twitter" placeholder="Twitter"><span class="highlight"></span><span class="bar"></span>
+                  </div>
               </div>
-              <div class="col-5 pl-5">
-                <div style="border-bottom:1px solid black">
-                   <span class="text-left pl-0"><b><i class="fa fa-facebook px-2 text-dark pl-0" style="font-size: 15px"></i></b><br> Facebook</span> 
-                </div>
+
+              <div class="col-md-5 pl-5">
+                  <div class="group">
+                    <label><b><i class="fa fa-facebook text-dark pl-0" style="font-size: 15px"></i></b></label><br>
+                      <input type="text" name="facebook" placeholder="Facebook"><span class="highlight"></span><span class="bar"></span>
+                  </div>
               </div>
-              <div class="col-5 pt-2">
-                <div style="border-bottom:1px solid black">
-                    <span class="text-left"><b><i class="fa fa-linkedin px-2 text-dark pl-0" style="font-size: 15px"></i></b><br>Linkedin</span> 
-                </div>
+
+              <div class="col-md-5">
+                  <div class="group">
+                    <label><b><i class="fa fa-linkedin text-dark pl-0" style="font-size: 15px"></i></b></label><br>
+                      <input type="text" name="linkedin" placeholder="Linkedin"><span class="highlight"></span><span class="bar"></span>
+                  </div>
               </div>
-              <div class="col-5 pl-5 pt-2">
-                <div style="border-bottom:1px solid black">
-                    <span class="text-left"><b><i class="fa fa-google px-2 text-dark pl-0" style="font-size: 15px"></i></b><br>Google</span> 
-                </div>
+
+              <div class="col-md-5 pl-5">
+                  <div class="group">
+                    <label><b><i class="fa fa-google text-dark pl-0" style="font-size: 15px"></i></b></label><br>
+                      <input type="text" name="google" placeholder="Google"><span class="highlight"></span><span class="bar"></span>
+                  </div>
               </div>
-              <div class="col-5 pt-2">
-                <div style="border-bottom:1px solid black">
-                    <span class="text-left"><b><i class="fa fa-flickr px-2 text-dark pl-0" style="font-size: 15px"></i></b><br>Flicker</span> 
-                </div>
+
+              <div class="col-md-5">
+                  <div class="group">
+                    <label><b><i class="fa fa-flickr text-dark pl-0" style="font-size: 15px"></i></b></label><br>
+                      <input type="text" name="flicker" placeholder="Flicker"><span class="highlight"></span><span class="bar"></span>
+                  </div>
               </div>
-              <div class="col-5 pl-5 pt-2">
-                <div style="border-bottom:1px solid black">
-                    <span class="text-left"><b><i class="fa fa-instagram px-2 text-dark pl-0" style="font-size: 15px"></i></b><br>Instagram</span> 
-                </div>
+
+              <div class="col-md-5 pl-5">
+                  <div class="group">
+                    <label><b><i class="fa fa-instagram text-dark pl-0" style="font-size: 15px"></i></b></label><br>
+                      <input type="text" name="instagram" placeholder="Instagram"><span class="highlight"></span><span class="bar"></span>
+                  </div>
               </div>
-              <div class="col-5 pt-2">
-                <div style="border-bottom:1px solid black">
-                    <span class="text-left"><b><i class="fa fa-vimeo px-2 text-dark pl-0" style="font-size: 15px"></i></b><br>Vimeo</span> 
-                </div>
+
+              <div class="col-md-5">
+                  <div class="group">
+                    <label><b><i class="fa fa-vimeo text-dark pl-0" style="font-size: 15px"></i></b></label><br>
+                      <input type="text" name="vimeo" placeholder="Vimeo"><span class="highlight"></span><span class="bar"></span>
+                  </div>
               </div>
-              <div class="col-5 pl-5 pt-2">
-                <div style="border-bottom:1px solid black">
-                    <span class="text-left"><b><i class="fa fa-tumblr px-2 text-dark pl-0" style="font-size: 15px"></i></b><br>Tumblr</span> 
-                </div>
+
+              <div class="col-md-5 pl-5">
+                  <div class="group">
+                    <label><b><i class="fa fa-tumblr text-dark pl-0" style="font-size: 15px"></i></b></label><br>
+                      <input type="text" name="tumblr" placeholder="Tumblr"><span class="highlight"></span><span class="bar"></span>
+                  </div>
               </div>
             <div class="col-2"></div>
             </div><br>
@@ -235,13 +607,13 @@ input[type=text]:focus {
                 <div class="row">
                   <div class="col-md-5">
                     <div class="group">
-                      <input type="email" name="signup_email"><span class="highlight"></span><span class="bar"></span>
+                      <input type="text" name="checkin"><span class="highlight"></span><span class="bar"></span>
                       <label>Checkin & internet pincode</label>
                     </div>
                   </div>
                   <div class="col-md-5 pl-4">
                     <div class="group">
-                      <input type="email" name="signup_email"><span class="highlight"></span><span class="bar"></span>
+                      <input type="password" name="password"><span class="highlight"></span><span class="bar"></span>
                       <label>Password</label>
                     </div>
                   </div>
@@ -255,8 +627,9 @@ input[type=text]:focus {
                     </div>
                   </div>
                 </div>
-            </form><br>
+                <br>
             <button type="submit"  style="border: 0px;background-color: transparent; font-size:15px" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
+            </form>
 
             <div class="col-12 pt-5 mt-5 p-0">
                 <div style="border-bottom:1px solid black">
@@ -304,6 +677,12 @@ $('#fileupload').change(function(e) {
   $('#filename').focus();
 });
 </script>
+
+<!-- bootstrap-wysiwyg --> 
+<script src="<?= base_url('assets/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js');?>"></script> 
+    <script src="<?= base_url('assets/vendors/jquery.hotkeys/jquery.hotkeys.js');?>"></script> 
+    <script src="<?= base_url('assets/vendors/google-code-prettify/src/prettify.js');?>"></script>
+
 <?php include('account_master_end.php');?>
        
 
