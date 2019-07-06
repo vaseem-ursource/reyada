@@ -12,15 +12,7 @@ class main extends CI_Controller
         $this->load->library('pagination');
     }
     
-    function index()
-    {
-        $data['folder_name'] = 'main';
-        $data['file_name'] = 'index';
-        $data['header_name'] = 'header';
-        $data['RecentArticle'] = $this->Main_model->get_recent_articles();  
-        $this->load->view('index', $data);
 
-    }
 
     function services()
     {
@@ -650,6 +642,18 @@ class main extends CI_Controller
         }
 
         print_r(json_encode($json));
+    }
+
+    // Join Our Community
+
+    function joinCommunity()
+    {
+        $data['folder_name'] = 'main';
+        $data['file_name'] = 'joinCommunity';
+        $data['header_name'] = 'header';
+        $data['RecentArticle'] = $this->Main_model->get_recent_articles();  
+        $this->load->view('index', $data);
+
     }
 
     // My Account
