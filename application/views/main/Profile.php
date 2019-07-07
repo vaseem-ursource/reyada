@@ -234,6 +234,14 @@ input[type='file'] {
   border: 0.5px solid #707070; 
   border-radius: 2px; 
 } 
+.browse-btn-1 { 
+  background: #fff; 
+  color: #707070; 
+  min-height: 35px; 
+  padding: 10px; 
+  border: 0.5px solid #707070; 
+  border-radius: 2px; 
+} 
  
 @media (max-width: 300px) { 
   button { 
@@ -320,11 +328,11 @@ input[type='file'] {
         <span class="p-0 pull-right">Delete <span class="h3">X</span></span> 
         <div class="col-12 row"> 
         <div class="input-container"> 
-              <input type="file" id="real-input"> 
-              <button class="browse-btn"> 
+              <input type="file" id="real-input-1"> 
+              <button class="browse-btn-1"> 
                 Browse Files 
               </button> 
-              <span class="file-info">Upload a file</span> 
+              <span class="file-info-1">Upload a file</span> 
             </div> 
         </div> 
      
@@ -567,6 +575,23 @@ function getSelectionParentElement() {
 const uploadButton = document.querySelector('.browse-btn'); 
 const fileInfo = document.querySelector('.file-info'); 
 const realInput = document.getElementById('real-input'); 
+ 
+uploadButton.addEventListener('click', (e) => { 
+  realInput.click(); 
+}); 
+ 
+realInput.addEventListener('change', () => { 
+  const name = realInput.value.split(/\\|\//).pop(); 
+  const truncated = name.length > 20  
+    ? name.substr(name.length - 20)  
+    : name; 
+   
+  fileInfo.innerHTML = truncated; 
+});
+
+const uploadButton = document.querySelector('.browse-btn-1'); 
+const fileInfo = document.querySelector('.file-info-1'); 
+const realInput = document.getElementById('real-input-1'); 
  
 uploadButton.addEventListener('click', (e) => { 
   realInput.click(); 
