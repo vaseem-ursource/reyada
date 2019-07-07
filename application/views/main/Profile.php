@@ -56,7 +56,10 @@ ul.tools li i:after{
 }
 </style>
 
-<script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/nilsynils/pen/VKQwBJ?depth=everything&order=popularity&page=61&q=tools&show_forks=false" />
+<script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script>
+<!-- <script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script> -->
+<script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script>
+<link rel="canonical" href="https://codepen.io/nilsynils/pen/VKQwBJ?depth=everything&order=popularity&page=61&q=tools&show_forks=false" />
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 
 
@@ -100,12 +103,12 @@ ul.tools li i:after{
   outline: none;
 }
 
-.modal {
+/* .modal {
   position: absolute;
   left: 11em;
   top: 4.5em;
   display: none;
-}
+} */
 .modal__wrapper {
   background: #fff;
   padding: 0 .5em;
@@ -137,16 +140,16 @@ ul.tools li i:after{
   border-width: 7px;
   margin-top: -7px;
 }
-.modal input {
+/* .modal input {
   height: 1.5em;
   padding: .25em;
   width: 20em;
   font-size: 16px;
   border: 0;
-}
-.modal input:focus {
+} */
+/* .modal input:focus {
   outline: none;
-}
+} */
 
 .visible {
   display: block;
