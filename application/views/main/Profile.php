@@ -300,7 +300,7 @@ a.highlighted {
                   </div>
                   <div class="col-md-5">
                     <div class="group">
-                      <input type="text" name="role"><span class="highlight"></span><span class="bar"></span>
+                      <input type="text" name="rolepos"><span class="highlight"></span><span class="bar"></span>
                       <label>Your role / position</label>
                     </div>
                   </div>
