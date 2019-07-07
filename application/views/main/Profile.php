@@ -324,7 +324,7 @@ input[type='file'] {
           
       </div>  
   <div class="col-12 mt-4 "> 
-        <span class="h5 p-0 " style="letter-spacing: 2px;">YOUR PHOTO</span> 
+        <span class="h5 p-0 " style="letter-spacing: 2px;">PROFILE COVER</span> 
         <span class="p-0 pull-right">Delete <span class="h3">X</span></span> 
         <div class="col-12 row"> 
         <div class="input-container"> 
@@ -589,21 +589,21 @@ realInput.addEventListener('change', () => {
   fileInfo.innerHTML = truncated; 
 });
 
-const uploadButton = document.querySelector('.browse-btn-1'); 
-const fileInfo = document.querySelector('.file-info-1'); 
-const realInput = document.getElementById('real-input-1'); 
+const uploadButton1 = document.querySelector('.browse-btn-1'); 
+const fileInfo1 = document.querySelector('.file-info-1'); 
+const realInput1 = document.getElementById('real-input-1'); 
  
-uploadButton.addEventListener('click', (e) => { 
-  realInput.click(); 
+uploadButton1.addEventListener('click', (e) => { 
+  realInput1.click(); 
 }); 
  
-realInput.addEventListener('change', () => { 
-  const name = realInput.value.split(/\\|\//).pop(); 
+realInput1.addEventListener('change', () => { 
+  const name = realInput1.value.split(/\\|\//).pop(); 
   const truncated = name.length > 20  
     ? name.substr(name.length - 20)  
     : name; 
    
-  fileInfo.innerHTML = truncated; 
+  fileInfo1.innerHTML = truncated; 
 });
 </script>
 
