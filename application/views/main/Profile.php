@@ -217,12 +217,53 @@ div.tag-editor-tag{
     color:black !important;
     border: 1px solid black;
 }
-.tag-editor .tag-editor-delete i:before{
-  color:black !important;
-  
+
+
+
+input[type='file'] { 
+  display: none; 
+} 
+.file-info { 
+  font-size: 0.9em; 
+} 
+.browse-btn { 
+  background: #fff; 
+  color: #707070; 
+  min-height: 35px; 
+  padding: 10px; 
+  border: 0.5px solid #707070; 
+  border-radius: 2px; 
+} 
+ 
+@media (max-width: 300px) { 
+  button { 
+    width: 100%; 
+    border-top-right-radius: 5px; 
+    border-bottom-left-radius: 0; 
+  } 
+   
+  .file-info { 
+    display: block; 
+    margin: 10px 5px; 
+  } 
+} 
+input[type='file'] { 
+  opacity: 0; 
+  position: absolute; 
+}
+/* ul.tools li i:before, ul li i:after{
+  background-color:transparent;
+} */
+
+.tag-editor-delete i:before, .tag-editor-delete i:after{
+  background-color:transparent;
 }
 .tag-editor .tag-editor-delete{
-  background-color:white !important;  
+  background-color:transparent !important;
+}
+.tag-editor {
+  border:0px !important;
+
 }
 </style>
 
@@ -245,64 +286,51 @@ div.tag-editor-tag{
 
 
 
-<div style="border-bottom:1px solid black">
-    <span class="text-left h4">Your Profile Page</span> 
-</div>
-<div class="col-12 p-0 row">
-    <div class="col-3 p-3 text-center">
-        <span class="p-5 rounded-circle h1" style="background-color:#F5F5F5;color:#707070;display: inline-grid">N</span>
-    </div>
-    <div class="col-9 p-3 row">
-    <div class="col-12">
-        <span class="h5 p-0 " style="letter-spacing: 2px;">YOUR PHOTO</span>
-        <span class="p-0 pull-right">Delete <span class="h3">X</span></span>
-        <div class="col-12 row">
-            <div class="col-12 row">
-                <div class="col-4">
-                    <label for="fileupload" id="buttonlabel">
-                        <span role="button" class="" aria-controls="filename" tabindex="0">
-                        CHOOSE FILE
-                        </span>
-                    </label>
-                    <input type="file" id="fileupload" >
-                    <label for="filename" class="hide">
-                        file
-                    </label>
-                </div>
-                <div class="col-8">
-                        <input type="text" id="filename" autocomplete="off" readonly placeholder="No File " class="pull-right"> 
-                </div>
-            </div>
-            <div class="col-12 mt-2 p-0">
-                    <span class="">File smaller than 10 MB and at least 400px by 400px.</span> 
-            </div>
-         
-          </div>    
-      </div>
-      <div class="col-12 mt-4 ">
-        <span class="h5 p-0 " style="letter-spacing: 2px;">YOUR PHOTO</span>
-        <span class="p-0 pull-right">Delete <span class="h3">X</span></span>
-        <div class="col-12 row">
-            <div class="col-12 row">
-                <div class="col-4">
-                    <label for="fileupload" id="buttonlabel">
-                        <span role="button" class="" aria-controls="filename" tabindex="0">
-                        CHOOSE FILE
-                        </span>
-                    </label>
-                    <input type="file" id="fileupload" >
-                    <label for="filename" class="hide">
-                        file
-                    </label>
-                </div>
-                <div class="col-8">
-                        <input type="text" id="filename" autocomplete="off" readonly placeholder="No File " class="pull-right"> 
-                </div>
-            </div>
-            <div class="col-12 mt-2 p-0">
-                    <span class="">File smaller than 10 MB and at least 400px by 400px.</span> 
-            </div>
-        </div>
+<div style="border-bottom:1px solid black"> 
+    <span class="text-left h4">Your Profile Page</span>  
+</div> 
+ 
+<div class="col-12 p-0 row"> 
+    <div class="col-3 p-3 text-center"> 
+        <span class="p-5 rounded-circle h1" style="background-color:#F5F5F5;color:#707070;display: inline-grid">N</span> 
+    </div> 
+    <div class="col-9 p-3 row"> 
+    <div class="col-12"> 
+ 
+ 
+ 
+        <span class="h5 p-0 " style="letter-spacing: 2px;">YOUR PHOTO</span> 
+        <span class="p-0 pull-right">Delete <span class="h3">X</span></span> 
+        <div class="col-12 row"> 
+           <div class="input-container"> 
+              <input type="file" id="real-input"> 
+              <button class="browse-btn"> 
+                Browse Files 
+              </button> 
+              <span class="file-info">Upload a file</span> 
+            </div> 
+            </div> 
+            <div class="col-12 mt-2 p-0"> 
+                    <span class="">File smaller than 10 MB and at least 400px by 400px.</span>  
+            </div> 
+          
+      </div>  
+  <div class="col-12 mt-4 "> 
+        <span class="h5 p-0 " style="letter-spacing: 2px;">YOUR PHOTO</span> 
+        <span class="p-0 pull-right">Delete <span class="h3">X</span></span> 
+        <div class="col-12 row"> 
+        <div class="input-container"> 
+              <input type="file" id="real-input"> 
+              <button class="browse-btn"> 
+                Browse Files 
+              </button> 
+              <span class="file-info">Upload a file</span> 
+            </div> 
+        </div> 
+     
+    </div> 
+    
+    
         <div class="col-12 mt-2 p-0">
                 <a href="#" style="color:black;"><span>See</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a> 
                 <a href="#" style="color:black;" class="pl-3"><span>My</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a> 
@@ -535,6 +563,23 @@ function getSelectionParentElement() {
     return parentEl;
 }
 //# sourceURL=pen.js
+
+const uploadButton = document.querySelector('.browse-btn'); 
+const fileInfo = document.querySelector('.file-info'); 
+const realInput = document.getElementById('real-input'); 
+ 
+uploadButton.addEventListener('click', (e) => { 
+  realInput.click(); 
+}); 
+ 
+realInput.addEventListener('change', () => { 
+  const name = realInput.value.split(/\\|\//).pop(); 
+  const truncated = name.length > 20  
+    ? name.substr(name.length - 20)  
+    : name; 
+   
+  fileInfo.innerHTML = truncated; 
+});
 </script>
 
 <script>
