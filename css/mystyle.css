@@ -839,7 +839,7 @@ text-decoration: none;
 } 
 input[type=checkbox]:checked:after { 
 border-bottom: 5px solid #000; 
-border-top: 8px solid #000; 
+border-top: 5px solid #000; 
 } 
 
 

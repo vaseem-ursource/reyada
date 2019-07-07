@@ -794,18 +794,24 @@ realInput.addEventListener('change', () => {
 
               // $('input[type=checkbox]').click(function(){
               // if(this.checked) {
-              // $(this)().css('color','red');
+              // $(this)parent().css('color','red');
               // } else {
-              // $(this).().css('color','');
+              // $(this)parent.().css('color','');
               //     }
               // });
               
             </script>
+
             <style>
             input[type=checkbox]:checked + span {
             color: #000 !important;
             /* font-weight: bold; */
             }
+
+            input[type=checkbox]:checked:after { 
+            border-bottom: 5px solid #000; 
+            border-top: 8px solid #000; 
+} 
             </style>
 
 
