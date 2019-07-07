@@ -659,7 +659,23 @@ function getSelectionParentElement() {
 
                 <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
             </div>
-    
+            <script language="JavaScript">
+
+              // $('input[type=checkbox]').click(function(){
+              // if(this.checked) {
+              // $(this)().css('color','red');
+              // } else {
+              // $(this).().css('color','');
+              //     }
+              // });
+              
+            </script>
+            <style>
+            input[type=checkbox]:checked + span {
+            color: #000 !important;
+            /* font-weight: bold; */
+            }
+            </style>
 
 
 <script>

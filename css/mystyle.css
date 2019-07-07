@@ -838,8 +838,8 @@ text-decoration: none;
 -webkit-filter: brightness(75%); filter: brightness(75%); 
 } 
 input[type=checkbox]:checked:after { 
-border-bottom: 5px solid #343a40; 
-border-top: 5px solid #343a40; 
+border-bottom: 5px solid #000; 
+border-top: 8px solid #000; 
 } 
 
 
