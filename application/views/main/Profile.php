@@ -1,60 +1,4 @@
 <?php include('account_master_start.php');?>
-<style>
-#fileupload {
-  display: none;
-}
-
-span[role=button] {
-  display: table-cell;
-  font-family: METRIC-REGULAR;
-  font-size: 1rem;
-  padding: 15px 15px;
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 0px;
-  border: 0.5px solid #707070;  
-  color: #000;
-  cursor: pointer;
-
-  outline: none;
-}
-span[role=button]:hover,
-span[role=button]:focus {
-  box-shadow: 0 0 5px #000;
-  background-color: #fff;
-  border-color: #000;
-  outline: 2px solid transparent;
-}
-.hide {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0,0,0,0);
-  border: 0;
-}
-/* input[type=text] {
-  display: table-cell;
-  margin-left: 0px;
-  /* width: 20rem; */
-  /* font-family: Arial;
-  font-size: 1rem;
-  padding: 15px 15px;
-  
-border:none; */
-  
-  /* background-color: #ffffff; */
-/* } */
-/* input[type=text]:focus {
-  box-shadow: 0 0 5px #fff;
-  border-color: #fff;
-  outline: 2px solid transparent;
-} */
-ul.tools li i:after{
-  background:#fff;
-}
-</style>
 
 <script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script>
 <!-- <script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script> -->
@@ -65,7 +9,9 @@ ul.tools li i:after{
 
 
 <style class="cp-pen-styles">
-
+ul.tools li i:before, ul.tools li i:after{
+  background-color:transparent;
+}
 .wrapper {
   width: 100%;
   max-width: 800px;
@@ -139,7 +85,7 @@ ul.tools li i:after{
   border-right-color: lightGrey;
   border-width: 7px;
   margin-top: -7px;
-}
+} 
 /* .modal input {
   height: 1.5em;
   padding: .25em;
@@ -151,7 +97,7 @@ ul.tools li i:after{
   outline: none;
 } */
 
-.visible {
+/* .visible {
   display: block;
 }
 
@@ -206,6 +152,44 @@ a.highlighted {
   border-width: 7px;
   margin-left: -7px;
 }
+.input-container {
+  margin: 3em auto;
+  max-width: 300px;
+  background-color: #EDEDED;
+  border: 1px solid #DFDFDF;
+  border-radius: 5px;
+} */
+input[type='file'] {
+  display: none;
+}
+.file-info {
+  font-size: 0.9em;
+}
+.browse-btn {
+  background: #fff;
+  color: #707070;
+  min-height: 35px;
+  padding: 10px;
+  border: 0.5px solid #707070;
+  border-radius: 2px;
+}
+
+@media (max-width: 300px) {
+  button {
+    width: 100%;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 0;
+  }
+  
+  .file-info {
+    display: block;
+    margin: 10px 5px;
+  }
+}
+input[type='file'] {
+  opacity: 0;
+  position: absolute;
+}
 </style>
 
 <!-- bootstrap-wysiwyg --> 
@@ -218,59 +202,42 @@ a.highlighted {
 <div style="border-bottom:1px solid black">
     <span class="text-left h4">Your Profile Page</span> 
 </div>
+
 <div class="col-12 p-0 row">
     <div class="col-3 p-3 text-center">
         <span class="p-5 rounded-circle h1" style="background-color:#F5F5F5;color:#707070;display: inline-grid">N</span>
     </div>
     <div class="col-9 p-3 row">
     <div class="col-12">
+
+
+
         <span class="h5 p-0 " style="letter-spacing: 2px;">YOUR PHOTO</span>
         <span class="p-0 pull-right">Delete <span class="h3">X</span></span>
         <div class="col-12 row">
-            <div class="col-12 row">
-                <div class="col-4">
-                    <label for="fileupload" id="buttonlabel">
-                        <span role="button" class="" aria-controls="filename" tabindex="0">
-                        CHOOSE FILE
-                        </span>
-                    </label>
-                    <input type="file" id="fileupload" >
-                    <label for="filename" class="hide">
-                        file
-                    </label>
-                </div>
-                <div class="col-8">
-                        <input type="text" id="filename" autocomplete="off" readonly placeholder="No File " class="pull-right"> 
-                </div>
+           <div class="input-container">
+              <input type="file" id="real-input">
+              <button class="browse-btn">
+                Browse Files
+              </button>
+              <span class="file-info">Upload a file</span>
+            </div>
             </div>
             <div class="col-12 mt-2 p-0">
                     <span class="">File smaller than 10 MB and at least 400px by 400px.</span> 
             </div>
          
-          </div>    
-      </div>
-      <div class="col-12 mt-4 ">
+      </div> 
+  <div class="col-12 mt-4 ">
         <span class="h5 p-0 " style="letter-spacing: 2px;">YOUR PHOTO</span>
         <span class="p-0 pull-right">Delete <span class="h3">X</span></span>
         <div class="col-12 row">
-            <div class="col-12 row">
-                <div class="col-4">
-                    <label for="fileupload" id="buttonlabel">
-                        <span role="button" class="" aria-controls="filename" tabindex="0">
-                        CHOOSE FILE
-                        </span>
-                    </label>
-                    <input type="file" id="fileupload" >
-                    <label for="filename" class="hide">
-                        file
-                    </label>
-                </div>
-                <div class="col-8">
-                        <input type="text" id="filename" autocomplete="off" readonly placeholder="No File " class="pull-right"> 
-                </div>
-            </div>
-            <div class="col-12 mt-2 p-0">
-                    <span class="">File smaller than 10 MB and at least 400px by 400px.</span> 
+        <div class="input-container">
+              <input type="file" id="real-input">
+              <button class="browse-btn">
+                Browse Files
+              </button>
+              <span class="file-info">Upload a file</span>
             </div>
         </div>
         <div class="col-12 mt-2 p-0">
@@ -663,6 +630,22 @@ function getSelectionParentElement() {
 
 
 <script>
+const uploadButton = document.querySelector('.browse-btn');
+const fileInfo = document.querySelector('.file-info');
+const realInput = document.getElementById('real-input');
+
+uploadButton.addEventListener('click', (e) => {
+  realInput.click();
+});
+
+realInput.addEventListener('change', () => {
+  const name = realInput.value.split(/\\|\//).pop();
+  const truncated = name.length > 20 
+    ? name.substr(name.length - 20) 
+    : name;
+  
+  fileInfo.innerHTML = truncated;
+});
 // trigger upload on space & enter
 // = standard button functionality
 $('#buttonlabel span[role=button]').bind('keypress keyup', function(e) {
