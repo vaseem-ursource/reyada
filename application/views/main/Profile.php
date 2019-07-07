@@ -54,12 +54,13 @@ border:none; */
 ul.tools li i:after{
   background:#fff;
 }
+
+
 </style>
 
 <script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script>
 <!-- <script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script> -->
-<script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script>
-<link rel="canonical" href="https://codepen.io/nilsynils/pen/VKQwBJ?depth=everything&order=popularity&page=61&q=tools&show_forks=false" />
+<script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/nilsynils/pen/VKQwBJ?depth=everything&order=popularity&page=61&q=tools&show_forks=false" />
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 
 
@@ -140,16 +141,16 @@ ul.tools li i:after{
   border-width: 7px;
   margin-top: -7px;
 }
-/* .modal input {
+.modal input {
   height: 1.5em;
   padding: .25em;
   width: 20em;
   font-size: 16px;
   border: 0;
-} */
-/* .modal input:focus {
+}
+.modal input:focus {
   outline: none;
-} */
+}
 
 .visible {
   display: block;
@@ -206,6 +207,64 @@ a.highlighted {
   border-width: 7px;
   margin-left: -7px;
 }
+
+div.tag-editor-tag{
+  text-transform:uppercase;
+  margin: 5px;
+  padding: 10px !important;
+    font-size: 20px;
+    background: white !important;
+    color:black !important;
+    border: 1px solid black;
+}
+
+
+
+input[type='file'] { 
+  display: none; 
+} 
+.file-info { 
+  font-size: 0.9em; 
+} 
+.browse-btn { 
+  background: #fff; 
+  color: #707070; 
+  min-height: 35px; 
+  padding: 10px; 
+  border: 0.5px solid #707070; 
+  border-radius: 2px; 
+} 
+ 
+@media (max-width: 300px) { 
+  button { 
+    width: 100%; 
+    border-top-right-radius: 5px; 
+    border-bottom-left-radius: 0; 
+  } 
+   
+  .file-info { 
+    display: block; 
+    margin: 10px 5px; 
+  } 
+} 
+input[type='file'] { 
+  opacity: 0; 
+  position: absolute; 
+}
+/* ul.tools li i:before, ul li i:after{
+  background-color:transparent;
+} */
+
+.tag-editor-delete i:before, .tag-editor-delete i:after{
+  background-color:transparent;
+}
+.tag-editor .tag-editor-delete{
+  background-color:transparent !important;
+}
+.tag-editor {
+  border:0px !important;
+
+}
 </style>
 
 <!-- bootstrap-wysiwyg --> 
@@ -215,64 +274,63 @@ a.highlighted {
 
 <!-- Include JS file. -->
 <!-- <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/froala-editor@3.0.2/js/froala_editor.pkgd.min.js'></script> -->
-<div style="border-bottom:1px solid black">
-    <span class="text-left h4">Your Profile Page</span> 
-</div>
-<div class="col-12 p-0 row">
-    <div class="col-3 p-3 text-center">
-        <span class="p-5 rounded-circle h1" style="background-color:#F5F5F5;color:#707070;display: inline-grid">N</span>
-    </div>
-    <div class="col-9 p-3 row">
-    <div class="col-12">
-        <span class="h5 p-0 " style="letter-spacing: 2px;">YOUR PHOTO</span>
-        <span class="p-0 pull-right">Delete <span class="h3">X</span></span>
-        <div class="col-12 row">
-            <div class="col-12 row">
-                <div class="col-4">
-                    <label for="fileupload" id="buttonlabel">
-                        <span role="button" class="" aria-controls="filename" tabindex="0">
-                        CHOOSE FILE
-                        </span>
-                    </label>
-                    <input type="file" id="fileupload" >
-                    <label for="filename" class="hide">
-                        file
-                    </label>
-                </div>
-                <div class="col-8">
-                        <input type="text" id="filename" autocomplete="off" readonly placeholder="No File " class="pull-right"> 
-                </div>
-            </div>
-            <div class="col-12 mt-2 p-0">
-                    <span class="">File smaller than 10 MB and at least 400px by 400px.</span> 
-            </div>
-         
-          </div>    
-      </div>
-      <div class="col-12 mt-4 ">
-        <span class="h5 p-0 " style="letter-spacing: 2px;">YOUR PHOTO</span>
-        <span class="p-0 pull-right">Delete <span class="h3">X</span></span>
-        <div class="col-12 row">
-            <div class="col-12 row">
-                <div class="col-4">
-                    <label for="fileupload" id="buttonlabel">
-                        <span role="button" class="" aria-controls="filename" tabindex="0">
-                        CHOOSE FILE
-                        </span>
-                    </label>
-                    <input type="file" id="fileupload" >
-                    <label for="filename" class="hide">
-                        file
-                    </label>
-                </div>
-                <div class="col-8">
-                        <input type="text" id="filename" autocomplete="off" readonly placeholder="No File " class="pull-right"> 
-                </div>
-            </div>
-            <div class="col-12 mt-2 p-0">
-                    <span class="">File smaller than 10 MB and at least 400px by 400px.</span> 
-            </div>
-        </div>
+
+
+<script type='text/javascript' src='https://rawgit.com/Pixabay/jQuery-tagEditor/master/jquery.caret.min.js'></script>
+
+<script type='text/javascript' src='https://code.jquery.com/ui/1.11.4/jquery-ui.min.js'></script>
+
+<script type='text/javascript' src='https://rawgit.com/Pixabay/jQuery-tagEditor/master/jquery.tag-editor.js'></script>
+
+<link href="https://rawgit.com/Pixabay/jQuery-tagEditor/master/jquery.tag-editor.css" rel="stylesheet">
+
+
+
+<div style="border-bottom:1px solid black"> 
+    <span class="text-left h4">Your Profile Page</span>  
+</div> 
+ 
+<div class="col-12 p-0 row"> 
+    <div class="col-3 p-3 text-center"> 
+        <span class="p-5 rounded-circle h1" style="background-color:#F5F5F5;color:#707070;display: inline-grid">N</span> 
+    </div> 
+    <div class="col-9 p-3 row"> 
+    <div class="col-12"> 
+ 
+ 
+ 
+        <span class="h5 p-0 " style="letter-spacing: 2px;">YOUR PHOTO</span> 
+        <span class="p-0 pull-right">Delete <span class="h3">X</span></span> 
+        <div class="col-12 row"> 
+           <div class="input-container"> 
+              <input type="file" id="real-input"> 
+              <button class="browse-btn"> 
+                Browse Files 
+              </button> 
+              <span class="file-info">Upload a file</span> 
+            </div> 
+            </div> 
+            <div class="col-12 mt-2 p-0"> 
+                    <span class="">File smaller than 10 MB and at least 400px by 400px.</span>  
+            </div> 
+          
+      </div>  
+  <div class="col-12 mt-4 "> 
+        <span class="h5 p-0 " style="letter-spacing: 2px;">YOUR PHOTO</span> 
+        <span class="p-0 pull-right">Delete <span class="h3">X</span></span> 
+        <div class="col-12 row"> 
+        <div class="input-container"> 
+              <input type="file" id="real-input"> 
+              <button class="browse-btn"> 
+                Browse Files 
+              </button> 
+              <span class="file-info">Upload a file</span> 
+            </div> 
+        </div> 
+     
+    </div> 
+    
+    
         <div class="col-12 mt-2 p-0">
                 <a href="#" style="color:black;"><span>See</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a> 
                 <a href="#" style="color:black;" class="pl-3"><span>My</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a> 
@@ -505,17 +563,90 @@ function getSelectionParentElement() {
     return parentEl;
 }
 //# sourceURL=pen.js
+
+const uploadButton = document.querySelector('.browse-btn'); 
+const fileInfo = document.querySelector('.file-info'); 
+const realInput = document.getElementById('real-input'); 
+ 
+uploadButton.addEventListener('click', (e) => { 
+  realInput.click(); 
+}); 
+ 
+realInput.addEventListener('change', () => { 
+  const name = realInput.value.split(/\\|\//).pop(); 
+  const truncated = name.length > 20  
+    ? name.substr(name.length - 20)  
+    : name; 
+   
+  fileInfo.innerHTML = truncated; 
+});
 </script>
 
+<script>
+  $(function () {
+    $('#hero-demo').tagEditor({
+        delimiter: ',',
+        initialTags: ['Skill', 'SUPER GOOD SKILL', 'SKILL'],
+        placeholder: 'Enter tags ...',
+        autocomplete: {
+            delay: 0,
+            position: {
+                collision: 'flip'
+            },
+            source: ['ActionScript', 'AppleScript', 'Asp', 'BASIC', 'C', 'C++', 'CSS', 'Clojure', 'COBOL', 'ColdFusion', 'Erlang', 'Fortran', 'Groovy', 'Haskell', 'HTML', 'Java', 'JavaScript', 'Lisp', 'Perl', 'PHP', 'Python', 'Ruby', 'Scala', 'Scheme']
+        },
+        clickDelete : false,
+        beforeTagSave : beforeTagSavecb,
+        beforeTagDelete : beforeTagDeletecb,
+        onChange: onChangecb
+       /* autocomplete: {
+            source: googleSuggest,
+            minLength: 3,
+            delay: 250,
+            html: true,
+            position: {
+                collision: 'flip'
+            }
+        }*/
+    });
+    
+    function onChangecb(field, editor, tags) {
+        debugger;
+    }
+    
+    function beforeTagSavecb(field, editor, tags, tag, val) {
+        debugger;
+    }
+    
+    function beforeTagDeletecb(field, editor, tags, val) {
+        debugger;
+        return true;
+    }
 
+/*
+    $('#remove_all_tags').click(function () {
+        var tags = $('#demo3').tagEditor('getTags')[0].tags;
+        for (i = 0; i < tags.length; i++) {
+            $('#demo3').tagEditor('removeTag', tags[i]);
+        }
+    });*/
+});
+</script>
             <div class="col-12 mt-2 p-0">
-              <div style="border-bottom:1px solid black">
+            <div style="padding :0 7px 0 5px;max-width:900px;margin:auto ;border-bottom:1px solid black">
+                <textarea id="hero-demo" class="tag-editor-hidden-src "></textarea>
+                <ul class="tag-editor ui-sortable " style="display:none;">
+                  
+                  
+                </ul>
+            </div>
+              <!-- <div style="border-bottom:1px solid black">
                 <span>Your skill</span><br>                
                 <a href="#"><span class="btn border border-secondary rounded text-uppercase mb-1 p-2">SKILL</span></a>
                 <a href="#" class="pl-2"><span class="btn border border-secondary rounded text-uppercase mb-1 p-2">SUPER GOOD SKILL</span></a>
                 <a href="#" class="pl-2"><span class="btn border border-secondary rounded text-uppercase mb-1 p-2">SKILL</span></a>
               </div>
-            </div>
+            </div> -->
             <div class="pt-2">
             <span class="h6">Press enter after each skill. Keep it relevent, less is</span>
             </div>
@@ -697,10 +828,10 @@ $('#fileupload').change(function(e) {
 });
 </script>
 
-<!-- bootstrap-wysiwyg --> 
+<!-- bootstrap-wysiwyg 
 <script src="<?= base_url('assets/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js');?>"></script> 
     <script src="<?= base_url('assets/vendors/jquery.hotkeys/jquery.hotkeys.js');?>"></script> 
-    <script src="<?= base_url('assets/vendors/google-code-prettify/src/prettify.js');?>"></script>
+    <script src="<?= base_url('assets/vendors/google-code-prettify/src/prettify.js');?>"></script> -->
 
 <?php include('account_master_end.php');?>
        
