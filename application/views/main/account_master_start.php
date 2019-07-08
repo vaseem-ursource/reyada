@@ -57,6 +57,6 @@ a:hover.list-group-item{
 </div> 
 </div>
             </div> 
-            <div class="section-header pb-1 col-md-9 pl-0"> 
+            <div class="section-header pb-1 col-md-9"> 
 
           

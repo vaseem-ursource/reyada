@@ -298,11 +298,11 @@ input[type='file'] {
     <span class="text-left h4">Your Profile Page</span>  
 </div> 
  
-<div class="col-12 p-0 row"> 
-    <div class="col-3 p-3 text-center"> 
+<div class="col-12  row"> 
+    <div class="col-md-3 col-sm-12 p-3 text-center"> 
         <span class="p-5 rounded-circle h1" style="background-color:#F5F5F5;color:#707070;display: inline-grid">N</span> 
     </div> 
-    <div class="col-9 p-3 row"> 
+    <div class="col-md-9 col-sm-12 p-3 row"> 
     <div class="col-12"> 
  
  
@@ -472,7 +472,13 @@ input[type='file'] {
 	</div>
 </section>
 <script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://use.fontawesome.com/ce726fce7b.js'></script>
-<script >Array.prototype.map.call(document.querySelectorAll('.tools a:not([data-role="createLink"])'), (action) => {
+<script>
+  new FroalaEditor('div#editableContent', {
+    placeholderText: 'Start typing something...'
+  })
+</script>
+<script>
+Array.prototype.map.call(document.querySelectorAll('.tools a:not([data-role="createLink"])'), (action) => {
 	action.addEventListener("click", (e) => {
 		e.preventDefault();
 		document.execCommand(action.dataset.role, false, action.dataset.value);
@@ -658,6 +664,7 @@ realInput1.addEventListener('change', () => {
 });
 </script>
             <div class="col-12 mt-2 p-0">
+<span>Your Skills</span>
             <div style="padding :0 7px 0 5px;max-width:900px;margin:auto ;border-bottom:1px solid black">
                 <textarea id="hero-demo" class="tag-editor-hidden-src "></textarea>
                 <ul class="tag-editor ui-sortable " style="display:none;">

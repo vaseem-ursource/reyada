@@ -13,6 +13,9 @@
   opacity: 0;
   transition: visibility 0s 1s, opacity 1s linear;
 }
+#myMenu ul li a{
+ color:black;
+}
     </style>
   <header id="header">
     <div class="container">
@@ -33,8 +36,8 @@
       <nav class="main-nav float-right d-none d-lg-block" id="myMenu">
         <ul>
           <li ><a href="./" class="text-dark">About Us</a></li>
-          <li><a href="<?= base_url()?>main/services" class="text-dark">Community</a></li>
-          <li class=""><a href="#contact" data-toggle="modal" data-target="#modalcontact" class="text-dark">Help</a></li>
+          <li><a href="<?= base_url()?>main/services">Community</a></li>
+          <li class=""><a href="#contact" data-toggle="modal" data-target="#modalcontact" >Help</a></li>
           <li><a href="<?= base_url()?>main/blog" class="text-dark">Account</a></li>
           
           <?php if($this->session->userdata('is_logged_in')){ ?>
@@ -51,19 +54,28 @@
       
     </div>
   </header><!-- #header -->
-  <script>
+  <!-- <script>
 $(function () {
   var lastScrollTop = 0;
   var $navbar = $('#header');
 
   $(window).scroll(function(event){
     var st = $(this).scrollTop();
-    if (st > lastScrollTop) { // scroll down
+    if (st == 0) { // scroll down
+      // $('#myMenu ul li a').addClass('text-dark');
+      // $('#myMenu ul li a').removeClass('text-white');
+      $navbar.fadeOut()
+    }
+    else if (st > lastScrollTop) { // scroll down
+      // $('#myMenu ul li a').addClass('text-dark');
+      // $('#myMenu ul li a').removeClass('text-white');
       $navbar.fadeOut()
     } else { // scroll up
+      // $('#myMenu ul li a').addClass('text-white');
+      // $('#myMenu ul li a').removeClass('text-dark');
       $navbar.fadeIn()
     }
     lastScrollTop = st;
   });
 });
-</script>
+</script> -->
