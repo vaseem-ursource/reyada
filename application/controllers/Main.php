@@ -674,7 +674,7 @@ class main extends CI_Controller
         $this->load->view('index', $data);
     }
 
-    function myaccount()
+    function plan()
     {
         $data['folder_name'] = 'main';
         $data['file_name'] = 'Account';
