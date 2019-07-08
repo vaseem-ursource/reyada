@@ -37,18 +37,40 @@ a:hover.list-group-item{
                           <li><input type="checkbox" checked=""><i></i>
                            <h6><span style="border-left:1px solid #AF0E17;padding:4px"></span> Your Account </h6>
                             <div class="artlist">
-                            <a href="javascript:;" class="list-group-item"> Your Photo </a>
-                            <a href="javascript:;" class="list-group-item"> Personal Details </a>
-                            <a href="javascript:;" class="list-group-item"> Professional Profile </a>
-                            <a href="javascript:;" class="list-group-item"> Social Network </a>
-                            <a href="javascript:;" class="list-group-item"> Password </a>
-                            <a href="javascript:;" class="list-group-item"> Notifications </a>
-                            <a href="javascript:;" class="list-group-item"> Plans & Benefits </a>
-                            <a href="javascript:;" class="list-group-item"> Billing </a>
-                            <a href="javascript:;" class="list-group-item"> Your Bookings </a>
-                            <a href="javascript:;" class="list-group-item"> Deliveries </a>
+                            <a href="<?= base_url("main/profile#profilepage") ?>" class="list-group-item"> Your Photo </a>
+                            <a href="<?= base_url("main/profile#profilepage") ?>" class="list-group-item"> Personal Details </a>
+                            <a href="<?= base_url("main/profile#professional") ?>" class="list-group-item"> Professional Profile </a>
+                            <a href="<?= base_url("main/profile#social") ?>" class="list-group-item"> Social Network </a>
+                            <a href="<?= base_url("main/profile#password") ?>" class="list-group-item"> Password </a>
+                            <a href="<?= base_url("main/profile#notification") ?>" class="list-group-item"> Notifications </a>
+                           
                             </div>
                           </li>
+                          <li><input type="checkbox" checked=""><i></i>
+                           <h6><span style="border-left:1px solid #AF0E17;padding:4px"></span> Plans & Benefits </h6>
+                            <div class="artlist">
+                            <a href="<?= base_url("main/plan#yourplan") ?>" class="list-group-item"> Your Plan </a>
+                            <a href="<?= base_url("main/plan#benefits") ?>" class="list-group-item"> Your Benefits </a>
+                            <a href="<?= base_url("main/plan#additional") ?>" class="list-group-item"> Your Additional Products </a>
+                            </div>
+                          </li>
+                          <li><input type="checkbox" checked=""><i></i>
+                           <h6><span style="border-left:1px solid #AF0E17;padding:4px"></span> Billing </h6>
+                            <div class="artlist">
+                            <a href="<?= base_url("main/invoice") ?>" class="list-group-item"> Invoices & Payments</a>
+                            </div>
+                          </li>
+
+                          <a href="<?= base_url("main/booking") ?>"> <li> <h6><span style="border-left:1px solid #AF0E17;padding:4px"></span> Your Bookings </h6></a>
+                          
+                          </li>
+
+                          <li><input type="checkbox" checked="">
+                           <h6><span style="border-left:1px solid #AF0E17;padding:4px"></span> Deliveries </h6>
+                           
+                          </li>
+
+                         
                           <li><a href="javascript:;" class=""> Sign Out <i class="fa fa-angle-right custom pull-right"></i> </a></li>
                           </div>
                           </div>

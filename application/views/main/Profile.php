@@ -294,7 +294,7 @@ input[type='file'] {
 
 
 
-<div style="border-bottom:1px solid black"> 
+<div style="border-bottom:1px solid black" id="profilepage"> 
     <span class="text-left h4">Your Profile Page</span>  
 </div> 
  
@@ -346,7 +346,7 @@ input[type='file'] {
     </div>
    
 </div>
-<div class="section-header pb-1 col-md-12 pl-0">
+<div class="section-header pb-1 col-md-12 pl-0" id="professional">
             <div class="col-12 mt-2 p-0">
                 <div style="border-bottom:1px solid black">
                     <span class="text-left h4">Professional Profile</span> 
@@ -695,7 +695,7 @@ realInput1.addEventListener('change', () => {
                 <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
             </div>
 
-            <div class="col-12 pt-5 mt-5 p-0">
+            <div class="col-12 pt-5 mt-5 p-0" id="social">
                 <div style="border-bottom:1px solid black">
                     <span class="text-left h3">Social network</span> 
                 </div>
@@ -763,7 +763,7 @@ realInput1.addEventListener('change', () => {
               <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
             </div>
 
-            <div class="col-12 pt-5 mt-5 p-0">
+            <div class="col-12 pt-5 mt-5 p-0" id="password">
                 <div style="border-bottom:1px solid black">
                     <span class="text-left h3">Your password</span> 
                 </div>
@@ -797,7 +797,7 @@ realInput1.addEventListener('change', () => {
             <button type="submit"  style="border: 0px;background-color: transparent; font-size:15px" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
             </form>
 
-            <div class="col-12 pt-5 mt-5 p-0">
+            <div class="col-12 pt-5 mt-5 p-0" id="notification">
                 <div style="border-bottom:1px solid black">
                   <span class="text-left h3" style="color: black;">Notifications</span>                  
                 </div>
