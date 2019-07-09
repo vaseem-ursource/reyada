@@ -65,4 +65,10 @@ i.fa.fa-search::after{
     }).datepicker('update', new Date());
   });
   </script>
+
+  <style>
+  #myMenu ul li a i:before, ul li a i:after{
+background-color:transparent;
+}</style>
+
   

@@ -665,15 +665,16 @@ class main extends CI_Controller
     }
 
     // My Account
-    function account()
-    {
-        $data['folder_name'] = 'main';
-        $data['file_name'] = 'MyAccount';
-        $data['header_name'] = 'header_account';
-        // $data['MyAccount'] = $this->Main_model->get_recent_articles();  
-        $this->load->view('index', $data);
-    }
+    // function account()
+    // {
+    //     $data['folder_name'] = 'main';
+    //     $data['file_name'] = 'MyAccount';
+    //     $data['header_name'] = 'header_account';
+    //     // $data['MyAccount'] = $this->Main_model->get_recent_articles();  
+    //     $this->load->view('index', $data);
+    // }
 
+     // Plan and Benifits
     function plan()
     {
         $data['folder_name'] = 'main';
@@ -683,7 +684,7 @@ class main extends CI_Controller
         $this->load->view('index', $data);
     }
 
-     // My Account
+     // My Member
     function member()
     {
         $data['folder_name'] = 'main';
