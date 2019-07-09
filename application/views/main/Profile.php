@@ -342,6 +342,133 @@ input[type='file'] {
     </div>
    
 </div>
+<style>
+textarea,select{
+font-size: 13px;
+    padding: 5px 10px 5px 0px;
+    -webkit-appearance: none;
+    background: transparent;
+    color: #000000;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    border-bottom: 0.2px solid #999;
+}
+textarea:focus {
+    outline: none;
+    border-bottom: 0.5px solid #000;
+}
+</style>
+<div class="section-header pb-1 col-md-12 pl-0" id="professional">
+            <div class="col-12 mt-2 p-0">
+                <div style="border-bottom:1px solid black">
+                    <span class="text-left h4">Personal Details</span> 
+                </div>
+            </div>
+
+            <form style="width:100%; margin: 0em 0em 0em 0em;" class="pl-0">
+                <div class="row">
+                  <div class="col-md-5">
+                    <div class="group">
+                      <input type="text" name="fullname"><span class="highlight"></span><span class="bar"></span>
+                      <label>Full Name</label>
+                    </div>
+                  </div>
+                  <div class="col-md-5">
+                    <div class="group">
+                      <input type="text" name="callyou"><span class="highlight"></span><span class="bar"></span>
+                      <label>What can we call you?</label>
+                    </div>
+                  </div>
+                  <div class="col-md-5">
+                    <div class="group">
+                     <select name="gender" id="gender">
+                        <option value="">-- Select Gender --</option>
+                        <option value="Male"> Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                     </select>
+                    </div>
+                  </div>
+                  <div class="col-md-5">
+                    <div class="group">
+                      <input type="text" name="dob" class="bg-light" disabled="true"><span class="highlight"></span><span class="bar"></span>
+                      <label>Date of Birth</label>
+                    </div>
+                  </div>
+                  <div class="col-md-5">
+                    <div class="group">
+                      <input type="text" name="phone"><span class="highlight"></span><span class="bar"></span>
+                      <label>Phone</label>
+                    </div>
+                  </div>
+                  <div class="col-md-5">
+                    <div class="group">
+                      <input type="text" name="mobile"><span class="highlight"></span><span class="bar"></span>
+                      <label>Mobile</label>
+                    </div>
+                  </div>
+                  <div class="col-md-10">
+                    <div class="group">
+                      <input type="email" name="email"  class="bg-light" disabled="true"><span class="highlight"></span><span class="bar"></span>
+                      <label>Email</label>
+                    </div>
+                    <span>Contactus to change your email</span>
+                  </div>
+                    <div class="col-md-12 group pt-1 pl-0">
+                          <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
+                    </div>
+
+
+                    <div class="col-md-10">
+                    <div class="group">
+                      <textarea  name="address" placeholder="Address" rows="4"></textarea>
+                    </div>
+                  </div>
+                  <div class="col-md-5">
+                    <div class="group">
+                      <input type="text" name="town"><span class="highlight"></span><span class="bar"></span>
+                      <label>Town / City</label>
+                    </div>
+                  </div>
+                  <div class="col-md-5">
+                    <div class="group">
+                      <input type="text" name="state"><span class="highlight"></span><span class="bar"></span>
+                      <label>State / Province</label>
+                    </div>
+                  </div>
+                  <div class="col-md-5">
+                    <div class="group">
+                      <input type="text" name="zip"><span class="highlight"></span><span class="bar"></span>
+                      <label>Zip / Postcode</label>
+                    </div>
+                  </div>
+                  <div class="col-md-5">
+                    <div class="group">
+                      <input type="text" name="company"><span class="highlight"></span><span class="bar"></span>
+                      <label>Company / Org.Name</label>
+                    </div>
+                  </div>
+                  <div class="col-md-5">
+                    <div class="group">
+                      <input type="text" name="vat"><span class="highlight"></span><span class="bar"></span>
+                      <label>VAT / Tax Number</label>
+                    </div>
+                  </div>
+                  <div class="col-md-5">
+                    <div class="group">
+                      <input type="text" name="website"><span class="highlight"></span><span class="bar"></span>
+                      <label>Company Website</label>
+                    </div>
+                  </div>
+                    <div class="col-md-12 group pt-4 ">
+                        <input type="checkbox" name="membership" id="membership2" style="width:15px;height:15px;">
+                        <span style="color:#999; font-size: 18px;">My Billing Details are diffrent than my personal details</span><br>
+                        <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
+                     </div>
+                </div>
+            </form>
+</div>
 <div class="section-header pb-1 col-md-12 pl-0" id="professional">
             <div class="col-12 mt-2 p-0">
                 <div style="border-bottom:1px solid black">
