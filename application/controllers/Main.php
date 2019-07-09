@@ -179,10 +179,8 @@ class main extends CI_Controller
         $j_data['isPayingMember'] = false;
         $j_data['ProfileTagsArray'] = [];
 
-        
-
         $s_data = json_encode(array('base64avatar' => null, 'Coworker' => $j_data, 'Team' => new stdClass()));
-        $url = "https://reyadatestaccount.spaces.nexudus.com/en/signup?_resource=,&_depth=1";
+        $url = "https://copyofreyadatestaccount.spaces.nexudus.com/en/signup?_resource=,&_depth=1";
         $headers = array(
             'Content-Type: application/json',
             'Content-Length: ' . strlen($s_data)
@@ -208,7 +206,7 @@ class main extends CI_Controller
     }
 
     public function signin($username = null, $password = null){
-        $url = "https://reyadatestaccount.spaces.nexudus.com/en/profile?_resource=Coworker";
+        $url = "https://copyofreyadatestaccount.spaces.nexudus.com/en/profile?_resource=Coworker";
         $json['message'] = 'some error occured while processing your request';
         $json['status'] = 500;
 
@@ -237,6 +235,7 @@ class main extends CI_Controller
                     'CityName' => $output->CityName,
                     'MobilePhone' => $output->MobilePhone,
                     'Email' => $output->Email,
+                    'Password' => $password,
                     'DateOfBirth' => $output->DateOfBirth,
                     'AccessPincode' => $output->AccessPincode,
                     'Gender' => $output->Gender,
@@ -698,13 +697,31 @@ class main extends CI_Controller
       // My Account
       function profile()
       {
-          $data['folder_name'] = 'main';
-          $data['file_name'] = 'Profile';
-          $data['header_name'] = 'header_account';
-          
-          // $data['MyAccount'] = $this->Main_model->get_recent_articles();  
-          $this->load->view('index', $data);
-      }
+        if($this->session->userdata('is_logged_in')){
+            $url = "https://copyofreyadatestaccount.spaces.nexudus.com/en/profile?_resource=Coworker";
+            
+            $user = $this->session->userdata('user_info');
+            $username = $user['Email'];
+            $password = $user['Password'];
+
+            $headers = array(
+                'Content-Type: application/json',
+                'Authorization: Basic '. base64_encode("$username:$password")
+            );
+
+            $data['coworker'] = $this->post_with_curl($url, null, $headers);
+        }else{
+            $this->session->set_flashdata('warning', 'Please Login First');
+            redirect();
+        }
+
+        $data['folder_name'] = 'main';
+        $data['file_name'] = 'Profile';
+        $data['header_name'] = 'header_account';
+        
+        // $data['MyAccount'] = $this->Main_model->get_recent_articles();  
+        $this->load->view('index', $data);
+    }
 
     public function dummy_paggination($rowno=0){
         $search_text=$this->input->get('search_text');
