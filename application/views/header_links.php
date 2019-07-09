@@ -1,6 +1,6 @@
 <!-- Favicons -->
 <!-- <link href="<?= base_url()?>assets/images/favicon.png" rel="icon"> -->
-  <link rel="icon" href="<?= base_url()?>assets/images/favicon.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="<?= base_url()?>image/logo_black.png" type="image/png" sizes="16x16">
   <link href="<?= base_url()?>img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
