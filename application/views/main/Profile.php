@@ -376,14 +376,6 @@ input[type='file'] {
                 </div>
             </form>
 
-            <!-- <div class="col-12 pt-5 mt-5 p-0">
-            <textarea id="froala-editor">Initialize the Froala WYSIWYG HTML Editor on a textarea.</textarea>
-            </div>
-
-            <script>
-  new FroalaEditor('textarea#froala-editor')
-</script> -->
-
 <section class="wrapper mx-0 my-2 p-3" style="min-height:200px;"> 
 	
 	<ul class="tools">
