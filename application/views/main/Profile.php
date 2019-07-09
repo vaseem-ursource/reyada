@@ -359,7 +359,7 @@ textarea:focus {
     border-bottom: 0.5px solid #000;
 }
 </style>
-<div class="section-header pb-1 col-md-12 pl-0" id="professional">
+<div class="section-header pb-1 col-md-12 pl-0" id="Personal">
             <div class="col-12 mt-2 p-0">
                 <div style="border-bottom:1px solid black">
                     <span class="text-left h4">Personal Details</span> 

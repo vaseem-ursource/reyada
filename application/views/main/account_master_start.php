@@ -38,7 +38,7 @@ a:hover.list-group-item{
                            <h6><span style="border-left:1px solid #AF0E17;padding:4px"></span> Your Account </h6>
                             <div class="artlist">
                             <a href="<?= base_url("main/profile#profilepage") ?>" class="list-group-item"> Your Photo </a>
-                            <a href="<?= base_url("main/profile#profilepage") ?>" class="list-group-item"> Personal Details </a>
+                            <a href="<?= base_url("main/profile#Personal") ?>" class="list-group-item"> Personal Details </a>
                             <a href="<?= base_url("main/profile#professional") ?>" class="list-group-item"> Professional Profile </a>
                             <a href="<?= base_url("main/profile#social") ?>" class="list-group-item"> Social Network </a>
                             <a href="<?= base_url("main/profile#password") ?>" class="list-group-item"> Password </a>
