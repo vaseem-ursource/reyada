@@ -277,11 +277,7 @@ input[type='file'] {
 
 <!-- bootstrap-wysiwyg --> 
 <!-- <link href="<?= base_url('assets/vendors/google-code-prettify/bin/prettify.min.css');?>" rel="stylesheet"> -->
-<!-- Include Editor style. -->
-<!-- <link href='https://cdn.jsdelivr.net/npm/froala-editor@3.0.2/css/froala_editor.pkgd.min.css' rel='stylesheet' type='text/css' /> -->
 
-<!-- Include JS file. -->
-<!-- <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/froala-editor@3.0.2/js/froala_editor.pkgd.min.js'></script> -->
 
 
 <script type='text/javascript' src='https://rawgit.com/Pixabay/jQuery-tagEditor/master/jquery.caret.min.js'></script>
@@ -376,6 +372,8 @@ input[type='file'] {
                 </div>
             </form>
 
+  
+
 <section class="wrapper mx-0 my-2 p-3" style="min-height:200px;"> 
 	
 	<ul class="tools">
@@ -464,11 +462,7 @@ input[type='file'] {
 	</div>
 </section>
 <script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://use.fontawesome.com/ce726fce7b.js'></script>
-<script>
-  new FroalaEditor('div#editableContent', {
-    placeholderText: 'Start typing something...'
-  })
-</script>
+
 <script>
 Array.prototype.map.call(document.querySelectorAll('.tools a:not([data-role="createLink"])'), (action) => {
 	action.addEventListener("click", (e) => {
