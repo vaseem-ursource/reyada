@@ -30,7 +30,7 @@ a:hover.list-group-item{
             <div class="section-header pb-1 col-md-3 pl-0"> 
             <div class="container">
     <div class="row">
-    <div class="col-lg-12 col-md-12 wow fadeInUp p-1 lap">
+    <div class="col-lg-12 col-md-12 wow fadeInUp p-1">
                     <div class="container mt-3">
                       <div class="accordian">
                         <ul>
@@ -64,12 +64,6 @@ a:hover.list-group-item{
                           <a href="<?= base_url("main/booking") ?>"> <li> <h6><span style="border-left:1px solid #AF0E17;padding:4px"></span> Your Bookings </h6></a>
                           
                           </li>
-
-                          <li><input type="checkbox" checked="">
-                           <h6><span style="border-left:1px solid #AF0E17;padding:4px"></span> Deliveries </h6>
-                           
-                          </li>
-
                          
                           <li><a href="javascript:;" class=""> Sign Out <i class="fa fa-angle-right custom pull-right"></i> </a></li>
                           </div>
