@@ -67,212 +67,212 @@ ul.tools li i:after{
 
 <style class="cp-pen-styles">
 
-.wrapper {
-  width: 100%;
-  max-width: 800px;
-  background: #fff;
-  margin: 3em auto;
-  padding: 1em 2em;
-  border: 1px solid lightGrey;
-  border-radius: 3px;
-  position: relative;
-}
-.wrapper h2 {
-  margin-top: 0;
-}
+  .wrapper {
+    width: 100%;
+    max-width: 800px;
+    background: #fff;
+    margin: 3em auto;
+    padding: 1em 2em;
+    border: 1px solid lightGrey;
+    border-radius: 3px;
+    position: relative;
+  }
+  .wrapper h2 {
+    margin-top: 0;
+  }
 
-.tools {
-  padding: 0;
-  list-style-type: none;
-  display: inline-flex;
-  flex-wrap: wrap;
-  padding: .5em .5em .5em 0;
-  margin: 0;
-}
-.tools li {
-  margin: 0 1em 0 0;
-  color: grey;
-}
-.tools li a {
-  color: grey;
-}
+  .tools {
+    padding: 0;
+    list-style-type: none;
+    display: inline-flex;
+    flex-wrap: wrap;
+    padding: .5em .5em .5em 0;
+    margin: 0;
+  }
+  .tools li {
+    margin: 0 1em 0 0;
+    color: grey;
+  }
+  .tools li a {
+    color: grey;
+  }
 
-.editableContent *::selection {
-  background: #9dcaff;
-}
-.editableContent:focus {
-  outline: none;
-}
+  .editableContent *::selection {
+    background: #9dcaff;
+  }
+  .editableContent:focus {
+    outline: none;
+  }
 
-/* .modal {
-  position: absolute;
-  left: 11em;
-  top: 4.5em;
-  display: none;
-} */
-.modal__wrapper {
-  background: #fff;
-  padding: 0 .5em;
-  border: 1px solid lightGrey;
-  border-radius: 3px;
-  transition: all 1s;
-  position: relative;
-  width: 22em;
-}
-.modal__wrapper:after, .modal__wrapper:before {
-  right: 100%;
-  top: 50%;
-  border: solid transparent;
-  content: " ";
-  height: 0;
-  width: 0;
-  position: absolute;
-  pointer-events: none;
-}
-.modal__wrapper:after {
-  border-color: rgba(255, 255, 255, 0);
-  border-right-color: #fff;
-  border-width: 6px;
-  margin-top: -6px;
-}
-.modal__wrapper:before {
-  border-color: transparent;
-  border-right-color: lightGrey;
-  border-width: 7px;
-  margin-top: -7px;
-}
-.modal input {
-  height: 1.5em;
-  padding: .25em;
-  width: 20em;
-  font-size: 16px;
-  border: 0;
-}
-.modal input:focus {
-  outline: none;
-}
+  /* .modal {
+    position: absolute;
+    left: 11em;
+    top: 4.5em;
+    display: none;
+  } */
+  .modal__wrapper {
+    background: #fff;
+    padding: 0 .5em;
+    border: 1px solid lightGrey;
+    border-radius: 3px;
+    transition: all 1s;
+    position: relative;
+    width: 22em;
+  }
+  .modal__wrapper:after, .modal__wrapper:before {
+    right: 100%;
+    top: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+  .modal__wrapper:after {
+    border-color: rgba(255, 255, 255, 0);
+    border-right-color: #fff;
+    border-width: 6px;
+    margin-top: -6px;
+  }
+  .modal__wrapper:before {
+    border-color: transparent;
+    border-right-color: lightGrey;
+    border-width: 7px;
+    margin-top: -7px;
+  }
+  .modal input {
+    height: 1.5em;
+    padding: .25em;
+    width: 20em;
+    font-size: 16px;
+    border: 0;
+  }
+  .modal input:focus {
+    outline: none;
+  }
 
-.visible {
-  display: block;
-}
+  .visible {
+    display: block;
+  }
 
-a.highlighted {
-  background: blue;
-  color: white;
-}
+  a.highlighted {
+    background: blue;
+    color: white;
+  }
 
-.editableContent a:hover {
-  cursor: pointer;
-}
+  .editableContent a:hover {
+    cursor: pointer;
+  }
 
-.linkWrapper {
-  position: relative;
-}
+  .linkWrapper {
+    position: relative;
+  }
 
-.hoverPop {
-  position: absolute;
-  left: 0;
-  top: 2.2em;
-  display: block;
-}
-.hoverPop__wrapper {
-  background: #fff;
-  padding: .5em .5em;
-  border: 1px solid lightGrey;
-  border-radius: 3px;
-  transition: all 1s;
-  position: relative;
-  width: auto;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-}
-.hoverPop__wrapper:after, .hoverPop__wrapper:before {
-  bottom: 100%;
-  left: 50%;
-  border: solid transparent;
-  content: " ";
-  height: 0;
-  width: 0;
-  position: absolute;
-  pointer-events: none;
-}
-.hoverPop__wrapper:after {
-  border-color: rgba(255, 255, 255, 0);
-  border-bottom-color: #fff;
-  border-width: 6px;
-  margin-left: -6px;
-}
-.hoverPop__wrapper:before {
-  border-color: transparent;
-  border-bottom-color: lightGrey;
-  border-width: 7px;
-  margin-left: -7px;
-}
+  .hoverPop {
+    position: absolute;
+    left: 0;
+    top: 2.2em;
+    display: block;
+  }
+  .hoverPop__wrapper {
+    background: #fff;
+    padding: .5em .5em;
+    border: 1px solid lightGrey;
+    border-radius: 3px;
+    transition: all 1s;
+    position: relative;
+    width: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  .hoverPop__wrapper:after, .hoverPop__wrapper:before {
+    bottom: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+  .hoverPop__wrapper:after {
+    border-color: rgba(255, 255, 255, 0);
+    border-bottom-color: #fff;
+    border-width: 6px;
+    margin-left: -6px;
+  }
+  .hoverPop__wrapper:before {
+    border-color: transparent;
+    border-bottom-color: lightGrey;
+    border-width: 7px;
+    margin-left: -7px;
+  }
 
-div.tag-editor-tag{
-  text-transform:uppercase;
-  margin: 5px;
-  padding: 10px !important;
+  div.tag-editor-tag{
+    text-transform:uppercase;
+    margin: 5px;
+    padding: 10px !important;
     font-size: 20px;
     background: white !important;
     color:black !important;
     border: 1px solid black;
-}
+  }
 
 
 
-input[type='file'] { 
-  display: none; 
-} 
-.file-info { 
-  font-size: 0.9em; 
-} 
-.browse-btn { 
-  background: #fff; 
-  color: #707070; 
-  min-height: 35px; 
-  padding: 10px; 
-  border: 0.5px solid #707070; 
-  border-radius: 2px; 
-} 
-.browse-btn-1 { 
-  background: #fff; 
-  color: #707070; 
-  min-height: 35px; 
-  padding: 10px; 
-  border: 0.5px solid #707070; 
-  border-radius: 2px; 
-} 
- 
-@media (max-width: 300px) { 
-  button { 
-    width: 100%; 
-    border-top-right-radius: 5px; 
-    border-bottom-left-radius: 0; 
+  input[type='file'] { 
+    display: none; 
   } 
-   
   .file-info { 
-    display: block; 
-    margin: 10px 5px; 
+    font-size: 0.9em; 
   } 
-} 
-input[type='file'] { 
-  opacity: 0; 
-  position: absolute; 
-}
-/* ul.tools li i:before, ul li i:after{
-  background-color:transparent;
-} */
+  .browse-btn { 
+    background: #fff; 
+    color: #707070; 
+    min-height: 35px; 
+    padding: 10px; 
+    border: 0.5px solid #707070; 
+    border-radius: 2px; 
+  } 
+  .browse-btn-1 { 
+    background: #fff; 
+    color: #707070; 
+    min-height: 35px; 
+    padding: 10px; 
+    border: 0.5px solid #707070; 
+    border-radius: 2px; 
+  } 
+  
+  @media (max-width: 300px) { 
+    button { 
+      width: 100%; 
+      border-top-right-radius: 5px; 
+      border-bottom-left-radius: 0; 
+    } 
+    
+    .file-info { 
+      display: block; 
+      margin: 10px 5px; 
+    } 
+  } 
+  input[type='file'] { 
+    opacity: 0; 
+    position: absolute; 
+  }
+  /* ul.tools li i:before, ul li i:after{
+    background-color:transparent;
+  } */
 
-.tag-editor-delete i:before, .tag-editor-delete i:after{
-  background-color:transparent;
-}
-.tag-editor .tag-editor-delete{
-  background-color:transparent !important;
-}
-.tag-editor {
-  border:0px !important;
+  .tag-editor-delete i:before, .tag-editor-delete i:after{
+    background-color:transparent;
+  }
+  .tag-editor .tag-editor-delete{
+    background-color:transparent !important;
+  }
+  .tag-editor {
+    border:0px !important;
 
-}
+  }
 </style>
 
 <!-- bootstrap-wysiwyg --> 
@@ -291,60 +291,55 @@ input[type='file'] {
 
 
 <div style="border-bottom:1px solid black" id="profilepage"> 
-    <span class="text-left h4">Your Profile Page</span>  
+  <span class="text-left h4">Your Profile Page</span>  
 </div> 
  
 <div class="col-12  row"> 
-    <div class="col-md-3 col-sm-12 p-3 text-center"> 
-        <span class="p-5 rounded-circle h1" style="background-color:#F5F5F5;color:#707070;display: inline-grid">N</span> 
-    </div> 
-    <div class="col-md-9 col-sm-12 p-3 row"> 
-    <div class="col-12"> 
- 
- 
- 
-        <span class="h5 p-0 " style="letter-spacing: 2px;">YOUR PHOTO</span> 
-        <span class="p-0 pull-right">Delete <span class="h3">X</span></span> 
-        <div class="col-12 row"> 
-           <div class="input-container"> 
-              <input type="file" id="real-input"> 
-              <button class="browse-btn"> 
-                Browse Files 
-              </button> 
-              <span class="file-info">Upload a file</span> 
-            </div> 
-            </div> 
-            <div class="col-12 mt-2 p-0"> 
-                    <span class="">File smaller than 10 MB and at least 400px by 400px.</span>  
-            </div> 
-          
-      </div>  
+  <div class="col-md-3 col-sm-12 p-3 text-center"> 
+      <span class="p-5 rounded-circle h1" style="background-color:#F5F5F5;color:#707070;display: inline-grid">N</span> 
+  </div> 
+  <div class="col-md-9 col-sm-12 p-3 row"> 
+  <div class="col-12"> 
+      <span class="h5 p-0 " style="letter-spacing: 2px;">YOUR PHOTO</span> 
+      <span class="p-0 pull-right">Delete <span class="h3">X</span></span> 
+      <div class="col-12 row"> 
+          <div class="input-container"> 
+            <input type="file" id="real-input"> 
+            <button class="browse-btn"> 
+              Browse Files 
+            </button> 
+            <span class="file-info">Upload a file</span> 
+          </div> 
+      </div> 
+      <div class="col-12 mt-2 p-0"> 
+        <span class="">File smaller than 10 MB and at least 400px by 400px.</span>  
+      </div> 
+        
+  </div>  
   <div class="col-12 mt-4 "> 
-        <span class="h5 p-0 " style="letter-spacing: 2px;">PROFILE COVER</span> 
-        <span class="p-0 pull-right">Delete <span class="h3">X</span></span> 
-        <div class="col-12 row"> 
+    <span class="h5 p-0 " style="letter-spacing: 2px;">PROFILE COVER</span> 
+    <span class="p-0 pull-right">Delete <span class="h3">X</span></span> 
+    <div class="col-12 row"> 
         <div class="input-container"> 
-              <input type="file" id="real-input-1"> 
-              <button class="browse-btn-1"> 
-                Browse Files 
-              </button> 
-              <span class="file-info-1">Upload a file</span> 
-            </div> 
+          <input type="file" id="real-input-1"> 
+          <button class="browse-btn-1"> 
+            Browse Files 
+          </button> 
+          <span class="file-info-1">Upload a file</span> 
         </div> 
-     
     </div> 
-    
-    
-        <div class="col-12 mt-2 p-0">
-                <a href="#" style="color:black;"><span>See</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a> 
-                <a href="#" style="color:black;" class="pl-3"><span>My</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a> 
-            </div>
-    </div>
+  </div> 
+
+  <div class="col-12 mt-2 p-0">
+    <a href="#" style="color:black;"><span>See</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a> 
+    <a href="#" style="color:black;" class="pl-3"><span>My</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a> 
+  </div>
+</div>
    
 </div>
 <style>
-textarea,select{
-font-size: 13px;
+  textarea,select{
+    font-size: 13px;
     padding: 5px 10px 5px 0px;
     -webkit-appearance: none;
     background: transparent;
@@ -353,284 +348,286 @@ font-size: 13px;
     border: none;
     border-radius: 0;
     border-bottom: 0.2px solid #999;
-}
-textarea:focus {
+  }
+  textarea:focus {
     outline: none;
     border-bottom: 0.5px solid #000;
-}
+  }
 </style>
-  <div class="section-header pb-1 col-md-12 pl-0" id="Personal">
-    <div class="col-12 mt-2 p-0">
-        <div style="border-bottom:1px solid black">
-            <span class="text-left h4">Personal Details</span> 
-        </div>
-    </div>
 
-    <form id="PersonalDetailsForm" style="width:100%; margin: 0em 0em 0em 0em;" class="pl-0">
-        <div class="row">
-          <div class="col-md-5">
-            <div class="group">
-              <input type="text" value="<?= (isset($coworker['FullName']) && !empty($coworker['FullName'])) ? $coworker['FullName'] : ''; ?>" name="u_fullname"><span class="highlight"></span><span class="bar"></span>
-              <label>Full Name</label>
-            </div>
-          </div>
-          <div class="col-md-5">
-            <div class="group">
-              <input type="text" name="u_callyou" value="<?= (isset($coworker['Salutation']) && !empty($coworker['Salutation'])) ? $coworker['Salutation'] : ''; ?>"><span class="highlight"></span><span class="bar"></span>
-              <label>What can we call you?</label>
-            </div>
-          </div>
-          <div class="col-md-5">
-            <div class="group">
-              <select name="u_gender" id="gender">
-                <option value="">-- Select Gender --</option>
-                <option <?= ($coworker['Gender'] == 'Male' ) ? 'selected' : '' ?> value="Male"> Male</option>
-                <option <?= ($coworker['Gender'] == 'Female' ) ? 'selected' : '' ?> value="Female">Female</option>
-                <option <?= ($coworker['Gender'] == 'Other' ) ? 'selected' : '' ?> value="Other">Other</option>
-              </select>
-            </div>
-          </div>
-          <div class="col-md-5">
-            <div class="group">
-              <input type="text" value="<?= (isset($coworker['DateOfBirth']) && !empty($coworker['DateOfBirth'])) ? $coworker['DateOfBirth'] : ''; ?>" name="u_dob" class="bg-light" disabled="true"><span class="highlight"></span><span class="bar"></span>
-              <label>Date of Birth</label>
-            </div>
-          </div>
-          <div class="col-md-5">
-            <div class="group">
-              <input value="<?= (isset($coworker['LandLine']) && !empty($coworker['LandLine'])) ? $coworker['LandLine'] : ''; ?>" type="text" name="u_phone"><span class="highlight"></span><span class="bar"></span>
-              <label>Phone</label>
-            </div>
-          </div>
-          <div class="col-md-5">
-            <div class="group">
-              <input value="<?= (isset($coworker['MobilePhone']) && !empty($coworker['MobilePhone'])) ? $coworker['MobilePhone'] : ''; ?>" type="text" name="u_mobile"><span class="highlight"></span><span class="bar"></span>
-              <label>Mobile</label>
-            </div>
-          </div>
-          <div class="col-md-10">
-            <div class="group">
-              <input value="<?= (isset($coworker['Email']) && !empty($coworker['Email'])) ? $coworker['Email'] : ''; ?>" type="email" name="u_email"  class="bg-light" disabled="true"><span class="highlight"></span><span class="bar"></span>
-              <label>Email</label>
-            </div>
-            <span>Contact us to change your email</span>
-          </div>
-            <div class="col-md-12 group pt-1 pl-0">
-                  <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
-            </div>
-
-
-            <div class="col-md-10">
-            <div class="group">
-              <textarea  name="u_address" placeholder="Address" rows="4"><?= (isset($coworker['Address']) && !empty($coworker['Address'])) ? $coworker['Address'] : ''; ?></textarea>
-            </div>
-          </div>
-          <div class="col-md-5">
-            <div class="group">
-              <input value="<?= (isset($coworker['CityName']) && !empty($coworker['CityName'])) ? $coworker['CityName'] : ''; ?>" type="text" name="u_town"><span class="highlight"></span><span class="bar"></span>
-              <label>Town / City</label>
-            </div>
-          </div>
-          <div class="col-md-5">
-            <div class="group">
-              <input value="<?= (isset($coworker['State']) && !empty($coworker['State'])) ? $coworker['State'] : ''; ?>" type="text" name="u_state"><span class="highlight"></span><span class="bar"></span>
-              <label>State / Province</label>
-            </div>
-          </div>
-          <div class="col-md-5">
-            <div class="group">
-              <input value="<?= (isset($coworker['PostCode']) && !empty($coworker['PostCode'])) ? $coworker['PostCode'] : ''; ?>" type="text" name="u_zip"><span class="highlight"></span><span class="bar"></span>
-              <label>Zip / Postcode</label>
-            </div>
-          </div>
-          <div class="col-md-5">
-            <div class="group">
-              <input value="<?= (isset($coworker['BillingName']) && !empty($coworker['BillingName'])) ? $coworker['BillingName'] : ''; ?>" type="text" name="u_billingname"><span class="highlight"></span><span class="bar"></span>
-              <label>Company / Org.Name</label>
-            </div>
-          </div>
-          <div class="col-md-5">
-            <div class="group">
-              <input value="<?= (isset($coworker['TaxIDNumber']) && !empty($coworker['TaxIDNumber'])) ? $coworker['TaxIDNumber'] : ''; ?>" type="text" name="u_vat"><span class="highlight"></span><span class="bar"></span>
-              <label>VAT / Tax Number</label>
-            </div>
-          </div>
-          <div class="col-md-5">
-            <div class="group">
-              <input value="<?= (isset($coworker['ProfileWebsite']) && !empty($coworker['ProfileWebsite'])) ? $coworker['ProfileWebsite'] : ''; ?>" type="text" name="u_website"><span class="highlight"></span><span class="bar"></span>
-              <label>Company Website</label>
-            </div>
-          </div>
-            <div class="col-md-12 group pt-4 ">
-                <input type="checkbox" name="u_membership2" id="membership2" style="width:15px;height:15px;">
-                <span style="color:#999; font-size: 18px;">My Billing Details are diffrent than my personal details</span><br>
-                <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
-              </div>
-        </div>
-    </form>
+<div class="section-header pb-1 col-md-12 pl-0" id="Personal">
+  <div class="col-12 mt-2 p-0">
+      <div style="border-bottom:1px solid black">
+          <span class="text-left h4">Personal Details</span> 
+      </div>
   </div>
 
-  <div class="section-header pb-1 col-md-12 pl-0" id="billing">
-    <div class="col-12 mt-2 p-0">
-        <div style="border-bottom:1px solid black">
-            <span class="text-left h4">Billing Details</span> 
+  <form id="PersonalDetailsForm" style="width:100%; margin: 0em 0em 0em 0em;" class="pl-0">
+      <div class="row">
+        <div class="col-md-5">
+          <div class="group">
+            <input type="text" value="<?= (isset($coworker['FullName']) && !empty($coworker['FullName'])) ? $coworker['FullName'] : ''; ?>" name="u_fullname"><span class="highlight"></span><span class="bar"></span>
+            <label>Full Name</label>
+          </div>
         </div>
-    </div>
-
-    <form id="BillingDetailsForm" action="" style="width:100%; margin: 0em 0em 0em 0em;" class="pl-0">
-        <div class="row">
-          <div class="col-md-10">
-              <div class="group">
-                <textarea  name="billing_address" placeholder="Billing Address" rows="4"><?= (isset($coworker['Address']) && !empty($coworker['Address'])) ? $coworker['Address'] : ''; ?></textarea>
-              </div>
-            </div>
-          <div class="col-md-5">
-            <div class="group">
-              <input value="<?= (isset($coworker['State']) && !empty($coworker['State'])) ? $coworker['State'] : ''; ?>" type="text" name="billing_town"><span class="highlight"></span><span class="bar"></span>
-              <label>Billing Town</label>
-            </div>
+        <div class="col-md-5">
+          <div class="group">
+            <input type="text" name="u_callyou" value="<?= (isset($coworker['Salutation']) && !empty($coworker['Salutation'])) ? $coworker['Salutation'] : ''; ?>"><span class="highlight"></span><span class="bar"></span>
+            <label>What can we call you?</label>
           </div>
-          <div class="col-md-5">
-            <div class="group">
-              <input value="<?= (isset($coworker['PostCode']) && !empty($coworker['PostCode'])) ? $coworker['PostCode'] : ''; ?>" type="text" name="billing_province"><span class="highlight"></span><span class="bar"></span>
-              <label>Billing State / Province</label>
-            </div>
+        </div>
+        <div class="col-md-5">
+          <div class="group">
+            <select name="u_gender" id="gender">
+              <option value="">-- Select Gender --</option>
+              <option <?= ($coworker['Gender'] == 'Male' ) ? 'selected' : '' ?> value="Male"> Male</option>
+              <option <?= ($coworker['Gender'] == 'Female' ) ? 'selected' : '' ?> value="Female">Female</option>
+              <option <?= ($coworker['Gender'] == 'Other' ) ? 'selected' : '' ?> value="Other">Other</option>
+            </select>
           </div>
-          <div class="col-md-5">
-            <div class="group">
-              <input value="<?= (isset($coworker['BillingName']) && !empty($coworker['BillingName'])) ? $coworker['BillingName'] : ''; ?>" type="text" name="billing_zip"><span class="highlight"></span><span class="bar"></span>
-              <label>Billing Zip / Postcode</label>
-            </div>
+        </div>
+        <div class="col-md-5">
+          <div class="group">
+            <input type="text" value="<?= (isset($coworker['DateOfBirth']) && !empty($coworker['DateOfBirth'])) ? $coworker['DateOfBirth'] : ''; ?>" name="u_dob" class="bg-light" disabled="true"><span class="highlight"></span><span class="bar"></span>
+            <label>Date of Birth</label>
           </div>
-          <div class="col-md-5">
-            <div class="group">
-              <input value="<?= (isset($coworker['BillingName']) && !empty($coworker['BillingName'])) ? $coworker['BillingName'] : ''; ?>" type="text" name="send_my_invoice"><span class="highlight"></span><span class="bar"></span>
-              <label>Send my Invoices to</label>
-            </div>
+        </div>
+        <div class="col-md-5">
+          <div class="group">
+            <input value="<?= (isset($coworker['LandLine']) && !empty($coworker['LandLine'])) ? $coworker['LandLine'] : ''; ?>" type="text" name="u_phone"><span class="highlight"></span><span class="bar"></span>
+            <label>Phone</label>
           </div>
-            <div class="col-md-12 group pt-4 ">
+        </div>
+        <div class="col-md-5">
+          <div class="group">
+            <input value="<?= (isset($coworker['MobilePhone']) && !empty($coworker['MobilePhone'])) ? $coworker['MobilePhone'] : ''; ?>" type="text" name="u_mobile"><span class="highlight"></span><span class="bar"></span>
+            <label>Mobile</label>
+          </div>
+        </div>
+        <div class="col-md-10">
+          <div class="group">
+            <input value="<?= (isset($coworker['Email']) && !empty($coworker['Email'])) ? $coworker['Email'] : ''; ?>" type="email" name="u_email"  class="bg-light" disabled="true"><span class="highlight"></span><span class="bar"></span>
+            <label>Email</label>
+          </div>
+          <span>Contact us to change your email</span>
+        </div>
+          <div class="col-md-12 group pt-1 pl-0">
                 <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
-              </div>
+          </div>
+
+
+          <div class="col-md-10">
+          <div class="group">
+            <textarea  name="u_address" placeholder="Address" rows="4"><?= (isset($coworker['Address']) && !empty($coworker['Address'])) ? $coworker['Address'] : ''; ?></textarea>
+          </div>
         </div>
-    </form>
+        <div class="col-md-5">
+          <div class="group">
+            <input value="<?= (isset($coworker['CityName']) && !empty($coworker['CityName'])) ? $coworker['CityName'] : ''; ?>" type="text" name="u_town"><span class="highlight"></span><span class="bar"></span>
+            <label>Town / City</label>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="group">
+            <input value="<?= (isset($coworker['State']) && !empty($coworker['State'])) ? $coworker['State'] : ''; ?>" type="text" name="u_state"><span class="highlight"></span><span class="bar"></span>
+            <label>State / Province</label>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="group">
+            <input value="<?= (isset($coworker['PostCode']) && !empty($coworker['PostCode'])) ? $coworker['PostCode'] : ''; ?>" type="text" name="u_zip"><span class="highlight"></span><span class="bar"></span>
+            <label>Zip / Postcode</label>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="group">
+            <input value="<?= (isset($coworker['BillingName']) && !empty($coworker['BillingName'])) ? $coworker['BillingName'] : ''; ?>" type="text" name="u_billingname"><span class="highlight"></span><span class="bar"></span>
+            <label>Company / Org.Name</label>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="group">
+            <input value="<?= (isset($coworker['TaxIDNumber']) && !empty($coworker['TaxIDNumber'])) ? $coworker['TaxIDNumber'] : ''; ?>" type="text" name="u_vat"><span class="highlight"></span><span class="bar"></span>
+            <label>VAT / Tax Number</label>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="group">
+            <input value="<?= (isset($coworker['ProfileWebsite']) && !empty($coworker['ProfileWebsite'])) ? $coworker['ProfileWebsite'] : ''; ?>" type="text" name="u_website"><span class="highlight"></span><span class="bar"></span>
+            <label>Company Website</label>
+          </div>
+        </div>
+          <div class="col-md-12 group pt-4 ">
+              <input type="checkbox" name="u_membership2" id="membership2" style="width:15px;height:15px;">
+              <span style="color:#999; font-size: 18px;">My Billing Details are diffrent than my personal details</span><br>
+              <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
+            </div>
+      </div>
+  </form>
+</div>
+
+<div class="section-header pb-1 col-md-12 pl-0" id="billing">
+  <div class="col-12 mt-2 p-0">
+      <div style="border-bottom:1px solid black">
+          <span class="text-left h4">Billing Details</span> 
+      </div>
   </div>
 
-  <div class="section-header pb-1 col-md-12 pl-0" id="professional">
-    <div class="col-12 mt-2 p-0">
-        <div style="border-bottom:1px solid black">
-            <span class="text-left h4">Professional Profile</span> 
-        </div>
-    </div>
-
-    <form id="ProfDetailsForm" style="width:100%; margin: 0em 0em 0em 0em;" class="pl-0">
-        <div class="row">
-          <div class="col-md-5">
+  <form id="BillingDetailsForm" action="" style="width:100%; margin: 0em 0em 0em 0em;" class="pl-0">
+      <div class="row">
+        <div class="col-md-10">
             <div class="group">
-              <input type="text" name="u_company"><span class="highlight"></span><span class="bar"></span>
-              <label>Company Name</label>
+              <textarea  name="billing_address" placeholder="Billing Address" rows="4"><?= (isset($coworker['Address']) && !empty($coworker['Address'])) ? $coworker['Address'] : ''; ?></textarea>
             </div>
           </div>
-          <div class="col-md-5 pl-4">
-            <div class="group">
-              <input type="text" name="u_industry"><span class="highlight"></span><span class="bar"></span>
-              <label>Industry</label>
-            </div>
-          </div>
-          <div class="col-md-5">
-            <div class="group">
-              <input type="text" name="u_rolepos"><span class="highlight"></span><span class="bar"></span>
-              <label>Your role / position</label>
-            </div>
+        <div class="col-md-5">
+          <div class="group">
+            <input value="<?= (isset($coworker['State']) && !empty($coworker['State'])) ? $coworker['State'] : ''; ?>" type="text" name="billing_town"><span class="highlight"></span><span class="bar"></span>
+            <label>Billing Town</label>
           </div>
         </div>
-    </form>
+        <div class="col-md-5">
+          <div class="group">
+            <input value="<?= (isset($coworker['PostCode']) && !empty($coworker['PostCode'])) ? $coworker['PostCode'] : ''; ?>" type="text" name="billing_province"><span class="highlight"></span><span class="bar"></span>
+            <label>Billing State / Province</label>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="group">
+            <input value="<?= (isset($coworker['BillingName']) && !empty($coworker['BillingName'])) ? $coworker['BillingName'] : ''; ?>" type="text" name="billing_zip"><span class="highlight"></span><span class="bar"></span>
+            <label>Billing Zip / Postcode</label>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="group">
+            <input value="<?= (isset($coworker['BillingName']) && !empty($coworker['BillingName'])) ? $coworker['BillingName'] : ''; ?>" type="text" name="send_my_invoice"><span class="highlight"></span><span class="bar"></span>
+            <label>Send my Invoices to</label>
+          </div>
+        </div>
+          <div class="col-md-12 group pt-4 ">
+              <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
+            </div>
+      </div>
+  </form>
+</div>
 
-    <section class="wrapper mx-0 my-2 p-3" style="min-height:200px;"> 
-      
-      <ul class="tools">
-        <li>
-          <a href='#' data-role='bold'>
-            <i class="fa fa-bold" aria-hidden="true"></i>
-          </a>
-        </li>
-        <li>
-          <a href='#' data-role='italic'>
-            <i class="fa fa-italic" aria-hidden="true"></i>
-          </a>
-        </li>
-        <li>
-          <a href='#' data-role='insertUnorderedList'>
-            <i class="fa fa-list" aria-hidden="true"></i>
-          </a>
-        </li>
-        <li>
-          <a href='#' data-role='insertOrderedList'>
-            <i class="fa fa-list-ol" aria-hidden="true"></i>
-          </a>
-        </li>
-        <li>
-          <a href='#' data-role='createLink'>
-            <i class="fa fa-link" aria-hidden="true"></i>
-          </a>
-        </li>
-        <li>
-          <a href='#' data-role='unlink'>
-            <i class="fa fa-unlink" aria-hidden="true"></i>
-          </a>
-        </li>
-        <li>
-          <a href='#' data-role='insertHorizontalRule'>
-            <i class="fa fa-minus" aria-hidden="true"></i>
-          </a>
-        </li>
-        <li>
-          <a href='#' data-role='insertParagraph'>
-            <i class="fa fa-paragraph" aria-hidden="true"></i>
-          </a>
-        </li>
-        <li>
-          <a href='#' data-role='justifyLeft'>
-            <i class="fa fa-align-left" aria-hidden="true"></i>
-          </a>
-        </li>
-        <li>
-          <a href='#' data-role='justifyCenter'>
-            <i class="fa fa-align-center" aria-hidden="true"></i>
-          </a>
-        </li>
-        <li>
-          <a href='#' data-role='justifyRight'>
-            <i class="fa fa-align-right" aria-hidden="true"></i>
-          </a>
-        </li>
-        <li>
-          <a href='#' data-role='subscript'>
-            <i class="fa fa-subscript" aria-hidden="true"></i>
-          </a>
-        </li>
-        <li>
-          <a href='#' data-role='superscript'>
-            <i class="fa fa-superscript" aria-hidden="true"></i>
-          </a>
-        </li>
-        <li>
-          <a href='#' data-role='underline'>
-            <i class="fa fa-underline" aria-hidden="true"></i>
-          </a>
-        </li>
-      </ul>
-      <hr style="margin:5px">
-      <div class="modal">
-        <div class="modal__wrapper">
-          <form class="urlForm" name="urlForm">
-            <input class="url" name="urlField" placeholder="Add URL" />
-            <i class="fa fa-close closeModal" aria-hidden="true"></i>
-          </form>
+<div class="section-header pb-1 col-md-12 pl-0" id="professional">
+  <div class="col-12 mt-2 p-0">
+      <div style="border-bottom:1px solid black">
+          <span class="text-left h4">Professional Profile</span> 
+      </div>
+  </div>
+
+  <form id="ProfDetailsForm" style="width:100%; margin: 0em 0em 0em 0em;" class="pl-0">
+      <div class="row">
+        <div class="col-md-5">
+          <div class="group">
+            <input type="text" name="u_company"><span class="highlight"></span><span class="bar"></span>
+            <label>Company Name</label>
+          </div>
+        </div>
+        <div class="col-md-5 pl-4">
+          <div class="group">
+            <input type="text" name="u_industry"><span class="highlight"></span><span class="bar"></span>
+            <label>Industry</label>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="group">
+            <input type="text" name="u_rolepos"><span class="highlight"></span><span class="bar"></span>
+            <label>Your role / position</label>
+          </div>
         </div>
       </div>
-      <div class="editableContent" contenteditable spellcheck="false"></div>
-    </section>
-  </div>
+  </form>
+
+  <section class="wrapper mx-0 my-2 p-3" style="min-height:200px;"> 
+    
+    <ul class="tools">
+      <li>
+        <a href='#' data-role='bold'>
+          <i class="fa fa-bold" aria-hidden="true"></i>
+        </a>
+      </li>
+      <li>
+        <a href='#' data-role='italic'>
+          <i class="fa fa-italic" aria-hidden="true"></i>
+        </a>
+      </li>
+      <li>
+        <a href='#' data-role='insertUnorderedList'>
+          <i class="fa fa-list" aria-hidden="true"></i>
+        </a>
+      </li>
+      <li>
+        <a href='#' data-role='insertOrderedList'>
+          <i class="fa fa-list-ol" aria-hidden="true"></i>
+        </a>
+      </li>
+      <li>
+        <a href='#' data-role='createLink'>
+          <i class="fa fa-link" aria-hidden="true"></i>
+        </a>
+      </li>
+      <li>
+        <a href='#' data-role='unlink'>
+          <i class="fa fa-unlink" aria-hidden="true"></i>
+        </a>
+      </li>
+      <li>
+        <a href='#' data-role='insertHorizontalRule'>
+          <i class="fa fa-minus" aria-hidden="true"></i>
+        </a>
+      </li>
+      <li>
+        <a href='#' data-role='insertParagraph'>
+          <i class="fa fa-paragraph" aria-hidden="true"></i>
+        </a>
+      </li>
+      <li>
+        <a href='#' data-role='justifyLeft'>
+          <i class="fa fa-align-left" aria-hidden="true"></i>
+        </a>
+      </li>
+      <li>
+        <a href='#' data-role='justifyCenter'>
+          <i class="fa fa-align-center" aria-hidden="true"></i>
+        </a>
+      </li>
+      <li>
+        <a href='#' data-role='justifyRight'>
+          <i class="fa fa-align-right" aria-hidden="true"></i>
+        </a>
+      </li>
+      <li>
+        <a href='#' data-role='subscript'>
+          <i class="fa fa-subscript" aria-hidden="true"></i>
+        </a>
+      </li>
+      <li>
+        <a href='#' data-role='superscript'>
+          <i class="fa fa-superscript" aria-hidden="true"></i>
+        </a>
+      </li>
+      <li>
+        <a href='#' data-role='underline'>
+          <i class="fa fa-underline" aria-hidden="true"></i>
+        </a>
+      </li>
+    </ul>
+    <hr style="margin:5px">
+    <div class="modal">
+      <div class="modal__wrapper">
+        <form class="urlForm" name="urlForm">
+          <input class="url" name="urlField" placeholder="Add URL" />
+          <i class="fa fa-close closeModal" aria-hidden="true"></i>
+        </form>
+      </div>
+    </div>
+    <div class="editableContent" contenteditable spellcheck="false"></div>
+  </section>
+</div>
+
 <script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://use.fontawesome.com/ce726fce7b.js'></script>
 
 <script>
@@ -819,213 +816,210 @@ textarea:focus {
     });*/
   });
 </script>
-      <div class="col-12 mt-2 p-0">
-        <span>Your Skills</span>
-            <div style="padding :0 7px 0 5px;max-width:900px;margin:auto ;border-bottom:1px solid black">
-                <textarea id="hero-demo" class="tag-editor-hidden-src "></textarea>
-                <ul class="tag-editor ui-sortable " style="display:none;">
-                  
-                  
-                </ul>
-            </div>
-              <!-- <div style="border-bottom:1px solid black">
-                <span>Your skill</span><br>                
-                <a href="#"><span class="btn border border-secondary rounded text-uppercase mb-1 p-2">SKILL</span></a>
-                <a href="#" class="pl-2"><span class="btn border border-secondary rounded text-uppercase mb-1 p-2">SUPER GOOD SKILL</span></a>
-                <a href="#" class="pl-2"><span class="btn border border-secondary rounded text-uppercase mb-1 p-2">SKILL</span></a>
-              </div>
-            </div> -->
-            <div class="pt-2">
-              <span class="h6">Press enter after each skill. Keep it relevent, less is</span>
-            </div>
 
-            <div class="card border-0 pt-4">
-              <div class="card-header p-4">
-                <h5><b>Heads up!</b> Yourprofile is not yet listed in the directory. Enable the option list</h5>
-              </div>
-            </div>
-            
-            <div class="col-md-12 group pt-4 pl-0">
-                <input type="checkbox" name="membership" id="membership" style="width:15px;height:15px;">
-                <span style="color:#999; font-size: 18px;">List my profile in the directory.</span><br>
-                <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
-            </div>
+<div class="col-12 mt-2 p-0">
+  <span>Your Skills</span>
+  <div style="padding :0 7px 0 5px;max-width:900px;margin:auto ;border-bottom:1px solid black">
+      <textarea id="hero-demo" class="tag-editor-hidden-src "></textarea>
+      <ul class="tag-editor ui-sortable " style="display:none;">
+        
+        
+      </ul>
+  </div>
+  
+  <div class="pt-2">
+    <span class="h6">Press enter after each skill. Keep it relevent, less is</span>
+  </div>
 
-            <div class="col-12 pt-5 mt-5 p-0" id="social">
-                <div style="border-bottom:1px solid black">
-                    <span class="text-left h3">Social network</span> 
-                </div>
-            </div>
+  <div class="card border-0 pt-4">
+    <div class="card-header p-4">
+      <h5><b>Heads up!</b> Yourprofile is not yet listed in the directory. Enable the option list</h5>
+    </div>
+  </div>
+  
+  <div class="col-md-12 group pt-4 pl-0">
+      <input type="checkbox" name="membership" id="membership" style="width:15px;height:15px;">
+      <span style="color:#999; font-size: 18px;">List my profile in the directory.</span><br>
+      <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
+  </div>
 
-            <div class="col-12 pt-5 p-0">
-              <div class="row">
-                <div class="col-md-5">
-                    <div class="group">
-                      <label><b><i class="fa fa-twitter text-dark pl-0" style="font-size: 15px"></i></b></label><br>
-                        <input type="text" name="twitter" placeholder="Twitter"><span class="highlight"></span><span class="bar"></span>
-                    </div>
-                </div>
+  <div class="col-12 pt-5 mt-5 p-0" id="social">
+      <div style="border-bottom:1px solid black">
+          <span class="text-left h3">Social network</span> 
+      </div>
+  </div>
 
-                <div class="col-md-5 pl-5">
-                    <div class="group">
-                      <label><b><i class="fa fa-facebook text-dark pl-0" style="font-size: 15px"></i></b></label><br>
-                        <input type="text" name="facebook" placeholder="Facebook"><span class="highlight"></span><span class="bar"></span>
-                    </div>
-                </div>
+  <div class="col-12 pt-5 p-0">
+    <div class="row">
+      <div class="col-md-5">
+          <div class="group">
+            <label><b><i class="fa fa-twitter text-dark pl-0" style="font-size: 15px"></i></b></label><br>
+              <input type="text"  name="twitter" value="<?= (isset($coworker['Twitter']) && !empty($coworker['Twitter'])) ? $coworker['Twitter'] : ''; ?>" placeholder="Twitter"><span class="highlight"></span><span class="bar"></span>
+          </div>
+      </div>
 
-                <div class="col-md-5">
-                    <div class="group">
-                      <label><b><i class="fa fa-linkedin text-dark pl-0" style="font-size: 15px"></i></b></label><br>
-                        <input type="text" name="linkedin" placeholder="Linkedin"><span class="highlight"></span><span class="bar"></span>
-                    </div>
-                </div>
+      <div class="col-md-5 pl-5">
+          <div class="group">
+            <label><b><i class="fa fa-facebook text-dark pl-0" style="font-size: 15px"></i></b></label><br>
+              <input type="text" name="facebook" value="<?= (isset($coworker['Facebook']) && !empty($coworker['Facebook'])) ? $coworker['Facebook'] : ''; ?>" placeholder="Facebook"><span class="highlight"></span><span class="bar"></span>
+          </div>
+      </div>
 
-                <div class="col-md-5 pl-5">
-                    <div class="group">
-                      <label><b><i class="fa fa-google text-dark pl-0" style="font-size: 15px"></i></b></label><br>
-                        <input type="text" name="google" placeholder="Google"><span class="highlight"></span><span class="bar"></span>
-                    </div>
-                </div>
+      <div class="col-md-5">
+          <div class="group">
+            <label><b><i class="fa fa-linkedin text-dark pl-0" style="font-size: 15px"></i></b></label><br>
+              <input type="text" name="linkedin" value="<?= (isset($coworker['Linkedin']) && !empty($coworker['Linkedin'])) ? $coworker['Linkedin'] : ''; ?>" placeholder="Linkedin"><span class="highlight"></span><span class="bar"></span>
+          </div>
+      </div>
 
-                <div class="col-md-5">
-                    <div class="group">
-                      <label><b><i class="fa fa-flickr text-dark pl-0" style="font-size: 15px"></i></b></label><br>
-                        <input type="text" name="flicker" placeholder="Flicker"><span class="highlight"></span><span class="bar"></span>
-                    </div>
-                </div>
+      <div class="col-md-5 pl-5">
+          <div class="group">
+            <label><b><i class="fa fa-google text-dark pl-0" style="font-size: 15px"></i></b></label><br>
+              <input type="text" name="google" value="<?= (isset($coworker['Google']) && !empty($coworker['Google'])) ? $coworker['Google'] : ''; ?>" placeholder="Google"><span class="highlight"></span><span class="bar"></span>
+          </div>
+      </div>
 
-                <div class="col-md-5 pl-5">
-                    <div class="group">
-                      <label><b><i class="fa fa-instagram text-dark pl-0" style="font-size: 15px"></i></b></label><br>
-                        <input type="text" name="instagram" placeholder="Instagram"><span class="highlight"></span><span class="bar"></span>
-                    </div>
-                </div>
+      <div class="col-md-5">
+          <div class="group">
+            <label><b><i class="fa fa-flickr text-dark pl-0" style="font-size: 15px"></i></b></label><br>
+              <input type="text" name="flicker" value="<?= (isset($coworker['Flickr']) && !empty($coworker['Flickr'])) ? $coworker['Flickr'] : ''; ?>" placeholder="Flicker"><span class="highlight"></span><span class="bar"></span>
+          </div>
+      </div>
 
-                <div class="col-md-5">
-                    <div class="group">
-                      <label><b><i class="fa fa-vimeo text-dark pl-0" style="font-size: 15px"></i></b></label><br>
-                        <input type="text" name="vimeo" placeholder="Vimeo"><span class="highlight"></span><span class="bar"></span>
-                    </div>
-                </div>
+      <div class="col-md-5 pl-5">
+          <div class="group">
+            <label><b><i class="fa fa-instagram text-dark pl-0" style="font-size: 15px"></i></b></label><br>
+              <input type="text" name="instagram" value="<?= (isset($coworker['Instagram']) && !empty($coworker['Instagram'])) ? $coworker['Instagram'] : ''; ?>" placeholder="Instagram"><span class="highlight"></span><span class="bar"></span>
+          </div>
+      </div>
 
-                <div class="col-md-5 pl-5">
-                    <div class="group">
-                      <label><b><i class="fa fa-tumblr text-dark pl-0" style="font-size: 15px"></i></b></label><br>
-                        <input type="text" name="tumblr" placeholder="Tumblr"><span class="highlight"></span><span class="bar"></span>
-                    </div>
-                </div>
-              <div class="col-2"></div>
-              </div><br>
-              <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
-            </div>
+      <div class="col-md-5">
+          <div class="group">
+            <label><b><i class="fa fa-vimeo text-dark pl-0" style="font-size: 15px"></i></b></label><br>
+              <input type="text" name="vimeo" value="<?= (isset($coworker['Vimeo']) && !empty($coworker['Vimeo'])) ? $coworker['Vimeo'] : ''; ?>" placeholder="Vimeo"><span class="highlight"></span><span class="bar"></span>
+          </div>
+      </div>
 
-            <div class="col-12 pt-5 mt-5 p-0" id="password">
-                <div style="border-bottom:1px solid black">
-                    <span class="text-left h3">Your password</span> 
-                </div>
-            </div>
+      <div class="col-md-5 pl-5">
+          <div class="group">
+            <label><b><i class="fa fa-tumblr text-dark pl-0" style="font-size: 15px"></i></b></label><br>
+              <input type="text" name="tumblr" value="<?= (isset($coworker['Tumblr']) && !empty($coworker['Tumblr'])) ? $coworker['Tumblr'] : ''; ?>" placeholder="Tumblr"><span class="highlight"></span><span class="bar"></span>
+          </div>
+      </div>
+      <div class="col-2"></div>
+    </div><br>
+    <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
+  </div>
 
-            <form style="width:100%; margin: 0em 0em 0em 0em;" class="pl-0">
-              <div class="row">
-                <div class="col-md-5">
-                  <div class="group">
-                    <input type="text" name="checkin"><span class="highlight"></span><span class="bar"></span>
-                    <label>Checkin & internet pincode</label>
-                  </div>
-                </div>
-                <div class="col-md-5 pl-4">
-                  <div class="group">
-                    <input type="password" name="password"><span class="highlight"></span><span class="bar"></span>
-                    <label>Password</label>
-                  </div>
-                </div>
-                <div class="col-md-5">
-                  <div class="group">
-                  </div>
-                </div>
-                <div class="col-md-5 pl-4">
-                  <div class="group">
-                    <label style="font-size:15px">Forgot it? <a href="#"><u style="color: black;">Request a password reset.</u></a></label>
-                  </div>
-                </div>
-              </div>
-              <br>
-              <button type="submit"  style="border: 0px;background-color: transparent; font-size:15px" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
-            </form>
+  <div class="col-12 pt-5 mt-5 p-0" id="password">
+      <div style="border-bottom:1px solid black">
+          <span class="text-left h3">Your password</span> 
+      </div>
+  </div>
 
-            <div class="col-12 pt-5 mt-5 p-0" id="notification">
-                <div style="border-bottom:1px solid black">
-                  <span class="text-left h3" style="color: black;">Notifications</span>                  
-                </div>
-            </div>
+  <form style="width:100%; margin: 0em 0em 0em 0em;" class="pl-0">
+    <div class="row">
+      <div class="col-md-5">
+        <div class="group">
+          <input type="text" name="checkin" value="<?= (isset($coworker['AccessPincode']) && !empty($coworker['AccessPincode'])) ? $coworker['AccessPincode'] : ''; ?>"  disabled ><span class="highlight"></span><span class="bar"></span>
+          <label>Checkin & internet pincode</label>
+        </div>
+      </div>
+      <div class="col-md-5 pl-4">
+        <div class="group">
+          <input type="password" name="password"><span class="highlight"></span><span class="bar"></span>
+          <label>Password</label>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="group">
+        </div>
+      </div>
+      <div class="col-md-5 pl-4">
+        <div class="group">
+          <label style="font-size:15px">Forgot it? <a href="#"><u style="color: black;">Request a password reset.</u></a></label>
+        </div>
+      </div>
+    </div>
+    <br>
+    <button type="submit"  style="border: 0px;background-color: transparent; font-size:15px" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
+  </form>
 
-            <div class="col-md-12 group pt-4 pl-0"> 
-                <h5 class="mb-0"><b>Select when you would like to recieve notifications</b></h5>
-                <input type="checkbox" style="width:15px;height:15px;">
-                <span style="color:#707070; font-size: 18px;">I would like to receive occasional and relevent updates from Reyada - Crystal Tower</span><br>
-                <input type="checkbox" style="width:15px;height:15px;">
-                <span style="color:#707070; font-size: 18px;">When the new message is posted in the home page wall.</span><br>
-                <input type="checkbox" style="width:15px;height:15px;">
-                <span style="color:#707070; font-size: 18px;">When the new comment is posted in the blog.</span><br>
-                <input type="checkbox" style="width:15px;height:15px;">
-                <span style="color:#707070; font-size: 18px;">When the new comment is posted in an event.</span><br>
-                <br>
-                <h5 class="mb-0"><b>How and when should we alert you about conversations in the community board?</b></h5>
-                <input type="checkbox" style="width:15px;height:15px;">
-                <span style="color:#707070; font-size: 18px;">Send me an update in the Morning if there is new message (around 8am)</span><br>
-                <input type="checkbox" style="width:15px;height:15px;">
-                <span style="color:#707070; font-size: 18px;">Send me an notification shortly after every message. You can still mute individual.</span><br>
+  <div class="col-12 pt-5 mt-5 p-0" id="notification">
+      <div style="border-bottom:1px solid black">
+        <span class="text-left h3" style="color: black;">Notifications</span>                  
+      </div>
+  </div>
 
-                <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
-            </div>
-            <script language="JavaScript">
+  <div class="col-md-12 group pt-4 pl-0"> 
+      <h5 class="mb-0"><b>Select when you would like to recieve notifications</b></h5>
+      <input type="checkbox" style="width:15px;height:15px;">
+      <span style="color:#707070; font-size: 18px;">I would like to receive occasional and relevent updates from Reyada - Crystal Tower</span><br>
+      <input type="checkbox" style="width:15px;height:15px;">
+      <span style="color:#707070; font-size: 18px;">When the new message is posted in the home page wall.</span><br>
+      <input type="checkbox" style="width:15px;height:15px;">
+      <span style="color:#707070; font-size: 18px;">When the new comment is posted in the blog.</span><br>
+      <input type="checkbox" style="width:15px;height:15px;">
+      <span style="color:#707070; font-size: 18px;">When the new comment is posted in an event.</span><br>
+      <br>
+      <h5 class="mb-0"><b>How and when should we alert you about conversations in the community board?</b></h5>
+      <input type="checkbox" style="width:15px;height:15px;">
+      <span style="color:#707070; font-size: 18px;">Send me an update in the Morning if there is new message (around 8am)</span><br>
+      <input type="checkbox" style="width:15px;height:15px;">
+      <span style="color:#707070; font-size: 18px;">Send me an notification shortly after every message. You can still mute individual.</span><br>
 
-              // $('input[type=checkbox]').click(function(){
-              // if(this.checked) {
-              // $(this)parent().css('color','red');
-              // } else {
-              // $(this)parent.().css('color','');
-              //     }
-              // });
-              
-            </script>
+      <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
+  </div>
+</div>
 
-            <style>
-              input[type=checkbox]:checked + span {
-                color: #000 !important;
-                /* font-weight: bold; */
-              }
+<script language="JavaScript">
 
-              input[type=checkbox]:checked:after { 
-                border-bottom: 5px solid #000; 
-                border-top: 8px solid #000; 
-              } 
-            </style>
+  // $('input[type=checkbox]').click(function(){
+  // if(this.checked) {
+  // $(this)parent().css('color','red');
+  // } else {
+  // $(this)parent.().css('color','');
+  //     }
+  // });
+  
+</script>
+
+<style>
+  input[type=checkbox]:checked + span {
+    color: #000 !important;
+    /* font-weight: bold; */
+  }
+
+  input[type=checkbox]:checked:after { 
+    border-bottom: 5px solid #000; 
+    border-top: 8px solid #000; 
+  } 
+</style>
 
 
 <script>
-// trigger upload on space & enter
-// = standard button functionality
-$('#buttonlabel span[role=button]').bind('keypress keyup', function(e) {
-  if(e.which === 32 || e.which === 13){
-    e.preventDefault();
-    $('#fileupload').click();
-  }    
-});
+  // trigger upload on space & enter
+  // = standard button functionality
+  $('#buttonlabel span[role=button]').bind('keypress keyup', function(e) {
+    if(e.which === 32 || e.which === 13){
+      e.preventDefault();
+      $('#fileupload').click();
+    }    
+  });
 
-// return chosen filename to additional input
-$('#fileupload').change(function(e) {
-  var filename = $('#fileupload').val().split('\\').pop();
-  $('#filename').val(filename);
-  $('#filename').attr('placeholder', filename);
-  $('#filename').focus();
-});
+  // return chosen filename to additional input
+  $('#fileupload').change(function(e) {
+    var filename = $('#fileupload').val().split('\\').pop();
+    $('#filename').val(filename);
+    $('#filename').attr('placeholder', filename);
+    $('#filename').focus();
+  });
 </script>
 
-<!-- bootstrap-wysiwyg 
-<script src="<?= base_url('assets/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js');?>"></script> 
-    <script src="<?= base_url('assets/vendors/jquery.hotkeys/jquery.hotkeys.js');?>"></script> 
-    <script src="<?= base_url('assets/vendors/google-code-prettify/src/prettify.js');?>"></script> -->
+  <!-- bootstrap-wysiwyg 
+  <script src="<?= base_url('assets/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js');?>"></script> 
+      <script src="<?= base_url('assets/vendors/jquery.hotkeys/jquery.hotkeys.js');?>"></script> 
+      <script src="<?= base_url('assets/vendors/google-code-prettify/src/prettify.js');?>"></script> -->
 
 <?php include('account_master_end.php');?>
        
