@@ -224,37 +224,13 @@ class main extends CI_Controller
             $output = $this->post_with_curl($url, null, $headers);
 
             if(!empty($output)){
+                $output['Password'] = $password;
                 $json['message'] = 'Logged in successfully';
                 $json['status'] = 200;
-                $json['html'] = json_encode($output);
+                // $json['html'] = json_encode($output);
+            
 
-                $user_info = array(
-                    'Id' => $output->Id,
-                    'FullName' => $output->FullName,
-                    'Address' => $output->Address,
-                    'CityName' => $output->CityName,
-                    'MobilePhone' => $output->MobilePhone,
-                    'Email' => $output->Email,
-                    'Password' => $password,
-                    'DateOfBirth' => $output->DateOfBirth,
-                    'AccessPincode' => $output->AccessPincode,
-                    'Gender' => $output->Gender,
-                    'Twitter' => $output->Twitter,
-                    'Skype' => $output->Skype,
-                    'Facebook' => $output->Facebook,
-                    'Linkedin' => $output->Linkedin,
-                    'Google' => $output->Google,
-                    'Github' => $output->Github,
-                    'Pinterest' => $output->Pinterest,
-                    'Flickr' => $output->Flickr,
-                    'Vimeo' => $output->Vimeo,
-                    'Tumblr' => $output->Tumblr,
-                    'Blogger' => $output->Blogger
-
-                    
-                );
-
-                $this->session->set_userdata('user_info', $user_info);
+                $this->session->set_userdata('user_info', $output);
                 $this->session->set_userdata('is_logged_in', true);
             }
 
@@ -365,7 +341,7 @@ class main extends CI_Controller
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         $result = curl_exec($ch);
-        $output = json_decode($result);
+        $output = (array)json_decode($result);
         curl_close($ch);
 
         return $output;
@@ -694,22 +670,22 @@ class main extends CI_Controller
         $this->load->view('index', $data);
     }
 
-      // My Account
-      function profile()
-      {
+    // My Account
+    function profile()
+    {
         if($this->session->userdata('is_logged_in')){
             $url = "https://copyofreyadatestaccount.spaces.nexudus.com/en/profile?_resource=Coworker";
             
-            $user = $this->session->userdata('user_info');
-            $username = $user['Email'];
-            $password = $user['Password'];
+            // $user = $this->session->userdata('user_info');
+            // $username = $user['Email'];
+            // $password = $user['Password'];
 
-            $headers = array(
-                'Content-Type: application/json',
-                'Authorization: Basic '. base64_encode("$username:$password")
-            );
+            // $headers = array(
+            //     'Content-Type: application/json',
+            //     'Authorization: Basic '. base64_encode("$username:$password")
+            // );
 
-            $data['coworker'] = $this->post_with_curl($url, null, $headers);
+            $data['coworker'] = $this->session->userdata('user_info');
         }else{
             $this->session->set_flashdata('warning', 'Please Login First');
             redirect();
@@ -721,6 +697,187 @@ class main extends CI_Controller
         
         // $data['MyAccount'] = $this->Main_model->get_recent_articles();  
         $this->load->view('index', $data);
+    }
+
+    function update_profile()
+    {
+        if($this->session->userdata('is_logged_in')){
+            $user = $this->session->userdata('user_info');
+            $p_data = $this->input->post();
+
+            $j_data['AbsoluteCancellationDate'] = null;
+            $j_data['AccessPincode'] = 23249;
+            $j_data['Active'] = false;
+            $j_data['Address'] = $p_data['u_address'];
+            $j_data['AddressForInvoice'] = "Not Available";
+            $j_data['AgeInDays'] = 0.9597595044456018;
+            $j_data['Avatar'] = null;
+            $j_data['AvatarUrl'] = "/en/coworker/getavatar/1102767731";
+            $j_data['Banner'] = null;
+            $j_data['BillingAddress'] = null;
+            $j_data['BillingCityName'] = null;
+            $j_data['BillingEmail'] = null;
+            $j_data['BillingName'] = $p_data['u_billingname'];
+            $j_data['BillingPostCode'] = null;
+            $j_data['BillingState'] = null;
+            $j_data['Blogger'] = null;
+            $j_data['BusinessArea'] = $p_data['u_industry'];
+            $j_data['CancellationDate'] = null;
+            $j_data['CardNumber'] = null;
+            $j_data['CheckedIn'] = false;
+            $j_data['CityForInvoice'] = "Not Available";
+            $j_data['CityName'] = $p_data['u_town'];
+            $j_data['CompanyName'] = $p_data['u_company'];
+            $j_data['Country'] = array(
+                "Id" => 1113
+            );
+            $j_data['CountryId'] = 1113;
+            $j_data['CreatedOn'] = $user['CreatedOn'];
+            $j_data['Custom1'] = null;
+            $j_data['Custom2'] = null;
+            $j_data['Custom3'] = null;
+            $j_data['Custom4'] = null;
+            $j_data['Custom5'] = null;
+            $j_data['Custom6'] = null;
+            $j_data['Custom7'] = null;
+            $j_data['Custom8'] = null;
+            $j_data['Custom9'] = null;
+            $j_data['Custom10'] = null;
+            $j_data['Custom11'] = null;
+            $j_data['Custom12'] = null;
+            $j_data['Custom13'] = null;
+            $j_data['Custom14'] = null;
+            $j_data['Custom15'] = null;
+            $j_data['Custom16'] = null;
+            $j_data['Custom17'] = null;
+            $j_data['Custom18'] = null;
+            $j_data['Custom19'] = null;
+            $j_data['Custom20'] = null;
+            $j_data['Custom21'] = null;
+            $j_data['Custom22'] = null;
+            $j_data['Custom23'] = null;
+            $j_data['Custom24'] = null;
+            $j_data['Custom25'] = null;
+            $j_data['Custom26'] = null;
+            $j_data['Custom27'] = null;
+            $j_data['Custom28'] = null;
+            $j_data['Custom29'] = null;
+            $j_data['Custom30'] = null;
+            $j_data['DateOfBirth'] = $user['DateOfBirth'];
+            $j_data['DeleteAvatar'] = false;
+            $j_data['DeleteBanner'] = false;
+            $j_data['DiscountCode'] = null;
+            $j_data['DoNotProcessInvoicesAutomatically'] = false;        
+            $j_data['Email'] = $user['Email'];
+            $j_data['EmailForInvoice'] = $user['Email'];
+            $j_data['Facebook'] = null;
+            $j_data['Flickr'] = null;
+            $j_data['FullName'] = $p_data['u_fullname'];
+            $j_data['FullNameForInvoice'] = $p_data['u_fullname'];
+            $j_data['Gender'] = $p_data['u_gender'];
+            $j_data['GeneralTermsAccepted'] = false;
+            $j_data['Github'] = null;
+            $j_data['Google'] = null;
+            $j_data['GuessedFirstName'] = explode(' ',trim($p_data['u_fullname']))[0];
+            $j_data['GuessedFirstNameForInvoice'] = explode(' ',trim($p_data['u_fullname']))[0];
+            $j_data['GuessedLastName'] = (isset(explode(' ',trim($p_data['u_fullname']))[1])) ? explode(' ',trim($p_data['u_fullname']))[1] : "";
+            $j_data['GuessedLastNameForInvoice'] = (isset(explode(' ',trim($p_data['u_fullname']))[1])) ? explode(' ',trim($p_data['u_fullname']))[1] : "";
+            $j_data['HasBanner'] = false;
+            $j_data['HasContactDetails'] = false;
+            $j_data['Id'] = $user['Id'];
+            $j_data['IdString'] = $user['Id'];
+            $j_data['Instagram'] = null;
+            $j_data['IsMember'] = false;
+            $j_data['IsNew'] = true;
+            $j_data['IsNull'] = false;
+            $j_data['LandLine'] = $p_data['u_phone'];
+            $j_data['Linkedin'] = null;
+            $j_data['MobilePhone'] = $p_data['u_mobile'];
+            $j_data['NickName'] = null;
+            $j_data['Pinterest'] = null;
+            $j_data['Position'] = $p_data['u_rolepos'];
+            $j_data['PostCode'] = $p_data['u_zip'];
+            $j_data['PostCodeForInvoice'] = "Not Available";
+            $j_data['ProfileIsPublic'] = false;
+            $j_data['ProfileSummary'] = null;
+            $j_data['ProfileSummaryHtml'] = "";
+            $j_data['ProfileTags'] = "";
+            $j_data['ProfileTagsArray'] = [""];
+            $j_data['ProfileTagsList'] = [];
+            $j_data['ProfileTagsSpaces'] = "";
+            $j_data['ProfileUrl'] = "";
+            $j_data['ProfileWebsite'] = $p_data['u_website'];
+            $j_data['ReferenceNumber'] = null;
+            $j_data['RefererGuid'] = "";
+            $j_data['RegistrationDate'] = $user['CreatedOn'];
+            $j_data['Salutation'] = $p_data['u_callyou'];
+            $j_data['SignUpToNewsletter'] = false;
+            $j_data['SimpleTimeZoneId'] = 2029;
+            $j_data['Skype'] = null;
+            $j_data['State'] = $p_data['u_state'];
+            $j_data['StateForInvoice'] = "Not Available";
+            $j_data['TaxIDNumber'] = $p_data['u_vat'];
+            $j_data['Telegram'] = null;
+            $j_data['Tumblr'] = null;
+            $j_data['Twitter'] = null;
+            $j_data['UniqueId'] = "cd694a808a625e2ea3sj";
+            $j_data['UpdateBillingDetails'] = true;
+            $j_data['UpdatedOn'] = $user['CreatedOn'];
+            $j_data['Url'] = "";
+            $j_data['UtcCancellationDate'] = null;
+            $j_data['UtcDateOfBirth'] = null;
+            $j_data['UtcRegistrationDate'] = $user['CreatedOn'];
+            $j_data['Vimeo'] = null;
+            $j_data['hasBillingDetails'] = null;
+
+            //user data
+            $u_data['CreatedOn'] = "2019-05-21T11:20:56";
+            $u_data['Email'] = $user['Email'];
+            $u_data['FullName'] = $p_data['u_fullname'];
+            $u_data['Id'] = $user['Id'];
+            $u_data['IdString'] = "0";
+            $u_data['IsAuthenticated'] = true;
+            $u_data['IsNull'] = false;
+            $u_data['NewPassword'] = null;
+            $u_data['OldPassword'] = null;
+            $u_data['OnHelpDeskMsg'] = false;
+            $u_data['OnNewBlogComment'] = false;
+            $u_data['OnNewEventComment'] = false;
+            $u_data['OnNewWallPost'] = false;
+            $u_data['ReceiveCommunityDigest'] = true;
+            $u_data['ReceiveEveryMessage'] = false;
+            $u_data['RepeatNewPassword'] = null;
+            $u_data['UniqueId'] = "cd694a808a625e2ea3sj";
+            $u_data['UpdatedOn'] = "2019-05-21T11:20:56";
+
+            $s_data = json_encode(array('base64avatar' => null, 'base64banner' => null, 'Coworker' => $j_data, 'User' => $u_data));
+            $url = "https://copyofreyadatestaccount.spaces.nexudus.com/en/profile?_resource=";
+
+            $username = $user['Email'];
+            $password = $user['Password'];
+
+            $headers = array(
+                'Content-Type: application/json',
+                'Content-Length: ' . strlen($s_data),
+                'Authorization: Basic '. base64_encode("$username:$password")
+            );
+            $output = $this->post_with_curl($url, $s_data, $headers);
+            
+            if($output['SuccessMessage'] == "Saved!"){
+                $this->session->set_userdata('user_info', $j_data);
+                $json['status'] = 200;
+                $json['message'] = 'Your profile has been updated.';
+            }else{
+                $json['status'] = 500;
+                $json['message'] = 'some error occured while updating your profile';
+            }
+
+        }else{
+            $json['status'] = 500;
+            $json['message'] = 'Please login first';
+        }
+
+        print_r(json_encode($json));
     }
 
     public function dummy_paggination($rowno=0){
