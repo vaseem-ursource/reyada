@@ -273,6 +273,22 @@ ul.tools li i:after{
     border:0px !important;
 
   }
+
+  textarea,select{
+    font-size: 13px;
+    padding: 5px 10px 5px 0px;
+    -webkit-appearance: none;
+    background: transparent;
+    color: #000000;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    border-bottom: 0.2px solid #999;
+  }
+  textarea:focus {
+    outline: none;
+    border-bottom: 0.5px solid #000;
+  }
 </style>
 
 <!-- bootstrap-wysiwyg --> 
@@ -337,23 +353,6 @@ ul.tools li i:after{
 </div>
    
 </div>
-<style>
-  textarea,select{
-    font-size: 13px;
-    padding: 5px 10px 5px 0px;
-    -webkit-appearance: none;
-    background: transparent;
-    color: #000000;
-    width: 100%;
-    border: none;
-    border-radius: 0;
-    border-bottom: 0.2px solid #999;
-  }
-  textarea:focus {
-    outline: none;
-    border-bottom: 0.5px solid #000;
-  }
-</style>
 
 <div class="section-header pb-1 col-md-12 pl-0" id="Personal">
   <div class="col-12 mt-2 p-0">
@@ -361,8 +360,7 @@ ul.tools li i:after{
           <span class="text-left h4">Personal Details</span> 
       </div>
   </div>
-
-  <form id="PersonalDetailsForm" style="width:100%; margin: 0em 0em 0em 0em;" class="pl-0">
+  <form id="profile-form" style="width:100%; margin: 0em 0em 0em 0em;" class="pl-0" action="/en/profile" method="POST" enctype="multipart/form-data">
       <div class="row">
         <div class="col-md-5">
           <div class="group">
@@ -463,7 +461,6 @@ ul.tools li i:after{
               <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
             </div>
       </div>
-  </form>
 </div>
 
 <div class="section-header pb-1 col-md-12 pl-0" id="billing">
@@ -473,7 +470,6 @@ ul.tools li i:after{
       </div>
   </div>
 
-  <form id="BillingDetailsForm" action="" style="width:100%; margin: 0em 0em 0em 0em;" class="pl-0">
       <div class="row">
         <div class="col-md-10">
             <div class="group">
@@ -508,7 +504,6 @@ ul.tools li i:after{
               <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
             </div>
       </div>
-  </form>
 </div>
 
 <div class="section-header pb-1 col-md-12 pl-0" id="professional">
@@ -518,7 +513,6 @@ ul.tools li i:after{
       </div>
   </div>
 
-  <form id="ProfDetailsForm" style="width:100%; margin: 0em 0em 0em 0em;" class="pl-0">
       <div class="row">
         <div class="col-md-5">
           <div class="group">
@@ -539,7 +533,6 @@ ul.tools li i:after{
           </div>
         </div>
       </div>
-  </form>
 
   <section class="wrapper mx-0 my-2 p-3" style="min-height:200px;"> 
     
@@ -618,17 +611,221 @@ ul.tools li i:after{
     <hr style="margin:5px">
     <div class="modal">
       <div class="modal__wrapper">
-        <form class="urlForm" name="urlForm">
+        <!-- <form class="urlForm" name="urlForm"> -->
           <input class="url" name="urlField" placeholder="Add URL" />
           <i class="fa fa-close closeModal" aria-hidden="true"></i>
-        </form>
+        <!-- </form> -->
       </div>
     </div>
     <div class="editableContent" contenteditable spellcheck="false"></div>
   </section>
 </div>
 
-<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://use.fontawesome.com/ce726fce7b.js'></script>
+
+<div class="col-12 mt-2 p-0">
+  <span>Your Skills</span>
+  <div style="padding :0 7px 0 5px;max-width:900px;margin:auto ;border-bottom:1px solid black">
+      <textarea id="hero-demo" class="tag-editor-hidden-src "></textarea>
+      <ul class="tag-editor ui-sortable " style="display:none;">
+        
+        
+      </ul>
+  </div>
+  
+  <div class="pt-2">
+    <span class="h6">Press enter after each skill. Keep it relevent, less is</span>
+  </div>
+
+  <div class="card border-0 pt-4">
+    <div class="card-header p-4">
+      <h5><b>Heads up!</b> Yourprofile is not yet listed in the directory. Enable the option list</h5>
+    </div>
+  </div>
+  
+  <div class="col-md-12 group pt-4 pl-0">
+      <input type="checkbox" name="membership" id="membership" style="width:15px;height:15px;">
+      <span style="color:#999; font-size: 18px;">List my profile in the directory.</span><br>
+      <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
+  </div>
+
+  <div class="col-12 pt-5 mt-5 p-0" id="social">
+      <div style="border-bottom:1px solid black">
+          <span class="text-left h3">Social network</span> 
+      </div>
+  </div>
+
+  <div class="col-12 pt-5 p-0">
+    <div class="row">
+      <div class="col-md-5">
+          <div class="group">
+            <label><b><i class="fa fa-twitter text-dark pl-0" style="font-size: 15px"></i></b></label><br>
+              <input type="text"  name="twitter" value="<?= (isset($coworker['Twitter']) && !empty($coworker['Twitter'])) ? $coworker['Twitter'] : ''; ?>" placeholder="Twitter"><span class="highlight"></span><span class="bar"></span>
+          </div>
+      </div>
+
+      <div class="col-md-5 pl-5">
+          <div class="group">
+            <label><b><i class="fa fa-facebook text-dark pl-0" style="font-size: 15px"></i></b></label><br>
+              <input type="text" name="facebook" value="<?= (isset($coworker['Facebook']) && !empty($coworker['Facebook'])) ? $coworker['Facebook'] : ''; ?>" placeholder="Facebook"><span class="highlight"></span><span class="bar"></span>
+          </div>
+      </div>
+
+      <div class="col-md-5">
+          <div class="group">
+            <label><b><i class="fa fa-linkedin text-dark pl-0" style="font-size: 15px"></i></b></label><br>
+              <input type="text" name="linkedin" value="<?= (isset($coworker['Linkedin']) && !empty($coworker['Linkedin'])) ? $coworker['Linkedin'] : ''; ?>" placeholder="Linkedin"><span class="highlight"></span><span class="bar"></span>
+          </div>
+      </div>
+
+      <div class="col-md-5 pl-5">
+          <div class="group">
+            <label><b><i class="fa fa-google text-dark pl-0" style="font-size: 15px"></i></b></label><br>
+              <input type="text" name="google" value="<?= (isset($coworker['Google']) && !empty($coworker['Google'])) ? $coworker['Google'] : ''; ?>" placeholder="Google"><span class="highlight"></span><span class="bar"></span>
+          </div>
+      </div>
+
+      <div class="col-md-5">
+          <div class="group">
+            <label><b><i class="fa fa-flickr text-dark pl-0" style="font-size: 15px"></i></b></label><br>
+              <input type="text" name="flicker" value="<?= (isset($coworker['Flickr']) && !empty($coworker['Flickr'])) ? $coworker['Flickr'] : ''; ?>" placeholder="Flicker"><span class="highlight"></span><span class="bar"></span>
+          </div>
+      </div>
+
+      <div class="col-md-5 pl-5">
+          <div class="group">
+            <label><b><i class="fa fa-instagram text-dark pl-0" style="font-size: 15px"></i></b></label><br>
+              <input type="text" name="instagram" value="<?= (isset($coworker['Instagram']) && !empty($coworker['Instagram'])) ? $coworker['Instagram'] : ''; ?>" placeholder="Instagram"><span class="highlight"></span><span class="bar"></span>
+          </div>
+      </div>
+
+      <div class="col-md-5">
+          <div class="group">
+            <label><b><i class="fa fa-vimeo text-dark pl-0" style="font-size: 15px"></i></b></label><br>
+              <input type="text" name="vimeo" value="<?= (isset($coworker['Vimeo']) && !empty($coworker['Vimeo'])) ? $coworker['Vimeo'] : ''; ?>" placeholder="Vimeo"><span class="highlight"></span><span class="bar"></span>
+          </div>
+      </div>
+
+      <div class="col-md-5 pl-5">
+          <div class="group">
+            <label><b><i class="fa fa-tumblr text-dark pl-0" style="font-size: 15px"></i></b></label><br>
+              <input type="text" name="tumblr" value="<?= (isset($coworker['Tumblr']) && !empty($coworker['Tumblr'])) ? $coworker['Tumblr'] : ''; ?>" placeholder="Tumblr"><span class="highlight"></span><span class="bar"></span>
+          </div>
+      </div>
+      <div class="col-2"></div>
+    </div><br>
+    <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
+  </div>
+
+  <div class="col-12 pt-5 mt-5 p-0" id="password">
+      <div style="border-bottom:1px solid black">
+          <span class="text-left h3">Your password</span> 
+      </div>
+  </div>
+
+    <div class="row pt-4">
+      <div class="col-md-5">
+        <div class="group">
+          <input type="text" name="checkin" value="<?= (isset($coworker['AccessPincode']) && !empty($coworker['AccessPincode'])) ? $coworker['AccessPincode'] : ''; ?>"  disabled ><span class="highlight"></span><span class="bar"></span>
+          <label>Checkin & internet pincode</label>
+        </div>
+      </div>
+      <div class="col-md-5 pl-4">
+        <div class="group">
+          <input type="password" name="password"><span class="highlight"></span><span class="bar"></span>
+          <label>Password</label>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="group">
+        </div>
+      </div>
+      <div class="col-md-5 pl-4">
+        <div class="group">
+          <label style="font-size:15px">Forgot it? <a href="#"><u style="color: black;">Request a password reset.</u></a></label>
+        </div>
+      </div>
+    </div>
+    <br>
+    <button type="submit"  style="border: 0px;background-color: transparent; font-size:15px" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
+
+  <div class="col-12 pt-5 mt-5 p-0" id="notification">
+      <div style="border-bottom:1px solid black">
+        <span class="text-left h3" style="color: black;">Notifications</span>                  
+      </div>
+  </div>
+
+  <div class="col-md-12 group pt-4 pl-0"> 
+      <h5 class="mb-0"><b>Select when you would like to recieve notifications</b></h5>
+      <input type="checkbox" style="width:15px;height:15px;">
+      <span style="color:#707070; font-size: 18px;">I would like to receive occasional and relevent updates from Reyada - Crystal Tower</span><br>
+      <input type="checkbox" style="width:15px;height:15px;">
+      <span style="color:#707070; font-size: 18px;">When the new message is posted in the home page wall.</span><br>
+      <input type="checkbox" style="width:15px;height:15px;">
+      <span style="color:#707070; font-size: 18px;">When the new comment is posted in the blog.</span><br>
+      <input type="checkbox" style="width:15px;height:15px;">
+      <span style="color:#707070; font-size: 18px;">When the new comment is posted in an event.</span><br>
+      <br>
+      <h5 class="mb-0"><b>How and when should we alert you about conversations in the community board?</b></h5>
+      <input type="checkbox" style="width:15px;height:15px;">
+      <span style="color:#707070; font-size: 18px;">Send me an update in the Morning if there is new message (around 8am)</span><br>
+      <input type="checkbox" style="width:15px;height:15px;">
+      <span style="color:#707070; font-size: 18px;">Send me an notification shortly after every message. You can still mute individual.</span><br>
+
+      <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
+  </div>
+</div>
+</form>
+
+<script language="JavaScript">
+
+  // $('input[type=checkbox]').click(function(){
+  // if(this.checked) {
+  // $(this)parent().css('color','red');
+  // } else {
+  // $(this)parent.().css('color','');
+  //     }
+  // });
+  
+</script>
+
+<style>
+  input[type=checkbox]:checked + span {
+    color: #000 !important;
+    /* font-weight: bold; */
+  }
+
+  input[type=checkbox]:checked:after { 
+    border-bottom: 5px solid #000; 
+    border-top: 8px solid #000; 
+  } 
+</style>
+
+
+<script>
+  // trigger upload on space & enter
+  // = standard button functionality
+  $('#buttonlabel span[role=button]').bind('keypress keyup', function(e) {
+    if(e.which === 32 || e.which === 13){
+      e.preventDefault();
+      $('#fileupload').click();
+    }    
+  });
+
+  // return chosen filename to additional input
+  $('#fileupload').change(function(e) {
+    var filename = $('#fileupload').val().split('\\').pop();
+    $('#filename').val(filename);
+    $('#filename').attr('placeholder', filename);
+    $('#filename').focus();
+  });
+</script>
+
+  <!-- bootstrap-wysiwyg 
+  <script src="<?= base_url('assets/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js');?>"></script> 
+      <script src="<?= base_url('assets/vendors/jquery.hotkeys/jquery.hotkeys.js');?>"></script> 
+      <script src="<?= base_url('assets/vendors/google-code-prettify/src/prettify.js');?>"></script> -->
+
+      <script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://use.fontawesome.com/ce726fce7b.js'></script>
 
 <script>
   Array.prototype.map.call(document.querySelectorAll('.tools a:not([data-role="createLink"])'), (action) => {
@@ -816,211 +1013,6 @@ ul.tools li i:after{
     });*/
   });
 </script>
-
-<div class="col-12 mt-2 p-0">
-  <span>Your Skills</span>
-  <div style="padding :0 7px 0 5px;max-width:900px;margin:auto ;border-bottom:1px solid black">
-      <textarea id="hero-demo" class="tag-editor-hidden-src "></textarea>
-      <ul class="tag-editor ui-sortable " style="display:none;">
-        
-        
-      </ul>
-  </div>
-  
-  <div class="pt-2">
-    <span class="h6">Press enter after each skill. Keep it relevent, less is</span>
-  </div>
-
-  <div class="card border-0 pt-4">
-    <div class="card-header p-4">
-      <h5><b>Heads up!</b> Yourprofile is not yet listed in the directory. Enable the option list</h5>
-    </div>
-  </div>
-  
-  <div class="col-md-12 group pt-4 pl-0">
-      <input type="checkbox" name="membership" id="membership" style="width:15px;height:15px;">
-      <span style="color:#999; font-size: 18px;">List my profile in the directory.</span><br>
-      <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
-  </div>
-
-  <div class="col-12 pt-5 mt-5 p-0" id="social">
-      <div style="border-bottom:1px solid black">
-          <span class="text-left h3">Social network</span> 
-      </div>
-  </div>
-
-  <div class="col-12 pt-5 p-0">
-    <div class="row">
-      <div class="col-md-5">
-          <div class="group">
-            <label><b><i class="fa fa-twitter text-dark pl-0" style="font-size: 15px"></i></b></label><br>
-              <input type="text"  name="twitter" value="<?= (isset($coworker['Twitter']) && !empty($coworker['Twitter'])) ? $coworker['Twitter'] : ''; ?>" placeholder="Twitter"><span class="highlight"></span><span class="bar"></span>
-          </div>
-      </div>
-
-      <div class="col-md-5 pl-5">
-          <div class="group">
-            <label><b><i class="fa fa-facebook text-dark pl-0" style="font-size: 15px"></i></b></label><br>
-              <input type="text" name="facebook" value="<?= (isset($coworker['Facebook']) && !empty($coworker['Facebook'])) ? $coworker['Facebook'] : ''; ?>" placeholder="Facebook"><span class="highlight"></span><span class="bar"></span>
-          </div>
-      </div>
-
-      <div class="col-md-5">
-          <div class="group">
-            <label><b><i class="fa fa-linkedin text-dark pl-0" style="font-size: 15px"></i></b></label><br>
-              <input type="text" name="linkedin" value="<?= (isset($coworker['Linkedin']) && !empty($coworker['Linkedin'])) ? $coworker['Linkedin'] : ''; ?>" placeholder="Linkedin"><span class="highlight"></span><span class="bar"></span>
-          </div>
-      </div>
-
-      <div class="col-md-5 pl-5">
-          <div class="group">
-            <label><b><i class="fa fa-google text-dark pl-0" style="font-size: 15px"></i></b></label><br>
-              <input type="text" name="google" value="<?= (isset($coworker['Google']) && !empty($coworker['Google'])) ? $coworker['Google'] : ''; ?>" placeholder="Google"><span class="highlight"></span><span class="bar"></span>
-          </div>
-      </div>
-
-      <div class="col-md-5">
-          <div class="group">
-            <label><b><i class="fa fa-flickr text-dark pl-0" style="font-size: 15px"></i></b></label><br>
-              <input type="text" name="flicker" value="<?= (isset($coworker['Flickr']) && !empty($coworker['Flickr'])) ? $coworker['Flickr'] : ''; ?>" placeholder="Flicker"><span class="highlight"></span><span class="bar"></span>
-          </div>
-      </div>
-
-      <div class="col-md-5 pl-5">
-          <div class="group">
-            <label><b><i class="fa fa-instagram text-dark pl-0" style="font-size: 15px"></i></b></label><br>
-              <input type="text" name="instagram" value="<?= (isset($coworker['Instagram']) && !empty($coworker['Instagram'])) ? $coworker['Instagram'] : ''; ?>" placeholder="Instagram"><span class="highlight"></span><span class="bar"></span>
-          </div>
-      </div>
-
-      <div class="col-md-5">
-          <div class="group">
-            <label><b><i class="fa fa-vimeo text-dark pl-0" style="font-size: 15px"></i></b></label><br>
-              <input type="text" name="vimeo" value="<?= (isset($coworker['Vimeo']) && !empty($coworker['Vimeo'])) ? $coworker['Vimeo'] : ''; ?>" placeholder="Vimeo"><span class="highlight"></span><span class="bar"></span>
-          </div>
-      </div>
-
-      <div class="col-md-5 pl-5">
-          <div class="group">
-            <label><b><i class="fa fa-tumblr text-dark pl-0" style="font-size: 15px"></i></b></label><br>
-              <input type="text" name="tumblr" value="<?= (isset($coworker['Tumblr']) && !empty($coworker['Tumblr'])) ? $coworker['Tumblr'] : ''; ?>" placeholder="Tumblr"><span class="highlight"></span><span class="bar"></span>
-          </div>
-      </div>
-      <div class="col-2"></div>
-    </div><br>
-    <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
-  </div>
-
-  <div class="col-12 pt-5 mt-5 p-0" id="password">
-      <div style="border-bottom:1px solid black">
-          <span class="text-left h3">Your password</span> 
-      </div>
-  </div>
-
-  <form style="width:100%; margin: 0em 0em 0em 0em;" class="pl-0">
-    <div class="row">
-      <div class="col-md-5">
-        <div class="group">
-          <input type="text" name="checkin" value="<?= (isset($coworker['AccessPincode']) && !empty($coworker['AccessPincode'])) ? $coworker['AccessPincode'] : ''; ?>"  disabled ><span class="highlight"></span><span class="bar"></span>
-          <label>Checkin & internet pincode</label>
-        </div>
-      </div>
-      <div class="col-md-5 pl-4">
-        <div class="group">
-          <input type="password" name="password"><span class="highlight"></span><span class="bar"></span>
-          <label>Password</label>
-        </div>
-      </div>
-      <div class="col-md-5">
-        <div class="group">
-        </div>
-      </div>
-      <div class="col-md-5 pl-4">
-        <div class="group">
-          <label style="font-size:15px">Forgot it? <a href="#"><u style="color: black;">Request a password reset.</u></a></label>
-        </div>
-      </div>
-    </div>
-    <br>
-    <button type="submit"  style="border: 0px;background-color: transparent; font-size:15px" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
-  </form>
-
-  <div class="col-12 pt-5 mt-5 p-0" id="notification">
-      <div style="border-bottom:1px solid black">
-        <span class="text-left h3" style="color: black;">Notifications</span>                  
-      </div>
-  </div>
-
-  <div class="col-md-12 group pt-4 pl-0"> 
-      <h5 class="mb-0"><b>Select when you would like to recieve notifications</b></h5>
-      <input type="checkbox" style="width:15px;height:15px;">
-      <span style="color:#707070; font-size: 18px;">I would like to receive occasional and relevent updates from Reyada - Crystal Tower</span><br>
-      <input type="checkbox" style="width:15px;height:15px;">
-      <span style="color:#707070; font-size: 18px;">When the new message is posted in the home page wall.</span><br>
-      <input type="checkbox" style="width:15px;height:15px;">
-      <span style="color:#707070; font-size: 18px;">When the new comment is posted in the blog.</span><br>
-      <input type="checkbox" style="width:15px;height:15px;">
-      <span style="color:#707070; font-size: 18px;">When the new comment is posted in an event.</span><br>
-      <br>
-      <h5 class="mb-0"><b>How and when should we alert you about conversations in the community board?</b></h5>
-      <input type="checkbox" style="width:15px;height:15px;">
-      <span style="color:#707070; font-size: 18px;">Send me an update in the Morning if there is new message (around 8am)</span><br>
-      <input type="checkbox" style="width:15px;height:15px;">
-      <span style="color:#707070; font-size: 18px;">Send me an notification shortly after every message. You can still mute individual.</span><br>
-
-      <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
-  </div>
-</div>
-
-<script language="JavaScript">
-
-  // $('input[type=checkbox]').click(function(){
-  // if(this.checked) {
-  // $(this)parent().css('color','red');
-  // } else {
-  // $(this)parent.().css('color','');
-  //     }
-  // });
-  
-</script>
-
-<style>
-  input[type=checkbox]:checked + span {
-    color: #000 !important;
-    /* font-weight: bold; */
-  }
-
-  input[type=checkbox]:checked:after { 
-    border-bottom: 5px solid #000; 
-    border-top: 8px solid #000; 
-  } 
-</style>
-
-
-<script>
-  // trigger upload on space & enter
-  // = standard button functionality
-  $('#buttonlabel span[role=button]').bind('keypress keyup', function(e) {
-    if(e.which === 32 || e.which === 13){
-      e.preventDefault();
-      $('#fileupload').click();
-    }    
-  });
-
-  // return chosen filename to additional input
-  $('#fileupload').change(function(e) {
-    var filename = $('#fileupload').val().split('\\').pop();
-    $('#filename').val(filename);
-    $('#filename').attr('placeholder', filename);
-    $('#filename').focus();
-  });
-</script>
-
-  <!-- bootstrap-wysiwyg 
-  <script src="<?= base_url('assets/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js');?>"></script> 
-      <script src="<?= base_url('assets/vendors/jquery.hotkeys/jquery.hotkeys.js');?>"></script> 
-      <script src="<?= base_url('assets/vendors/google-code-prettify/src/prettify.js');?>"></script> -->
-
 <?php include('account_master_end.php');?>
        
 
