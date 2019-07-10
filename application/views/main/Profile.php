@@ -470,6 +470,51 @@ textarea:focus {
     </form>
   </div>
 
+  <div class="section-header pb-1 col-md-12 pl-0" id="billing">
+    <div class="col-12 mt-2 p-0">
+        <div style="border-bottom:1px solid black">
+            <span class="text-left h4">Billing Details</span> 
+        </div>
+    </div>
+
+    <form id="BillingDetailsForm" action="" style="width:100%; margin: 0em 0em 0em 0em;" class="pl-0">
+        <div class="row">
+          <div class="col-md-10">
+              <div class="group">
+                <textarea  name="billing_address" placeholder="Billing Address" rows="4"><?= (isset($coworker['Address']) && !empty($coworker['Address'])) ? $coworker['Address'] : ''; ?></textarea>
+              </div>
+            </div>
+          <div class="col-md-5">
+            <div class="group">
+              <input value="<?= (isset($coworker['State']) && !empty($coworker['State'])) ? $coworker['State'] : ''; ?>" type="text" name="billing_town"><span class="highlight"></span><span class="bar"></span>
+              <label>Billing Town</label>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="group">
+              <input value="<?= (isset($coworker['PostCode']) && !empty($coworker['PostCode'])) ? $coworker['PostCode'] : ''; ?>" type="text" name="billing_province"><span class="highlight"></span><span class="bar"></span>
+              <label>Billing State / Province</label>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="group">
+              <input value="<?= (isset($coworker['BillingName']) && !empty($coworker['BillingName'])) ? $coworker['BillingName'] : ''; ?>" type="text" name="billing_zip"><span class="highlight"></span><span class="bar"></span>
+              <label>Billing Zip / Postcode</label>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="group">
+              <input value="<?= (isset($coworker['BillingName']) && !empty($coworker['BillingName'])) ? $coworker['BillingName'] : ''; ?>" type="text" name="send_my_invoice"><span class="highlight"></span><span class="bar"></span>
+              <label>Send my Invoices to</label>
+            </div>
+          </div>
+            <div class="col-md-12 group pt-4 ">
+                <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
+              </div>
+        </div>
+    </form>
+  </div>
+
   <div class="section-header pb-1 col-md-12 pl-0" id="professional">
     <div class="col-12 mt-2 p-0">
         <div style="border-bottom:1px solid black">
