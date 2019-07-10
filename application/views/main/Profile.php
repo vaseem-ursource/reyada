@@ -366,7 +366,7 @@ textarea:focus {
         </div>
     </div>
 
-    <form id="PersonalDetailsForm" action="" style="width:100%; margin: 0em 0em 0em 0em;" class="pl-0">
+    <form id="PersonalDetailsForm" style="width:100%; margin: 0em 0em 0em 0em;" class="pl-0">
         <div class="row">
           <div class="col-md-5">
             <div class="group">
@@ -477,7 +477,7 @@ textarea:focus {
         </div>
     </div>
 
-    <form style="width:100%; margin: 0em 0em 0em 0em;" class="pl-0">
+    <form id="ProfDetailsForm" style="width:100%; margin: 0em 0em 0em 0em;" class="pl-0">
         <div class="row">
           <div class="col-md-5">
             <div class="group">
@@ -499,7 +499,7 @@ textarea:focus {
           </div>
         </div>
     </form>
-    
+
     <section class="wrapper mx-0 my-2 p-3" style="min-height:200px;"> 
       
       <ul class="tools">
@@ -589,139 +589,139 @@ textarea:focus {
 <script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://use.fontawesome.com/ce726fce7b.js'></script>
 
 <script>
-Array.prototype.map.call(document.querySelectorAll('.tools a:not([data-role="createLink"])'), (action) => {
-	action.addEventListener("click", (e) => {
-		e.preventDefault();
-		document.execCommand(action.dataset.role, false, action.dataset.value);
-	})
-})
+  Array.prototype.map.call(document.querySelectorAll('.tools a:not([data-role="createLink"])'), (action) => {
+    action.addEventListener("click", (e) => {
+      e.preventDefault();
+      document.execCommand(action.dataset.role, false, action.dataset.value);
+    })
+  })
 
-// Handle the link modal
-const modal = document.querySelector('.modal');
-const closeModal = () => {
-	modal.classList.remove('visible');
-}
-let closeButton = document.querySelector('.closeModal');
-closeButton.addEventListener('click', closeModal);
-document.addEventListener('keyup', function(e) {
-	if (e.keyCode == 27) {
-		closeModal();
-	}
-});
-let otherClicks = (event) => {
-	if (document.querySelector('.modal').contains(event.target)) {
-		return false;
-	} else {
-		closeModal();
-		window.removeEventListener('click', otherClicks);
-	}
-};
-window.addEventListener('click', otherClicks);
-const anchorLink = document.querySelector('a[data-role="createLink"]');
-
-anchorLink.addEventListener('click', () => {
-	modal.classList.add('visible');
-	window.savedSel = saveSelection();
-	document.urlForm.urlField.value="";
-	document.urlForm.urlField.focus();
-})
-
-
-// Save selected text when URL modal opens. From http://stackoverflow.com/questions/5605401/insert-link-in-contenteditable-element
-function saveSelection() {
-    if (window.getSelection) {
-        sel = window.getSelection();
-        if (sel.getRangeAt && sel.rangeCount) {
-            var ranges = [];
-            for (var i = 0, len = sel.rangeCount; i < len; ++i) {if (window.CP.shouldStopExecution(1)){break;}
-                ranges.push(sel.getRangeAt(i));
-            }
-window.CP.exitedLoop(1);
-
-            return ranges;
-        }
-    } else if (document.selection && document.selection.createRange) {
-        return document.selection.createRange();
+  // Handle the link modal
+  const modal = document.querySelector('.modal');
+  const closeModal = () => {
+    modal.classList.remove('visible');
+  }
+  let closeButton = document.querySelector('.closeModal');
+  closeButton.addEventListener('click', closeModal);
+  document.addEventListener('keyup', function(e) {
+    if (e.keyCode == 27) {
+      closeModal();
     }
-    return null;
-}
-
-function restoreSelection(savedSel) {
-    if (savedSel) {
-        if (window.getSelection) {
-            sel = window.getSelection();
-            sel.removeAllRanges();
-            for (var i = 0, len = savedSel.length; i < len; ++i) {if (window.CP.shouldStopExecution(2)){break;}
-                sel.addRange(savedSel[i]);
-            }
-window.CP.exitedLoop(2);
-
-        } else if (document.selection && savedSel.select) {
-            savedSel.select();
-        }
+  });
+  let otherClicks = (event) => {
+    if (document.querySelector('.modal').contains(event.target)) {
+      return false;
+    } else {
+      closeModal();
+      window.removeEventListener('click', otherClicks);
     }
-}
+  };
+  window.addEventListener('click', otherClicks);
+  const anchorLink = document.querySelector('a[data-role="createLink"]');
 
-let urlForm = document.querySelector('.urlForm');
+  anchorLink.addEventListener('click', () => {
+    modal.classList.add('visible');
+    window.savedSel = saveSelection();
+    document.urlForm.urlField.value="";
+    document.urlForm.urlField.focus();
+  })
 
-urlForm.addEventListener('submit',(e) => {
-	let urlValue = urlForm.querySelector('.url').value;
-	restoreSelection(window.savedSel);
-  	document.execCommand("CreateLink", false, urlValue);
-	closeModal();
-	e.preventDefault();
-})
 
-function getSelectionParentElement() {
-    var parentEl = null, sel;
-    if (window.getSelection) {
-        sel = window.getSelection();
-        if (sel.rangeCount) {
-            parentEl = sel.getRangeAt(0).commonAncestorContainer;
-            if (parentEl.nodeType != 1) {
-                parentEl = parentEl.parentNode;
-            }
-        }
-    } else if ( (sel = document.selection) && sel.type != "Control") {
-        parentEl = sel.createRange().parentElement();
-    }
-    return parentEl;
-}
-//# sourceURL=pen.js
+  // Save selected text when URL modal opens. From http://stackoverflow.com/questions/5605401/insert-link-in-contenteditable-element
+  function saveSelection() {
+      if (window.getSelection) {
+          sel = window.getSelection();
+          if (sel.getRangeAt && sel.rangeCount) {
+              var ranges = [];
+              for (var i = 0, len = sel.rangeCount; i < len; ++i) {if (window.CP.shouldStopExecution(1)){break;}
+                  ranges.push(sel.getRangeAt(i));
+              }
+              window.CP.exitedLoop(1);
 
-const uploadButton = document.querySelector('.browse-btn'); 
-const fileInfo = document.querySelector('.file-info'); 
-const realInput = document.getElementById('real-input'); 
- 
-uploadButton.addEventListener('click', (e) => { 
-  realInput.click(); 
-}); 
- 
-realInput.addEventListener('change', () => { 
-  const name = realInput.value.split(/\\|\//).pop(); 
-  const truncated = name.length > 20  
-    ? name.substr(name.length - 20)  
-    : name; 
-   
-  fileInfo.innerHTML = truncated; 
-});
+              return ranges;
+          }
+      } else if (document.selection && document.selection.createRange) {
+          return document.selection.createRange();
+      }
+      return null;
+  }
 
-const uploadButton1 = document.querySelector('.browse-btn-1'); 
-const fileInfo1 = document.querySelector('.file-info-1'); 
-const realInput1 = document.getElementById('real-input-1'); 
- 
-uploadButton1.addEventListener('click', (e) => { 
-  realInput1.click(); 
-}); 
- 
-realInput1.addEventListener('change', () => { 
-  const name = realInput1.value.split(/\\|\//).pop(); 
-  const truncated = name.length > 20  
-    ? name.substr(name.length - 20)  
-    : name; 
-   
-  fileInfo1.innerHTML = truncated; 
-});
+  function restoreSelection(savedSel) {
+      if (savedSel) {
+          if (window.getSelection) {
+              sel = window.getSelection();
+              sel.removeAllRanges();
+              for (var i = 0, len = savedSel.length; i < len; ++i) {if (window.CP.shouldStopExecution(2)){break;}
+                  sel.addRange(savedSel[i]);
+              }
+              window.CP.exitedLoop(2);
+
+          } else if (document.selection && savedSel.select) {
+              savedSel.select();
+          }
+      }
+  }
+
+  let urlForm = document.querySelector('.urlForm');
+
+  urlForm.addEventListener('submit',(e) => {
+    let urlValue = urlForm.querySelector('.url').value;
+    restoreSelection(window.savedSel);
+      document.execCommand("CreateLink", false, urlValue);
+    closeModal();
+    e.preventDefault();
+  })
+
+  function getSelectionParentElement() {
+      var parentEl = null, sel;
+      if (window.getSelection) {
+          sel = window.getSelection();
+          if (sel.rangeCount) {
+              parentEl = sel.getRangeAt(0).commonAncestorContainer;
+              if (parentEl.nodeType != 1) {
+                  parentEl = parentEl.parentNode;
+              }
+          }
+      } else if ( (sel = document.selection) && sel.type != "Control") {
+          parentEl = sel.createRange().parentElement();
+      }
+      return parentEl;
+  }
+  //# sourceURL=pen.js
+
+  const uploadButton = document.querySelector('.browse-btn'); 
+  const fileInfo = document.querySelector('.file-info'); 
+  const realInput = document.getElementById('real-input'); 
+  
+  uploadButton.addEventListener('click', (e) => { 
+    realInput.click(); 
+  }); 
+  
+  realInput.addEventListener('change', () => { 
+    const name = realInput.value.split(/\\|\//).pop(); 
+    const truncated = name.length > 20  
+      ? name.substr(name.length - 20)  
+      : name; 
+    
+    fileInfo.innerHTML = truncated; 
+  });
+
+  const uploadButton1 = document.querySelector('.browse-btn-1'); 
+  const fileInfo1 = document.querySelector('.file-info-1'); 
+  const realInput1 = document.getElementById('real-input-1'); 
+  
+  uploadButton1.addEventListener('click', (e) => { 
+    realInput1.click(); 
+  }); 
+  
+  realInput1.addEventListener('change', () => { 
+    const name = realInput1.value.split(/\\|\//).pop(); 
+    const truncated = name.length > 20  
+      ? name.substr(name.length - 20)  
+      : name; 
+    
+    fileInfo1.innerHTML = truncated; 
+  });
 </script>
 
 <script>
@@ -765,17 +765,17 @@ realInput1.addEventListener('change', () => {
         return true;
     }
 
-/*
+    /*
     $('#remove_all_tags').click(function () {
         var tags = $('#demo3').tagEditor('getTags')[0].tags;
         for (i = 0; i < tags.length; i++) {
             $('#demo3').tagEditor('removeTag', tags[i]);
         }
     });*/
-});
+  });
 </script>
-            <div class="col-12 mt-2 p-0">
-<span>Your Skills</span>
+      <div class="col-12 mt-2 p-0">
+        <span>Your Skills</span>
             <div style="padding :0 7px 0 5px;max-width:900px;margin:auto ;border-bottom:1px solid black">
                 <textarea id="hero-demo" class="tag-editor-hidden-src "></textarea>
                 <ul class="tag-editor ui-sortable " style="display:none;">
@@ -791,7 +791,7 @@ realInput1.addEventListener('change', () => {
               </div>
             </div> -->
             <div class="pt-2">
-            <span class="h6">Press enter after each skill. Keep it relevent, less is</span>
+              <span class="h6">Press enter after each skill. Keep it relevent, less is</span>
             </div>
 
             <div class="card border-0 pt-4">
@@ -813,64 +813,64 @@ realInput1.addEventListener('change', () => {
             </div>
 
             <div class="col-12 pt-5 p-0">
-            <div class="row">
-              <div class="col-md-5">
-                  <div class="group">
-                    <label><b><i class="fa fa-twitter text-dark pl-0" style="font-size: 15px"></i></b></label><br>
-                      <input type="text" name="twitter" placeholder="Twitter"><span class="highlight"></span><span class="bar"></span>
-                  </div>
-              </div>
+              <div class="row">
+                <div class="col-md-5">
+                    <div class="group">
+                      <label><b><i class="fa fa-twitter text-dark pl-0" style="font-size: 15px"></i></b></label><br>
+                        <input type="text" name="twitter" placeholder="Twitter"><span class="highlight"></span><span class="bar"></span>
+                    </div>
+                </div>
 
-              <div class="col-md-5 pl-5">
-                  <div class="group">
-                    <label><b><i class="fa fa-facebook text-dark pl-0" style="font-size: 15px"></i></b></label><br>
-                      <input type="text" name="facebook" placeholder="Facebook"><span class="highlight"></span><span class="bar"></span>
-                  </div>
-              </div>
+                <div class="col-md-5 pl-5">
+                    <div class="group">
+                      <label><b><i class="fa fa-facebook text-dark pl-0" style="font-size: 15px"></i></b></label><br>
+                        <input type="text" name="facebook" placeholder="Facebook"><span class="highlight"></span><span class="bar"></span>
+                    </div>
+                </div>
 
-              <div class="col-md-5">
-                  <div class="group">
-                    <label><b><i class="fa fa-linkedin text-dark pl-0" style="font-size: 15px"></i></b></label><br>
-                      <input type="text" name="linkedin" placeholder="Linkedin"><span class="highlight"></span><span class="bar"></span>
-                  </div>
-              </div>
+                <div class="col-md-5">
+                    <div class="group">
+                      <label><b><i class="fa fa-linkedin text-dark pl-0" style="font-size: 15px"></i></b></label><br>
+                        <input type="text" name="linkedin" placeholder="Linkedin"><span class="highlight"></span><span class="bar"></span>
+                    </div>
+                </div>
 
-              <div class="col-md-5 pl-5">
-                  <div class="group">
-                    <label><b><i class="fa fa-google text-dark pl-0" style="font-size: 15px"></i></b></label><br>
-                      <input type="text" name="google" placeholder="Google"><span class="highlight"></span><span class="bar"></span>
-                  </div>
-              </div>
+                <div class="col-md-5 pl-5">
+                    <div class="group">
+                      <label><b><i class="fa fa-google text-dark pl-0" style="font-size: 15px"></i></b></label><br>
+                        <input type="text" name="google" placeholder="Google"><span class="highlight"></span><span class="bar"></span>
+                    </div>
+                </div>
 
-              <div class="col-md-5">
-                  <div class="group">
-                    <label><b><i class="fa fa-flickr text-dark pl-0" style="font-size: 15px"></i></b></label><br>
-                      <input type="text" name="flicker" placeholder="Flicker"><span class="highlight"></span><span class="bar"></span>
-                  </div>
-              </div>
+                <div class="col-md-5">
+                    <div class="group">
+                      <label><b><i class="fa fa-flickr text-dark pl-0" style="font-size: 15px"></i></b></label><br>
+                        <input type="text" name="flicker" placeholder="Flicker"><span class="highlight"></span><span class="bar"></span>
+                    </div>
+                </div>
 
-              <div class="col-md-5 pl-5">
-                  <div class="group">
-                    <label><b><i class="fa fa-instagram text-dark pl-0" style="font-size: 15px"></i></b></label><br>
-                      <input type="text" name="instagram" placeholder="Instagram"><span class="highlight"></span><span class="bar"></span>
-                  </div>
-              </div>
+                <div class="col-md-5 pl-5">
+                    <div class="group">
+                      <label><b><i class="fa fa-instagram text-dark pl-0" style="font-size: 15px"></i></b></label><br>
+                        <input type="text" name="instagram" placeholder="Instagram"><span class="highlight"></span><span class="bar"></span>
+                    </div>
+                </div>
 
-              <div class="col-md-5">
-                  <div class="group">
-                    <label><b><i class="fa fa-vimeo text-dark pl-0" style="font-size: 15px"></i></b></label><br>
-                      <input type="text" name="vimeo" placeholder="Vimeo"><span class="highlight"></span><span class="bar"></span>
-                  </div>
-              </div>
+                <div class="col-md-5">
+                    <div class="group">
+                      <label><b><i class="fa fa-vimeo text-dark pl-0" style="font-size: 15px"></i></b></label><br>
+                        <input type="text" name="vimeo" placeholder="Vimeo"><span class="highlight"></span><span class="bar"></span>
+                    </div>
+                </div>
 
-              <div class="col-md-5 pl-5">
-                  <div class="group">
-                    <label><b><i class="fa fa-tumblr text-dark pl-0" style="font-size: 15px"></i></b></label><br>
-                      <input type="text" name="tumblr" placeholder="Tumblr"><span class="highlight"></span><span class="bar"></span>
-                  </div>
-              </div>
-            <div class="col-2"></div>
-            </div><br>
+                <div class="col-md-5 pl-5">
+                    <div class="group">
+                      <label><b><i class="fa fa-tumblr text-dark pl-0" style="font-size: 15px"></i></b></label><br>
+                        <input type="text" name="tumblr" placeholder="Tumblr"><span class="highlight"></span><span class="bar"></span>
+                    </div>
+                </div>
+              <div class="col-2"></div>
+              </div><br>
               <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
             </div>
 
@@ -881,31 +881,31 @@ realInput1.addEventListener('change', () => {
             </div>
 
             <form style="width:100%; margin: 0em 0em 0em 0em;" class="pl-0">
-                <div class="row">
-                  <div class="col-md-5">
-                    <div class="group">
-                      <input type="text" name="checkin"><span class="highlight"></span><span class="bar"></span>
-                      <label>Checkin & internet pincode</label>
-                    </div>
-                  </div>
-                  <div class="col-md-5 pl-4">
-                    <div class="group">
-                      <input type="password" name="password"><span class="highlight"></span><span class="bar"></span>
-                      <label>Password</label>
-                    </div>
-                  </div>
-                  <div class="col-md-5">
-                    <div class="group">
-                    </div>
-                  </div>
-                  <div class="col-md-5 pl-4">
-                    <div class="group">
-                      <label style="font-size:15px">Forgot it? <a href="#"><u style="color: black;">Request a password reset.</u></a></label>
-                    </div>
+              <div class="row">
+                <div class="col-md-5">
+                  <div class="group">
+                    <input type="text" name="checkin"><span class="highlight"></span><span class="bar"></span>
+                    <label>Checkin & internet pincode</label>
                   </div>
                 </div>
-                <br>
-            <button type="submit"  style="border: 0px;background-color: transparent; font-size:15px" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
+                <div class="col-md-5 pl-4">
+                  <div class="group">
+                    <input type="password" name="password"><span class="highlight"></span><span class="bar"></span>
+                    <label>Password</label>
+                  </div>
+                </div>
+                <div class="col-md-5">
+                  <div class="group">
+                  </div>
+                </div>
+                <div class="col-md-5 pl-4">
+                  <div class="group">
+                    <label style="font-size:15px">Forgot it? <a href="#"><u style="color: black;">Request a password reset.</u></a></label>
+                  </div>
+                </div>
+              </div>
+              <br>
+              <button type="submit"  style="border: 0px;background-color: transparent; font-size:15px" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
             </form>
 
             <div class="col-12 pt-5 mt-5 p-0" id="notification">
@@ -946,15 +946,15 @@ realInput1.addEventListener('change', () => {
             </script>
 
             <style>
-            input[type=checkbox]:checked + span {
-            color: #000 !important;
-            /* font-weight: bold; */
-            }
+              input[type=checkbox]:checked + span {
+                color: #000 !important;
+                /* font-weight: bold; */
+              }
 
-            input[type=checkbox]:checked:after { 
-            border-bottom: 5px solid #000; 
-            border-top: 8px solid #000; 
-} 
+              input[type=checkbox]:checked:after { 
+                border-bottom: 5px solid #000; 
+                border-top: 8px solid #000; 
+              } 
             </style>
 
 
