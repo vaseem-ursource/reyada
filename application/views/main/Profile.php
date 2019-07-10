@@ -359,236 +359,233 @@ textarea:focus {
     border-bottom: 0.5px solid #000;
 }
 </style>
-<div class="section-header pb-1 col-md-12 pl-0" id="Personal">
-            <div class="col-12 mt-2 p-0">
-                <div style="border-bottom:1px solid black">
-                    <span class="text-left h4">Personal Details</span> 
-                </div>
+  <div class="section-header pb-1 col-md-12 pl-0" id="Personal">
+    <div class="col-12 mt-2 p-0">
+        <div style="border-bottom:1px solid black">
+            <span class="text-left h4">Personal Details</span> 
+        </div>
+    </div>
+
+    <form id="PersonalDetailsForm" action="" style="width:100%; margin: 0em 0em 0em 0em;" class="pl-0">
+        <div class="row">
+          <div class="col-md-5">
+            <div class="group">
+              <input type="text" value="<?= (isset($coworker['FullName']) && !empty($coworker['FullName'])) ? $coworker['FullName'] : ''; ?>" name="u_fullname"><span class="highlight"></span><span class="bar"></span>
+              <label>Full Name</label>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="group">
+              <input type="text" name="u_callyou" value="<?= (isset($coworker['Salutation']) && !empty($coworker['Salutation'])) ? $coworker['Salutation'] : ''; ?>"><span class="highlight"></span><span class="bar"></span>
+              <label>What can we call you?</label>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="group">
+              <select name="u_gender" id="gender">
+                <option value="">-- Select Gender --</option>
+                <option <?= ($coworker['Gender'] == 'Male' ) ? 'selected' : '' ?> value="Male"> Male</option>
+                <option <?= ($coworker['Gender'] == 'Female' ) ? 'selected' : '' ?> value="Female">Female</option>
+                <option <?= ($coworker['Gender'] == 'Other' ) ? 'selected' : '' ?> value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="group">
+              <input type="text" value="<?= (isset($coworker['DateOfBirth']) && !empty($coworker['DateOfBirth'])) ? $coworker['DateOfBirth'] : ''; ?>" name="u_dob" class="bg-light" disabled="true"><span class="highlight"></span><span class="bar"></span>
+              <label>Date of Birth</label>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="group">
+              <input value="<?= (isset($coworker['LandLine']) && !empty($coworker['LandLine'])) ? $coworker['LandLine'] : ''; ?>" type="text" name="u_phone"><span class="highlight"></span><span class="bar"></span>
+              <label>Phone</label>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="group">
+              <input value="<?= (isset($coworker['MobilePhone']) && !empty($coworker['MobilePhone'])) ? $coworker['MobilePhone'] : ''; ?>" type="text" name="u_mobile"><span class="highlight"></span><span class="bar"></span>
+              <label>Mobile</label>
+            </div>
+          </div>
+          <div class="col-md-10">
+            <div class="group">
+              <input value="<?= (isset($coworker['Email']) && !empty($coworker['Email'])) ? $coworker['Email'] : ''; ?>" type="email" name="u_email"  class="bg-light" disabled="true"><span class="highlight"></span><span class="bar"></span>
+              <label>Email</label>
+            </div>
+            <span>Contact us to change your email</span>
+          </div>
+            <div class="col-md-12 group pt-1 pl-0">
+                  <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
             </div>
 
-            <form id="PersonalDetailsForm" action="" style="width:100%; margin: 0em 0em 0em 0em;" class="pl-0">
-                <div class="row">
-                  <div class="col-md-5">
-                    <div class="group">
-                      <input type="text" value="<?= (isset($coworker['FullName']) && !empty($coworker['FullName'])) ? $coworker['FullName'] : ''; ?>" name="u_fullname"><span class="highlight"></span><span class="bar"></span>
-                      <label>Full Name</label>
-                    </div>
-                  </div>
-                  <div class="col-md-5">
-                    <div class="group">
-                      <input type="text" name="u_callyou" value="<?= (isset($coworker['Salutation']) && !empty($coworker['Salutation'])) ? $coworker['Salutation'] : ''; ?>"><span class="highlight"></span><span class="bar"></span>
-                      <label>What can we call you?</label>
-                    </div>
-                  </div>
-                  <div class="col-md-5">
-                    <div class="group">
-                     <select name="u_gender" id="gender">
-                        <option value="">-- Select Gender --</option>
-                        <option <?= ($coworker['Gender'] == 'Male' ) ? 'selected' : '' ?> value="Male"> Male</option>
-                        <option <?= ($coworker['Gender'] == 'Female' ) ? 'selected' : '' ?> value="Female">Female</option>
-                        <option <?= ($coworker['Gender'] == 'Other' ) ? 'selected' : '' ?> value="Other">Other</option>
-                     </select>
-                    </div>
-                  </div>
-                  <div class="col-md-5">
-                    <div class="group">
-                      <input type="text" value="<?= (isset($coworker['DateOfBirth']) && !empty($coworker['DateOfBirth'])) ? $coworker['DateOfBirth'] : ''; ?>" name="u_dob" class="bg-light" disabled="true"><span class="highlight"></span><span class="bar"></span>
-                      <label>Date of Birth</label>
-                    </div>
-                  </div>
-                  <div class="col-md-5">
-                    <div class="group">
-                      <input value="<?= (isset($coworker['LandLine']) && !empty($coworker['LandLine'])) ? $coworker['LandLine'] : ''; ?>" type="text" name="u_phone"><span class="highlight"></span><span class="bar"></span>
-                      <label>Phone</label>
-                    </div>
-                  </div>
-                  <div class="col-md-5">
-                    <div class="group">
-                      <input value="<?= (isset($coworker['MobilePhone']) && !empty($coworker['MobilePhone'])) ? $coworker['MobilePhone'] : ''; ?>" type="text" name="u_mobile"><span class="highlight"></span><span class="bar"></span>
-                      <label>Mobile</label>
-                    </div>
-                  </div>
-                  <div class="col-md-10">
-                    <div class="group">
-                      <input value="<?= (isset($coworker['Email']) && !empty($coworker['Email'])) ? $coworker['Email'] : ''; ?>" type="email" name="u_email"  class="bg-light" disabled="true"><span class="highlight"></span><span class="bar"></span>
-                      <label>Email</label>
-                    </div>
-                    <span>Contact us to change your email</span>
-                  </div>
-                    <div class="col-md-12 group pt-1 pl-0">
-                          <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
-                    </div>
 
-
-                    <div class="col-md-10">
-                    <div class="group">
-                      <textarea  name="u_address" placeholder="Address" rows="4"><?= (isset($coworker['Address']) && !empty($coworker['Address'])) ? $coworker['Address'] : ''; ?></textarea>
-                    </div>
-                  </div>
-                  <div class="col-md-5">
-                    <div class="group">
-                      <input value="<?= (isset($coworker['CityName']) && !empty($coworker['CityName'])) ? $coworker['CityName'] : ''; ?>" type="text" name="u_town"><span class="highlight"></span><span class="bar"></span>
-                      <label>Town / City</label>
-                    </div>
-                  </div>
-                  <div class="col-md-5">
-                    <div class="group">
-                      <input value="<?= (isset($coworker['State']) && !empty($coworker['State'])) ? $coworker['State'] : ''; ?>" type="text" name="u_state"><span class="highlight"></span><span class="bar"></span>
-                      <label>State / Province</label>
-                    </div>
-                  </div>
-                  <div class="col-md-5">
-                    <div class="group">
-                      <input value="<?= (isset($coworker['PostCode']) && !empty($coworker['PostCode'])) ? $coworker['PostCode'] : ''; ?>" type="text" name="u_zip"><span class="highlight"></span><span class="bar"></span>
-                      <label>Zip / Postcode</label>
-                    </div>
-                  </div>
-                  <div class="col-md-5">
-                    <div class="group">
-                      <input value="<?= (isset($coworker['BillingName']) && !empty($coworker['BillingName'])) ? $coworker['BillingName'] : ''; ?>" type="text" name="u_billingname"><span class="highlight"></span><span class="bar"></span>
-                      <label>Company / Org.Name</label>
-                    </div>
-                  </div>
-                  <div class="col-md-5">
-                    <div class="group">
-                      <input value="<?= (isset($coworker['TaxIDNumber']) && !empty($coworker['TaxIDNumber'])) ? $coworker['TaxIDNumber'] : ''; ?>" type="text" name="u_vat"><span class="highlight"></span><span class="bar"></span>
-                      <label>VAT / Tax Number</label>
-                    </div>
-                  </div>
-                  <div class="col-md-5">
-                    <div class="group">
-                      <input value="<?= (isset($coworker['ProfileWebsite']) && !empty($coworker['ProfileWebsite'])) ? $coworker['ProfileWebsite'] : ''; ?>" type="text" name="u_website"><span class="highlight"></span><span class="bar"></span>
-                      <label>Company Website</label>
-                    </div>
-                  </div>
-                    <div class="col-md-12 group pt-4 ">
-                        <input type="checkbox" name="u_membership2" id="membership2" style="width:15px;height:15px;">
-                        <span style="color:#999; font-size: 18px;">My Billing Details are diffrent than my personal details</span><br>
-                        <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
-                     </div>
-                </div>
-            </form>
+            <div class="col-md-10">
+            <div class="group">
+              <textarea  name="u_address" placeholder="Address" rows="4"><?= (isset($coworker['Address']) && !empty($coworker['Address'])) ? $coworker['Address'] : ''; ?></textarea>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="group">
+              <input value="<?= (isset($coworker['CityName']) && !empty($coworker['CityName'])) ? $coworker['CityName'] : ''; ?>" type="text" name="u_town"><span class="highlight"></span><span class="bar"></span>
+              <label>Town / City</label>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="group">
+              <input value="<?= (isset($coworker['State']) && !empty($coworker['State'])) ? $coworker['State'] : ''; ?>" type="text" name="u_state"><span class="highlight"></span><span class="bar"></span>
+              <label>State / Province</label>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="group">
+              <input value="<?= (isset($coworker['PostCode']) && !empty($coworker['PostCode'])) ? $coworker['PostCode'] : ''; ?>" type="text" name="u_zip"><span class="highlight"></span><span class="bar"></span>
+              <label>Zip / Postcode</label>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="group">
+              <input value="<?= (isset($coworker['BillingName']) && !empty($coworker['BillingName'])) ? $coworker['BillingName'] : ''; ?>" type="text" name="u_billingname"><span class="highlight"></span><span class="bar"></span>
+              <label>Company / Org.Name</label>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="group">
+              <input value="<?= (isset($coworker['TaxIDNumber']) && !empty($coworker['TaxIDNumber'])) ? $coworker['TaxIDNumber'] : ''; ?>" type="text" name="u_vat"><span class="highlight"></span><span class="bar"></span>
+              <label>VAT / Tax Number</label>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="group">
+              <input value="<?= (isset($coworker['ProfileWebsite']) && !empty($coworker['ProfileWebsite'])) ? $coworker['ProfileWebsite'] : ''; ?>" type="text" name="u_website"><span class="highlight"></span><span class="bar"></span>
+              <label>Company Website</label>
+            </div>
+          </div>
+            <div class="col-md-12 group pt-4 ">
+                <input type="checkbox" name="u_membership2" id="membership2" style="width:15px;height:15px;">
+                <span style="color:#999; font-size: 18px;">My Billing Details are diffrent than my personal details</span><br>
+                <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
+              </div>
+        </div>
+    </form>
   </div>
 
-            <div class="section-header pb-1 col-md-12 pl-0" id="professional">
-              <div class="col-12 mt-2 p-0">
-                  <div style="border-bottom:1px solid black">
-                      <span class="text-left h4">Professional Profile</span> 
-                  </div>
-              </div>
+  <div class="section-header pb-1 col-md-12 pl-0" id="professional">
+    <div class="col-12 mt-2 p-0">
+        <div style="border-bottom:1px solid black">
+            <span class="text-left h4">Professional Profile</span> 
+        </div>
+    </div>
 
-            <form style="width:100%; margin: 0em 0em 0em 0em;" class="pl-0">
-                <div class="row">
-                  <div class="col-md-5">
-                    <div class="group">
-                      <input type="text" name="u_company"><span class="highlight"></span><span class="bar"></span>
-                      <label>Company Name</label>
-                    </div>
-                  </div>
-                  <div class="col-md-5 pl-4">
-                    <div class="group">
-                      <input type="text" name="u_industry"><span class="highlight"></span><span class="bar"></span>
-                      <label>Industry</label>
-                    </div>
-                  </div>
-                  <div class="col-md-5">
-                    <div class="group">
-                      <input type="text" name="u_rolepos"><span class="highlight"></span><span class="bar"></span>
-                      <label>Your role / position</label>
-                    </div>
-                  </div>
-                </div>
-            </form>
-
-  
-
-<section class="wrapper mx-0 my-2 p-3" style="min-height:200px;"> 
-	
-	<ul class="tools">
-		<li>
-			<a href='#' data-role='bold'>
-				<i class="fa fa-bold" aria-hidden="true"></i>
-			</a>
-		</li>
-		<li>
-			<a href='#' data-role='italic'>
-				<i class="fa fa-italic" aria-hidden="true"></i>
-			</a>
-		</li>
-		<li>
-			<a href='#' data-role='insertUnorderedList'>
-				<i class="fa fa-list" aria-hidden="true"></i>
-			</a>
-		</li>
-		<li>
-			<a href='#' data-role='insertOrderedList'>
-				<i class="fa fa-list-ol" aria-hidden="true"></i>
-			</a>
-		</li>
-		<li>
-			<a href='#' data-role='createLink'>
-				<i class="fa fa-link" aria-hidden="true"></i>
-			</a>
-		</li>
-		<li>
-			<a href='#' data-role='unlink'>
-				<i class="fa fa-unlink" aria-hidden="true"></i>
-			</a>
-		</li>
-		<li>
-			<a href='#' data-role='insertHorizontalRule'>
-				<i class="fa fa-minus" aria-hidden="true"></i>
-			</a>
-		</li>
-		<li>
-			<a href='#' data-role='insertParagraph'>
-				<i class="fa fa-paragraph" aria-hidden="true"></i>
-			</a>
-		</li>
-		<li>
-			<a href='#' data-role='justifyLeft'>
-				<i class="fa fa-align-left" aria-hidden="true"></i>
-			</a>
-		</li>
-		<li>
-			<a href='#' data-role='justifyCenter'>
-				<i class="fa fa-align-center" aria-hidden="true"></i>
-			</a>
-		</li>
-		<li>
-			<a href='#' data-role='justifyRight'>
-				<i class="fa fa-align-right" aria-hidden="true"></i>
-			</a>
-		</li>
-		<li>
-			<a href='#' data-role='subscript'>
-				<i class="fa fa-subscript" aria-hidden="true"></i>
-			</a>
-		</li>
-		<li>
-			<a href='#' data-role='superscript'>
-				<i class="fa fa-superscript" aria-hidden="true"></i>
-			</a>
-		</li>
-		<li>
-			<a href='#' data-role='underline'>
-				<i class="fa fa-underline" aria-hidden="true"></i>
-			</a>
-		</li>
-	</ul>
-  <hr style="margin:5px">
-	<div class="modal">
-		<div class="modal__wrapper">
-			<form class="urlForm" name="urlForm">
-				<input class="url" name="urlField" placeholder="Add URL" />
-				<i class="fa fa-close closeModal" aria-hidden="true"></i>
-			</form>
-		</div>
-	</div>
-	<div class="editableContent" contenteditable spellcheck="false">
-		
-	</div>
-</section>
+    <form style="width:100%; margin: 0em 0em 0em 0em;" class="pl-0">
+        <div class="row">
+          <div class="col-md-5">
+            <div class="group">
+              <input type="text" name="u_company"><span class="highlight"></span><span class="bar"></span>
+              <label>Company Name</label>
+            </div>
+          </div>
+          <div class="col-md-5 pl-4">
+            <div class="group">
+              <input type="text" name="u_industry"><span class="highlight"></span><span class="bar"></span>
+              <label>Industry</label>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="group">
+              <input type="text" name="u_rolepos"><span class="highlight"></span><span class="bar"></span>
+              <label>Your role / position</label>
+            </div>
+          </div>
+        </div>
+    </form>
+    
+    <section class="wrapper mx-0 my-2 p-3" style="min-height:200px;"> 
+      
+      <ul class="tools">
+        <li>
+          <a href='#' data-role='bold'>
+            <i class="fa fa-bold" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li>
+          <a href='#' data-role='italic'>
+            <i class="fa fa-italic" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li>
+          <a href='#' data-role='insertUnorderedList'>
+            <i class="fa fa-list" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li>
+          <a href='#' data-role='insertOrderedList'>
+            <i class="fa fa-list-ol" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li>
+          <a href='#' data-role='createLink'>
+            <i class="fa fa-link" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li>
+          <a href='#' data-role='unlink'>
+            <i class="fa fa-unlink" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li>
+          <a href='#' data-role='insertHorizontalRule'>
+            <i class="fa fa-minus" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li>
+          <a href='#' data-role='insertParagraph'>
+            <i class="fa fa-paragraph" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li>
+          <a href='#' data-role='justifyLeft'>
+            <i class="fa fa-align-left" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li>
+          <a href='#' data-role='justifyCenter'>
+            <i class="fa fa-align-center" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li>
+          <a href='#' data-role='justifyRight'>
+            <i class="fa fa-align-right" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li>
+          <a href='#' data-role='subscript'>
+            <i class="fa fa-subscript" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li>
+          <a href='#' data-role='superscript'>
+            <i class="fa fa-superscript" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li>
+          <a href='#' data-role='underline'>
+            <i class="fa fa-underline" aria-hidden="true"></i>
+          </a>
+        </li>
+      </ul>
+      <hr style="margin:5px">
+      <div class="modal">
+        <div class="modal__wrapper">
+          <form class="urlForm" name="urlForm">
+            <input class="url" name="urlField" placeholder="Add URL" />
+            <i class="fa fa-close closeModal" aria-hidden="true"></i>
+          </form>
+        </div>
+      </div>
+      <div class="editableContent" contenteditable spellcheck="false"></div>
+    </section>
+  </div>
 <script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://use.fontawesome.com/ce726fce7b.js'></script>
 
 <script>
