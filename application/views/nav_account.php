@@ -36,9 +36,10 @@
       <nav class="main-nav float-right d-none d-lg-block" id="myMenu">
         <ul>
           <li ><a href="./" class="text-dark">About Us</a></li>
-          <li><a href="<?= base_url()?>main/services">Community</a></li>
-          <li class=""><a href="#contact" data-toggle="modal" data-target="#modalcontact" >Help</a></li>
-          <li><a href="<?= base_url()?>main/blog" class="text-dark">Account</a></li>
+          <li><a href="<?= base_url()?>main/communityEvents">Events</a></li>
+          <li><a href="<?= base_url()?>main/communityBooking">Find a Room</a></li>
+          
+          <li><a href="<?= base_url()?>main/profile" class="text-dark">Account</a></li>
           
           <?php if($this->session->userdata('is_logged_in')){ ?>
             <li class="lap"><a href="<?= base_url() ?>main/logout" class="text-dark" >Logout</a></li>
