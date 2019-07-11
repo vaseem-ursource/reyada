@@ -373,8 +373,8 @@
 </div>
 <script>
 $(document).ready(function() {
-    var username = 'aeraf@ursource.org';
-    var password = 'view1Sonic!';
+    var username = '<?= $this->config->item('username')?>'
+    var password = '<?= $this->config->item('password')?>'
     var size = 1000;
     var cur_date = '<?php echo date("Y-m-d") ?>';
     var base_url = '<?= base_url(); ?>';
@@ -926,7 +926,7 @@ $(document).ready(function() {
             },
             url: 'https://spaces.nexudus.com/api/spaces/bookings',
             beforeSend: function(xhr) {
-                xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + password));
+                xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + password),'Content-Type','application/json');
             },
             data: data,
             dataType: 'json', 
