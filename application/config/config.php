@@ -25,6 +25,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $config['base_url'] = 'http://localhost/Reyadah-Az/';
 // $config['base_url'] = 'http://reyada.ursource.org/';
+$config['username'] = 'aeraf@ursource.org';
+$config['password'] = 'view1Sonic!';
 date_default_timezone_set('Asia/Kuwait');
 
 /*

@@ -40,6 +40,7 @@
   
   <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
   <link rel="stylesheet" href="<?= base_url()?>css/accordian_style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 <style>
 i.fa.fa-search::after{
     background:none;
