@@ -617,15 +617,18 @@ ul.tools li i:after{
         <!-- </form> -->
       </div>
     </div>
-    <div class="editableContent" contenteditable spellcheck="false"></div>
+    <div class="editableContent" id="texteditor" onkeyup="textareaKeyFunction()" contenteditable spellcheck="false">
+      <?= (isset($coworker['ProfileSummary']) && !empty($coworker['ProfileSummary'])) ? $coworker['ProfileSummary'] : ''; ?>
+    </div>
   </section>
+  <textarea name="yourbio" id="yourbio"  style="display:none;"></textarea>
 </div>
 
 
 <div class="col-12 mt-2 p-0">
   <span>Your Skills</span>
   <div style="padding :0 7px 0 5px;max-width:900px;margin:auto ;border-bottom:1px solid black">
-      <textarea id="hero-demo" class="tag-editor-hidden-src "></textarea>
+      <textarea name="ProfileTagsArray" id="hero-demo" class="tag-editor-hidden-src "></textarea>
       <ul class="tag-editor ui-sortable " style="display:none;">
         
         
@@ -643,7 +646,7 @@ ul.tools li i:after{
   </div>
   
   <div class="col-md-12 group pt-4 pl-0">
-      <input type="checkbox" name="membership" id="membership" style="width:15px;height:15px;">
+      <input type="checkbox" <?= ($coworker['ProfileIsPublic']) ? 'checked' : '' ?> name="membership" id="membership" style="width:15px;height:15px;">
       <span style="color:#999; font-size: 18px;">List my profile in the directory.</span><br>
       <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
   </div>
@@ -731,8 +734,20 @@ ul.tools li i:after{
       </div>
       <div class="col-md-5 pl-4">
         <div class="group">
-          <input type="password" name="password"><span class="highlight"></span><span class="bar"></span>
-          <label>Password</label>
+          <input type="password" name="old_password"><span class="highlight"></span><span class="bar"></span>
+          <label>Old password</label>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="group">
+          <input type="password" name="new_password"><span class="highlight"></span><span class="bar"></span>
+          <label>New password</label>
+        </div>
+      </div>
+      <div class="col-md-5 pl-4">
+        <div class="group">
+          <input type="password" name="r_new_password"><span class="highlight"></span><span class="bar"></span>
+          <label>Repeat New password</label>
         </div>
       </div>
       <div class="col-md-5">
@@ -746,7 +761,7 @@ ul.tools li i:after{
       </div>
     </div>
     <br>
-    <button type="submit"  style="border: 0px;background-color: transparent; font-size:15px" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
+    <button type="submit" style="border: 0px;background-color: transparent; font-size:15px" class="float-right">Save<i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
 
   <div class="col-12 pt-5 mt-5 p-0" id="notification">
       <div style="border-bottom:1px solid black">
@@ -756,19 +771,19 @@ ul.tools li i:after{
 
   <div class="col-md-12 group pt-4 pl-0"> 
       <h5 class="mb-0"><b>Select when you would like to recieve notifications</b></h5>
-      <input type="checkbox" style="width:15px;height:15px;">
+      <input type="checkbox" <?= ($coworker['SignUpToNewsletter']) ? 'checked' : '' ?> name="SignUpToNewsletter" style="width:15px;height:15px;">
       <span style="color:#707070; font-size: 18px;">I would like to receive occasional and relevent updates from Reyada - Crystal Tower</span><br>
-      <input type="checkbox" style="width:15px;height:15px;">
+      <input type="checkbox" <?= ($user['OnNewWallPost']) ? 'checked' : '' ?> name="OnNewWallPost" style="width:15px;height:15px;">
       <span style="color:#707070; font-size: 18px;">When the new message is posted in the home page wall.</span><br>
-      <input type="checkbox" style="width:15px;height:15px;">
+      <input type="checkbox" <?= ($user['OnNewBlogComment']) ? 'checked' : '' ?> name="OnNewBlogComment" style="width:15px;height:15px;">
       <span style="color:#707070; font-size: 18px;">When the new comment is posted in the blog.</span><br>
-      <input type="checkbox" style="width:15px;height:15px;">
+      <input type="checkbox" <?= ($user['OnNewEventComment']) ? 'checked' : '' ?> name="OnNewEventComment" style="width:15px;height:15px;">
       <span style="color:#707070; font-size: 18px;">When the new comment is posted in an event.</span><br>
       <br>
       <h5 class="mb-0"><b>How and when should we alert you about conversations in the community board?</b></h5>
-      <input type="checkbox" style="width:15px;height:15px;">
+      <input type="checkbox" <?= ($user['ReceiveCommunityDigest']) ? 'checked' : '' ?> name="ReceiveCommunityDigest" style="width:15px;height:15px;">
       <span style="color:#707070; font-size: 18px;">Send me an update in the Morning if there is new message (around 8am)</span><br>
-      <input type="checkbox" style="width:15px;height:15px;">
+      <input type="checkbox" <?= ($user['ReceiveEveryMessage']) ? 'checked' : '' ?> name="ReceiveEveryMessage" style="width:15px;height:15px;">
       <span style="color:#707070; font-size: 18px;">Send me an notification shortly after every message. You can still mute individual.</span><br>
 
       <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
@@ -865,6 +880,10 @@ ul.tools li i:after{
     document.urlForm.urlField.focus();
   })
 
+  function textareaKeyFunction() {
+    var desc=document.getElementById("texteditor").innerHTML;
+    document.getElementById("yourbio").value = desc;
+  }
 
   // Save selected text when URL modal opens. From http://stackoverflow.com/questions/5605401/insert-link-in-contenteditable-element
   function saveSelection() {
@@ -964,10 +983,19 @@ ul.tools li i:after{
 </script>
 
 <script>
+  
+  
+  var ProfileTagsList = new Array();
+  <?php foreach($coworker['ProfileTagsList'] as $key => $val){ ?>
+    ProfileTagsList.push('<?php echo $val; ?>');
+  <?php } ?>
+
   $(function () {
+    
+
     $('#hero-demo').tagEditor({
         delimiter: ',',
-        initialTags: ['Skill', 'SUPER GOOD SKILL', 'SKILL'],
+        initialTags: ProfileTagsList,
         placeholder: 'Enter tags ...',
         autocomplete: {
             delay: 0,
@@ -1003,14 +1031,6 @@ ul.tools li i:after{
         debugger;
         return true;
     }
-
-    /*
-    $('#remove_all_tags').click(function () {
-        var tags = $('#demo3').tagEditor('getTags')[0].tags;
-        for (i = 0; i < tags.length; i++) {
-            $('#demo3').tagEditor('removeTag', tags[i]);
-        }
-    });*/
   });
 </script>
 <?php include('account_master_end.php');?>

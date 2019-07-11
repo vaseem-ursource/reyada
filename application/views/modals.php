@@ -633,6 +633,7 @@
               toastr.error('Username or Password incorrect');
             }else{
               $('.whole_div').hide();
+              console.log(data.html);
               toastr.success('Logged in successfully');
               setTimeout(function() {
                   location.reload();
