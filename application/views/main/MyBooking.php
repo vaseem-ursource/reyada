@@ -14,18 +14,27 @@
             </tr>
         </thead>
         <tbody>
+        <?php if(!empty($resources)){
+            foreach($resources as $resource){?>
             <tr class="border-top border-secondary">
-            <td>You have no upcoming bookings</td>
-            <td></td>
-            <td></td>
+                <td><?= substr($resource->FromTime,0,10)?></td>
+                <td><?= substr($resource->FromTime,11,16).' - '.substr($resource->ToTime,11,16)?></td>
+                <td><?= $resource->ResourceName?></td>
             </tr>
+        <?php }
+        }else{?>
+            <tr class="border-top border-secondary">
+                <td>You have no upcoming bookings</td>
+                <td></td>
+                <td></td>
+            </tr>
+        <?php }?>
         </tbody>
     </table>
     </div>
     <div>
         <h6 style="color:#000000;">This list shows bookings in the upcoming 90 days, use the calender to see all the bookings</h6>
-        <a href="#" style="color:#000000;"><span class="pl-3 h6">Make</span><i class="fa fa-angle-right fa-2x pl-1 pb-2 align-middle"></i></a>
-        <a href="#" style="color:#000000;"><span class="pl-3 h6">Calender</span><i class="fa fa-angle-right fa-2x pl-1 pb-2 align-middle"></i></a>
+        <a href="#" style="color:#000000;"><span class="pl-3 h6" id="bookingbutton">Calendar</span><i class="fa fa-angle-right fa-2x pl-1 pb-2 align-middle"></i></a>
     </div>
 <?php include('account_master_end.php');?>
        
