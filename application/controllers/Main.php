@@ -928,11 +928,31 @@ class main extends CI_Controller
      // My Booking
      function booking()
      {
-         $data['folder_name'] = 'main';
-         $data['file_name'] = 'MyBooking';
-         $data['header_name'] = 'header_account';
-         // $data['MyAccount'] = $this->Main_model->get_recent_articles();  
-         $this->load->view('index', $data);
+
+        if($this->session->userdata('is_logged_in')){
+            $url = "https://copyofreyadatestaccount.spaces.nexudus.com/en/bookings/my";
+            
+            $user = $this->session->userdata('user_info');
+            $username = $user['Email'];
+            $password = $user['Password'];
+
+            $headers = array(
+                'Content-Type: application/json',
+                'Authorization: Basic '. base64_encode("$username:$password")
+            );
+            $output = $this->post_with_curl($url, null, $headers);
+            if(!empty($output['MyBookings'])){
+                $data['resources'] = $output['MyBookings'];
+            }
+        }else{
+            $this->session->set_flashdata('warning', 'Please Login First');
+            redirect();
+        }
+
+        $data['folder_name'] = 'main';
+        $data['file_name'] = 'MyBooking';
+        $data['header_name'] = 'header_account';
+        $this->load->view('index', $data);
      }
 
      // Community events
@@ -957,6 +977,11 @@ class main extends CI_Controller
 
      function myFunc(){
         $p_data = $this->input->post();
+        // $url = "https://copyofreyadatestaccount.spaces.nexudus.com/en/bookings/search?start=$p_data['fromTime']&end=$p_data['fromTime']";
+        // $headers = array(
+        //     'Content-Type: application/json'
+        // );
+        // $output = $this->post_with_curl($url,null, $headers);
         print_r(json_encode($p_data));
      }
     
