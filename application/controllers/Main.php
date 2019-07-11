@@ -947,13 +947,17 @@ class main extends CI_Controller
 
      // Community Booking
      function communityBooking()
-     {
-         $p_data = $this->input->post();
+     {         
          $data['folder_name'] = 'main';
          $data['file_name'] = 'CommunityBooking';
          $data['header_name'] = 'header_account';
          // $data['MyAccount'] = $this->Main_model->get_recent_articles();  
          $this->load->view('index', $data);
+     }
+
+     function myFunc(){
+        $p_data = $this->input->post();
+        print_r(json_encode($p_data));
      }
     
 }

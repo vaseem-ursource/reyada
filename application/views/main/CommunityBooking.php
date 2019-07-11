@@ -168,7 +168,7 @@ $(document).ready(function() {
   var totime = cur_date +'T'+  time2  + 'Z'; 
 
   get_locations();
-  get_available_rooms(fromTime,totime)
+  get_available_rooms(fromTime,totime);
 
   $(".locations").change(function() {
       $('.whole_div').show();
@@ -227,16 +227,21 @@ $(document).ready(function() {
         });
     }
     function get_available_rooms(fromTime,totime) {
-        $data = 'fromTime=' + fromTime + '&totime=' + totime;
+        // console.log('fromTime: ' + fromTime + '===totime: ' + totime);
+        base_url = "<?= base_url() ?>";
+        post_data = {
+            "fromTime": fromTime,
+            "totime": totime
+        }
         $.ajax({
             type: "POST",
-            dataType: 'json',
-            url: '<?= base_url() ?>main/communityBooking',
-            data: $data, 
-            success: function() {
-              
+            dataType: 'JSON',
+            url: base_url + 'main/myFunc',
+            data: post_data, 
+            success: function(response) {
+                console.log(response);
             },
-            error: function(){
+            error: function(error){
 
             }
         });
