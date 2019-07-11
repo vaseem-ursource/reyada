@@ -456,14 +456,14 @@ ul.tools li i:after{
           </div>
         </div>
           <div class="col-md-12 group pt-4 ">
-              <input type="checkbox" name="u_membership2" id="membership2" style="width:15px;height:15px;">
+              <input type="checkbox" name="u_membership2" id="membership2" value="u_membership2" style="width:15px;height:15px;">
               <span style="color:#999; font-size: 18px;">My Billing Details are diffrent than my personal details</span><br>
               <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
             </div>
       </div>
 </div>
 
-<div class="section-header pb-1 col-md-12 pl-0" id="billing">
+<div class="section-header pb-1 col-md-12 pl-0 u_membership2" id="billing" >
   <div class="col-12 mt-2 p-0">
       <div style="border-bottom:1px solid black">
           <span class="text-left h4">Billing Details</span> 
@@ -639,14 +639,14 @@ ul.tools li i:after{
     <span class="h6">Press enter after each skill. Keep it relevent, less is</span>
   </div>
 
-  <div class="card border-0 pt-4">
+  <div class="card border-0 pt-4 membership">
     <div class="card-header p-4">
       <h5><b>Heads up!</b> Yourprofile is not yet listed in the directory. Enable the option list</h5>
     </div>
   </div>
   
   <div class="col-md-12 group pt-4 pl-0">
-      <input type="checkbox" <?= ($coworker['ProfileIsPublic']) ? 'checked' : '' ?> name="membership" id="membership" style="width:15px;height:15px;">
+      <input type="checkbox" <?= ($coworker['ProfileIsPublic']) ? 'checked' : '' ?> name="membership" id="membership" value="membership" style="width:15px;height:15px;">
       <span style="color:#999; font-size: 18px;">List my profile in the directory.</span><br>
       <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
   </div>
@@ -813,8 +813,17 @@ ul.tools li i:after{
     border-bottom: 5px solid #000; 
     border-top: 8px solid #000; 
   } 
+  
 </style>
 
+<script type="text/javascript">
+$(document).ready(function(){
+    $('input[type="checkbox"]').click(function(){
+        var inputValue = $(this).attr("value");
+        $("." + inputValue  ).toggle();
+    });
+});
+</script>
 
 <script>
   // trigger upload on space & enter
