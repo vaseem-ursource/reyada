@@ -10,7 +10,7 @@
 <script>
   $(document).ready(function(){
     var base_url = '<?= base_url(); ?>';
-    $('#PersonalDetailsForm').submit(function(e){
+    $('#profile-form').submit(function(e){
       e.preventDefault();
       $('.whole_div').show();
       

@@ -360,11 +360,11 @@ ul.tools li i:after{
           <span class="text-left h4">Personal Details</span> 
       </div>
   </div>
-  <form id="profile-form" style="width:100%; margin: 0em 0em 0em 0em;" class="pl-0" action="/en/profile" method="POST" enctype="multipart/form-data">
+  <form id="profile-form" style="width:100%; margin: 0em 0em 0em 0em;" class="pl-0" method="POST" enctype="multipart/form-data">
       <div class="row">
         <div class="col-md-5">
           <div class="group">
-            <input type="text" value="<?= (isset($coworker['FullName']) && !empty($coworker['FullName'])) ? $coworker['FullName'] : ''; ?>" name="u_fullname"><span class="highlight"></span><span class="bar"></span>
+            <input type="text" name="u_fullname" value="<?= (isset($coworker['FullName']) && !empty($coworker['FullName'])) ? $coworker['FullName'] : ''; ?>" ><span class="highlight"></span><span class="bar"></span>
             <label>Full Name</label>
           </div>
         </div>
@@ -386,25 +386,25 @@ ul.tools li i:after{
         </div>
         <div class="col-md-5">
           <div class="group">
-            <input type="text" value="<?= (isset($coworker['DateOfBirth']) && !empty($coworker['DateOfBirth'])) ? $coworker['DateOfBirth'] : ''; ?>" name="u_dob" class="bg-light" disabled="true"><span class="highlight"></span><span class="bar"></span>
+            <input type="text" name="u_dob" value="<?= (isset($coworker['DateOfBirth']) && !empty($coworker['DateOfBirth'])) ? $coworker['DateOfBirth'] : ''; ?>" class="bg-light" disabled="true"><span class="highlight"></span><span class="bar"></span>
             <label>Date of Birth</label>
           </div>
         </div>
         <div class="col-md-5">
           <div class="group">
-            <input value="<?= (isset($coworker['LandLine']) && !empty($coworker['LandLine'])) ? $coworker['LandLine'] : ''; ?>" type="text" name="u_phone"><span class="highlight"></span><span class="bar"></span>
+            <input name="u_phone" value="<?= (isset($coworker['LandLine']) && !empty($coworker['LandLine'])) ? $coworker['LandLine'] : ''; ?>" type="text" ><span class="highlight"></span><span class="bar"></span>
             <label>Phone</label>
           </div>
         </div>
         <div class="col-md-5">
           <div class="group">
-            <input value="<?= (isset($coworker['MobilePhone']) && !empty($coworker['MobilePhone'])) ? $coworker['MobilePhone'] : ''; ?>" type="text" name="u_mobile"><span class="highlight"></span><span class="bar"></span>
+            <input name="u_mobile" value="<?= (isset($coworker['MobilePhone']) && !empty($coworker['MobilePhone'])) ? $coworker['MobilePhone'] : ''; ?>" type="text" ><span class="highlight"></span><span class="bar"></span>
             <label>Mobile</label>
           </div>
         </div>
         <div class="col-md-10">
           <div class="group">
-            <input value="<?= (isset($coworker['Email']) && !empty($coworker['Email'])) ? $coworker['Email'] : ''; ?>" type="email" name="u_email"  class="bg-light" disabled="true"><span class="highlight"></span><span class="bar"></span>
+            <input name="u_email" value="<?= (isset($coworker['Email']) && !empty($coworker['Email'])) ? $coworker['Email'] : ''; ?>" type="email" class="bg-light" disabled="true"><span class="highlight"></span><span class="bar"></span>
             <label>Email</label>
           </div>
           <span>Contact us to change your email</span>
@@ -421,37 +421,37 @@ ul.tools li i:after{
         </div>
         <div class="col-md-5">
           <div class="group">
-            <input value="<?= (isset($coworker['CityName']) && !empty($coworker['CityName'])) ? $coworker['CityName'] : ''; ?>" type="text" name="u_town"><span class="highlight"></span><span class="bar"></span>
+            <input name="u_town" value="<?= (isset($coworker['CityName']) && !empty($coworker['CityName'])) ? $coworker['CityName'] : ''; ?>" type="text" ><span class="highlight"></span><span class="bar"></span>
             <label>Town / City</label>
           </div>
         </div>
         <div class="col-md-5">
           <div class="group">
-            <input value="<?= (isset($coworker['State']) && !empty($coworker['State'])) ? $coworker['State'] : ''; ?>" type="text" name="u_state"><span class="highlight"></span><span class="bar"></span>
+            <input name="u_state" value="<?= (isset($coworker['State']) && !empty($coworker['State'])) ? $coworker['State'] : ''; ?>" type="text" ><span class="highlight"></span><span class="bar"></span>
             <label>State / Province</label>
           </div>
         </div>
         <div class="col-md-5">
           <div class="group">
-            <input value="<?= (isset($coworker['PostCode']) && !empty($coworker['PostCode'])) ? $coworker['PostCode'] : ''; ?>" type="text" name="u_zip"><span class="highlight"></span><span class="bar"></span>
+            <input name="u_zip" value="<?= (isset($coworker['PostCode']) && !empty($coworker['PostCode'])) ? $coworker['PostCode'] : ''; ?>" type="text" ><span class="highlight"></span><span class="bar"></span>
             <label>Zip / Postcode</label>
           </div>
         </div>
         <div class="col-md-5">
           <div class="group">
-            <input value="<?= (isset($coworker['BillingName']) && !empty($coworker['BillingName'])) ? $coworker['BillingName'] : ''; ?>" type="text" name="u_billingname"><span class="highlight"></span><span class="bar"></span>
+            <input name="u_billingname" value="<?= (isset($coworker['BillingName']) && !empty($coworker['BillingName'])) ? $coworker['BillingName'] : ''; ?>" type="text" ><span class="highlight"></span><span class="bar"></span>
             <label>Company / Org.Name</label>
           </div>
         </div>
         <div class="col-md-5">
           <div class="group">
-            <input value="<?= (isset($coworker['TaxIDNumber']) && !empty($coworker['TaxIDNumber'])) ? $coworker['TaxIDNumber'] : ''; ?>" type="text" name="u_vat"><span class="highlight"></span><span class="bar"></span>
+            <input name="u_vat" value="<?= (isset($coworker['TaxIDNumber']) && !empty($coworker['TaxIDNumber'])) ? $coworker['TaxIDNumber'] : ''; ?>" type="text" ><span class="highlight"></span><span class="bar"></span>
             <label>VAT / Tax Number</label>
           </div>
         </div>
         <div class="col-md-5">
           <div class="group">
-            <input value="<?= (isset($coworker['ProfileWebsite']) && !empty($coworker['ProfileWebsite'])) ? $coworker['ProfileWebsite'] : ''; ?>" type="text" name="u_website"><span class="highlight"></span><span class="bar"></span>
+            <input name="u_website" value="<?= (isset($coworker['ProfileWebsite']) && !empty($coworker['ProfileWebsite'])) ? $coworker['ProfileWebsite'] : ''; ?>" type="text" ><span class="highlight"></span><span class="bar"></span>
             <label>Company Website</label>
           </div>
         </div>
@@ -478,25 +478,25 @@ ul.tools li i:after{
           </div>
         <div class="col-md-5">
           <div class="group">
-            <input value="<?= (isset($coworker['State']) && !empty($coworker['State'])) ? $coworker['State'] : ''; ?>" type="text" name="billing_town"><span class="highlight"></span><span class="bar"></span>
+            <input name="billing_town" value="<?= (isset($coworker['State']) && !empty($coworker['State'])) ? $coworker['State'] : ''; ?>" type="text" ><span class="highlight"></span><span class="bar"></span>
             <label>Billing Town</label>
           </div>
         </div>
         <div class="col-md-5">
           <div class="group">
-            <input value="<?= (isset($coworker['PostCode']) && !empty($coworker['PostCode'])) ? $coworker['PostCode'] : ''; ?>" type="text" name="billing_province"><span class="highlight"></span><span class="bar"></span>
+            <input name="billing_province" value="<?= (isset($coworker['PostCode']) && !empty($coworker['PostCode'])) ? $coworker['PostCode'] : ''; ?>" type="text" ><span class="highlight"></span><span class="bar"></span>
             <label>Billing State / Province</label>
           </div>
         </div>
         <div class="col-md-5">
           <div class="group">
-            <input value="<?= (isset($coworker['BillingName']) && !empty($coworker['BillingName'])) ? $coworker['BillingName'] : ''; ?>" type="text" name="billing_zip"><span class="highlight"></span><span class="bar"></span>
+            <input name="billing_zip" value="<?= (isset($coworker['BillingName']) && !empty($coworker['BillingName'])) ? $coworker['BillingName'] : ''; ?>" type="text" ><span class="highlight"></span><span class="bar"></span>
             <label>Billing Zip / Postcode</label>
           </div>
         </div>
         <div class="col-md-5">
           <div class="group">
-            <input value="<?= (isset($coworker['BillingName']) && !empty($coworker['BillingName'])) ? $coworker['BillingName'] : ''; ?>" type="text" name="send_my_invoice"><span class="highlight"></span><span class="bar"></span>
+            <input name="send_my_invoice" value="<?= (isset($coworker['BillingName']) && !empty($coworker['BillingName'])) ? $coworker['BillingName'] : ''; ?>" type="text" ><span class="highlight"></span><span class="bar"></span>
             <label>Send my Invoices to</label>
           </div>
         </div>
