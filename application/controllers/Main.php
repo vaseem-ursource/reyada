@@ -714,12 +714,12 @@ class main extends CI_Controller
             $j_data['Avatar'] = null;
             $j_data['AvatarUrl'] = "/en/coworker/getavatar/1102767731";
             $j_data['Banner'] = null;
-            $j_data['BillingAddress'] = null;
-            $j_data['BillingCityName'] = null;
-            $j_data['BillingEmail'] = null;
+            $j_data['BillingAddress'] = $p_data['u_billing_address'];
+            $j_data['BillingCityName'] = $p_data['u_billing_town'];
+            $j_data['BillingEmail'] = $p_data['u_send_my_invoice'];
             $j_data['BillingName'] = $p_data['u_billingname'];
-            $j_data['BillingPostCode'] = null;
-            $j_data['BillingState'] = null;
+            $j_data['BillingPostCode'] = $p_data['u_billing_zip'];
+            $j_data['BillingState'] = $p_data['u_billing_province'];
             $j_data['Blogger'] = null;
             $j_data['BusinessArea'] = $p_data['u_industry'];
             $j_data['CancellationDate'] = null;
@@ -784,6 +784,7 @@ class main extends CI_Controller
             $j_data['GuessedLastNameForInvoice'] = (isset(explode(' ',trim($p_data['u_fullname']))[1])) ? explode(' ',trim($p_data['u_fullname']))[1] : "";
             $j_data['HasBanner'] = false;
             $j_data['HasContactDetails'] = false;
+            $j_data['hasBillingDetails'] = null;
             $j_data['Id'] = $user['Id'];
             $j_data['IdString'] = $user['Id'];
             $j_data['Instagram'] = null;
@@ -828,7 +829,7 @@ class main extends CI_Controller
             $j_data['UtcDateOfBirth'] = null;
             $j_data['UtcRegistrationDate'] = $user['CreatedOn'];
             $j_data['Vimeo'] = null;
-            $j_data['hasBillingDetails'] = null;
+            
 
             //user data
             $u_data['CreatedOn'] = "2019-05-21T11:20:56";
