@@ -55,7 +55,7 @@ i.fa.fa-search::after{
 
   <!-- jssocials -->
     <link rel="stylesheet" type="text/css" href="<?= base_url();?>jssocials/jssocials.css" />
-    <link rel="stylesheet" type="text/css" href="<?= base_url();?>jssocials/jssocials-theme-minima" />
+    <link rel="stylesheet" type="text/css" href="<?= base_url();?>jssocials/jssocials-theme-minima.css" />
 
   <script type="text/javascript">
     $(function () {
@@ -71,5 +71,6 @@ i.fa.fa-search::after{
   #myMenu ul li a i:before, ul li a i:after{
 background-color:transparent;
 }</style>
+
 
   
