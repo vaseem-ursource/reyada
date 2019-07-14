@@ -636,9 +636,9 @@ class main extends CI_Controller
     // Plan and Benifits
     public function plan()
     {
-        $url = "https://copyofreyadatestaccount.spaces.nexudus.com/en/allowances/plans";
-        $username = 'arsee@ursource.org';
-        $password = 'User@123';
+        $url = "https://copyofreyadatestaccount.spaces.nexudus.com/en/allowances";
+        $username = 'aeraf@ursource.org';
+        $password = 'view1Sonic!';
         
         // $user = $this->session->userdata('user_info');
         // $username = $user['Email'];
@@ -648,8 +648,10 @@ class main extends CI_Controller
             'Content-Type: application/json',
             'Authorization: Basic ' . base64_encode("$username:$password"),
         );
-        $data['coworker_plans'] = $this->post_with_curl($url, null, $headers);
-
+        $allowances = $this->post_with_curl($url, null, $headers);
+        $data['coworker_plans'] = $allowances['ActiveContracts'];
+        $data['other_time_passes'] = $allowances['OtherTimePasses'];
+        $data['other_extra_services'] = $allowances['OtherExtraServices'];
         $data['folder_name'] = 'main';
         $data['file_name'] = 'Account';
         $data['header_name'] = 'header_account';
