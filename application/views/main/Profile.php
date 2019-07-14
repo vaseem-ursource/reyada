@@ -993,15 +993,15 @@ $(document).ready(function(){
       }
   }
 
-  let urlForm = document.querySelector('.urlForm');
+  // let urlForm = document.querySelector('.urlForm');
 
-  urlForm.addEventListener('submit',(e) => {
-    let urlValue = urlForm.querySelector('.url').value;
-    restoreSelection(window.savedSel);
-      document.execCommand("CreateLink", false, urlValue);
-    closeModal();
-    e.preventDefault();
-  })
+  // urlForm.addEventListener('submit',(e) => {
+  //   let urlValue = urlForm.querySelector('.url').value;
+  //   restoreSelection(window.savedSel);
+  //     document.execCommand("CreateLink", false, urlValue);
+  //   closeModal();
+  //   e.preventDefault();
+  // })
 
   function getSelectionParentElement() {
       var parentEl = null, sel;
