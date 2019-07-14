@@ -577,7 +577,7 @@ bottom: 0px;
       </div>
   </div>
 
-      <div class="row">
+      <div class="row mt-4">
         <div class="col-md-5">
           <div class="group">
             <input type="text" name="u_company" value="<?= (isset($coworker['CompanyName']) && !empty($coworker['CompanyName'])) ? $coworker['CompanyName'] : ''; ?>"><span class="highlight"></span><span class="bar"></span>
