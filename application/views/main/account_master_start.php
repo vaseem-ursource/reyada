@@ -15,6 +15,12 @@ a:hover.list-group-item{
     outline: none;
     text-decoration: none;
 }
+.membership2 , .membership{
+        display: none;
+    }
+     .membership{
+        display: block;
+    }
 </style>
 
 <section id="team" class="pb-1 mt-5"> 
@@ -39,6 +45,7 @@ a:hover.list-group-item{
                             <div class="artlist">
                             <a href="<?= base_url("main/profile#profilepage") ?>" class="list-group-item"> Your Photo </a>
                             <a href="<?= base_url("main/profile#Personal") ?>" class="list-group-item"> Personal Details </a>
+                            <a href="<?= base_url("main/profile#billing") ?>" class="list-group-item membership2"> Billing Details </a>
                             <a href="<?= base_url("main/profile#professional") ?>" class="list-group-item"> Professional Profile </a>
                             <a href="<?= base_url("main/profile#social") ?>" class="list-group-item"> Social Network </a>
                             <a href="<?= base_url("main/profile#password") ?>" class="list-group-item"> Password </a>

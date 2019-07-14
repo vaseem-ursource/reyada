@@ -207,6 +207,7 @@ class main extends CI_Controller
 
     public function signin($username = null, $password = null){
         $url = "https://copyofreyadatestaccount.spaces.nexudus.com/en/profile?_resource=Coworker";
+        $user_url = "https://copyofreyadatestaccount.spaces.nexudus.com/en/profile?_resource=User";
         $json['message'] = 'some error occured while processing your request';
         $json['status'] = 500;
 
@@ -222,15 +223,17 @@ class main extends CI_Controller
             );
             
             $output = $this->post_with_curl($url, null, $headers);
+            $user_output = $this->post_with_curl($user_url, null, $headers);
 
             if(!empty($output)){
                 $output['Password'] = $password;
                 $json['message'] = 'Logged in successfully';
                 $json['status'] = 200;
-                // $json['html'] = json_encode($output);
+                $json['html'] = json_encode($output);
             
 
                 $this->session->set_userdata('user_info', $output);
+                $this->session->set_userdata('user_info_extra', $user_output);
                 $this->session->set_userdata('is_logged_in', true);
             }
 
@@ -243,35 +246,15 @@ class main extends CI_Controller
             );
             
             $output = $this->post_with_curl($url, null, $headers);
+            $user_output = $this->post_with_curl($user_url, null, $headers);
 
             if(!empty($output)){
+                $output['Password'] = $password;
                 $json['message'] = 'Logged in successfully';
                 $json['status'] = 200;
 
-                $user_info = array(
-                    'Id' => $output->Id,
-                    'FullName' => $output->FullName,
-                    'Address' => $output->Address,
-                    'CityName' => $output->CityName,
-                    'MobilePhone' => $output->MobilePhone,
-                    'Email' => $output->Email,
-                    'DateOfBirth' => $output->DateOfBirth,
-                    'AccessPincode' => $output->AccessPincode,
-                    'Gender' => $output->Gender,
-                    'Twitter' => $output->Twitter,
-                    'Skype' => $output->Skype,
-                    'Facebook' => $output->Facebook,
-                    'Linkedin' => $output->Linkedin,
-                    'Google' => $output->Google,
-                    'Github' => $output->Github,
-                    'Pinterest' => $output->Pinterest,
-                    'Flickr' => $output->Flickr,
-                    'Vimeo' => $output->Vimeo,
-                    'Tumblr' => $output->Tumblr,
-                    'Blogger' => $output->Blogger
-                );
-
-                $this->session->set_userdata('user_info', $user_info);
+                $this->session->set_userdata('user_info', $output);
+                $this->session->set_userdata('user_info_extra', $user_output);
                 $this->session->set_userdata('is_logged_in', true);
                 return true;
                 
@@ -652,6 +635,15 @@ class main extends CI_Controller
      // Plan and Benifits
     function plan()
     {
+        $url = "https://copyofreyadatestaccount.spaces.nexudus.com/api/spaces/coworkerpriceplanhistories";
+        $username = 'aeraf@ursource.org';
+        $password = 'view1Sonic!';
+        $headers = array(
+            'Content-Type: application/json',
+            'Authorization: Basic '. base64_encode("$username:$password")
+        );
+        $data['coworker_plans'] = $this->post_with_curl($url, null, $headers);
+        
         $data['folder_name'] = 'main';
         $data['file_name'] = 'Account';
         $data['header_name'] = 'header_account';
@@ -674,18 +666,9 @@ class main extends CI_Controller
     function profile()
     {
         if($this->session->userdata('is_logged_in')){
-            $url = "https://copyofreyadatestaccount.spaces.nexudus.com/en/profile?_resource=Coworker";
             
-            // $user = $this->session->userdata('user_info');
-            // $username = $user['Email'];
-            // $password = $user['Password'];
-
-            // $headers = array(
-            //     'Content-Type: application/json',
-            //     'Authorization: Basic '. base64_encode("$username:$password")
-            // );
-
             $data['coworker'] = $this->session->userdata('user_info');
+            $data['user'] = $this->session->userdata('user_info_extra');
         }else{
             $this->session->set_flashdata('warning', 'Please Login First');
             redirect();
@@ -770,14 +753,14 @@ class main extends CI_Controller
             $j_data['DoNotProcessInvoicesAutomatically'] = false;        
             $j_data['Email'] = $user['Email'];
             $j_data['EmailForInvoice'] = $user['Email'];
-            $j_data['Facebook'] = null;
-            $j_data['Flickr'] = null;
+            $j_data['Facebook'] = $p_data['facebook'];
+            $j_data['Flickr'] = $p_data['flicker'];
             $j_data['FullName'] = $p_data['u_fullname'];
             $j_data['FullNameForInvoice'] = $p_data['u_fullname'];
             $j_data['Gender'] = $p_data['u_gender'];
             $j_data['GeneralTermsAccepted'] = false;
             $j_data['Github'] = null;
-            $j_data['Google'] = null;
+            $j_data['Google'] = $p_data['google'];
             $j_data['GuessedFirstName'] = explode(' ',trim($p_data['u_fullname']))[0];
             $j_data['GuessedFirstNameForInvoice'] = explode(' ',trim($p_data['u_fullname']))[0];
             $j_data['GuessedLastName'] = (isset(explode(' ',trim($p_data['u_fullname']))[1])) ? explode(' ',trim($p_data['u_fullname']))[1] : "";
@@ -787,22 +770,22 @@ class main extends CI_Controller
             $j_data['hasBillingDetails'] = null;
             $j_data['Id'] = $user['Id'];
             $j_data['IdString'] = $user['Id'];
-            $j_data['Instagram'] = null;
+            $j_data['Instagram'] = $p_data['instagram'];
             $j_data['IsMember'] = false;
             $j_data['IsNew'] = true;
             $j_data['IsNull'] = false;
             $j_data['LandLine'] = $p_data['u_phone'];
-            $j_data['Linkedin'] = null;
+            $j_data['Linkedin'] = $p_data['linkedin'];
             $j_data['MobilePhone'] = $p_data['u_mobile'];
             $j_data['NickName'] = null;
             $j_data['Pinterest'] = null;
             $j_data['Position'] = $p_data['u_rolepos'];
             $j_data['PostCode'] = $p_data['u_zip'];
             $j_data['PostCodeForInvoice'] = "Not Available";
-            $j_data['ProfileIsPublic'] = false;
-            $j_data['ProfileSummary'] = null;
-            $j_data['ProfileSummaryHtml'] = "";
-            $j_data['ProfileTags'] = "";
+            $j_data['ProfileIsPublic'] = (isset($p_data['membership'])) ? true : false;
+            $j_data['ProfileSummary'] = $p_data['yourbio'];
+            $j_data['ProfileSummaryHtml'] = $p_data['yourbio'];
+            $j_data['ProfileTags'] = $p_data['ProfileTagsArray'];
             $j_data['ProfileTagsArray'] = [""];
             $j_data['ProfileTagsList'] = [];
             $j_data['ProfileTagsSpaces'] = "";
@@ -812,15 +795,15 @@ class main extends CI_Controller
             $j_data['RefererGuid'] = "";
             $j_data['RegistrationDate'] = $user['CreatedOn'];
             $j_data['Salutation'] = $p_data['u_callyou'];
-            $j_data['SignUpToNewsletter'] = false;
+            $j_data['SignUpToNewsletter'] = (isset($p_data['SignUpToNewsletter'])) ? true : false;
             $j_data['SimpleTimeZoneId'] = 2029;
             $j_data['Skype'] = null;
             $j_data['State'] = $p_data['u_state'];
             $j_data['StateForInvoice'] = "Not Available";
             $j_data['TaxIDNumber'] = $p_data['u_vat'];
             $j_data['Telegram'] = null;
-            $j_data['Tumblr'] = null;
-            $j_data['Twitter'] = null;
+            $j_data['Tumblr'] = $p_data['tumblr'];
+            $j_data['Twitter'] = $p_data['twitter'];
             $j_data['UniqueId'] = "cd694a808a625e2ea3sj";
             $j_data['UpdateBillingDetails'] = true;
             $j_data['UpdatedOn'] = $user['CreatedOn'];
@@ -828,7 +811,7 @@ class main extends CI_Controller
             $j_data['UtcCancellationDate'] = null;
             $j_data['UtcDateOfBirth'] = null;
             $j_data['UtcRegistrationDate'] = $user['CreatedOn'];
-            $j_data['Vimeo'] = null;
+            $j_data['Vimeo'] = $p_data['vimeo'];
             
 
             //user data
@@ -839,15 +822,15 @@ class main extends CI_Controller
             $u_data['IdString'] = "0";
             $u_data['IsAuthenticated'] = true;
             $u_data['IsNull'] = false;
-            $u_data['NewPassword'] = null;
-            $u_data['OldPassword'] = null;
+            $u_data['NewPassword'] = (isset($p_data['new_password']) && !empty($p_data['new_password'])) ? $p_data['new_password'] : null;
+            $u_data['OldPassword'] = (isset($p_data['old_password']) && !empty($p_data['old_password'])) ? $p_data['old_password'] : null;;
+            $u_data['RepeatNewPassword'] = (isset($p_data['r_new_password']) && !empty($p_data['r_new_password'])) ? $p_data['r_new_password'] : null;;
             $u_data['OnHelpDeskMsg'] = false;
-            $u_data['OnNewBlogComment'] = false;
-            $u_data['OnNewEventComment'] = false;
-            $u_data['OnNewWallPost'] = false;
-            $u_data['ReceiveCommunityDigest'] = true;
-            $u_data['ReceiveEveryMessage'] = false;
-            $u_data['RepeatNewPassword'] = null;
+            $u_data['OnNewBlogComment'] = (isset($p_data['OnNewBlogComment'])) ? true : false;
+            $u_data['OnNewEventComment'] = (isset($p_data['OnNewEventComment'])) ? true : false;
+            $u_data['OnNewWallPost'] = (isset($p_data['OnNewWallPost'])) ? true : false;
+            $u_data['ReceiveCommunityDigest'] = (isset($p_data['ReceiveCommunityDigest'])) ? true : false;
+            $u_data['ReceiveEveryMessage'] = (isset($p_data['ReceiveEveryMessage'])) ? true : false;
             $u_data['UniqueId'] = "cd694a808a625e2ea3sj";
             $u_data['UpdatedOn'] = "2019-05-21T11:20:56";
 
@@ -863,14 +846,31 @@ class main extends CI_Controller
                 'Authorization: Basic '. base64_encode("$username:$password")
             );
             $output = $this->post_with_curl($url, $s_data, $headers);
-            
-            if($output['SuccessMessage'] == "Saved!"){
-                $this->session->set_userdata('user_info', $j_data);
-                $json['status'] = 200;
-                $json['message'] = 'Your profile has been updated.';
+ 
+            if(isset($output['SuccessMessage']) && $output['SuccessMessage'] == "Saved!"){
+                
+                if(isset($p_data['new_password']) && !empty($p_data['new_password']) && $p_data['new_password'] == $p_data['r_new_password']){
+                    $password = $p_data['new_password'];
+                    $message = "Your password changed";
+                }else{
+                    $message = 'Your profile has been updated.';
+                }
+                
+                if($this->signin($username, $password)){
+                    $json['status'] = 200;
+                    $json['message'] = $message;
+                }else{
+                    $json['status'] = 500;
+                    $json['message'] = 'Some error occured while updating your profile';
+                }
             }else{
-                $json['status'] = 500;
-                $json['message'] = 'some error occured while updating your profile';
+                if(isset($p_data['new_password'])){
+                    $json['status'] = 500;
+                    $json['message'] = 'Password details are incorrect';
+                }else{
+                    $json['status'] = 500;
+                    $json['message'] = 'Complete information not provided';
+                }
             }
 
         }else{
