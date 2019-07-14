@@ -43,7 +43,7 @@
   <?php endif; ?>
 
   <!-- jssocials -->
-  <script src="<?= base_url();?>jssocials/jquery.js"></script>
+  <!-- <script src="<?= base_url();?>jssocials/jquery.js"></script> -->
     <script src="<?= base_url();?>jssocials/jssocials.min.js"></script>
     <script>
         $("#share").jsSocials({
