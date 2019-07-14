@@ -601,7 +601,7 @@ bottom: 0px;
           </div>
         </div>
       </div>
-
+<h6>Your Bio</h6>
   <section class="wrapper mx-0 my-2 p-3" style="min-height:200px;"> 
     
     <ul class="tools">
