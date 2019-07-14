@@ -943,7 +943,6 @@ $(document).ready(function() {
             },
             error: function(data){
                 var message = data.responseJSON.Message.split(".");
-                console.log(message);
                 $('.whole_div').hide(); 
                 toastr.error(message[0] + message[1] + '.');
             }
