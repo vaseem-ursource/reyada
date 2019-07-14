@@ -21,7 +21,7 @@
               <div class="col-md-1"></div>
                 <div class="col">
                   <div class="group">
-                      <input  style="padding:4px !important;color:black !important;" type="date" value="<?= date("Y-m-d");?>"><span class="highlight"></span><span class="bar"></span>
+                      <input  style="padding:4px !important;color:black !important;" type="date" id="date"><span class="highlight"></span><span class="bar"></span>
                       <label>Date</label>
                   </div>
                 </div>
@@ -135,21 +135,15 @@
                   </select>
                   </div>
                   <div class="group" style="text-align: right;">
-                    <a href="#" style="color:black;"><span>Find available</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>                  
+                    <a href="#" style="color:black;"><span id="findAvailable">Find available</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>                  
                   </div>
                 </div>
               </div>
             </form>
           <div class="container px-0">
             <div style="margin-left:15%;margin-right:15%;">
-              <div class="row p-0">
-                  <div class="col-sm-6">
-                    <div class="card border-0">
-                        <span class="h6 m-0">THE PYRAMID - </span>
-                        <h6 class="m-0">Crystal Tower <span class="h6 pull-right" style="color:#6FBC89";>Available</span></h6>        
-                      <img class="card-img-top" src="<?= base_url('image/services/service2.jpg')?>" height="250px" alt="Card image cap">
-                    </div>
-                  </div>
+              <div class="row p-0" id="availabeResources">
+                  
               </div>
             </div>
           </div>
@@ -159,23 +153,42 @@
 $(document).ready(function() {
   var username = '<?= $this->config->item('username')?>'
   var password = '<?= $this->config->item('password')?>'
+
   var cur_date = '<?php echo date("Y-m-d") ?>';
   var st_time = ConvertTimeformat($('#start_time').val());
   var to_time = ConvertTimeformat($('#to_time').val());
-  var time1 = ConvertTimeformat(moment(st_time, 'h:mm A').subtract(3,'hours').format('h:mm A'));
-  var time2 = ConvertTimeformat(moment(to_time, 'h:mm A').subtract(3,'hours').format('h:mm A'));
-  var fromTime = cur_date +'T'+  time1  + 'Z'; 
-  var totime = cur_date +'T'+  time2  + 'Z'; 
 
-  get_locations();
-  get_available_rooms(fromTime,totime);
+  var fromTime = cur_date +'T'+  st_time  + 'Z'; 
+  var totime = cur_date +'T'+  to_time  + 'Z'; 
+  var location = $('.locations').val();
 
-  $(".locations").change(function() {
-      $('.whole_div').show();
-      var location_id = $(this).val();
-      get_resources(location_id);
+  $('#findAvailable').click(function(){
+    var st_time = ConvertTimeformat($('#start_time').val());
+    var to_time = ConvertTimeformat($('#to_time').val());
+    var date  =  $('#date').val();
+    var location = $('.locations').val();
+    var fromTime = date +'T'+  st_time  + 'Z'; 
+    var totime = date +'T'+  to_time  + 'Z'; 
+    get_available_rooms(fromTime,totime,location);
   });
 
+  $(".locations").change(function() {
+        $('.whole_div').show();
+        var location = $(this).val();
+        var st_time = ConvertTimeformat($('#start_time').val());
+        var to_time = ConvertTimeformat($('#to_time').val());
+        var selected_date  =  $('#date').val();
+        if(selected_date == '' || selected_date == '0'){
+            var date = cur_date;
+        }
+        else{
+            var date = selected_date;
+        }
+        var fromTime = date +'T'+  st_time  + 'Z'; 
+        var totime = date +'T'+  to_time  + 'Z'; 
+        get_available_rooms(fromTime,totime,location);
+    });
+  
   function get_locations(){
         $.ajax({
             type: 'GET',
@@ -188,9 +201,8 @@ $(document).ready(function() {
                 var location = locations.Records;
                 if (location.length != 0) {
                     $.each(locations.Records, (key, location) => {
-                        $(".locations").append("<option value ='" +location.Id + " '>" + location.Name + "</option>");
+                        $(".locations").append("<option value ='"+location.WebAddress+"'>" + location.Name + "</option>");
                     });
-                    get_resources(location[0].Id);
                 } else {
                     $(".locations").append("<option value ='0'>" +'No Locations' + "</option>");
                 }
@@ -200,49 +212,49 @@ $(document).ready(function() {
             }
         });
     }
-    function get_resources(location_id) {
-        $("#resource").empty();
-        $.ajax({
-            type: 'GET',
-            url: 'https://spaces.nexudus.com/api/spaces/resources?Resource_Business=' +location_id,
-            beforeSend: function(xhr) {
-                xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" +
-                    password));
-            },
-            dataType: 'json',
-            success: function(resources) {
-                var resources = resources.Records;
-                if (resources.length != 0) {
-                    $('.whole_div').hide();
-                    var res_id = resources[0].Id;
-                    $("#resource").append("<option>" +'All Resources' + "</option>");
-                    $.each(resources, (key, resource) => {
-                        $("#resource").append("<option value ='" +resource.Id + " '>" + resource.Name + "</option>");
-                    })
-                } else {
-                    $('.whole_div').hide();
-                    $("#resource").append("<option value ='0'>" + 'No Resources Available' + "</option>");
-                }
-            }
-        });
-    }
-    function get_available_rooms(fromTime,totime) {
-        // console.log('fromTime: ' + fromTime + '===totime: ' + totime);
+    function get_available_rooms(fromTime,totime,location) {
+        $('.whole_div').show();
+        $('#availabeResources').empty();
         base_url = "<?= base_url() ?>";
         post_data = {
             "fromTime": fromTime,
-            "totime": totime
+            "totime": totime,
+            "location": location
         }
         $.ajax({
             type: "POST",
             dataType: 'JSON',
             url: base_url + 'main/myFunc',
             data: post_data, 
-            success: function(response) {
-                console.log(response);
+            success: function(data) {
+                if(data.status == 'OK'){
+                    $.each(data.resources, (key, resource) => {
+                    if(resource.IsAvailable == true){
+                        var status = "<span class='h6 pull-right' style='color:#6FBC89';>"+'Available'+"</span>"
+                    }
+                    else{
+                        var status = "<span class='h6 pull-right' style='color:#FF0000';>"+'Not Available'+"</span>"
+                    }
+                   var rooms =  "<div class='col-sm-6'>"+
+                        "<div class='card border-0'>"+
+                            "<span class='h6 m-0'>"+ resource.Name +"</span>"+
+                            "<h6 class='m-0'>"+resource.ResourceTypeName+ status +"</h6>"+        
+                        "<img class='card-img-top' src='<?= base_url('image/services/service2.jpg')?>' height='250px' alt='Card image cap'>"+
+                        "</div>"+
+                    "</div>";
+                    $('#availabeResources').append(rooms);
+                    $('.whole_div').hide();
+                });
+                }
+                else{
+                    $('.whole_div').hide();
+                    toastr.error('some error occured while processing your request');
+                }
+                
             },
             error: function(error){
-
+                $('.whole_div').hide();
+                console.log(error);
             }
         });
     }
@@ -259,6 +271,8 @@ $(document).ready(function() {
         var selected_time = sHours + ":" + sMinutes;
         return selected_time;
     }
+    get_locations();
+    get_available_rooms(fromTime,totime,location);
 });
 </script>      
 

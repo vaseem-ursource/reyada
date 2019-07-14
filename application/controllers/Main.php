@@ -974,15 +974,5 @@ class main extends CI_Controller
          // $data['MyAccount'] = $this->Main_model->get_recent_articles();  
          $this->load->view('index', $data);
      }
-
-     function myFunc(){
-        $p_data = $this->input->post();
-        // $url = "https://copyofreyadatestaccount.spaces.nexudus.com/en/bookings/search?start=$p_data['fromTime']&end=$p_data['fromTime']";
-        // $headers = array(
-        //     'Content-Type: application/json'
-        // );
-        // $output = $this->post_with_curl($url,null, $headers);
-        print_r(json_encode($p_data));
-     }
     
 }
