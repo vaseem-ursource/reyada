@@ -21,6 +21,9 @@ a:hover.list-group-item{
      .membership{
         display: block;
     }
+    ul li a .fa.fa-angle-right:after{
+background-color:#343a40;
+    }
 </style>
 
 <section id="team" class="pb-1 mt-5"> 
