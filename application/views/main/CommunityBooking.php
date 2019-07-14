@@ -231,7 +231,13 @@ $(document).ready(function() {
   $('#findAvailable').click(function(){
     var st_time = ConvertTimeformat($('#start_time').val());
     var to_time = ConvertTimeformat($('#to_time').val());
-    var date  =  $('#date').val();
+    var selected_date  =  $('#date').val();
+    if(selected_date == '' || selected_date == '0'){
+        var date = cur_date;
+    }
+    else{
+        var date = selected_date;
+    }
     var location = $('.locations').val();
     var fromTime = date +'T'+  st_time  + 'Z'; 
     var totime = date +'T'+  to_time  + 'Z'; 
