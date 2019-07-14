@@ -1,33 +1,34 @@
 <?php
-if (!defined('BASEPATH'))
+if (!defined('BASEPATH')) {
     exit('No direct script access allowed');
+}
 
 class main extends CI_Controller
 {
-    function __construct()
+    public function __construct()
     {
         parent::__construct();
         // $this->lang->load('auth');
-        $this->load->model("Main_model",'Main_model');
+        $this->load->model("Main_model", 'Main_model');
         $this->load->library('pagination');
     }
-    
-    function index()
+
+    public function index()
     {
         $data['folder_name'] = 'main';
         $data['file_name'] = 'index';
         $data['header_name'] = 'header';
-        $data['RecentArticle'] = $this->Main_model->get_recent_articles();  
+        $data['RecentArticle'] = $this->Main_model->get_recent_articles();
         $this->load->view('index', $data);
 
     }
 
-    function services()
+    public function services()
     {
         $data['folder_name'] = 'main';
         $data['file_name'] = 'Services';
         $data['header_name'] = 'header';
-        $data['RecentArticle'] = $this->Main_model->get_recent_articles();  
+        $data['RecentArticle'] = $this->Main_model->get_recent_articles();
         $this->load->view('index', $data);
 
     }
@@ -50,7 +51,8 @@ class main extends CI_Controller
 
     // }
 
-    public function signup(){
+    public function signup()
+    {
 
         $p_data = $this->input->post();
         $j_data['FullName'] = $p_data['FullName'];
@@ -83,7 +85,7 @@ class main extends CI_Controller
         $j_data['AbsoluteCancellationDate'] = null;
         $j_data['DoNotProcessInvoicesAutomatically'] = false;
         $j_data['MobilePhone'] = $p_data['MobilePhone'];
-        $j_data['LandLine'] = $p_data['MobilePhone'];        
+        $j_data['LandLine'] = $p_data['MobilePhone'];
         $j_data['NickName'] = null;
         $j_data['BusinessArea'] = null;
         $j_data['Position'] = null;
@@ -183,21 +185,21 @@ class main extends CI_Controller
         $url = "https://copyofreyadatestaccount.spaces.nexudus.com/en/signup?_resource=,&_depth=1";
         $headers = array(
             'Content-Type: application/json',
-            'Content-Length: ' . strlen($s_data)
+            'Content-Length: ' . strlen($s_data),
         );
         $output = $this->post_with_curl($url, $s_data, $headers);
 
-        if(isset($output->RedirectTo) && !empty($output->RedirectTo)){
-            if($this->signin($p_data['Email'], $p_data['Password'])){
+        if (isset($output->RedirectTo) && !empty($output->RedirectTo)) {
+            if ($this->signin($p_data['Email'], $p_data['Password'])) {
                 $this->session->set_userdata('username', $p_data['Email']);
                 $this->session->set_userdata('password', $p_data['Password']);
                 $json['message'] = 'registered successfully';
                 $json['status'] = 200;
-            }else{
+            } else {
                 $json['message'] = 'There is a user already with the similar email';
                 $json['status'] = 500;
             }
-        }else{
+        } else {
             $json['message'] = 'some error occured while processing your request';
             $json['status'] = 500;
         }
@@ -205,13 +207,14 @@ class main extends CI_Controller
         print_r(json_encode($json));
     }
 
-    public function signin($username = null, $password = null){
+    public function signin($username = null, $password = null)
+    {
         $url = "https://copyofreyadatestaccount.spaces.nexudus.com/en/profile?_resource=Coworker";
         $user_url = "https://copyofreyadatestaccount.spaces.nexudus.com/en/profile?_resource=User";
         $json['message'] = 'some error occured while processing your request';
         $json['status'] = 500;
 
-        if(empty($username) && empty($password)){
+        if (empty($username) && empty($password)) {
             $p_data = $this->input->post();
 
             $username = $p_data['email'];
@@ -219,18 +222,17 @@ class main extends CI_Controller
 
             $headers = array(
                 'Content-Type: application/json',
-                'Authorization: Basic '. base64_encode("$username:$password")
+                'Authorization: Basic ' . base64_encode("$username:$password"),
             );
-            
+
             $output = $this->post_with_curl($url, null, $headers);
             $user_output = $this->post_with_curl($user_url, null, $headers);
 
-            if(!empty($output)){
+            if (!empty($output)) {
                 $output['Password'] = $password;
                 $json['message'] = 'Logged in successfully';
                 $json['status'] = 200;
                 $json['html'] = json_encode($output);
-            
 
                 $this->session->set_userdata('user_info', $output);
                 $this->session->set_userdata('user_info_extra', $user_output);
@@ -238,17 +240,17 @@ class main extends CI_Controller
             }
 
             print_r(json_encode($json));
-        }else{
+        } else {
 
             $headers = array(
                 'Content-Type: application/json',
-                'Authorization: Basic '. base64_encode("$username:$password")
+                'Authorization: Basic ' . base64_encode("$username:$password"),
             );
-            
+
             $output = $this->post_with_curl($url, null, $headers);
             $user_output = $this->post_with_curl($user_url, null, $headers);
 
-            if(!empty($output)){
+            if (!empty($output)) {
                 $output['Password'] = $password;
                 $json['message'] = 'Logged in successfully';
                 $json['status'] = 200;
@@ -257,66 +259,67 @@ class main extends CI_Controller
                 $this->session->set_userdata('user_info_extra', $user_output);
                 $this->session->set_userdata('is_logged_in', true);
                 return true;
-                
-            }else{
+
+            } else {
                 return false;
             }
         }
 
     }
 
-    public function get_access_token($username,$password){
+    public function get_access_token($username, $password)
+    {
         $p_data['email'] = $username;
         $p_data['password'] = $password;
-        $p_data['validityInMinutes'] = 30; 
+        $p_data['validityInMinutes'] = 30;
         $s_data = json_encode($p_data);
         $url = 'https://spaces.nexudus.com/api/sys/users/token';
         $headers = array(
-            'Content-Type: application/json'
+            'Content-Type: application/json',
         );
         $output = $this->post_with_curl($url, $s_data, $headers);
-        if($output->Status == 200){
+        if ($output->Status == 200) {
             return $output->Value;
-        }
-        else{
+        } else {
             return false;
         }
-        
+
     }
 
-    public function subscription_plan(){
+    public function subscription_plan()
+    {
         $p_data = $this->input->post();
         $username = $this->session->userdata('username');
         $password = $this->session->userdata('password');
-        $access_token = $this->get_access_token($username,$password);
-        if(!empty($access_token)){
-            $url = 'https://reyadatestaccount.spaces.nexudus.com/en/profile/newcontract?tariffguid='.$p_data['tariff_guid'].'&startdate='.$p_data['selected_date'];
+        $access_token = $this->get_access_token($username, $password);
+        if (!empty($access_token)) {
+            $url = 'https://reyadatestaccount.spaces.nexudus.com/en/profile/newcontract?tariffguid=' . $p_data['tariff_guid'] . '&startdate=' . $p_data['selected_date'];
             $headers = array(
                 'content-type: application/json',
-                'Authorization: Bearer '. $access_token
+                'Authorization: Bearer ' . $access_token,
             );
             $output = $this->post_with_curl($url, null, $headers);
-            if(isset($output->RedirectTo) && !empty($output->RedirectTo)){
+            if (isset($output->RedirectTo) && !empty($output->RedirectTo)) {
                 $json['message'] = 'registered successfully';
                 $json['status'] = 200;
-            }else{
+            } else {
                 $json['message'] = 'some error occured while processing your request';
                 $json['status'] = 500;
             }
-        }
-        else{
+        } else {
             $json['message'] = 'some error occured while processing your request';
             $json['status'] = 500;
         }
         print_r(json_encode($json));
     }
 
-    public function post_with_curl($url, $p_data = null, $headers){
+    public function post_with_curl($url, $p_data = null, $headers)
+    {
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-        
-        if(!empty($p_data)){
+
+        if (!empty($p_data)) {
             curl_setopt($ch, CURLOPT_POST, 1);
             curl_setopt($ch, CURLOPT_POSTFIELDS, $p_data);
         }
@@ -324,146 +327,144 @@ class main extends CI_Controller
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         $result = curl_exec($ch);
-        $output = (array)json_decode($result);
+        $output = (array) json_decode($result);
         curl_close($ch);
 
         return $output;
     }
 
-    public function logout(){
+    public function logout()
+    {
         $this->session->sess_destroy();
         redirect('main');
     }
 
-    function blog()
+    public function blog()
     {
-        $data['search']="";
-        if($this->input->post('term')){
-            $data['search']=$this->input->post('term');
+        $data['search'] = "";
+        if ($this->input->post('term')) {
+            $data['search'] = $this->input->post('term');
         }
         $data['Article'] = $this->Main_model->get_all_article();
         $data['folder_name'] = 'main';
         $data['file_name'] = 'Blog';
         $data['header_name'] = 'header_blog';
-        $data['Categories'] = $this->Main_model->get_all_categories();  
-        $data['PopularArticle'] = $this->Main_model->get_popular_article();      
+        $data['Categories'] = $this->Main_model->get_all_categories();
+        $data['PopularArticle'] = $this->Main_model->get_popular_article();
         $this->load->view('index', $data);
     }
 
-    function blog_category()
+    public function blog_category()
     {
-		$cat_id=$this->input->get('id');
+        $cat_id = $this->input->get('id');
         $data['folder_name'] = 'main';
         $data['file_name'] = 'Blog';
         $data['header_name'] = 'header_blog';
         $data['Article'] = $this->Main_model->get_article_by_category($cat_id);
-        $data['PopularArticle'] = $this->Main_model->get_popular_article(); 
-		$data['Categories'] = $this->Main_model->get_all_categories();        
+        $data['PopularArticle'] = $this->Main_model->get_popular_article();
+        $data['Categories'] = $this->Main_model->get_all_categories();
         $this->load->view('index', $data);
 
     }
 
-    function article()
+    public function article()
     {
-		$article_id=$this->input->get('id');
+        $article_id = $this->input->get('id');
         $data['folder_name'] = 'main';
         $data['file_name'] = 'Article';
         $data['header_name'] = 'header';
         $data['Article'] = $this->Main_model->get_article_on_id($article_id);
         // $data['Comments'] = $this->Main_model->get_comments($article_id);
-        $data['Categories'] = $this->Main_model->get_all_categories();    
-        $data['PopularArticle'] = $this->Main_model->get_popular_article();                
+        $data['Categories'] = $this->Main_model->get_all_categories();
+        $data['PopularArticle'] = $this->Main_model->get_popular_article();
         $this->load->view('index', $data);
 
     }
- 
-    public function loadRecord($rowno=0){
-        $search_text=$this->input->get('search_text');
+
+    public function loadRecord($rowno = 0)
+    {
+        $search_text = $this->input->get('search_text');
         // Row per page
         $rowperpage = 6;
-    
+
         // Row position
-        if($rowno != 0){
-          $rowno = ($rowno-1) * $rowperpage;
+        if ($rowno != 0) {
+            $rowno = ($rowno - 1) * $rowperpage;
         }
-     
+
         // All records count
         $allcount = $this->Main_model->getrecordCount($search_text);
-    
+
         // Get records
-        $users_record = $this->Main_model->getData($rowno,$rowperpage,$search_text);
-     
+        $users_record = $this->Main_model->getData($rowno, $rowperpage, $search_text);
+
         // Pagination Configuration
-        $config['base_url'] = base_url().'Main/loadRecord';
-        $config['use_page_numbers'] = TRUE;
+        $config['base_url'] = base_url() . 'Main/loadRecord';
+        $config['use_page_numbers'] = true;
         $config['total_rows'] = $allcount;
         $config['per_page'] = $rowperpage;
-    
+
         // Initialize
         $this->pagination->initialize($config);
-    
+
         // Initialize $data Array
         $data['pagination'] = $this->pagination->create_links();
         $data['result'] = $users_record;
         $data['row'] = $rowno;
-    
-        echo json_encode($data);
-      }
 
-    function contactus()
+        echo json_encode($data);
+    }
+
+    public function contactus()
     {
-        $subject="";
-        if($this->input->post('membership')){
-            $subject = $subject.'About membership';
+        $subject = "";
+        if ($this->input->post('membership')) {
+            $subject = $subject . 'About membership';
         }
-        if($this->input->post('workspace')){
-            if($subject != ''){
-                $subject = $subject.', Finding workspace';
-            }else{
-                $subject = $subject.'Finding workspace';
+        if ($this->input->post('workspace')) {
+            if ($subject != '') {
+                $subject = $subject . ', Finding workspace';
+            } else {
+                $subject = $subject . 'Finding workspace';
             }
         }
-        if($this->input->post('somethingelse')){
-            if($subject != ''){
-                $subject = $subject.', Something else';
-            }else{
-                $subject = $subject.'Something else';
+        if ($this->input->post('somethingelse')) {
+            if ($subject != '') {
+                $subject = $subject . ', Something else';
+            } else {
+                $subject = $subject . 'Something else';
             }
-        }        
+        }
         $data = array(
-        'name' => $this->input->post('full_name'),
-        'email' => $this->input->post('email'),
-        'phone' =>$this->input->post('phone'),
-        'company_name' => $this->input->post('company'),
-        'subject' => $subject,   
-        'message' => $this->input->post('notes'),
-        'posted_date' => date('Y-m-d H:i:s')
+            'name' => $this->input->post('full_name'),
+            'email' => $this->input->post('email'),
+            'phone' => $this->input->post('phone'),
+            'company_name' => $this->input->post('company'),
+            'subject' => $subject,
+            'message' => $this->input->post('notes'),
+            'posted_date' => date('Y-m-d H:i:s'),
         );
         $this->Main_model->insert_contactus_db($data);
-        $this->session->set_flashdata('contact','true');
+        $this->session->set_flashdata('contact', 'true');
         redirect('./');
     }
 
-    private function display_status($status,$success,$fail,$redirect)
+    private function display_status($status, $success, $fail, $redirect)
     {
-            if($status)
-            {
-                    $this->session->set_flashdata('success', $success);
-            }
-            else{
-                    $this->session->set_flashdata('warning', $fail);
-            }
-            if($redirect==1)
-            {
-                return redirect('./');
-            }
-            else
-            {
-              return redirect('./');
-            }
+        if ($status) {
+            $this->session->set_flashdata('success', $success);
+        } else {
+            $this->session->set_flashdata('warning', $fail);
+        }
+        if ($redirect == 1) {
+            return redirect('./');
+        } else {
+            return redirect('./');
+        }
     }
 
-    public function book_a_tour(){
+    public function book_a_tour()
+    {
 
         $p_data = $this->input->post();
         $j_data['FullName'] = $p_data['FullName'];
@@ -496,7 +497,7 @@ class main extends CI_Controller
         $j_data['AbsoluteCancellationDate'] = null;
         $j_data['DoNotProcessInvoicesAutomatically'] = false;
         $j_data['MobilePhone'] = $p_data['MobilePhone'];
-        $j_data['LandLine'] =null;        
+        $j_data['LandLine'] = null;
         $j_data['NickName'] = null;
         $j_data['BusinessArea'] = null;
         $j_data['Position'] = null;
@@ -591,18 +592,18 @@ class main extends CI_Controller
         $j_data['isPayingMember'] = false;
         $j_data['ProfileTagsArray'] = [];
         $webaddress = $p_data['location'];
-        
+
         $s_data = json_encode(array('base64avatar' => null, 'Coworker' => $j_data, 'Team' => new stdClass()));
         $url = "https://$webaddress.spaces.nexudus.com/en/signup?_resource=,&_depth=1";
         $headers = array(
             'Content-Type: application/json',
-            'Content-Length: ' . strlen($s_data)
+            'Content-Length: ' . strlen($s_data),
         );
         $output = $this->post_with_curl($url, $s_data, $headers);
-        if($output->RedirectTo == '/en/Profile/Tariff' && !empty($output->RedirectTo)){
-                    $json['message'] = 'Booked successfully';
-                $json['status'] = 200;
-        }else{
+        if ($output->RedirectTo == '/en/Profile/Tariff' && !empty($output->RedirectTo)) {
+            $json['message'] = 'Booked successfully';
+            $json['status'] = 200;
+        } else {
             $json['message'] = 'There is a user with this email address already.';
             $json['status'] = 500;
         }
@@ -612,12 +613,12 @@ class main extends CI_Controller
 
     // Join Our Community
 
-    function joinCommunity()
+    public function joinCommunity()
     {
         $data['folder_name'] = 'main';
         $data['file_name'] = 'joinCommunity';
         $data['header_name'] = 'header';
-        $data['RecentArticle'] = $this->Main_model->get_recent_articles();  
+        $data['RecentArticle'] = $this->Main_model->get_recent_articles();
         $this->load->view('index', $data);
 
     }
@@ -628,48 +629,53 @@ class main extends CI_Controller
     //     $data['folder_name'] = 'main';
     //     $data['file_name'] = 'MyAccount';
     //     $data['header_name'] = 'header_account';
-    //     // $data['MyAccount'] = $this->Main_model->get_recent_articles();  
+    //     // $data['MyAccount'] = $this->Main_model->get_recent_articles();
     //     $this->load->view('index', $data);
     // }
 
-     // Plan and Benifits
-    function plan()
+    // Plan and Benifits
+    public function plan()
     {
-        $url = "https://copyofreyadatestaccount.spaces.nexudus.com/api/spaces/coworkerpriceplanhistories";
-        $username = 'aeraf@ursource.org';
-        $password = 'view1Sonic!';
+        $url = "https://copyofreyadatestaccount.spaces.nexudus.com/en/allowances/plans";
+        $username = 'arsee@ursource.org';
+        $password = 'User@123';
+        
+        // $user = $this->session->userdata('user_info');
+        // $username = $user['Email'];
+        // $password = $user['Password'];
+
         $headers = array(
             'Content-Type: application/json',
-            'Authorization: Basic '. base64_encode("$username:$password")
+            'Authorization: Basic ' . base64_encode("$username:$password"),
         );
         $data['coworker_plans'] = $this->post_with_curl($url, null, $headers);
-        
+
         $data['folder_name'] = 'main';
         $data['file_name'] = 'Account';
         $data['header_name'] = 'header_account';
-        // $data['MyAccount'] = $this->Main_model->get_recent_articles();  
+        // $data['MyAccount'] = $this->Main_model->get_recent_articles();
         $this->load->view('index', $data);
     }
 
-     // My Member
-    function member()
+    // My Member
+    public function member()
     {
         $data['folder_name'] = 'main';
         $data['file_name'] = 'Member';
         $data['header_name'] = 'header_account';
-        
-        // $data['MyAccount'] = $this->Main_model->get_recent_articles();  
+
+        // $data['MyAccount'] = $this->Main_model->get_recent_articles();
         $this->load->view('index', $data);
     }
 
     // My Account
-    function profile()
+    public function profile()
     {
-        if($this->session->userdata('is_logged_in')){
-            
+        if ($this->session->userdata('is_logged_in')) {
+
             $data['coworker'] = $this->session->userdata('user_info');
             $data['user'] = $this->session->userdata('user_info_extra');
-        }else{
+        } else {
             $this->session->set_flashdata('warning', 'Please Login First');
             redirect();
         }
@@ -677,14 +683,14 @@ class main extends CI_Controller
         $data['folder_name'] = 'main';
         $data['file_name'] = 'Profile';
         $data['header_name'] = 'header_account';
-        
-        // $data['MyAccount'] = $this->Main_model->get_recent_articles();  
+
+        // $data['MyAccount'] = $this->Main_model->get_recent_articles();
         $this->load->view('index', $data);
     }
 
-    function update_profile()
+    public function update_profile()
     {
-        if($this->session->userdata('is_logged_in')){
+        if ($this->session->userdata('is_logged_in')) {
             $user = $this->session->userdata('user_info');
             $p_data = $this->input->post();
 
@@ -712,7 +718,7 @@ class main extends CI_Controller
             $j_data['CityName'] = $p_data['u_town'];
             $j_data['CompanyName'] = $p_data['u_company'];
             $j_data['Country'] = array(
-                "Id" => 1113
+                "Id" => 1113,
             );
             $j_data['CountryId'] = 1113;
             $j_data['CreatedOn'] = $user['CreatedOn'];
@@ -750,7 +756,7 @@ class main extends CI_Controller
             $j_data['DeleteAvatar'] = false;
             $j_data['DeleteBanner'] = false;
             $j_data['DiscountCode'] = null;
-            $j_data['DoNotProcessInvoicesAutomatically'] = false;        
+            $j_data['DoNotProcessInvoicesAutomatically'] = false;
             $j_data['Email'] = $user['Email'];
             $j_data['EmailForInvoice'] = $user['Email'];
             $j_data['Facebook'] = $p_data['facebook'];
@@ -761,10 +767,10 @@ class main extends CI_Controller
             $j_data['GeneralTermsAccepted'] = false;
             $j_data['Github'] = null;
             $j_data['Google'] = $p_data['google'];
-            $j_data['GuessedFirstName'] = explode(' ',trim($p_data['u_fullname']))[0];
-            $j_data['GuessedFirstNameForInvoice'] = explode(' ',trim($p_data['u_fullname']))[0];
-            $j_data['GuessedLastName'] = (isset(explode(' ',trim($p_data['u_fullname']))[1])) ? explode(' ',trim($p_data['u_fullname']))[1] : "";
-            $j_data['GuessedLastNameForInvoice'] = (isset(explode(' ',trim($p_data['u_fullname']))[1])) ? explode(' ',trim($p_data['u_fullname']))[1] : "";
+            $j_data['GuessedFirstName'] = explode(' ', trim($p_data['u_fullname']))[0];
+            $j_data['GuessedFirstNameForInvoice'] = explode(' ', trim($p_data['u_fullname']))[0];
+            $j_data['GuessedLastName'] = (isset(explode(' ', trim($p_data['u_fullname']))[1])) ? explode(' ', trim($p_data['u_fullname']))[1] : "";
+            $j_data['GuessedLastNameForInvoice'] = (isset(explode(' ', trim($p_data['u_fullname']))[1])) ? explode(' ', trim($p_data['u_fullname']))[1] : "";
             $j_data['HasBanner'] = false;
             $j_data['HasContactDetails'] = false;
             $j_data['hasBillingDetails'] = null;
@@ -812,7 +818,6 @@ class main extends CI_Controller
             $j_data['UtcDateOfBirth'] = null;
             $j_data['UtcRegistrationDate'] = $user['CreatedOn'];
             $j_data['Vimeo'] = $p_data['vimeo'];
-            
 
             //user data
             $u_data['CreatedOn'] = "2019-05-21T11:20:56";
@@ -823,8 +828,8 @@ class main extends CI_Controller
             $u_data['IsAuthenticated'] = true;
             $u_data['IsNull'] = false;
             $u_data['NewPassword'] = (isset($p_data['new_password']) && !empty($p_data['new_password'])) ? $p_data['new_password'] : null;
-            $u_data['OldPassword'] = (isset($p_data['old_password']) && !empty($p_data['old_password'])) ? $p_data['old_password'] : null;;
-            $u_data['RepeatNewPassword'] = (isset($p_data['r_new_password']) && !empty($p_data['r_new_password'])) ? $p_data['r_new_password'] : null;;
+            $u_data['OldPassword'] = (isset($p_data['old_password']) && !empty($p_data['old_password'])) ? $p_data['old_password'] : null;
+            $u_data['RepeatNewPassword'] = (isset($p_data['r_new_password']) && !empty($p_data['r_new_password'])) ? $p_data['r_new_password'] : null;
             $u_data['OnHelpDeskMsg'] = false;
             $u_data['OnNewBlogComment'] = (isset($p_data['OnNewBlogComment'])) ? true : false;
             $u_data['OnNewEventComment'] = (isset($p_data['OnNewEventComment'])) ? true : false;
@@ -843,37 +848,37 @@ class main extends CI_Controller
             $headers = array(
                 'Content-Type: application/json',
                 'Content-Length: ' . strlen($s_data),
-                'Authorization: Basic '. base64_encode("$username:$password")
+                'Authorization: Basic ' . base64_encode("$username:$password"),
             );
             $output = $this->post_with_curl($url, $s_data, $headers);
- 
-            if(isset($output['SuccessMessage']) && $output['SuccessMessage'] == "Saved!"){
-                
-                if(isset($p_data['new_password']) && !empty($p_data['new_password']) && $p_data['new_password'] == $p_data['r_new_password']){
+
+            if (isset($output['SuccessMessage']) && $output['SuccessMessage'] == "Saved!") {
+
+                if (isset($p_data['new_password']) && !empty($p_data['new_password']) && $p_data['new_password'] == $p_data['r_new_password']) {
                     $password = $p_data['new_password'];
                     $message = "Your password changed";
-                }else{
+                } else {
                     $message = 'Your profile has been updated.';
                 }
-                
-                if($this->signin($username, $password)){
+
+                if ($this->signin($username, $password)) {
                     $json['status'] = 200;
                     $json['message'] = $message;
-                }else{
+                } else {
                     $json['status'] = 500;
                     $json['message'] = 'Some error occured while updating your profile';
                 }
-            }else{
-                if(isset($p_data['new_password'])){
+            } else {
+                if (isset($p_data['new_password'])) {
                     $json['status'] = 500;
                     $json['message'] = 'Password details are incorrect';
-                }else{
+                } else {
                     $json['status'] = 500;
                     $json['message'] = 'Complete information not provided';
                 }
             }
 
-        }else{
+        } else {
             $json['status'] = 500;
             $json['message'] = 'Please login first';
         }
@@ -881,70 +886,70 @@ class main extends CI_Controller
         print_r(json_encode($json));
     }
 
-    public function dummy_paggination($rowno=0){
-        $search_text=$this->input->get('search_text');
+    public function dummy_paggination($rowno = 0)
+    {
+        $search_text = $this->input->get('search_text');
         // Row per page
         $rowperpage = 6;
-    
+
         // Row position
-        if($rowno != 0){
-          $rowno = ($rowno-1) * $rowperpage;
+        if ($rowno != 0) {
+            $rowno = ($rowno - 1) * $rowperpage;
         }
-     
+
         // All records count
         $allcount = $this->Main_model->getrecordCount($search_text);
-    
+
         // Get records
-        $users_record = $this->Main_model->getData($rowno,$rowperpage,$search_text);
-     
+        $users_record = $this->Main_model->getData($rowno, $rowperpage, $search_text);
+
         // Pagination Configuration
-        $config['base_url'] = base_url().'Main/loadRecord';
-        $config['use_page_numbers'] = TRUE;
+        $config['base_url'] = base_url() . 'Main/loadRecord';
+        $config['use_page_numbers'] = true;
         $config['total_rows'] = $allcount;
         $config['per_page'] = $rowperpage;
-    
+
         // Initialize
         $this->pagination->initialize($config);
-    
+
         // Initialize $data Array
         $data['pagination'] = $this->pagination->create_links();
         $data['result'] = $users_record;
         $data['row'] = $rowno;
-    
-        echo json_encode($data);
-      }
 
+        echo json_encode($data);
+    }
 
     // My Invoive and Payment
-    function invoice()
+    public function invoice()
     {
         $data['folder_name'] = 'main';
         $data['file_name'] = 'InvoiceAndPayment';
         $data['header_name'] = 'header_account';
-        // $data['MyAccount'] = $this->Main_model->get_recent_articles();  
+        // $data['MyAccount'] = $this->Main_model->get_recent_articles();
         $this->load->view('index', $data);
     }
 
-     // My Booking
-     function booking()
-     {
+    // My Booking
+    public function booking()
+    {
 
-        if($this->session->userdata('is_logged_in')){
+        if ($this->session->userdata('is_logged_in')) {
             $url = "https://copyofreyadatestaccount.spaces.nexudus.com/en/bookings/my";
-            
+
             $user = $this->session->userdata('user_info');
             $username = $user['Email'];
             $password = $user['Password'];
 
             $headers = array(
                 'Content-Type: application/json',
-                'Authorization: Basic '. base64_encode("$username:$password")
+                'Authorization: Basic ' . base64_encode("$username:$password"),
             );
             $output = $this->post_with_curl($url, null, $headers);
-            if(!empty($output['MyBookings'])){
+            if (!empty($output['MyBookings'])) {
                 $data['resources'] = $output['MyBookings'];
             }
-        }else{
+        } else {
             $this->session->set_flashdata('warning', 'Please Login First');
             redirect();
         }
@@ -953,29 +958,30 @@ class main extends CI_Controller
         $data['file_name'] = 'MyBooking';
         $data['header_name'] = 'header_account';
         $this->load->view('index', $data);
-     }
+    }
 
-     // Community events
-     function communityEvents()
-     {
-         $data['folder_name'] = 'main';
-         $data['file_name'] = 'CommunityEvents';
-         $data['header_name'] = 'header_account';
-         // $data['MyAccount'] = $this->Main_model->get_recent_articles();  
-         $this->load->view('index', $data);
-     }
+    // Community events
+    public function communityEvents()
+    {
+        $data['folder_name'] = 'main';
+        $data['file_name'] = 'CommunityEvents';
+        $data['header_name'] = 'header_account';
+        // $data['MyAccount'] = $this->Main_model->get_recent_articles();
+        $this->load->view('index', $data);
+    }
 
-     // Community Booking
-     function communityBooking()
-     {         
-         $data['folder_name'] = 'main';
-         $data['file_name'] = 'CommunityBooking';
-         $data['header_name'] = 'header_account';
-         // $data['MyAccount'] = $this->Main_model->get_recent_articles();  
-         $this->load->view('index', $data);
-     }
+    // Community Booking
+    public function communityBooking()
+    {
+        $data['folder_name'] = 'main';
+        $data['file_name'] = 'CommunityBooking';
+        $data['header_name'] = 'header_account';
+        // $data['MyAccount'] = $this->Main_model->get_recent_articles();
+        $this->load->view('index', $data);
+    }
 
-     function myFunc(){
+    public function myFunc()
+    {
         $p_data = $this->input->post();
         // $url = "https://copyofreyadatestaccount.spaces.nexudus.com/en/bookings/search?start=$p_data['fromTime']&end=$p_data['fromTime']";
         // $headers = array(
@@ -983,6 +989,6 @@ class main extends CI_Controller
         // );
         // $output = $this->post_with_curl($url,null, $headers);
         print_r(json_encode($p_data));
-     }
-    
+    }
+
 }
