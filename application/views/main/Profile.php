@@ -289,6 +289,7 @@ ul.tools li i:after{
     outline: none;
     border-bottom: 0.5px solid #000;
   }
+
 </style>
 
 <!-- bootstrap-wysiwyg --> 
@@ -513,7 +514,7 @@ ul.tools li i:after{
       </div>
   </div>
 
-      <div class="row">
+      <div class="row mt-4">
         <div class="col-md-5">
           <div class="group">
             <input type="text" name="u_company" value="<?= (isset($coworker['CompanyName']) && !empty($coworker['CompanyName'])) ? $coworker['CompanyName'] : ''; ?>"><span class="highlight"></span><span class="bar"></span>
@@ -929,15 +930,15 @@ $(document).ready(function(){
       }
   }
 
-  let urlForm = document.querySelector('.urlForm');
+  // let urlForm = document.querySelector('.urlForm');
 
-  urlForm.addEventListener('submit',(e) => {
-    let urlValue = urlForm.querySelector('.url').value;
-    restoreSelection(window.savedSel);
-      document.execCommand("CreateLink", false, urlValue);
-    closeModal();
-    e.preventDefault();
-  })
+  // urlForm.addEventListener('submit',(e) => {
+  //   let urlValue = urlForm.querySelector('.url').value;
+  //   restoreSelection(window.savedSel);
+  //     document.execCommand("CreateLink", false, urlValue);
+  //   closeModal();
+  //   e.preventDefault();
+  // })
 
   function getSelectionParentElement() {
       var parentEl = null, sel;
