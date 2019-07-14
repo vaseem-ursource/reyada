@@ -12,7 +12,7 @@
                 <span class="h6" style="color:#000000;">Home / Calendar / Meeting room</span>
                 <span class="h3 mx-auto" style="color:#000000; margin-left: 20% !important;">Meeting Room & Resources</span>
                 <span class="h3 float-right">
-                <select class="select-fontsize locations" name="fromtime" id="location-drp-dwn" style="padding:5px !important;color:black !important;">
+                <select class="select-fontsize locations" name="fromtime" id="location-drp-dwn" style="padding:6.2px !important;color:black !important;">
                   </select>
                 </span>
             </div>
@@ -224,7 +224,7 @@ $(document).ready(function() {
         $.ajax({
             type: "POST",
             dataType: 'JSON',
-            url: base_url + 'main/myFunc',
+            url: base_url + 'main/get_available_rooms',
             data: post_data, 
             success: function(data) {
                 if(data.status == 'OK'){

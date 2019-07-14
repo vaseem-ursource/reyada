@@ -974,5 +974,26 @@ class main extends CI_Controller
          // $data['MyAccount'] = $this->Main_model->get_recent_articles();  
          $this->load->view('index', $data);
      }
+     
+     function get_available_rooms(){
+        $p_data = $this->input->post();
+        $fromtime = $p_data['fromTime'];
+        $totime = $p_data['totime'];
+        $location = $p_data['location'];
+        $url = "https://$location.spaces.nexudus.com/en/bookings/search?start=$fromtime&end=$totime";
+        $headers = array(
+            'Content-Type: application/json'
+        );
+        $output = $this->post_with_curl($url,null, $headers);
+        if(!empty($output)){
+            $json['status'] = 'OK';
+            $json['resources'] = $output['Resources'];
+        }
+        else{
+            $json['status'] = 'Error';
+        }
+        
+        print_r(json_encode($json));
+     }
     
 }
