@@ -24,6 +24,71 @@ a:hover.list-group-item{
     ul li a .fa.fa-angle-right:after{
 background-color:#343a40;
     }
+
+    
+  .group 			  { 
+  position:relative; 
+  margin-bottom:20px; 
+}
+.form-input 				{
+  font-size:14px;
+  padding:10px 10px 2px 5px;
+  display:block;
+  width:100%;
+  border:none;
+  border-bottom:1px solid #757575;
+}
+.form-input:focus 		{ outline:none; }
+
+/ LABEL ======================================= /
+.form-label 				 {
+  color:#999; 
+  font-size:14px;
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left:5px;
+  /* top:15px;
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all; */
+}
+
+
+
+
+
+/ active state /
+.form-input:focus  .bar:before, .form-input:focus  .bar:after {
+  width:50%;
+}
+
+/ active state /
+/* .form-input[required]:valid ~ .highlight {
+  -webkit-animation:inputHighlighter 0.3s ease;
+  -moz-animation:inputHighlighter 0.3s ease;
+  animation:inputHighlighter 0.3s ease; */
+}
+
+.form-select {
+	height: 47px;
+    background: transparent;
+}
+
+
+
+label:not(.test_container) { 
+   color: #999;  
+   font-size: 12px; 
+   font-weight: normal; 
+   position: absolute; 
+pointer-events: none; 
+text-align: left; 
+   left: 0px; 
+top: -10px; 
+bottom: 0px; 
+   / transition: all 0.2s ease;  /
+} 
 </style>
 
 <section id="team" class="pb-1 mt-5"> 
@@ -83,6 +148,6 @@ background-color:#343a40;
 </div> 
 </div>
             </div> 
-            <div class="section-header pb-1 col-md-9"> 
+            <div class="section-header pb-1 col-md-9" style="min-height:75vh"> 
 
           
