@@ -635,6 +635,15 @@ class main extends CI_Controller
      // Plan and Benifits
     function plan()
     {
+        $url = "https://copyofreyadatestaccount.spaces.nexudus.com/api/spaces/coworkerpriceplanhistories";
+        $username = 'aeraf@ursource.org';
+        $password = 'view1Sonic!';
+        $headers = array(
+            'Content-Type: application/json',
+            'Authorization: Basic '. base64_encode("$username:$password")
+        );
+        $data['coworker_plans'] = $this->post_with_curl($url, null, $headers);
+        
         $data['folder_name'] = 'main';
         $data['file_name'] = 'Account';
         $data['header_name'] = 'header_account';
