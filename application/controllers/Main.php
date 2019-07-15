@@ -963,13 +963,22 @@ class main extends CI_Controller
      }
 
      // Community events
-     function communityEvents()
+     function communityEvents($type = null)
      {
-         $data['folder_name'] = 'main';
-         $data['file_name'] = 'CommunityEvents';
-         $data['header_name'] = 'header_account';
-         // $data['MyAccount'] = $this->Main_model->get_recent_articles();  
-         $this->load->view('index', $data);
+        $type = $this->input->get('type');
+        $start = $type == "upcoming" ? date("Y-m-d") : date("Y-m-d", strtotime('-1 year'));
+        $end = $type == "past" ? date("Y-m-d") : date("Y-m-d", strtotime('+1 year'));
+
+        $url = "https://copyofreyadatestaccount.spaces.nexudus.com/en/bookings/fullCalendarEvents?start=".$start."&end=".$end;
+        $headers = array(
+            'Content-Type: application/json'
+        );
+    
+        $data['events'] = $this->post_with_curl($url,null, $headers);
+        $data['folder_name'] = 'main';
+        $data['file_name'] = 'CommunityEvents';
+        $data['header_name'] = 'header_account';
+        $this->load->view('index', $data);
      }
 
      // Community Booking
