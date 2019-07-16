@@ -535,8 +535,8 @@ ul.tools li i:after{
         </div>
       </div>
 
+      <span><b>Your Bio</b></span>
   <section class="wrapper mx-0 my-2 p-3" style="min-height:200px;"> 
-    
     <ul class="tools">
       <li>
         <a href='#' data-role='bold'>

@@ -21,12 +21,11 @@
             data: $(this).serialize(),
             success: function(data) {
                 if(data.status != 200){
-                  $('.whole_div').hide();
                   toastr.error(data.message);
                 }else{
-                  $('.whole_div').hide();
                   toastr.success(data.message);
                 }
+                $('.whole_div').hide();
             },
             error: function(jqxhr, status, error) {
               $('.whole_div').hide();

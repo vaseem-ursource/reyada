@@ -24,6 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 $config['base_url'] = 'http://localhost/Reyadah-Az/';
+$config['api_base_url'] = 'https://copyofreyadatestaccount.spaces.nexudus.com/';
 // $config['base_url'] = 'http://reyada.ursource.org/';
 $config['username'] = 'aeraf@ursource.org';
 $config['password'] = 'view1Sonic!';

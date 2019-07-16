@@ -6,7 +6,16 @@
     <div>
         <?php if(!empty($coworker_plans)){ ?>
             <?php foreach($coworker_plans as $plan){ ?>
-                <h6 class="pt-4 mt-2" style="color:#000000;">Test Plan <b style="color:#000000;">(KD <?= $plan->Price ?>/month)</b></h6>
+                <h6 class="pt-4 mt-2" style="color:#000000;"><?= $plan->Tariff->Name ?> <b style="color:#000000;">(KD <?= $plan->Tariff->Price ?>/month)</b></h6>
+                <?php if(!empty($plan->NextTariff)){ ?>
+                    <table class="table table-striped h6 table-borderless" style="color:#000000;">
+                        <thead>
+                            <tr style="background-color:#F5F5F5";>
+                            <td><img src="<?= base_url('image/ii.png');?>" alt="" width="20px"> <span class="pl-3"><b>This subscription is about to change.</b> We will change your plan to '<?= $plan->NextTariff->Name ?>' on <?= date('m/d/Y', strtotime($plan->RenewalDate)) ?>.</span></td>
+                            </tr>
+                        </thead>
+                    </table>
+                <?php } ?>
             <?php } ?>
         <?php } ?>
         <a href="#" style="color:#000000;"><span class="pl-3"><small>Join a new<small></span><i class="fa fa-angle-right fa-2x pl-1 pb-2 align-middle"></i></a>

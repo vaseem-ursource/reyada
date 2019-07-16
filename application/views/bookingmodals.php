@@ -853,8 +853,6 @@ $(document).ready(function() {
                     $.each(resources, (key, resource) => {
                         var resources = "<div class='col-md-6 col-sm-6 row p-0 m-0'>" +
                             "<span  class='resource' style='color:white;font-size:12px;cursor:pointer' data-id ='" +resource.Id +"'>" + resource.Name + "</span>" +
-                            // "<small>" + "<br>" + resource.ResourceTypeName +
-                            // "</small>" +
                             "</div>";
                         $("#resources").append(resources);
                         $("#select-resource").append("<option value ='" +resource.Id + " '>" + resource.Name + "</option>");

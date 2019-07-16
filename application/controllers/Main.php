@@ -182,7 +182,7 @@ class main extends CI_Controller
         $j_data['ProfileTagsArray'] = [];
 
         $s_data = json_encode(array('base64avatar' => null, 'Coworker' => $j_data, 'Team' => new stdClass()));
-        $url = "https://copyofreyadatestaccount.spaces.nexudus.com/en/signup?_resource=,&_depth=1";
+        $url = $this->config->item('api_base_url')."en/signup?_resource=,&_depth=1";
         $headers = array(
             'Content-Type: application/json',
             'Content-Length: ' . strlen($s_data),
@@ -209,8 +209,8 @@ class main extends CI_Controller
 
     public function signin($username = null, $password = null)
     {
-        $url = "https://copyofreyadatestaccount.spaces.nexudus.com/en/profile?_resource=Coworker";
-        $user_url = "https://copyofreyadatestaccount.spaces.nexudus.com/en/profile?_resource=User";
+        $url = $this->config->item('api_base_url')."en/profile?_resource=Coworker";
+        $user_url = $this->config->item('api_base_url')."en/profile?_resource=User";
         $json['message'] = 'some error occured while processing your request';
         $json['status'] = 500;
 
@@ -293,7 +293,7 @@ class main extends CI_Controller
         $password = $this->session->userdata('password');
         $access_token = $this->get_access_token($username, $password);
         if (!empty($access_token)) {
-            $url = 'https://reyadatestaccount.spaces.nexudus.com/en/profile/newcontract?tariffguid=' . $p_data['tariff_guid'] . '&startdate=' . $p_data['selected_date'];
+            $url = $this->config->item('api_base_url').'en/profile/newcontract?tariffguid=' . $p_data['tariff_guid'] . '&startdate=' . $p_data['selected_date'];
             $headers = array(
                 'content-type: application/json',
                 'Authorization: Bearer ' . $access_token,
@@ -636,27 +636,32 @@ class main extends CI_Controller
     // Plan and Benifits
     public function plan()
     {
-        $url = "https://copyofreyadatestaccount.spaces.nexudus.com/en/allowances";
-        $username = 'aeraf@ursource.org';
-        $password = 'view1Sonic!';
-        
-        // $user = $this->session->userdata('user_info');
-        // $username = $user['Email'];
-        // $password = $user['Password'];
+        if ($this->session->userdata('is_logged_in')) {
+            $url = $this->config->item('api_base_url')."en/allowances?_depth=3";
+            $username = 'aeraf@ursource.org';
+            $password = 'view1Sonic!';
+            
+            // $user = $this->session->userdata('user_info');
+            // $username = $user['Email'];
+            // $password = $user['Password'];
 
-        $headers = array(
-            'Content-Type: application/json',
-            'Authorization: Basic ' . base64_encode("$username:$password"),
-        );
-        $allowances = $this->post_with_curl($url, null, $headers);
-        $data['coworker_plans'] = $allowances['ActiveContracts'];
-        $data['other_time_passes'] = $allowances['OtherTimePasses'];
-        $data['other_extra_services'] = $allowances['OtherExtraServices'];
-        $data['folder_name'] = 'main';
-        $data['file_name'] = 'Account';
-        $data['header_name'] = 'header_account';
-        // $data['MyAccount'] = $this->Main_model->get_recent_articles();
-        $this->load->view('index', $data);
+            $headers = array(
+                'Content-Type: application/json',
+                'Authorization: Basic ' . base64_encode("$username:$password"),
+            );
+            $allowances = $this->post_with_curl($url, null, $headers);
+            $data['coworker_plans'] = $allowances['ActiveContracts'];
+            $data['other_time_passes'] = $allowances['OtherTimePasses'];
+            $data['other_extra_services'] = $allowances['OtherExtraServices'];
+            $data['folder_name'] = 'main';
+            $data['file_name'] = 'Account';
+            $data['header_name'] = 'header_account';
+            // $data['MyAccount'] = $this->Main_model->get_recent_articles();
+            $this->load->view('index', $data);
+        } else {
+            $this->session->set_flashdata('warning', 'Please Login First');
+            redirect();
+        }
     }
 
     // My Member
@@ -842,7 +847,7 @@ class main extends CI_Controller
             $u_data['UpdatedOn'] = "2019-05-21T11:20:56";
 
             $s_data = json_encode(array('base64avatar' => null, 'base64banner' => null, 'Coworker' => $j_data, 'User' => $u_data));
-            $url = "https://copyofreyadatestaccount.spaces.nexudus.com/en/profile?_resource=";
+            $url = $this->config->item('api_base_url')."en/profile?_resource=";
 
             $username = $user['Email'];
             $password = $user['Password'];
@@ -925,6 +930,34 @@ class main extends CI_Controller
     // My Invoive and Payment
     public function invoice()
     {
+        if ($this->session->userdata('is_logged_in')) {
+            $pay_url = $this->config->item('api_base_url')."en/bookings/pay";
+            $url = $this->config->item('api_base_url')."en/invoices";
+
+            $user = $this->session->userdata('user_info');
+            $username = $user['Email'];
+            $password = $user['Password'];
+
+            $headers = array(
+                'Content-Type: application/json',
+                'Authorization: Basic ' . base64_encode("$username:$password"),
+            );
+            // Creates an invoice for any unpaid bookings.
+            $output = $this->post_with_curl($pay_url, null, $headers);
+            if($output){
+                $output = $this->post_with_curl($url, null, $headers);
+            }
+            if(isset($output['Invoices']) && !empty($output['Invoices'])){
+                $invoices = $output['Invoices'];
+            }else{
+                $invoices = null;
+            }
+        } else {
+            $this->session->set_flashdata('warning', 'Please Login First');
+            redirect();
+        }
+
+        $data['invoices'] = $invoices;
         $data['folder_name'] = 'main';
         $data['file_name'] = 'InvoiceAndPayment';
         $data['header_name'] = 'header_account';
@@ -937,7 +970,7 @@ class main extends CI_Controller
     {
 
         if ($this->session->userdata('is_logged_in')) {
-            $url = "https://copyofreyadatestaccount.spaces.nexudus.com/en/bookings/my";
+            $url = $this->config->item('api_base_url')."en/bookings/my";
 
             $user = $this->session->userdata('user_info');
             $username = $user['Email'];
@@ -969,7 +1002,7 @@ class main extends CI_Controller
         $start = $type == "upcoming" ? date("Y-m-d") : date("Y-m-d", strtotime('-1 year'));
         $end = $type == "past" ? date("Y-m-d") : date("Y-m-d", strtotime('+1 year'));
 
-        $url = "https://copyofreyadatestaccount.spaces.nexudus.com/en/bookings/fullCalendarEvents?start=".$start."&end=".$end;
+        $url = $this->config->item('api_base_url')."en/bookings/fullCalendarEvents?start=".$start."&end=".$end;
         $headers = array(
             'Content-Type: application/json'
         );
