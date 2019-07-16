@@ -72,7 +72,7 @@ class main extends CI_Controller
         $j_data['ReferenceNumber'] = null;
         $j_data['IsNew'] = true;
         $j_data['CheckedIn'] = false;
-        $j_data['SignUpToNewsletter'] = ($p_data['SignUpToNewsletter']) == "on" ? true : false;
+        $j_data['SignUpToNewsletter'] = (isset($p_data['SignUpToNewsletter']) && $p_data['SignUpToNewsletter']) == "on" ? true : false;
         $j_data['DeleteAvatar'] = false;
         $j_data['DeleteBanner'] = false;
         $j_data['AvatarUrl'] = "/en/coworker/getavatar/0";
