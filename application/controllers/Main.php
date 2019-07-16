@@ -638,12 +638,12 @@ class main extends CI_Controller
     {
         if ($this->session->userdata('is_logged_in')) {
             $url = $this->config->item('api_base_url')."en/allowances?_depth=3";
-            $username = 'aeraf@ursource.org';
-            $password = 'view1Sonic!';
+            // $username = 'aeraf@ursource.org';
+            // $password = 'view1Sonic!';
             
-            // $user = $this->session->userdata('user_info');
-            // $username = $user['Email'];
-            // $password = $user['Password'];
+            $user = $this->session->userdata('user_info');
+            $username = $user['Email'];
+            $password = $user['Password'];
 
             $headers = array(
                 'Content-Type: application/json',
