@@ -8,7 +8,7 @@
             <table class="table table-striped h6 table-borderless" style="color:#000000;">
                 <thead>
                     <tr>
-                    <th>Date</th>
+                    <th colspan="2" >Date</th>
                     <th>Amount</th>
                     <th>Status</th>
                     </tr>
@@ -16,12 +16,19 @@
                 <tbody>
                     <?php foreach($invoices as $invoice){ ?>
                         <tr class="border-top border-secondary">
-                            <td><b><?= $invoice->InvoiceNumber ?></b> - <?= date('m/d/Y', strtotime($invoice->CreatedOn)) ?> <img src="<?= base_url('image/cloud_down.png');?>" alt="" width="15px" class="pull-right"></td>
+                            <td>
+                                <b>#<?= $invoice->InvoiceNumber ?></b> - <?= date('m/d/Y', strtotime($invoice->CreatedOn)) ?> <br>
+                                <?= (!$invoice->Paid) ? '<small>To be paid by ' . date('d M Y', strtotime($invoice->DueDate)) . '</small>' : ''; ?>
+                            </td>
+                            <td><img src="<?= base_url('image/cloud_down.png');?>" alt="" width="15px" class="pull-right"></td>
                             <td>KD <?= $invoice->TotalAmount ?></td>
                             <?php if($invoice->Paid) { ?>
-                                <td style="color:#6FBC89";><i class="fa fa-check" style="font-size:10px"></i>   Paid on <?= date('l, M d, Y', strtotime($invoice->PaidOn)) ?> </td>
+                                <td colspan="2" style="color:#6FBC89";><i class="fa fa-check" style="font-size:10px"></i>   Paid on <?= date('l, M d, Y', strtotime($invoice->PaidOn)) ?> </td>
                             <?php }else{ ?>
-                                <td style="color:#b8340c";><i class="fa fa-check" style="font-size:10px"></i>   Due Date <?= date('l, M d, Y', strtotime($invoice->DueDate)) ?> </td>
+                                <td style="color:#b8340c";><i class="fa fa-exclamation-circle" ></i> Pending</td>
+                                <td>
+                                    <button style="border: 0px;background-color: transparent;"  >Pay Hesabe <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
+                                </td>
                             <?php } ?>
                         </tr>
                     <?php } ?>
