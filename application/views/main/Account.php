@@ -1,6 +1,6 @@
 <?php include('account_master_start.php');?>
 
-    <div style="border-bottom:1px solid #707070" id="yourplan"> 
+    <div style="border-bottom:1px solid #707070" class="mb-2" id="yourplan"> 
         <span class="text-left h4" style="color:#000000;">Your plan</span>  
     </div>
     <div>
