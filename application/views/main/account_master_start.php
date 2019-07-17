@@ -58,12 +58,10 @@ background-color:#343a40;
 
 
 
-/ active state /
 .form-input:focus  .bar:before, .form-input:focus  .bar:after {
   width:50%;
 }
 
-/ active state /
 /* .form-input[required]:valid ~ .highlight {
   -webkit-animation:inputHighlighter 0.3s ease;
   -moz-animation:inputHighlighter 0.3s ease;
@@ -89,6 +87,28 @@ top: -10px;
 bottom: 0px; 
    / transition: all 0.2s ease;  /
 } 
+.affix {
+    top: 20px;
+    z-index: 9999 !important;
+  }
+
+
+@media screen and (min-width: 767px) {
+  .sidenav_fixed{
+    position:fixed;
+    max-height: 65%;
+    overflow: auto;
+    overflow-x: hidden;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .sidenav_fixed{
+    position:inherit;
+    
+  }
+}
+
 </style>
 
 <section id="team" class="pb-1 mt-5"> 
@@ -102,12 +122,12 @@ bottom: 0px;
                 </div>
             </div>
             <div class="section-header pb-1 col-md-3 pl-0"> 
-            <div class="container">
-    <div class="row">
-    <div class="col-lg-12 col-md-12 wow fadeInUp p-1">
+            <div class="container" >
+                <div class="row">
+                <div class="col-lg-12 col-md-12 wow fadeInUp p-1">
                     <div class="container mt-3">
                       <div class="accordian">
-                        <ul>
+                        <ul class="sidenav_fixed">
                           <li><input type="checkbox" checked=""><i></i>
                            <h6><span style="border-left:1px solid #AF0E17;padding:4px"></span> Your Account </h6>
                             <div class="artlist">
