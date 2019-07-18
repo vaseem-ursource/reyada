@@ -307,11 +307,11 @@ ul.tools li i:after{
 
 
 
-<div style="border-bottom:1px solid black" id="profilepage"> 
-  <span class="text-left h4">Your Profile Page</span>  
+<div id="profilepage mb-5"> 
+  <span class="h2 text-left mb-5">Your Profile Page</span>  
 </div> 
  
-<div class="col-12  row"> 
+<!-- <div class="col-12  row"> 
   <div class="col-md-3 col-sm-12 p-3 text-center"> 
       <span class="p-5 rounded-circle h1" style="background-color:#F5F5F5;color:#707070;display: inline-grid">N</span> 
   </div> 
@@ -348,15 +348,15 @@ ul.tools li i:after{
   </div> 
 
   <div class="col-12 mt-2 p-0">
-    <!-- <a href="#" style="color:black;"><span>See</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a> 
-    <a href="#" style="color:black;" class="pl-3"><span>My</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>  -->
+    <a href="#" style="color:black;"><span>See</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a> 
+    <a href="#" style="color:black;" class="pl-3"><span>My</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>  
     <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
   </div>
 </div>
-   
-</div>
+    
+</div> -->
 
-<div class="section-header pb-1 col-md-12 pl-0" id="Personal">
+<div class="section-header pb-1 col-md-12 pl-0 mt-3" id="Personal">
   <div class="col-12 mt-2 p-0">
       <div style="border-bottom:1px solid black">
           <span class="text-left h4">Personal Details</span> 
