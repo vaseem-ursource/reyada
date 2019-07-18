@@ -189,7 +189,7 @@ class main extends CI_Controller
         );
         $output = $this->post_with_curl($url, $s_data, $headers);
 
-        if (isset($output->RedirectTo) && !empty($output->RedirectTo)) {
+        if (!empty($output)) {
             if ($this->signin($p_data['Email'], $p_data['Password'])) {
                 $this->session->set_userdata('username', $p_data['Email']);
                 $this->session->set_userdata('password', $p_data['Password']);
@@ -278,8 +278,8 @@ class main extends CI_Controller
             'Content-Type: application/json',
         );
         $output = $this->post_with_curl($url, $s_data, $headers);
-        if ($output->Status == 200) {
-            return $output->Value;
+        if ($output['Status'] == 200) {
+            return $output['Value'];
         } else {
             return false;
         }
@@ -299,7 +299,7 @@ class main extends CI_Controller
                 'Authorization: Bearer ' . $access_token,
             );
             $output = $this->post_with_curl($url, null, $headers);
-            if (isset($output->RedirectTo) && !empty($output->RedirectTo)) {
+            if (!empty($output)) {
                 $json['message'] = 'registered successfully';
                 $json['status'] = 200;
             } else {
@@ -1043,6 +1043,15 @@ class main extends CI_Controller
         }
         
         print_r(json_encode($json));
-     }
-    
+    }
+
+    public function forgot_password()
+    {
+        $data['folder_name'] = 'main';
+        $data['file_name'] = 'forgot_password';
+        $data['header_name'] = 'header_account';
+        // $data['MyAccount'] = $this->Main_model->get_recent_articles();
+        $this->load->view('index', $data);
+    }
+
 }

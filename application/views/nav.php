@@ -39,13 +39,13 @@
           <li><a href="<?= base_url()?>main/blog">Blog</a></li>
           
           <?php if($this->session->userdata('is_logged_in')){ ?>
+            <li><a href="<?= base_url()?>main/profile">Account</a></li>
             <li class="lap"><a href="<?= base_url() ?>main/logout" >Logout</a></li>
             <li class="mob"><a onclick="menuClickFunction()" href="<?= base_url() ?>main/logout" >Logout</a></li>
           <?php }else{ ?>
             <li class="lap"><a href="#login" data-toggle="modal" data-target="#modalLogin">Login</a></li>
             <li class="mob"><a href="#" onclick="menuClickFunction()" data-toggle="modal" data-target="#modalLogin">Login</a></li>
           <?php } ?>
-          <li><a href="<?= base_url()?>main/profile">Account</a></li>
           <li class="lap"><a href="#" id="addClass"><i class="fa fa-search"></i></a></li>
         </ul>
       </nav><!-- .main-nav -->

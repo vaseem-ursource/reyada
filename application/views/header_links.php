@@ -11,11 +11,11 @@
   <style>
    @font-face {
        font-family:'METRIC-REGULAR';
-       src:url(../fonts/METRIC-REGULAR.OTF);
-       src:url(../fonts/METRIC-REGULAR.OTF?#iefix) format('embedded-opentype'),
-               url(../fonts/METRIC-REGULAR.OTF) format('woff'),
-               url(../fonts/METRIC-REGULAR.OTF) format('truetype'),
-               url(../fonts/METRIC-REGULAR.OTF#my-font) format('svg');
+       src:url('<?= base_url()?>fonts/METRIC-REGULAR.OTF');
+       src:url('<?= base_url()?>fonts/METRIC-REGULAR.OTF?#iefix') format('embedded-opentype'),
+               url('<?= base_url()?>fonts/METRIC-REGULAR.OTF') format('woff'),
+               url('<?= base_url()?>fonts/METRIC-REGULAR.OTF') format('truetype'),
+               url('<?= base_url()?>fonts/METRIC-REGULAR.OTF#my-font') format('svg');
        font-weight:normal;
        font-style:normal;
    }
