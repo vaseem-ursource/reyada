@@ -757,7 +757,7 @@ ul.tools li i:after{
       </div>
       <div class="col-md-5 pl-4">
         <div class="group">
-          <label style="font-size:15px">Forgot it? <a href="#"><u style="color: black;">Request a password reset.</u></a></label>
+          <span style="font-size:15px">Forgot it? <a href="<?= base_url('main/forgot_password');?>"><u style="color: black;">Request a password reset.</u></a></span>
         </div>
       </div>
     </div>

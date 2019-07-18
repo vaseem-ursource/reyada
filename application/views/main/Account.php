@@ -18,7 +18,7 @@
                 <?php } ?>
             <?php } ?>
         <?php } ?>
-        <a href="#" style="color:#000000;"><span class="pl-3"><small>Join a new<small></span><i class="fa fa-angle-right fa-2x pl-1 pb-2 align-middle"></i></a>
+        <a href="<?= base_url('main/services#payasyougo');?>" style="color:#000000;" target="_blank"><span class="pl-3"><small>Join a new<small></span><i class="fa fa-angle-right fa-2x pl-1 pb-2 align-middle"></i></a>
     </div>
     <div class="pt-4" style="border-bottom:1px solid #707070" id="benefits"> 
         <span class="text-left h4" style="color:#000000;">Benefits</span>  
