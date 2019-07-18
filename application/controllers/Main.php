@@ -182,7 +182,7 @@ class main extends CI_Controller
         $j_data['ProfileTagsArray'] = [];
 
         $s_data = json_encode(array('base64avatar' => null, 'Coworker' => $j_data, 'Team' => new stdClass()));
-        $url = $this->config->item('api_base_url') . "en/signup?_resource=,&_depth=1";
+        $url = $this->config->item('api_base_url')."en/signup?_resource=,&_depth=1";
         $headers = array(
             'Content-Type: application/json',
             'Content-Length: ' . strlen($s_data),
@@ -209,8 +209,8 @@ class main extends CI_Controller
 
     public function signin($username = null, $password = null)
     {
-        $url = $this->config->item('api_base_url') . "en/profile?_resource=Coworker";
-        $user_url = $this->config->item('api_base_url') . "en/profile?_resource=User";
+        $url = $this->config->item('api_base_url')."en/profile?_resource=Coworker";
+        $user_url = $this->config->item('api_base_url')."en/profile?_resource=User";
         $json['message'] = 'some error occured while processing your request';
         $json['status'] = 500;
 
@@ -293,7 +293,7 @@ class main extends CI_Controller
         $password = $this->session->userdata('password');
         $access_token = $this->get_access_token($username, $password);
         if (!empty($access_token)) {
-            $url = $this->config->item('api_base_url') . 'en/profile/newcontract?tariffguid=' . $p_data['tariff_guid'] . '&startdate=' . $p_data['selected_date'];
+            $url = $this->config->item('api_base_url').'en/profile/newcontract?tariffguid=' . $p_data['tariff_guid'] . '&startdate=' . $p_data['selected_date'];
             $headers = array(
                 'content-type: application/json',
                 'Authorization: Bearer ' . $access_token,
@@ -637,10 +637,10 @@ class main extends CI_Controller
     public function plan()
     {
         if ($this->session->userdata('is_logged_in')) {
-            $url = $this->config->item('api_base_url') . "en/allowances?_depth=3";
+            $url = $this->config->item('api_base_url')."en/allowances?_depth=3";
             // $username = 'aeraf@ursource.org';
             // $password = 'view1Sonic!';
-
+            
             $user = $this->session->userdata('user_info');
             $username = $user['Email'];
             $password = $user['Password'];
@@ -847,7 +847,7 @@ class main extends CI_Controller
             $u_data['UpdatedOn'] = "2019-05-21T11:20:56";
 
             $s_data = json_encode(array('base64avatar' => null, 'base64banner' => null, 'Coworker' => $j_data, 'User' => $u_data));
-            $url = $this->config->item('api_base_url') . "en/profile?_resource=";
+            $url = $this->config->item('api_base_url')."en/profile?_resource=";
 
             $username = $user['Email'];
             $password = $user['Password'];
@@ -931,8 +931,8 @@ class main extends CI_Controller
     public function invoice()
     {
         if ($this->session->userdata('is_logged_in')) {
-            $pay_url = $this->config->item('api_base_url') . "en/bookings/pay";
-            $url = $this->config->item('api_base_url') . "en/invoices?_depth=3";
+            $pay_url = $this->config->item('api_base_url')."en/bookings/pay";
+            $url = $this->config->item('api_base_url')."en/invoices?_depth=3";
 
             $user = $this->session->userdata('user_info');
             $username = $user['Email'];
@@ -944,12 +944,12 @@ class main extends CI_Controller
             );
             // Creates an invoice for any unpaid bookings.
             $output = $this->post_with_curl($pay_url, null, $headers);
-            if ($output) {
+            if($output){
                 $output = $this->post_with_curl($url, null, $headers);
             }
-            if (isset($output['Invoices']) && !empty($output['Invoices'])) {
+            if(isset($output['Invoices']) && !empty($output['Invoices'])){
                 $invoices = $output['Invoices'];
-            } else {
+            }else{
                 $invoices = null;
             }
         } else {
@@ -965,18 +965,12 @@ class main extends CI_Controller
         $this->load->view('index', $data);
     }
 
-    public function pay_hesabe()
-    {
-
-        print_r(json_encode($data));
-    }
-
     // My Booking
     public function booking()
     {
 
         if ($this->session->userdata('is_logged_in')) {
-            $url = $this->config->item('api_base_url') . "en/bookings/my";
+            $url = $this->config->item('api_base_url')."en/bookings/my";
 
             $user = $this->session->userdata('user_info');
             $username = $user['Email'];
@@ -999,56 +993,56 @@ class main extends CI_Controller
         $data['file_name'] = 'MyBooking';
         $data['header_name'] = 'header_account';
         $this->load->view('index', $data);
-    }
+     }
 
-    // Community events
-    public function communityEvents($type = null)
-    {
+     // Community events
+     function communityEvents($type = null)
+     {
         $type = $this->input->get('type');
         $start = $type == "upcoming" ? date("Y-m-d") : date("Y-m-d", strtotime('-1 year'));
         $end = $type == "past" ? date("Y-m-d") : date("Y-m-d", strtotime('+1 year'));
 
-        $url = $this->config->item('api_base_url') . "en/bookings/fullCalendarEvents?start=" . $start . "&end=" . $end;
+        $url = $this->config->item('api_base_url')."en/bookings/fullCalendarEvents?start=".$start."&end=".$end;
         $headers = array(
-            'Content-Type: application/json',
+            'Content-Type: application/json'
         );
-
-        $data['events'] = $this->post_with_curl($url, null, $headers);
+    
+        $data['events'] = $this->post_with_curl($url,null, $headers);
         $data['folder_name'] = 'main';
         $data['file_name'] = 'CommunityEvents';
         $data['header_name'] = 'header_account';
         $this->load->view('index', $data);
-    }
+     }
 
-    // Community Booking
-    public function communityBooking()
-    {
-        $data['folder_name'] = 'main';
-        $data['file_name'] = 'CommunityBooking';
-        $data['header_name'] = 'header_account';
-        // $data['MyAccount'] = $this->Main_model->get_recent_articles();
-        $this->load->view('index', $data);
-    }
-
-    public function get_available_rooms()
-    {
+     // Community Booking
+     function communityBooking()
+     {         
+         $data['folder_name'] = 'main';
+         $data['file_name'] = 'CommunityBooking';
+         $data['header_name'] = 'header_account';
+         // $data['MyAccount'] = $this->Main_model->get_recent_articles();  
+         $this->load->view('index', $data);
+     }
+     
+     function get_available_rooms(){
         $p_data = $this->input->post();
         $fromtime = $p_data['fromTime'];
         $totime = $p_data['totime'];
         $location = $p_data['location'];
         $url = "https://$location.spaces.nexudus.com/en/bookings/search?start=$fromtime&end=$totime";
         $headers = array(
-            'Content-Type: application/json',
+            'Content-Type: application/json'
         );
-        $output = $this->post_with_curl($url, null, $headers);
-        if (!empty($output)) {
+        $output = $this->post_with_curl($url,null, $headers);
+        if(!empty($output)){
             $json['status'] = 'OK';
             $json['resources'] = $output['Resources'];
-        } else {
+        }
+        else{
             $json['status'] = 'Error';
         }
-
+        
         print_r(json_encode($json));
-    }
-
+     }
+    
 }
