@@ -31,10 +31,6 @@
                                         class="pay-hesabe" 
                                         data-invoiceid="<?= $invoice->Id ?>" 
                                         data-invoiceamt="<?= $invoice->TotalAmount ?>" 
-                                        data-invoicenum="<?= $invoice->InvoiceNumber ?>" 
-                                        data-invoicedesc="<?= $invoice->Description ?>"
-                                        data-invoicecode="<?= $invoice->BillToPostCode ?>"
-                                        data-invoicebsnsid="<?= $invoice->BillToPostCode ?>"
                                         style="border: 0px;background-color: transparent;" >
                                         Pay Hesabe <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i>
                                     </button>
@@ -63,15 +59,11 @@
                 $('.whole_div').show();
                 invoiceid = $(this).attr('data-invoiceid');
                 invoiceamt = $(this).attr('data-invoiceamt');
-                invoicenum = $(this).attr('data-invoicenum');
-                invoicedesc = $(this).attr('data-invoicedesc');
-                invoicecode = $(this).attr('data-invoicecode');
-                invoicebsnsid = $(this).attr('data-invoicebsnsid');
                 $.ajax({
                     type: 'POST',
                     dataType: 'json',
                     url: base_url + 'payment/pay_hesabe',
-                    data: 'invoiceid='+invoiceid+'&invoiceamt='+invoiceamt+'&invoicenum='+invoicenum+'&invoicedesc='+invoicedesc+'&invoicecode='+invoicecode+'&invoicebsnsid='+invoicebsnsid,
+                    data: 'invoiceid='+invoiceid+'&invoiceamt='+invoiceamt,
                     success: function(data) {
                         if(data.status != 200){
                             toastr.error(data.message);

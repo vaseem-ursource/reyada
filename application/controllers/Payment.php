@@ -9,81 +9,95 @@ class payment extends CI_Controller
     public function pay_hesabe()
     {
         $invoiceid = $this->input->post('invoiceid');
-        $invoiceamt = $this->input->post('invoiceamt');
-        $invoicenum = $this->input->post('invoicenum');
-        $invoicedesc = $this->input->post('invoicedesc');
-        $invoicecode = $this->input->post('invoicecode');
-        $invoicebsnsid = $this->input->post('invoicebsnsid');
+        $url = "https://spaces.nexudus.com/api/billing/coworkerinvoices/".$invoiceid;
+        $username = $this->config->item('username');
+        $password = $this->config->item('password');
 
-        $success_url = base_url('payment/success_checkout');
-        $error_url = base_url('payment/error_checkout');
-        $url = $this->config->item('hesabe_request_url');
-        $data = array(
-                    'MerchantCode' => $this->config->item('hesabe_merchant_code'), 
-                    'Amount' => number_format($invoiceamt, 3), 
-                    'SuccessUrl' => $success_url, 
-                    'FailureUrl' => $error_url, 
-                    'Variable1' => $invoicebsnsid,
-                    'Variable2' => $invoiceid,
-                    'Variable3' => $invoicedesc,
-                    'Variable4' => $invoicecode,
-                    'Variable5' => $invoiceamt
-                );
-        $options = array(
-            'http' => array(
-                'header' => "Content-type: application/x-www-form-urlencoded\r\n",
-                'method' => 'POST',
-                'content' => http_build_query($data),
-            ),
+        $headers = array(
+            'Content-Type: application/json',
+            'Authorization: Basic ' . base64_encode("$username:$password"),
         );
-        $context = stream_context_create($options);
-        $result = file_get_contents($url, false, $context);
-        $json = json_decode($result);
+        $invoice_details = $this->post_with_curl($url, null, $headers);
 
-        $data['status'] = 400;
-        $data['message'] = "Some error occurred while processing your request";
-        if ($json->status === 'success') {
-            $token = $json->data->token;
-            $paymenturl = $json->data->paymenturl;
-            $url = $paymenturl . $token;
-            $data['url'] = $url;
-            $data['status'] = 200;
-            $data['message'] = "Redirecting to payment gateway...";
+        $j_data['status'] = 400;
+        $j_data['message'] = "Some error occurred while processing your request";
+        if(!empty($invoice_details)){
+            $invoiceamt = $invoice_details['TotalAmount'];
+            $success_url = base_url('payment/success_checkout');
+            $error_url = base_url('payment/error_checkout');
+            $url = $this->config->item('hesabe_request_url');
+            $data = array(
+                        'MerchantCode' => $this->config->item('hesabe_merchant_code'), 
+                        'Amount' => number_format($invoiceamt, 3), 
+                        'SuccessUrl' => $success_url, 
+                        'FailureUrl' => $error_url,
+                        'Variable1' => $invoiceid
+            );
+            $options = array(
+                'http' => array(
+                    'header' => "Content-type: application/x-www-form-urlencoded\r\n",
+                    'method' => 'POST',
+                    'content' => http_build_query($data),
+                ),
+            );
+
+            $context = stream_context_create($options);
+            $result = file_get_contents($url, false, $context);
+            $json = json_decode($result);
+            if ($json->status === 'success') {
+                $token = $json->data->token;
+                $paymenturl = $json->data->paymenturl;
+                $url = $paymenturl . $token;
+                $j_data['url'] = $url;
+                $j_data['status'] = 200;
+                $j_data['message'] = "Redirecting to payment gateway...";
+            }
         }
 
-        print_r(json_encode($data));
+        print_r(json_encode($j_data));
     }
 
     public function success_checkout(){
         $status = $this->input->get('Status');
         if ($status == '1') {
-            $invoicebsnsid = urldecode($this->input->get('Variable1'));
-            $invoiceid = $this->input->get('Variable2');
-            $invoicedesc = urldecode($this->input->get('Variable3'));
-            $invoicecode = urldecode($this->input->get('Variable4'));
-            $invoiceamt = urldecode($this->input->get('Variable5'));
+            $invoiceid = urldecode($this->input->get('Variable1'));
+
+            $url = "https://spaces.nexudus.com/api/billing/coworkerinvoices/".$invoiceid;
+            $username = $this->config->item('username');
+            $password = $this->config->item('password');
+
+            $headers = array(
+                'Content-Type: application/json',
+                'Authorization: Basic ' . base64_encode("$username:$password"),
+            );
+            $invoice_details = $this->post_with_curl($url, null, $headers);
 
             $url = "https://spaces.nexudus.com/api/billing/coworkerledgerentries";
             $s_data = json_encode(array(
-                                    'BusinessId' => $invoicebsnsid, 
-                                    'CoworkerId' => $invoiceid, 
-                                    'CoworkerInvoiceId' => $invoiceid,
-                                    'Description' => $invoicedesc, 
-                                    'Code' => $invoicecode,
-                                    'Debit' => $invoiceamt,
-                                    'Credit' => 0, 
-                                    'Balance' => 0
-                                ));
+                        'BusinessId' => $invoice_details['BusinessId'], 
+                        'CoworkerId' => $invoice_details['CoworkerId'], 
+                        'CoworkerInvoiceId' => $invoiceid,
+                        'Description' => $invoice_details['Description'], 
+                        'Code' => "123456",
+                        'Debit' => 0,
+                        'Credit' => $invoice_details['TotalAmount']
+            ));
             $headers = array(
                 'Content-Type: application/json',
                 'Content-Length: ' . strlen($s_data),
                 'Authorization: Basic ' . base64_encode("$username:$password"),
             );
             $output = $this->post_with_curl($url, $s_data, $headers);
-
-            $this->session->set_flashdata('success', 'Payment completed');
-            redirect('main/invoice');
+            if($output['Status'] == 200 && $output['WasSuccessful']){
+                $this->session->set_flashdata('success', 'Payment completed');
+            }else{
+                $this->session->set_flashdata('error', "Error: Payment Unsuccessful");
+            }
+            
+        }else{
+            $this->session->set_flashdata('error', "Error: Payment Unsuccessful");
         }
+        redirect('main/invoice');
     }
 
     public function error_checkout(){
