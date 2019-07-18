@@ -1047,6 +1047,24 @@ class main extends CI_Controller
 
     public function forgot_password()
     {
+        if($this->input->post('email')){
+            $email = $this->input->post('email');
+            $token = $this->input->post('__RequestVerificationToken');
+            $bid = $this->input->post('bid');
+
+            $s_data = json_encode(array('email' => $email, '__RequestVerificationToken' => $token, 'bid' => $bid));
+            $url = $this->config->item('api_base_url')."en/user/resetPassword";//'https://spaces.nexudus.com/Login/SendResetPasswordMessage';
+            $headers = array(
+                'Content-Type: application/json',
+                'Content-Length: ' . strlen($s_data),
+            );
+            
+            $output = $this->post_with_curl($url, $s_data, $headers);
+            if(!empty($output)){
+                $this->session->set_flashdata('message', 'We have sent you an email with instructions on how to change your password.');
+            }
+
+        }
         $data['folder_name'] = 'main';
         $data['file_name'] = 'forgot_password';
         $data['header_name'] = 'header_account';

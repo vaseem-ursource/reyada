@@ -64,33 +64,69 @@ bottom: 0px;
 }
 </style> -->
 <section id="team" class="pb-1 mt-5" style="min-height:80vh">
+
     <div class="container px-5">
         <div class="row">
-            <div class="section-header pb-1 offset-md-4 col-md-4 pl-0" style="margin-top:15vh">
-				<div class="text-center">
-					<h5 class="h5" style="color:#000000;">Forgot Password</h5>
-				</div>
-				<div class="container pt-4 px-0">
-					<div class="row p-0 mt-2">
-                        <div class="col-12">
-                            <div class="group">
-                                <input  style="padding:4px !important;color:black !important;" type="text" id="date"><span class="highlight"></span><span class="bar"></span>
-                                <label>Enter your Email address</label>
-                            </div>
+          <form autocomplete="off" method="post" action="https://spaces.nexudus.com/Login/SendResetPasswordMessage" style="width:100%; margin: 0em 0em 0em 0em;" >
+              <div class="section-header pb-1 offset-md-4 col-md-4 pl-0" style="margin-top:15vh">
+              <div class="text-center">
+                <h5 class="h5" style="color:#000000;">Forgot Password</h5>
+              </div>
+          
+              <input name="__RequestVerificationToken" type="hidden" value="DetO1pk2VbJtRjETNldnvfMUwozbhU09kM0XxeVumZGgJWnnjuWjGK42Cxohs1yjxZIqltK-_fx-2Cm6zpSQ4Q1-qrg1">
+              <input type="hidden" value="9aef2531-feca-4842-908b-1e48d645f3f3" name="bid">
+
+              <div class="container pt-4 px-0">
+                <div class="row p-0 mt-2">
+                    <div class="col-12">
+                        <div class="group">
+                            <input  style="padding:4px !important;color:black !important;" type="email" name="email"><span class="highlight"></span><span class="bar"></span>
+                            <label>Enter your Email address</label>
                         </div>
-                        <div class="col-12">
-                            <div class="group text-center mt-2" style="">
-                                <a href="#" style="color:black;"><span id="findAvailable">Send</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>                  
-                            </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="group text-center mt-2" style="">
+                            <button type="submit" style="color:black;border: 0px;background-color: transparent;"><span id="findAvailable">Send</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>                  
                         </div>
-                        <div class="col-12">
-                            <div class="group text-center" style="">
-                                <span> We have sent you an email with instructions on how to change your password.</span>
-                            </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="group text-center" style="">
+                            <span> <?= ($this->session->flashdata('message') != "") ? $this->session->flashdata('message') : ""  ?></span>
                         </div>
-                       
-					</div>
-				</div>
+                    </div>                       
+                </div>
+              </div>
+          </form>
+        
+
+        <script>
+          $(document).ready(function(){
+            $('#password-recovery').submit(function(e){
+              e.preventDefault();
+              $.ajax({
+                  type: 'POST',
+                  dataType: 'json',
+                  url: $(this).attr('action'),
+                  data: $(this).serialize(),
+                  success: function(data) {
+                      console.log(data);
+                      if(data.status != 200){
+                        toastr.error(data.message);
+                      }else{
+                        toastr.success(data.message);
+                      }
+                      $('.whole_div').hide();
+                  },
+                  error: function(jqxhr, status, error) {
+                    $('.whole_div').hide();
+                    console.log(jqxhr);
+                    console.log(status);
+                    console.log(error);
+                  }
+              });
+            });
+          });
+        </script>
 
 
 <?php include 'account_master_end.php';?>

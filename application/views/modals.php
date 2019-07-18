@@ -119,7 +119,7 @@
                     <input name="loginPassword" type="password"><span class="highlight"></span><span class="bar"></span>
                     <label>Your Password</label>
                   </div>
-                  <a href="#" class="text-p text-secondary float-right">Forgot password?</a>
+                  <a href="<?= base_url('main/forgot_password') ?>" class="text-p text-secondary float-right">Forgot password?</a>
                   <br><br><br>
                   <a href="javascript:void(0)" id="loginButtonForm" style="color:black;"><span class="align-middle" data-toggle="modal"
                       data-target="#modalLoginsuccess">LOGIN</span> <i

@@ -160,7 +160,7 @@ bottom: 0px;
                           
                           </li>
                          
-                          <li><a href="javascript:;" class=""> Sign Out <i class="fa fa-angle-right custom pull-right"></i> </a></li>
+                          <li><a href="<?= base_url() ?>main/logout" class=""> Sign Out <i class="fa fa-angle-right custom pull-right"></i> </a></li>
                           </div>
                           </div>
                           </div>
