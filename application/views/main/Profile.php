@@ -348,8 +348,9 @@ ul.tools li i:after{
   </div> 
 
   <div class="col-12 mt-2 p-0">
-    <a href="#" style="color:black;"><span>See</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a> 
-    <a href="#" style="color:black;" class="pl-3"><span>My</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a> 
+    <!-- <a href="#" style="color:black;"><span>See</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a> 
+    <a href="#" style="color:black;" class="pl-3"><span>My</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>  -->
+    <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
   </div>
 </div>
    
