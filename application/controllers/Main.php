@@ -289,8 +289,16 @@ class main extends CI_Controller
     public function subscription_plan()
     {
         $p_data = $this->input->post();
-        $username = $this->session->userdata('username');
-        $password = $this->session->userdata('password');
+        if ($this->session->userdata('is_logged_in')) {
+            $user = $this->session->userdata('user_info');
+            $username = $user['Email'];
+            $password = $user['Password'];
+        }
+        else{
+            $username = $this->session->userdata('username');
+            $password = $this->session->userdata('password');
+        }
+        
         $access_token = $this->get_access_token($username, $password);
         if (!empty($access_token)) {
             $url = $this->config->item('api_base_url').'en/profile/newcontract?tariffguid=' . $p_data['tariff_guid'] . '&startdate=' . $p_data['selected_date'];
