@@ -935,6 +935,21 @@ class main extends CI_Controller
         echo json_encode($data);
     }
 
+    public function generate_pdf($uniq_id){
+        if ($this->session->userdata('is_logged_in')) {
+            $user = $this->session->userdata('user_info');
+            $username = $user['Email'];
+            $password = $user['Password'];
+
+            $headers = array(
+                'Content-Type: application/json',
+                'Authorization: Basic ' . base64_encode("$username:$password"),
+            );
+            $url = $this->config->item('api_base_url')."en/invoices/print?guid=$uniq_id";
+            $output = $this->post_with_curl($url, null, $headers);
+        }
+    }
+
     // My Invoive and Payment
     public function invoice()
     {
@@ -951,10 +966,8 @@ class main extends CI_Controller
                 'Authorization: Basic ' . base64_encode("$username:$password"),
             );
             // Creates an invoice for any unpaid bookings.
-            $output = $this->post_with_curl($pay_url, null, $headers);
-            if($output){
-                $output = $this->post_with_curl($url, null, $headers);
-            }
+            $output = $this->post_with_curl($url, null, $headers);
+            $output = $this->post_with_curl($url, null, $headers);
             if(isset($output['Invoices']) && !empty($output['Invoices'])){
                 $invoices = $output['Invoices'];
             }else{

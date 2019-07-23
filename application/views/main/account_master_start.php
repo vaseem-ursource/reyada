@@ -142,11 +142,11 @@ bottom: 0px;
                             </div>
                           </li>
                           <li><input type="checkbox" checked=""><i></i>
-                           <h6><span style="border-left:1px solid #AF0E17;padding:4px"></span> Plans & Benefits </h6>
+                           <h6><span style="border-left:1px solid #AF0E17;padding:2.9px;"></span> Plans & Benefits </h6>
                             <div class="artlist">
                             <a href="<?= base_url("main/plan#yourplan") ?>" class="list-group-item"> Your Plan </a>
                             <a href="<?= base_url("main/plan#benefits") ?>" class="list-group-item"> Your Benefits </a>
-                            <a href="<?= base_url("main/plan#additional") ?>" class="list-group-item"> Your Additional Products </a>
+                            <!-- <a href="<?= base_url("main/plan#additional") ?>" class="list-group-item"> Your Additional Products </a> -->
                             </div>
                           </li>
                           <li><input type="checkbox" checked=""><i></i>
