@@ -1,4 +1,4 @@
- <style>
+<style>
   .group 			  {
   position:relative;
   margin-bottom:20px;
@@ -89,9 +89,9 @@ bottom: 0px;
 							foreach ($events as $event) {?>
 								<div class="col-sm-4">
 									<div class="card">
-										<img class="card-img-top" src="<?= 'https://copyofreyadatestaccount.spaces.nexudus.com/en/events/getlargeimage?id='.$event->id ?>" height="180px" alt="Card image cap">
+										<img class="card-img-top" src="<?= 'https://copyofreyadatestaccount.spaces.nexudus.com/en/events/getsmallimage?id='.$event->id ?>" height="180px" alt="Card image cap">
 										<div class="card-body">
-											<span class="card-text h6"><?=$event->start?></span>
+											<span class="card-text h6"><?=date("Y-m-d H:i:s", strtotime($event->start))?></span>
 											<h6 class="card-text pt-1"><b><?=$event->title?></b></h6>
 											<span class="card-text h6"><?=$event->location?></span>
 											<!-- <h6 class="card-text">0.00 KD</h6> -->
@@ -105,5 +105,4 @@ bottom: 0px;
 
 
 <?php include 'account_master_end.php';?>
-
 
