@@ -67,15 +67,12 @@ bottom: 0px;
 
     <div class="container px-5">
         <div class="row">
-          <form autocomplete="off" method="post" action="https://spaces.nexudus.com/Login/SendResetPasswordMessage" style="width:100%; margin: 0em 0em 0em 0em;" >
+          <form autocomplete="off" method="post" action="" style="width:100%; margin: 0em 0em 0em 0em;" >
               <div class="section-header pb-1 offset-md-4 col-md-4 pl-0" style="margin-top:15vh">
               <div class="text-center">
                 <h5 class="h5" style="color:#000000;">Forgot Password</h5>
               </div>
           
-              <input name="__RequestVerificationToken" type="hidden" value="DetO1pk2VbJtRjETNldnvfMUwozbhU09kM0XxeVumZGgJWnnjuWjGK42Cxohs1yjxZIqltK-_fx-2Cm6zpSQ4Q1-qrg1">
-              <input type="hidden" value="9aef2531-feca-4842-908b-1e48d645f3f3" name="bid">
-
               <div class="container pt-4 px-0">
                 <div class="row p-0 mt-2">
                     <div class="col-12">

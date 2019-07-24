@@ -1049,17 +1049,17 @@ class main extends CI_Controller
     {
         if($this->input->post('email')){
             $email = $this->input->post('email');
-            $token = $this->input->post('__RequestVerificationToken');
-            $bid = $this->input->post('bid');
 
-            $s_data = json_encode(array('email' => $email, '__RequestVerificationToken' => $token, 'bid' => $bid));
-            $url = $this->config->item('api_base_url')."en/user/resetPassword";//'https://spaces.nexudus.com/Login/SendResetPasswordMessage';
+            $url = $this->config->item('api_base_url')."en/user/resetPassword?email=".$email;
+            $username = $this->config->item('username');
+            $password = $this->config->item('password');
+
             $headers = array(
                 'Content-Type: application/json',
-                'Content-Length: ' . strlen($s_data),
+                'Authorization: Basic ' . base64_encode("$username:$password"),
             );
-            
-            $output = $this->post_with_curl($url, $s_data, $headers);
+            $invoice_details = $this->post_with_curl($url, null, $headers);
+
             if(!empty($output)){
                 $this->session->set_flashdata('message', 'We have sent you an email with instructions on how to change your password.');
             }
