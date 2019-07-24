@@ -327,7 +327,7 @@ class main extends CI_Controller
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 
-        if (!empty($p_data)) {
+        if (!empty($p_data) || $headers['method'] = "post" ) {
             curl_setopt($ch, CURLOPT_POST, 1);
             curl_setopt($ch, CURLOPT_POSTFIELDS, $p_data);
         }
@@ -966,7 +966,7 @@ class main extends CI_Controller
                 'Authorization: Basic ' . base64_encode("$username:$password"),
             );
             // Creates an invoice for any unpaid bookings.
-            $output = $this->post_with_curl($url, null, $headers);
+            $output = $this->post_with_curl($pay_url, null, $headers);
             $output = $this->post_with_curl($url, null, $headers);
             if(isset($output['Invoices']) && !empty($output['Invoices'])){
                 $invoices = $output['Invoices'];
@@ -1068,21 +1068,24 @@ class main extends CI_Controller
 
     public function forgot_password()
     {
-        if($this->input->post('email')){
+        if($this->input->post('change-password')){
             $email = $this->input->post('email');
 
-            $url = $this->config->item('api_base_url')."en/user/resetPassword?email=".$email;
-            $username = $this->config->item('username');
-            $password = $this->config->item('password');
+            if(!empty(($email))){
+                $url = 'https://spaces.nexudus.com/api/sys/users/resetPassword?email='.$email;
+                $username = $this->config->item('username');
+                $password = $this->config->item('password');
 
-            $headers = array(
-                'Content-Type: application/json',
-                'Authorization: Basic ' . base64_encode("$username:$password"),
-            );
-            $invoice_details = $this->post_with_curl($url, null, $headers);
+                $headers['method'] = "post";
+                $output = $this->post_with_curl($url, null, $headers);
 
-            if(!empty($output)){
-                $this->session->set_flashdata('message', 'We have sent you an email with instructions on how to change your password.');
+                if(!empty($output)){
+                    $this->session->set_flashdata('success', $output['Message']);
+                }else{
+                    $this->session->set_flashdata('error', 'Please enter your valid email Id');
+                }
+            }else{
+                $this->session->set_flashdata('error', 'Please enter your valid email Id');
             }
 
         }
