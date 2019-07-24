@@ -577,21 +577,20 @@ $(document).ready(function() {
             url: base_url + 'main/book_a_tour',
             data: post_array, 
                 success: function(data) {
-                if(data.status != 200){
-                $('.whole_div').hide();
-                toastr.error(data.message);
-                }else{
+                    if(data.status != 200){
                     $('.whole_div').hide();
-                    $('#thankyouforbooktourNonRegmodal').modal('show');
-                    $("#pickdatemodalfortour").modal("hide");
-                }
+                    toastr.error(data.message);
+                    }else{
+                        $('.whole_div').hide();
+                        $('#thankyouforbooktourNonRegmodal').modal('show');
+                        $("#pickdatemodalfortour").modal("hide");
+                    }
                 },
-                error: function(jqxhr, status, error) {
-                $('.whole_div').hide();
-                toastr.error('some error occured');
-                console.log(jqxhr);
-                console.log(status);
-                console.log(error);
+                error: function(data) {
+                    $('.whole_div').hide();
+                    toastr.error('We could not update your profile, please try again later.');
+                    console.log(status);
+                    console.log(error);
                 }
             })
         }   
@@ -646,6 +645,7 @@ $(document).ready(function() {
                     data: post_array,
                     dataType: 'json', 
                     success: function(data){
+                        console.log(data)
                         post_array =
                         {
                             "CoworkerId": data.Value.Id,
@@ -942,6 +942,7 @@ $(document).ready(function() {
                 }
             },
             error: function(data){
+                console.log('booking data ' + data.responseJSON)
                 var message = data.responseJSON.Message.split(".");
                 $('.whole_div').hide(); 
                 toastr.error(message[0] + message[1] + '.');

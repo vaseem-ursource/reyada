@@ -586,7 +586,6 @@ class main extends CI_Controller
         $j_data['AgeInDays'] = 0.0000012655752314814815;
         $j_data['HasBanner'] = false;
         $j_data['Id'] = 0;
-        // $j_data['location'] = $p_data['location'];
         $j_data['IdString'] = "0";
         $j_data['UpdatedOn'] = null;
         $j_data['CreatedOn'] = "2019-05-21T11:20:56";
@@ -602,19 +601,27 @@ class main extends CI_Controller
         $webaddress = $p_data['location'];
 
         $s_data = json_encode(array('base64avatar' => null, 'Coworker' => $j_data, 'Team' => new stdClass()));
-        $url = "https://$webaddress.spaces.nexudus.com/en/signup?_resource=,&_depth=1";
+        $url = "https://copyofreyadatestaccount.spaces.nexudus.com/en/signup?_resource=,&_depth=1";
         $headers = array(
             'Content-Type: application/json',
             'Content-Length: ' . strlen($s_data),
         );
         $output = $this->post_with_curl($url, $s_data, $headers);
-        if ($output->RedirectTo == '/en/Profile/Tariff' && !empty($output->RedirectTo)) {
-            $json['message'] = 'Booked successfully';
-            $json['status'] = 200;
-        } else {
-            $json['message'] = 'There is a user with this email address already.';
-            $json['status'] = 500;
+        if(isset($output)){
+            if ($output['RedirectTo'] == '/en/Profile/Tariff' && !empty($output['RedirectTo'])) {
+                $json['message'] = 'Booked successfully';
+                $json['status'] = 200;
+            } else {
+                $json['body'] = $s_data;
+                $json['message'] = 'There is a user with this email address already.';
+                $json['status'] = 500;
+            }
         }
+        else{
+            $json['body'] = $s_data;
+            $json['message'] = 'some error occured while processing your request'; 
+        }
+        
 
         print_r(json_encode($json));
     }
