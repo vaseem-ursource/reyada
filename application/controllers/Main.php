@@ -327,7 +327,7 @@ class main extends CI_Controller
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 
-        if (!empty($p_data) || $headers['method'] = "post" ) {
+        if (!empty($p_data) || $headers[0] == "post" ) {
             curl_setopt($ch, CURLOPT_POST, 1);
             curl_setopt($ch, CURLOPT_POSTFIELDS, $p_data);
         }
@@ -335,9 +335,9 @@ class main extends CI_Controller
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         $result = curl_exec($ch);
-        $output = (array) json_decode($result);
         curl_close($ch);
 
+        $output = (array) json_decode($result);
         return $output;
     }
 
@@ -966,7 +966,7 @@ class main extends CI_Controller
                 'Authorization: Basic ' . base64_encode("$username:$password"),
             );
             // Creates an invoice for any unpaid bookings.
-            $output = $this->post_with_curl($pay_url, null, $headers);
+            $output1 = $this->post_with_curl($pay_url, null, $headers);
             $output = $this->post_with_curl($url, null, $headers);
             if(isset($output['Invoices']) && !empty($output['Invoices'])){
                 $invoices = $output['Invoices'];
@@ -1073,11 +1073,12 @@ class main extends CI_Controller
 
             if(!empty(($email))){
                 $url = 'https://spaces.nexudus.com/api/sys/users/resetPassword?email='.$email;
+                // $t_url = $this->config->item('api_base_url').'en/users/resetPassword?email='.$email;
                 $username = $this->config->item('username');
                 $password = $this->config->item('password');
 
-                $headers['method'] = "post";
-                $output = $this->post_with_curl($url, null, $headers);
+                $headers = array("post");
+                $output = $this->post_with_curl($t_url, null, $headers);
 
                 if(!empty($output)){
                     $this->session->set_flashdata('success', $output['Message']);

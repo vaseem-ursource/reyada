@@ -20,7 +20,7 @@
                                 <b>#<?= $invoice->InvoiceNumber ?></b> - <?= date('m/d/Y', strtotime($invoice->CreatedOn)) ?> <br>
                                 <?= (!$invoice->Paid) ? '<small>To be paid by ' . date('d M Y', strtotime($invoice->DueDate)) . '</small>' : ''; ?>
                             </td>
-                            <td><a class="gen-invoice" href="<?= $this->config->item('api_base_url') ?>en/invoices/print?guid=<?= $invoice->UniqueId ?>"><img src="<?= base_url('image/cloud_down.png');?>" alt="" width="15px" class="pull-right"></td>
+                            <td><a class="gen-invoice" href="https://spaces.nexudus.com/ContentDownload/DownloadTempDataFile?uniqueId=<?= $invoice->UniqueId ?>"><img src="<?= base_url('image/cloud_down.png');?>" alt="" width="15px" class="pull-right"></td>
                             <td>KD <?= $invoice->TotalAmount ?></td>
                             <?php if($invoice->Paid) { ?>
                                 <td colspan="2" style="color:#6FBC89";><i class="fa fa-check" style="font-size:10px"></i>   Paid on <?= date('l, M d, Y', strtotime($invoice->PaidOn)) ?> </td>

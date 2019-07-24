@@ -758,7 +758,7 @@ ul.tools li i:after{
       </div>
       <div class="col-md-5 pl-4">
         <div class="group">
-          <span style="font-size:15px">Forgot it? <a href="<?= $this->config->item('api_base_url') ?>en/profile/sendresetpasswordemail"><u style="color: black;">Request a password reset.</u></a></span>
+          <span style="font-size:15px">Forgot it? <a href="<?= base_url('main/forgot_password') ?>"><u style="color: black;">Request a password reset.</u></a></span>
         </div>
       </div>
     </div>
