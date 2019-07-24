@@ -327,7 +327,7 @@ class main extends CI_Controller
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 
-        if (!empty($p_data)) {
+        if (!empty($p_data) || $headers[0] == "post" ) {
             curl_setopt($ch, CURLOPT_POST, 1);
             curl_setopt($ch, CURLOPT_POSTFIELDS, $p_data);
         }
@@ -335,9 +335,9 @@ class main extends CI_Controller
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         $result = curl_exec($ch);
-        $output = (array) json_decode($result);
         curl_close($ch);
 
+        $output = (array) json_decode($result);
         return $output;
     }
 
@@ -973,7 +973,7 @@ class main extends CI_Controller
                 'Authorization: Basic ' . base64_encode("$username:$password"),
             );
             // Creates an invoice for any unpaid bookings.
-            $output = $this->post_with_curl($url, null, $headers);
+            $output1 = $this->post_with_curl($pay_url, null, $headers);
             $output = $this->post_with_curl($url, null, $headers);
             if(isset($output['Invoices']) && !empty($output['Invoices'])){
                 $invoices = $output['Invoices'];
@@ -1075,21 +1075,25 @@ class main extends CI_Controller
 
     public function forgot_password()
     {
-        if($this->input->post('email')){
+        if($this->input->post('change-password')){
             $email = $this->input->post('email');
-            $token = $this->input->post('__RequestVerificationToken');
-            $bid = $this->input->post('bid');
 
-            $s_data = json_encode(array('email' => $email, '__RequestVerificationToken' => $token, 'bid' => $bid));
-            $url = $this->config->item('api_base_url')."en/user/resetPassword";//'https://spaces.nexudus.com/Login/SendResetPasswordMessage';
-            $headers = array(
-                'Content-Type: application/json',
-                'Content-Length: ' . strlen($s_data),
-            );
-            
-            $output = $this->post_with_curl($url, $s_data, $headers);
-            if(!empty($output)){
-                $this->session->set_flashdata('message', 'We have sent you an email with instructions on how to change your password.');
+            if(!empty(($email))){
+                $url = 'https://spaces.nexudus.com/api/sys/users/resetPassword?email='.$email;
+                // $t_url = $this->config->item('api_base_url').'en/users/resetPassword?email='.$email;
+                $username = $this->config->item('username');
+                $password = $this->config->item('password');
+
+                $headers = array("post");
+                $output = $this->post_with_curl($t_url, null, $headers);
+
+                if(!empty($output)){
+                    $this->session->set_flashdata('success', $output['Message']);
+                }else{
+                    $this->session->set_flashdata('error', 'Please enter your valid email Id');
+                }
+            }else{
+                $this->session->set_flashdata('error', 'Please enter your valid email Id');
             }
 
         }

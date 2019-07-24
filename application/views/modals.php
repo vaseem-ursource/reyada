@@ -703,7 +703,7 @@
 
   function get_price_plans(plan_name = null){
     $(".price_plans").empty();
-      $.ajax({
+    $.ajax({
         type: 'GET',
         url: 'https://spaces.nexudus.com/api/billing/tariffs?Tariff_GroupName=' + plan_name,
         beforeSend: function(xhr) {
