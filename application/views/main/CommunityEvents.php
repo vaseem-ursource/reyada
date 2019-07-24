@@ -1,4 +1,4 @@
- <style>
+<style>
   .group 			  {
   position:relative;
   margin-bottom:20px;
@@ -66,14 +66,7 @@ bottom: 0px;
 <section id="team" class="pb-1 mt-5" style="min-height:80vh">
     <div class="container">
         <div class="row">
-            <div class="col-12 row mb-4">
-                <div class="col-12 text-center">
-                    <img src="<?=base_url('image/location.png');?>" alt="" width="25px"><span> CRYSTAL TOWER</span>
-                    <span class="h3 pull-right">Booking.</span>
-                </div>
-            </div>
-
-            <div class="section-header pb-1 col-md-12 pl-0">
+                  <div class="section-header pb-1 col-md-12 pl-0">
 				<div style="border-bottom:1px solid #707070">
 					<span class="h6" style="color:#000000;">Home / Events</span>
 					<span class="h3 pl-5 mx-auto" style="color:#000000; margin-left: 25% !important;">Events at Reyada</span>
@@ -89,9 +82,9 @@ bottom: 0px;
 							foreach ($events as $event) {?>
 								<div class="col-sm-4">
 									<div class="card">
-										<img class="card-img-top" src="<?= 'https://copyofreyadatestaccount.spaces.nexudus.com/en/events/getlargeimage?id='.$event->id ?>" height="180px" alt="Card image cap">
+										<img class="card-img-top" src="<?= 'https://copyofreyadatestaccount.spaces.nexudus.com/en/events/getsmallimage?id='.$event->id ?>" height="180px" alt="Card image cap">
 										<div class="card-body">
-											<span class="card-text h6"><?=$event->start?></span>
+											<span class="card-text h6"><?=date("Y-m-d H:i:s", strtotime($event->start))?></span>
 											<h6 class="card-text pt-1"><b><?=$event->title?></b></h6>
 											<span class="card-text h6"><?=$event->location?></span>
 											<!-- <h6 class="card-text">0.00 KD</h6> -->
@@ -105,5 +98,4 @@ bottom: 0px;
 
 
 <?php include 'account_master_end.php';?>
-
 

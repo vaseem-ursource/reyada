@@ -18,7 +18,7 @@
                 <?php } ?>
             <?php } ?>
         <?php } ?>
-        <a href="<?= base_url('main/services#payasyougo');?>" style="color:#000000;" target="_blank"><span class="pl-3"><small>Join a new<small></span><i class="fa fa-angle-right fa-2x pl-1 pb-2 align-middle"></i></a>
+        <a href="#" style="color:#000000;" id="joinplan"><span class="pl-3"><small>Join a new<small></span><i class="fa fa-angle-right fa-2x pl-1 pb-2 align-middle"></i></a>
     </div>
     <div class="pt-4" style="border-bottom:1px solid #707070" id="benefits"> 
         <span class="text-left h4" style="color:#000000;">Benefits</span>  
@@ -58,7 +58,7 @@
             </table>
         <?php } ?>
     </div>
-
+<!-- 
     <div class="pt-4" style="border-bottom:1px solid #707070" id="additional"> 
         <span class="text-left h4" style="color:#000000;">Your additional products</span>  
     </div>
@@ -94,7 +94,13 @@
             </table>
         <?php } ?>
         <a href="#" style="color:#000000;"><span class="pl-3 h6">See</span><i class="fa fa-angle-right fa-2x pl-1 pb-2 align-middle"></i></a>
-    </div>
+    </div> -->
 <?php include('account_master_end.php');?>
-       
+<script>
+ $("#joinplan").click(function () {
+    $(".firstSignup").css('display', 'none');
+    $(".secondSignup").css('display', 'block');
+    $('#modalsignup').modal('show');
+  });
+</script>      
 

@@ -587,6 +587,8 @@ $(document).ready(function() {
                 }
                 },
                 error: function(jqxhr, status, error) {
+                $('.whole_div').hide();
+                toastr.error('some error occured');
                 console.log(jqxhr);
                 console.log(status);
                 console.log(error);
@@ -809,7 +811,7 @@ $(document).ready(function() {
     function get_locations(){
         $.ajax({
             type: 'GET',
-            url: 'https://spaces.nexudus.com/api/sys/businesses',
+            url: 'https://spaces.nexudus.com/api/sys/businesses?dir=' +'Descending',
             beforeSend: function(xhr) {
                 xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + password));
             },
