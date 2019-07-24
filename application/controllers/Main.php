@@ -601,7 +601,7 @@ class main extends CI_Controller
         $webaddress = $p_data['location'];
 
         $s_data = json_encode(array('base64avatar' => null, 'Coworker' => $j_data, 'Team' => new stdClass()));
-        $url = "https://copyofreyadatestaccount.spaces.nexudus.com/en/signup?_resource=,&_depth=1";
+        $url = "https://$webaddress.spaces.nexudus.com/en/signup?_resource=,&_depth=1";
         $headers = array(
             'Content-Type: application/json',
             'Content-Length: ' . strlen($s_data),
