@@ -558,8 +558,8 @@
               }else{
                 $('.whole_div').hide();
                 toastr.success('Registered Succesfully');
-                // $(".firstSignup").css('display', 'none');
-                // $(".secondSignup").css('display', 'block');
+                $(".firstSignup").css('display', 'none');
+                $(".secondSignup").css('display', 'block');
               }
           },
           error: function(jqxhr, status, error) {
