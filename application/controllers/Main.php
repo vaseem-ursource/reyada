@@ -190,7 +190,7 @@ class main extends CI_Controller
         $output = $this->post_with_curl($url, $s_data, $headers);
 
         if (!empty($output)) {
-            if ($this->signin($p_data['Email'], $p_data['Password'])) {
+            if ($this->signin($p_data['Email'], $p_data['Password']) && $output['RedirectTo'] == "/en/Profile/Tariff") {
                 $this->session->set_userdata('username', $p_data['Email']);
                 $this->session->set_userdata('password', $p_data['Password']);
                 $json['message'] = 'registered successfully';
@@ -323,27 +323,20 @@ class main extends CI_Controller
 
     public function get_invoice_pdf()
     {
-        $json['msg'] = "failed";
+        $json['msg'] = 500;
         $url = $this->input->post('post_url');
         if($url){
-            $username = $this->config->item('username');
-            $password = $this->config->item('password');
+            $user = $this->session->userdata('user_info');
+            $username = $user['Email'];
+            $password = $user['Password'];
+
             $access_token = $this->get_access_token($username, $password);
             if(!empty($access_token)){
-                $headers = array(
-                    'Content-Type: application/pdf',
-                    'Authorization: Basic ' . base64_encode("$username:$password"),
-                );
-                $api_url = "https://spaces.nexudus.com/login/login?t=".$access_token."&redirectUrl=".$url."&downloadFileName=Invoice%20INV%200381%20%20%20Rob%20Dabb.pdf&expirationTimeInMinutes=1";
-                $output = $this->post_with_curl($api_url, null, $headers);
-                if($output){
-                    $json['msg'] = $api_url;
-                }
+                $api_url = "https://spaces.nexudus.com/login/login?t=".$access_token."&redirectUrl=".urlencode($url)."&downloadFileName=Invoice%20INV%200381%20%20%20Rob%20Dabb.pdf&expirationTimeInMinutes=1";
                 $json['msg'] = $api_url;
             }
         }
         
-
         print_r(json_encode($json));
     }
 

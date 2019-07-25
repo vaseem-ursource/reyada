@@ -131,7 +131,6 @@ bottom: 0px;
                           <li><input type="checkbox" checked=""><i></i>
                            <h6><span style="border-left:1px solid #AF0E17;padding:4px"></span> Your Account </h6>
                             <div class="artlist">
-                            <a href="<?= base_url("main/profile#profilepage") ?>" class="list-group-item"> Your Photo </a>
                             <a href="<?= base_url("main/profile#Personal") ?>" class="list-group-item"> Personal Details </a>
                             <a href="<?= base_url("main/profile#billing") ?>" class="list-group-item membership2"> Billing Details </a>
                             <a href="<?= base_url("main/profile#professional") ?>" class="list-group-item"> Professional Profile </a>
