@@ -84,18 +84,13 @@
 
             $('.gen-invoice').click(function(e){
                 e.preventDefault();
-
-                var username = 'aeraf@ursource.org';
-                var password = 'view1Sonic!';
-                var url = $(this).attr('href');
-
-                console.log('reqsted url: '+url);
+                var base_url = '<?= base_url(); ?>';
+                var data_url = $(this).attr('href');
+                
                 $.ajax({
-                    type: 'GET',
-                    url: url,
-                    beforeSend: function(xhr) {
-                        xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + password));
-                    },
+                    type: 'POST',
+                    url: base_url + 'main/get_invoice_pdf',
+                    data: 'post_url='+data_url,
                     dataType: 'json', 
                     success: function(data){
                         console.log(data);

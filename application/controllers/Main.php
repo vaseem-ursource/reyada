@@ -321,6 +321,32 @@ class main extends CI_Controller
         print_r(json_encode($json));
     }
 
+    public function get_invoice_pdf()
+    {
+        $json['msg'] = "failed";
+        $url = $this->input->post('post_url');
+        if($url){
+            $username = $this->config->item('username');
+            $password = $this->config->item('password');
+            $access_token = $this->get_access_token($username, $password);
+            if(!empty($access_token)){
+                $headers = array(
+                    'Content-Type: application/pdf',
+                    'Authorization: Basic ' . base64_encode("$username:$password"),
+                );
+                $api_url = "https://spaces.nexudus.com/login/login?t=".$access_token."&redirectUrl=".$url."&downloadFileName=Invoice%20INV%200381%20%20%20Rob%20Dabb.pdf&expirationTimeInMinutes=1";
+                $output = $this->post_with_curl($api_url, null, $headers);
+                if($output){
+                    $json['msg'] = $api_url;
+                }
+                $json['msg'] = $api_url;
+            }
+        }
+        
+
+        print_r(json_encode($json));
+    }
+
     public function post_with_curl($url, $p_data = null, $headers)
     {
         $ch = curl_init($url);
@@ -933,21 +959,6 @@ class main extends CI_Controller
         $data['row'] = $rowno;
 
         echo json_encode($data);
-    }
-
-    public function generate_pdf($uniq_id){
-        if ($this->session->userdata('is_logged_in')) {
-            $user = $this->session->userdata('user_info');
-            $username = $user['Email'];
-            $password = $user['Password'];
-
-            $headers = array(
-                'Content-Type: application/json',
-                'Authorization: Basic ' . base64_encode("$username:$password"),
-            );
-            $url = $this->config->item('api_base_url')."en/invoices/print?guid=$uniq_id";
-            $output = $this->post_with_curl($url, null, $headers);
-        }
     }
 
     // My Invoive and Payment
