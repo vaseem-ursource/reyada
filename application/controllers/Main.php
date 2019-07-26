@@ -190,7 +190,7 @@ class main extends CI_Controller
         $output = $this->post_with_curl($url, $s_data, $headers);
 
         if (!empty($output)) {
-            if ($this->signin($p_data['Email'], $p_data['Password'])) {
+            if ($this->signin($p_data['Email'], $p_data['Password']) && $output['RedirectTo'] == "/en/Profile/Tariff") {
                 $this->session->set_userdata('username', $p_data['Email']);
                 $this->session->set_userdata('password', $p_data['Password']);
                 $json['message'] = 'registered successfully';
@@ -318,6 +318,25 @@ class main extends CI_Controller
             $json['message'] = 'some error occured while processing your request';
             $json['status'] = 500;
         }
+        print_r(json_encode($json));
+    }
+
+    public function get_invoice_pdf()
+    {
+        $json['msg'] = 500;
+        $url = $this->input->post('post_url');
+        if($url){
+            $user = $this->session->userdata('user_info');
+            $username = $user['Email'];
+            $password = $user['Password'];
+
+            $access_token = $this->get_access_token($username, $password);
+            if(!empty($access_token)){
+                $api_url = "https://spaces.nexudus.com/login/login?t=".$access_token."&redirectUrl=".urlencode($url)."&downloadFileName=Invoice%20INV%200381%20%20%20Rob%20Dabb.pdf&expirationTimeInMinutes=1";
+                $json['msg'] = $api_url;
+            }
+        }
+        
         print_r(json_encode($json));
     }
 
@@ -940,21 +959,6 @@ class main extends CI_Controller
         $data['row'] = $rowno;
 
         echo json_encode($data);
-    }
-
-    public function generate_pdf($uniq_id){
-        if ($this->session->userdata('is_logged_in')) {
-            $user = $this->session->userdata('user_info');
-            $username = $user['Email'];
-            $password = $user['Password'];
-
-            $headers = array(
-                'Content-Type: application/json',
-                'Authorization: Basic ' . base64_encode("$username:$password"),
-            );
-            $url = $this->config->item('api_base_url')."en/invoices/print?guid=$uniq_id";
-            $output = $this->post_with_curl($url, null, $headers);
-        }
     }
 
     // My Invoive and Payment

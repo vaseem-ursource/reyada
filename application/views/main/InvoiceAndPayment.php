@@ -20,7 +20,7 @@
                                 <b>#<?= $invoice->InvoiceNumber ?></b> - <?= date('m/d/Y', strtotime($invoice->CreatedOn)) ?> <br>
                                 <?= (!$invoice->Paid) ? '<small>To be paid by ' . date('d M Y', strtotime($invoice->DueDate)) . '</small>' : ''; ?>
                             </td>
-                            <td><a class="gen-invoice" href="https://spaces.nexudus.com/ContentDownload/DownloadTempDataFile?uniqueId=<?= $invoice->UniqueId ?>"><img src="<?= base_url('image/cloud_down.png');?>" alt="" width="15px" class="pull-right"></td>
+                            <td><a class="gen-invoice" href="<?= $this->config->item('api_base_url') ?>en/invoices/print?guid=<?= $invoice->UniqueId ?>"><img src="<?= base_url('image/cloud_down.png');?>" alt="" width="15px" class="pull-right"></td>
                             <td>KD <?= $invoice->TotalAmount ?></td>
                             <?php if($invoice->Paid) { ?>
                                 <td colspan="2" style="color:#6FBC89";><i class="fa fa-check" style="font-size:10px"></i>   Paid on <?= date('l, M d, Y', strtotime($invoice->PaidOn)) ?> </td>
@@ -84,21 +84,22 @@
 
             $('.gen-invoice').click(function(e){
                 e.preventDefault();
-
-                var username = 'aeraf@ursource.org';
-                var password = 'view1Sonic!';
-                var url = $(this).attr('href');
-
-                console.log('reqsted url: '+url);
+                $('.whole_div').show();
+                var base_url = '<?= base_url(); ?>';
+                var data_url = $(this).attr('href');
+                
                 $.ajax({
-                    type: 'GET',
-                    url: url,
-                    beforeSend: function(xhr) {
-                        xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + password));
-                    },
+                    type: 'POST',
+                    url: base_url + 'main/get_invoice_pdf',
+                    data: 'post_url='+data_url,
                     dataType: 'json', 
                     success: function(data){
-                        console.log(data);
+                        if(data.msg == 500){
+                            toastr.error("Please login with authentic user.");
+                        }else{
+                            window.location.replace(data.msg);
+                        }
+                        $('.whole_div').hide();
                     },
                     error: function(jqxhr, status, error) {
                         $('.whole_div').hide();
