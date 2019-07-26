@@ -440,7 +440,7 @@
                         <img src="<?= base_url()?>image/membership/bg1.jpg" class="w-100 " alt="">
                         <div class="border-left border-secondary p-3">
                             <span class="pt-3 pl-3">From KWD 10 per month</span><br>
-                            <span><i class="fa fa-angle-right fa-2x pt-3 pl-3"></i></span>
+                            <span><i class="fa fa-angle-right fa-2x pt-3 pl-3 planshow"></i></span>
                         </div>
                     </div>
                </div>
@@ -448,7 +448,7 @@
                     <img src="<?= base_url()?>image/membership/bg1.jpg" class="w-100 " alt="">
                     <div class="border-left border-secondary p-3">
                         <span class="pt-3 pl-3">From KWD 10 per month</span><br>
-                        <span><i class="fa fa-angle-right fa-2x pt-3 pl-3"></i></span>
+                        <span><i class="fa fa-angle-right fa-2x pt-3 pl-3 "></i></span>
                     </div>
                </div>
             </div>
@@ -466,7 +466,7 @@
                     <img src="<?= base_url()?>image/membership/bg2.jpg" class="w-100 mt-4" alt="">
                     <div class="border-right border-secondary p-3 text-right">
                         <span class="pt-3 pl-3">From KWD 75 per month</span><br>
-                        <span><i class="fa fa-angle-right fa-2x pt-3 pl-3"></i></span>
+                        <span><i class="fa fa-angle-right fa-2x pt-3 pl-3 planshow"></i></span>
                     </div>
                </div>
                <div class="col-md-6 pt-4 mt-4">
@@ -525,7 +525,7 @@
                     <img src="<?= base_url()?>image/membership/bg3.jpg" class="w-100" alt="">
                     <div class="border-left border-secondary p-3">
                         <span class="pt-3 pl-3">From KWD 350 per month</span><br>
-                        <span><i class="fa fa-angle-right fa-2x pt-3 pl-3"></i></span>
+                        <span><i class="fa fa-angle-right fa-2x pt-3 pl-3 planshow"></i></span>
                     </div>
                </div>
             </div>
@@ -667,3 +667,20 @@ member is not there ? </h6>
 
       </div>
     </section><!-- #Latest Article -->
+<script>
+var is_logged_in = '<?= $is_logged_in ?>';
+$(".planshow").click(function () {
+    if(is_logged_in == 1){
+        $(".firstSignup").css('display', 'none');
+        $(".secondSignup").css('display', 'block');
+        $('#modalsignup').modal('show');
+    }
+    else{
+        $(".firstSignup").css('display', 'block');
+        $(".secondSignup").css('display', 'none');
+        $('#modalsignup').modal('show'); 
+    }
+    
+  });
+
+</script>

@@ -84,7 +84,7 @@ bottom: 0px;
 									<div class="card">
 										<img class="card-img-top" src="<?= 'https://copyofreyadatestaccount.spaces.nexudus.com/en/events/getsmallimage?id='.$event->id ?>" height="180px" alt="Card image cap">
 										<div class="card-body">
-											<span class="card-text h6"><?=date("Y-m-d H:i:s", strtotime($event->start))?></span>
+											<span class="card-text h6"><?=date("Y-m-d H:i:s", strtotime($event->start) - 10800)?></span>
 											<h6 class="card-text pt-1"><b><?=$event->title?></b></h6>
 											<span class="card-text h6"><?=$event->location?></span>
 											<!-- <h6 class="card-text">0.00 KD</h6> -->

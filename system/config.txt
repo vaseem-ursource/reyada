@@ -1,0 +1,36 @@
+$db['default'] = array(
+	'dsn'	=> '',
+	'hostname' => 'localhost',
+	'username' => 'hesabfks_reyada',
+	'password' => 'ApL!0g2=#kVL',
+	'database' => 'hesabfks_reyada_new',
+	//'username' => 'root',
+	//'password' => '',
+	//'database' => 'reyada_db',
+	// 'database' => 'hms_db',
+	'dbdriver' => 'mysqli',
+	'dbprefix' => '',
+	'pconnect' => FALSE,
+	'db_debug' => (ENVIRONMENT !== 'production'),
+	'cache_on' => FALSE,
+	'cachedir' => '',
+	'char_set' => 'utf8',
+	'dbcollat' => 'utf8_general_ci',
+	'swap_pre' => '',
+	'encrypt' => FALSE,
+	'compress' => FALSE,
+	'stricton' => FALSE,
+	'failover' => array(),
+	'save_queries' => TRUE
+);
+
+$config['base_url'] = 'http://reyada.ursource.org/';
+$config['api_base_url'] = 'https://copyofreyadatestaccount.spaces.nexudus.com/';
+$config['username'] = 'aeraf@ursource.org';
+$config['password'] = 'view1Sonic!';
+date_default_timezone_set('Asia/Kuwait');
+
+// Hesabe merchant details
+$config['hesabe_request_url']      = "http://demo.hesabe.com/authpost";
+$config['hesabe_checkout_url']     = "http://demo.hesabe.com/checkout/";
+$config['hesabe_merchant_code']    = "642616";

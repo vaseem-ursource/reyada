@@ -241,7 +241,7 @@ $(document).ready(function() {
     var location = $('.locations').val();
     var fromTime = date +'T'+  st_time  + 'Z'; 
     var totime = date +'T'+  to_time  + 'Z'; 
-    // get_available_rooms(fromTime,totime,location);
+    get_available_rooms(fromTime,totime,location);
   });
 
   $(".locations").change(function() {
@@ -264,7 +264,7 @@ $(document).ready(function() {
   function get_locations(){
         $.ajax({
             type: 'GET',
-            url: 'https://spaces.nexudus.com/api/sys/businesses?dir=' +'Descending',
+            url: 'https://spaces.nexudus.com/api/sys/businesses',
             beforeSend: function(xhr) {
                 xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + password));
             },
