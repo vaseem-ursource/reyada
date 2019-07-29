@@ -284,8 +284,7 @@
                   Sign in and see what you’ve missed!
                   <br><br>
                   <a href="#Login" style="color:white;"><span class="align-middle" data-toggle="modal"
-                      data-target="#modalLogin">LOGIN</span> <i
-                      class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
+                      data-target="#modalLogin">LOGIN</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
                 </small></h6>
             </div>
           </div>
@@ -503,8 +502,8 @@
 <script>
   $(document).ready(function(){
   var cur_date = '<?php echo date("Y-m-d") ?>';
-  var username = 'aeraf@ursource.org';
-  var password = 'view1Sonic!';
+  var username = '<?= $this->config->item('username')?>'
+  var password = '<?= $this->config->item('password')?>'
   var base_url = '<?= base_url(); ?>';
 
   $(".secondSignup").hide();

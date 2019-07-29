@@ -618,16 +618,14 @@ class main extends CI_Controller
         $j_data['isPayingMember'] = false;
         $j_data['ProfileTagsArray'] = [];
         $webaddress = $p_data['location'];
-
-        $s_data = json_encode(array('base64avatar' => null, 'Coworker' => $j_data, 'Team' => new stdClass()));
-        $url = "https://$webaddress.spaces.nexudus.com/en/signup?_resource=,&_depth=1";
+        $url = "https://$webaddress.spaces.nexudus.com/en/signup?createuser=false&_resource=,&_depth=1";
         $headers = array(
             'Content-Type: application/json',
             'Content-Length: ' . strlen($s_data),
         );
         $output = $this->post_with_curl($url, $s_data, $headers);
         if(isset($output)){
-            if ($output['RedirectTo'] == '/en/Profile/Tariff' && !empty($output['RedirectTo'])) {
+            if (isset($output['RedirectTo']) && $output['RedirectTo'] == '/en/Profile/Tariff' && !empty($output['RedirectTo'])) {
                 $json['message'] = 'Booked successfully';
                 $json['status'] = 200;
             } else {

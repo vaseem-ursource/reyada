@@ -586,11 +586,12 @@ $(document).ready(function() {
                         $("#pickdatemodalfortour").modal("hide");
                     }
                 },
-                error: function(data) {
+                error: function(error, status, msg) {
                     $('.whole_div').hide();
                     toastr.error('We could not update your profile, please try again later.');
                     console.log(status);
                     console.log(error);
+                    console.log(msg);
                 }
             })
         }   
