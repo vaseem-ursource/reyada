@@ -96,8 +96,8 @@
                   <br><br>
                   Sign up and become a part of the Reyada Community.
                   <br><br>
-                  <a href="#signup" style="color:white;"><span class="align-middle" data-toggle="modal"
-                      data-target="#modalsignup">SIGN UP</span> <i
+                  <a href="#signup" id="modalsignup1" style="color:white;"  data-toggle="modal"
+                      data-target="#modalsignup"><span class="align-middle">SIGN UP</span> <i
                       class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
                 </small></h6>
             </div>
@@ -283,8 +283,8 @@
                   <br><br>
                   Sign in and see what you’ve missed!
                   <br><br>
-                  <a href="#Login" style="color:white;"><span class="align-middle" data-toggle="modal"
-                      data-target="#modalLogin">LOGIN</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
+                  <a href="#backlogin" id="backlogin" style="color:white;" data-toggle="modal"
+                      data-target="#modalLogin"><span class="align-middle">LOGIN</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
                 </small></h6>
             </div>
           </div>
