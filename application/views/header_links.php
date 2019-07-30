@@ -70,7 +70,14 @@ i.fa.fa-search::after{
   <style>
   #myMenu ul li a i:before, ul li a i:after{
 background-color:transparent;
-}</style>
+}
+.modal-open {
+    overflow: visible;
+}
+.modal-open, .modal-open .navbar-fixed-top, .modal-open .navbar-fixed-bottom {
+    padding-right:0px!important;
+}
+</style>
 
 
   
