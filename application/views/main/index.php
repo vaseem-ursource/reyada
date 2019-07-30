@@ -2,6 +2,15 @@
 span.dot.active{
   background:#000;
 }
+body.modal-open-noscroll
+{
+    margin-right: 0!important;
+    overflow: hidden;
+}
+.modal-open-noscroll .navbar-fixed-top, .modal-open .navbar-fixed-bottom
+{
+    margin-right: 0!important;
+}
 </style>
   <section id="intro" class="clearfix align-middle" style="background:url('<?= base_url()?>image/home1.jpg') center  no-repeat;background-size: cover;height:100vh">
     <div class="container d-flex h-100">
@@ -282,7 +291,7 @@ span.dot.active{
     <!--==========================
       Highlight Section
     ============================-->
-    <section id="features"  class="section-bg">
+    <!-- <section id="features"  class="section-bg">
       <div class="container">
 
         <div class="row feature-item">
@@ -396,7 +405,8 @@ span.dot.active{
             }
           </script>
       </div>
-    </section><!-- #about -->
+    </section> -->
+    <!-- #about -->
 
 
 
@@ -441,6 +451,9 @@ span.dot.active{
     ============================-->
     <section id="clients" class="wow fadeInUp">
       <div class="container">
+      <div class="section-header pb-2">
+          <h3 style="color:#343a40">Affiliated Partners</h3>
+        </div>
         <div class="owl-carousel clients-carousel">
           <img src="<?= base_url()?>image/clients/ceros.png" alt="Ceros">
           <img src="<?= base_url()?>image/clients/safari.png" alt="Safari">
@@ -499,6 +512,21 @@ span.dot.active{
 $(document).on("click", "#bookingmodal", function () {
   $("#bookingmodal").modal("show"); 
 });
+
+$(document).ready(function () {
+    $('.modal').on('show.bs.modal', function () {
+        if ($(document).height() > $(window).height()) {
+            // no-scroll
+            $('body').addClass("modal-open-noscroll");
+        }
+        else {
+            $('body').removeClass("modal-open-noscroll");
+        }
+    });
+    $('.modal').on('hide.bs.modal', function () {
+        $('body').removeClass("modal-open-noscroll");
+    });
+})
 </script>
 
 

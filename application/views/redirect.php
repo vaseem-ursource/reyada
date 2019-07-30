@@ -1,6 +1,11 @@
 <script>
          $(document).on("click", "#modalsignup", function () {
-         $("#modalLogin").modal("hide"); 
+         $("#modalsignup").modal("hide"); 
+         $("#modalLogin").modal("show"); 
+        //  $("#modalsignup").modal("show"); 
+         });
+         $(document).on("click", "#modalLogin", function () {
+         $("#modalLogin").modal("show"); 
         //  $("#modalsignup").modal("show"); 
          });
 
