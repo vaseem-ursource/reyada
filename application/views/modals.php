@@ -417,7 +417,7 @@
                       <br><br>
                       <br><br>
                       <div class="col-md-12">
-                        <a href="#" id="signUpBtn" style="color:black;" class="float-left"><span class="align-middle">SIGN UP</span> <i
+                        <a href="#" id="signUpBtn" style="color:black;" class="float-left"><span class="align-middle">Continue</span> <i
                             class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
                       </div>
 

@@ -683,6 +683,7 @@ class main extends CI_Controller
             );
             $allowances = $this->post_with_curl($url, null, $headers);
             $data['coworker_plans'] = $allowances['ActiveContracts'];
+            $data['future_plan'] = $allowances['NonCancelledContracts'];
             $data['other_time_passes'] = $allowances['OtherTimePasses'];
             $data['other_extra_services'] = $allowances['OtherExtraServices'];
             $data['folder_name'] = 'main';
@@ -1087,7 +1088,7 @@ class main extends CI_Controller
                 $password = $this->config->item('password');
 
                 $headers = array("post");
-                $output = $this->post_with_curl($t_url, null, $headers);
+                $output = $this->post_with_curl($url, null, $headers);
 
                 if(!empty($output)){
                     $this->session->set_flashdata('success', $output['Message']);
