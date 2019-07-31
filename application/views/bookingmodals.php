@@ -380,12 +380,12 @@ $(document).ready(function() {
     var base_url = '<?= base_url(); ?>';
     var is_logged_in = '<?= $is_logged_in ?>';
     var user_info = <?php echo json_encode($user_info); ?>; 
-    get_locations();
 
     $(document).on("click", "#bookingbutton", function() {
         $("#bookingmodal").modal("show");
         $(".booking-option").show();
         $("#meetFormReg").hide();
+        get_locations();
     });
     $(document).on("click","#mr_book",function(){
         $('#confirmBooking').empty();

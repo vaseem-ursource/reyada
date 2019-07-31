@@ -206,6 +206,19 @@ class main extends CI_Controller
 
         print_r(json_encode($json));
     }
+    // public function get_booking_price(){
+    //     $p_data = $this->input->post();
+    //     $Booking['Resource']['Id'] = $p_data['resource_id'];
+    //     $Booking['FromTime'] = $p_data['FromTime'];
+    //     $Booking['ToTime'] = $p_data['to_time'];
+    //     $s_data = json_encode(array('Booking' => $Booking, 'Coworker' => new stdClass(),'Products' => []));
+    //     $url = $this->config->item('api_base_url')."en/bookings/getbookingprice";
+    //     $headers = array(
+    //         'Content-Type: application/json'
+    //     );
+    //     $output = $this->post_with_curl($url, $s_data , $headers);
+    //     print_r(json_encode($output));
+    // }
 
     public function signin($username = null, $password = null)
     {
