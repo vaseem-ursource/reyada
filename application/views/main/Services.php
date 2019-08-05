@@ -15,24 +15,24 @@
         </div> 
       
         <div class="row"> 
-            <div class="col-md-2 ml-4" onclick="openTab('b1');"> 
-                    <img src="<?= base_url()?>image/amenities/f9.png" class="img-fluid position-relative" alt="Card Back"> 
+            <div class="col-md-2 ml-4 text-center" onclick="openTab('b1');"> 
+                    <img src="<?= base_url()?>image/amenities/f9.png" width="75%" class="img-fluid position-relative" alt="Card Back"> 
                     <h4 id="b1h4"class="text-center text-dark position-relative pt-2 hed" style="font-size:inherit;display:block;" ><b>Location</b></h4> 
             </div> 
-            <div class="col-md-2 ml-4" onclick="openTab('b2');" > 
-                    <img src="<?= base_url()?>image/amenities/f1.png" class="img-fluid position-relative" alt="Card Back"> 
-                    <h4 id="b2h4" class="text-center text-dark position-relative pt-2 hed" style="font-size:inherit"><b>Fully</b></h4> 
+            <div class="col-md-2 ml-4 text-center" onclick="openTab('b2');" > 
+                    <img src="<?= base_url()?>image/amenities/f1.png" width="75%" class="img-fluid position-relative" alt="Card Back"> 
+                    <h4 id="b2h4" class="text-center text-dark position-relative pt-2 hed" style="font-size:inherit"><b>Fully Furnished</b></h4> 
             </div> 
-            <div class="col-md-2 ml-4" onclick="openTab('b3');" > 
-                    <img src="<?= base_url()?>image/amenities/f5.png" class="img-fluid position-relative" alt="Card Back"> 
+            <div class="col-md-2 ml-4 text-center" onclick="openTab('b3');" > 
+                    <img src="<?= base_url()?>image/amenities/f5.png" width="75%" class="img-fluid position-relative" alt="Card Back"> 
                     <h4 id="b3h4" class="text-center text-dark position-relative pt-2 hed" style="font-size:inherit"><b>Beverages</b></h4> 
             </div> 
-            <div class="col-md-2 ml-4" onclick="openTab('b4');" > 
-                    <img src="<?= base_url()?>image/amenities/f6.png" class="img-fluid position-relative" alt="Card Back"> 
+            <div class="col-md-2 ml-4 text-center" onclick="openTab('b4');" > 
+                    <img src="<?= base_url()?>image/amenities/f6.png" width="75%" class="img-fluid position-relative" alt="Card Back"> 
                     <h4  id="b4h4"class="text-center text-dark position-relative pt-2 hed" style="font-size:inherit"><b>Access</b></h4> 
             </div> 
-            <div class="col-md-2 ml-4" onclick="openTab('b5');" > 
-                    <img src="<?= base_url()?>image/amenities/f7.png" class="img-fluid position-relative" alt="Card Back"> 
+            <div class="col-md-2 ml-4 text-center" onclick="openTab('b5');" > 
+                    <img src="<?= base_url()?>image/amenities/f7.png" width="75%" class="img-fluid position-relative" alt="Card Back"> 
                     <h4 id="b5h4" class="text-center text-dark position-relative pt-2 hed" style="font-size:inherit"><b>Meeting</b></h4> 
             </div> 
         </div> 
@@ -192,23 +192,23 @@
       
         <div class="owl-carousel clients-carousel">
             <div class="col-md-2 ml-4" onclick="openTabmob('b1mob');"> 
-                    <img src="<?= base_url()?>image/amenities/mob/f9.png" class="img-fluid position-relative" alt="Card Back"> 
+                    <img src="<?= base_url()?>image/amenities/mob/f9.png" width="75%" class="img-fluid position-relative" alt="Card Back"> 
                     <h4 id="b1mobh4"class="text-center text-dark position-relative pt-2 hed" style="font-size:inherit;display:block;" ><b>Location</b></h4> 
             </div> 
             <div class="col-md-2 ml-4" onclick="openTabmob('b2mob');" > 
-                    <img src="<?= base_url()?>image/amenities/mob/f1.png" class="img-fluid position-relative" alt="Card Back"> 
-                    <h4 id="b2mobh4" class="text-center text-dark position-relative pt-2 hed" style="font-size:inherit"><b>Fully</b></h4> 
+                    <img src="<?= base_url()?>image/amenities/mob/f1.png" width="75%" class="img-fluid position-relative" alt="Card Back"> 
+                    <h4 id="b2mobh4" class="text-center text-dark position-relative pt-2 hed" style="font-size:inherit"><b>Fully Furnished</b></h4> 
             </div> 
             <div class="col-md-2 ml-4" onclick="openTabmob('b3mob');" > 
-                    <img src="<?= base_url()?>image/amenities/mob/f5.png" class="img-fluid position-relative" alt="Card Back"> 
+                    <img src="<?= base_url()?>image/amenities/mob/f5.png" width="75%" class="img-fluid position-relative" alt="Card Back"> 
                     <h4 id="b3mobh4" class="text-center text-dark position-relative pt-2 hed" style="font-size:inherit"><b>Beverages</b></h4> 
             </div> 
             <div class="col-md-2 ml-4" onclick="openTabmob('b4mob');" > 
-                    <img src="<?= base_url()?>image/amenities/mob/f6.png" class="img-fluid position-relative" alt="Card Back"> 
+                    <img src="<?= base_url()?>image/amenities/mob/f6.png" width="75%" class="img-fluid position-relative" alt="Card Back"> 
                     <h4  id="b4mobh4"class="text-center text-dark position-relative pt-2 hed" style="font-size:inherit"><b>Access</b></h4> 
             </div> 
             <div class="col-md-2 ml-4" onclick="openTabmob('b5mob');" > 
-                    <img src="<?= base_url()?>image/amenities/mob/f7.png" class="img-fluid position-relative" alt="Card Back"> 
+                    <img src="<?= base_url()?>image/amenities/mob/f7.png" width="75%" class="img-fluid position-relative" alt="Card Back"> 
                     <h4 id="b5mobh4" class="text-center text-dark position-relative pt-2 hed" style="font-size:inherit"><b>Meeting</b></h4> 
             </div> 
         </div> 
@@ -437,7 +437,34 @@
                </div>
                <div class="col-md-6 lap">
                    <div class="position-absolute" style="top:-30%">
-                        <img src="<?= base_url()?>image/membership/bg1.jpg" class="w-100 " alt="">
+                        <div id="demo1" class="carousel slide" data-ride="carousel">
+                                <ul class="carousel-indicators">
+                                    <li data-target="#demo1" data-slide-to="0" class="active"></li>
+                                    <li data-target="#demo1" data-slide-to="1"></li>
+                                </ul>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                    <img src="<?= base_url()?>image/membership/bg1.jpg" class="w-100 " alt="">
+                                    </div>
+                                    <div class="carousel-item">
+                                    <img src="<?= base_url()?>image/membership/bg1.jpg" class="w-100 " alt="">
+                                    </div>
+                                    <div class="carousel-item">
+                                    <img src="<?= base_url()?>image/membership/bg1.jpg" class="w-100 " alt="">
+                                    </div>
+                                </div>
+                                <a class="carousel-control-prev" href="#demo1" data-slide="prev">
+                                    <span class="carousel-control-prev-icon"></span>
+                                </a>
+                                <a class="carousel-control-next" href="#demo1" data-slide="next">
+                                    <span class="carousel-control-next-icon"></span>
+                                </a>
+                            </div>
+                            <div class="border-right border-secondary p-3 text-right">
+                                <span class="pt-3 pl-3">From KWD 75 per month</span><br>
+                                <span><i class="fa fa-angle-right fa-2x pt-3 pl-3 planshow"></i></span>
+                            </div>
+                        </div>
                         <div class="border-left border-secondary p-3">
                             <span class="pt-3 pl-3">From KWD 10 per month</span><br>
                             <span><i class="fa fa-angle-right fa-2x pt-3 pl-3 planshow"></i></span>
@@ -463,12 +490,34 @@
             <div class="col-md-8 row pt-4 pr-0">
                 <div class="col-md-6">
                 <span style="position:absolute;top:-25px;left:-25px"><img src="<?= base_url('image/location.png')?>" alt="" width="25px" height="30px"> CRYSTAL TOWER</span>
-                    <img src="<?= base_url()?>image/membership/bg2.jpg" class="w-100 mt-4" alt="">
+                <div id="demo2" class="carousel slide" data-ride="carousel">
+                        <ul class="carousel-indicators">
+                            <li data-target="#demo2" data-slide-to="0" class="active"></li>
+                            <li data-target="#demo2" data-slide-to="1"></li>
+                        </ul>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                            <img src="<?= base_url()?>image/membership/bg2.jpg" class="w-100 mt-4" alt="">
+                            </div>
+                            <div class="carousel-item">
+                            <img src="<?= base_url()?>image/membership/bg2.jpg" class="w-100 mt-4" alt="">
+                            </div>
+                            <div class="carousel-item">
+                            <img src="<?= base_url()?>image/membership/bg2.jpg" class="w-100 mt-4" alt="">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#demo2" data-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </a>
+                        <a class="carousel-control-next" href="#demo2" data-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </a>
+                    </div>
                     <div class="border-right border-secondary p-3 text-right">
                         <span class="pt-3 pl-3">From KWD 75 per month</span><br>
                         <span><i class="fa fa-angle-right fa-2x pt-3 pl-3 planshow"></i></span>
                     </div>
-               </div>
+                </div>
                <div class="col-md-6 pt-4 mt-4">
                     <span class="pull-left">2 <span style="border-bottom: 1px solid black;width:20px;height:3px; display: inline-block;vertical-align: middle;"></span> 3</span><br>
                     <span class="pull-left">HOT DESK</span><br>
@@ -490,6 +539,7 @@
                     </div>
                </div>
             </div>
+            
             <div class="col-md-2 mb-5">
                 <img src="<?= base_url()?>image/membership/m2.png" class="w-50 position-absolute lap" style="bottom:0px;right:0px" alt="">
             </div>
@@ -522,12 +572,34 @@
                     </div>
                </div>
                <div class="col-md-6">
-                    <img src="<?= base_url()?>image/membership/bg3.jpg" class="w-100" alt="">
+                    <div id="demo3" class="carousel slide" data-ride="carousel">
+                        <ul class="carousel-indicators">
+                            <li data-target="#demo3" data-slide-to="0" class="active"></li>
+                            <li data-target="#demo3" data-slide-to="1"></li>
+                        </ul>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                            <img src="<?= base_url()?>image/membership/bg3.jpg" class="w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                            <img src="<?= base_url()?>image/membership/bg3.jpg" class="w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                            <img src="<?= base_url()?>image/membership/bg3.jpg" class="w-100" alt="">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#demo3" data-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </a>
+                        <a class="carousel-control-next" href="#demo3" data-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </a>
+                    </div>
                     <div class="border-left border-secondary p-3">
                         <span class="pt-3 pl-3">From KWD 350 per month</span><br>
                         <span><i class="fa fa-angle-right fa-2x pt-3 pl-3 planshow"></i></span>
                     </div>
-               </div>
+                </div>
             </div>
             <div class="col-md-2">
                
@@ -536,84 +608,6 @@
         </header>
     </div>
 </section><!-- #Feature -->
-
-<section id="services" class="">
-    <div class="container">
-        <header class="section-header">
-          <h3 class="text-dark">Frequently Asked Questions</h3>
-         <div class="col-md-12 row">
-            <div class="col-md-6">
-                <div class="accordian">
-                    <ul>
-                        <li><input type="checkbox" checked=""><i></i>
-                        <h6>Do you have any other branch ?</h6>
-                        <div class="artlist">
-                           <p class="p-0 m-0 w-100 text-justify">The number of licensed offices differ per location. In our Crystal Tower location we have 9 offices with licenses and in our Mabanee 1 location we have 13 offices with licenses.</p>
-                        </div>
-                        <hr>
-                        </li>
-                        <li><input type="checkbox" checked=""><i></i>
-                        <h6>How many licensed office do you have ?</h6>
-                        <div class="artlist">
-                            <p class="p-0 m-0 w-100 text-justify">The number of licensed offices differ per location. In our Crystal Tower location we have 9 offices with licenses and in our Mabanee 1 location we have 13 offices with licenses.</p>
-                        </div>
-                        <hr>
-                        </li>
-                        <li><input type="checkbox" checked=""><i></i>
-                        <h6>Is Reyada open on Friday ?</h6>
-                        <div class="artlist">
-                            <p class="p-0 m-0 w-100 text-justify">No, Reyada is not open on Fridays. Our opening times are from 9am - 9pm from Saturday to Thursday</p>
-                        </div>
-                        <hr class="text-dark">
-                        </li>
-                        <li><input type="checkbox" checked=""><i></i>
-                        <h6>Does anyone open private offices when the 
-member is not there ? </h6>
-                        <div class="artlist">
-                            <p class="p-0 m-0 w-100 text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
-                        </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="accordian">
-                    <ul>
-                        <li><input type="checkbox" checked=""><i></i>
-                        <h6>Do you conduct workshop ?</h6>
-                        <div class="artlist">
-                           <p class="p-0 m-0 w-100 text-justify">Yes, we do conduct workshop at Reyada as well as host them.</p>
-                        </div>
-                        <hr>
-                        </li>
-                        <li><input type="checkbox" checked=""><i></i>
-                        <h6>Is there parking and is the parking included ?</h6>
-                        <div class="artlist">
-                            <p class="p-0 m-0 w-100 text-justify">All our locations have parking around the building, but it is not included with the Reyada memberships.</p>
-                        </div>
-                        <hr>
-                        </li>
-                        <li><input type="checkbox" checked=""><i></i>
-                        <h6>What is the average office size ?</h6>
-                        <div class="artlist">
-                            <p class="p-0 m-0 w-100 text-justify">No, Reyada is not open on Fridays. Our opening times are from 9am - 9pm from Saturday to Thursday</p>
-                        </div>
-                        <hr class="text-dark">
-                        </li>
-                        <li><input type="checkbox" checked=""><i></i>
-                        <h6>What are the cost for extra credit for meeting rooms ?</h6>
-                        <div class="artlist">
-                            <p class="p-0 m-0 w-100 text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
-                        </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        <div>
-        </header>
-    </div>
-</section><!-- #FAQ -->
-
 <section id="services" class="section-bg p-0 m-0">
     <div class="container-fluid p-0 m-0">
         <header class="section-header">
@@ -631,42 +625,6 @@ member is not there ? </h6>
         </header>
     </div>
 </section><!-- #Images -->
-
-  <!--==========================
-      Latest Article
-    ============================-->
-    <section id="team" class="">
-      <div class="container">
-        <div class="section-header pb-2">
-          <h3>Latest Article</h3>
-        </div>
-
-        <div class="row">
-           <?php 
-         foreach ($RecentArticle->result() as $row){ 
-            $posteddate=explode('-',$row->posted_date);
-            $postedday=explode(' ',$posteddate[2]);
-            $dateObj   = DateTime::createFromFormat('!m', $posteddate[1]); 
-            $monthName = $dateObj->format('F'); 
-        ?>
-
-            <div class="col-lg-4 col-md-4 wow fadeInUp p-1 d-flex w-100">
-                <div class="card shadow-sm w-100">
-                <img class="card-img-top" src="<?= base_url()?>Admin/<?=$row->image_url?>" height="250px" alt="Card image cap">
-                    <div class="card-body">
-                        <small><?= $postedday[0].', '.$monthName.' '.$postedday[0];?></small>
-                        <h6 class="card-title pt-1"><b><?= $row->title;?></b></h6>
-                        <h6 class="card-title"><b><?= $row->sub_title;?></b></h6>
-                        <div class="card-text text-justify lap" style="height:250px;overflow:hidden"><?= $row->description;?></div><br>
-                        <a href="<?=base_url()?>Main/Article?id=<?=$row->article_id;?>"><i class="fa fa-angle-right fa-2x no-bottom position-absolute pb-1 text-dark"></i></a>
-                    </div>
-                </div>
-            </div>
-         <?php } ?>
-        </div>
-
-      </div>
-    </section><!-- #Latest Article -->
 <script>
 var is_logged_in = '<?= $is_logged_in ?>';
 $(".planshow").click(function () {
