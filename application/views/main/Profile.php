@@ -640,16 +640,9 @@ ul.tools li i:after{
   <div class="pt-2">
     <span class="h6">Press enter after each skill. Keep it relevent, less is</span>
   </div>
-
-  <div class="card border-0 pt-4 membership">
-    <div class="card-header p-4">
-      <h5><b>Heads up!</b> Yourprofile is not yet listed in the directory. Enable the option list</h5>
-    </div>
-  </div>
   
   <div class="col-md-12 group pt-4 pl-0">
-      <input type="checkbox" <?= ($coworker['ProfileIsPublic']) ? 'checked' : '' ?> name="membership" id="membership" value="membership" style="width:15px;height:15px;">
-      <span style="color:#999; font-size: 18px;">List my profile in the directory.</span><br>
+      <input type="hidden" name="membership" id="membership" value="true" >
       <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
   </div>
 
@@ -684,38 +677,11 @@ ul.tools li i:after{
 
       <div class="col-md-5 pl-5">
           <div class="group">
-            <label><b><i class="fa fa-google text-dark pl-0" style="font-size: 15px"></i></b></label><br>
-              <input type="text" name="google" value="<?= (isset($coworker['Google']) && !empty($coworker['Google'])) ? $coworker['Google'] : ''; ?>" placeholder="Google"><span class="highlight"></span><span class="bar"></span>
-          </div>
-      </div>
-
-      <div class="col-md-5">
-          <div class="group">
-            <label><b><i class="fa fa-flickr text-dark pl-0" style="font-size: 15px"></i></b></label><br>
-              <input type="text" name="flicker" value="<?= (isset($coworker['Flickr']) && !empty($coworker['Flickr'])) ? $coworker['Flickr'] : ''; ?>" placeholder="Flicker"><span class="highlight"></span><span class="bar"></span>
-          </div>
-      </div>
-
-      <div class="col-md-5 pl-5">
-          <div class="group">
             <label><b><i class="fa fa-instagram text-dark pl-0" style="font-size: 15px"></i></b></label><br>
               <input type="text" name="instagram" value="<?= (isset($coworker['Instagram']) && !empty($coworker['Instagram'])) ? $coworker['Instagram'] : ''; ?>" placeholder="Instagram"><span class="highlight"></span><span class="bar"></span>
           </div>
       </div>
 
-      <div class="col-md-5">
-          <div class="group">
-            <label><b><i class="fa fa-vimeo text-dark pl-0" style="font-size: 15px"></i></b></label><br>
-              <input type="text" name="vimeo" value="<?= (isset($coworker['Vimeo']) && !empty($coworker['Vimeo'])) ? $coworker['Vimeo'] : ''; ?>" placeholder="Vimeo"><span class="highlight"></span><span class="bar"></span>
-          </div>
-      </div>
-
-      <div class="col-md-5 pl-5">
-          <div class="group">
-            <label><b><i class="fa fa-tumblr text-dark pl-0" style="font-size: 15px"></i></b></label><br>
-              <input type="text" name="tumblr" value="<?= (isset($coworker['Tumblr']) && !empty($coworker['Tumblr'])) ? $coworker['Tumblr'] : ''; ?>" placeholder="Tumblr"><span class="highlight"></span><span class="bar"></span>
-          </div>
-      </div>
       <div class="col-2"></div>
     </div><br>
     <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
@@ -727,43 +693,43 @@ ul.tools li i:after{
       </div>
   </div>
 
-    <div class="row pt-4">
-      <div class="col-md-5">
-        <div class="group">
-          <input type="text" name="checkin" value="<?= (isset($coworker['AccessPincode']) && !empty($coworker['AccessPincode'])) ? $coworker['AccessPincode'] : ''; ?>"  disabled ><span class="highlight"></span><span class="bar"></span>
-          <label>Checkin & internet pincode</label>
-        </div>
-      </div>
-      <div class="col-md-5 pl-4">
-        <div class="group">
-          <input type="password" name="old_password"><span class="highlight"></span><span class="bar"></span>
-          <label>Old password</label>
-        </div>
-      </div>
-      <div class="col-md-5">
-        <div class="group">
-          <input type="password" name="new_password"><span class="highlight"></span><span class="bar"></span>
-          <label>New password</label>
-        </div>
-      </div>
-      <div class="col-md-5 pl-4">
-        <div class="group">
-          <input type="password" name="r_new_password"><span class="highlight"></span><span class="bar"></span>
-          <label>Repeat New password</label>
-        </div>
-      </div>
-      <div class="col-md-5">
-        <div class="group">
-        </div>
-      </div>
-      <div class="col-md-5 pl-4">
-        <div class="group">
-          <span style="font-size:15px">Forgot it? <a href="<?= base_url('main/forgot_password') ?>"><u style="color: black;">Request a password reset.</u></a></span>
-        </div>
+  <div class="row pt-4">
+    <div class="col-md-5">
+      <div class="group">
+        <input type="text" name="checkin" value="<?= (isset($coworker['AccessPincode']) && !empty($coworker['AccessPincode'])) ? $coworker['AccessPincode'] : ''; ?>"  disabled ><span class="highlight"></span><span class="bar"></span>
+        <label>Checkin & internet pincode</label>
       </div>
     </div>
-    <br>
-    <button type="submit" style="border: 0px;background-color: transparent; font-size:15px" class="float-right">Save<i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
+    <div class="col-md-5 pl-4">
+      <div class="group">
+        <input type="password" name="old_password"><span class="highlight"></span><span class="bar"></span>
+        <label>Old password</label>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="group">
+        <input type="password" name="new_password"><span class="highlight"></span><span class="bar"></span>
+        <label>New password</label>
+      </div>
+    </div>
+    <div class="col-md-5 pl-4">
+      <div class="group">
+        <input type="password" name="r_new_password"><span class="highlight"></span><span class="bar"></span>
+        <label>Repeat New password</label>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="group">
+      </div>
+    </div>
+    <div class="col-md-5 pl-4">
+      <div class="group">
+        <span style="font-size:15px">Forgot it? <a href="<?= base_url('main/forgot_password') ?>"><u style="color: black;">Request a password reset.</u></a></span>
+      </div>
+    </div>
+  </div>
+  <br>
+  <button type="submit" style="border: 0px;background-color: transparent; font-size:15px" class="float-right">Save<i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
 
   <div class="col-12 pt-5 mt-5 p-0" id="notification">
       <div style="border-bottom:1px solid black">
@@ -772,24 +738,14 @@ ul.tools li i:after{
   </div>
 
   <div class="col-md-12 group pt-4 pl-0"> 
-      <h5 class="mb-0"><b>Select when you would like to recieve notifications</b></h5>
-      <input type="checkbox" <?= ($coworker['SignUpToNewsletter']) ? 'checked' : '' ?> name="SignUpToNewsletter" style="width:15px;height:15px;">
-      <span style="color:#707070; font-size: 18px;">I would like to receive occasional and relevent updates from Reyada - Crystal Tower</span><br>
-      <input type="checkbox" <?= ($user['OnNewWallPost']) ? 'checked' : '' ?> name="OnNewWallPost" style="width:15px;height:15px;">
-      <span style="color:#707070; font-size: 18px;">When the new message is posted in the home page wall.</span><br>
-      <input type="checkbox" <?= ($user['OnNewBlogComment']) ? 'checked' : '' ?> name="OnNewBlogComment" style="width:15px;height:15px;">
-      <span style="color:#707070; font-size: 18px;">When the new comment is posted in the blog.</span><br>
-      <input type="checkbox" <?= ($user['OnNewEventComment']) ? 'checked' : '' ?> name="OnNewEventComment" style="width:15px;height:15px;">
-      <span style="color:#707070; font-size: 18px;">When the new comment is posted in an event.</span><br>
-      <br>
-      <h5 class="mb-0"><b>How and when should we alert you about conversations in the community board?</b></h5>
-      <input type="checkbox" <?= ($user['ReceiveCommunityDigest']) ? 'checked' : '' ?> name="ReceiveCommunityDigest" style="width:15px;height:15px;">
-      <span style="color:#707070; font-size: 18px;">Send me an update in the Morning if there is new message (around 8am)</span><br>
-      <input type="checkbox" <?= ($user['ReceiveEveryMessage']) ? 'checked' : '' ?> name="ReceiveEveryMessage" style="width:15px;height:15px;">
-      <span style="color:#707070; font-size: 18px;">Send me an notification shortly after every message. You can still mute individual.</span><br>
-
-      <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
+      <h5 class="mb-0"><b>would you like to recieve notifications?</b></h5>
+      <input type="radio" <?= ($coworker['SignUpToNewsletter']) ? 'checked' : '' ?> value="Yes" name="SignUpToNewsletter" style="width:15px;height:15px;">
+      <span style="color:#707070; font-size: 18px;">Yes</span>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="radio" <?= ($coworker['SignUpToNewsletter']) ? '' : 'checked' ?> value="No" name="SignUpToNewsletter" style="width:15px;height:15px;">
+      <span style="color:#707070; font-size: 18px;">No</span><br>
   </div>
+  <button type="submit"  style="border: 0px;background-color: transparent; font-size:15px" class="float-right">Save<i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
 </div>
 </form>
 

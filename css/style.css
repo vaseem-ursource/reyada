@@ -482,6 +482,15 @@ h6 {
   font-family: "Montserrat", sans-serif;
 }
 
+.plan-desc p{
+  text-align: left !important;
+  margin: 0 !important;
+  font-size: 15px !important;
+  padding-bottom: 8px !important;
+  color: #000000 !important;
+  width: auto !important;
+}
+
 .section-header p {
   text-align: center;
   margin: auto;
