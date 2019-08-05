@@ -27,7 +27,7 @@ class main extends CI_Controller
     {
         $data['folder_name'] = 'main';
         $data['file_name'] = 'Services';
-        $data['header_name'] = 'header';
+        $data['header_name'] = 'header_blog';
         $data['RecentArticle'] = $this->Main_model->get_recent_articles();
         $this->load->view('index', $data);
 

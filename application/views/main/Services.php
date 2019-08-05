@@ -449,9 +449,6 @@
                                     <div class="carousel-item">
                                     <img src="<?= base_url()?>image/membership/bg1.jpg" class="w-100 " alt="">
                                     </div>
-                                    <div class="carousel-item">
-                                    <img src="<?= base_url()?>image/membership/bg1.jpg" class="w-100 " alt="">
-                                    </div>
                                 </div>
                                 <a class="carousel-control-prev" href="#demo1" data-slide="prev">
                                     <span class="carousel-control-prev-icon"></span>
@@ -500,10 +497,7 @@
                             <img src="<?= base_url()?>image/membership/bg2.jpg" class="w-100 mt-4" alt="">
                             </div>
                             <div class="carousel-item">
-                            <img src="<?= base_url()?>image/membership/bg2.jpg" class="w-100 mt-4" alt="">
-                            </div>
-                            <div class="carousel-item">
-                            <img src="<?= base_url()?>image/membership/bg2.jpg" class="w-100 mt-4" alt="">
+                            <img src="<?= base_url()?>image/membership/bg4.jpg" class="w-100 mt-4" alt="">
                             </div>
                         </div>
                         <a class="carousel-control-prev" href="#demo2" data-slide="prev">
@@ -582,10 +576,7 @@
                             <img src="<?= base_url()?>image/membership/bg3.jpg" class="w-100" alt="">
                             </div>
                             <div class="carousel-item">
-                            <img src="<?= base_url()?>image/membership/bg3.jpg" class="w-100" alt="">
-                            </div>
-                            <div class="carousel-item">
-                            <img src="<?= base_url()?>image/membership/bg3.jpg" class="w-100" alt="">
+                            <img src="<?= base_url()?>image/membership/bg5.jpg" class="w-100" alt="">
                             </div>
                         </div>
                         <a class="carousel-control-prev" href="#demo3" data-slide="prev">

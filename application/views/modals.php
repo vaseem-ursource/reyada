@@ -63,14 +63,17 @@
       </div>
       <div class="right-half1">
        <button type="button" class="close p-4 text-white" data-dismiss="modal">&#10006</button>
-        <h6 style="color:white; font-size: 16px; padding-top: 25%" class="px-5 m-5 text-justify">CALL US.
+        <h6 style="color:white; font-size: 20px; padding-top: 25%" class="px-5 m-5 text-justify">CALL US.
         <br><br><br>
         <small style="color:white; font-size: 14px;">
          Give us a call during our office hours and inquire about our services.
          <br><br><br>
         </small>
         +(965) 2297 0270
-        <br><br>
+          <br><br><br>
+          <span style="color:white; font-size:20px;">Find Us</span><br><br>
+          <a style="color:white; font-size:18px;" href="https://www.google.com/maps/place/Reyada+%7C+Collaborative+Workspace/@29.3769156,47.9756613,17z/data=!3m1!4b1!4m5!3m4!1s0x3fcf84ec4226df39:0x267ba39977cfa42e!8m2!3d29.3769156!4d47.97785" target="_blank"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;CRYSTAL TOWER</a><br>
+          <a style="color:white; font-size:18px;" href="https://www.google.com/maps/place/Reyada+%7C+Collaborative+Workspace/@29.3681039,47.9687861,17z/data=!3m1!4b1!4m5!3m4!1s0x3fcf85e8f50d9f6d:0x30e75da11a5d5bf7!8m2!3d29.3681039!4d47.9709748" target="_blank"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;MABANEE</a>
          </h6>
       </div>
     </section>

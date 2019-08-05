@@ -40,7 +40,7 @@
 
       <nav class="main-nav float-right d-none d-lg-block" id="myMenu">
         <ul>
-          <li ><a href="./" class="text-dark">About Us</a></li>
+          <li><a href="<?= base_url('main/#mission')?>">About Us</a></li>
           <li><a href="<?= base_url()?>main/communityEvents">Events</a></li>
           <li><a href="<?= base_url()?>main/communityBooking">Find a Room</a></li>
           

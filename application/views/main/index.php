@@ -12,103 +12,39 @@ body.modal-open-noscroll
     margin-right: 0!important;
 }
 </style>
-  <section id="intro" class="clearfix align-middle" style="background:url('<?= base_url()?>image/home1.jpg') center  no-repeat;background-size: cover;height:100vh">
-    <div class="container d-flex h-100">
-      <div class="row justify-content-center align-self-center">
-        <div class="col-md-6 intro-info order-md-first order-last">
-          <h2 class="text-white text-left">Create.<br>Co-work.<br>Collaborate.</h2>
-        </div>
-  
-        <div class="col-md-6 align-self-center lap" style="right:0px;">
-          <div class="slideshow-container1" style="right:0px;">
-            <div class="mySlides1" style="right:0px;">
-              <div class="row">
-                  <div class="col-md-9 col-sm-12 col-xs-12 text-justify">
-                      <h3 class="text-left">News</h3>
-                      <q>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</q><br>
-                      <p>22, Jan.19</p>
-                    </div>
-                <div class="col-md-3 col-sm-12 col-xs-12" style="text-align:start">
-                    <a class="prev1" onclick="plusSlides1(-1)">❮</a>
-                    <a class="next1" onclick="plusSlides1(1)">❯</a>
-                </div>
-            </div>
+  <section>
+    <div id="homecarousel" class="carousel slide" data-ride="carousel" style="margin-top:-40px;">
+      <ul class="carousel-indicators">
+          <li data-target="#homecarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#homecarousel" data-slide-to="1"></li>
+          <li data-target="#homecarousel" data-slide-to="2"></li>
+      </ul>
+      <div class="carousel-inner">
+          <div class="carousel-item active" >
+          <img src="<?= base_url()?>image/home1.jpg" alt="">
           </div>
-            
-          <div class="mySlides1 align-self-center" style="right:0px;">
-              <div class="row">
-                  <div class="col-md-9 col-sm-12 col-xs-12 text-justify">
-                      <h3 class="text-left">News</h3>
-                      <q>ext of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</q><br>
-                      <p>22, Jan.19</p>
-                    </div>
-                <div class="col-md-3 col-sm-12 col-xs-12" style="text-align:start">
-                    <a class="prev1" onclick="plusSlides1(-1)">❮</a>
-                    <a class="next1" onclick="plusSlides1(1)">❯</a>
-                </div>
-            </div>
+          <div class="carousel-item">
+          <img src="<?= base_url()?>image/home2.jpg" alt="">
           </div>
-            
-          <div class="mySlides1 align-self-center" style="right:0px;">
-              <div class="row">
-                  <div class="col-md-9 col-sm-12 col-xs-12 text-justify">
-                      <h3 class="text-left">News</h3>
-                      <q >Lorem Ipsum is simply ing industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</q><br>
-                      <p>22, Jan.19</p>
-                    </div>
-                <div class="col-md-3 col-sm-12 col-xs-12" style="text-align:start">
-                    <a class="prev1" onclick="plusSlides1(-1)">❮</a>
-                    <a class="next1" onclick="plusSlides1(1)">❯</a>
-                </div>
-            </div>
+          <div class="carousel-item">
+          <img src="<?= base_url()?>image/home3.jpg" alt="">
           </div>
-        </div>
-        </div>
-        <div class="col-md-6 position-absolute"  style="bottom: 20px; right: 50px;color:white;">
-            <h2 class="text-white text-right"><a style="color:white;" href="#" id="bookingbutton">Booking</a></h2>
-        </div>
-          <!-- <div class="col-md-6 position-absolute mob"  style="bottom: 20%;right:5%">
-              <h2 class="text-white text-right">B<a href="#"  data-toggle="modal" data-target="#mobModalBooking" class="anchor text-white">oo</a>king.</span></h2>
-          </div> -->
-    
-  
-        <!--<div class="col-md-6 intro-img order-md-last order-first">
-          <img src="img/intro-img.svg" alt="" class="img-fluid">
-        </div>-->
       </div>
-
+      <a class="carousel-control-prev" href="#homecarousel" data-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+      </a>
+      <a class="carousel-control-next" href="#homecarousel" data-slide="next">
+          <span class="carousel-control-next-icon"></span>
+      </a>
+      </div>
     </div>
-  </section><!-- #intro -->
-  <script>
-    var slideIndex = 1;
-    showSlides1(slideIndex);
-    
-    function plusSlides1(n) {
-      showSlides1(slideIndex += n);
-    }
-    
-    function currentSlide1(n) {
-      showSlides1(slideIndex = n);
-    }
-    
-    function showSlides1(n) {
-      var i;
-      var slides = document.getElementsByClassName("mySlides1");
-      var dots = document.getElementsByClassName("dot");
-      if (n > slides.length) {slideIndex = 1}    
-      if (n < 1) {slideIndex = slides.length}
-      for (i = 0; i < slides.length; i++) {
-          slides[i].style.display = "none";  
-      }
-      for (i = 0; i < dots.length; i++) {
-          dots[i].className = dots[i].className.replace(" active", "");
-      }
-      slides[slideIndex-1].style.display = "block";  
-      dots[slideIndex-1].className += " active";
-    }
-  </script>
+  </section>
   <main id="main">
-
+<div class="overlay">
+<h1>Together We create</h1>
+<h3>Work. Innovate. Collaborate.</h3>
+<button class="custom-button" id="bookingbutton">Booking</button>
+</div>
     <!--==========================
       Mission Section
     ============================-->
@@ -130,7 +66,7 @@ body.modal-open-noscroll
             <span class='k'>ريادة  </span>
            </div>
 
-          <div class="col-md-6 col-sm-12 pl-5">
+          <div class="col-md-6 col-sm-12 pl-5" id="mission">
             <div class="about-content">
             <h4><b>Mission</b></h4>
               
@@ -438,6 +374,82 @@ body.modal-open-noscroll
 
       </div>
     </section><!-- #Latest Article -->
+    <section id="services" class="">
+    <div class="container">
+        <header class="section-header">
+          <h3 class="text-dark">Frequently Asked Questions</h3>
+         <div class="col-md-12 row">
+            <div class="col-md-6">
+                <div class="accordian">
+                    <ul>
+                        <li><input type="checkbox" checked=""><i></i>
+                        <h6>Do you have any other branch ?</h6>
+                        <div class="artlist">
+                           <p class="p-0 m-0 w-100 text-justify">The number of licensed offices differ per location. In our Crystal Tower location we have 9 offices with licenses and in our Mabanee 1 location we have 13 offices with licenses.</p>
+                        </div>
+                        <hr>
+                        </li>
+                        <li><input type="checkbox" checked=""><i></i>
+                        <h6>How many licensed office do you have ?</h6>
+                        <div class="artlist">
+                            <p class="p-0 m-0 w-100 text-justify">The number of licensed offices differ per location. In our Crystal Tower location we have 9 offices with licenses and in our Mabanee 1 location we have 13 offices with licenses.</p>
+                        </div>
+                        <hr>
+                        </li>
+                        <li><input type="checkbox" checked=""><i></i>
+                        <h6>Is Reyada open on Friday ?</h6>
+                        <div class="artlist">
+                            <p class="p-0 m-0 w-100 text-justify">No, Reyada is not open on Fridays. Our opening times are from 9am - 9pm from Saturday to Thursday</p>
+                        </div>
+                        <hr class="text-dark">
+                        </li>
+                        <li><input type="checkbox" checked=""><i></i>
+                        <h6>Does anyone open private offices when the 
+member is not there ? </h6>
+                        <div class="artlist">
+                            <p class="p-0 m-0 w-100 text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+                        </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="accordian">
+                    <ul>
+                        <li><input type="checkbox" checked=""><i></i>
+                        <h6>Do you conduct workshop ?</h6>
+                        <div class="artlist">
+                           <p class="p-0 m-0 w-100 text-justify">Yes, we do conduct workshop at Reyada as well as host them.</p>
+                        </div>
+                        <hr>
+                        </li>
+                        <li><input type="checkbox" checked=""><i></i>
+                        <h6>Is there parking and is the parking included ?</h6>
+                        <div class="artlist">
+                            <p class="p-0 m-0 w-100 text-justify">All our locations have parking around the building, but it is not included with the Reyada memberships.</p>
+                        </div>
+                        <hr>
+                        </li>
+                        <li><input type="checkbox" checked=""><i></i>
+                        <h6>What is the average office size ?</h6>
+                        <div class="artlist">
+                            <p class="p-0 m-0 w-100 text-justify">No, Reyada is not open on Fridays. Our opening times are from 9am - 9pm from Saturday to Thursday</p>
+                        </div>
+                        <hr class="text-dark">
+                        </li>
+                        <li><input type="checkbox" checked=""><i></i>
+                        <h6>What are the cost for extra credit for meeting rooms ?</h6>
+                        <div class="artlist">
+                            <p class="p-0 m-0 w-100 text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+                        </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        <div>
+        </header>
+    </div>
+</section>
 
     <!--==========================
       Clients Section
@@ -521,6 +533,34 @@ $(document).ready(function () {
     });
 })
 </script>
+ <script>
+    var slideIndex = 1;
+    showSlides1(slideIndex);
+    
+    function plusSlides1(n) {
+      showSlides1(slideIndex += n);
+    }
+    
+    function currentSlide1(n) {
+      showSlides1(slideIndex = n);
+    }
+    
+    function showSlides1(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides1");
+      var dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {slideIndex = 1}    
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";  
+      }
+      for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";  
+      dots[slideIndex-1].className += " active";
+    }
+  </script>
 
 
  
