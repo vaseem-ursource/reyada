@@ -66,7 +66,7 @@
         <div class="row">
           <div class="col-md-4 bg-black">
                 <button type="button" class="close mob text-white" style="opacity:1;" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                <button type="button" class="close p-4" data-dismiss="modal">&#10006</button>
                 </button>
                 <h4 style="color:white; font-modal-childsize: 20px; padding-top: 8%"class="px-5 m-5 text-center">THURSDAY<br>14 FEBRUARY
                 </h4>
@@ -324,7 +324,7 @@
                     </div>
                     <div class="col-md-8 bg-white">
                         <button type="button" class="close lap" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
+                        <button type="button" class="close p-4" data-dismiss="modal">&#10006</button>
                         </button>
 
                         <form class="w-100" style="padding: 3em 2em 2em 2em;">

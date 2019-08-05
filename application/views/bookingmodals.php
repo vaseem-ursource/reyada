@@ -50,7 +50,7 @@
             </div>
             <div class="col-md-8 bg-white">
                  <button type="button" class="close lap" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                 <button type="button" class="close p-4" data-dismiss="modal">&#10006</button>
                 </button>
                 <form class="w-100" style="padding: 3em 2em 2em 2em;">
                             <div class="hello-week01" style="text-align: -webkit-center;">
