@@ -107,7 +107,7 @@
             <button type="button" class="close p-4" data-dismiss="modal">&#10006</button>
             <article>
               <div>
-                <form>
+                <form id="login-form" method="post" action="<?= base_url() ?>main/signin" >
                   <h6 style="color:black;" class="text-center">WELCOME BACK!</h6><br>
                   <p id="error_msg_signin" style="display:none" class="text text-danger" ></p>
                   <p id="success_msg_signin" style="display:none" class="text text-success" ></p>
@@ -121,9 +121,9 @@
                   </div>
                   <a href="<?= base_url('main/forgot_password') ?>" class="text-p text-secondary float-right">Forgot password?</a>
                   <br><br><br>
-                  <a href="javascript:void(0)" id="loginButtonForm" style="color:black;"><span class="align-middle" data-toggle="modal"
+                  <button type="submit" style="border:0px;background-color:transparent;color:black;" id="loginButtonForm" ><span class="align-middle" data-toggle="modal"
                       data-target="#modalLoginsuccess">LOGIN</span> <i
-                      class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
+                      class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
                 </form>
               </div>
             </article>
@@ -614,8 +614,10 @@
     }
   });
 
-  $(document).on("click", "#loginButtonForm", function () {
+  $(document).on("submit", "#login-form", function (e) {
+    e.preventDefault();
     $('.whole_div').show();
+
     post_array = {
       "email": $('[name="loginEmail"]').val(),
       "password": $('[name="loginPassword"]').val()
@@ -632,7 +634,6 @@
               toastr.error('Username or Password incorrect');
             }else{
               $('.whole_div').hide();
-              console.log(data.html);
               toastr.success('Logged in successfully');
               setTimeout(function() {
                   location.reload();
@@ -642,9 +643,6 @@
         },
         error: function(jqxhr, status, error) {
           $('.whole_div').hide();
-          console.log(jqxhr);
-          console.log(status);
-          console.log(error);
         }
     });
   
