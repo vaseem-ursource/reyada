@@ -636,7 +636,7 @@
               $('.whole_div').hide();
               toastr.success('Logged in successfully');
               setTimeout(function() {
-                  location.reload();
+                  window.location.replace(base_url + 'main/profile');
               }, 2000);
               
             }

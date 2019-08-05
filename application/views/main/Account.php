@@ -7,6 +7,9 @@
         <?php if(!empty($coworker_plans)){ ?>
             <?php foreach($coworker_plans as $plan){ ?>
                 <h6 class="pt-4 mt-2" style="color:#000000;"><?= $plan->Tariff->Name ?> <b style="color:#000000;">(KD <?= $plan->Tariff->Price ?>/month)</b></h6>
+                <div class="plan-desc" >
+                    <?= $plan->Tariff->Description ?>
+                </div>
                 <?php if(!empty($plan->NextTariff)){ ?>
                     <table class="table table-striped h6 table-borderless" style="color:#000000;">
                         <thead>
@@ -21,6 +24,9 @@
             if(!empty($future_plan)){ ?>
                 <?php foreach($future_plan as $plan){ ?>
                     <h6 class="pt-4 mt-2" style="color:#000000;"><?= $plan->Tariff->Name ?> <b style="color:#000000;">(KD <?= $plan->Tariff->Price ?>/month)</b></h6>
+                    <div class="plan-desc" >
+                        <?= $plan->Tariff->Description ?>
+                    </div>
                     <?php if(!empty($plan->NextTariff)){ ?>
                         <table class="table table-striped h6 table-borderless" style="color:#000000;">
                             <thead>

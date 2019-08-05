@@ -535,7 +535,7 @@ footer a:hover {
 text-decoration: underline; 
 } 
 
-input[type=checkbox] { 
+input[type=checkbox], input[type=radio] { 
 width: 12px; 
 height: 12px; 
 margin-right: 5px; 
@@ -543,7 +543,7 @@ vertical-align: center;
 border: 1px solid #343a40; 
 } 
 
-input[type=checkbox]:after { 
+input[type=checkbox]:after, input[type=radio]:after { 
 content: ""; 
 /* border-bottom: 10px solid white; */ 
 border-top: 5px solid white; 
@@ -837,11 +837,17 @@ text-decoration: none;
 .filter img{ 
 -webkit-filter: brightness(75%); filter: brightness(75%); 
 } 
-input[type=checkbox]:checked:after { 
+input[type=checkbox]:checked:after, input[type=radio]:checked:after { 
 border-bottom: 5px solid #000; 
 border-top: 5px solid #000; 
 } 
 
+input[type=radio]:checked:after { 
+  border-bottom: 5px solid #000; 
+  border-top: 5px solid #000; 
+  border-bottom-width: 8px;
+} 
+  
 
 
 /* select {      

@@ -728,6 +728,10 @@ class main extends CI_Controller
 
             $data['coworker'] = $this->session->userdata('user_info');
             $data['user'] = $this->session->userdata('user_info_extra');
+
+            if($data['user']['OnHelpDeskMsg'] && $data['user']['OnNewWallPost'] && $data['user']['OnNewBlogComment'] && $data['user']['OnNewEventComment'] && $data['user']['ReceiveCommunityDigest'] && $data['user']['ReceiveEveryMessage']){
+                $data['coworker']['SignUpToNewsletter'] = true;
+            }
         } else {
             $this->session->set_flashdata('warning', 'Please Login First');
             redirect();
@@ -854,7 +858,7 @@ class main extends CI_Controller
             $j_data['RefererGuid'] = "";
             $j_data['RegistrationDate'] = $user['CreatedOn'];
             $j_data['Salutation'] = $p_data['u_callyou'];
-            $j_data['SignUpToNewsletter'] = (isset($p_data['SignUpToNewsletter'])) ? true : false;
+            $j_data['SignUpToNewsletter'] = ($p_data['SignUpToNewsletter'] == "Yes") ? true : false;
             $j_data['SimpleTimeZoneId'] = 2029;
             $j_data['Skype'] = null;
             $j_data['State'] = $p_data['u_state'];
@@ -883,12 +887,12 @@ class main extends CI_Controller
             $u_data['NewPassword'] = (isset($p_data['new_password']) && !empty($p_data['new_password'])) ? $p_data['new_password'] : null;
             $u_data['OldPassword'] = (isset($p_data['old_password']) && !empty($p_data['old_password'])) ? $p_data['old_password'] : null;
             $u_data['RepeatNewPassword'] = (isset($p_data['r_new_password']) && !empty($p_data['r_new_password'])) ? $p_data['r_new_password'] : null;
-            $u_data['OnHelpDeskMsg'] = false;
-            $u_data['OnNewBlogComment'] = (isset($p_data['OnNewBlogComment'])) ? true : false;
-            $u_data['OnNewEventComment'] = (isset($p_data['OnNewEventComment'])) ? true : false;
-            $u_data['OnNewWallPost'] = (isset($p_data['OnNewWallPost'])) ? true : false;
-            $u_data['ReceiveCommunityDigest'] = (isset($p_data['ReceiveCommunityDigest'])) ? true : false;
-            $u_data['ReceiveEveryMessage'] = (isset($p_data['ReceiveEveryMessage'])) ? true : false;
+            $u_data['OnHelpDeskMsg'] = ($p_data['SignUpToNewsletter'] == "Yes") ? true : false;;
+            $u_data['OnNewBlogComment'] = ($p_data['SignUpToNewsletter'] == "Yes") ? true : false;
+            $u_data['OnNewEventComment'] = ($p_data['SignUpToNewsletter'] == "Yes") ? true : false;
+            $u_data['OnNewWallPost'] = ($p_data['SignUpToNewsletter'] == "Yes") ? true : false;
+            $u_data['ReceiveCommunityDigest'] = ($p_data['SignUpToNewsletter'] == "Yes") ? true : false;
+            $u_data['ReceiveEveryMessage'] = ($p_data['SignUpToNewsletter'] == "Yes") ? true : false;
             $u_data['UniqueId'] = "cd694a808a625e2ea3sj";
             $u_data['UpdatedOn'] = "2019-05-21T11:20:56";
 
