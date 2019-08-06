@@ -32,7 +32,7 @@
 
       <nav class="main-nav float-right d-none d-lg-block" id="myMenu">
         <ul>
-          <li><a href="./">About Us</a></li>
+          <li id="aboutus"><a href="#">About Us</a></li>
           <li><a href="<?= base_url()?>main/services">Services</a></li>
           <li class="lap"><a href="#contact" data-toggle="modal" data-target="#modalcontact">Contact</a></li>
           <li class="mob"><a href="#contact" onclick="menuClickFunction()" data-toggle="modal" data-target="#mobModalcontact">Contact</a></li>
@@ -66,5 +66,13 @@ $(function () {
     }
     lastScrollTop = st;
   });
+});
+$(document).on('click', '#aboutus', function(e) {
+  $('body').toggleClass('mobile-nav-active');
+  $('.mobile-nav-toggle i').toggleClass('fa-times fa-bars');
+  $('.mobile-nav-overly').toggle();
+  $('html, body').animate({
+    'scrollTop' : $("#mission").position().top
+  }); 
 });
 </script>
