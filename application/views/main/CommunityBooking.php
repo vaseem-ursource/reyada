@@ -78,8 +78,8 @@ bottom: 0px;
                 <span class="h6" style="color:#000000;">Home / Calendar / Meeting room</span>
                 <span class="h3 mx-auto" style="color:#000000; margin-left: 20% !important;">Meeting Room & Resources</span>
                 <span class="h3 float-right">
-                <select class="select-fontsize locations" name="fromtime" id="location-drp-dwn" style="padding:6.2px !important;color:black !important;">
-                  </select>
+                <select class="select-fontsize locations" name="fromtime" id="location-drp-dwn" style="font-size:20px;padding:4px !important;color:black !important;sw1">
+                </select>
                 </span>
             </div>
             <form style="width:100%;" class="m-0"> 
@@ -87,15 +87,14 @@ bottom: 0px;
               <div class="col-md-1"></div>
                 <div class="col">
                   <div class="group">
-                      <input  style="padding:4px !important;color:black !important;" type="date" id="date" value="<?php echo date("Y-m-d");?>" ><span class="highlight"></span><span class="bar"></span>
+                      <input  style="padding:4px !important;color:black !important;" type="date" id="date"><span class="highlight"></span><span class="bar"></span>
                       <label>Date</label>
                   </div>
                 </div>
                 <div class="col">
                   <div class="group">
-                      <!-- <input type="text"><span class="highlight"></span><span class="bar"></span> -->
-                      <label>Start Time</label>
                       <select class="select-fontsize" name="start_time" id="start_time" style="padding:5px !important;color:black !important;">
+                          <option value="">Select Start Time</option>
                           <option value="12:00 AM">12:00 AM</option>
                           <option value="12:30 AM">12:30 AM</option>
                           <option value="1:00 AM">1:00 AM</option>
@@ -119,7 +118,7 @@ bottom: 0px;
                           <option value="10:30 AM">10:30 AM</option>
                           <option value="11:00 AM">11:00 AM</option>
                           <option value="11:30 AM">11:30 AM</option>
-                          <option value="12:00 PM" selected="selected">12:00 PM</option>
+                          <option value="12:00 PM">12:00 PM</option>
                           <option value="12:30 PM">12:30 PM</option>
                           <option value="1:00 PM">1:00 PM</option>
                           <option value="1:30 PM">1:30 PM</option>
@@ -148,9 +147,8 @@ bottom: 0px;
                 </div>
                 <div class="col">
                   <div class="group">
-                      <!-- <input type="text"><span class="highlight"></span><span class="bar"></span> -->
-                      <label>Start Time</label>
                       <select class="select-fontsize" name="to_time" id="to_time" style="padding:5px !important;color:black !important;">
+                      <option value="">Select End Time</option>
                       <option value="12:00 AM">12:00 AM</option>
                       <option value="12:30 AM">12:30 AM</option>
                       <option value="1:00 AM">1:00 AM</option>
@@ -175,7 +173,7 @@ bottom: 0px;
                       <option value="11:00 AM">11:00 AM</option>
                       <option value="11:30 AM">11:30 AM</option>
                       <option value="12:00 PM">12:00 PM</option>
-                      <option value="12:30 PM" selected="selected">12:30 PM</option>
+                      <option value="12:30 PM">12:30 PM</option>
                       <option value="1:00 PM">1:00 PM</option>
                       <option value="1:30 PM">1:30 PM</option>
                       <option value="2:00 PM">2:00 PM</option>
@@ -220,45 +218,42 @@ $(document).ready(function() {
   var username = '<?= $this->config->item('username')?>'
   var password = '<?= $this->config->item('password')?>'
 
-  var cur_date = '<?php echo date("Y-m-d") ?>';
-  var st_time = ConvertTimeformat($('#start_time').val());
-  var to_time = ConvertTimeformat($('#to_time').val());
+  // var cur_date = '<?php echo date("Y-m-d") ?>';
+  // var st_time = ConvertTimeformat($('#start_time').val());
+  // var to_time = ConvertTimeformat($('#to_time').val());
 
-  var fromTime = cur_date +'T'+  st_time  + 'Z'; 
-  var totime = cur_date +'T'+  to_time  + 'Z'; 
-  var location = $('.locations').val();
+  // var fromTime = cur_date +'T'+  st_time  + 'Z'; 
+  // var totime = cur_date +'T'+  to_time  + 'Z'; 
+  // var location = $('.locations').val();
 
   $('#findAvailable').click(function(){
-    var st_time = ConvertTimeformat($('#start_time').val());
-    var to_time = ConvertTimeformat($('#to_time').val());
-    var selected_date  =  $('#date').val();
-    if(selected_date == '' || selected_date == '0'){
-        var date = cur_date;
+    if($('#start_time').val() == '' || $('#to_time').val() == '' || $('#date').val() == ''){
+      toastr.error('All the fields are mandatory');
+    }else{
+      var st_time = ConvertTimeformat($('#start_time').val());
+      var to_time = ConvertTimeformat($('#to_time').val());
+      var selected_date  =  $('#date').val();
+      var location = $('.locations').val();
+      var fromTime = selected_date +'T'+  st_time  + 'Z'; 
+      var totime = selected_date +'T'+  to_time  + 'Z'; 
+      get_available_rooms(fromTime,totime,location);
     }
-    else{
-        var date = selected_date;
-    }
-    var location = $('.locations').val();
-    var fromTime = date +'T'+  st_time  + 'Z'; 
-    var totime = date +'T'+  to_time  + 'Z'; 
-    get_available_rooms(fromTime,totime,location);
+    
   });
 
   $(".locations").change(function() {
-        $('.whole_div').show();
-        var location = $(this).val();
-        var st_time = ConvertTimeformat($('#start_time').val());
-        var to_time = ConvertTimeformat($('#to_time').val());
-        var selected_date  =  $('#date').val();
-        if(selected_date == '' || selected_date == '0'){
-            var date = cur_date;
+        if($('#start_time').val() == '' || $('#to_time').val() == '' || $('#date').val() == ''){
+          toastr.error('All the fields are mandatory');
+        }else{
+          $('.whole_div').show();
+          var st_time = ConvertTimeformat($('#start_time').val());
+          var to_time = ConvertTimeformat($('#to_time').val());
+          var selected_date  =  $('#date').val();
+          var location = $('.locations').val();
+          var fromTime = selected_date +'T'+  st_time  + 'Z'; 
+          var totime = selected_date +'T'+  to_time  + 'Z'; 
+          get_available_rooms(fromTime,totime,location);
         }
-        else{
-            var date = selected_date;
-        }
-        var fromTime = date +'T'+  st_time  + 'Z'; 
-        var totime = date +'T'+  to_time  + 'Z'; 
-        get_available_rooms(fromTime,totime,location);
     });
   
   function get_locations(){
@@ -344,7 +339,6 @@ $(document).ready(function() {
         return selected_time;
     }
     get_locations();
-    get_available_rooms(fromTime,totime,location);
 });
 </script>      
 

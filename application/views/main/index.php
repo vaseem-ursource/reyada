@@ -20,14 +20,14 @@ body.modal-open-noscroll
           <li data-target="#homecarousel" data-slide-to="2"></li>
       </ul>
       <div class="carousel-inner">
-          <div class="carousel-item active" >
-          <img src="<?= base_url()?>image/home1.jpg" alt="">
-          </div>
           <div class="carousel-item">
           <img src="<?= base_url()?>image/home2.jpg" alt="">
           </div>
           <div class="carousel-item">
           <img src="<?= base_url()?>image/home3.jpg" alt="">
+          </div>
+          <div class="carousel-item active">
+          <img src="<?= base_url()?>image/home1.jpg" alt="">
           </div>
       </div>
       <a class="carousel-control-prev" href="#homecarousel" data-slide="prev">
