@@ -10,7 +10,7 @@
                 <div class="plan-desc" >
                     <?= $plan->Tariff->Description ?>
                 </div>
-                <?php if(!empty($plan->NextTariff)){ ?>
+                <?php if($plan->NextTariff->Price != $plan->Tariff->Price){ ?>
                     <table class="table table-striped h6 table-borderless" style="color:#000000;">
                         <thead>
                             <tr style="background-color:#F5F5F5";>
@@ -18,7 +18,17 @@
                             </tr>
                         </thead>
                     </table>
+                <?php }elseif(new DateTime($plan->StartDate) > new DateTime()){ ?>
+                    <table class="table table-striped h6 table-borderless" style="color:#000000;">
+                        <thead>
+                            <tr style="background-color:#F5F5F5";>
+                            <td><img src="<?= base_url('image/ii.png');?>" alt="" width="20px"> <span class="pl-3"><b>This subscription has not started yet.</b> 
+                                    This plan is set to start on <?= date('m/d/Y', strtotime($plan->StartDate)) ?>. You will not have access to any of its benefits <span class="pl-5">before that date.</span></span></td>
+                            </tr>
+                        </thead>
+                    </table>
                 <?php } ?>
+                <hr>
             <?php } ?>
         <?php } else{
             if(!empty($future_plan)){ ?>

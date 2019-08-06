@@ -695,8 +695,8 @@ class main extends CI_Controller
                 'Authorization: Basic ' . base64_encode("$username:$password"),
             );
             $allowances = $this->post_with_curl($url, null, $headers);
-            $data['coworker_plans'] = $allowances['ActiveContracts'];
-            $data['future_plan'] = $allowances['NonCancelledContracts'];
+            $data['coworker_plans'] = $allowances['NonCancelledContracts'];
+            $data['future_plan'] = $allowances['ActiveContracts'];
             $data['other_time_passes'] = $allowances['OtherTimePasses'];
             $data['other_extra_services'] = $allowances['OtherExtraServices'];
             $data['folder_name'] = 'main';
