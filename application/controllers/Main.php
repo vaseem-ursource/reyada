@@ -817,13 +817,13 @@ class main extends CI_Controller
             $j_data['Email'] = $user['Email'];
             $j_data['EmailForInvoice'] = $user['Email'];
             $j_data['Facebook'] = $p_data['facebook'];
-            $j_data['Flickr'] = $p_data['flicker'];
+            $j_data['Flickr'] = null;
             $j_data['FullName'] = $p_data['u_fullname'];
             $j_data['FullNameForInvoice'] = $p_data['u_fullname'];
             $j_data['Gender'] = $p_data['u_gender'];
             $j_data['GeneralTermsAccepted'] = false;
             $j_data['Github'] = null;
-            $j_data['Google'] = $p_data['google'];
+            $j_data['Google'] = null;
             $j_data['GuessedFirstName'] = explode(' ', trim($p_data['u_fullname']))[0];
             $j_data['GuessedFirstNameForInvoice'] = explode(' ', trim($p_data['u_fullname']))[0];
             $j_data['GuessedLastName'] = (isset(explode(' ', trim($p_data['u_fullname']))[1])) ? explode(' ', trim($p_data['u_fullname']))[1] : "";
@@ -865,7 +865,7 @@ class main extends CI_Controller
             $j_data['StateForInvoice'] = "Not Available";
             $j_data['TaxIDNumber'] = $p_data['u_vat'];
             $j_data['Telegram'] = null;
-            $j_data['Tumblr'] = $p_data['tumblr'];
+            $j_data['Tumblr'] = null;
             $j_data['Twitter'] = $p_data['twitter'];
             $j_data['UniqueId'] = "cd694a808a625e2ea3sj";
             $j_data['UpdateBillingDetails'] = true;
@@ -874,7 +874,7 @@ class main extends CI_Controller
             $j_data['UtcCancellationDate'] = null;
             $j_data['UtcDateOfBirth'] = null;
             $j_data['UtcRegistrationDate'] = $user['CreatedOn'];
-            $j_data['Vimeo'] = $p_data['vimeo'];
+            $j_data['Vimeo'] = null;
 
             //user data
             $u_data['CreatedOn'] = "2019-05-21T11:20:56";
