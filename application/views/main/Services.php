@@ -415,7 +415,6 @@
             </div>
             <div class="col-md-8 row">
                 <div class="col-md-6 pt-5">
-                <span style="position:absolute;top:-25px;left:-25px"><img src="<?= base_url('image/location.png')?>" alt="" width="25px" height="30px"> CRYSTAL TOWER</span>
                     <span class="pull-right">1 <span style="border-bottom: 1px solid black;width:20px;height:3px; display: inline-block;vertical-align: middle;"></span> 3</span><br>
                     <span class="pull-right">PAY AS YOU GO</span><br>
                     <span class="pull-right text-justify pt-4">Designed for those always on the move. Get 1 – day access of co-working space credit and pay 5 kd for any additional day. 
@@ -486,7 +485,6 @@
             </div>
             <div class="col-md-8 row pt-4 pr-0">
                 <div class="col-md-6">
-                <span style="position:absolute;top:-25px;left:-25px"><img src="<?= base_url('image/location.png')?>" alt="" width="25px" height="30px"> CRYSTAL TOWER</span>
                 <div id="demo2" class="carousel slide" data-ride="carousel">
                         <ul class="carousel-indicators">
                             <li data-target="#demo2" data-slide-to="0" class="active"></li>
@@ -544,7 +542,6 @@
                <img src="<?= base_url()?>image/membership/m3.png" class="w-50 lap" alt="">
             </div>
             <div class="col-md-8 row pr-0">
-            <span style="position:absolute;top:-25px;left:-25px"><img src="<?= base_url('image/location.png')?>" alt="" width="25px" height="30px"> CRYSTAL TOWER</span>
                 <div class="col-md-6 pt-5">
                     <span class="pull-right">3 <span style="border-bottom: 1px solid black;width:20px;height:3px; display: inline-block;vertical-align: middle;"></span> 3</span><br>
                     <span class="pull-right">PRIVATE OFFICE</span><br>
@@ -599,6 +596,72 @@
         </header>
     </div>
 </section><!-- #Feature -->
+<section id="mem-services" >
+    <div class="my-5 py-5 memb-bg">
+        <header class="section-header">
+            <h3 class="text-dark">Choose a Membership Package</h3>
+            <div class="text-center">
+                <div  name="coWorking"  class="btn btn-default membership membership-active">Co-Working</div>
+                <div  name="meetingRoom"  class="btn btn-default membership">Meeting Room</div>
+            </div>
+        </header>
+    </div>
+    <?php if(!empty($coworkings)){?>
+        <div class="container" id="coworkings" style="position:relative;margin-top:-400px;">
+            <div class="row">
+            <?php foreach($coworkings as $coworking){?>
+                
+                <div class="col-lg-4 col-md-4 col-xs-4 fadeInUp p-1" style="visibility: visible; animation-name: fadeInUp;">
+                    <div class="w-100 box" >
+                        <div class="card-body">
+                            <h4 class="card-title pt-1 plan-title" style="" title="<?= $coworking->Name ?>">
+                                <b>
+                                <?php if (strlen($coworking->Name) > 24){
+                                    echo substr($coworking->Name , 0, 24) . '...';
+                                }else{
+                                    echo $coworking->Name;
+                                } ?>
+                                </b>
+                            </h4>
+                            <h5 class="card-title"><b><?= $coworking->Price?>.<?= $coworking->CurrencyCode?><br>(<?= ($coworking->InvoiceEvery === 1) ? 'Monthly' : (($coworking->InvoiceEvery === 4) ? 'Quarterly' : ($coworking->InvoiceEvery === 12) ? 'Annually' :"every '$coworking->InvoiceEvery' months"); ?>)</b></h5><br>
+                            <h6 class="card-title">Features</h6>
+                            <div class="card-text text-justify" style="min-height:200px;"><?= $coworking->Description ?></div><br>
+                            <a href="#" class="text-center text-dark planshow" data-toggle="modal" data-target="#modalsignup" ><h4><?= ($is_logged_in == 1) ? 'Continue' :'Sign Up' ?>&nbsp;&nbsp;<i class="fa fa-angle-right"></i></h4></a>
+                        </div>
+                    </div>
+                </div>
+            <?php } ?>
+            </div>
+        </div>
+    <?php } ?> 
+    <?php if(!empty($meetingrooms)){ ?> 
+        <div class="container" id="meetingrooms" style="position:relative;margin-top:-400px;display:none;">
+            <div class="row">
+            <?php foreach($meetingrooms as $meetingroom){?>
+                <div class="col-lg-4 col-md-4 col-xs-4 fadeInUp p-1" style="visibility: visible; animation-name: fadeInUp;">
+                    <div class="w-100 box" >
+                        <div class="card-body">
+                            <h4 class="card-title pt-1 plan-title" title="<?= $meetingroom->Name ?>">
+                            <b>
+                                <?php if (strlen($meetingroom->Name) > 24){
+                                    echo substr($meetingroom->Name , 0, 24) . '...';
+                                }else{
+                                    echo $meetingroom->Name;
+                                } ?>
+                            </b>
+                            </h4>
+                            <h5 class="card-title"><b><?= $meetingroom->Price?>.<?= $meetingroom->CurrencyCode?><br>(<?= ($coworking->InvoiceEvery === 1) ? 'Monthly' : (($coworking->InvoiceEvery === 4) ? 'Quarterly' : ($coworking->InvoiceEvery === 12) ? 'Annually' :"every '$coworking->InvoiceEvery' months"); ?>)</b></h4><br>
+                            <h6 class="card-title">Features</h6>
+                            <div class="card-text text-justify" style="min-height:200px;"><?= $meetingroom->Description ?></div><br>
+                            <a href="#" class="text-center text-dark planshow" data-toggle="modal" data-target="#modalsignup"><h4><?= ($is_logged_in === 1) ? 'Continue' :'Sign Up' ?>&nbsp;&nbsp;<i class="fa fa-angle-right"></i></h5></a>
+                        </div>
+                    </div>
+                </div>
+            <?php } ?>
+            </div>
+        </div>
+    <?php }?>
+</section>
 <section id="services" class="section-bg p-0 m-0">
     <div class="container-fluid p-0 m-0">
         <header class="section-header">
@@ -619,17 +682,43 @@
 <script>
 var is_logged_in = '<?= $is_logged_in ?>';
 $(".planshow").click(function () {
-    if(is_logged_in == 1){
-        $(".firstSignup").css('display', 'none');
-        $(".secondSignup").css('display', 'block');
-        $('#modalsignup').modal('show');
-    }
-    else{
-        $(".firstSignup").css('display', 'block');
-        $(".secondSignup").css('display', 'none');
-        $('#modalsignup').modal('show'); 
-    }
-    
-  });
+if(is_logged_in == 1){
+    $(".firstSignup").css('display', 'none');
+    $(".secondSignup").css('display', 'block');
+    $('#modalsignup').modal('show');
+}
+else{
+    $(".firstSignup").css('display', 'block');
+    $(".secondSignup").css('display', 'none');
+    $('#modalsignup').modal('show'); 
+}
+
+});
+$(function(){
+    $('.membership').click(function(){
+        var value = $(this).attr('name');
+        if( value == 'coWorking'){
+            $('#coworkings').show();
+            $('#meetingrooms').hide();
+        }
+        else{
+            $('#meetingrooms').show();
+            $('#coworkings').hide();
+        }
+        $('.membership.membership-active').removeClass('membership-active');
+        $(this).addClass('membership-active');
+    });
+});
+// $('#coWorking').click(function(){
+//     $('#coworkings').show();
+//     $('#meetingrooms').hide();
+// });
+// $('#meetingRoom').click(function(){
+//     $('#meetingrooms').show();
+//     $('#coworkings').hide();
+// });
+// $('.membership').click(function(){
+//     $(this).css('border-bottom','2px solid black');
+// });
 
 </script>

@@ -20,6 +20,37 @@
   border:2px solid white;
   font-size:18px; 
 }
+.membership{
+  width:250px;
+  height:40px;
+  background-color:rgba(160, 158, 158, 0.5);
+  border-radius: 0%;
+  text-align:center;
+  font-size:18px;
+}
+.membership-active{
+  border-bottom:2px solid black;
+}
+
+.plan-title:after {
+  content: ""; /* This is necessary for the pseudo element to work. */ 
+  display: block; /* This will put the pseudo element on its own line. */
+  margin: 10 auto; /* This will center the border. */
+  width: 60%; /* Change this to whatever width you want. */
+  padding-top: 15px; /* This creates some space between the element and the border. */
+  border-bottom: 2px solid rgb(236, 236, 236); /* This creates the border. Replace black with whatever color you want. */
+}
+#mem-services {
+  padding: 0px 0 0 0;
+}
+.box{
+  box-shadow: 1px 1px 5px 1px rgb(236, 236, 236);
+  background-color:white;
+}
+.memb-bg {
+  background: #F8F8F8;
+  height:80vh;
+}
 .custom-button:hover{
   color:white;
   background-color:rgba(0,0,0,0.2);
@@ -269,7 +300,8 @@ display: none;
 } 
 .lap{ 
 display: block; 
-} 
+}
+
 } 
 
 @media only screen and (max-width: 769px) { 
@@ -280,6 +312,14 @@ display: block;
 .lap{ 
 display: none; 
 } 
+.membership{
+  width:150px;
+  height:50px;
+  background-color:rgba(160, 158, 158, 0.5);
+  border-radius: 0%;
+  text-align:center;
+  font-size:18px;
+}
 } 
 
 
@@ -962,7 +1002,6 @@ background-color:grey;
   padding: 8px 16px; 
   text-decoration: none; 
   transition: background-color .3s; 
-  
   } 
   
   .pagination1 strong { 
@@ -974,7 +1013,7 @@ background-color:grey;
   } 
   .booking-div{
     overflow-y:auto;
-    max-height: 300px
+    max-height: 250px
   }
   
   .pagination1  a:hover:not(.active) {background-color:#fff;border: 1px solid #343a40;

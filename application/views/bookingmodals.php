@@ -844,6 +844,7 @@ $(document).ready(function() {
     }
 
     function get_locations(){
+        $(".location-drp-dwn").empty();
         $.ajax({
             type: 'GET',
             url: 'https://spaces.nexudus.com/api/sys/businesses?dir=' +'Descending',

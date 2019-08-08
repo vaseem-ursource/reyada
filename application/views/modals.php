@@ -72,8 +72,8 @@
         +(965) 2297 0270
           <br><br><br>
           <span style="color:white; font-size:20px;">Find Us</span><br><br>
-          <a style="color:white; font-size:18px;" href="https://www.google.com/maps/place/Reyada+%7C+Collaborative+Workspace/@29.3769156,47.9756613,17z/data=!3m1!4b1!4m5!3m4!1s0x3fcf84ec4226df39:0x267ba39977cfa42e!8m2!3d29.3769156!4d47.97785" target="_blank"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;CRYSTAL TOWER</a><br>
-          <a style="color:white; font-size:18px;" href="https://www.google.com/maps/place/Reyada+%7C+Collaborative+Workspace/@29.3681039,47.9687861,17z/data=!3m1!4b1!4m5!3m4!1s0x3fcf85e8f50d9f6d:0x30e75da11a5d5bf7!8m2!3d29.3681039!4d47.9709748" target="_blank"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;MABANEE</a>
+          <a style="color:white; font-size:18px;" href="https://www.google.com/maps/place/Reyada+%7C+Collaborative+Workspace/@29.3769156,47.9756613,17z/data=!3m1!4b1!4m5!3m4!1s0x3fcf84ec4226df39:0x267ba39977cfa42e!8m2!3d29.3769156!4d47.97785" target="_blank"><img src="<?= base_url()?>image/location_white.png" width="8%" />&nbsp;&nbsp;CRYSTAL TOWER</a><br>
+          <a style="color:white; font-size:18px;" href="https://www.google.com/maps/place/Reyada+%7C+Collaborative+Workspace/@29.3681039,47.9687861,17z/data=!3m1!4b1!4m5!3m4!1s0x3fcf85e8f50d9f6d:0x30e75da11a5d5bf7!8m2!3d29.3681039!4d47.9709748" target="_blank"><img src="<?= base_url()?>image/location_white.png" width="8%" />&nbsp;&nbsp;MABANEE</a>
          </h6>
       </div>
     </section>

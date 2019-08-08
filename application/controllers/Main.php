@@ -19,6 +19,25 @@ class main extends CI_Controller
         $data['file_name'] = 'index';
         $data['header_name'] = 'header';
         $data['RecentArticle'] = $this->Main_model->get_recent_articles();
+        $url = 'https://spaces.nexudus.com/api/billing/tariffs';
+        $username = $this->config->item('username');
+        $password = $this->config->item('password');
+        $headers = array(
+            'Content-Type: application/json',
+            'Authorization: Basic ' . base64_encode("$username:$password"),
+        );
+        $output = $this->post_with_curl($url, null , $headers);
+        if(!empty($output['Records'])){
+            $data['packages'] = $output['Records'];
+            foreach($data['packages'] as $package){
+                if($package->GroupName == "Coworking Memberships\t" || $package->GroupName == "Coworking Memberships"){
+                    $data['coworkings'][] = $package;
+                }
+                else{
+                    $data['meetingrooms'][] = $package;
+                }
+            }
+        }
         $this->load->view('index', $data);
 
     }
@@ -29,6 +48,25 @@ class main extends CI_Controller
         $data['file_name'] = 'Services';
         $data['header_name'] = 'header_blog';
         $data['RecentArticle'] = $this->Main_model->get_recent_articles();
+        $url = 'https://spaces.nexudus.com/api/billing/tariffs';
+        $username = $this->config->item('username');
+        $password = $this->config->item('password');
+        $headers = array(
+            'Content-Type: application/json',
+            'Authorization: Basic ' . base64_encode("$username:$password"),
+        );
+        $output = $this->post_with_curl($url, null , $headers);
+        if(!empty($output['Records'])){
+            $data['packages'] = $output['Records'];
+            foreach($data['packages'] as $package){
+                if($package->GroupName == "Coworking Memberships\t" || $package->GroupName == "Coworking Memberships"){
+                    $data['coworkings'][] = $package;
+                }
+                else{
+                    $data['meetingrooms'][] = $package;
+                }
+            }
+        }
         $this->load->view('index', $data);
 
     }

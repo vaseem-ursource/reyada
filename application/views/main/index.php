@@ -21,13 +21,13 @@ body.modal-open-noscroll
       </ul>
       <div class="carousel-inner">
           <div class="carousel-item">
-          <img src="<?= base_url()?>image/home2.jpg" alt="">
+          <img src="<?= base_url()?>image/home1.jpg" alt="">
           </div>
           <div class="carousel-item">
-          <img src="<?= base_url()?>image/home3.jpg" alt="">
+          <img src="<?= base_url()?>image/home2.jpg" alt="">
           </div>
           <div class="carousel-item active">
-          <img src="<?= base_url()?>image/home1.jpg" alt="">
+          <img src="<?= base_url()?>image/home3.jpg" alt="">
           </div>
       </div>
       <a class="carousel-control-prev" href="#homecarousel" data-slide="prev">
@@ -103,56 +103,56 @@ body.modal-open-noscroll
       <div class="container">
 		<div class="row px-5">
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 w-50">
-				 <div class="feature" style="padding:15%">
+				 <div class="feature text-center" style="padding:15%">
 					<img src="<?= base_url()?>image/amenities/f1.png" width="75%" class="img-fluid img-bottom position-relative" alt="Card Back">
 					<img src="<?= base_url()?>image/amenities/f11.png" width="75%" class="img-fluid img-top position-relative" alt="Card Front">
 				</div>
 				<h4 class="text-center position-relative pt-2" style="font-size:inherit">FULLY FURNISHED</h4>
 			</div>
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 w-50">
-				 <div class="feature" style="padding:15%">
+				 <div class="feature text-center" style="padding:15%">
 					<img src="<?= base_url()?>image/amenities/f3.png" width="75%" class="img-fluid img-bottom position-relative" alt="Card Back">
 					<img src="<?= base_url()?>image/amenities/f31.png" width="75%" class="img-fluid img-top position-relative" alt="Card Front">
 				</div>
 				<h4 class="text-center position-relative pt-2" style="font-size:inherit">HIGH SPEED INTERNET</h4>
 			</div>
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 w-50">
-				 <div class="feature" style="padding:15%">
+				 <div class="feature text-center" style="padding:15%">
 					<img src="<?= base_url()?>image/amenities/f8.png" width="75%" class="img-fluid img-bottom position-relative" alt="Card Back">
 					<img src="<?= base_url()?>image/amenities/f81.png" width="75%" class="img-fluid img-top position-relative" alt="Card Front">
 				</div>
 				<h4 class="text-center position-relative pt-2" style="font-size:inherit">PRINT, COPY, FAX, SCAN</h4>
 			</div>
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 w-50">
-				 <div class="feature" style="padding:15%">
+				 <div class="feature text-center" style="padding:15%">
 					<img src="<?= base_url()?>image/amenities/f5.png" width="75%" class="img-fluid img-bottom position-relative" alt="Card Back">
 					<img src="<?= base_url()?>image/amenities/f51.png" width="75%" class="img-fluid img-top position-relative" alt="Card Front">
 				</div>
 				<h4 class="text-center position-relative pt-2" style="font-size:inherit">REFRESHMENTS</h4>
 			</div>
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 w-50">
-				 <div class="feature" style="padding:15%">
+				 <div class="feature text-center" style="padding:15%">
 					<img src="<?= base_url()?>image/amenities/f7.png" width="75%" class="img-fluid img-bottom position-relative" alt="Card Back">
 					<img src="<?= base_url()?>image/amenities/f71.png" width="75%" class="img-fluid img-top position-relative" alt="Card Front">
 				</div>
 				<h4 class="text-center position-relative pt-2" style="font-size:inherit">MEETING ROOMS</h4>
 			</div>
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 w-50">
-				 <div class="feature" style="padding:15%">
+				 <div class="feature text-center" style="padding:15%">
 					<img src="<?= base_url()?>image/amenities/f6.png" width="75%" class="img-fluid img-bottom position-relative" alt="Card Back">
 					<img src="<?= base_url()?>image/amenities/f61.png" width="75%" class="img-fluid img-top position-relative" alt="Card Front">
 				</div>
 				<h4 class="text-center position-relative pt-2" style="font-size:inherit">MONTHLY SUBSCRIPTION</h4>
 			</div>
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 w-50">
-				 <div class="feature" style="padding:15%">
+				 <div class="feature text-center" style="padding:15%">
 					<img src="<?= base_url()?>image/amenities/f4.png" width="75%" class="img-fluid img-bottom position-relative" alt="Card Back">
 					<img src="<?= base_url()?>image/amenities/f41.png" width="75%" class="img-fluid img-top position-relative" alt="Card Front">
 				</div>
 				<h4 class="text-center position-relative pt-2" style="font-size:inherit">ONSITE PARKING</h4>
 			</div>
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 w-50">
-				 <div class="feature" style="padding:15%">
+				 <div class="feature text-center" style="padding:15%">
 					<img src="<?= base_url()?>image/amenities/f2.png" width="75%" class="img-fluid img-bottom position-relative" alt="Card Back">
 					<img src="<?= base_url()?>image/amenities/f21.png" width="75%" class="img-fluid img-top position-relative" alt="Card Front">
 				</div>
@@ -342,6 +342,72 @@ body.modal-open-noscroll
     <!--==========================
       Latest Article
     ============================-->
+    <section id="mem-services" >
+    <div class="my-5 py-5 memb-bg">
+        <header class="section-header">
+            <h3 class="text-dark">Choose a Membership Package</h3>
+            <div class="text-center">
+                <div  name="coWorking"  class="btn btn-default membership membership-active">Co-Working</div>
+                <div  name="meetingRoom" class="btn btn-default membership">Meeting Room</div>
+            </div>
+        </header>
+    </div>
+    <?php if(!empty($coworkings)){?>
+        <div class="container" id="coworkings" style="position:relative;margin-top:-400px;">
+            <div class="row">
+            <?php foreach($coworkings as $coworking){?>
+                
+                <div class="col-lg-4 col-md-4 col-xs-4 fadeInUp p-1" style="visibility: visible; animation-name: fadeInUp;">
+                    <div class="w-100 box" >
+                        <div class="card-body">
+                            <h4 class="card-title pt-1 plan-title" style="" title="<?= $coworking->Name ?>">
+                                <b>
+                                <?php if (strlen($coworking->Name) > 24){
+                                    echo substr($coworking->Name , 0, 24) . '...';
+                                }else{
+                                    echo $coworking->Name;
+                                } ?>
+                                </b>
+                            </h4>
+                            <h5 class="card-title"><b><?= $coworking->Price?>.<?= $coworking->CurrencyCode?><br>(<?= ($coworking->InvoiceEvery === 1) ? 'Monthly' : (($coworking->InvoiceEvery === 4) ? 'Quarterly' : ($coworking->InvoiceEvery === 12) ? 'Annually' :"every '$coworking->InvoiceEvery' months"); ?>)</b></h5><br>
+                            <h6 class="card-title">Features</h6>
+                            <div class="card-text text-justify" style="min-height:200px;"><?= $coworking->Description ?></div><br>
+                            <a href="#" class="text-center text-dark planshow" data-toggle="modal" data-target="#modalsignup" ><h4><?= ($is_logged_in == 1) ? 'Continue' :'Sign Up' ?>&nbsp;&nbsp;<i class="fa fa-angle-right"></i></h4></a>
+                        </div>
+                    </div>
+                </div>
+            <?php } ?>
+            </div>
+        </div>
+    <?php } ?> 
+    <?php if(!empty($meetingrooms)){ ?> 
+        <div class="container" id="meetingrooms" style="position:relative;margin-top:-400px;display:none;">
+            <div class="row">
+            <?php foreach($meetingrooms as $meetingroom){?>
+                <div class="col-lg-4 col-md-4 col-xs-4 fadeInUp p-1" style="visibility: visible; animation-name: fadeInUp;">
+                    <div class="w-100 box" >
+                        <div class="card-body">
+                            <h4 class="card-title pt-1 plan-title" title="<?= $meetingroom->Name ?>">
+                            <b>
+                                <?php if (strlen($meetingroom->Name) > 24){
+                                    echo substr($meetingroom->Name , 0, 24) . '...';
+                                }else{
+                                    echo $meetingroom->Name;
+                                } ?>
+                            </b>
+                            </h4>
+                            <h5 class="card-title"><b><?= $meetingroom->Price?>.<?= $meetingroom->CurrencyCode?><br>(<?= ($coworking->InvoiceEvery === 1) ? 'Monthly' : (($coworking->InvoiceEvery === 4) ? 'Quarterly' : ($coworking->InvoiceEvery === 12) ? 'Annually' :"every '$coworking->InvoiceEvery' months"); ?>)</b></h4><br>
+                            <h6 class="card-title">Features</h6>
+                            <div class="card-text text-justify" style="min-height:200px;"><?= $meetingroom->Description ?></div><br>
+                            <a href="#" class="text-center text-dark planshow" data-toggle="modal" data-target="#modalsignup"><h4><?= ($is_logged_in === 1) ? 'Continue' :'Sign Up' ?>&nbsp;&nbsp;<i class="fa fa-angle-right"></i></h5></a>
+                        </div>
+                    </div>
+                </div>
+            <?php } ?>
+            </div>
+        </div>
+    <?php }?>
+</section>
     <section id="team" class="">
       <div class="container">
         <div class="section-header pb-2">
@@ -502,18 +568,6 @@ member is not there ? </h6>
       onSelect: () => { /** callback function */ },
       onClear: () => { /** callback function */ }
 });
-// End script for calender
-
-// $('.modal-child').on('show.bs.modal', function () {
-//     var modalParent = $(this).attr('data-modal-parent');
-//     $(modalParent).css('opacity', 0);
-// });
- 
-// $('.modal-child').on('hidden.bs.modal', function () {
-//     var modalParent = $(this).attr('data-modal-parent');
-//     $(modalParent).css('opacity', 1);
-// });
-
 $(document).on("click", "#bookingmodal", function () {
   $("#bookingmodal").modal("show"); 
 });
@@ -561,6 +615,37 @@ $(document).ready(function () {
       dots[slideIndex-1].className += " active";
     }
   </script>
+<script>
+var is_logged_in = '<?= $is_logged_in ?>';
+$(".planshow").click(function () {
+if(is_logged_in == 1){
+    $(".firstSignup").css('display', 'none');
+    $(".secondSignup").css('display', 'block');
+    $('#modalsignup').modal('show');
+}
+else{
+    $(".firstSignup").css('display', 'block');
+    $(".secondSignup").css('display', 'none');
+    $('#modalsignup').modal('show'); 
+}
+
+});
+$(function(){
+    $('.membership').click(function(){
+        var value = $(this).attr('name');
+        if( value == 'coWorking'){
+            $('#coworkings').show();
+            $('#meetingrooms').hide();
+        }
+        else{
+            $('#meetingrooms').show();
+            $('#coworkings').hide();
+        }
+        $('.membership.membership-active').removeClass('membership-active');
+        $(this).addClass('membership-active');
+    });
+});
+</script>
 
 
  
