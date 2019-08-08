@@ -423,6 +423,16 @@ class main extends CI_Controller
         if ($this->input->post('term')) {
             $data['search'] = $this->input->post('term');
         }
+
+        $data_api = "https://api.instagram.com/v1/users/self/media/recent/?access_token=4530291888.3b9b4cb.ced3f183a852496ea52cd426ee560c0f";
+        // $data_response = $this->fetchSimpleData($data_api);
+        // $data['insta_post'] = json_decode($data_response);
+        $data['insta_post'] = array('img/ins/ins (1).jpg', 'img/ins/ins (2).jpg', 'img/ins/ins (3).jpg', 'img/ins/ins (4).jpg', 'img/ins/ins (5).jpg', 'img/ins/ins (6).jpg');
+
+        $user_api = "https://api.instagram.com/v1/users/self/?access_token=4530291888.3b9b4cb.ced3f183a852496ea52cd426ee560c0f";
+        $user_response = $this->fetchSimpleData($user_api);
+        $data['insta_user'] = json_decode($user_response);
+        
         $data['Article'] = $this->Main_model->get_all_article();
         $data['folder_name'] = 'main';
         $data['file_name'] = 'Blog';
@@ -430,6 +440,16 @@ class main extends CI_Controller
         $data['Categories'] = $this->Main_model->get_all_categories();
         $data['PopularArticle'] = $this->Main_model->get_popular_article();
         $this->load->view('index', $data);
+    }
+
+    public function fetchSimpleData($url){
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 20);
+        $result = curl_exec($ch);
+        curl_close($ch); 
+        return $result;
     }
 
     public function blog_category()
