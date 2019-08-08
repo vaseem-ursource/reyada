@@ -473,6 +473,18 @@ h6 {
 /* Sections Header
 --------------------------------*/
 
+.insta-post-single{
+  height:110px;
+  width:50%;
+  float:left;
+  border: 2px solid #ffffff;
+  background-size: cover;
+}
+
+.insta-profile{
+  border-radius: 50%;
+}
+
 .section-header h3 {
   font-size: 36px;
   color: #413e66;
