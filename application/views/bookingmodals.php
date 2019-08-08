@@ -25,12 +25,21 @@
                 </h6>
                 <h6 style="color:white; font-size: 14px;"
                     class="text-justify bg-black px-2 m-4 mb-3">
-                    <div class="col-md-12 col-sm-12 col-xs-12 row" id="resources">
+                    <div class="col-md-12 col-sm-12 col-xs-12 row" id="resources" style="display:none;">
                     </div>
                     <br>
-                    <div class="col-md-12 col-sm-12 col-xs-12 row booking-div" id="bookings">
+                    <div class="col-md-12 col-sm-12 col-xs-12 row booking-div" id="bookings" style="display:none;">
                     </div>
-                    <h6 style="color:white; position: absolute; left:20px; right:20px; top:75%; font-size: 13px;width:100%;"
+                    <div class="col-md-12 col-sm-12 col-xs-12" style="top:-25px;" id="loc_imgs" style="display:none;">
+                        <img src="<?= base_url('image/services/room1.jpg')?>"  width="100%" />
+                    </div>
+                    <div id="description" class="col-md-12 col-sm-12 col-xs-12" style="color:white; position: relative;left:0px; right:20px; bottom:15%; font-size: 16px;">
+                        <h6>
+                            <small> Lorem Ipsum is simply ing industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.Lorem ipsum dolor sit amet,</small>
+                        </h6>
+                    </div>
+                   
+                    <h6 style="color:white; position: absolute; left:20px; right:20px; top:78%; font-size: 13px;width:100%;"
                         class="py-5 px-3 text-justify booking-option">
                         <div class="col-md-12 col-sm-12 col-xs-12  my-3  row">
                             <div class="col row p-0 m-0">
@@ -249,7 +258,6 @@
             </div>
         </div>
       </div>
-     
     </div>
   </div>
 </div>
@@ -385,6 +393,10 @@ $(document).ready(function() {
         $("#bookingmodal").modal("show");
         $(".booking-option").show();
         $("#meetFormReg").hide();
+        $("#resources").hide();
+        $("#bookings").hide();
+        $("#loc_imgs").show(); 
+        $("#description").show();
         get_locations();
     });
     $(document).on("click","#mr_book",function(){
@@ -394,7 +406,11 @@ $(document).ready(function() {
             $('#femail').val(user_info.Email);
             $('#cowerker_id').val(user_info.Id);
             $('#confirmBooking').append('<b>'+ '+965 ' + user_info.MobilePhone + '</b>'); 
-            $("#meetFormReg").show(); 
+            $("#meetFormReg").show();
+            $("#resources").show();
+            $("#bookings").show();
+            $("#loc_imgs").hide(); 
+            $("#description").hide();
         }else{
             $("#yesnomodal").modal('show');
         } 
@@ -415,6 +431,10 @@ $(document).ready(function() {
         $("#bookingmodal").modal("hide");
         $("#yesnomodal").modal("hide");
         $("#nomodal").modal("show");
+        $("#resources").show();
+        $("#bookings").show();
+        $("#loc_imgs").hide();
+        $("#description").hide();
     });
 
     $(document).on("click", "#noModalTour", function() {
@@ -469,7 +489,21 @@ $(document).ready(function() {
 
     $(".location-drp-dwn").change(function() {
         $('.whole_div').show();
+        $('#loc_imgs').empty();
         var location_id = $(this).val();
+        if(location_id == 960808852){
+            var img = '<img src="'+base_url+'image/services/room1.jpg" width="100%" />';
+            $('#loc_imgs').append(img);
+        }
+        else if(location_id == 1021779763){
+            var img = '<img src="'+base_url+'image/services/room2.jpg" width="100%" />';
+            $('#loc_imgs').append(img);
+
+        }
+        else{
+            var img = '<img src="'+base_url+'image/services/room3.jpg" width="100%" />';
+            $('#loc_imgs').append(img);
+        }
         get_resources(location_id);
     });
 
@@ -822,7 +856,7 @@ $(document).ready(function() {
                 
                 if (location.length != 0) {
                     $.each(locations.Records, (key, location) => {
-                        $(".location-drp-dwn").append("<option value ='" +location.Id + " '>" + location.Name + "</option>");
+                        $(".location-drp-dwn").append("<option value ='"+location.Id+"'>" + location.Name + "</option>");
                         $(".location").append("<option value ='"+location.WebAddress+"'>" + location.Name + "</option>");
                     });
                     get_resources(location[0].Id);

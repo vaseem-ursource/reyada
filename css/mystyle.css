@@ -974,7 +974,7 @@ background-color:grey;
   } 
   .booking-div{
     overflow-y:auto;
-    max-height: 200px
+    max-height: 300px
   }
   
   .pagination1  a:hover:not(.active) {background-color:#fff;border: 1px solid #343a40;
