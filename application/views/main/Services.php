@@ -670,7 +670,7 @@
                <img src="<?= base_url()?>image/services/service1.jpg" class="w-100">
             </div>
             <div class="col-md-4 p-0 m-0">
-                <img src="<?= base_url()?>image/services/service2.jpg" class="w-100">
+                <img src="<?= base_url()?>image/services/service5.jpg" class="w-100">
             </div>
             <div class="col-md-4 p-0 m-0">
                 <img src="<?= base_url()?>image/services/service3.jpg" class="w-100">
