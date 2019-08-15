@@ -33,7 +33,7 @@ class main extends CI_Controller
                 if($package->GroupName == "Coworking Memberships\t" || $package->GroupName == "Coworking Memberships"){
                     $data['coworkings'][] = $package;
                 }
-                else{
+                if($package->GroupName == "Meeting Room Memberships"){
                     $data['meetingrooms'][] = $package;
                 }
             }
@@ -689,7 +689,8 @@ class main extends CI_Controller
         $j_data['isPayingMember'] = false;
         $j_data['ProfileTagsArray'] = [];
         $webaddress = $p_data['location'];
-        $url = "https://$webaddress.spaces.nexudus.com/en/signup?createuser=false&_resource=,&_depth=1";
+        $s_data = json_encode(array('base64avatar' => null, 'Coworker' => $j_data, 'Team' => new stdClass()));
+        $url = "https://copyofreyadatestaccount.spaces.nexudus.com/en/signup?createuser=false&_resource=,&_depth=1";
         $headers = array(
             'Content-Type: application/json',
             'Content-Length: ' . strlen($s_data),

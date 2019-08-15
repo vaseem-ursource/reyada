@@ -18,6 +18,7 @@ body.modal-open-noscroll
           <li data-target="#homecarousel" data-slide-to="0" class="active"></li>
           <li data-target="#homecarousel" data-slide-to="1"></li>
           <li data-target="#homecarousel" data-slide-to="2"></li>
+          <li data-target="#homecarousel" data-slide-to="3"></li>
       </ul>
       <div class="carousel-inner">
           <div class="carousel-item">
@@ -28,6 +29,9 @@ body.modal-open-noscroll
           </div>
           <div class="carousel-item active">
           <img src="<?= base_url()?>image/home3.jpg" alt="">
+          </div>
+          <div class="carousel-item">
+          <img src="<?= base_url()?>image/home4.jpg" alt="">
           </div>
       </div>
       <a class="carousel-control-prev" href="#homecarousel" data-slide="prev">
@@ -353,7 +357,7 @@ body.modal-open-noscroll
         </header>
     </div>
     <?php if(!empty($coworkings)){?>
-        <div class="container" id="coworkings" style="position:relative;margin-top:-400px;">
+        <div class="container" id="coworkings" style="position:relative;margin-top:-350px;">
             <div class="row">
             <?php foreach($coworkings as $coworking){?>
                 
@@ -381,7 +385,7 @@ body.modal-open-noscroll
         </div>
     <?php } ?> 
     <?php if(!empty($meetingrooms)){ ?> 
-        <div class="container" id="meetingrooms" style="position:relative;margin-top:-400px;display:none;">
+        <div class="container" id="meetingrooms" style="position:relative;margin-top:-350px;display:none;">
             <div class="row">
             <?php foreach($meetingrooms as $meetingroom){?>
                 <div class="col-lg-4 col-md-4 col-xs-4 fadeInUp p-1" style="visibility: visible; animation-name: fadeInUp;">
@@ -399,7 +403,7 @@ body.modal-open-noscroll
                             <h5 class="card-title"><b><?= $meetingroom->Price?>.<?= $meetingroom->CurrencyCode?><br>(<?= ($coworking->InvoiceEvery === 1) ? 'Monthly' : (($coworking->InvoiceEvery === 4) ? 'Quarterly' : ($coworking->InvoiceEvery === 12) ? 'Annually' :"every '$coworking->InvoiceEvery' months"); ?>)</b></h4><br>
                             <h6 class="card-title">Features</h6>
                             <div class="card-text text-justify" style="min-height:200px;"><?= $meetingroom->Description ?></div><br>
-                            <a href="#" class="text-center text-dark planshow" data-toggle="modal" data-target="#modalsignup"><h4><?= ($is_logged_in === 1) ? 'Continue' :'Sign Up' ?>&nbsp;&nbsp;<i class="fa fa-angle-right"></i></h5></a>
+                            <a href="#" class="text-center text-dark planshow" data-toggle="modal" data-target="#modalsignup"><h4><?= ($is_logged_in == 1) ? 'Continue' :'Sign Up' ?>&nbsp;&nbsp;<i class="fa fa-angle-right"></i></h5></a>
                         </div>
                     </div>
                 </div>
@@ -636,10 +640,12 @@ $(function(){
         if( value == 'coWorking'){
             $('#coworkings').show();
             $('#meetingrooms').hide();
+            $('#cowork').click(); 
         }
         else{
             $('#meetingrooms').show();
             $('#coworkings').hide();
+            $('#meetroom').click();
         }
         $('.membership.membership-active').removeClass('membership-active');
         $(this).addClass('membership-active');

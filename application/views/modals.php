@@ -1,5 +1,9 @@
 <!-- Contact Us Modal -->
-
+<style>
+  .modal-dialog-center {
+    margin-top: 13%;
+  }
+</style>
 <div id="modalcontact" class="modal fade bs-example-modal-xl" role="dialog ">
  <div class="modal-dialog modal-xl" style="height:600px;">
 <!-- Modal content-->
@@ -136,53 +140,6 @@
     </div>
   </div>
 </div>
-<script>
-  // $('#modallogin').on('hidden.bs.modal', function () {
-  //   // Load up a new modal...
-  //   $('#modalsignup').modal('show')
-  // })
-
-  $(window, document, undefined).ready(function () {
-
-    $('input').blur(function () {
-      var $this = $(this);
-      if ($this.val())
-        $this.addClass('used');
-      else
-        $this.removeClass('used');
-    });
-
-    var $ripples = $('.ripples');
-
-    $ripples.on('click.Ripples', function (e) {
-
-      var $this = $(this);
-      var $offset = $this.parent().offset();
-      var $circle = $this.find('.ripplesCircle');
-
-      var x = e.pageX - $offset.left;
-      var y = e.pageY - $offset.top;
-
-      $circle.css({
-        top: y + 'px',
-        left: x + 'px'
-      });
-
-      $this.addClass('is-active');
-
-    });
-
-    $ripples.on('animationend webkitAnimationEnd mozAnimationEnd oanimationend MSAnimationEnd', function (e) {
-      $(this).removeClass('is-active');
-    });
-
-  });
-</script>
-
-<!--==========================
-    End Login Modal
-  ============================-->
-
 
 <div id="qnimate" class="off">
   <div id="search" class="open">
@@ -191,19 +148,9 @@
       <form action="<?= base_url('Main/blog');?>" method="post" autocomplete="off">
         <i class="fa fa-search fa-2x" style="padding-top:25px;padding-right:10px" aria-hidden="true"></i>
         <input type="text" placeholder="search..." value="" name="term" id="term">
-        <!-- <button class="btn btn-lg btn-site" type="submit"><span class="glyphicon glyphicon-search"></span> Search</button> -->
       </form>
     </div>
-    <script>
-        // $('#term').keypress(function (e) {
-        //     if (e.which == 13 || event.keyCode == 13) {
-        //         alert('enter key is pressed');
-        //     }
-        // });
-    </script>
     <div class="row align-self-center">
-      <!-- <nav class="main-nav  d-lg-block align-self-center" > -->
-      <!-- <ul class="align-self-center main-nav-menu d-lg-block align-self-center"> -->
        <div class="col-12 text-center py-1"><a href="<?= base_url()?>" class="text-dark col">ABOUT</a>
         <a href="<?= base_url('main/services#faq')?>" class="text-dark col">FAQ</a>
         <a href="<?= base_url('main/blog')?>" class="text-dark col">BLOG</a>
@@ -217,9 +164,6 @@
         <a href="#" class="text-dark col">THIRD PARTY</a>
         <a href="#" class="text-dark col">PRIVACY POLICY</a>
         </div>  
-        <!-- <a href="#search"><i class="fa fa-search"></i></a> -->
-
-      <!-- </ul> -->
     </div>
 
     <footer id="footer" class="section-bg p-0 lap">
@@ -239,42 +183,14 @@
           </div>
         </div>
       </div>
-    </footer><!-- #footer -->
-
+    </footer>
     <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-    <!-- <small style="text-align: center; color: rgb(0, 0, 0); position: absolute; left: 0px; right: 0px; bottom: 70px; font-size: 16px;">Designed by <a target="_blank" title="gurdeeposahan" href="https://web.facebook.com/iamgurdeeposahan">IamGurdeepOsahan</a></small> -->
   </div>
 
 </div>
 
-<script>
-  $(function () {
-    $("#addClass").click(function () {
-      $('#qnimate').addClass('popup-box-on');
-    });
-
-    $("#removeClass").click(function () {
-      $('#qnimate').removeClass('popup-box-on');
-    });
-  })
-
-  $(function () {
-    $("#addClassMob").click(function () {
-      $('#qnimate').addClass('popup-box-on');
-    });
-
-    $("#removeClass").click(function () {
-      $('#qnimate').removeClass('popup-box-on');
-    });
-  })
-</script>
-<!--End Login Modal-->
-
-<!-- SignUp Modal -->
-
 <div id="modalsignup" class="modal fade bs-example-modal-xl" role="dialog">
   <div class="modal-dialog modal-xl" style="height:600px;">
-    <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-body p-0">
         <div class="row">
@@ -385,13 +301,13 @@
                     <div class="row">
                       <div class="col-md-6">
                       <label class="test_container">Coworking Memberships
-                        <input type="radio" class="plans_type" checked="checked" checked="checked" value="Coworking Memberships" name="radio">
+                        <input type="radio" class="plans_type" id="cowork"  checked value="Coworking Memberships" name="radio">
                         <span class="checkmark"></span>
                       </label>
                       </div>
                       <div class="col-md-6">
                         <label class="test_container">Meeting Room Memberships
-                          <input type="radio"  class="plans_type" value="Meeting Room Memberships" name="radio">
+                          <input type="radio"  class="plans_type" id="meetroom"  value="Meeting Room Memberships" name="radio">
                           <span class="checkmark"></span>
                         </label>
                       </div>
@@ -440,13 +356,6 @@
   </div>
 </div>
 </div>
-
-<style>
-  .modal-dialog-center {
-    margin-top: 13%;
-  }
-</style>
-
 <!--Thankyou Modal-->
 <div id="modalsigningup" class="modal fade bs-example-modal-xs" role="dialog ">
   <div class="modal-dialog modal-xs modal-dialog-center" style="height:300px;">
@@ -503,6 +412,64 @@
   </div>
 </div>
 <script>
+  $(window, document, undefined).ready(function () {
+
+    $('input').blur(function () {
+      var $this = $(this);
+      if ($this.val())
+        $this.addClass('used');
+      else
+        $this.removeClass('used');
+    });
+
+    var $ripples = $('.ripples');
+
+    $ripples.on('click.Ripples', function (e) {
+
+      var $this = $(this);
+      var $offset = $this.parent().offset();
+      var $circle = $this.find('.ripplesCircle');
+
+      var x = e.pageX - $offset.left;
+      var y = e.pageY - $offset.top;
+
+      $circle.css({
+        top: y + 'px',
+        left: x + 'px'
+      });
+
+      $this.addClass('is-active');
+
+    });
+
+    $ripples.on('animationend webkitAnimationEnd mozAnimationEnd oanimationend MSAnimationEnd', function (e) {
+      $(this).removeClass('is-active');
+    });
+
+  });
+</script>
+<script>
+  $(function () {
+    $("#addClass").click(function () {
+      $('#qnimate').addClass('popup-box-on');
+    });
+
+    $("#removeClass").click(function () {
+      $('#qnimate').removeClass('popup-box-on');
+    });
+  })
+
+  $(function () {
+    $("#addClassMob").click(function () {
+      $('#qnimate').addClass('popup-box-on');
+    });
+
+    $("#removeClass").click(function () {
+      $('#qnimate').removeClass('popup-box-on');
+    });
+  })
+</script>
+<script>
   $(document).ready(function(){
   var cur_date = '<?php echo date("Y-m-d") ?>';
   var username = '<?= $this->config->item('username')?>'
@@ -518,7 +485,7 @@
   var price_plan = $("input[name='radio']:checked").val();
 
   get_price_plans(price_plan);
-
+ 
   $(".plans_type").click(function(){
     $('.whole_div').show();
     get_price_plans($(this).val());

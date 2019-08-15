@@ -39,7 +39,7 @@
                         </h6>
                     </div>
                    
-                    <h6 style="color:white; position: absolute; left:20px; right:20px; top:78%; font-size: 13px;width:100%;"
+                    <h6 style="color:white; position: absolute; left:20px; right:20px; top:75%; font-size: 13px;width:100%;"
                         class="py-5 px-3 text-justify booking-option">
                         <div class="col-md-12 col-sm-12 col-xs-12  my-3  row">
                             <div class="col row p-0 m-0">
@@ -491,11 +491,11 @@ $(document).ready(function() {
         $('.whole_div').show();
         $('#loc_imgs').empty();
         var location_id = $(this).val();
-        if(location_id == 960808852){
+        if(location_id == 906856951){
             var img = '<img src="'+base_url+'image/services/room1.jpg" width="100%" />';
             $('#loc_imgs').append(img);
         }
-        else if(location_id == 1021779763){
+        else if(location_id == 906856952){
             var img = '<img src="'+base_url+'image/services/room2.jpg" width="100%" />';
             $('#loc_imgs').append(img);
 
@@ -844,6 +844,7 @@ $(document).ready(function() {
     }
 
     function get_locations(){
+        $(".location").empty();
         $(".location-drp-dwn").empty();
         $.ajax({
             type: 'GET',

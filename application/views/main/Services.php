@@ -446,7 +446,7 @@
                                     <img src="<?= base_url()?>image/membership/bg1.jpg" class="w-100 " alt="">
                                     </div>
                                     <div class="carousel-item">
-                                    <img src="<?= base_url()?>image/membership/bg1.jpg" class="w-100 " alt="">
+                                    <img src="<?= base_url()?>image/membership/bg6.jpg" class="w-100 " alt="">
                                     </div>
                                 </div>
                                 <a class="carousel-control-prev" href="#demo1" data-slide="prev">
@@ -607,7 +607,7 @@
         </header>
     </div>
     <?php if(!empty($coworkings)){?>
-        <div class="container" id="coworkings" style="position:relative;margin-top:-400px;">
+        <div class="container" id="coworkings" style="position:relative;margin-top:-350px;">
             <div class="row">
             <?php foreach($coworkings as $coworking){?>
                 
@@ -635,7 +635,7 @@
         </div>
     <?php } ?> 
     <?php if(!empty($meetingrooms)){ ?> 
-        <div class="container" id="meetingrooms" style="position:relative;margin-top:-400px;display:none;">
+        <div class="container" id="meetingrooms" style="position:relative;margin-top:-350px;display:none;">
             <div class="row">
             <?php foreach($meetingrooms as $meetingroom){?>
                 <div class="col-lg-4 col-md-4 col-xs-4 fadeInUp p-1" style="visibility: visible; animation-name: fadeInUp;">
@@ -700,25 +700,15 @@ $(function(){
         if( value == 'coWorking'){
             $('#coworkings').show();
             $('#meetingrooms').hide();
+            $('#cowork').click(); 
         }
         else{
             $('#meetingrooms').show();
             $('#coworkings').hide();
+            $('#meetroom').click();
         }
         $('.membership.membership-active').removeClass('membership-active');
         $(this).addClass('membership-active');
     });
 });
-// $('#coWorking').click(function(){
-//     $('#coworkings').show();
-//     $('#meetingrooms').hide();
-// });
-// $('#meetingRoom').click(function(){
-//     $('#meetingrooms').show();
-//     $('#coworkings').hide();
-// });
-// $('.membership').click(function(){
-//     $(this).css('border-bottom','2px solid black');
-// });
-
 </script>
