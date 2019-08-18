@@ -388,7 +388,7 @@ ul.tools li i:after{
         </div>
         <div class="col-md-5">
           <div class="group">
-            <input type="date" name="u_dob" value="<?= (isset($coworker['DateOfBirth']) && !empty($coworker['DateOfBirth'])) ? $coworker['DateOfBirth'] : ''; ?>" class="bg-light"><span class="highlight"></span><span class="bar"></span>
+            <input type="date" name="u_dob" value="<?= (isset($coworker['DateOfBirth']) && !empty($coworker['DateOfBirth'])) ? date("Y-m-d", strtotime($coworker['DateOfBirth'])) : ''; ?>" class="bg-light"><span class="highlight"></span><span class="bar"></span>
             <label>Date of Birth</label>
           </div>
         </div>

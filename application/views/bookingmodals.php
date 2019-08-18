@@ -890,7 +890,7 @@ $(document).ready(function() {
                     $('.whole_div').hide();
                     var res_id = resources[0].Id;
                     $.each(resources, (key, resource) => {
-                        var resources = "<div class='col-md-6 col-sm-6 row p-0 m-0'>" +
+                        var resources = "<div class='col-md-6 col-sm-6 row p-0 m-0' style='margin-top:10px !important;' >" +
                             "<span  class='resource' style='color:white;font-size:12px;cursor:pointer' data-id ='" +resource.Id +"'>" + resource.Name + "</span>" +
                             "</div>";
                         $("#resources").append(resources);

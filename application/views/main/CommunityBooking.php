@@ -70,7 +70,7 @@ bottom: 0px;
             <div class="col-12 row mb-4">
                 <div class="col-12 text-center">
                     <img src="<?= base_url('image/location.png');?>" alt="" width="25px"><span> CRYSTAL TOWER</span>
-                    <span class="h3 pull-right">Booking.</span>
+                    <span class="h3 pull-right"><a href="#" id="bookingbutton" style="color:black;">Booking.</a></span>
                 </div>
             </div>
             <div class="section-header pb-1 col-md-12 pl-0">
@@ -218,14 +218,6 @@ $(document).ready(function() {
   var username = '<?= $this->config->item('username')?>'
   var password = '<?= $this->config->item('password')?>'
 
-  // var cur_date = '<?php echo date("Y-m-d") ?>';
-  // var st_time = ConvertTimeformat($('#start_time').val());
-  // var to_time = ConvertTimeformat($('#to_time').val());
-
-  // var fromTime = cur_date +'T'+  st_time  + 'Z'; 
-  // var totime = cur_date +'T'+  to_time  + 'Z'; 
-  // var location = $('.locations').val();
-
   $('#findAvailable').click(function(){
     if($('#start_time').val() == '' || $('#to_time').val() == '' || $('#date').val() == ''){
       toastr.error('All the fields are mandatory');
@@ -241,21 +233,6 @@ $(document).ready(function() {
     
   });
 
-  $(".locations").change(function() {
-        if($('#start_time').val() == '' || $('#to_time').val() == '' || $('#date').val() == ''){
-          toastr.error('All the fields are mandatory');
-        }else{
-          $('.whole_div').show();
-          var st_time = ConvertTimeformat($('#start_time').val());
-          var to_time = ConvertTimeformat($('#to_time').val());
-          var selected_date  =  $('#date').val();
-          var location = $('.locations').val();
-          var fromTime = selected_date +'T'+  st_time  + 'Z'; 
-          var totime = selected_date +'T'+  to_time  + 'Z'; 
-          get_available_rooms(fromTime,totime,location);
-        }
-    });
-  
   function get_locations(){
         $.ajax({
             type: 'GET',

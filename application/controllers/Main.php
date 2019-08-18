@@ -19,7 +19,7 @@ class main extends CI_Controller
         $data['file_name'] = 'index';
         $data['header_name'] = 'header';
         $data['RecentArticle'] = $this->Main_model->get_recent_articles();
-        $url = 'https://spaces.nexudus.com/api/billing/tariffs';
+        $url = 'https://spaces.nexudus.com/api/billing/tariffs?size=100';
         $username = $this->config->item('username');
         $password = $this->config->item('password');
         $headers = array(
@@ -455,6 +455,7 @@ class main extends CI_Controller
     public function blog_category()
     {
         $cat_id = $this->input->get('id');
+        $data['search'] = "";
         $data['folder_name'] = 'main';
         $data['file_name'] = 'Blog';
         $data['header_name'] = 'header_blog';
@@ -690,7 +691,7 @@ class main extends CI_Controller
         $j_data['ProfileTagsArray'] = [];
         $webaddress = $p_data['location'];
         $s_data = json_encode(array('base64avatar' => null, 'Coworker' => $j_data, 'Team' => new stdClass()));
-        $url = "https://copyofreyadatestaccount.spaces.nexudus.com/en/signup?createuser=false&_resource=,&_depth=1";
+        $url = "https://$webaddress.spaces.nexudus.com/en/signup?createuser=false&_resource=,&_depth=1";
         $headers = array(
             'Content-Type: application/json',
             'Content-Length: ' . strlen($s_data),
@@ -868,7 +869,7 @@ class main extends CI_Controller
             $j_data['Custom28'] = null;
             $j_data['Custom29'] = null;
             $j_data['Custom30'] = null;
-            $j_data['DateOfBirth'] = $user['DateOfBirth'];
+            $j_data['DateOfBirth'] =  $p_data['u_dob'];
             $j_data['DeleteAvatar'] = false;
             $j_data['DeleteBanner'] = false;
             $j_data['DiscountCode'] = null;

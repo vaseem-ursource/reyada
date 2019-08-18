@@ -24,10 +24,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 $config['base_url'] = 'http://localhost/Reyadah-Az/';
-$config['api_base_url'] = 'https://copyofreyadatestaccount.spaces.nexudus.com/';
+$config['api_base_url'] = 'https://reyada.spaces.nexudus.com/';
 // $config['base_url'] = 'http://reyada.ursource.org/';
-$config['username'] = 'aeraf@ursource.org';
-$config['password'] = 'view1Sonic!';
+$config['username'] = 'info@reyada.co';
+$config['password'] = 'Reyada12345';
 date_default_timezone_set('Asia/Kuwait');
 
 
