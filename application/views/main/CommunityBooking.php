@@ -292,13 +292,12 @@ $(document).ready(function() {
                 }
                 else{
                     $('.whole_div').hide();
-                    toastr.error('some error occured while processing your request');
+                    toastr.error('No Resources Available for the selected location');
                 }
                 
             },
             error: function(error){
                 $('.whole_div').hide();
-                console.log(error);
             }
         });
     }

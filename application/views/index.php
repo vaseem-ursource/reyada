@@ -31,10 +31,9 @@
       </div>
       <div class="col-md-6">
           <div class="copyright text-right pr-5">
-            <a href="#"><i class="fa fa-facebook px-2 text-dark" style="font-size: 22px"></i></a>
-            <a href="#"><i class="fa fa-instagram px-2 text-dark" style="font-size: 22px"></i></a>
-            <a href="#"><i class="fa fa-linkedin px-2 text-dark" style="font-size: 22px"></i></a>
-            <a href="#"><i class="fa fa-twitter px-2 text-dark" style="font-size: 22px"></i></a>
+            <a href="https://www.facebook.com/reyadaspaces/?view_public_for=999326720117412" target="_blank"><i class="fa fa-facebook px-2 text-dark" style="font-size: 22px"></i></a>
+            <a href="https://www.instagram.com/reyada_co/?hl=en" target="_blank"><i class="fa fa-instagram px-2 text-dark" style="font-size: 22px"></i></a>
+            <a href="https://twitter.com/reyada_co" target="_blank"><i class="fa fa-twitter px-2 text-dark" style="font-size: 22px"></i></a>
       </div>
       </div>
     </div>

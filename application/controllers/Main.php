@@ -1142,7 +1142,7 @@ class main extends CI_Controller
             'Content-Type: application/json'
         );
         $output = $this->post_with_curl($url,null, $headers);
-        if(!empty($output)){
+        if(!empty($output['Resources'])){
             $json['status'] = 'OK';
             $json['resources'] = $output['Resources'];
         }
