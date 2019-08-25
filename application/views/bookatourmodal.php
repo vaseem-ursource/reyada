@@ -300,7 +300,9 @@
                               <i class="fa fa-map-marker fa-lg pull-left pt-1 mt-2"></i>
                               <div class="pull-left" style="width: 90%;">
                                   <div class="select-wrapper" style="width: 100%;">
-                                      <select class="location">
+                                      <select class="location" id="tour_location">
+                                        <option value="<?= $locations[0]->WebAddress ?>"><?= $locations[0]->Name ?></option>
+                                        <option value="<?= $locations[1]->WebAddress ?>"><?= $locations[1]->Name ?></option>
                                       </select>
                                   </div>
                               </div>
@@ -374,30 +376,26 @@
                                     }
                                 });
                                 </script>
-                            </div>
+                            </div><br><br>
                             <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px;" id="tourFormReg">
                                 <div class="row text-left">
-                                    <div class="col-md-6">
                                     <input name="selected_date" id="tour_selected_date"  type="hidden">
-                                    <input name="address"  id="tour_address" type="hidden">
-                                    <input name="mobile" id="tour_mobile" type="hidden">
-                                    <input name="state" id="tour_state" type="hidden">
-                                        <div class="group">
-                                            <input name="name" id="tour_fname" type="text" placeholder="Full Name" ><span class="highlight"></span><span class="bar"></span>
-                                        </div>
+                                    <div class="col-md-3">
+                                      <div class="group">
+                                          <input name="name" id="tour_fname" type="text" placeholder="Full Name" ><span class="highlight"></span><span class="bar"></span>
+                                      </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="group">
-                                            <select  class="select-fontsize location" name="location" id="tour_location" style="padding:5px !important;color:black !important;">
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-3">
                                         <div class="group">
                                             <input name="email" id="tour_email" type="email" placeholder="Email" ><span class="highlight"></span><span class="bar"></span>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-3">
+                                        <div class="group">
+                                            <input name="mobile"  id="tour_mobile" type="text" placeholder="Mobile" ><span class="highlight"></span><span class="bar"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
                                         <div class="group">
                                             <select class="select-fontsize" name="fromtime" id="tourtime" style="padding:5px !important;color:black !important;">
                                                 <option value="0">Select Start Time</option>
@@ -435,7 +433,7 @@
                             </div>
                         </form>
                     </div>
-                              </div>
+                  </div>
             </div>
         </div>
     </div>

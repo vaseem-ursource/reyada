@@ -79,6 +79,8 @@ bottom: 0px;
                 <span class="h3 mx-auto" style="color:#000000; margin-left: 20% !important;">Meeting Room & Resources</span>
                 <span class="h3 float-right">
                 <select class="select-fontsize locations" name="fromtime" id="location-drp-dwn" style="font-size:20px;padding:4px !important;color:black !important;sw1">
+                  <option value="<?= $locations[0]->WebAddress ?>"><?= $locations[0]->Name ?></option>
+                  <option value="<?= $locations[1]->WebAddress ?>"><?= $locations[1]->Name ?></option>
                 </select>
                 </span>
             </div>
@@ -232,30 +234,6 @@ $(document).ready(function() {
     }
     
   });
-
-  function get_locations(){
-        $.ajax({
-            type: 'GET',
-            url: 'https://spaces.nexudus.com/api/sys/businesses',
-            beforeSend: function(xhr) {
-                xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + password));
-            },
-            dataType: 'json',
-            success: function(locations) {
-                var location = locations.Records;
-                if (location.length != 0) {
-                    $.each(locations.Records, (key, location) => {
-                        $(".locations").append("<option value ='"+location.WebAddress+"'>" + location.Name + "</option>");
-                    });
-                } else {
-                    $(".locations").append("<option value ='0'>" +'No Locations' + "</option>");
-                }
-            },
-            error: function(xhr) {
-                $(".locations").append("<option value ='0'>" + 'No Locations' +"</option>");
-            }
-        });
-    }
     function get_available_rooms(fromTime,totime,location) {
         $('.whole_div').show();
         $('#availabeResources').empty();

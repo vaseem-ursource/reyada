@@ -181,10 +181,8 @@ body.modal-open-noscroll
               <div class="col-md-4 memberbox m-0 p-0">
                 <img src="<?= base_url()?>image/membership/bg1.jpg" alt="Mountains" class="memberbox-layer_bottom">
                 <h2 class=" px-5 position-absolute text-white text-bottom" style="bottom:5%">PAY AS YOU GO</h2>
-                  <h4 class="px-5 position-absolute text-white text-bottom" style="bottom:0px">Perfect for</h4>
                 <div class="memberbox-layer_top pt-5">
                   <h2 class="px-5 position-relative">PAY AS YOU GO</h2>
-                  <h4 class="px-5 position-relative">Perfect for</h4>
                   <div class="text-center position-relative"><img src="<?= base_url()?>image/membership/m1.png" style="margin: 25%" width="25%" class="position-relative"></div>
                   <div style="bottom: 0px;position: absolute;">
                    <a href="<?= base_url('main/Services#payasyougo')?>"><h4 class="px-5 position-relative pt-5 text-white"><span class="align-middle">See </span><i class="fa fa-angle-right fa-2x align-middle"></i></h4></a>
@@ -194,10 +192,8 @@ body.modal-open-noscroll
               <div class="col-md-4 memberbox m-0 p-0">
                 <img src="<?= base_url()?>image/membership/bg2.jpg" alt="Mountains" class="memberbox-layer_bottom">
                 <h2 class=" px-5 position-absolute text-white text-bottom" style="bottom:5%">HOT DESK</h2>
-                  <h4 class="px-5 position-absolute text-white text-bottom" style="bottom:0px">Perfect for</h4>
                 <div class="memberbox-layer_top pt-5">
                   <h2 class="px-5 position-relative">HOT DESK</h2>
-                  <h4 class="px-5 position-relative">Perfect for</h4>
                   <div class="text-center position-relative"><img src="<?= base_url()?>image/membership/m2.png"  style="margin: 25%" width="25%" class="position-relative"></div>
                   <div style="bottom: 0px;position: absolute;">
                   <a href="<?= base_url('main/Services#hotdesk')?>"><h4 class="px-5 position-relative pt-5 text-white"><span class="align-middle">See </span><i class="fa fa-angle-right fa-2x align-middle"></i></h4></a>
@@ -207,10 +203,8 @@ body.modal-open-noscroll
               <div class="col-md-4 memberbox m-0 p-0">
                 <img src="<?= base_url()?>image/membership/bg3.jpg" alt="Mountains" class="memberbox-layer_bottom">
                 <h2 class=" px-5 position-absolute text-white text-bottom" style="bottom:5%">PRIVATE OFFICE</h2>
-                  <h4 class="px-5 position-absolute text-white text-bottom" style="bottom:0px">Perfect for</h4>
                 <div class="memberbox-layer_top pt-5">
                   <h2 class="px-5 position-relative">PRIVATE OFFICE</h2>
-                  <h4 class="px-5 position-relative">Perfect for</h4>
                   <div class="text-center position-relative"><img src="<?= base_url()?>image/membership/m3.png" style="margin: 25%" width="25%" class="position-relative"></div>
                   <div style="bottom: 0px;position: absolute;">
                   <a href="<?= base_url('main/Services#privateoffice')?>"><h4 class="px-5 position-relative pt-5 text-white"><span class="align-middle">See </span><i class="fa fa-angle-right fa-2x align-middle"></i></h4></a>
@@ -222,131 +216,9 @@ body.modal-open-noscroll
     </section><!-- #call-to-action -->
 
     <!--==========================
-      Highlight Section
-    ============================-->
-    <!-- <section id="features"  class="section-bg">
-      <div class="container">
-
-        <div class="row feature-item">
-          
-          <div class="col-lg-6 wow fadeInUp pt-5 pt-lg-0">
-              <h4 class="pb-3 text-center" >Highlight on</h4>
-           
-            <div class="slideshow-container">
-                <div class="mySlides">
-                  <div class="row">
-                    <div class="col-md-6 col-sm-12 col-xs-12 mob" style="text-align:start">
-                        <a class="prev" onclick="plusSlides(-1)">❮</a>
-                        <a class="next" onclick="plusSlides(1)">❯</a>
-                    </div>
-                  <div class="col-md-6 col-sm-12 col-xs-12">
-                    <img src="<?= base_url()?>image/autodesk.png" width="200px" height="auto">
-                  </div>
-                  <div class="col-md-6 col-sm-12 col-xs-12 lap">
-                      <a class="prev" onclick="plusSlides(-1)">❮</a>
-                      <a class="next" onclick="plusSlides(1)">❯</a>
-                  </div>
-                  <div class="col-md-12 text-justify">
-                      <q>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</q>
-                      <br>
-                      <a href="#" class="author">Linktowebsite.com</a>
-                  </div>
-                </div>
-              </div>
-                
-              <div class="mySlides">
-                  <div class="row">
-                  <div class="col-md-6">
-                      <div class="col-md-6 col-sm-12 col-xs-12 mob" style="text-align:start">
-                          <a class="prev" onclick="plusSlides(-1)">❮</a>
-                          <a class="next" onclick="plusSlides(1)">❯</a>
-                      </div>
-                    <img src="<?= base_url()?>image/hbo.png" width="200px" height="auto">
-                  </div>
-                  <div class="col-md-6 col-sm-12 col-xs-12 lap">
-                      <a class="prev" onclick="plusSlides(-1)">❮</a>
-                      <a class="next" onclick="plusSlides(1)">❯</a>
-                  </div>
-                  <div class="col-md-12 text-justify">
-                      <q>When an unknown printer took a galley of type and scrambled it</q>
-                      <br>
-                      <a href="#" class="author">Linktowebsite.com</a>
-                  </div>
-                </div>
-              </div>
-                
-              <div class="mySlides">
-                  <div class="row">
-                  <div class="col-md-6">
-                    <div class="col-md-6 col-sm-12 col-xs-12 mob" style="text-align:start">
-                        <a class="prev" onclick="plusSlides(-1)">❮</a>
-                        <a class="next" onclick="plusSlides(1)">❯</a>
-                    </div>
-                    <img src="<?= base_url()?>image/huawei.png" width="200px" height="auto">
-                  </div>
-                  <div class="col-md-6 col-sm-12 col-xs-12 lap">
-                      <a class="prev" onclick="plusSlides(-1)">❮</a>
-                      <a class="next" onclick="plusSlides(1)">❯</a>
-                  </div>
-                  <div class="col-md-12 text-justify">
-                      <q>I love you the more in that I believe you had liked me for my own sake and for nothing else</q>
-                      <br>
-                      <a href="#" class="author">Linktowebsite.com</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-                
-                <div class="dot-container pull-left ml-3">
-                  <span class="dot" onclick="currentSlide(1)"></span> 
-                  <span class="dot" onclick="currentSlide(2)"></span> 
-                  <span class="dot" onclick="currentSlide(3)"></span> 
-                </div>
-           
-          </div>
-          <div class="col-lg-6 wow fadeInUp px-5 lap">
-              <img src="<?= base_url()?>image/highlight.png" class="img-fluid center px-5" alt="">
-          </div>
-        </div>
-     
-        <script>
-            var slideIndex = 1;
-            showSlides(slideIndex);
-            
-            function plusSlides(n) {
-              showSlides(slideIndex += n);
-            }
-            
-            function currentSlide(n) {
-              showSlides(slideIndex = n);
-            }
-            
-            function showSlides(n) {
-              var i;
-              var slides = document.getElementsByClassName("mySlides");
-              var dots = document.getElementsByClassName("dot");
-              if (n > slides.length) {slideIndex = 1}    
-              if (n < 1) {slideIndex = slides.length}
-              for (i = 0; i < slides.length; i++) {
-                  slides[i].style.display = "none";  
-              }
-              for (i = 0; i < dots.length; i++) {
-                  dots[i].className = dots[i].className.replace(" active", "");
-              }
-              slides[slideIndex-1].style.display = "block";  
-              dots[slideIndex-1].className += " active";
-            }
-          </script>
-      </div>
-    </section> -->
-    <!-- #about -->
-
-
-
-    <!--==========================
       Latest Article
     ============================-->
-    <section id="mem-services" >
+    <!-- <section id="mem-services" >
     <div class="my-5 py-5 memb-bg">
         <header class="section-header">
             <h3 class="text-dark">Choose a Membership Package</h3>
@@ -411,7 +283,7 @@ body.modal-open-noscroll
             </div>
         </div>
     <?php }?>
-</section>
+    </section> -->
     <section id="team" class="">
       <div class="container">
         <div class="section-header pb-2">

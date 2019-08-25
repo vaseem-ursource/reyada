@@ -197,8 +197,22 @@
           <div class="col-md-4 bg-black">
             <div>
               <img src="<?= base_url()?>image/modalimg/a1.png" class="img-fluid  position-relative pull-right" width="170" height="150"
-                style="padding-top: 30%; left:20px;">
-                <h6 style="color:white; position: absolute; bottom:30px; font-size: 14px;" class="p-5 text-justify"><small>WELCOME BACK!
+                style="padding-top: 20%; left:20px;">
+                <h6 style="color:white; font-modal-childsize: 20px; padding-top: 35%"class="px-2 m-4 mb-5 text-justify" id="loctionDrp">
+                          <small style="color:white; font-size: 14px;">
+                              <i class="fa-lg pull-left pt-1 mt-2"></i>
+                              <div class="pull-left" style="width: 90%;">
+                                  <div class="select-wrapper" style="width: 100%;">
+                                  <select name="location_id">
+                                        <option value="<?= $locations[0]->Id ?>"><?= $locations[0]->Name ?></option>
+                                        <option value="<?= $locations[1]->Id ?>"><?= $locations[1]->Name ?></option>
+                                  </select>
+                                  </div>
+                              </div>
+                          </small>
+                      </h6>
+                <h6 style="color:white; position: absolute; bottom:30px; font-size: 14px;" class="p-5 text-justify">
+                <small>WELCOME BACK!
                   <br><br>
                   Sign in and see what you’ve missed!
                   <br><br>
@@ -503,6 +517,7 @@
     if(check_passowrd == true){
       post_array =
       {
+          "location_id": $('[name="location_id"]').val(),
           "FullName": $('[name="complete_name"]').val(),
           "CompanyName": $('[name="company_name"]').val(),
           "Email": $('[name="signup_email"]').val(),
@@ -527,6 +542,7 @@
               }else{
                 $('.whole_div').hide();
                 toastr.success('Registered Succesfully');
+                $('#loctionDrp').hide();
                 $(".firstSignup").css('display', 'none');
                 $(".secondSignup").css('display', 'block');
               }
@@ -569,7 +585,7 @@
             $('.whole_div').hide();
             toastr.success('Plan Added Successfully');
             setTimeout(function(){
-                location.reload();
+              window.location.replace(base_url + 'main');
             }, 3000) 
           }
         },
@@ -599,6 +615,7 @@
         url: base_url + 'main/signin',
         data: post_array,
         success: function(data) {
+          console.log('inside success'+data);
             if(data.status != 200){
               $('.whole_div').hide();
               toastr.error('Username or Password incorrect');
@@ -611,7 +628,9 @@
               
             }
         },
-        error: function(jqxhr, status, error) {
+        error: function(data) {
+          console.log('inside errror'+ data);
+          toastr.success(data.status);
           $('.whole_div').hide();
         }
     });

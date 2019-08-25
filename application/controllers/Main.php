@@ -19,7 +19,8 @@ class main extends CI_Controller
         $data['file_name'] = 'index';
         $data['header_name'] = 'header';
         $data['RecentArticle'] = $this->Main_model->get_recent_articles();
-        $url = 'https://spaces.nexudus.com/api/billing/tariffs?size=100';
+        $url  = 'https://spaces.nexudus.com/api/billing/tariffs?size=100';
+        $url2 ='https://spaces.nexudus.com/api/sys/businesses';
         $username = $this->config->item('username');
         $password = $this->config->item('password');
         $headers = array(
@@ -27,6 +28,10 @@ class main extends CI_Controller
             'Authorization: Basic ' . base64_encode("$username:$password"),
         );
         $output = $this->post_with_curl($url, null , $headers);
+        // $output2 = $this->post_with_curl($url2, null , $headers);
+        // if(!empty($output2['Records'])){
+        //     $data['locations'] = $output2['Records'];
+        // }
         if(!empty($output['Records'])){
             $data['packages'] = $output['Records'];
             foreach($data['packages'] as $package){
@@ -38,8 +43,23 @@ class main extends CI_Controller
                 }
             }
         }
+        $data['locations'] = $this->get_location();
         $this->load->view('index', $data);
 
+    }
+
+    public function get_location(){
+        $username = $this->config->item('username');
+        $password = $this->config->item('password');
+        $headers = array(
+            'Content-Type: application/json',
+            'Authorization: Basic ' . base64_encode("$username:$password"),
+        ); 
+        $url ='https://spaces.nexudus.com/api/sys/businesses';
+        $output = $this->post_with_curl($url, null , $headers);
+        if(!empty($output['Records'])){
+            return $output['Records'];
+        }
     }
 
     public function services()
@@ -67,6 +87,7 @@ class main extends CI_Controller
                 }
             }
         }
+        $data['locations'] = $this->get_location();
         $this->load->view('index', $data);
 
     }
@@ -218,9 +239,17 @@ class main extends CI_Controller
         $j_data['hasBillingDetails'] = false;
         $j_data['isPayingMember'] = false;
         $j_data['ProfileTagsArray'] = [];
+        $location = $p_data['location_id'];
 
         $s_data = json_encode(array('base64avatar' => null, 'Coworker' => $j_data, 'Team' => new stdClass()));
-        $url = $this->config->item('api_base_url')."en/signup?_resource=,&_depth=1";
+        if($location == 95265170){
+            $url = 'https://reyada.spaces.nexudus.com/en/signup?_resource=,&_depth=1';
+            $loc_url = 'reyada';
+        }
+        else{
+            $url = 'https://reyadamabane.spaces.nexudus.com/en/signup?_resource=,&_depth=1';
+            $loc_url = 'reyadamabane'; 
+        }
         $headers = array(
             'Content-Type: application/json',
             'Content-Length: ' . strlen($s_data),
@@ -228,7 +257,7 @@ class main extends CI_Controller
         $output = $this->post_with_curl($url, $s_data, $headers);
 
         if (!empty($output)) {
-            if ($this->signin($p_data['Email'], $p_data['Password']) && $output['RedirectTo'] == "/en/Profile/Tariff") {
+            if ($this->signin($p_data['Email'], $p_data['Password'],$loc_url) && $output['RedirectTo'] == "/en/Profile/Tariff") {
                 $this->session->set_userdata('username', $p_data['Email']);
                 $this->session->set_userdata('password', $p_data['Password']);
                 $json['message'] = 'registered successfully';
@@ -244,24 +273,37 @@ class main extends CI_Controller
 
         print_r(json_encode($json));
     }
-    // public function get_booking_price(){
-    //     $p_data = $this->input->post();
-    //     $Booking['Resource']['Id'] = $p_data['resource_id'];
-    //     $Booking['FromTime'] = $p_data['FromTime'];
-    //     $Booking['ToTime'] = $p_data['to_time'];
-    //     $s_data = json_encode(array('Booking' => $Booking, 'Coworker' => new stdClass(),'Products' => []));
-    //     $url = $this->config->item('api_base_url')."en/bookings/getbookingprice";
-    //     $headers = array(
-    //         'Content-Type: application/json'
-    //     );
-    //     $output = $this->post_with_curl($url, $s_data , $headers);
-    //     print_r(json_encode($output));
-    // }
 
-    public function signin($username = null, $password = null)
+    public function get_booking_price(){
+        $p_data = $this->input->post();
+        $Booking['Resource']['Id'] = $p_data['resource_id'];
+        $Booking['FromTime'] = $p_data['FromTime'];
+        $Booking['ToTime'] = $p_data['toTime'];
+        $Booking['Tentative'] = false;
+        $Booking['Id'] = 0;
+        $Booking['DiscountCode'] = null;
+        $s_data = json_encode(array('Booking' => $Booking, 'Coworker' => new stdClass(),'Products' => []));
+        if(!empty($p_data['loc_url'])){
+            $loc_url =  $p_data['loc_url'];
+            $url = "https://$loc_url.spaces.nexudus.com/en/bookings/getbookingprice";
+        }
+        $headers = array(
+            'Content-Type: application/json'
+        );
+        $output = $this->post_with_curl($url, $s_data , $headers);
+        print_r(json_encode($output));
+    }
+
+    public function signin($username = null, $password = null, $loc_url = null)
     {
-        $url = $this->config->item('api_base_url')."en/profile?_resource=Coworker";
-        $user_url = $this->config->item('api_base_url')."en/profile?_resource=User";
+        if($loc_url == null){
+            $url = "https://reyada.spaces.nexudus.com/en/profile?_resource=Coworker";
+            $user_url = "https://reyada.spaces.nexudus.com/en/profile?_resource=User"; 
+        }else{
+            $url = "https://$loc_url.spaces.nexudus.com/en/profile?_resource=Coworker";
+            $user_url = "https://$loc_url.spaces.nexudus.com/en/profile?_resource=User";
+        }
+        
         $json['message'] = 'some error occured while processing your request';
         $json['status'] = 500;
 
@@ -270,7 +312,11 @@ class main extends CI_Controller
 
             $username = $p_data['email'];
             $password = $p_data['password'];
-
+            if(!empty($p_data['loc_url'])){
+                $guest_loc_url =  $p_data['loc_url'];
+                $url = "https://$guest_loc_url.spaces.nexudus.com/en/profile?_resource=Coworker";
+                $user_url = "https://$guest_loc_url.spaces.nexudus.com/en/profile?_resource=User";
+            }
             $headers = array(
                 'Content-Type: application/json',
                 'Authorization: Basic ' . base64_encode("$username:$password"),
@@ -317,6 +363,8 @@ class main extends CI_Controller
         }
 
     }
+
+
 
     public function get_access_token($username, $password)
     {
@@ -691,13 +739,13 @@ class main extends CI_Controller
         $j_data['ProfileTagsArray'] = [];
         $webaddress = $p_data['location'];
         $s_data = json_encode(array('base64avatar' => null, 'Coworker' => $j_data, 'Team' => new stdClass()));
-        $url = "https://$webaddress.spaces.nexudus.com/en/signup?createuser=false&_resource=,&_depth=1";
+        $url = "https://$webaddress.spaces.nexudus.com/en/signup?createuser=true&_resource=,&_depth=1";
         $headers = array(
             'Content-Type: application/json',
             'Content-Length: ' . strlen($s_data),
         );
         $output = $this->post_with_curl($url, $s_data, $headers);
-        if(isset($output)){
+        if(!empty($output)){
             if (isset($output['RedirectTo']) && $output['RedirectTo'] == '/en/Profile/Tariff' && !empty($output['RedirectTo'])) {
                 $json['message'] = 'Booked successfully';
                 $json['status'] = 200;
@@ -709,7 +757,7 @@ class main extends CI_Controller
         }
         else{
             $json['body'] = $s_data;
-            $json['message'] = 'some error occured while processing your request'; 
+            $json['message'] = 'We could not update your profile, please try again later.'; 
         }
         
 
@@ -762,6 +810,7 @@ class main extends CI_Controller
             $data['folder_name'] = 'main';
             $data['file_name'] = 'Account';
             $data['header_name'] = 'header_account';
+            $data['locations'] = $this->get_location();
             // $data['MyAccount'] = $this->Main_model->get_recent_articles();
             $this->load->view('index', $data);
         } else {
@@ -1042,6 +1091,7 @@ class main extends CI_Controller
     {
         if ($this->session->userdata('is_logged_in')) {
             $pay_url = $this->config->item('api_base_url')."en/bookings/pay";
+            // $url = 'https://spaces.nexudus.com/api/billing/coworkerinvoices';
             $url = $this->config->item('api_base_url')."en/invoices?_depth=3";
 
             $user = $this->session->userdata('user_info');
@@ -1100,6 +1150,7 @@ class main extends CI_Controller
         $data['folder_name'] = 'main';
         $data['file_name'] = 'MyBooking';
         $data['header_name'] = 'header_account';
+        $data['locations'] = $this->get_location();
         $this->load->view('index', $data);
      }
 
@@ -1128,6 +1179,7 @@ class main extends CI_Controller
          $data['folder_name'] = 'main';
          $data['file_name'] = 'CommunityBooking';
          $data['header_name'] = 'header_account';
+         $data['locations'] = $this->get_location();
          // $data['MyAccount'] = $this->Main_model->get_recent_articles();  
          $this->load->view('index', $data);
      }

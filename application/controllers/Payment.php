@@ -21,13 +21,19 @@ class payment extends CI_Controller
 
         $j_data['status'] = 400;
         $j_data['message'] = "Some error occurred while processing your request";
+        if($invoice_details['BusinessId'] == 906856952){
+            $merchant_code = $this->config->item('hesabe_merchant_code2');
+        }
+        else{
+            $merchant_code = $this->config->item('hesabe_merchant_code1');
+        }
         if(!empty($invoice_details)){
             $invoiceamt = $invoice_details['TotalAmount'];
             $success_url = base_url('payment/success_checkout');
             $error_url = base_url('payment/error_checkout');
             $url = $this->config->item('hesabe_request_url');
             $data = array(
-                        'MerchantCode' => $this->config->item('hesabe_merchant_code'), 
+                        'MerchantCode' => $merchant_code, 
                         'Amount' => number_format($invoiceamt, 3), 
                         'SuccessUrl' => $success_url, 
                         'FailureUrl' => $error_url,

@@ -10,7 +10,7 @@
 
  <section id="team" class="pb-1 lap"> 
       <div class="container"> 
-        <div class="section-header pb-1 col-md-6 pl-0"> 
+        <div class="section-header pb-1 col-md-12 pl-0"> 
           <h5 class="text-left text-dark">Becoming a Reyada member comes along with many perks and services. Some of these services include:</h5> 
         </div> 
       
@@ -623,9 +623,9 @@
                                 } ?>
                                 </b>
                             </h4>
-                            <h5 class="card-title"><b><?= $coworking->Price?>.<?= $coworking->CurrencyCode?><br>(<?= ($coworking->InvoiceEvery === 1) ? 'Monthly' : (($coworking->InvoiceEvery === 4) ? 'Quarterly' : ($coworking->InvoiceEvery === 12) ? 'Annually' :"every '$coworking->InvoiceEvery' months"); ?>)</b></h5><br>
-                            <h6 class="card-title">Features</h6>
-                            <div class="card-text text-justify" style="min-height:200px;"><?= $coworking->Description ?></div><br>
+                            <h5 class="card-title"><b><?= $coworking->Price?>.<?= $coworking->CurrencyCode?>&nbsp;(<?= ($coworking->InvoiceEvery === 1) ? 'Monthly' : (($coworking->InvoiceEvery === 4) ? 'Quarterly' : ($coworking->InvoiceEvery === 12) ? 'Annually' :"every '$coworking->InvoiceEvery' months"); ?>)</b></h5><br>
+                            <h6 class="card-title" style="position: relative;margin-top:-20px;margin-left:0px;">Features:</h6>
+                            <div class="card-text text-justify plan-desc" style="min-height:200px;"><?= $coworking->Description ?></div><br>
                             <a href="#" class="text-center text-dark planshow" data-toggle="modal" data-target="#modalsignup" ><h4><?= ($is_logged_in == 1) ? 'Continue' :'Sign Up' ?>&nbsp;&nbsp;<i class="fa fa-angle-right"></i></h4></a>
                         </div>
                     </div>
@@ -661,10 +661,11 @@
             </div>
         </div>
     <?php }?>
-</section>
+</section><br>
 <section id="services" class="section-bg p-0 m-0">
     <div class="container-fluid p-0 m-0">
         <header class="section-header">
+        <h2 class="text-center" style="position:relative;top:10px;">Quick Look</h2> 
          <div class="col-md-12 row p-0 m-0">
             <div class="col-md-4 p-0 m-0">
                <img src="<?= base_url()?>image/services/service1.jpg" class="w-100">

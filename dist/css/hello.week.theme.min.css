@@ -8,25 +8,26 @@
     font-weight: 600;
      }
 .hello-week .day.is-weekend {
-  color:lightgray; }
-  .hello-week .day:hover{
-    background-color: #f0f0f0;
-  }
+  color:lightgray; 
+}
+  
 
 .hello-week .day.is-highlight {
   background-color: #8fbc8f;
   color: #fff; }
 
 .hello-week .day.is-today {
-  background-color: #e9e9e9;
-  font-weight: bolder;
-  color: #000000; }
+  font-weight: 900;
+  color: #fa0808; }
 
-.hello-week .day.is-selected {
-  background-color: #f3f3f3 !important;
+.hello-week .day.is-selected::after {
+  position:absolute;
+  bottom:10px;
+  left:65px;
+  font-size:50px;
+  content:'.';
   color: #000000 !important; 
   font-weight: bolder;
-  color: #000000;
 }
 
 .hello-week .day.is-begin-range, .hello-week .day.is-end-range {
@@ -36,3 +37,15 @@
 .hello-week .day.is-disabled {
   cursor: not-allowed;
   opacity: .33; }
+
+  @media only screen and (max-width: 600px) {
+    .hello-week .day.is-selected::after {
+      position:absolute;
+      bottom:10px;
+      left:30px;
+      font-size:50px;
+      content:'.';
+      color: #000000 !important; 
+      font-weight: bolder;
+    }
+  }
