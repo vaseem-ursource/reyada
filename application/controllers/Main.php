@@ -294,6 +294,37 @@ class main extends CI_Controller
         print_r(json_encode($output));
     }
 
+    public function guest_booking(){
+        $p_data = $this->input->post();
+        $Booking['Resource']['Id'] = $p_data['ResourceId'];
+        $Booking['FromTime'] = $p_data['FromTime'];
+        $Booking['ToTime'] = $p_data['ToTime'];
+        $Booking['InvoiceNow'] = true;
+        $Booking['Id'] = 0;
+        $coworker['FullName'] =$p_data['FullName'];
+        $coworker['Email'] = $p_data['Email'];
+        $coworker['MobilePhone'] = $p_data['MobilePhone'];
+        $coworker['Address'] = $p_data['Address'];
+        $coworker['Password'] = 'Guest@123';
+        $coworker['PasswordConfirm'] = 'Guest@123';
+        $coworker['PostCode'] = '858585';
+        $coworker['CityName'] = $p_data['CityName'];
+        $coworker['State'] = 'kuwait city';
+        $s_data = json_encode(array('Booking' => $Booking,'Coworker' => $coworker,'Products' => []));
+        if(!empty($p_data['loc_url'])){
+            $loc_url =  $p_data['loc_url'];
+            $url = "https://$loc_url.spaces.nexudus.com/en/bookings/newbookingjson";
+        }
+        $headers = array(
+            'Content-Type: application/json'
+        );
+        $output = $this->post_with_curl($url, $s_data , $headers);
+        if($output['Status'] == 200){
+            $this->signin($coworker['Email'],$coworker['Password'],$loc_url);
+        }
+        print_r(json_encode($output));
+    }
+
     public function signin($username = null, $password = null, $loc_url = null)
     {
         if($loc_url == null){

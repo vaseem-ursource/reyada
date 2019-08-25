@@ -280,11 +280,9 @@
                                 class="p-5 text-justify text-left">
                                 <small>ALREADY REGISTERED ?
                                     <br><br>
-                                    You can make bookings much quicker if you log in with the account details you were sent when you registered on the site or made your last booking.
+                                   You can make bookings much quicker if you log in with the account details you were sent when you registered on the site or made your last booking.
                                     <br><br>
-                                    <a href="#" id="yesModal" style="color:black;"><span class="align-middle"
-                                            data-toggle="modal" data-target="#modalLogin">YES</span> <i
-                                            class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
+                                    <a href="#" id="yesModal" style="color:black;"><span class="align-middle">YES</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
                                     <a href="#" id="noModal" style="color:black;"><span class="align-middle"
                                             style="padding-left: 40px;">NO</span> <i
                                             class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
@@ -441,8 +439,6 @@ $(document).ready(function() {
             $("#description").hide();
         }else{
             $("#yesnomodal").modal("show");
-            // $("#bookingmodal").modal("hide");
-            // $("#modalsignup").modal('show');
         } 
     });
     $(document).on("click","#toor_book",function(){
@@ -459,6 +455,12 @@ $(document).ready(function() {
         $("#bookings").show();
         $("#loc_imgs").hide();
         $("#description").hide();
+    });
+
+    $(document).on("click", "#yesModal", function() {
+    $("#bookingmodal").modal("hide");
+    $("#yesnomodal").modal("hide");
+    $("#modalLogin").modal("show");
     });
 
     $(document).on("click", "#noModalTour", function() {
@@ -685,6 +687,8 @@ $(document).ready(function() {
                     "InvoiceInMinutes": true,
                     "FromTime":fromTime,
                     "ToTime": toTime,
+                    "InvoiceNow":true,
+                    
                 };
                 myJSON = JSON.stringify(post_array);
                 create_booking(myJSON);
@@ -695,40 +699,38 @@ $(document).ready(function() {
                 {
                     "FullName": $("#fname").val(),
                     "Email": $("#femail").val(),
+                    "ResourceId": $("#select-resource").val(),
                     "CountryId": '1113',
                     "MobilePhone":$("#mobile").val(),
                     "SimpleTimeZoneId": '2029',
                     "CityName":$("#state").val(),
                     "Address":$("#fulladdress").val(),
-                    "Password":'Guest@123',
-                    "PasswordConfirm":'Guest@123',
-                    "CreateUser":true,
+                    "FromTime":fromTime,
+                    "ToTime": toTime,
+                    "loc_url":loc_url,
                 }
                 $.ajax({
                     type: 'POST',
-                    url: 'https://spaces.nexudus.com/api/spaces/coworkers',
-                    beforeSend: function(xhr) {
-                        xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + password));
-                    },
+                    dataType: 'json',
+                    url: base_url + 'main/guest_booking',
                     data: post_array,
                     dataType: 'json', 
                     success: function(data){
-                        post_array =
-                        {
-                            "CoworkerId": data.Value.Id,
-                            "ResourceId": $("#select-resource").val(),
-                            "InvoiceInMinutes": true,
-                            "FromTime":fromTime,
-                            "ToTime": toTime,
-                        };
-                        myJSON = JSON.stringify(post_array);
-                        auto_sign_in(data.Value.Email,data.Value.Password,loc_url);
-                        create_booking(myJSON);
-                        
+                        console.log(data); 
+                        if(data.Status == 200){
+                            $('.whole_div').hide();
+                            $("#bookingmodal").modal("hide");
+                            $('#bookingpricemodal').modal('hide');
+                            $('#thankyouforRegmodal').modal('show');
+                        }
+                        else{
+                            $('.whole_div').hide(); 
+                            toastr.error(data.Message);
+                        }
                     },
                     error: function(data){
                         $('.whole_div').hide();
-                        toastr.error(data.responseJSON.Message);
+                        toastr.error(data.Message);
                     }
                 })
             }
@@ -1066,41 +1068,10 @@ $(document).ready(function() {
                     $("#bookingmodal").modal("hide");
                     $('#bookingpricemodal').modal('hide');
                     $('#thankyouforRegmodal').modal('show');
-                    // generate_invoice(data2);
                 }
                 else{
                     $('.whole_div').hide(); 
                     toastr.error('some error occured while processing');
-                }
-            },
-            error: function(data){
-                var message = data.responseJSON.Message.split(".");
-                $('.whole_div').hide(); 
-                toastr.error(message[0] + message[1] + '.');
-            }
-        })
-    }
-
-    function generate_invoice(data2){
-        $.ajax({
-            type: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            url: 'https://spaces.nexudus.com/api/billing/coworkerinvoices',
-            beforeSend: function(xhr) {
-                xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + password),'Content-Type','application/json');
-            },
-            data: data2,
-            dataType: 'json', 
-            success: function(data){
-                console.log('invoice data' + data);
-                if(data.Status == 200){
-                   console.log('invoice genearted');
-                }
-                else{
-                    $('.whole_div').hide(); 
-                    console.log('invoice not genearted');
                 }
             },
             error: function(data){
