@@ -623,7 +623,7 @@
                                 } ?>
                                 </b>
                             </h4>
-                            <h5 class="card-title"><b><?= $coworking->Price?>.<?= $coworking->CurrencyCode?>&nbsp;(<?= ($coworking->InvoiceEvery === 1) ? 'Monthly' : (($coworking->InvoiceEvery === 4) ? 'Quarterly' : ($coworking->InvoiceEvery === 12) ? 'Annually' :"every '$coworking->InvoiceEvery' months"); ?>)</b></h5><br>
+                            <h5 class="card-title"><b><?= $coworking->Price?>.00 <?= $coworking->CurrencyCode?>&nbsp;(<?= ($coworking->InvoiceEvery === 1) ? 'Monthly' : (($coworking->InvoiceEvery === 4) ? 'Quarterly' : ($coworking->InvoiceEvery === 12) ? 'Annually' :"every '$coworking->InvoiceEvery' months"); ?>)</b></h5><br>
                             <h6 class="card-title" style="position: relative;margin-top:-20px;margin-left:0px;">Features:</h6>
                             <div class="card-text text-justify plan-desc" style="min-height:200px;"><?= $coworking->Description ?></div><br>
                             <a href="#" class="text-center text-dark planshow" data-toggle="modal" data-target="#modalsignup" ><h4><?= ($is_logged_in == 1) ? 'Continue' :'Sign Up' ?>&nbsp;&nbsp;<i class="fa fa-angle-right"></i></h4></a>

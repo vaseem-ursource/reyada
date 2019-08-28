@@ -28,10 +28,7 @@ class main extends CI_Controller
             'Authorization: Basic ' . base64_encode("$username:$password"),
         );
         $output = $this->post_with_curl($url, null , $headers);
-        // $output2 = $this->post_with_curl($url2, null , $headers);
-        // if(!empty($output2['Records'])){
-        //     $data['locations'] = $output2['Records'];
-        // }
+
         if(!empty($output['Records'])){
             $data['packages'] = $output['Records'];
             foreach($data['packages'] as $package){
@@ -79,12 +76,15 @@ class main extends CI_Controller
         if(!empty($output['Records'])){
             $data['packages'] = $output['Records'];
             foreach($data['packages'] as $package){
-                if($package->GroupName == "Coworking Memberships\t" || $package->GroupName == "Coworking Memberships"){
-                    $data['coworkings'][] = $package;
+                if($package->Visible == true){
+                    if($package->GroupName == "Coworking Memberships\t" || $package->GroupName == "Coworking Memberships"){
+                        $data['coworkings'][] = $package;
+                    }
+                    else{
+                        $data['meetingrooms'][] = $package;
+                    }
                 }
-                else{
-                    $data['meetingrooms'][] = $package;
-                }
+                
             }
         }
         $data['locations'] = $this->get_location();

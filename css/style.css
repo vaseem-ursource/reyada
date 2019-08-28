@@ -148,7 +148,9 @@ h6 {
 #topbar .social-links a:first-child {
   border-left: 0;
 }
-
+.modal {
+  overflow-y:auto !important;
+}
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
@@ -439,8 +441,9 @@ h6 {
 
 .mobile-nav-toggle i {
   margin: 18px 18px 0 0;
-  color: #fff;
+  color: rgb(255, 255, 255);
 }
+
 
 .mobile-nav-overly {
   width: 100%;

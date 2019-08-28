@@ -4,9 +4,9 @@
         })
    
         $(document).ready(function() {
-                $('.mobile-nav-toggle').click(function() {
-                        $(".mobile-nav").show();
-                });
+        $('.mobile-nav-toggle').click(function() {
+                $(".mobile-nav").show();
+        });
         });
 
 

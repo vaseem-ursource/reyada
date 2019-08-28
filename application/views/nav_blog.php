@@ -35,7 +35,7 @@
           <li><a href="<?= base_url('main/#mission')?>">About Us</a></li>
           <li><a href="<?= base_url()?>main/communityEvents">Events</a></li>
           <li><a href="<?= base_url()?>main/communityBooking">Find a Room</a></li>
-          <li><a href="<?= base_url()?>main/services">Services</a></li>
+          <li><a href="<?= base_url()?>main/services">Memberships</a></li>
           <li class="lap"><a href="#contact" data-toggle="modal" data-target="#modalcontact">Contact</a></li>
           <li class="mob"><a href="#contact" onclick="menuClickFunction()" data-toggle="modal" data-target="#mobModalcontact">Contact</a></li>
           <li><a href="<?= base_url()?>main/blog">Blog</a></li>
