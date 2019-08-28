@@ -1186,18 +1186,38 @@ class main extends CI_Controller
      }
 
      // Community events
-     function communityEvents($type = null)
+     function communityEvents($type = null, $location = null)
      {
+        if(!empty($this->input->get('location'))){
+            $url = $this->input->get('location');
+            $this->session->set_userdata('location',$url);
+        }
+        $location = $this->session->userdata('location');
+        if($location != null){
+            $loc_url = $location;
+        }
+        else{
+            $loc_url = 'reyada'; 
+        }
         $type = $this->input->get('type');
         $start = $type == "upcoming" ? date("Y-m-d") : date("Y-m-d", strtotime('-1 year'));
         $end = $type == "past" ? date("Y-m-d") : date("Y-m-d", strtotime('+1 year'));
-
-        $url = $this->config->item('api_base_url')."en/bookings/fullCalendarEvents?start=".$start."&end=".$end;
+        if($type == 'past'){
+            $url = "https://$loc_url.spaces.nexudus.com/en/events?pastevents=true&page=1";
+        }
+        elseif($type == 'all'){
+            $url = "https://$loc_url.spaces.nexudus.com/en/events";
+        }
+        else{
+            $url = "https://$loc_url.spaces.nexudus.com/en/events?pastevents=false&page=1";
+        }
         $headers = array(
             'Content-Type: application/json'
         );
     
-        $data['events'] = $this->post_with_curl($url,null, $headers);
+        $output = $this->post_with_curl($url,null, $headers);
+        $data['events'] = $output['CalendarEvents'];
+        $data['locations'] = $this->get_location();
         $data['folder_name'] = 'main';
         $data['file_name'] = 'CommunityEvents';
         $data['header_name'] = 'header_account';
@@ -1217,9 +1237,12 @@ class main extends CI_Controller
      
      function get_available_rooms(){
         $p_data = $this->input->post();
-        $fromtime = $p_data['fromTime'];
-        $totime = $p_data['totime'];
-        $location = $p_data['location'];
+        if(empty($p_data)){
+            $p_data = $this->input->get(); 
+        }
+        $fromtime = $p_data['start_time'];
+        $totime = $p_data['end_time'];
+        $location = $p_data['loc'];
         $url = "https://$location.spaces.nexudus.com/en/bookings/search?start=$fromtime&end=$totime";
         $headers = array(
             'Content-Type: application/json'

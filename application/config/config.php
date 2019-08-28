@@ -25,6 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $config['base_url'] = 'http://localhost/Reyadah-Az/';
 $config['api_base_url'] = 'https://reyada.spaces.nexudus.com/';
+$config['api_base_url2'] = 'https://reyadamabane.spaces.nexudus.com/';
 // $config['base_url'] = 'http://reyada.ursource.org/';
 $config['username'] = 'info@reyada.co';
 $config['password'] = 'Reyada12345';
@@ -34,7 +35,7 @@ date_default_timezone_set('Asia/Kuwait');
 
 // Hesabe merchant details
 $config['hesabe_request_url']      = "https://www.hesabe.com/authpost";
-$config['hesabe_checkout_url']     = "https://www.hesabe.com/authpost";
+$config['hesabe_checkout_url']     = "https://www.hesabe.com/checkout";
 $config['hesabe_merchant_code1']    = "481016"; //crystal tower
 $config['hesabe_merchant_code2']    = "12540719"; // mabane
 /*

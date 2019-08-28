@@ -32,6 +32,17 @@
   border-bottom:2px solid black;
 }
 
+.loc{
+  width:250px;
+  height:40px;
+  border-radius: 0%;
+  text-align:center;
+  font-size:18px;
+}
+.loc-active{
+  border-bottom:2px solid black;
+}
+
 .plan-title:after {
   content: ""; /* This is necessary for the pseudo element to work. */ 
   display: block; /* This will put the pseudo element on its own line. */

@@ -234,23 +234,26 @@ $(document).ready(function() {
     }
     
   });
-    function get_available_rooms(fromTime,totime,location) {
+    function get_available_rooms(start_time,end_time,loc) {
         $('.whole_div').show();
         $('#availabeResources').empty();
         base_url = "<?= base_url() ?>";
-        post_data = {
-            "fromTime": fromTime,
-            "totime": totime,
-            "location": location
+        if(loc == 'reyada'){
+          img_url = 'https://reyada.spaces.nexudus.com/en/publicresources/getimage/';
+        }
+        else{
+        img_url = 'https://reyadamabane.spaces.nexudus.com/en/publicresources/getimage/';
+
         }
         $.ajax({
-            type: "POST",
-            dataType: 'JSON',
-            url: base_url + 'main/get_available_rooms',
-            data: post_data, 
+          type: "POST",
+            dataType: "JSON",
+            url: base_url + "main/get_available_rooms",
+            data: "start_time="+start_time+"&end_time="+end_time+"&loc="+loc,
             success: function(data) {
                 if(data.status == 'OK'){
                     $.each(data.resources, (key, resource) => {
+                      console.log(resource.Id);
                     if(resource.IsAvailable == true){
                         var status = "<span class='h6 pull-right' style='color:#6FBC89';>"+'Available'+"</span>"
                     }
@@ -261,7 +264,7 @@ $(document).ready(function() {
                         "<div class='card border-0'>"+
                             "<span class='h6 m-0'>"+ resource.Name +"</span>"+
                             "<h6 class='m-0'>"+resource.ResourceTypeName+ status +"</h6>"+        
-                        "<img class='card-img-top' src='<?= base_url('image/services/service2.jpg')?>' height='250px' alt='Card image cap'>"+
+                        "<img class='card-img-top' src="+ img_url +resource.Id +" height='250px' alt='Card image cap'>"+
                         "</div>"+
                     "</div>";
                     $('#availabeResources').append(rooms);
@@ -292,7 +295,6 @@ $(document).ready(function() {
         var selected_time = sHours + ":" + sMinutes;
         return selected_time;
     }
-    get_locations();
 });
 </script>      
 

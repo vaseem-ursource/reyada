@@ -62,7 +62,7 @@
                     <div class="col-md-6"> 
                         <h5 class="text-justify">Mabanee 1 Building – First Floor. Salhiya St. Kuwait City, Kuwait.</h5> 
                         <h4 class="text-uppercase"><i class="fa fa-map-marker"></i> MABANEE 1</h4> 
-                        <a class="align-middle" data-toggle="modal" data-target="#yesnomodal" style="cursor: pointer">Book a <i class="fa fa-angle-right align-middle"></i></a> 
+                        <a class="align-middle" data-toggle="modal" data-target="#bookingmodal" style="cursor: pointer">Book a <i class="fa fa-angle-right align-middle"></i></a> 
                     </div> 
                 </div> 
             </div> 
