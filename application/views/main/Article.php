@@ -457,11 +457,67 @@ button {
                           </li>
                           <li><input type="checkbox" checked=""><i></i>
                             <h6><span style="border-left:2px solid #343a40;padding:4px"></span> Instagram</h6>
-                            <div class="artlist">
-                              <div class="artlist_content">Some content!</div>
-                            </div>
-                            <div class="artlist">
-                              <div class="artlist_content">Some content!</div>
+                            <div class="row" >
+                              <div class="col-md-12" >
+                                <?php if(isset($insta_user->data) && !empty($insta_user->data)){ ?>
+                                  <table class="table" >
+                                    <tr>
+                                      <td>
+                                        <img style="width:50px;" class="insta-profile border border-secondary" src="<?= base_url('img/ins/dp.jpg') ?>" />
+                                      </td>
+                                      <td>
+                                        <span>
+                                          <!-- <?= $insta_user->data->username ?> -->
+                                          reyada_co
+                                        </span>
+                                        <br>
+                                        <span>
+                                          <!-- <?= $insta_user->data->counts->media ?> -->
+                                          674
+                                        </span>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <span>
+                                          <!-- <?= $insta_user->data->counts->followed_by ?> -->
+                                          4,735
+                                        </span>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td colspan="2" >
+                                        <span>
+                                          <!-- <?= $insta_user->data->bio; ?> -->
+                                          Reyada | ريادة
+                                          ‎نوفر مساحات و مكاتب للعمل المشترك لتطوير اعمالك
+                                          A collaborative workspace offering business support for creative enterprises
+                                          WA: 22970270
+                                        </span>
+                                        <br>
+                                        <a href="https://www.instagram.com/reyada_co/"><span>www.reyada.co</span></a>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                <?php } ?>
+                              </div>
+                              <div class="col-md-12" >
+                                <?php
+                                if(isset($insta_post) && !empty($insta_post)){
+                                    $max_post = 8;
+                                    $i = 1;
+
+                                    foreach ($insta_post as $post) { ?>
+                                    <a href="<?= $post ?>" target="_blank">
+                                      <div class="insta-post-single" style="background-image:url('<?= base_url($post) ?>')" >
+                                          
+                                      </div>
+                                    </a>
+
+                                    <?php
+                                        $i++;
+                                        if($i > $max_post){ break; }
+                                    }
+                                  }
+                                ?>
+                              </div>
                             </div>
                           </li>
                         </ul>

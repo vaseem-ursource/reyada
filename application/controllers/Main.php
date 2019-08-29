@@ -555,6 +555,14 @@ class main extends CI_Controller
         // $data['Comments'] = $this->Main_model->get_comments($article_id);
         $data['Categories'] = $this->Main_model->get_all_categories();
         $data['PopularArticle'] = $this->Main_model->get_popular_article();
+        $data_api = "https://api.instagram.com/v1/users/self/media/recent/?access_token=4530291888.3b9b4cb.ced3f183a852496ea52cd426ee560c0f";
+        // $data_response = $this->fetchSimpleData($data_api);
+        // $data['insta_post'] = json_decode($data_response);
+        $data['insta_post'] = array('img/ins/ins (1).jpg', 'img/ins/ins (2).jpg', 'img/ins/ins (3).jpg', 'img/ins/ins (4).jpg', 'img/ins/ins (5).jpg', 'img/ins/ins (6).jpg');
+
+        $user_api = "https://api.instagram.com/v1/users/self/?access_token=4530291888.3b9b4cb.ced3f183a852496ea52cd426ee560c0f";
+        $user_response = $this->fetchSimpleData($user_api);
+        $data['insta_user'] = json_decode($user_response);
         $this->load->view('index', $data);
 
     }

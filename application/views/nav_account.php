@@ -42,7 +42,7 @@
         <ul>
           <li><a href="<?= base_url('main/#mission')?>">About Us</a></li>
           <li><a href="<?= base_url()?>main/communityEvents">Events</a></li>
-          <li><a href="<?= base_url()?>main/communityBooking">Find a Room</a></li>
+          <!-- <li><a href="<?= base_url()?>main/communityBooking">Find a Room</a></li> -->
           
           <li><a href="<?= base_url()?>main/profile" class="text-dark">Account</a></li>
           

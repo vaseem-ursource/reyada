@@ -700,7 +700,10 @@
           var price_plans = data.Records;
           $.each(price_plans, (key, price_plan) => {
             $('.whole_div').hide();
-            $('.price_plans').append("<option value ='"+price_plan.UniqueId +"'>" + price_plan.Name + "</option>");
+            if(price_plan.Visible === true){
+              $('.price_plans').append("<option value ='"+price_plan.UniqueId +"'>" + price_plan.Name + "</option>");
+            }
+            
           })
           get_price_details(price_plans[0].UniqueId);
         },
