@@ -35,7 +35,7 @@
         <div class="card">
           <img class="card-img-top" src="<?= 'https://reyada.spaces.nexudus.com/en/events/getsmallimage?id='.$event->Id ?>" height="180px" alt="Card image cap">
           <div class="card-body">
-            <span class="card-text h6"><?=date("Y-m-d H:i:s", strtotime($event->StartDate) - 10800)?></span>
+            <span class="card-text h6"><?=date("Y-m-d h:i a", strtotime($event->StartDate))?></span>
             <h6 class="card-text pt-1"><b><?=$event->Name?></b></h6>
             <span class="card-text h6"><?=$event->Location?></span>
             <h6 class="card-text"><?=$event->MostExpensivePrice?> KD</h6>
