@@ -18,7 +18,7 @@
                 <button type="button" class="close mob text-white" style="opacity:1;" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="m-5 text-center">
+                <h4 class="px-5 m-5 text-center">
                     <span id="new-date"><?php echo date("j F Y") ?></span>
                 </h4>
                 <h6 class="px-2 m-4 mb-5 text-justify">
@@ -38,16 +38,16 @@
                     <div class="col-md-12 col-sm-12 col-xs-12 row" id="resources" style="display:none;">
                     </div>
                     <br>
-                    <div class="col-md-12 col-sm-12 col-xs-12 row booking-div" id="bookings" style="display:none;">
-                    </div>
+                    <!-- <div class="col-md-12 col-sm-12 col-xs-12 row booking-div" id="bookings" style="display:none;">
+                    </div> -->
                     <div class="col-md-12 col-sm-12 col-xs-12" style="top:-25px;" id="loc_imgs" style="display:none;">
                         <img src="<?= base_url('image/services/room2.jpg')?>"  width="100%" />
                     </div>
-                    <!-- <div id="description" class="col-md-12 col-sm-12 col-xs-12">
+                    <div id="description" class="col-md-12 col-sm-12 col-xs-12">
                         <p>
                             <small class="loc-desc"> Lorem Ipsum is simply ing industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.Lorem ipsum dolor sit amet,</small>
                         </p>
-                    </div> -->
+                    </div>
                     <div class="container">
                         <div class="row text-justify booking-option">
                             <div class="col-md-12">
@@ -64,7 +64,7 @@
                  <button type="button" class="close p-4" data-dismiss="modal">&#10006</button>
                 </button>
                 <form class="w-100" style="padding: 3em 2em 2em 2em;">
-                    <div class="hello-week01" id="hello-week01" style="text-align: -webkit-center;">
+                    <div class="hello-week01" style="text-align: -webkit-center;">
                         <script>
                         const prev = document.querySelector('.demo-prev');
                         const next = document.querySelector('.demo-next');
@@ -101,10 +101,8 @@
                                 var selected_date = myCalendar01.getDays();
                                 var test_date = selected_date[0];
                                 var DateCreated = new Date(Date.parse(test_date)).format("yyyy-mm-dd");
-                                
                                 $('#new-date').empty();
                                 $('#new-date').append(test_date);
-                                $('#new-date').val(test_date);
                                 $('#selected_date').val(DateCreated);
                             },
                             onClear: () => {
@@ -126,7 +124,7 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="group time">
+                                <div class="group">
                                     <select  class="select-fontsize" name="resource_id" id="select-resource" style="padding:5px !important;color:black !important;">
                                     </select>
                                 </div>
@@ -406,9 +404,7 @@ $(document).ready(function() {
     var username = '<?= $this->config->item('username')?>'
     var password = '<?= $this->config->item('password')?>'
     var size = 1000;
-    var cur_date= '<?php echo date("Y-m-d") ?>';
-    var cur_date_time = '<?php echo date("Y-m-d") ?>'+'T21:00:01';
-    var yesterday = '<?php echo date('Y-m-d',strtotime("-1 days")) ?>'+'T20:59:59';
+    var cur_date = '<?php echo date("Y-m-d") ?>';
     var base_url = '<?= base_url(); ?>';
     var is_logged_in = '<?= $is_logged_in ?>';
     var user_info = <?php echo json_encode($user_info); ?>; 
@@ -510,29 +506,14 @@ $(document).ready(function() {
     $("#meetMobCalNonReg").click(function() {
         $("#meetMobFormReg").show();
     });
-    $('.day').click(function(){
-        var location_id = $(".location-drp-dwn").val();
-        var selected_date = $('#new-date').val();
-        if(selected_date == ''|| selected_date == null){
-            var new_date = cur_date_time;  
-        }
-        else{
-            var new_date = moment(selected_date).format('YYYY-MM-DD')+'T21:00:01';
-        }
-        var past_day =     moment(new_date, 'YYYY-MM-DD').subtract(1,'days').format('YYYY-MM-DD')+'T20:59:59';
-        get_resources(location_id);
-        get_location_bookings(location_id,new_date,past_day);
-    });
     var location_id = $(".location-drp-dwn").val();
     get_resources(location_id);
-    get_location_bookings(location_id,cur_date_time,yesterday);
 
     $(".location-drp-dwn").change(function() {   
         $('.whole_div').show();
         $('#loc_imgs').empty();
         var location_id = $(this).val();
-        var selected_date = $('#new-date').val();
-        if(location_id == 906856952){
+         if(location_id == 906856952){
             var img = '<img src="'+base_url+'image/services/room3.jpg" width="100%" />';
             $('#loc_imgs').append(img);
         }
@@ -540,29 +521,13 @@ $(document).ready(function() {
             var img = '<img src="'+base_url+'image/services/room2.jpg" width="100%" />';
             $('#loc_imgs').append(img);
         }
-        if(selected_date == ''|| selected_date == null){
-            var new_date = cur_date_time;  
-        }
-        else{
-            var new_date = moment(selected_date).format('YYYY-MM-DD')+'T21:00:01';
-        }
-        var past_day =     moment(new_date, 'YYYY-MM-DD').subtract(1,'days').format('YYYY-MM-DD')+'T20:59:59';
         get_resources(location_id);
-        get_location_bookings(location_id,new_date,past_day);
     });
 
     $(document).on('click','.resource',function() {
         $('.whole_div').show();
         var resource_id = $(this).attr("data-id");
-        var selected_date = $('#new-date').val();
-        if(selected_date == ''|| selected_date == null){
-            var new_date = cur_date_time;  
-        }
-        else{
-            var new_date = moment(selected_date).format('YYYY-MM-DD')+'T21:00:01';
-        }
-        var past_day =     moment(new_date, 'YYYY-MM-DD').subtract(1,'days').format('YYYY-MM-DD')+'T20:59:59';
-        get_bookings(resource_id,new_date,past_day);
+        get_bookings(resource_id);
     });
 
     $("#pickDate").click(function(e) {
@@ -702,14 +667,8 @@ $(document).ready(function() {
             else{
                 var date = $('#selected_date').val(); 
             }
-            if(is_logged_in == 1 ){
-                var time1 = ConvertTimeformat(moment(start_time, 'h:mm A').subtract(3,'hours').format('h:mm A'));
-                var time2 = ConvertTimeformat(moment(end_time, 'h:mm A').subtract(3,'hours').format('h:mm A'));
-            }else{
-                var time1 = ConvertTimeformat(start_time);
-                var time2 = ConvertTimeformat(end_time);
-            }
-            
+            var time1 = ConvertTimeformat(moment(start_time, 'h:mm A').subtract(3,'hours').format('h:mm A'));
+            var time2 = ConvertTimeformat(moment(end_time, 'h:mm A').subtract(3,'hours').format('h:mm A'));
             var fromTime = date+'T'+ time1 +'Z'; 
             var toTime   = date+'T'+ time2 +'Z';
 
@@ -974,10 +933,11 @@ $(document).ready(function() {
     }
 
     function subtract_day(date) {
+        var result = date.substr(8);
         var day = '1';
-        var sh = parseInt(date) - parseInt(day);
-        // var new_result = date.substr(0,8) + sh;
-        return sh;
+        var sh = parseInt(result) - parseInt(day);
+        var new_result = date.substr(0,8) + sh;
+        return new_result;
     }
 
     function ConvertTimeformat(time) {
@@ -1026,6 +986,7 @@ $(document).ready(function() {
                         $("#select-resource").append("<option value ='" +resource.Id + " '>" + resource.Name + "</option>");
                         
                     })
+                    get_bookings(res_id);
                 } else {
                     $('.whole_div').hide();
                     var resources = "<div class='col-md-6 col-sm-6 row p-0 m-0'>" +
@@ -1039,11 +1000,11 @@ $(document).ready(function() {
         });
     }
 
-    function get_bookings(res_id,cur_date,yesterday) {
+    function get_bookings(res_id) {
         $("#bookings").empty();
         $.ajax({
             type: 'GET',
-            url: 'https://spaces.nexudus.com/api/spaces/bookings?Booking_Resource=' + res_id + '&size=' + size + '&To_Booking_FromTime=' + cur_date + '&From_Booking_ToTime=' + yesterday,
+            url: 'https://spaces.nexudus.com/api/spaces/bookings?Booking_Resource=' + res_id + '&size=' + size ,
             beforeSend: function(xhr) {
                 xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" +
                     password));
@@ -1052,7 +1013,6 @@ $(document).ready(function() {
             success: function(bookings) {
                 $('.whole_div').hide();
                 var Bookings = bookings.Records;
-                console.log(Bookings);
                 if (Bookings.length != '0') {
                     $.each(Bookings, (key, booking) => {
                         var fromtime = moment.tz(booking.FromTime, "Asia/Kuwait");
@@ -1065,68 +1025,23 @@ $(document).ready(function() {
                         "<div class='col-md-6 col-sm-6 p-0 m-0'>"+
                             "<span style='color: #fff; font-size: 14px;'>"+"<br>"+moment(fromtime).format('YYYY-MM-DD')+"<br>"+"</span>"+
                             "<span style='color: #fff; font-size: 12px;'>"+ booking.ResourceName +"<br>"+"</span>"+
-                            // "<span style='color: #fff; font-size: 12px;'>"+ booking.CoworkerFullName +"<br>"+"</span>"+
+                            "<span style='color: #fff; font-size: 12px;'>"+ booking.CoworkerFullName +"<br>"+"</span>"+
                         "</div>";
                         $("#bookings").append(bookings);
                     })
                 } else {
                     $('.whole_div').hide();
-                    var bookings = "<small>" + "<br>" + 'No Bookings' + "</small>";
+                    var bookings = "<small>" + "<br>" + 'No Booking Available' + "</small>";
                     $("#bookings").append(bookings);
                 }
 
             },
             error: function() {
                 $('.whole_div').hide();
-                var bookings = "<small>" + "<br>" + 'No Bookings' + "</small>";
+                var bookings = "<small>" + "<br>" + 'No Booking Available' + "</small>";
                 $("#bookings").append(bookings);
             }
         })
-    }
-
-    function get_location_bookings(loc_id,cur_date,yesterday){
-        $("#bookings").empty();
-        $.ajax({
-            type: 'GET',
-            url: 'https://spaces.nexudus.com/api/spaces/bookings?Booking_Resource_Business=' + loc_id + '&size=' + size + '&To_Booking_FromTime=' + cur_date + '&From_Booking_ToTime=' + yesterday,
-            beforeSend: function(xhr) {
-                xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" +
-                    password));
-            },
-            dataType: 'json',
-            success: function(bookings) {
-                $('.whole_div').hide();
-                var Bookings = bookings.Records;
-                console.log(Bookings);
-                if (Bookings.length != '0') {
-                    $.each(Bookings, (key, booking) => {
-                        var fromtime = moment.tz(booking.FromTime, "Asia/Kuwait");
-                        var totime =   moment.tz(booking.ToTime, "Asia/Kuwait");
-                        var bookings = 
-                        "<div class='col-md-6 col-sm-6 p-0 m-0'>"+ 
-                            "<span style='color: #fff; font-size: 16px;'>"+"<br>"+ moment(fromtime).format('h:mm a')+"<br>"+"</span>"+
-                            "<span style='color: #fff; font-size: 13px;'>"+moment(totime).format('h:mm a')+"<br>"+"</span>"+
-                        "</div>"+
-                        "<div class='col-md-6 col-sm-6 p-0 m-0'>"+
-                            "<span style='color: #fff; font-size: 14px;'>"+"<br>"+moment(fromtime).format('YYYY-MM-DD')+"<br>"+"</span>"+
-                            "<span style='color: #fff; font-size: 12px;'>"+ booking.ResourceName +"<br>"+"</span>"+
-                            // "<span style='color: #fff; font-size: 12px;'>"+ booking.CoworkerFullName +"<br>"+"</span>"+
-                        "</div>";
-                        $("#bookings").append(bookings);
-                    })
-                } else {
-                    $('.whole_div').hide();
-                    var bookings = "<small>" + "<br>" + 'No Bookings' + "</small>";
-                    $("#bookings").append(bookings);
-                }
-
-            },
-            error: function() {
-                $('.whole_div').hide();
-                var bookings = "<small>" + "<br>" + 'No Bookings' + "</small>";
-                $("#bookings").append(bookings);
-            }
-        }) 
     }
 
     function create_booking(data){

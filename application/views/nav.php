@@ -33,12 +33,12 @@
       <nav class="main-nav float-right d-none d-lg-block" id="myMenu">
         <ul>
           <li id="aboutus"><a href="#">About Us</a></li>
-          <li><a href="<?= base_url()?>main/communityEvents">Events</a></li>
+          <!-- <li><a href="<?= base_url()?>main/communityEvents">Events</a></li> -->
           <!-- <li><a href="<?= base_url()?>main/communityBooking">Find a Room</a></li> -->
           <li><a href="<?= base_url()?>main/services">Memberships</a></li>
           <li class="lap"><a href="#contact" data-toggle="modal" data-target="#modalcontact">Contact</a></li>
           <li class="mob"><a href="#contact" onclick="menuClickFunction()" data-toggle="modal" data-target="#mobModalcontact">Contact</a></li>
-          <li><a href="<?= base_url()?>main/blog">Blog</a></li>
+          <li><a href="#" disabled="disabled" onclick="return false;">Blog</a></li>
           
           <?php if($this->session->userdata('is_logged_in')){ ?>
             <li><a href="<?= base_url()?>main/profile">Account</a></li>

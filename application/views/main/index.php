@@ -45,7 +45,7 @@ body.modal-open-noscroll
   </section>
   <main id="main">
 <div class="overlay">
-<h1>Together We create</h1>
+<h1>Together We Create</h1>
 <h3>Work. Innovate. Collaborate.</h3>
 <button class="custom-button" id="bookingbutton">Booking</button>
 </div>
@@ -284,7 +284,7 @@ body.modal-open-noscroll
         </div>
     <?php }?>
     </section> -->
-    <section id="team" class="">
+    <!-- <section id="team" class="">
       <div class="container">
         <div class="section-header pb-2">
           <h3 style="color:#343a40">Latest Article</h3>
@@ -315,7 +315,7 @@ body.modal-open-noscroll
         </div>
 
       </div>
-    </section><!-- #Latest Article -->
+    </section> -->
     <section id="services" class="">
     <div class="container">
         <header class="section-header">
@@ -325,31 +325,30 @@ body.modal-open-noscroll
                 <div class="accordian">
                     <ul>
                         <li><input type="checkbox" checked=""><i></i>
-                        <h6>Do you have any other branch ?</h6>
+                        <h6>Do we have another branch?</h6>
                         <div class="artlist">
-                           <p class="p-0 m-0 w-100 text-justify">The number of licensed offices differ per location. In our Crystal Tower location we have 9 offices with licenses and in our Mabanee 1 location we have 13 offices with licenses.</p>
-                        </div>
-                        <hr>
-                        </li>
-                        <li><input type="checkbox" checked=""><i></i>
-                        <h6>How many licensed office do you have ?</h6>
-                        <div class="artlist">
-                            <p class="p-0 m-0 w-100 text-justify">The number of licensed offices differ per location. In our Crystal Tower location we have 9 offices with licenses and in our Mabanee 1 location we have 13 offices with licenses.</p>
+                           <p class="p-0 m-0 w-100 text-justify">We currently have two locations, Crystal Tower and Mabanee 1.</p>
                         </div>
                         <hr>
                         </li>
                         <li><input type="checkbox" checked=""><i></i>
                         <h6>Is Reyada open on Friday ?</h6>
                         <div class="artlist">
-                            <p class="p-0 m-0 w-100 text-justify">No, Reyada is not open on Fridays. Our opening times are from 9am - 9pm from Saturday to Thursday</p>
+                            <p class="p-0 m-0 w-100 text-justify">No, Reyada is not open on Fridays. Our operating times are from 9am - 9pm from Saturday to Thursday. </p>
                         </div>
-                        <hr class="text-dark">
+                        <hr>
                         </li>
                         <li><input type="checkbox" checked=""><i></i>
-                        <h6>Does anyone open private offices when the 
-member is not there ? </h6>
+                        <h6>Is there parking and is the parking included in memberships? </h6>
                         <div class="artlist">
-                            <p class="p-0 m-0 w-100 text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+                            <p class="p-0 m-0 w-100 text-justify">Parking is available around our locations, but it is not included with memberships.</p>
+                        </div>
+                        <hr>
+                        </li>
+                        <li><input type="checkbox" checked=""><i></i>
+                        <h6>What are the cost for extra credit for meeting rooms ?</h6>
+                        <div class="artlist">
+                            <p class="p-0 m-0 w-100 text-justify">The Pyramid - 7.5 kd/hour <br>The Boardroom - 12.5 kd/hour <br>Or purchase a package starting at 70kd/10 hours</p>
                         </div>
                         </li>
                     </ul>
@@ -359,30 +358,30 @@ member is not there ? </h6>
                 <div class="accordian">
                     <ul>
                         <li><input type="checkbox" checked=""><i></i>
+                        <h6>How many offices do we have?</h6>
+                        <div class="artlist">
+                            <p class="p-0 m-0 w-100 text-justify">Reyada has a total of 40 offices, across two locations.</p>
+                        </div>
+                        <hr>
+                        </li>
+                        <li><input type="checkbox" checked=""><i></i>
+                        <h6>What is the average office size?</h6>
+                        <div class="artlist">
+                            <p class="p-0 m-0 w-100 text-justify">The Offices average of a size of 9 sqm.</p>
+                        </div>
+                        <hr>
+                        </li>
+                        <li><input type="checkbox" checked=""><i></i>
                         <h6>Do you conduct workshop ?</h6>
                         <div class="artlist">
-                           <p class="p-0 m-0 w-100 text-justify">Yes, we do conduct workshop at Reyada as well as host them.</p>
+                           <p class="p-0 m-0 w-100 text-justify">Yes, we do conduct workshops and host them at our locations</p>
                         </div>
                         <hr>
                         </li>
                         <li><input type="checkbox" checked=""><i></i>
-                        <h6>Is there parking and is the parking included ?</h6>
+                        <h6>Does anyone open private offices when the member is not there?</h6>
                         <div class="artlist">
-                            <p class="p-0 m-0 w-100 text-justify">All our locations have parking around the building, but it is not included with the Reyada memberships.</p>
-                        </div>
-                        <hr>
-                        </li>
-                        <li><input type="checkbox" checked=""><i></i>
-                        <h6>What is the average office size ?</h6>
-                        <div class="artlist">
-                            <p class="p-0 m-0 w-100 text-justify">No, Reyada is not open on Fridays. Our opening times are from 9am - 9pm from Saturday to Thursday</p>
-                        </div>
-                        <hr class="text-dark">
-                        </li>
-                        <li><input type="checkbox" checked=""><i></i>
-                        <h6>What are the cost for extra credit for meeting rooms ?</h6>
-                        <div class="artlist">
-                            <p class="p-0 m-0 w-100 text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+                            <p class="p-0 m-0 w-100 text-justify">Only in cases of emergency, or maintenance - and with the knowledge of the member.</p>
                         </div>
                         </li>
                     </ul>
@@ -392,25 +391,20 @@ member is not there ? </h6>
         </header>
     </div>
 </section>
+<!-- <section id="clients" class="wow fadeInUp">
+  <div class="container">
+  <div class="section-header pb-2">
+      <h3 style="color:#343a40">Affiliated Partners</h3>
+    </div>
+    <div class="owl-carousel clients-carousel">
+      <img src="<?= base_url()?>image/clients/ceros.png" alt="Ceros">
+      <img src="<?= base_url()?>image/clients/safari.png" alt="Safari">
+      <img src="<?= base_url()?>image/clients/ceros.png" alt="Ceros">
+      <img src="<?= base_url()?>image/clients/safari.png" alt="Safari">
+    </div>
 
-    <!--==========================
-      Clients Section
-    ============================-->
-    <section id="clients" class="wow fadeInUp">
-      <div class="container">
-      <div class="section-header pb-2">
-          <h3 style="color:#343a40">Affiliated Partners</h3>
-        </div>
-        <div class="owl-carousel clients-carousel">
-          <img src="<?= base_url()?>image/clients/ceros.png" alt="Ceros">
-          <img src="<?= base_url()?>image/clients/safari.png" alt="Safari">
-          <img src="<?= base_url()?>image/clients/ceros.png" alt="Ceros">
-          <img src="<?= base_url()?>image/clients/safari.png" alt="Safari">
-        </div>
-
-      </div>
-    </section><!-- #clients -->
-
+  </div>
+</section> -->
   </main>
 
   <script>

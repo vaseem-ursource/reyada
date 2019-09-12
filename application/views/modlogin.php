@@ -62,7 +62,7 @@
                     <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Submit <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
             </div>
            </div>
-        </form>
+          </form>
         </article>
       </div>
       <div class="right-half1">
@@ -80,78 +80,9 @@
           <a style="color:white; font-size:18px;" href="https://www.google.com/maps/place/Reyada+%7C+Collaborative+Workspace/@29.3681039,47.9687861,17z/data=!3m1!4b1!4m5!3m4!1s0x3fcf85e8f50d9f6d:0x30e75da11a5d5bf7!8m2!3d29.3681039!4d47.9709748" target="_blank"><img src="<?= base_url()?>image/location_white.png" width="8%" />&nbsp;&nbsp;MABANEE</a>
          </h6>
       </div> -->
-    <section>
       <div class="row">
-        <div class="col-md-9">
-          <div class="col-md-12 col-sm-12 col-xs-12 row" style="padding-top:10%; padding-left: 18%;" class="px-5">
-              <h6 style="color:black;" style="font-size: 16px;" class="text-justify ml-5 m-0">LET US<br><br>REACH YOU!
-                <br><br>
-              </h6>
-          </div>
-          <form action="<?= base_url('Main/contactus')?>" style="width:95%; padding-top:5px; padding-left:20%" method="post" class="m-0">
-            <div class="col-md-12 col-sm-12 col-xs-12 row">
-            
-              <div class="col-md-6" style="color:black; padding-right:10%" style="font-size: 16px;">
-                <h6 style="color:black;" style="font-size: 16px;" class="text-justify">
-                <small>Ask us a question, we’ll get back to you shortly.</small></h6>
-                  <div class="group">
-                      <input type="text" name="full_name" id="full_name" required><span class="highlight"></span><span class="bar"></span>
-                      <label>Full Name</label>
-                  </div>
-                  <div class="group">
-                      <input type="text" name="email" id="email3" required><span class="highlight"></span><span class="bar"></span>
-                      <label>Email</label>
-                  </div>
-                  <div class="group">
-                      <input type="text" name="phone" id="phone2" required><span class="highlight"></span><span class="bar"></span>
-                      <label>Phone Number</label>
-                  </div>
-                  <div class="group">
-                      <input type="text" name="company" id="company2" required><span class="highlight"></span><span class="bar"></span>
-                      <label>Company Name</label>
-                  </div>
-              </div>
-              <div class="col-md-6" style="color:black; padding-left: 10%;" style="font-size: 16px;">
-              <h6 style="color:black;" class="text-left"><small>Subject of inquiry: (membership – workspaces – packages - other)</small></h6> 
-                      <div class="group">
-                          <input type="checkbox" name="membership" id="membership2">
-                          <span style="color:#999; font-size: 11px;">About membership</span>
-                      </div>
-                      <div class="group">
-                          <input type="checkbox" name="workspace" id="workspace">
-                        <span style="color:#999; font-size: 11px;"> Finding workspace</span>
-                      </div>
-                      <div class="group">
-                          <input type="checkbox" name="somethingelse" id="somethingelse">
-                          <span style="color:#999; font-size: 11px;" required>something else</span>
-                      </div><br>
-                      <div class="group">
-                          <input type="text" name="notes" id="notes" ><span class="highlight"></span><span class="bar"></span>
-                          <label>Notes</label>
-                      </div>
-                      <br><br>
-                      <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Submit <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
-              </div>
-            </div>
-          </form>
-        </div>
-        <div class="col-md-3 bg-black" >
-          <button type="button" class="close p-4 text-white" data-dismiss="modal">&#10006</button>
-          <div class="container" style="padding:60px;">
-            <h5 style="color:white;position:relative;margin-top:40px;" class="text-justify">CALL US.</h5>
-            <br>
-            <small style="color:white;font-size: 14px;">
-            Give us a call during our office hours and inquire about our services.
-            <br><br>
-            </small>
-            <h5 style="color:white;">+(965) 2297 0270</h5>
-            <br>
-            <h5 style="color:white;">Find Us</h5>
-            <p><a style="color:white;" href="https://www.google.com/maps/place/Reyada+%7C+Collaborative+Workspace/@29.3769156,47.9756613,17z/data=!3m1!4b1!4m5!3m4!1s0x3fcf84ec4226df39:0x267ba39977cfa42e!8m2!3d29.3769156!4d47.97785" target="_blank"><img src="<?= base_url()?>image/location_white.png" width="10%" />&nbsp;&nbsp;CRYSTAL TOWER</a></p>
-            <p><a style="color:white;position:relative;top:-15px;" href="https://www.google.com/maps/place/Reyada+%7C+Collaborative+Workspace/@29.3681039,47.9687861,17z/data=!3m1!4b1!4m5!3m4!1s0x3fcf85e8f50d9f6d:0x30e75da11a5d5bf7!8m2!3d29.3681039!4d47.9709748" target="_blank"><img src="<?= base_url()?>image/location_white.png" width="10%" />&nbsp;&nbsp;MABANEE</a></p>
-          </div>
-            
-        </div>
+      <div class="col-md-4">div1</div>
+      <div class="col-md-8">div2</div>
       </div>
     </section>
    </div>
@@ -162,15 +93,16 @@
 
 <!--Login Modal-->
 <div id="modalLogin" class="modal fade bs-example-modal-xl" role="dialog ">
-  <div class="modal-dialog modal-xl">
+  <div class="modal-dialog modal-xl" style="height:600px;">
     <!-- Modal content-->
     <div class="modal-content">
-      <div class="modal-body p-0 m-0" >
-        <!-- <div class="row">
+      <div class="modal-body p-0 m-0">
+        <div class="row">
           <div class="col-md-4 bg-black">
-            <div> 
-              <img src="<?= base_url();?>image/modalimg/a1.png" class="img-fluid  position-relative pull-right" width="170" height="150">
-              <h6 style="color:white;font-size: 14px;position:relative;top:150px;" class="p-5 text-justify">
+            <div>
+              <img src="<?= base_url();?>image/modalimg/a1.png" class="img-fluid  position-relative pull-right" width="170" height="150"
+                style="padding-top: 30%; left:20px;">
+              <h6 style="color:white; position: absolute; bottom:30px; font-size: 14px;" class="p-5 text-justify">
                 <small>JOIN OUR COMMUNITY
                   <br><br>
                   Sign up and become a part of the Reyada Community.
@@ -207,47 +139,7 @@
               </div>
             </article>
           </div>
-        </div> -->
-        <section>
-      <div class="row">
-        <div class="col-md-4 bg-black" style="height:600px;">
-        <img src="<?= base_url();?>image/modalimg/a1.png" class="img-fluid pull-right" width="170" height="150" style="position:relative;top:120px;">
-          <h6 style="color:white;font-size: 14px;position:relative;top:60%;" class="p-5 text-justify">
-            <small>JOIN OUR COMMUNITY
-              <br><br>
-              Sign up and become a part of the Reyada Community.
-              <br><br>
-              <a href="#signup" id="modalsignup1" style="color:white;"  data-toggle="modal"
-                  data-target="#modalsignup"><span class="align-middle">SIGN UP</span> <i
-                  class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
-            </small>
-          </h6>
         </div>
-        <div class="col-md-8 bg-white" style="background:url('<?= base_url();?>image/modalimg/A15.jpg') center  no-repeat;background-size: cover;height:600px;">
-        <button type="button" class="close p-4" data-dismiss="modal">&#10006</button>
-          <div  style="position:relative;top:20%;">
-            <form id="login-form" method="post" action="<?= base_url() ?>main/signin" >
-              <h6 style="color:black;" class="text-center">WELCOME BACK!</h6><br>
-              <p id="error_msg_signin" style="display:none" class="text text-danger" ></p>
-              <p id="success_msg_signin" style="display:none" class="text text-success" ></p>
-              <div class="group">
-                <input name="loginEmail" type="text"><span class="highlight"></span><span class="bar"></span>
-                <label>Email</label>
-              </div>
-              <div class="group mb-1">
-                <input name="loginPassword" type="password"><span class="highlight"></span><span class="bar"></span>
-                <label>Your Password</label>
-              </div>
-              <a href="<?= base_url('main/forgot_password') ?>" class="text-p text-secondary float-right">Forgot password?</a>
-              <br><br><br>
-              <button type="submit" style="border:0px;background-color:transparent;color:black;" id="loginButtonForm" ><span class="align-middle" data-toggle="modal"
-                  data-target="#modalLoginsuccess">LOGIN</span> <i
-                  class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
-            </form>
-          </div>  
-        </div>
-      </div>
-      </section>
       </div>
     </div>
   </div>
@@ -302,10 +194,10 @@
 </div>
 
 <div id="modalsignup" class="modal fade bs-example-modal-xl" role="dialog">
-  <div class="modal-dialog modal-xl">
+  <div class="modal-dialog modal-xl" style="height:600px;">
     <div class="modal-content">
       <div class="modal-body p-0">
-        <!-- <div class="row">
+        <div class="row">
           <div class="col-md-4 bg-black">
             <div>
               <img src="<?= base_url()?>image/modalimg/a1.png" class="img-fluid  position-relative pull-right" width="170" height="150"
@@ -476,175 +368,7 @@
               </div>
           </div>
           </article>
-        </div> -->
-        <div class="row">
-          <div class="col-md-4 bg-black" style="height:620px;">
-          <img src="<?= base_url();?>image/modalimg/a1.png" class="img-fluid pull-right" width="170" height="150" style="position:relative;top:120px;">
-            <h6 style="color:white; font-modal-childsize: 20px; padding-top: 35%"class="px-2 m-4 mb-5 text-justify" id="loctionDrp">
-                <small style="color:white; font-size: 14px;">
-                    <i class="fa-lg pull-left pt-1 mt-2"></i>
-                    <div class="pull-left" style="width: 90%;">
-                        <div class="select-wrapper" style="width: 100%;">
-                        <select name="location_id">
-                              <option value="<?= $locations[0]->Id ?>"><?= $locations[0]->Name ?></option>
-                              <option value="<?= $locations[1]->Id ?>"><?= $locations[1]->Name ?></option>
-                        </select>
-                        </div>
-                    </div>
-                </small>
-            </h6>
-            <h6 style="color:white; position: absolute; bottom:30px; font-size: 14px;" class="p-5 text-justify">
-              <small>WELCOME BACK!
-                <br><br>
-                Sign in and see what you’ve missed!
-                <br><br>
-                <a href="#backlogin" id="backlogin" style="color:white;" data-toggle="modal"
-                    data-target="#modalLogin"><span class="align-middle">LOGIN</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
-              </small>
-            </h6>
-          </div>
-          <div class="col-md-8 bg-white" style="background:url('<?= base_url();?>image/modalimg/A15.jpg') center  no-repeat;background-size: cover;height:620px;">
-            <button type="button" class="close p-4" data-dismiss="modal">&#10006</button>
-              <div>
-                <form style="width:85%;position:relative;margin-top:12%;">
-                  <div class="firstSignup">
-                    <h6 style="color:black;" class="text-center">REGISTER</h6><br>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="group">
-                          <input type="text" name="complete_name" ><span class="highlight"></span><span class="bar"></span>
-                          <label> Full Name</label>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="group">
-                          <input type="text" name="company_name" ><span class="highlight"></span><span class="bar"></span>
-                          <label>Company Name</label>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="group">
-                          <input type="email" name="signup_email"><span class="highlight"></span><span class="bar"></span>
-                          <label>Email</label>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="group">
-                          <input type="text" name="profile_website"><span class="highlight"></span><span class="bar"></span>
-                          <label>Website</label>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="group">
-                          <input type="text" name="mobile_phone" ><span class="highlight"></span><span class="bar"></span>
-                          <label>Phone Number</label>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="group">
-                          <input type="text" name="billing_address"><span class="highlight"></span><span class="bar"></span>
-                          <label>Billing Address</label>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="group">
-                          <input type="password" name="password" ><span class="highlight"></span><span class="bar"></span>
-                          <label>Your Password</label>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="group">
-                          <input type="text" name="business_area" ><span class="highlight"></span><span class="bar"></span>
-                          <label>Governorates</label>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="group">
-                          <input type="password" name="confirm_password" ><span class="highlight"></span><span class="bar"></span>
-                          <label>Confirm Password</label>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="group">
-                          <input type="checkbox" name="receive_news_letter" style="margin-top:15px;">
-                          <span style="color:#999;">Recieve news from Reyada</span>
-                        </div>
-                      </div>
-                      <p id="error_msg_signup" style="display:none" class="text text-danger" ></p>
-                      <br><br><br>
-                      <div class="col-md-12">
-                        <a href="#" style="color:black;" id="continuebtn" class="float-left"><span
-                            class="align-middle">CONTINUE</span> <i
-                            class="fa fa-angle-right fa-2x pl-1 align-middle"></i>
-                        </a>
-                        <div class="text-right">
-                          <a href="#" style="color:black;" id="first"><span class="align-middle">1</span> <span
-                              style="border-bottom: 1px solid black;width:20px;height:3px; display: inline-block;vertical-align: middle;"></span></a>
-                          <a href="#" style="color:black;" id="second"><span class="align-middle">2</span></a>
-                        </div>
-                      </div>
-                      <!-- <div class="col-md-12 text-right">
-                        <a href="#" style="color:black;" id="first"><span class="align-middle">1</span> <span
-                            style="border-bottom: 1px solid black;width:20px;height:3px; display: inline-block;vertical-align: middle;"></span></a>
-                        <a href="#" style="color:black;" id="second"><span class="align-middle">2</span></a>
-                      </div> -->
-
-                    </div>
-                  </div>
-                  <div class="secondSignup" style="position:relative;margin-top:-10%;">
-                    <h6 style="color:black;" class="text-center m-0">REGISTER</h6>
-                    <span style="color:black;" class="text-left">Select your subscription plan</span><br><br>
-                    <div class="row">
-                      <div class="col-md-6">
-                      <label class="test_container">Coworking Memberships
-                        <input type="radio" class="plans_type" id="cowork"  checked value="Coworking Memberships" name="radio">
-                        <span class="checkmark"></span>
-                      </label>
-                      </div>
-                      <div class="col-md-6">
-                        <label class="test_container">Meeting Room Memberships
-                          <input type="radio"  class="plans_type" id="meetroom"  value="Meeting Room Memberships" name="radio">
-                          <span class="checkmark"></span>
-                        </label>
-                      </div>
-                      <div class="col-md-12">
-                        <div class="group">
-                        <select class="price_plans" id="price_plans" style="color:black;">
-                        </select>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="group plan_heading">
-                          
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="group plan_desc booking-div" >
-                          
-                        </div>
-                      </div>
-                      <div class="col-md-12">
-                        <span>Choose a Start Date</span>
-                        <div class="group" >
-                          <input type="date" id='datetimepicker1'><span class="highlight"></span><span class="bar"></span>
-                        </div>
-                      </div>
-                      <div class="col-md-12">
-                        <a href="#" id="signUpBtn" style="color:black;" class="float-left"><span class="align-middle">Continue</span> <i
-                            class="fa fa-angle-right fa-2x pl-1 align-middle"></i>
-                        </a>
-                        <div class="text-right">
-                          <a href="#" style="color:black;" id="first"><span class="align-middle">2</span> <span
-                              style="border-bottom: 1px solid black;width:20px;height:3px; display: inline-block;vertical-align: middle;"></span></a>
-                          <a href="#" style="color:black;" id="second"><span class="align-middle">2</span></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </form>
-              </div>
-          </div>
-        </div>
+      </div>
       </div>
     </div>
   </div>
@@ -681,45 +405,22 @@
 <!-- End Thankyou Modal-->
 
 <!--Thankyou for contact Modal-->
-<div id="thankyouforRegmodal" class="modal fade bs-example-modal-xs" role="dialog ">
-    <div class="modal-dialog modal-xs modal-dialog-center" style="height:350px;">
-        <div class="modal-content" style="padding-top:0%; vertical-align: middle;">
-            <div class="modal-body p-0 m-0">
-                <section class="container">
-                    <div class="tmodal">
-                        <button type="button" class="close p-4" data-dismiss="modal">&#10006</button>
-                        <div>
-                            <form style="width:80%; padding-top: 90px;">
-                                <h6 style="color:black;" class="text-center">THANK YOU FOR YOUR BOOKING</h6>
-                                <h6 style="color:black;" class="text-center" id="confirmBooking"><b></b></h6>
-                                <a href="<?= base_url("main/invoice") ?>" style="color:black;"><span class="align-middle">Proceed to payment</span>
-                                    <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i>
-                                </a>
-                            </form>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </div>
-    </div>
-</div>
 <div id="contact_thankyou" class="modal fade bs-example-modal-xs" role="dialog ">
   <div class="modal-dialog modal-xs modal-dialog-center" style="height:300px;" >
  <!-- Modal content-->
-   <div class="modal-content pt-5 mt-5" style="padding-top:0%; vertical-align: middle;">
+   <div class="modal-content pt-5 mt-5" style="padding-top:25%; vertical-align: middle;">
      <div class="modal-body p-0 m-0">
-     <button type="button" class="close p-4" data-dismiss="modal">&#10006</button>
       <section class="container">
        <div class="tmodal">
         <div>
-          <h6 style="color:black;bottom:30px; font-size: 18px;" class="p-5 text-justify text-left">
+          <h6 style="color:black; position: absolute; bottom:30px; font-size: 14px;" class="p-5 text-justify text-left">
           <small>THANK YOU FOR CONTACTING US
           <br><br>
 	        For further questions and inquiries<br>
                   +(965) 2297 0270<br>
                     info@reyada.co
 	        <br><br>
-	        <a href="<?= base_url()?>" style="color:black;"><span class="align-middle" id ="homeModal">HOME</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
+	        <a href="#" style="color:black;"  data-dismiss="modal"><span class="align-middle" id ="homeModal">HOME</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
 	        </small></h6>
         </div>
        </div>

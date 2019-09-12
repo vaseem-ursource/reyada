@@ -333,10 +333,14 @@ display: none;
 }
 } 
 
+.signupform{
+  position:relative;
+  top:20%;
+}
 
-.modal div {  
+/* .modal div {  
 height: 100%;  
-}   
+}    */
 
 article {  
 position: absolute;  
@@ -987,12 +991,23 @@ font-family: FontAwesome;
   font-family: FontAwesome;       
     content: '\f107';       
     font-size: 28px;       
-   position: absolute;       
+    position: absolute;       
     top: -10px;       
     right: 60px;       
     color: rgb(2, 2, 2);       
     pointer-events: none;       
-  }      
+  } 
+  
+  .time:after {       
+    font-family: FontAwesome;       
+      content: '\f107';       
+      font-size: 20px;       
+      position: absolute;       
+      top: -5px;       
+      right: 30px;       
+      color: rgb(2, 2, 2);       
+      pointer-events: none;       
+    }
     
 select::-ms-expand {       
 display: none;       
@@ -1213,6 +1228,10 @@ span.k {
 @media only screen and (max-width: 600px) {
   span.a,span.b,span.c,span.d,span.e,span.f,span.g,span.h,span.i,span.j,span.k {
     font-size:25px;
+  }
+  .signupform{
+    position:relative;
+    top:-50px !important;
   }
 }
 
