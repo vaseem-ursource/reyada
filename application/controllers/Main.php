@@ -1224,7 +1224,7 @@ class main extends CI_Controller
             $json['message'] = 'Please login first';
         }
 
-        print_r(json_encode($s_data));
+        print_r(json_encode($json));
     }
 
     public function dummy_paggination($rowno = 0)
