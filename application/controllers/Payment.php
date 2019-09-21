@@ -21,12 +21,13 @@ class payment extends CI_Controller
 
         $j_data['status'] = 400;
         $j_data['message'] = "Some error occurred while processing your request";
-        if($invoice_details['BusinessId'] == 906856952){
-            $merchant_code = $this->config->item('hesabe_merchant_code2');
-        }
-        else{
-            $merchant_code = $this->config->item('hesabe_merchant_code1');
-        }
+        // if($invoice_details['BusinessId'] == 906856952){
+        //     $merchant_code = $this->config->item('hesabe_merchant_code2');
+        // }
+        // else{
+        //     $merchant_code = $this->config->item('hesabe_merchant_code1');
+        // }
+        $merchant_code = $this->config->item('hesabe_merchant_code');
         if(!empty($invoice_details)){
             $invoiceamt = $invoice_details['TotalAmount'];
             $success_url = base_url('payment/success_checkout');

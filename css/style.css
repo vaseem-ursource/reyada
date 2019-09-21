@@ -156,7 +156,7 @@ h6 {
 --------------------------------------------------------------*/
 
 #header {
-  height: 110px;
+  height: 80px;
   transition: all 0.5s;
   z-index: 997;
   transition: all 0.5s;
@@ -167,6 +167,7 @@ h6 {
   right: 0;
   transition: all 0.5s;
   z-index: 997;
+  /* background-color: #000; */
 }
 
 #header.header-scrolled,
@@ -461,6 +462,10 @@ h6 {
   overflow: hidden;
 }
 
+body.modal-open {
+  overflow: hidden;
+}
+
 .mobile-nav-active .mobile-nav {
   left: 0;
 }
@@ -468,7 +473,46 @@ h6 {
 .mobile-nav-active .mobile-nav-toggle i {
   color: #000;
 }
+.arrow{
+  color:black;
+  font-size:16px;
+  position:relative;
+  left:2%;
+}
+.arrow-button{
+  font-size:15px;
+  color:black;
+  cursor:pointer;
+}
+.side-button{
+  position:relative;
+  left:10%;
+}
 
+i.arr {
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  font-size:15px;
+}
+.bl{
+  border: solid black;
+}
+
+.wh{
+  border: solid rgb(255, 255, 255);
+}
+
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.arrow-text{
+  font-size:15px;
+  cursor:pointer;
+}
 /*--------------------------------------------------------------
 # Sections
 --------------------------------------------------------------*/

@@ -34,23 +34,6 @@ span[role=button]:focus {
   clip: rect(0,0,0,0);
   border: 0;
 }
-/* input[type=text] {
-  display: table-cell;
-  margin-left: 0px;
-  /* width: 20rem; */
-  /* font-family: Arial;
-  font-size: 1rem;
-  padding: 15px 15px;
-  
-border:none; */
-  
-  /* background-color: #ffffff; */
-/* } */
-/* input[type=text]:focus {
-  box-shadow: 0 0 5px #fff;
-  border-color: #fff;
-  outline: 2px solid transparent;
-} */
 ul.tools li i:after{
   background:#fff;
 }
@@ -310,51 +293,6 @@ ul.tools li i:after{
 <div id="profilepage mb-5"> 
   <span class="h2 text-left mb-5">Your Profile Page</span>  
 </div> 
- 
-<!-- <div class="col-12  row"> 
-  <div class="col-md-3 col-sm-12 p-3 text-center"> 
-      <span class="p-5 rounded-circle h1" style="background-color:#F5F5F5;color:#707070;display: inline-grid">N</span> 
-  </div> 
-  <div class="col-md-9 col-sm-12 p-3 row"> 
-  <div class="col-12"> 
-      <span class="h5 p-0 " style="letter-spacing: 2px;">YOUR PHOTO</span> 
-      <span class="p-0 pull-right">Delete <span class="h3">X</span></span> 
-      <div class="col-12 row"> 
-          <div class="input-container"> 
-            <input type="file" id="real-input"> 
-            <button class="browse-btn"> 
-              Browse Files 
-            </button> 
-            <span class="file-info">Upload a file</span> 
-          </div> 
-      </div> 
-      <div class="col-12 mt-2 p-0"> 
-        <span class="">File smaller than 10 MB and at least 400px by 400px.</span>  
-      </div> 
-        
-  </div>  
-  <div class="col-12 mt-4 "> 
-    <span class="h5 p-0 " style="letter-spacing: 2px;">PROFILE COVER</span> 
-    <span class="p-0 pull-right">Delete <span class="h3">X</span></span> 
-    <div class="col-12 row"> 
-        <div class="input-container"> 
-          <input type="file" id="real-input-1"> 
-          <button class="browse-btn-1"> 
-            Browse Files 
-          </button> 
-          <span class="file-info-1">Upload a file</span> 
-        </div> 
-    </div> 
-  </div> 
-
-  <div class="col-12 mt-2 p-0">
-    <a href="#" style="color:black;"><span>See</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a> 
-    <a href="#" style="color:black;" class="pl-3"><span>My</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>  
-    <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
-  </div>
-</div>
-    
-</div> -->
 
 <div class="section-header pb-1 col-md-12 pl-0 mt-3" id="Personal">
   <div class="col-12 mt-2 p-0">
@@ -412,7 +350,7 @@ ul.tools li i:after{
           <span>Contact us to change your email</span>
         </div>
           <div class="col-md-12 group pt-1 pl-0">
-                <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
+                <button type="submit"  style="border: 0px;background-color: transparent;outline:none;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
           </div>
 
 
@@ -460,7 +398,7 @@ ul.tools li i:after{
           <div class="col-md-12 group pt-4 ">
               <input type="checkbox" name="u_membership2" id="membership2" value="u_membership2" style="width:15px;height:15px;">
               <span style="color:#999; font-size: 18px;">My Billing Details are diffrent than my personal details</span><br>
-              <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
+              <button type="submit"  style="border: 0px;background-color: transparent;outline:none;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
             </div>
       </div>
 </div>
@@ -503,7 +441,7 @@ ul.tools li i:after{
           </div>
         </div>
           <div class="col-md-12 group pt-4 ">
-              <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
+              <button type="submit"  style="border: 0px;background-color: transparent;outline:none;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
             </div>
       </div>
 </div>
@@ -643,7 +581,7 @@ ul.tools li i:after{
   
   <div class="col-md-12 group pt-4 pl-0">
       <input type="hidden" name="membership" id="membership" value="true" >
-      <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
+      <button type="submit"  style="border: 0px;background-color: transparent;outline:none;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
   </div>
 
   <div class="col-12 pt-5 mt-5 p-0" id="social">
@@ -684,7 +622,7 @@ ul.tools li i:after{
 
       <div class="col-2"></div>
     </div><br>
-    <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
+    <button type="submit"  style="border: 0px;background-color: transparent;outline:none;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
   </div>
 
   <div class="col-12 pt-5 mt-5 p-0" id="password">
@@ -729,7 +667,7 @@ ul.tools li i:after{
     </div>
   </div>
   <br>
-  <button type="submit" style="border: 0px;background-color: transparent; font-size:15px" class="float-right">Save<i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
+  <button type="submit" style="border: 0px;background-color: transparent; font-size:15px;outline:none;" class="float-right">Save<i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
 
   <div class="col-12 pt-5 mt-5 p-0" id="notification">
       <div style="border-bottom:1px solid black">
@@ -745,7 +683,7 @@ ul.tools li i:after{
       <input type="radio" <?= ($coworker['SignUpToNewsletter']) ? '' : 'checked' ?> value="No" name="SignUpToNewsletter" style="width:15px;height:15px;">
       <span style="color:#707070; font-size: 18px;">No</span><br>
   </div>
-  <button type="submit"  style="border: 0px;background-color: transparent; font-size:15px" class="float-right">Save<i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
+  <button type="submit"  style="border: 0px;background-color: transparent; font-size:15px;outline:none;" class="float-right">Save<i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
 </div>
 </form>
 

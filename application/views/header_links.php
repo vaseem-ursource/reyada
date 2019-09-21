@@ -7,6 +7,8 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
   <!-- <link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet"> -->
   <!-- Bootstrap CSS File -->
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
+
   <link href="<?= base_url()?>lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <style>
    @font-face {

@@ -39,16 +39,19 @@
           <li class="lap"><a href="#contact" data-toggle="modal" data-target="#modalcontact">Contact</a></li>
           <li class="mob"><a href="#contact" onclick="menuClickFunction()" data-toggle="modal" data-target="#mobModalcontact">Contact</a></li>
           <li><a href="#" disabled="disabled" onclick="return false;">Blog</a></li>
+          <li class="lap"><a href="#login"   data-toggle="modal" data-target="#partnermodal">Partner With Us</a></li>
+
           
           <?php if($this->session->userdata('is_logged_in')){ ?>
             <li><a href="<?= base_url()?>main/profile">Account</a></li>
             <li class="lap"><a href="<?= base_url() ?>main/logout" >Logout</a></li>
             <li class="mob"><a onclick="menuClickFunction()" href="<?= base_url() ?>main/logout" >Logout</a></li>
           <?php }else{ ?>
-            <li class="lap"><a href="#login" data-toggle="modal" data-target="#modalLogin">Login</a></li>
+            <li class="lap"><a href="#login" id="login_location"  data-toggle="modal" data-target="#modalLogin">Login</a></li>
             <li class="mob"><a href="#" onclick="menuClickFunction()" data-toggle="modal" data-target="#modalLogin">Login</a></li>
+            <!-- <li class="mob"><a href="#" onclick="menuClickFunction()" data-toggle="modal" data-target="#partnermodal">Partner</a></li> -->
           <?php } ?>
-          <li class="lap"><a href="#" id="addClass"><i class="fa fa-search"></i></a></li>
+          <!-- <li class="lap"><a href="#" id="addClass"><i class="fa fa-search"></i></a></li> -->
         </ul>
       </nav><!-- .main-nav -->
       

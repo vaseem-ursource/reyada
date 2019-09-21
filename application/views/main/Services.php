@@ -156,7 +156,7 @@
                         <!-- <h5 class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</h5>  -->
                         <h5 class="text-left"><img src="<?= base_url()?>image/services/clock.png" width="25px" height="25px" alt=""> Open From 9 AM to 9 PM</h5> 
                         <h5 class="text-left"><img src="<?= base_url()?>image/services/range.png" width="25px" height="25px" alt=""> Flexible date and time usage</h5> 
-                        <h5 class="text-right" data-toggle="modal" data-target="#yesnomodal"  style="cursor: pointer">Book a meeting room <i class="fa fa-angle-right align-middle"></i></h5>
+                        <!-- <h5 class="text-right" data-toggle="modal" data-target="#bookingmodal"  style="cursor: pointer">Book a meeting room <i class="fa fa-angle-right align-middle"></i></h5> -->
                          
                     </div> 
                      
@@ -245,8 +245,7 @@
                     <h2>Fully Furnished</h2> 
                 </div> 
                 <div class="col-md-12 pr-0"> 
-                    <h5 class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis.</h5> 
-                    <h5 class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis orem ipsum ddo eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad iam, quis.</h5> 
+                   
                 </div> 
                     
             </div> 
@@ -263,8 +262,6 @@
                     <h2 class="text-left">Beverages</h2> 
                 </div> 
                 <div class="col-md-12 pr-0"> 
-                    <h5 class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis.</h5> 
-                    <h5 class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</h5> 
                     <h5 class="text-uppercase text-right"><img src="<?= base_url()?>image/services/clock.png" width="25px" height="25px" alt=""> Open From 9 AM to 9 PM</h5> 
                     
                 </div> 
@@ -287,9 +284,7 @@
                 <div class="col-md-12"> 
                     <h2 class="text-left">Access</h2> 
                 </div> 
-                <div class="col-md-12"> 
-                    <h5 class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis.</h5> 
-                    <h5 class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</h5> 
+                <div class="col-md-12">
                     <h5 class="text-uppercase text-right"><img src="<?= base_url()?>image/services/clock.png" width="25px" height="25px" alt=""> Open From 9 AM to 9 PM</h5> 
                 </div> 
                     
@@ -314,11 +309,9 @@
                     <h2 class="text-left">Meeting Room</h2> 
                 </div> 
                 <div class="col-md-12"> 
-                    <h5 class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis.</h5> 
-                    <h5 class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</h5> 
                     <h5 class="text-left"><img src="<?= base_url()?>image/services/clock.png" width="25px" height="25px" alt=""> Open From 9 AM to 9 PM</h5> 
                     <h5 class="text-left"><img src="<?= base_url()?>image/services/range.png" width="25px" height="25px" alt=""> Flexible date and time usage</h5> 
-                    <h5 class="text-right">Book a meeting room<i class="fa fa-angle-right align-middle"></i></h5> 
+                    <!-- <h5 class="text-right" id="bookingmodal">Book a meeting room<i class="fa fa-angle-right align-middle"></i></h5>  -->
                 </div> 
                     
             </div> 
@@ -412,16 +405,16 @@
                     Get access of 1 - hour meeting room credit. Additional charge of 7.5 kd per hour.</span>
                     <div class="col-md-12 row px-0 py-3 m-0">
                         <div class="col-md-4 text-center p-1"  style="width:33.33%">
-                            <span class="text-center badge w-100 pt-4 pb-4">9am - 9pm</span><br>
-                            <i style="font-size:small">Access</i> 
+                            <span class="text-center badge w-100 pt-4 pb-4">9am - 9pm <b style="font-size:small">Access</b></span>
+                             
                         </div>
                         <div class="col-md-4 text-center p-1" style="width:33.33%">
-                            <span class="text-center badge w-100 pt-4 pb-4">1 h</span><br>
-                            <i style="font-size:small">Meeting Room Credit</i> 
+                            <span class="text-center badge w-100 pt-4 pb-4">1 h <b style="font-size:small">Meeting Room Credit</b></span>
+                             
                         </div>
                         <div class="col-md-4 text-center p-1" style="width:33.33%">
-                            <span class="text-center badge w-100 pt-4 pb-4">Full</span><br>
-                            <i style="font-size:small">Amenities</i> 
+                            <span class="text-center badge w-100 pt-4 pb-4" style="position:relative;left:20px;">Full <b style="font-size:small;">Amenities</b></span>
+                             
                         </div>
                     </div>
                </div>
@@ -448,7 +441,7 @@
                                 </a>
                             </div>
                             <div class="border-right border-secondary p-3 text-right">
-                                <span class="pt-3 pl-3">From KWD 75 per month</span><br>
+                                <span class="pt-3 pl-3">From KWD 10 per month</span><br>
                                 <span><i class="fa fa-angle-right fa-2x pt-3 pl-3 planshow"></i></span>
                             </div>
                         </div>
@@ -507,17 +500,17 @@
                     <span class="pull-left text-justify pt-4">Perfect for the rising entrepreneur
                     Perfect for the rising entrepreneur. Get daily access to the co-working space with 3 - hours of meeting room credit. Additional charge of 7.5 kd per hour.</span>
                     <div class="col-md-12 row px-0 py-3 mt-3">
-                        <div class="col-md-4 text-center p-1 py-1"  style="width:33.33%">
-                            <span class="text-center badge w-100 pt-4 pb-4">9am - 9pm</span><br>
-                            <i style="font-size:small">Access</i> 
+                        <div class="col-md-4 text-center p-1 py-1" style="width:33.33%">
+                            <span class="text-center badge w-100 pt-4 pb-4">9am - 9pm <b style="font-size:small">Access</b></span>
+                            
                         </div>
-                        <div class="col-md-4 text-center p-1 py-1"  style="width:33.33%">
-                            <span class="text-center badge w-100 pt-4 pb-4">3 h</span><br>
-                            <i style="font-size:small">Meeting Room Credit</i> 
+                        <div class="col-md-4 text-center p-1 py-1" style="width:33.33%">
+                            <span class="text-center badge w-100 pt-4 pb-4">3 h <b style="font-size:small">Meeting Room Credit</b></span>
+                            
                         </div>
-                        <div class="col-md-4 text-center p-1"  style="width:33.33%">
-                            <span class="text-center badge w-100 pt-4 pb-4">Full</span><br>
-                            <i style="font-size:small">Amenities</i> 
+                        <div class="col-md-4 text-center p-1" style="width:33.33%">
+                            <span class="text-center badge w-100 pt-4 pb-4" style="position:relative;left:20px;">Full <b style="font-size:small">Amenities</b> </span>
+                            
                         </div>
                     </div>
                </div>
@@ -540,16 +533,16 @@
                     Ideal workspace for stable businesses, freelancers and entrepreneurs. Get 24/7 access to your office with a minimum of 5 - hours of meeting room credit. Additional charge of 7.5 per hour.</span>
                     <div class="col-md-12 row px-0 py-3 mt-3">
                         <div class="col-md-4 text-center p-1" style="width:33.33%">
-                            <span class="text-center badge w-100 pt-4 pb-4">24/7</span><br>
-                            <i style="font-size:small">Access</i> 
+                            <span class="text-center badge w-100 pt-4 pb-4">24/7 <b style="font-size:small">Access</b> </span>
+                            
                         </div>
                         <div class="col-md-4 text-center p-1" style="width:33.33%">
-                            <span class="text-center badge w-100 pt-4 pb-4">5 h</span><br>
-                            <i style="font-size:small">Meeting Room Credit</i> 
+                            <span class="text-center badge w-100 pt-4 pb-4">5 h <b style="font-size:small">Meeting Room Credit</b></span>
+                             
                         </div>
                         <div class="col-md-4 text-center p-1" style="width:33.33%">
-                            <span class="text-center badge w-100 pt-4 pb-4">Full</span><br>
-                            <i style="font-size:small">Amenities</i> 
+                            <span class="text-center badge w-100 pt-4 pb-4" style="position:relative;left:20px;">Full <b style="font-size:small">Amenities</b></span>
+                             
                         </div>
                     </div>
                </div>

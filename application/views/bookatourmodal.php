@@ -10,7 +10,7 @@
           <h6 style="color:black; position: absolute; bottom:30px; font-size: 14px;" class="p-5 text-justify text-left">
           <small>ALREADY REGISTERED ?
           <br><br>
-	        Lorem Ipsum is simply ing industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.Lorem ipsum dolor sit amet,
+          You can make bookings much quicker if you log in with the account details you were sent when you registered on the site or made your last booking.
 	        <br><br>
 	        <a href="#" id="yesModalTour" style="color:black;"><span class="align-middle" data-toggle="modal" data-target="#yesmodalfortour">YES</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
 	        <a href="#" id="noModalTour" style="color:black;"><span class="align-middle" data-toggle="modal" data-target="#nomodalfortour" style="padding-left: 40px;">NO</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
@@ -36,7 +36,6 @@
                 <button type="button" class="close mob text-white" style="opacity:1;" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                
             </div>
             <div class="col-md-8 bg-white">
                  <button type="button" class="close lap" data-dismiss="modal" aria-label="Close">
@@ -66,7 +65,7 @@
         <div class="row">
           <div class="col-md-4 bg-black">
                 <button type="button" class="close mob text-white" style="opacity:1;" data-dismiss="modal" aria-label="Close">
-                <button type="button" class="close p-4" data-dismiss="modal">&#10006</button>
+                <button type="button" class="close p-4" style="outline:none;" data-dismiss="modal">&#10006</button>
                 </button>
                 <h4 style="color:white; font-modal-childsize: 20px; padding-top: 8%"class="px-5 m-5 text-center">THURSDAY<br>14 FEBRUARY
                 </h4>
@@ -85,9 +84,7 @@
                 </h6>
                 <h6 style="color:white; position: absolute;  bottom:35%; font-size: 14px; border-bottom:1px solid #fff" class="mx-5 text-justify">BOOK A TOUR
                 </h6>
-               <h6 style="color:white; position: absolute; bottom:15%; font-size: 14px;" class="p-5 text-justify">
-                <small>Lorem Ipsum is simply ing industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.Lorem ipsum dolor sit amet,</small>
-               </h6>
+               
                <h6 style="color:white; position: absolute; left:40px; right:30px; bottom:-50px; font-size: 12px;" class="p-5 text-justify"><small><b>Reyada</b> | Collaborative workplace
                </small></h6>
             </div>
@@ -101,8 +98,7 @@
                 
                 <div class="hello-week04" style="text-align: -webkit-center;" id="tourCalforReg"> 
                  <script>
-            // const prev = document.querySelector('.demo-prev');
-            // const next = document.querySelector('.demo-next');
+            
 
               const myCalendar04 = new HelloWeek({
                   selector: '.hello-week04',
@@ -171,7 +167,7 @@
             </div>
             <div class="col-md-12">
               <div class="group" style="text-align: right;">
-	              <a href="#" style="color:black;"><span class="align-middle" data-toggle="modal" data-target="#thankyouforbooktourRegmodal">Submit</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>                  
+	              <a href="#" style="color:black;outline:none;"><span class="align-middle" data-toggle="modal" data-target="#thankyouforbooktourRegmodal">Submit</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>                  
                </div>
             </div>
         </div>
@@ -183,14 +179,6 @@
     </div>
   </div>
 </div>
-
-<!-- <script>
-  var d = new Date();
-  minutes = d.getMinutes().toString().length == 1 ? '0'+d.getMinutes() : d.getMinutes();
-  hours = d.getHours().toString().length == 1 ? '0'+d.getHours() : d.getHours();
-  document.getElementById('time4').innerHTML=hours+':'+minutes;
-  document.getElementById('year4').innerHTML= d.getFullYear()
-</script> -->
 <!-- End book a tour yes modal -->
 
 <!-- Thank you for book tour reg Modal-->
@@ -201,7 +189,7 @@
      <div class="modal-body p-0 m-0">
       <section class="container">
        <div class="tmodal">
-    <button type="button" class="close p-4" data-dismiss="modal">&#10006</button>
+    <button type="button" class="close p-4" style="outline:none;" data-dismiss="modal">&#10006</button>
         <div>
         <form style="width:80%; padding-top: 90px;">
         <h6 style="color:black;" class="text-center">THANK YOU FOR YOUR BOOKING</h6>
@@ -225,7 +213,7 @@
      <div class="modal-body p-0 m-0">
       <section class="container">
        <div class="tmodal">
-    <button type="button" class="close p-4" data-dismiss="modal">&#10006</button>
+    <button type="button" class="close p-4" style="outline:none;" data-dismiss="modal">&#10006</button>
         <div>
         <form style="width:80%; padding-top: 12%;">
         <h6 style="color:black;" class="text-left">BOOK A TOUR</h6>
@@ -301,8 +289,7 @@
                               <div class="pull-right" style="width: 90%;">
                                   <div class="select-wrapper" style="width: 100%;">
                                       <select class="location" id="tour_location">
-                                        <option value="<?= $locations[0]->WebAddress ?>"><?= $locations[0]->Name ?></option>
-                                        <option value="<?= $locations[1]->WebAddress ?>"><?= $locations[1]->Name ?></option>
+                                        
                                       </select>
                                   </div>
                               </div>
@@ -311,15 +298,15 @@
 
                       <h6 style="color:white; font-size: 14px;" class="text-justify bg-black">
                           <h6 style="color:white;font-size: 14px; border-bottom:1px solid #fff" class="mx-5 text-justify">BOOK A TOUR</h6>
-                          <h6 style="color:white;font-size: 14px;position:relative;top:-50px;" class="p-5 text-justify">
+                          <!-- <h6 style="color:white;font-size: 14px;position:relative;top:-50px;" class="p-5 text-justify">
                             <small>Lorem Ipsum is simply ing industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.Lorem ipsum dolor sit amet,</small>
-                          </h6>
-                          <h6 style="color:white;position:relative;top:40px;" class="p-5"><small><b>Reyada</b> | Collaborative workplace</small>
+                          </h6> -->
+                          <h6 style="color:white;position:relative;top:200px;" class="p-5"><small><b>Reyada</b> | Collaborative workplace</small>
                       </h6>
                     </div>
                     <div class="col-md-8 bg-white">
                         <button type="button" class="close lap" data-dismiss="modal" aria-label="Close">
-                        <button type="button" class="close p-4" data-dismiss="modal">&#10006</button>
+                        <button type="button" class="close p-4" style="outline:none;" data-dismiss="modal">&#10006</button>
                         </button>
 
                         <form class="w-100" style="padding: 3em 2em 2em 2em;">
@@ -416,7 +403,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="group" style="text-align: right;">
+                                        <div class="group" style="text-align: right;outline:none;">
                                             <a href="#" id="toursubmit" style="color:black;"><span class="align-middle">Submit</span>
                                                 <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i>
                                             </a>
@@ -442,7 +429,7 @@
      <div class="modal-body p-0 m-0">
       <section class="container">
        <div class="tmodal">
-    <button type="button" class="close p-4" data-dismiss="modal">&#10006</button>
+    <button type="button" class="close p-4" style="outline:none;" data-dismiss="modal">&#10006</button>
         <div>
         <form style="width:80%; padding-top: 90px;">
         <h6 style="color:black;" class="text-center">THANK YOU FOR YOUR BOOKING</h6>

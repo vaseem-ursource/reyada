@@ -21,7 +21,7 @@
                                 <?= (!$invoice->Paid) ? '<small>To be paid by ' . date('d M Y', strtotime($invoice->DueDate)) . '</small>' : ''; ?>
                             </td>
                             <td><a class="gen-invoice" href="<?= $this->config->item('api_base_url') ?>en/invoices/print?guid=<?= $invoice->UniqueId ?>"><img src="<?= base_url('image/cloud_down.png');?>" alt="" width="15px" class="pull-right"></td>
-                            <td>KD <?= $invoice->TotalAmount ?></td>
+                            <td>KD <?= str_replace('-','',$invoice->TotalAmount) ?></td>
                             <?php if($invoice->Paid) { ?>
                                 <td colspan="2" style="color:#6FBC89";><i class="fa fa-check" style="font-size:10px"></i>   Paid on <?= date('l, M d, Y', strtotime($invoice->PaidOn)) ?> </td>
                             <?php }else{ ?>
@@ -31,7 +31,7 @@
                                         class="pay-hesabe" 
                                         data-invoiceid="<?= $invoice->Id ?>" 
                                         data-invoiceamt="<?= $invoice->TotalAmount ?>" 
-                                        style="border: 0px;background-color: transparent;" >
+                                        style="border: 0px;background-color: transparent;outline:none;" >
                                         Pay Hesabe <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i>
                                     </button>
                                 </td>

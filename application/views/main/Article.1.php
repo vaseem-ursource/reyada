@@ -79,13 +79,13 @@
                               <a href="#"><div class="artlist_content">Reviews</div></a>
                             </div>
                           </li>
-                          <li><input type="checkbox" checked=""><i></i>
+                          <!-- <li><input type="checkbox" checked=""><i></i>
                             <h6><span style="border-left:2px solid #343a40;padding:4px"></span> Popular Article</h6>
                             <div class="artlist">
                               <a href="#"><div class="artlist_content">Lorem Ipsum Neque porro<small>Co-Founder</small></div></a>
                               <a href="#"><div class="artlist_content"> Neque porro Ipsum</div></a>
                             </div>
-                          </li>
+                          </li> -->
                           <li><input type="checkbox" checked=""><i></i>
                             <h6><span style="border-left:2px solid #343a40;padding:4px"></span> Popular Tags</h6>
                             <div class="artlist">

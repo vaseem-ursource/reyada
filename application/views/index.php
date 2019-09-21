@@ -10,15 +10,17 @@
     <meta content="" name="keywords">
     <meta content="" name="description">
     <?php include("header_links.php");?>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
+
     <?php $user_info = $this->session->userdata('user_info') ?>
     <?php $is_logged_in = $this->session->userdata('is_logged_in') ?>
 
     <?php include $header_name . '.php'; ?>
     <div class="content-wrapper">
           <div class="whole_div img-rounded"
-                style="width:100%;height:100%;border-radius:5%;display: none;position: fixed;z-index: 99999;background-color:rgba(0,0,0,0.1); background:url(<?= base_url() ?>img/loder_black.gif) no-repeat center center;">
+                style="width:100%;height:100%;border-radius:5%;display: none;position: fixed;z-index: 99999;background-color:rgba(0,0,0,0.1); background:url(<?= base_url() ?>img/loading.gif) no-repeat center center;">
           </div>
           <?php include $folder_name . '/' . $file_name . '.php'; ?>
     </div>

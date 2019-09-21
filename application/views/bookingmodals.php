@@ -14,7 +14,7 @@
     <div class="modal-content">
       <div class="modal-body p-0">
         <div class="row">
-            <div class="col-md-4 bg-black">
+            <div class="col-md-5 bg-black" style="height:600px;">
                 <button type="button" class="close mob text-white" style="opacity:1;" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -27,8 +27,7 @@
                         <div class="pull-right" style="width: 90%;">
                             <div class="select-wrapper" style="width: 100%;">
                                 <select class="location-drp-dwn">
-                                    <option value="<?= $locations[0]->Id ?>"><?= $locations[0]->Name ?></option>
-                                    <option value="<?= $locations[1]->Id ?>"><?= $locations[1]->Name ?></option>
+                                    
                                 </select>
                             </div>
                         </div>
@@ -43,25 +42,20 @@
                     <div class="col-md-12 col-sm-12 col-xs-12" style="top:-25px;" id="loc_imgs" style="display:none;">
                         <img src="<?= base_url('image/services/room2.jpg')?>"  width="100%" />
                     </div>
-                    <!-- <div id="description" class="col-md-12 col-sm-12 col-xs-12">
-                        <p>
-                            <small class="loc-desc"> Lorem Ipsum is simply ing industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.Lorem ipsum dolor sit amet,</small>
-                        </p>
-                    </div> -->
                     <div class="container">
                         <div class="row text-justify booking-option">
                             <div class="col-md-12">
                                 <a href="#" style="color:white;"><span class="pull-left" id="toor_book">Book a tour</span></a>
                                 <a href="#" style="color:white;"><span class="pull-right" id="mr_book">Book a meeting room</span></a>
                             </div>
-                            <h6 class="p-3" style="position:relative;top:40px;"><small><b>Reyada</b> | Collaborative workplace</small></h6>
+                            <h6 class="p-3" style="position:relative;top:50px;"><small><b>Reyada</b> | Collaborative workplace</small></h6>
                         </div>
                     </div>
                 </h6>
             </div>
-            <div class="col-md-8 col-xs-8 bg-white">
+            <div class="col-md-7 col-xs-7 bg-white" style="height:600px;">
                  <button type="button" class="close lap" data-dismiss="modal" aria-label="Close">
-                 <button type="button" class="close p-4" data-dismiss="modal">&#10006</button>
+                 <button type="button" class="close p-4" style="outline:none;" data-dismiss="modal">&#10006</button>
                 </button>
                 <form class="w-100" style="padding: 3em 2em 2em 2em;">
                     <div class="hello-week01" id="hello-week01" style="text-align: -webkit-center;">
@@ -113,7 +107,7 @@
                         });
                         </script>
                     </div><br>
-                    <div style="padding-left: 10px; padding-right: 10px; padding-top: 10px;" id="meetFormReg">
+                    <div id="meetFormReg" height="600px" style="position:relative;top:20px;">
                         <div class="row text-left">
                             <div class="col-md-6">
                             <input name="cowerker_id" id="cowerker_id"  type="hidden">
@@ -253,9 +247,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="group" style="text-align: right;">
-                                    <a href="#" id="pricesubmit" style="color:black;"><span class="align-middle">Submit</span>
-                                        <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i>
-                                    </a>
+                                <p class="arrow-text pull-right" id="pricesubmit">Submit <i class="arr bl right"></i></p>
                                 </div>
                             </div>
                         </div>
@@ -267,12 +259,8 @@
     </div>
   </div>
 </div>
-<!-- End Booking Modal -->
-
-<!--book meeting room Modal-->
 <div id="yesnomodal" class="modal fade bs-example-modal-xs" role="dialog" style="display:none;">
     <div class="modal-dialog modal-xs modal-dialog-center">
-        <!-- Modal content-->
         <div class="modal-content pt-5 mt-5">
             <div class="modal-body p-0 m-0">
                 <h6  class="p-5 text-justify text-left">
@@ -280,10 +268,8 @@
                         <br><br>
                         You can make bookings much quicker if you log in with the account details you were sent when you registered on the site or made your last booking.
                         <br><br>
-                        <a href="#" id="yesModal" style="color:black;"><span class="align-middle">YES</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
-                        <a href="#" id="noModal" style="color:black;"><span class="align-middle"
-                                style="padding-left: 40px;">NO</span> <i
-                                class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
+                        <p class="arrow-text" id="yesModal" style="float:left;outline:none;">YES <i class="arr bl right"></i></p>
+                        <p class="arrow-text" id="noModal" style="float:left;position:relative;left:20px;outline:none;">NO <i class="arr bl right"></i></p>
                     </small>
                 </h6>
             </div>
@@ -297,14 +283,11 @@
             <div class="modal-body p-0 m-0">
                 <section class="container">
                     <div class="tmodal">
-                        <button type="button" class="close p-4" data-dismiss="modal">&#10006</button>
                         <div>
                             <form style="width:80%; padding-top: 90px;">
                                 <h6 style="color:black;" class="text-center">THANK YOU FOR YOUR BOOKING</h6>
                                 <h6 style="color:black;" class="text-center" id="confirmBooking"><b></b></h6>
-                                <a href="<?= base_url("main/invoice") ?>" style="color:black;"><span class="align-middle">Proceed to payment</span>
-                                    <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i>
-                                </a>
+                                <a href="<?= base_url("main/invoice") ?>"  style="border: 0px;background-color: transparent;color:black;outline:none;" class="text-center">Proceed to payment <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
                             </form>
                         </div>
                     </div>
@@ -319,17 +302,13 @@
             <div class="modal-body p-0 m-0">
                 <section class="container">
                     <div class="tmodal">
-                        <button type="button" class="close p-4" data-dismiss="modal">&#10006</button>
+                        <button type="button" class="close p-4" style="outline:none;" data-dismiss="modal">&#10006</button>
                         <div>
                             <form style="width:80%; padding-top: 90px;">
-                                <!-- <h6 style="color:black;" class="text-center">THANK YOU FOR YOUR BOOKING</h6> -->
                                 <h6 style="color:black;" class="text-center" id="bookingPrice"><b></b></h6>
                             </form>
-                            <a href="#" id="meetSubmit" style="color:black;display:none;"><span class="align-middle">Proceed</span>
-                                <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i>
-                            </a>
+                            <p class="arrow-text text-center" id="meetSubmit" >Proceed <i class="arr bl right"></i></p>
                         </div>
-                       
                     </div>
                 </section>
             </div>
@@ -343,7 +322,7 @@
             <div class="modal-body p-0 m-0">
                 <section class="container">
                     <div class="tmodal">
-                        <button type="button" class="close p-4" data-dismiss="modal">&#10006</button>
+                        <button type="button" class="close p-4" style="outline:none;" data-dismiss="modal">&#10006</button>
                         <div>
                             <form method="post" id="bookmeetingroom" style="width:80%; padding-top: 12%;">
                                 <h6 style="color:black;" class="text-left">BOOK A MEETING ROOM</h6>
@@ -356,9 +335,9 @@
                                             <label> Full Name</label>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-6" style="display:none;">
                                         <div class="group">
-                                            <input name="fulladdress" id="fulladdress" required type="text"><span class="highlight"></span><span class="bar"></span>
+                                            <input name="fulladdress" id="fulladdress" value="test" required type="text"><span class="highlight"></span><span class="bar"></span>
                                             <label>Full Address</label>
                                         </div>
                                     </div>
@@ -368,9 +347,9 @@
                                             <label>Email</label>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-6" style="display:none;">
                                         <div class="group">
-                                            <input name="area" id="area"  required type="text"><span class="highlight"></span><span class="bar"></span>
+                                            <input name="area" id="area"  value="test" required type="text"><span class="highlight"></span><span class="bar"></span>
                                             <label>Area</label>
                                         </div>
                                     </div>
@@ -381,8 +360,10 @@
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="group" style="text-align: right; padding-top: 5%;">
-                                            <a href="#" id="pickDate"  style="color:black;"><span
+                                        <div class="group" style="text-align: right; padding-top: 10%;">
+                                        <!-- <span id="pickDate" class="arrow-button">Pick date and time&nbsp;<i class="arrow fa fa-angle-right"></i></span> -->
+
+                                            <a href="#" id="pickDate"  style="color:black;outline:none;"><span
                                                     class="align-middle">Pick date and time</span>
                                                 <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i>
                                             </a>
@@ -414,6 +395,7 @@ $(document).ready(function() {
     var user_info = <?php echo json_encode($user_info); ?>; 
 
     $(document).on("click", "#bookingbutton", function() {
+        
         $("#bookingmodal").modal("show");
         $(".booking-option").show();
         $("#meetFormReg").hide();
@@ -421,6 +403,7 @@ $(document).ready(function() {
         $("#bookings").hide();
         $("#loc_imgs").show(); 
         $("#description").show();
+        get_locations();
     });
     $(document).on("click","#mr_book",function(){
         $('#confirmBooking').empty();
@@ -591,6 +574,7 @@ $(document).ready(function() {
     $("#pickDateTour").click(function(e) {
         $('#confirmtour').empty();
         var id = 't_message';
+        
         var valiadte_form = form_validation($("#t_name").val(),$("#t_email").val(),$("#t_address").val(),$("#t_area").val(),$("#t_mobile").val(),id)
         if (valiadte_form == true)
         {
@@ -749,9 +733,7 @@ $(document).ready(function() {
                     dataType: 'json',
                     url: base_url + 'main/guest_booking',
                     data: post_array,
-                    dataType: 'json', 
                     success: function(data){
-                        console.log(data); 
                         if(data.Status == 200){
                             $('.whole_div').hide();
                             $("#bookingmodal").modal("hide");
@@ -764,6 +746,7 @@ $(document).ready(function() {
                         }
                     },
                     error: function(data){
+                        console.log(data);
                         $('.whole_div').hide();
                         toastr.error(data.Message);
                     }
@@ -794,37 +777,41 @@ $(document).ready(function() {
             var time2 = ConvertTimeformat(end_time);
             var FromTime = date+'T'+ time1 +'Z'; 
             var toTime   = date+'T'+ time2 +'Z';
-            post_array =
+            if(is_logged_in != 1 ){
+                check_email_exist($("#femail").val(),loc_url,$("#select-resource").val(),FromTime,toTime);
+            }
+            else{
+                post_array =
             {
                 "resource_id": $("#select-resource").val(),
                 "FromTime": FromTime,
                 "loc_url" : loc_url,
                 "toTime": toTime
             }
-            $.ajax({
-                type: 'POST',
-                dataType: 'json',
-                url: base_url + 'main/get_booking_price',
-                data: post_array,
-                success: function(data){
-                    console.log(data);
-                    $('.whole_div').hide();
-                    $('#bookingPrice').empty();
-                    if(data.IsAvailable === true){
-                        $('#bookingPrice').append('<b>'+ 'this booking will cost you ' + data.Price +'</b>');
-                        $('#meetSubmit').show();
+                $.ajax({
+                    type: 'POST',
+                    dataType: 'json',
+                    url: base_url + 'main/get_booking_price',
+                    data: post_array,
+                    success: function(data){
+                        $('.whole_div').hide();
+                        $('#bookingPrice').empty();
+                        if(data.IsAvailable === true){
+                            $('#bookingPrice').append('<b>'+ 'this booking will cost you ' + data.Price +'</b>');
+                            $('#meetSubmit').show();
+                        }
+                        else{
+                            $('#bookingPrice').append('<b>'+ data.Message +'</b>');
+                            $('#meetSubmit').hide();
+                        }
+                        $('#bookingpricemodal').modal('show');
+                    },
+                    error: function(data){
+                        $('.whole_div').hide();
+                        toastr.error(data.responseJSON.Message);
                     }
-                    else{
-                        $('#bookingPrice').append('<b>'+ data.Message +'</b>');
-                        $('#meetSubmit').hide();
-                    }
-                    $('#bookingpricemodal').modal('show');
-                },
-                error: function(data){
-                    $('.whole_div').hide();
-                    toastr.error(data.responseJSON.Message);
-                }
-            });
+                });
+            }
         }   
         else{
             $('.whole_div').hide();
@@ -833,6 +820,62 @@ $(document).ready(function() {
             return false;  
         }
     });
+
+    function check_email_exist(email,loc,resource = null,FromTime = null,toTime = null){
+        post_array =
+            {
+                "Email": email,
+                "location":loc ,
+            }
+            $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            url: base_url + 'main/check_email_exist',
+            data: post_array,
+                success: function(data){
+                if(data.status == 200){
+                        post_array =
+                        {
+                            "resource_id": resource,
+                            "FromTime": FromTime,
+                            "loc_url" : loc,
+                            "toTime": toTime
+                        }
+                        $.ajax({
+                            type: 'POST',
+                            dataType: 'json',
+                            url: base_url + 'main/get_booking_price',
+                            data: post_array,
+                            success: function(data){
+                                $('.whole_div').hide();
+                                $('#bookingPrice').empty();
+                                if(data.IsAvailable === true){
+                                    $('#bookingPrice').append('<b>'+ 'this booking will cost you ' + data.Price +'</b>');
+                                    $('#meetSubmit').show();
+                                }
+                                else{
+                                    $('#bookingPrice').append('<b>'+ data.Message +'</b>');
+                                    $('#meetSubmit').hide();
+                                }
+                                $('#bookingpricemodal').modal('show');
+                            },
+                            error: function(data){
+                                $('.whole_div').hide();
+                                toastr.error(data.responseJSON.Message);
+                            }
+                        });
+                    }
+                    else{
+                        $('.whole_div').hide();
+                        toastr.error('There is a user with this email address already');
+                        return 0;
+                    }
+                },
+                error: function(data){
+                    $('.whole_div').hide();
+                }
+            }) 
+    }
 
     function auto_sign_in(email,password,loc_url){
         post_array = {
@@ -1000,6 +1043,33 @@ $(document).ready(function() {
         var minutes = timeArr[0] * 60 + timeArr[1];
         return minutes;
     }
+    function get_locations(){
+        $(".location-drp-dwn").empty();
+        $.ajax({
+            type: 'GET',
+            url: 'https://spaces.nexudus.com/api/sys/businesses?dir=' +'Descending',
+            beforeSend: function(xhr) {
+                xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + password));
+            },
+            dataType: 'json',
+            success: function(locations) {
+                var location = locations.Records;
+                if (location.length != 0) {
+                        $(".location-drp-dwn").append("<option value ='"+location[2].Id+"'>" + location[2].Name + "</option>");
+                        $(".location-drp-dwn").append("<option value ='"+location[1].Id+"'>" + location[1].Name + "</option>");
+                        $(".location").append("<option value ='"+location[2].WebAddress+"'>" + location[2].Name + "</option>");
+                        $(".location").append("<option value ='"+location[1].WebAddress+"'>" + location[1].Name + "</option>");
+                    get_location_bookings(location[2].Id,cur_date_time,yesterday);
+                    get_resources(location[2].Id);
+                } else {
+                    $(".location-drp-dwn").append("<option value ='0'>" +'No Locations' + "</option>");
+                }
+            },
+            error: function(xhr) {
+                $(".location-drp-dwn").append("<option value ='0'>" + 'No Locations' +"</option>");
+            }
+        });
+    }
 
     function get_resources(location_id) {
         $("#resources").empty();
@@ -1019,16 +1089,18 @@ $(document).ready(function() {
                     $('.whole_div').hide();
                     var res_id = resources[0].Id;
                     $.each(resources, (key, resource) => {
-                        var resources = "<div class='col-md-6 col-sm-6 row p-0 m-0' style='margin-top:10px !important;' >" +
-                            "<span  class='resource' style='color:white;font-size:12px;cursor:pointer' data-id ='" +resource.Id +"'>" + resource.Name + "</span>" +
-                            "</div>";
-                        $("#resources").append(resources);
-                        $("#select-resource").append("<option value ='" +resource.Id + " '>" + resource.Name + "</option>");
+                        if(resource.Visible === true){
+                            var resources = "<div class='col-md-6 col-sm-6 row p-0 m-0' style='margin-top:10px !important;' >" +
+                                "<span  class='resource' style='color:white;font-size:13px;cursor:pointer' data-id ='" +resource.Id +"'>" + resource.Name + "</span>" +
+                                "</div>";
+                            $("#resources").append(resources);
+                            $("#select-resource").append("<option value ='" +resource.Id + " '>" + resource.Name + "</option>");
+                        }
                         
                     })
                 } else {
                     $('.whole_div').hide();
-                    var resources = "<div class='col-md-6 col-sm-6 row p-0 m-0'>" +
+                    var resources = "<div class='col-md-12 col-sm-12 row p-0 m-0'>" +
                                         "<a href='#' style='color:white;font-size:12px;' id='the'>" +
                                         'No Resources Available' + "</a>" +
                                     "</div>";
@@ -1052,19 +1124,18 @@ $(document).ready(function() {
             success: function(bookings) {
                 $('.whole_div').hide();
                 var Bookings = bookings.Records;
-                console.log(Bookings);
                 if (Bookings.length != '0') {
                     $.each(Bookings, (key, booking) => {
                         var fromtime = moment.tz(booking.FromTime, "Asia/Kuwait");
                         var totime =   moment.tz(booking.ToTime, "Asia/Kuwait");
                         var bookings = 
                         "<div class='col-md-6 col-sm-6 p-0 m-0'>"+ 
-                            "<span style='color: #fff; font-size: 16px;'>"+"<br>"+ moment(fromtime).format('h:mm a')+"<br>"+"</span>"+
+                            "<span style='color: #fff; font-size: 13px;'>"+"<br>"+ moment(fromtime).format('h:mm a')+" - "+"</span>"+
                             "<span style='color: #fff; font-size: 13px;'>"+moment(totime).format('h:mm a')+"<br>"+"</span>"+
                         "</div>"+
                         "<div class='col-md-6 col-sm-6 p-0 m-0'>"+
-                            "<span style='color: #fff; font-size: 14px;'>"+"<br>"+moment(fromtime).format('YYYY-MM-DD')+"<br>"+"</span>"+
-                            "<span style='color: #fff; font-size: 12px;'>"+ booking.ResourceName +"<br>"+"</span>"+
+                            "<span style='color: #fff; font-size: 13px;'>"+"<br>"+moment(fromtime).format('YYYY-MM-DD')+"<br>"+"</span>"+
+                            "<span style='color: #fff; font-size: 13px;'>"+ booking.ResourceName +"<br>"+"</span>"+
                             // "<span style='color: #fff; font-size: 12px;'>"+ booking.CoworkerFullName +"<br>"+"</span>"+
                         "</div>";
                         $("#bookings").append(bookings);
@@ -1097,20 +1168,18 @@ $(document).ready(function() {
             success: function(bookings) {
                 $('.whole_div').hide();
                 var Bookings = bookings.Records;
-                console.log(Bookings);
                 if (Bookings.length != '0') {
                     $.each(Bookings, (key, booking) => {
                         var fromtime = moment.tz(booking.FromTime, "Asia/Kuwait");
                         var totime =   moment.tz(booking.ToTime, "Asia/Kuwait");
                         var bookings = 
                         "<div class='col-md-6 col-sm-6 p-0 m-0'>"+ 
-                            "<span style='color: #fff; font-size: 16px;'>"+"<br>"+ moment(fromtime).format('h:mm a')+"<br>"+"</span>"+
+                            "<span style='color: #fff; font-size: 13px;'>"+"<br>"+ moment(fromtime).format('h:mm a')+" - "+"</span>"+
                             "<span style='color: #fff; font-size: 13px;'>"+moment(totime).format('h:mm a')+"<br>"+"</span>"+
                         "</div>"+
                         "<div class='col-md-6 col-sm-6 p-0 m-0'>"+
-                            "<span style='color: #fff; font-size: 14px;'>"+"<br>"+moment(fromtime).format('YYYY-MM-DD')+"<br>"+"</span>"+
-                            "<span style='color: #fff; font-size: 12px;'>"+ booking.ResourceName +"<br>"+"</span>"+
-                            // "<span style='color: #fff; font-size: 12px;'>"+ booking.CoworkerFullName +"<br>"+"</span>"+
+                            "<span style='color: #fff; font-size: 13px;'>"+"<br>"+moment(fromtime).format('YYYY-MM-DD')+"<br>"+"</span>"+
+                            "<span style='color: #fff; font-size: 13px;'>"+ booking.ResourceName +"<br>"+"</span>"+
                         "</div>";
                         $("#bookings").append(bookings);
                     })

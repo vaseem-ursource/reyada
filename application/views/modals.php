@@ -3,95 +3,32 @@
   .modal-dialog-center {
     margin-top: 13%;
   }
+  .memb-height{
+    height:450px;
+  }
+  @media (max-width: 991px) {
+  .memb-height{
+    height:600px;
+  }
+}
 </style>
 <div id="modalcontact" class="modal fade bs-example-modal-xl" role="dialog ">
- <div class="modal-dialog modal-xl">
+ <div class="modal-dialog modal-lg">
 <!-- Modal content-->
   <div class="modal-content">
     <div class="modal-body p-0 m-0">
-      <!-- <section class="container">
-        <div class="left-half1">
-        <article>
-        <div class="col-md-12 col-sm-12 col-xs-12 row" style="padding-top:10%; padding-left: 18%;" class="px-5">
-            <h6 style="color:black;" style="font-size: 16px;" class="text-justify ml-5 m-0">LET US<br><br>REACH YOU!
-              <br><br>
-            </h6>
-        </div>
-        <form action="<?= base_url('Main/contactus')?>" style="width:95%; padding-top:5px; padding-left:20%" method="post" class="m-0">
-          <div class="col-md-12 col-sm-12 col-xs-12 row">
-           
-            <div class="col-md-6" style="color:black; padding-right:10%" style="font-size: 16px;">
-              <h6 style="color:black;" style="font-size: 16px;" class="text-justify">
-              <small>Ask us a question, we’ll get back to you shortly.</small></h6>
-                <div class="group">
-                    <input type="text" name="full_name" id="full_name" required><span class="highlight"></span><span class="bar"></span>
-                    <label>Full Name</label>
-                </div>
-                <div class="group">
-                    <input type="text" name="email" id="email3" required><span class="highlight"></span><span class="bar"></span>
-                    <label>Email</label>
-                </div>
-                <div class="group">
-                    <input type="text" name="phone" id="phone2" required><span class="highlight"></span><span class="bar"></span>
-                    <label>Phone Number</label>
-                </div>
-                <div class="group">
-                    <input type="text" name="company" id="company2" required><span class="highlight"></span><span class="bar"></span>
-                    <label>Company Name</label>
-                </div>
-            </div>
-            <div class="col-md-6" style="color:black; padding-left: 10%;" style="font-size: 16px;">
-            <h6 style="color:black;" class="text-left"><small>Subject of inquiry: (membership – workspaces – packages - other)</small></h6> 
-                    <div class="group">
-                        <input type="checkbox" name="membership" id="membership2">
-                        <span style="color:#999; font-size: 11px;">About membership</span>
-                    </div>
-                    <div class="group">
-                        <input type="checkbox" name="workspace" id="workspace">
-                       <span style="color:#999; font-size: 11px;"> Finding workspace</span>
-                    </div>
-                    <div class="group">
-                        <input type="checkbox" name="somethingelse" id="somethingelse">
-                        <span style="color:#999; font-size: 11px;" required>something else</span>
-                    </div><br>
-                    <div class="group">
-                        <input type="text" name="notes" id="notes" ><span class="highlight"></span><span class="bar"></span>
-                        <label>Notes</label>
-                    </div>
-                    <br><br>
-                    <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Submit <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
-            </div>
-           </div>
-        </form>
-        </article>
-      </div>
-      <div class="right-half1">
-       <button type="button" class="close p-4 text-white" data-dismiss="modal">&#10006</button>
-        <h6 style="color:white; font-size: 20px; padding-top: 25%" class="px-5 m-5 text-justify">CALL US.
-        <br><br><br>
-        <small style="color:white; font-size: 14px;">
-         Give us a call during our office hours and inquire about our services.
-         <br><br><br>
-        </small>
-        +(965) 2297 0270
-          <br><br><br>
-          <span style="color:white; font-size:20px;">Find Us</span><br><br>
-          <a style="color:white; font-size:18px;" href="https://www.google.com/maps/place/Reyada+%7C+Collaborative+Workspace/@29.3769156,47.9756613,17z/data=!3m1!4b1!4m5!3m4!1s0x3fcf84ec4226df39:0x267ba39977cfa42e!8m2!3d29.3769156!4d47.97785" target="_blank"><img src="<?= base_url()?>image/location_white.png" width="8%" />&nbsp;&nbsp;CRYSTAL TOWER</a><br>
-          <a style="color:white; font-size:18px;" href="https://www.google.com/maps/place/Reyada+%7C+Collaborative+Workspace/@29.3681039,47.9687861,17z/data=!3m1!4b1!4m5!3m4!1s0x3fcf85e8f50d9f6d:0x30e75da11a5d5bf7!8m2!3d29.3681039!4d47.9709748" target="_blank"><img src="<?= base_url()?>image/location_white.png" width="8%" />&nbsp;&nbsp;MABANEE</a>
-         </h6>
-      </div> -->
     <section>
       <div class="row">
         <div class="col-md-9">
-          <div class="col-md-12 col-sm-12 col-xs-12 row" style="padding-top:10%; padding-left: 18%;" class="px-5">
+          <div class="col-md-12 col-sm-12 col-xs-12 row" style="padding-top:10%; padding-left:8%;" class="px-5">
               <h6 style="color:black;" style="font-size: 16px;" class="text-justify ml-5 m-0">LET US<br><br>REACH YOU!
                 <br><br>
               </h6>
           </div>
-          <form action="<?= base_url('Main/contactus')?>" style="width:95%; padding-top:5px; padding-left:20%" method="post" class="m-0">
+          <form action="<?= base_url('Main/contactus')?>" style="width:95%; padding-top:5px; padding-left:10%" method="post" class="m-0">
             <div class="col-md-12 col-sm-12 col-xs-12 row">
             
-              <div class="col-md-6" style="color:black; padding-right:10%" style="font-size: 16px;">
+              <div class="col-md-6" style="color:black; padding-right:10%" style="font-size: 16px;height:500px;">
                 <h6 style="color:black;" style="font-size: 16px;" class="text-justify">
                 <small>Ask us a question, we’ll get back to you shortly.</small></h6>
                   <div class="group">
@@ -113,30 +50,30 @@
               </div>
               <div class="col-md-6" style="color:black; padding-left: 10%;" style="font-size: 16px;">
               <h6 style="color:black;" class="text-left"><small>Subject of inquiry: (membership – workspaces – packages - other)</small></h6> 
-                      <div class="group">
-                          <input type="checkbox" name="membership" id="membership2">
-                          <span style="color:#999; font-size: 11px;">About membership</span>
-                      </div>
-                      <div class="group">
-                          <input type="checkbox" name="workspace" id="workspace">
-                        <span style="color:#999; font-size: 11px;"> Finding workspace</span>
-                      </div>
-                      <div class="group">
-                          <input type="checkbox" name="somethingelse" id="somethingelse">
-                          <span style="color:#999; font-size: 11px;" required>something else</span>
-                      </div><br>
-                      <div class="group">
-                          <input type="text" name="notes" id="notes" ><span class="highlight"></span><span class="bar"></span>
-                          <label>Notes</label>
-                      </div>
-                      <br><br>
-                      <button type="submit"  style="border: 0px;background-color: transparent;" class="float-right">Submit <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
+                <div class="group">
+                    <input type="checkbox" name="membership" id="membership2">
+                    <span style="color:#999; font-size: 11px;">About membership</span>
+                </div>
+                <div class="group">
+                    <input type="checkbox" name="workspace" id="workspace">
+                  <span style="color:#999; font-size: 11px;"> Finding workspace</span>
+                </div>
+                <div class="group">
+                    <input type="checkbox" name="somethingelse" id="somethingelse">
+                    <span style="color:#999; font-size: 11px;" required>something else</span>
+                </div><br>
+                <div class="group">
+                    <input type="text" name="notes" id="notes" ><span class="highlight"></span><span class="bar"></span>
+                    <label>Notes</label>
+                </div>
+                <br><br>
+                <button type="submit"  style="border: 0px;background-color: transparent;outline:none;" class="float-right">Submit <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
               </div>
             </div>
           </form>
         </div>
-        <div class="col-md-3 bg-black" >
-          <button type="button" class="close p-4 text-white" data-dismiss="modal">&#10006</button>
+        <div class="col-md-3 bg-black" style="padding-left:0px;padding-right:0px;height:500px;">
+          <button type="button" class="close p-4 text-white" style="outline:none;" data-dismiss="modal">&#10006</button>
           <div class="container" style="padding:60px;">
             <h5 style="color:white;position:relative;margin-top:40px;" class="text-justify">CALL US.</h5>
             <br>
@@ -144,7 +81,7 @@
             Give us a call during our office hours and inquire about our services.
             <br><br>
             </small>
-            <h5 style="color:white;">+(965) 2297 0270</h5>
+            <h6 style="color:white;">+(965) 2297 0270</h6>
             <br>
             <h5 style="color:white;">Find Us</h5>
             <p><a style="color:white;" href="https://www.google.com/maps/place/Reyada+%7C+Collaborative+Workspace/@29.3769156,47.9756613,17z/data=!3m1!4b1!4m5!3m4!1s0x3fcf84ec4226df39:0x267ba39977cfa42e!8m2!3d29.3769156!4d47.97785" target="_blank"><img src="<?= base_url()?>image/location_white.png" width="10%" />&nbsp;&nbsp;CRYSTAL TOWER</a></p>
@@ -161,31 +98,38 @@
 <!-- End Contact Us Modal-->
 
 <!--Login Modal-->
-<div id="modalLogin" class="modal fade bs-example-modal-xl" role="dialog ">
-  <div class="modal-dialog modal-xl">
-    <!-- Modal content-->
+<div id="modalLogin" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-body p-0 m-0" >
-        <!-- <div class="row">
-          <div class="col-md-4 bg-black">
-            <div> 
-              <img src="<?= base_url();?>image/modalimg/a1.png" class="img-fluid  position-relative pull-right" width="170" height="150">
-              <h6 style="color:white;font-size: 14px;position:relative;top:150px;" class="p-5 text-justify">
+        <section>
+          <div class="row">
+            <div class="col-md-4 bg-black" style="height:450px;">
+            <img src="<?= base_url();?>image/modalimg/a1.png" class="img-fluid pull-right" width="170" height="150" style="position:relative;top:60px;">
+            <h6 style="color:white; font-modal-childsize: 20px; padding-top: 20%"class="px-2 m-4 mb-5 text-justify">
+                  <small style="color:white; font-size: 14px;">
+                      <i class="fa-lg pull-left pt-1 mt-2"></i>
+                      <div class="pull-left" style="width: 90%;">
+                          <div class="select-wrapper" style="width: 100%;">
+                            <select id="sign_in_location" class="sign_in_location">
+                                  
+                            </select>
+                          </div>
+                      </div>
+                  </small>
+              </h6>
+              <h6 style="color:white;font-size: 14px;position:relative;top:30%;" class="p-5 text-justify">
                 <small>JOIN OUR COMMUNITY
                   <br><br>
                   Sign up and become a part of the Reyada Community.
                   <br><br>
-                  <a href="#signup" id="modalsignup1" style="color:white;"  data-toggle="modal"
-                      data-target="#modalsignup"><span class="align-middle">SIGN UP</span> <i
-                      class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
-                </small></h6>
+                  <p  class="arrow-text" id="modalsignup1" data-toggle="modal" data-target="#modalsignup" >SIGN UP <i class="arr wh right"></i></p>
+                </small>
+              </h6>
             </div>
-          </div>
-          <div class="col-md-8 bg-white" 
-            style="background:url('<?= base_url();?>image/modalimg/A15.jpg') center  no-repeat;background-size: cover;">
-            <button type="button" class="close p-4" data-dismiss="modal">&#10006</button>
-            <article>
-              <div>
+            <div class="col-md-8 bg-white" style="background:url('<?= base_url();?>image/modalimg/A15.jpg') center  no-repeat;background-size: cover;height:450px;">
+            <button type="button" class="close p-4" style="outline:none;" data-dismiss="modal">&#10006</button>
+              <div  style="position:relative;top:20%;">
                 <form id="login-form" method="post" action="<?= base_url() ?>main/signin" >
                   <h6 style="color:black;" class="text-center">WELCOME BACK!</h6><br>
                   <p id="error_msg_signin" style="display:none" class="text text-danger" ></p>
@@ -200,59 +144,18 @@
                   </div>
                   <a href="<?= base_url('main/forgot_password') ?>" class="text-p text-secondary float-right">Forgot password?</a>
                   <br><br><br>
-                  <button type="submit" style="border:0px;background-color:transparent;color:black;" id="loginButtonForm" ><span class="align-middle" data-toggle="modal"
+                  <button type="submit" style="border:0px;background-color:transparent;color:black;outline:none;" id="loginButtonForm" ><span class="align-middle" data-toggle="modal"
                       data-target="#modalLoginsuccess">LOGIN</span> <i
                       class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
                 </form>
-              </div>
-            </article>
+              </div>  
+            </div>
           </div>
-        </div> -->
-        <section>
-      <div class="row">
-        <div class="col-md-4 bg-black" style="height:600px;">
-        <img src="<?= base_url();?>image/modalimg/a1.png" class="img-fluid pull-right" width="170" height="150" style="position:relative;top:120px;">
-          <h6 style="color:white;font-size: 14px;position:relative;top:60%;" class="p-5 text-justify">
-            <small>JOIN OUR COMMUNITY
-              <br><br>
-              Sign up and become a part of the Reyada Community.
-              <br><br>
-              <a href="#signup" id="modalsignup1" style="color:white;"  data-toggle="modal"
-                  data-target="#modalsignup"><span class="align-middle">SIGN UP</span> <i
-                  class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
-            </small>
-          </h6>
-        </div>
-        <div class="col-md-8 bg-white" style="background:url('<?= base_url();?>image/modalimg/A15.jpg') center  no-repeat;background-size: cover;height:600px;">
-        <button type="button" class="close p-4" data-dismiss="modal">&#10006</button>
-          <div  style="position:relative;top:20%;">
-            <form id="login-form" method="post" action="<?= base_url() ?>main/signin" >
-              <h6 style="color:black;" class="text-center">WELCOME BACK!</h6><br>
-              <p id="error_msg_signin" style="display:none" class="text text-danger" ></p>
-              <p id="success_msg_signin" style="display:none" class="text text-success" ></p>
-              <div class="group">
-                <input name="loginEmail" type="text"><span class="highlight"></span><span class="bar"></span>
-                <label>Email</label>
-              </div>
-              <div class="group mb-1">
-                <input name="loginPassword" type="password"><span class="highlight"></span><span class="bar"></span>
-                <label>Your Password</label>
-              </div>
-              <a href="<?= base_url('main/forgot_password') ?>" class="text-p text-secondary float-right">Forgot password?</a>
-              <br><br><br>
-              <button type="submit" style="border:0px;background-color:transparent;color:black;" id="loginButtonForm" ><span class="align-middle" data-toggle="modal"
-                  data-target="#modalLoginsuccess">LOGIN</span> <i
-                  class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
-            </form>
-          </div>  
-        </div>
-      </div>
-      </section>
+        </section>
       </div>
     </div>
   </div>
 </div>
-
 <div id="qnimate" class="off">
   <div id="search" class="open">
     <button data-widget="remove" id="removeClass" class="close text-dark" type="button">×</button>
@@ -263,19 +166,15 @@
       </form>
     </div>
     <div class="row align-self-center">
-       <div class="col-12 text-center py-1"><a href="<?= base_url()?>" class="text-dark col">ABOUT</a>
-        <a href="<?= base_url('main/services#faq')?>" class="text-dark col">FAQ</a>
-        <a href="<?= base_url('main/blog')?>" class="text-dark col">BLOG</a>
+       <div class="col-12 text-center py-1">
+        <a href="<?= base_url('main/#mission')?>" class="text-dark col">ABOUT</a>
+        <a href="<?= base_url('main/#faq')?>" class="text-dark col">FAQ</a>
       </div>
-       <div class="col-12  text-center py-1">  <a href="#" class="text-dark col">SIGN UP</a>
+       <div class="col-12  text-center py-1"> 
+        <a href="#signup" id="modalsignup1"  data-toggle="modal" data-target="#modalsignup" class="text-dark col">SIGN UP</a>
         <a href="<?= base_url('main/services#membership')?>" class="text-dark col">MEMBERSHIP</a>
-        <a href="#" class="text-dark col">CONTACT</a>
+        <a href="#contact" data-toggle="modal" data-target="#modalcontact" class="text-dark col">CONTACT</a>
       </div>
-      <div class="col-12  text-center py-1">
-      
-        <a href="#" class="text-dark col">THIRD PARTY</a>
-        <a href="#" class="text-dark col">PRIVACY POLICY</a>
-        </div>  
     </div>
 
     <footer id="footer" class="section-bg p-0 lap">
@@ -305,220 +204,46 @@
   <div class="modal-dialog modal-xl">
     <div class="modal-content">
       <div class="modal-body p-0">
-        <!-- <div class="row">
-          <div class="col-md-4 bg-black">
-            <div>
-              <img src="<?= base_url()?>image/modalimg/a1.png" class="img-fluid  position-relative pull-right" width="170" height="150"
-                style="padding-top: 20%; left:20px;">
-                <h6 style="color:white; font-modal-childsize: 20px; padding-top: 35%"class="px-2 m-4 mb-5 text-justify" id="loctionDrp">
-                          <small style="color:white; font-size: 14px;">
-                              <i class="fa-lg pull-left pt-1 mt-2"></i>
-                              <div class="pull-left" style="width: 90%;">
-                                  <div class="select-wrapper" style="width: 100%;">
-                                  <select name="location_id">
-                                        <option value="<?= $locations[0]->Id ?>"><?= $locations[0]->Name ?></option>
-                                        <option value="<?= $locations[1]->Id ?>"><?= $locations[1]->Name ?></option>
-                                  </select>
-                                  </div>
-                              </div>
-                          </small>
-                      </h6>
-                <h6 style="color:white; position: absolute; bottom:30px; font-size: 14px;" class="p-5 text-justify">
-                <small>WELCOME BACK!
-                  <br><br>
-                  Sign in and see what you’ve missed!
-                  <br><br>
-                  <a href="#backlogin" id="backlogin" style="color:white;" data-toggle="modal"
-                      data-target="#modalLogin"><span class="align-middle">LOGIN</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
-                </small></h6>
-            </div>
-          </div>
-          <div class="col-md-8 bg-white"
-            style="background:url('<?= base_url()?>image/modalimg/A15.jpg') center  no-repeat;background-size: cover;">
-            <button type="button" class="close p-4" data-dismiss="modal">&#10006</button>
-            <article>
-              <div>
-                <form style="width:85%; padding:0em 2em 0em 0em; margin: 0em auto;">
-                  <div class="firstSignup">
-                    <h6 style="color:black;" class="text-center">REGISTER</h6><br>
-
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="group">
-                          <input type="text" name="complete_name" ><span class="highlight"></span><span class="bar"></span>
-                          <label> Full Name</label>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="group">
-                          <input type="text" name="company_name" ><span class="highlight"></span><span class="bar"></span>
-                          <label>Company Name</label>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="group">
-                          <input type="email" name="signup_email"><span class="highlight"></span><span class="bar"></span>
-                          <label>Email</label>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="group">
-                          <input type="text" name="profile_website"><span class="highlight"></span><span class="bar"></span>
-                          <label>Website</label>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="group">
-                          <input type="text" name="mobile_phone" ><span class="highlight"></span><span class="bar"></span>
-                          <label>Phone Number</label>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="group">
-                          <input type="text" name="billing_address"><span class="highlight"></span><span class="bar"></span>
-                          <label>Billing Address</label>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="group">
-                          <input type="password" name="password" ><span class="highlight"></span><span class="bar"></span>
-                          <label>Your Password</label>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="group">
-                          <input type="text" name="business_area" ><span class="highlight"></span><span class="bar"></span>
-                          <label>Governorates</label>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="group">
-                          <input type="password" name="confirm_password" ><span class="highlight"></span><span class="bar"></span>
-                          <label>Confirm Password</label>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="group">
-                          <input type="checkbox" name="receive_news_letter" style="margin-top:15px;">
-                          <span style="color:#999;">Recieve news from Reyada</span>
-                        </div>
-                      </div>
-                      <br><br>
-                      <br><br>
-                      <p id="error_msg_signup" style="display:none" class="text text-danger" ></p>
-                      <p id="success_msg_signup" style="display:none" class="text text-success" ></p>
-                      
-                      <div class="col-md-12">
-                        <a href="#" style="color:black;" id="continuebtn" class="float-left"><span
-                            class="align-middle">CONTINUE</span> <i
-                            class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
-                      </div>
-                      <div class="col-md-12 text-right">
-                        <a href="#" style="color:black;" id="first"><span class="align-middle">1</span> <span
-                            style="border-bottom: 1px solid black;width:20px;height:3px; display: inline-block;vertical-align: middle;"></span></a>
-                        <a href="#" style="color:black;" id="second"><span class="align-middle">2</span></a>
-                      </div>
-
-                    </div>
-                  </div>
-                  <div class="secondSignup">
-                    <h6 style="color:black;" class="text-center m-0">REGISTER</h6>
-                    <span style="color:black;" class="text-left">Select your subscription plan</span><br><br>
-                    <div class="row">
-                      <div class="col-md-6">
-                      <label class="test_container">Coworking Memberships
-                        <input type="radio" class="plans_type" id="cowork"  checked value="Coworking Memberships" name="radio">
-                        <span class="checkmark"></span>
-                      </label>
-                      </div>
-                      <div class="col-md-6">
-                        <label class="test_container">Meeting Room Memberships
-                          <input type="radio"  class="plans_type" id="meetroom"  value="Meeting Room Memberships" name="radio">
-                          <span class="checkmark"></span>
-                        </label>
-                      </div>
-                      <div class="col-md-12">
-                        <div class="group">
-                        <select class="price_plans" id="price_plans" style="color:black;">
-                        </select>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="group plan_heading">
-                         
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="group plan_desc booking-div" >
-                          
-                        </div>
-                      </div>
-                      <div class="col-md-12">
-                        <span>Choose a Start Date</span>
-                        <div class="group" >
-                          <input type="date" id='datetimepicker1'><span class="highlight"></span><span class="bar"></span>
-                        </div>
-                      </div>
-                      <br><br>
-                      <br><br>
-                      <div class="col-md-12">
-                        <a href="#" id="signUpBtn" style="color:black;" class="float-left"><span class="align-middle">Continue</span> <i
-                            class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
-                      </div>
-
-                      <div class="col-md-12 text-right">
-                        <a href="#" style="color:black;" id="first"><span class="align-middle">2</span> <span
-                            style="border-bottom: 1px solid black;width:20px;height:3px; display: inline-block;vertical-align: middle;"></span></a>
-                        <a href="#" style="color:black;" id="second"><span class="align-middle">2</span></a>
-                      </div>
-                    </div>
-                </form>
-              </div>
-          </div>
-          </article>
-        </div> -->
         <div class="row">
-          <div class="col-md-4 bg-black" style="height:620px;">
-          <img src="<?= base_url();?>image/modalimg/a1.png" class="img-fluid pull-right" width="170" height="150" style="position:relative;top:120px;">
-            <h6 style="color:white; font-modal-childsize: 20px; padding-top: 35%"class="px-2 m-4 mb-5 text-justify" id="loctionDrp">
+          <div class="col-md-4 bg-black" style="height:450px;">
+          <img src="<?= base_url();?>image/modalimg/a1.png" class="img-fluid pull-right" width="170" height="150" style="position:relative;top:60px;">
+            <h6 style="color:white; font-modal-childsize: 20px; padding-top: 25%"class="px-2 m-4 mb-5 text-justify" id="loctionDrp">
                 <small style="color:white; font-size: 14px;">
                     <i class="fa-lg pull-left pt-1 mt-2"></i>
                     <div class="pull-left" style="width: 90%;">
                         <div class="select-wrapper" style="width: 100%;">
-                        <select name="location_id">
-                              <option value="<?= $locations[0]->Id ?>"><?= $locations[0]->Name ?></option>
-                              <option value="<?= $locations[1]->Id ?>"><?= $locations[1]->Name ?></option>
-                        </select>
+                          <select name="location_id" class="login_location">
+                                
+                          </select>
                         </div>
                     </div>
                 </small>
             </h6>
-            <h6 style="color:white; position: absolute; bottom:30px; font-size: 14px;" class="p-5 text-justify">
+            <h6 style="color:white;font-size: 14px;position:absolute;top:60%;" class="p-5 text-justify">
               <small>WELCOME BACK!
                 <br><br>
                 Sign in and see what you’ve missed!
                 <br><br>
-                <a href="#backlogin" id="backlogin" style="color:white;" data-toggle="modal"
-                    data-target="#modalLogin"><span class="align-middle">LOGIN</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
+                <p class="arrow-text" id="backlogin"data-toggle="modal" data-target="#modalLogin" >LOGIN <i class="arr wh right"></i></p>
               </small>
             </h6>
           </div>
-          <div class="col-md-8 bg-white" style="background:url('<?= base_url();?>image/modalimg/A15.jpg') center  no-repeat;background-size: cover;height:620px;">
+          <div class="col-md-8 bg-white memb-height" style="background:url('<?= base_url();?>image/modalimg/A15.jpg') center  no-repeat;background-size: cover;">
             <button type="button" class="close p-4" data-dismiss="modal">&#10006</button>
               <div>
                 <form style="width:85%;position:relative;margin-top:12%;">
                   <div class="firstSignup">
                     <h6 style="color:black;" class="text-center">REGISTER</h6><br>
                     <div class="row">
-                      <div class="col-md-6">
+                      <div class="col-md-12">
                         <div class="group">
                           <input type="text" name="complete_name" ><span class="highlight"></span><span class="bar"></span>
                           <label> Full Name</label>
                         </div>
                       </div>
-                      <div class="col-md-6">
+                      <div class="col-md-6" style="display:none;">
                         <div class="group">
-                          <input type="text" name="company_name" ><span class="highlight"></span><span class="bar"></span>
+                          <input type="text" name="company_name" value="test"><span class="highlight"></span><span class="bar"></span>
                           <label>Company Name</label>
                         </div>
                       </div>
@@ -528,9 +253,9 @@
                           <label>Email</label>
                         </div>
                       </div>
-                      <div class="col-md-6">
+                      <div class="col-md-6" style="display:none;">
                         <div class="group">
-                          <input type="text" name="profile_website"><span class="highlight"></span><span class="bar"></span>
+                          <input type="text" name="profile_website" value="test"><span class="highlight"></span><span class="bar"></span>
                           <label>Website</label>
                         </div>
                       </div>
@@ -540,9 +265,9 @@
                           <label>Phone Number</label>
                         </div>
                       </div>
-                      <div class="col-md-6">
+                      <div class="col-md-6" style="display:none;">
                         <div class="group">
-                          <input type="text" name="billing_address"><span class="highlight"></span><span class="bar"></span>
+                          <input type="text" name="billing_address" value="test"><span class="highlight"></span><span class="bar"></span>
                           <label>Billing Address</label>
                         </div>
                       </div>
@@ -552,9 +277,9 @@
                           <label>Your Password</label>
                         </div>
                       </div>
-                      <div class="col-md-6">
+                      <div class="col-md-6" style="display:none;">
                         <div class="group">
-                          <input type="text" name="business_area" ><span class="highlight"></span><span class="bar"></span>
+                          <input type="text" name="business_area" value="test"><span class="highlight"></span><span class="bar"></span>
                           <label>Governorates</label>
                         </div>
                       </div>
@@ -564,36 +289,26 @@
                           <label>Confirm Password</label>
                         </div>
                       </div>
-                      <div class="col-md-6">
+                      <div class="col-md-6" style="display:none;">
                         <div class="group">
-                          <input type="checkbox" name="receive_news_letter" style="margin-top:15px;">
+                          <input type="checkbox" name="receive_news_letter" value="0" style="margin-top:15px;">
                           <span style="color:#999;">Recieve news from Reyada</span>
                         </div>
                       </div>
-                      <p id="error_msg_signup" style="display:none" class="text text-danger" ></p>
-                      <br><br><br>
+                      <div class="col-md-12"><p id="error_msg_signup" style="display:none" class="text text-danger" ></p></div>
+                      <br><br>
                       <div class="col-md-12">
-                        <a href="#" style="color:black;" id="continuebtn" class="float-left"><span
-                            class="align-middle">CONTINUE</span> <i
-                            class="fa fa-angle-right fa-2x pl-1 align-middle"></i>
-                        </a>
+                      <p class="arrow-text" id="continuebtn" >CONTINUE <i class="arr bl right"></i></p>
                         <div class="text-right">
                           <a href="#" style="color:black;" id="first"><span class="align-middle">1</span> <span
                               style="border-bottom: 1px solid black;width:20px;height:3px; display: inline-block;vertical-align: middle;"></span></a>
                           <a href="#" style="color:black;" id="second"><span class="align-middle">2</span></a>
                         </div>
                       </div>
-                      <!-- <div class="col-md-12 text-right">
-                        <a href="#" style="color:black;" id="first"><span class="align-middle">1</span> <span
-                            style="border-bottom: 1px solid black;width:20px;height:3px; display: inline-block;vertical-align: middle;"></span></a>
-                        <a href="#" style="color:black;" id="second"><span class="align-middle">2</span></a>
-                      </div> -->
-
                     </div>
                   </div>
-                  <div class="secondSignup" style="position:relative;margin-top:-10%;">
-                    <h6 style="color:black;" class="text-center m-0">REGISTER</h6>
-                    <span style="color:black;" class="text-left">Select your subscription plan</span><br><br>
+                  <div class="secondSignup" style="position:relative;margin-top:-15%;">
+                    <h6 style="color:black;" class="text-center m-0">Select subscription plan</h6><br>
                     <div class="row">
                       <div class="col-md-6">
                       <label class="test_container">Coworking Memberships
@@ -608,7 +323,7 @@
                         </label>
                       </div>
                       <div class="col-md-12">
-                        <div class="group">
+                        <div class="group time">
                         <select class="price_plans" id="price_plans" style="color:black;">
                         </select>
                         </div>
@@ -627,12 +342,10 @@
                         <span>Choose a Start Date</span>
                         <div class="group" >
                           <input type="date" id='datetimepicker1'><span class="highlight"></span><span class="bar"></span>
-                        </div>
+                        </div><br>
                       </div>
                       <div class="col-md-12">
-                        <a href="#" id="signUpBtn" style="color:black;" class="float-left"><span class="align-middle">Continue</span> <i
-                            class="fa fa-angle-right fa-2x pl-1 align-middle"></i>
-                        </a>
+                      <p class="arrow-text" id="signUpBtn" >CONTINUE <i class="arr bl right"></i></p>
                         <div class="text-right">
                           <a href="#" style="color:black;" id="first"><span class="align-middle">2</span> <span
                               style="border-bottom: 1px solid black;width:20px;height:3px; display: inline-block;vertical-align: middle;"></span></a>
@@ -667,7 +380,7 @@
                   +(965) 2297 0270<br>
                   info@reyada.co
                   <br><br>
-                  <a href="./" style="color:black;"><span class="align-middle" id="homeModal">HOME</span> <i
+                  <a href="./" style="color:black;outline:none;"><span class="align-middle" id="homeModal">HOME</span> <i
                       class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
                 </small></h6>
             </div>
@@ -677,38 +390,12 @@
     </div>
   </div>
 </div>
-
-<!-- End Thankyou Modal-->
-
-<!--Thankyou for contact Modal-->
-<div id="thankyouforRegmodal" class="modal fade bs-example-modal-xs" role="dialog ">
-    <div class="modal-dialog modal-xs modal-dialog-center" style="height:350px;">
-        <div class="modal-content" style="padding-top:0%; vertical-align: middle;">
-            <div class="modal-body p-0 m-0">
-                <section class="container">
-                    <div class="tmodal">
-                        <button type="button" class="close p-4" data-dismiss="modal">&#10006</button>
-                        <div>
-                            <form style="width:80%; padding-top: 90px;">
-                                <h6 style="color:black;" class="text-center">THANK YOU FOR YOUR BOOKING</h6>
-                                <h6 style="color:black;" class="text-center" id="confirmBooking"><b></b></h6>
-                                <a href="<?= base_url("main/invoice") ?>" style="color:black;"><span class="align-middle">Proceed to payment</span>
-                                    <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i>
-                                </a>
-                            </form>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </div>
-    </div>
-</div>
 <div id="contact_thankyou" class="modal fade bs-example-modal-xs" role="dialog ">
   <div class="modal-dialog modal-xs modal-dialog-center" style="height:300px;" >
  <!-- Modal content-->
    <div class="modal-content pt-5 mt-5" style="padding-top:0%; vertical-align: middle;">
      <div class="modal-body p-0 m-0">
-     <button type="button" class="close p-4" data-dismiss="modal">&#10006</button>
+     <button type="button" class="close p-4" style="outline:none;" data-dismiss="modal">&#10006</button>
       <section class="container">
        <div class="tmodal">
         <div>
@@ -719,7 +406,7 @@
                   +(965) 2297 0270<br>
                     info@reyada.co
 	        <br><br>
-	        <a href="<?= base_url()?>" style="color:black;"><span class="align-middle" id ="homeModal">HOME</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
+	        <a href="<?= base_url()?>" style="color:black;outline:none;"><span class="align-middle" id ="homeModal">HOME</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
 	        </small></h6>
         </div>
        </div>
@@ -727,6 +414,74 @@
     </div>
    </div>
   </div>
+</div>
+
+<div id="partner_thankyou" class="modal fade bs-example-modal-xs" role="dialog ">
+  <div class="modal-dialog modal-xs modal-dialog-center" style="height:300px;" >
+ <!-- Modal content-->
+   <div class="modal-content pt-5 mt-5" style="padding-top:0%; vertical-align: middle;">
+     <div class="modal-body p-0 m-0">
+      <section class="container">
+      <button type="button" class="close p-4" style="outline:none;" data-dismiss="modal">&#10006</button>
+       <div class="tmodal">
+        <div>
+          <h3 style="olor:black;bottom:30px; font-size: 18px;" class="p-5 text-justify text-center">
+            Thank you for your application.<br><br>
+	            We will contact you shortly.
+          <br><br>
+          <a  style="color:black;outline:none;" data-dismiss="modal"><span class="align-middle" id ="homeModal">OK</span></a>
+	        </small></h3>
+        </div>
+       </div>
+      </section>
+    </div>
+   </div>
+  </div>
+</div>
+
+<div id="partnermodal" class="modal fade bs-example-modal-xl" role="dialog">
+ <div class="modal-dialog modal-xs">
+  <div class="modal-content">
+    <div class="modal-body p-0 m-0">
+    <section>
+      <div class="col-md-12 col-sm-12 col-xs-12" style="padding-top:8%;">
+          <h3 style="color:black;" class="text-center">Partner With Us</h3>
+      </div>
+      <form  id="partnerform" style="width:100%; padding-top:5px;" method="post" class="m-0">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="col-md-12" style="color:black;" style="font-size: 16px;">
+                <div class="group">
+                    <input type="text" name="p_company_name" required><span class="highlight"></span><span class="bar"></span>
+                    <label>Company Name</label>
+                </div>
+                <div class="group">
+                    <input type="text" name="p_full_name"  required><span class="highlight"></span><span class="bar"></span>
+                    <label>Full Name</label>
+                </div>
+                <div class="group">
+                    <input type="email" name="p_email" required><span class="highlight"></span><span class="bar"></span>
+                    <label>Email</label>
+                </div>
+                <div class="group">
+                    <input type="number" name="p_phone" maxlength="8" required><span class="highlight"></span><span class="bar"></span>
+                    <label>Phone Number</label>
+                </div>
+                <div class="group" >
+                    <textarea name="p_services" style="width:100%" required placeholder="Services You Offer"></textarea>
+                </div>
+                
+                <!-- <div class="g-recaptcha" data-sitekey="6LeLH7kUAAAAAOrLMybD7bI52vunWgLhIJVzwYtm" required></div> -->
+
+                <div class="g-recaptcha" data-sitekey="6LcdBrkUAAAAAGJCngHt8FhPPfwaYbKvNL5Zjv6s" required></div><br>
+                <!-- <p class="text-center" type="submit" id="partnersubmit" >Submit <i class="arr bl right"></i></p> -->
+                <button type="submit" style="border:0px;background-color:transparent;color:black;position:relative;left:40%;outline:none;" id="partnersubmit" ><span class="align-middle text-center">Submit</span><i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
+          </div>
+        </div>
+      </form>
+    </section>
+   </div>
+  </div>
+ </div>
 </div>
 <script>
   $(window, document, undefined).ready(function () {
@@ -762,7 +517,6 @@
     $ripples.on('animationend webkitAnimationEnd mozAnimationEnd oanimationend MSAnimationEnd', function (e) {
       $(this).removeClass('is-active');
     });
-
   });
 </script>
 <script>
@@ -799,6 +553,39 @@
     $(".secondSignup").show();
   });
 
+  $('#partnerform').submit(function(e){
+    $('.whole_div').show();
+      e.preventDefault();
+        if (grecaptcha.getResponse() == ""){
+          $('.whole_div').hide();
+            alert("Please check the reCAPTCHA");
+        } else 
+        {
+          var form_data = $(this).serialize();
+              $.ajax({
+              type: 'POST',
+              dataType: 'json',
+              url: base_url + 'main/send_email',
+              data: form_data,
+              success: function(data) {
+                $('.whole_div').hide();
+                console.log(data);
+                  if(data.status == 'OK'){
+                    $("#partnermodal").modal("hide");
+                    $('#partner_thankyou').modal('show');
+                  }
+              },
+              error: function(jqxhr, status, error) {
+                $('.whole_div').hide();
+                $('.whole_div').hide();
+                console.log(jqxhr);
+                console.log(status);
+                console.log(error);
+              }
+          });
+        }
+    })
+
   var price_plan = $("input[name='radio']:checked").val();
 
   get_price_plans(price_plan);
@@ -822,15 +609,15 @@
       {
           "location_id": $('[name="location_id"]').val(),
           "FullName": $('[name="complete_name"]').val(),
-          "CompanyName": $('[name="company_name"]').val(),
+          "CompanyName": "",
           "Email": $('[name="signup_email"]').val(),
-          "ProfileWebsite": $('[name="profile_website"]').val(),
+          "ProfileWebsite": "",
           "MobilePhone": $('[name="mobile_phone"]').val(),
-          "BillingAddress": $('[name="billing_address"]').val(),
+          "BillingAddress": "",
           "Password": $('[name="password"]').val(),
           "PasswordConfirm": $('[name="confirm_password"]').val(),
-          "BusinessArea": $('[name="business_area"]').val(),
-          "SignUpToNewsletter": $('[name="receive_news_letter"]').val()
+          "BusinessArea": "",
+          "SignUpToNewsletter": ""
       }
 
       $.ajax({
@@ -876,7 +663,8 @@
     else{
       post_array = {
         "tariff_guid": tariff_guid,
-        "selected_date": selected_date
+        "selected_date": selected_date,
+        "InvoiceNow": true
       }
       $.ajax({ 
         type: 'POST',
@@ -909,7 +697,8 @@
 
     post_array = {
       "email": $('[name="loginEmail"]').val(),
-      "password": $('[name="loginPassword"]').val()
+      "password": $('[name="loginPassword"]').val(),
+      "loc_url": $('#sign_in_location').val()
     }
 
     $.ajax({
@@ -926,7 +715,7 @@
               $('.whole_div').hide();
               toastr.success('Logged in successfully');
               setTimeout(function() {
-                  window.location.replace(base_url + 'main/profile');
+                  window.location.replace('<?= $this->session->userdata('last_page');?>');
               }, 2000);
               
             }
@@ -939,6 +728,33 @@
     });
   
   });
+
+  function get_locations(){
+        $(".login_location").empty();
+        $.ajax({
+            type: 'GET',
+            url: 'https://spaces.nexudus.com/api/sys/businesses?dir=' +'Descending',
+            beforeSend: function(xhr) {
+                xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + password));
+            },
+            dataType: 'json',
+            success: function(locations) {
+                var location = locations.Records;
+                if (location.length != 0) {
+                        $(".login_location").append("<option value ='"+location[2].Id+"'>" + location[2].Name + "</option>");
+                        $(".login_location").append("<option value ='"+location[1].Id+"'>" + location[1].Name + "</option>");
+                        $(".sign_in_location").append("<option value ='"+location[2].WebAddress+"'>" + location[2].Name + "</option>");
+                        $(".sign_in_location").append("<option value ='"+location[1].WebAddress+"'>" + location[1].Name + "</option>");
+                        
+                } else {
+                    $(".login_location").append("<option value ='0'>" +'No Locations' + "</option>");
+                }
+            },
+            error: function(xhr) {
+                $(".login_location").append("<option value ='0'>" + 'No Locations' +"</option>");
+            }
+        });
+    }
 
   function validate_sign_up_form(password,confirm_password,complete_name,company_name,signup_email,profile_website,mobile_phone,business_area){
     $('#error_msg_signup').empty();
@@ -1045,7 +861,7 @@
             duration = 'every ' + price_detail[0].InvoiceEvery +'  months' ;
           }
             var desc_head = price_detail[0].Description.split(".");
-            var desc = price_detail[0].Description.replace(/<p>/g, "<span style='color: #000; font-size: 14px;line-height:30px;'>");  
+            var desc = price_detail[0].Description.replace(/<p>/g, "<span style='color: #000; font-size: 14px;line-height:20px;'>");  
             desc = desc.replace(/<\/p>/g,"</span><br>"); 
             desc = desc.split(".");
           var price_head = "<span style='color: #000; font-size: 12px;'>" + duration + '  ('+ price_detail[0].Price + ' ' + price_detail[0].CurrencyCode + ')'+ "</span>"+
@@ -1063,6 +879,8 @@
         }
     })
   }
+
+  get_locations();
 
 });
  

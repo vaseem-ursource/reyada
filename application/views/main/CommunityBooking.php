@@ -131,7 +131,7 @@
       </select>
       </div>
       <div class="group" style="text-align: right;">
-        <a href="#" style="color:black;"><span id="findAvailable">Find available</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>                  
+        <a href="#" style="color:black;outline:none;"><span id="findAvailable">Find available</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>                  
       </div>
     </div>
   </div>

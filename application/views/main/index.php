@@ -11,6 +11,14 @@ body.modal-open-noscroll
 {
     margin-right: 0!important;
 }
+.slider-height{
+  width:115%;
+}
+@media (max-width: 991px) {
+  .slider-height{
+    width:1500px;
+  }
+}
 </style>
   <section>
     <div id="homecarousel" class="carousel slide" data-ride="carousel" style="margin-top:-40px;">
@@ -22,16 +30,16 @@ body.modal-open-noscroll
       </ul>
       <div class="carousel-inner">
           <div class="carousel-item active">
-          <img src="<?= base_url()?>image/home2.jpg"   alt="slider1">
+          <img src="<?= base_url()?>image/home2.jpg"   class="img-responsive slider-height" alt="slider1">
           </div>
           <div class="carousel-item">
-          <img src="<?= base_url()?>image/home3.jpg"  alt="slider2">
+          <img src="<?= base_url()?>image/home3.jpg"  class="img-responsive  slider-height" alt="slider2">
           </div>
           <div class="carousel-item">
-          <img src="<?= base_url()?>image/home1.jpg"  alt="slider3">
+          <img src="<?= base_url()?>image/home1.jpg" class="img-responsive  slider-height" alt="slider3">
           </div>
           <div class="carousel-item">
-          <img src="<?= base_url()?>image/home4.jpg"  alt="slider4">
+          <img src="<?= base_url()?>image/home4.jpg"  class="img-responsive  slider-height" alt="slider4">
           </div>
       </div>
       <a class="carousel-control-prev" href="#homecarousel" data-slide="prev">
@@ -47,7 +55,7 @@ body.modal-open-noscroll
 <div class="overlay">
 <h1>Together We Create</h1>
 <h3>Work. Innovate. Collaborate.</h3>
-<button class="custom-button" id="bookingbutton">Booking</button>
+<button class="custom-button" id="bookingbutton"><span class="btn-text">Booking</span></button>
 </div>
     <!--==========================
       Mission Section
@@ -185,7 +193,7 @@ body.modal-open-noscroll
                   <h2 class="px-5 position-relative">PAY AS YOU GO</h2>
                   <div class="text-center position-relative"><img src="<?= base_url()?>image/membership/m1.png" style="margin: 25%" width="25%" class="position-relative"></div>
                   <div style="bottom: 0px;position: absolute;">
-                   <a href="<?= base_url('main/Services#payasyougo')?>"><h4 class="px-5 position-relative pt-5 text-white"><span class="align-middle">See </span><i class="fa fa-angle-right fa-2x align-middle"></i></h4></a>
+                   <a href="<?= base_url('main/Services#payasyougo')?>"><h4 class="px-5 position-relative pt-5 text-white"><span class="align-middle" style="position:relative;top:1.5px;">See </span><i class="fa fa-angle-right fa-2x align-middle"></i></h4></a>
                   </div>
                 </div>
               </div>
@@ -196,7 +204,7 @@ body.modal-open-noscroll
                   <h2 class="px-5 position-relative">HOT DESK</h2>
                   <div class="text-center position-relative"><img src="<?= base_url()?>image/membership/m2.png"  style="margin: 25%" width="25%" class="position-relative"></div>
                   <div style="bottom: 0px;position: absolute;">
-                  <a href="<?= base_url('main/Services#hotdesk')?>"><h4 class="px-5 position-relative pt-5 text-white"><span class="align-middle">See </span><i class="fa fa-angle-right fa-2x align-middle"></i></h4></a>
+                  <a href="<?= base_url('main/Services#hotdesk')?>"><h4 class="px-5 position-relative pt-5 text-white"><span class="align-middle" style="position:relative;top:1.5px;">See </span><i class="fa fa-angle-right fa-2x align-middle"></i></h4></a>
                   </div>
                 </div>
               </div>
@@ -207,7 +215,7 @@ body.modal-open-noscroll
                   <h2 class="px-5 position-relative">PRIVATE OFFICE</h2>
                   <div class="text-center position-relative"><img src="<?= base_url()?>image/membership/m3.png" style="margin: 25%" width="25%" class="position-relative"></div>
                   <div style="bottom: 0px;position: absolute;">
-                  <a href="<?= base_url('main/Services#privateoffice')?>"><h4 class="px-5 position-relative pt-5 text-white"><span class="align-middle">See </span><i class="fa fa-angle-right fa-2x align-middle"></i></h4></a>
+                  <a href="<?= base_url('main/Services#privateoffice')?>"><h4 class="px-5 position-relative pt-5 text-white"><span class="align-middle" style="position:relative;top:1.5px;">See </span><i class="fa fa-angle-right fa-2x align-middle"></i></h4></a>
                   </div>
                 </div>
               </div>
@@ -316,9 +324,9 @@ body.modal-open-noscroll
 
       </div>
     </section> -->
-    <section id="services" class="">
+    <section>
     <div class="container">
-        <header class="section-header">
+        <header class="section-header" id="faq">
           <h3 class="text-dark">Frequently Asked Questions</h3>
          <div class="col-md-12 row">
             <div class="col-md-6">
@@ -517,6 +525,7 @@ $(function(){
         $(this).addClass('membership-active');
     });
 });
+
 </script>
 
 

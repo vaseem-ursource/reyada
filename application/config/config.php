@@ -34,10 +34,11 @@ date_default_timezone_set('Asia/Kuwait');
 
 
 // Hesabe merchant details
-$config['hesabe_request_url']      = "https://www.hesabe.com/authpost";
-$config['hesabe_checkout_url']     = "https://www.hesabe.com/checkout";
-$config['hesabe_merchant_code1']    = "481016"; //crystal tower
-$config['hesabe_merchant_code2']    = "12540719"; // mabane
+$config['hesabe_request_url']      = "http://demo.hesabe.com/authpost";
+$config['hesabe_checkout_url']     = "http://demo.hesabe.com/checkout/";
+// $config['hesabe_merchant_code1']    = "481016"; 
+// $config['hesabe_merchant_code2']    = "12540719";
+$config['hesabe_merchant_code']    = "642616";
 /*
 |--------------------------------------------------------------------------
 | Index File
@@ -392,7 +393,7 @@ $config['encryption_key'] = '';
 */
 $config['sess_driver'] = 'files';
 $config['sess_cookie_name'] = 'ci_session';
-$config['sess_expiration'] = 7200;
+$config['sess_expiration'] = 14400;
 $config['sess_save_path'] = NULL;
 $config['sess_match_ip'] = FALSE;
 $config['sess_time_to_update'] = 300;
