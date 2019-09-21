@@ -155,13 +155,13 @@ $(document).ready(function(){
                             var text =  
                             '<div class="col-md-12">'+
                                 '<div class="group">'+
-                                    '<input  id="tickets_name_'+i+'" name="attendee_name[]" type="text" required >'+'<span class="highlight">'+'</span>'+'<span class="bar">'+'</span>'+
+                                    '<input  id="tickets_name_'+i+'" name="attendee_name[]" type="text" required class="used">'+'<span class="highlight">'+'</span>'+'<span class="bar">'+'</span>'+
                                     '<label>'+'Name'+'</label>'+
                                 '</div>'+
                             '</div>'+
                             '<div class="col-md-12">'+
                                 '<div class="group">'+
-                                    '<input  id="tickets_email_'+i+'" type="email" name="attendee_email[]" required>'+'<span class="highlight">'+'</span>'+'<span class="bar">'+'</span>'+
+                                    '<input  id="tickets_email_'+i+'" type="email" name="attendee_email[]" required class="used">'+'<span class="highlight">'+'</span>'+'<span class="bar">'+'</span>'+
                                     '<label>'+'Email'+'</label>'+
                                 '</div>'+
                             '</div>';
@@ -171,7 +171,7 @@ $(document).ready(function(){
                         }
                         var disc = '<div class="col-md-12">'+
                                         '<div class="group">'+
-                                            '<input  id="e_code" name="discount_code" type="text">'+'<span class="highlight">'+'</span><span class="bar">'+'</span>'+
+                                            '<input  id="e_code" name="discount_code" type="text" class="used">'+'<span class="highlight">'+'</span><span class="bar">'+'</span>'+
                                             '<label>'+'Discount Code'+'</label>'+
                                         '</div>'+      
                                     '</div>';
