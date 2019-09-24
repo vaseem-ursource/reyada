@@ -57,9 +57,6 @@ body.modal-open-noscroll
 <h3>Work. Innovate. Collaborate.</h3>
 <button class="custom-button" id="bookingbutton"><span class="btn-text">Booking</span></button>
 </div>
-    <!--==========================
-      Mission Section
-    ============================-->
     <section id="about">
       <div class="container p-0 m-0">
         <div class="row p-0 m-0  align-middle" >
@@ -85,18 +82,12 @@ body.modal-open-noscroll
               <p class="text-justify">Reyada Collaborative Workspace aims to provide for the rising generation of innovative thinkers. Our goal is to build a community of like-minded entrepreneurs and facilitate them with the necessities that a business needs to thrive. At Reyada, workspaces are designed to promote connectivity, enhance creativity and aid the growth of its community. Reyada’s collaborative environment generates endless opportunities for its members. 
               #TOGETHERWECREATE
               </p>
-              <!-- <p class="pb-1 mb-1 text-justify ">Aut dolor id. Sint aliquam consequatur ex ex labore. Et quis qui dolor nulla dolores neque. Aspernatur consectetur omnis numquam quaerat. Sed fugiat nisi. Officiis veniam molestiae. Et vel ut quidem alias veritatis repudiandae ut fugit. Est ut eligendi aspernatur nulla voluptates veniam iusto vel quisquam. Fugit ut maxime incidunt accusantium totam repellendus eum error. Et repudiandae eum iste qui et ut ab alias.</p> -->
 			 
              </div>
           </div>
         </div>
       </div>
-
-    </section><!-- #about -->
-
-    <!--==========================
-      Amenities Title
-    ============================-->
+    </section>
     <section id="services" class="section-bg py-5">
       <div class="container py-5">
 
@@ -106,11 +97,7 @@ body.modal-open-noscroll
         </header>
 
       </div>
-    </section><!-- #services -->
-
-    <!--==========================
-      Amenities
-    ============================-->
+    </section>
     <section id="why-us" class="wow fadeIn">
       <div class="container">
 		<div class="row px-5">
@@ -170,16 +157,9 @@ body.modal-open-noscroll
 				</div>
 				<h4 class="text-center position-relative pt-2" style="font-size:inherit">DAILY CLEANING</h4>
 			</div>
-        
         </div>
-
       </div>
-
      </section>
-
-    <!--==========================
-      Membership
-    ============================-->
     <section id="services" class="p-0">
       <div class="container-fluid">
         <header class="section-header pb-4">
@@ -192,8 +172,10 @@ body.modal-open-noscroll
                 <div class="memberbox-layer_top pt-5">
                   <h2 class="px-5 position-relative">PAY AS YOU GO</h2>
                   <div class="text-center position-relative"><img src="<?= base_url()?>image/membership/m1.png" style="margin: 25%" width="25%" class="position-relative"></div>
-                  <div style="bottom: 0px;position: absolute;">
-                   <a href="<?= base_url('main/Services#payasyougo')?>"><h4 class="px-5 position-relative pt-5 text-white"><span class="align-middle" style="position:relative;top:1.5px;">See </span><i class="fa fa-angle-right fa-2x align-middle"></i></h4></a>
+                  <div style="bottom: 30px;left:50px;position: absolute;">
+                    <!-- <button class="btn btn-sm px-5 position-relative pt-5 text-white">View</button> -->
+                    <a href="<?= base_url('main/Services#payasyougo')?>" class="btn custom-button-wh">VIEW</a>
+                   <!-- <a href="<?= base_url('main/Services#payasyougo')?>"><h4 class="px-5 position-relative pt-5 text-white"><span class="align-middle" style="position:relative;top:1.5px;">View</span></h4></a> -->
                   </div>
                 </div>
               </div>
@@ -203,8 +185,10 @@ body.modal-open-noscroll
                 <div class="memberbox-layer_top pt-5">
                   <h2 class="px-5 position-relative">HOT DESK</h2>
                   <div class="text-center position-relative"><img src="<?= base_url()?>image/membership/m2.png"  style="margin: 25%" width="25%" class="position-relative"></div>
-                  <div style="bottom: 0px;position: absolute;">
-                  <a href="<?= base_url('main/Services#hotdesk')?>"><h4 class="px-5 position-relative pt-5 text-white"><span class="align-middle" style="position:relative;top:1.5px;">See </span><i class="fa fa-angle-right fa-2x align-middle"></i></h4></a>
+                  <div style="bottom: 30px;left:50px;position: absolute;">
+                  <a href="<?= base_url('main/Services#hotdesk')?>" class="btn btn-default custom-button-wh">View</a>
+
+                  <!-- <a href="<?= base_url('main/Services#hotdesk')?>"><h4 class="px-5 position-relative pt-5 text-white"><span class="align-middle" style="position:relative;top:1.5px;">View</span></h4></a> -->
                   </div>
                 </div>
               </div>
@@ -214,116 +198,17 @@ body.modal-open-noscroll
                 <div class="memberbox-layer_top pt-5">
                   <h2 class="px-5 position-relative">PRIVATE OFFICE</h2>
                   <div class="text-center position-relative"><img src="<?= base_url()?>image/membership/m3.png" style="margin: 25%" width="25%" class="position-relative"></div>
-                  <div style="bottom: 0px;position: absolute;">
-                  <a href="<?= base_url('main/Services#privateoffice')?>"><h4 class="px-5 position-relative pt-5 text-white"><span class="align-middle" style="position:relative;top:1.5px;">See </span><i class="fa fa-angle-right fa-2x align-middle"></i></h4></a>
+                  <div style="bottom: 30px;left:50px;position: absolute;">
+                  <a href="<?= base_url('main/Services#privateoffice')?>" class="btn btn-default custom-button-wh">View</a>
+
+                  <!-- <a href="<?= base_url('main/Services#privateoffice')?>"><h4 class="px-5 position-relative pt-5 text-white"><span class="align-middle" style="position:relative;top:1.5px;">See </span><i class="fa fa-angle-right fa-2x align-middle"></i></h4></a> -->
                   </div>
                 </div>
               </div>
             </div>
           </div>
-    </section><!-- #call-to-action -->
-
-    <!--==========================
-      Latest Article
-    ============================-->
-    <!-- <section id="mem-services" >
-    <div class="my-5 py-5 memb-bg">
-        <header class="section-header">
-            <h3 class="text-dark">Choose a Membership Package</h3>
-            <div class="text-center">
-                <div  name="coWorking"  class="btn btn-default membership membership-active">Co-Working</div>
-                <div  name="meetingRoom" class="btn btn-default membership">Meeting Room</div>
-            </div>
-        </header>
-    </div>
-    <?php if(!empty($coworkings)){?>
-        <div class="container" id="coworkings" style="position:relative;margin-top:-350px;">
-            <div class="row">
-            <?php foreach($coworkings as $coworking){?>
-                
-                <div class="col-lg-4 col-md-4 col-xs-4 fadeInUp p-1" style="visibility: visible; animation-name: fadeInUp;">
-                    <div class="w-100 box" >
-                        <div class="card-body">
-                            <h4 class="card-title pt-1 plan-title" style="" title="<?= $coworking->Name ?>">
-                                <b>
-                                <?php if (strlen($coworking->Name) > 24){
-                                    echo substr($coworking->Name , 0, 24) . '...';
-                                }else{
-                                    echo $coworking->Name;
-                                } ?>
-                                </b>
-                            </h4>
-                            <h5 class="card-title"><b><?= $coworking->Price?>.<?= $coworking->CurrencyCode?><br>(<?= ($coworking->InvoiceEvery === 1) ? 'Monthly' : (($coworking->InvoiceEvery === 4) ? 'Quarterly' : ($coworking->InvoiceEvery === 12) ? 'Annually' :"every '$coworking->InvoiceEvery' months"); ?>)</b></h5><br>
-                            <h6 class="card-title">Features</h6>
-                            <div class="card-text text-justify" style="min-height:200px;"><?= $coworking->Description ?></div><br>
-                            <a href="#" class="text-center text-dark planshow" data-toggle="modal" data-target="#modalsignup" ><h4><?= ($is_logged_in == 1) ? 'Continue' :'Sign Up' ?>&nbsp;&nbsp;<i class="fa fa-angle-right"></i></h4></a>
-                        </div>
-                    </div>
-                </div>
-            <?php } ?>
-            </div>
-        </div>
-    <?php } ?> 
-    <?php if(!empty($meetingrooms)){ ?> 
-        <div class="container" id="meetingrooms" style="position:relative;margin-top:-350px;display:none;">
-            <div class="row">
-            <?php foreach($meetingrooms as $meetingroom){?>
-                <div class="col-lg-4 col-md-4 col-xs-4 fadeInUp p-1" style="visibility: visible; animation-name: fadeInUp;">
-                    <div class="w-100 box" >
-                        <div class="card-body">
-                            <h4 class="card-title pt-1 plan-title" title="<?= $meetingroom->Name ?>">
-                            <b>
-                                <?php if (strlen($meetingroom->Name) > 24){
-                                    echo substr($meetingroom->Name , 0, 24) . '...';
-                                }else{
-                                    echo $meetingroom->Name;
-                                } ?>
-                            </b>
-                            </h4>
-                            <h5 class="card-title"><b><?= $meetingroom->Price?>.<?= $meetingroom->CurrencyCode?><br>(<?= ($coworking->InvoiceEvery === 1) ? 'Monthly' : (($coworking->InvoiceEvery === 4) ? 'Quarterly' : ($coworking->InvoiceEvery === 12) ? 'Annually' :"every '$coworking->InvoiceEvery' months"); ?>)</b></h4><br>
-                            <h6 class="card-title">Features</h6>
-                            <div class="card-text text-justify" style="min-height:200px;"><?= $meetingroom->Description ?></div><br>
-                            <a href="#" class="text-center text-dark planshow" data-toggle="modal" data-target="#modalsignup"><h4><?= ($is_logged_in == 1) ? 'Continue' :'Sign Up' ?>&nbsp;&nbsp;<i class="fa fa-angle-right"></i></h5></a>
-                        </div>
-                    </div>
-                </div>
-            <?php } ?>
-            </div>
-        </div>
-    <?php }?>
-    </section> -->
-    <!-- <section id="team" class="">
-      <div class="container">
-        <div class="section-header pb-2">
-          <h3 style="color:#343a40">Latest Article</h3>
-        </div>
-
-        <div class="row">
-           <?php 
-         foreach ($RecentArticle->result() as $row){ 
-            $posteddate=explode('-',$row->posted_date);
-            $postedday=explode(' ',$posteddate[2]);
-            $dateObj   = DateTime::createFromFormat('!m', $posteddate[1]); 
-            $monthName = $dateObj->format('F'); 
-        ?>
-
-            <div class="col-lg-4 col-md-4 wow fadeInUp p-1 d-flex w-100">
-                <div class="card shadow-sm w-100">
-                <img class="card-img-top" src="<?= base_url()?>Admin/<?=$row->image_url?>" height="250px" alt="Card image cap">
-                    <div class="card-body">
-                        <small><?= $postedday[0].', '.$monthName.' '.$postedday[0];?></small>
-                        <h6 class="card-title pt-1"><b><?= $row->title;?></b></h6>
-                        <h6 class="card-title"><b><?= $row->sub_title;?></b></h6>
-                        <div class="card-text text-justify lap" style="height:250px;overflow:hidden"><?= $row->description;?></div><br>
-                        <a href="<?=base_url()?>Main/Article?id=<?=$row->article_id;?>"><i class="fa fa-angle-right fa-2x no-bottom position-absolute pb-1 text-dark"></i></a>
-                    </div>
-                </div>
-            </div>
-         <?php } ?>
-        </div>
-
-      </div>
-    </section> -->
+    </section>
+    </section>
     <section>
     <div class="container">
         <header class="section-header" id="faq">
@@ -399,134 +284,14 @@ body.modal-open-noscroll
         </header>
     </div>
 </section>
-<!-- <section id="clients" class="wow fadeInUp">
-  <div class="container">
-  <div class="section-header pb-2">
-      <h3 style="color:#343a40">Affiliated Partners</h3>
-    </div>
-    <div class="owl-carousel clients-carousel">
-      <img src="<?= base_url()?>image/clients/ceros.png" alt="Ceros">
-      <img src="<?= base_url()?>image/clients/safari.png" alt="Safari">
-      <img src="<?= base_url()?>image/clients/ceros.png" alt="Ceros">
-      <img src="<?= base_url()?>image/clients/safari.png" alt="Safari">
-    </div>
-
-  </div>
-</section> -->
   </main>
 
-  <script>
-    const prev = document.querySelector('.demo-prev');
-  const next = document.querySelector('.demo-next');
-
-  const myCalendar = new HelloWeek({
-      selector: '.hello-week',
-      lang: 'en',
-      langFolder: './dist/langs/',
-      format: 'dd/mm/yyyy',
-      weekShort: true,
-      monthShort: false,
-      multiplePick: false,
-      defaultDate: false,
-      todayHighlight: true,
-      daysSelected: null, // ['2019-02-26', '2019-03-01', '2019-03-02', '2019-03-03']
-      disablePastDays: false,
-      disabledDaysOfWeek: false,
-      disableDates: false,
-      weekStart: 0, // 0 (Sunday) to 6 (Saturday).
-      daysHighlight: false,
-      range: false,
-      rtl: false,
-      locked: false,
-      minDate: false,
-      maxDate: false,
-      nav: ['‹', '›'],
-      onLoad: () => { /** callback function */ },
-      onChange: () => { /** callback function */ },
-      onSelect: () => { /** callback function */ },
-      onClear: () => { /** callback function */ }
-});
+<script>
 $(document).on("click", "#bookingmodal", function () {
   $("#bookingmodal").modal("show"); 
 });
-
-$(document).ready(function () {
-    $('.modal').on('show.bs.modal', function () {
-        if ($(document).height() > $(window).height()) {
-            // no-scroll
-            $('body').addClass("modal-open-noscroll");
-        }
-        else {
-            $('body').removeClass("modal-open-noscroll");
-        }
-    });
-    $('.modal').on('hide.bs.modal', function () {
-        $('body').removeClass("modal-open-noscroll");
-    });
-})
 </script>
- <script>
-    var slideIndex = 1;
-    showSlides1(slideIndex);
-    
-    function plusSlides1(n) {
-      showSlides1(slideIndex += n);
-    }
-    
-    function currentSlide1(n) {
-      showSlides1(slideIndex = n);
-    }
-    
-    function showSlides1(n) {
-      var i;
-      var slides = document.getElementsByClassName("mySlides1");
-      var dots = document.getElementsByClassName("dot");
-      if (n > slides.length) {slideIndex = 1}    
-      if (n < 1) {slideIndex = slides.length}
-      for (i = 0; i < slides.length; i++) {
-          slides[i].style.display = "none";  
-      }
-      for (i = 0; i < dots.length; i++) {
-          dots[i].className = dots[i].className.replace(" active", "");
-      }
-      slides[slideIndex-1].style.display = "block";  
-      dots[slideIndex-1].className += " active";
-    }
-  </script>
-<script>
-var is_logged_in = '<?= $is_logged_in ?>';
-$(".planshow").click(function () {
-if(is_logged_in == 1){
-    $(".firstSignup").css('display', 'none');
-    $(".secondSignup").css('display', 'block');
-    $('#modalsignup').modal('show');
-}
-else{
-    $(".firstSignup").css('display', 'block');
-    $(".secondSignup").css('display', 'none');
-    $('#modalsignup').modal('show'); 
-}
 
-});
-$(function(){
-    $('.membership').click(function(){
-        var value = $(this).attr('name');
-        if( value == 'coWorking'){
-            $('#coworkings').show();
-            $('#meetingrooms').hide();
-            $('#cowork').click(); 
-        }
-        else{
-            $('#meetingrooms').show();
-            $('#coworkings').hide();
-            $('#meetroom').click();
-        }
-        $('.membership.membership-active').removeClass('membership-active');
-        $(this).addClass('membership-active');
-    });
-});
-
-</script>
 
 
  

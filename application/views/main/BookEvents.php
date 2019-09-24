@@ -45,14 +45,12 @@
         </div>
         <div class="col-md-12" <?= ($this->session->userdata('is_logged_in')) ? 'style="display:none;"' : ''; ?>>
             <div class="group">
-                <input  name="p_name" id="e_name" type="text"><span class="highlight"></span><span class="bar"></span>
-                <label>Name</label>
+                <input  name="p_name" placeholder="Name" id="e_name" type="text"><span class="highlight"></span><span class="bar"></span>
             </div>
         </div>
         <div class="col-md-12" <?= ($this->session->userdata('is_logged_in')) ? 'style="display:none;"' : ''; ?>>
             <div class="group">
-                <input name="p_email" id="e_email" type="email"><span class="highlight"></span><span class="bar"></span>
-                <label>Email</label>
+                <input name="p_email" placeholder="Email" id="e_email" type="email"><span class="highlight"></span><span class="bar"></span>
             </div>
         </div>
         <div class="col-md-12" id="e_qty">
@@ -155,14 +153,12 @@ $(document).ready(function(){
                             var text =  
                             '<div class="col-md-12">'+
                                 '<div class="group">'+
-                                    '<input  id="tickets_name_'+i+'" name="attendee_name[]" type="text" required class="used">'+'<span class="highlight">'+'</span>'+'<span class="bar">'+'</span>'+
-                                    '<label>'+'Name'+'</label>'+
+                                    '<input  placeholder="Name" class="used" id="tickets_name_'+i+'" name="attendee_name[]" type="text" required class="used">'+'<span class="highlight">'+'</span>'+'<span class="bar">'+'</span>'+
                                 '</div>'+
                             '</div>'+
                             '<div class="col-md-12">'+
                                 '<div class="group">'+
-                                    '<input  id="tickets_email_'+i+'" type="email" name="attendee_email[]" required class="used">'+'<span class="highlight">'+'</span>'+'<span class="bar">'+'</span>'+
-                                    '<label>'+'Email'+'</label>'+
+                                    '<input  placeholder="Email" class="used" id="tickets_email_'+i+'" type="email" name="attendee_email[]" required class="used">'+'<span class="highlight">'+'</span>'+'<span class="bar">'+'</span>'+
                                 '</div>'+
                             '</div>';
                             
@@ -171,8 +167,7 @@ $(document).ready(function(){
                         }
                         var disc = '<div class="col-md-12">'+
                                         '<div class="group">'+
-                                            '<input  id="e_code" name="discount_code" type="text" class="used">'+'<span class="highlight">'+'</span><span class="bar">'+'</span>'+
-                                            '<label>'+'Discount Code'+'</label>'+
+                                            '<input  placeholder="Discount Code" class="used" id="e_code" name="discount_code" type="text" class="used">'+'<span class="highlight">'+'</span><span class="bar">'+'</span>'+
                                         '</div>'+      
                                     '</div>';
                         $('#attendee_form').append(disc);
@@ -202,14 +197,13 @@ $(document).ready(function(){
                 var text =  
                 '<div class="col-md-12">'+
                     '<div class="group">'+
-                        '<input  id="tickets_name_'+j+'" name="attendee_name[]" type="text" required >'+'<span class="highlight">'+'</span>'+'<span class="bar">'+'</span>'+
+                        '<input  placeholder="Name" class="used" id="tickets_name_'+j+'" name="attendee_name[]" type="text" required >'+'<span class="highlight">'+'</span>'+'<span class="bar">'+'</span>'+
                         '<label>'+'Name'+'</label>'+
                     '</div>'+
                 '</div>'+
                 '<div class="col-md-12">'+
                     '<div class="group">'+
-                        '<input  id="tickets_email_'+j+'" type="email" name="attendee_email[]" required>'+'<span class="highlight">'+'</span>'+'<span class="bar">'+'</span>'+
-                        '<label>'+'Email'+'</label>'+
+                        '<input  placeholder="Email" class="used" id="tickets_email_'+j+'" type="email" name="attendee_email[]" required>'+'<span class="highlight">'+'</span>'+'<span class="bar">'+'</span>'+
                     '</div>'+
                 '</div>';
                 
@@ -218,8 +212,7 @@ $(document).ready(function(){
             }
             var disc = '<div class="col-md-12">'+
                             '<div class="group">'+
-                                '<input  id="e_code" name="discount_code" type="text">'+'<span class="highlight">'+'</span><span class="bar">'+'</span>'+
-                                '<label>'+'Discount Code'+'</label>'+
+                                '<input  placeholder="Discount Code" class="used" id="e_code" name="discount_code" type="text">'+'<span class="highlight">'+'</span><span class="bar">'+'</span>'+
                             '</div>'+      
                         '</div>';
             $('#attendee_form').append(disc); 

@@ -21,6 +21,53 @@
   font-size:18px; 
 }
 
+.custom-button-bl{
+  border-radius:5%;
+  background-color:rgba(255,255,255,0.2);
+  color:rgb(0, 0, 0);
+  border:1px solid rgb(0, 0, 0);
+  line-height:1em;
+}
+
+.custom-button-wh{
+  width:80px;
+  height:40px;
+  border-radius:5%;
+  background-color:rgba(255,255,255,0.2);
+  color:white;
+  position:relative;
+  margin-top:150px;
+  border:2px solid white;
+  font-size:18px; 
+  outline:none;
+}
+
+.custom-button-wh:hover{
+  width:80px;
+  height:40px;
+  border-radius:5%;
+  background-color:rgba(255,255,255,0.2);
+  color:white;
+  position:relative;
+  margin-top:150px;
+  border:2px solid white;
+  font-size:18px;
+  outline:none;
+}
+
+.custom-button-bl:hover{
+  border-radius:5%;
+  background-color:rgba(255,255,255,0.2);
+  color:rgb(0, 0, 0);
+  border:1px solid rgb(0, 0, 0);
+}
+
+.btn:active {
+  color: #000000;
+  outline: none;
+  text-decoration: none;
+}
+
 .btn-text{
   position:relative;
   top:1.5px;
@@ -975,7 +1022,8 @@ border-right: 0px;
 width: 100%;       
 padding: 10px;       
 font-size: 14px;       
-color:#fff;       
+color:#fff;   
+outline:none;    
     
 /* Here's the code we need */       
 -webkit-appearance: none;       

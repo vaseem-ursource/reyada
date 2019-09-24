@@ -18,6 +18,7 @@
           url: base_url + 'main/update_profile',
           data: $(this).serialize(),
           success: function(data) {
+            console.log(data);
               if(data.status != 200){
                 toastr.error(data.message);
               }else{
@@ -26,7 +27,6 @@
               $('.whole_div').hide();
           },
           error: function(jqxhr, status, error) {
-            console.log(data);
             $('.whole_div').hide();
             console.log(jqxhr);
             console.log(status);

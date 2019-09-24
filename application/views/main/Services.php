@@ -445,10 +445,10 @@
                                 <span><i class="fa fa-angle-right fa-2x pt-3 pl-3 planshow"></i></span>
                             </div>
                         </div>
-                        <div class="border-left border-secondary p-3">
+                        <!-- <div class="border-left border-secondary p-3">
                             <span class="pt-3 pl-3">From KWD 10 per month</span><br>
                             <span><i class="fa fa-angle-right fa-2x pt-3 pl-3 planshow"></i></span>
-                        </div>
+                        </div> -->
                     </div>
                </div>
                <div class="col-md-6 mob">
@@ -637,7 +637,7 @@
                             <h5 class="card-title"><b><?= $meetingroom->Price?>.<?= $meetingroom->CurrencyCode?><br>(<?= ($coworking->InvoiceEvery === 1) ? 'Monthly' : (($coworking->InvoiceEvery === 4) ? 'Quarterly' : ($coworking->InvoiceEvery === 12) ? 'Annually' :"every '$coworking->InvoiceEvery' months"); ?>)</b></h4><br>
                             <h6 class="card-title">Features</h6>
                             <div class="card-text text-justify" style="min-height:200px;"><?= $meetingroom->Description ?></div><br>
-                            <a href="#" class="text-center text-dark planshow" data-toggle="modal" data-target="#modalsignup"><h4><?= ($is_logged_in === 1) ? 'Continue' :'Sign Up' ?>&nbsp;&nbsp;<i class="fa fa-angle-right"></i></h5></a>
+                            <a href="#" class="text-center text-dark planshow" data-toggle="modal" data-target="#modalsignup"><h4><?= ($is_logged_in === 1) ? 'Continue' :'Sign Up' ?>&nbsp;&nbsp;<i style="font-size:12px;" class="fa fa-angle-right"></i></h5></a>
                         </div>
                     </div>
                 </div>
