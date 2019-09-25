@@ -35,6 +35,7 @@
         <input type="hidden" name="Price" value="<?= $events->MostExpensivePrice?>"/>
         <input type="hidden" name="PriceFormatted" value="<?= $events->MostExpensivePrice?>.00.د.ك."/>
         <input type="hidden" name="MaxTicketsPerAttendee" value="<?= $events->MostExpensivePrice?>"/>
+        <input type="hidden" name="desc" value="<?= $events->LongDescription?>"/>
         <input type="hidden" name="Id" value="<?= $product_id ?>"/>
         <input type="hidden" name="IdString" value="<?= $product_id ?>"/>
         <input type="hidden" name="loc_url" value="<?= $location ?>" />
@@ -73,13 +74,13 @@
         </div>
         <div class="col-md-12" <?= ($this->session->userdata('is_logged_in')) ? 'style="display:none;"' : ''; ?>>
             <div class="group" style="text-align:center;cursor:pointer;">
-                <a href="#" onclick="return false;" style="color:black;font-size:16px;" id="checkemail"><span class="align-middle">Continue</span>&nbsp;&nbsp;OR&nbsp;&nbsp;</a> 
-                <a href="#" style="color:black;font-size:16px;"  data-toggle="modal" data-target="#modalLogin"><span class="align-middle">Login</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>                  
+                <a href="#" class="btn custom-button-bl" onclick="return false;" id="checkemail">Continue</a>
+                <!-- <a href="#"  class="btn custom-button-bl" data-toggle="modal" data-target="#modalLogin">Login</a>                   -->
             </div>
         </div>
         <div class="col-md-12" <?= ($this->session->userdata('is_logged_in')) ? '' : 'style="display:none;"'; ?>>
             <div class="group" style="text-align:center;cursor:pointer;">
-                <p style="color:black;font-size:16px;" id="dfsfs"><span class="align-middle">Continue</span><i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></p> 
+                <p class="btn custom-button-bl" id="e_continue">Continue</p> 
             </div>
         </div>
     </div>
@@ -100,7 +101,7 @@
             </div>
             <div class="col-md-12">
                 <div class="group pull-left">
-                    <button type="submit" name="purchase" style="border:0px;background-color:transparent;color:black;outline:none;" name="puchase"><span class="align-middle">Purchase</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
+                    <button type="submit" name="purchase" class="btn custom-button-bl" style="outline:none;" name="puchase">Purchase</button>
                 </div>
             </div>
         <div>
@@ -185,7 +186,7 @@ $(document).ready(function(){
     });
 });
 $(document).ready(function(){
-    $('#dfsfs').click(function(){
+    $('#e_continue').click(function(){
         // $('.whole_div').show();
         var qty = $('#qty').val();
         if(qty == 0){
@@ -198,7 +199,6 @@ $(document).ready(function(){
                 '<div class="col-md-12">'+
                     '<div class="group">'+
                         '<input  placeholder="Name" class="used" id="tickets_name_'+j+'" name="attendee_name[]" type="text" required >'+'<span class="highlight">'+'</span>'+'<span class="bar">'+'</span>'+
-                        '<label>'+'Name'+'</label>'+
                     '</div>'+
                 '</div>'+
                 '<div class="col-md-12">'+

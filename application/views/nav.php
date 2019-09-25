@@ -64,7 +64,7 @@
      $('.mobile-nav-toggle i').toggleClass('fa-times fa-bars');
      $('.mobile-nav-overly').toggle();
      $('html, body').animate({
-       'scrollTop' : $("#mission").position().top
+       'scrollTop' : $("#about").position().top
      }); 
    });
 </script>

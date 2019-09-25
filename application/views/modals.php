@@ -34,10 +34,10 @@
                                  <input type="text" placeholder="Full Name"  name="full_name" id="full_name" required><span class="highlight"></span><span class="bar"></span>
                               </div>
                               <div class="group">
-                                 <input type="text" placeholder="Email" name="email" id="email3" required><span class="highlight"></span><span class="bar"></span>
+                                 <input type="email" placeholder="Email" name="email" id="email3" required><span class="highlight"></span><span class="bar"></span>
                               </div>
                               <div class="group">
-                                 <input type="text" placeholder="Phone Number" name="phone" id="phone2" required><span class="highlight"></span><span class="bar"></span>
+                                 <input type="number" placeholder="Phone Number" name="phone" id="phone2" required><span class="highlight"></span><span class="bar"></span>
                               </div>
                               <div class="group">
                                  <input type="text" placeholder="Company Name" name="company" id="company2" required><span class="highlight"></span><span class="bar"></span>
@@ -63,7 +63,7 @@
                                  </div>
                               </div>
                               <br><br>
-                              <button type="submit"  style="border: 0px;background-color: transparent;outline:none;" class="float-right">Submit <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
+                              <button type="submit"  style="outline:none;" class="float-right btn custom-button-bl">Submit</button>
                            </div>
                         </div>
                      </form>
@@ -109,13 +109,13 @@
                            </div>
                         </small>
                      </h6>
-                     <h6 style="color:white;font-size: 14px;position:relative;top:30%;" class="p-5 text-justify">
+                     <h6 style="color:white;font-size: 14px;position:relative;top:20%;" class="p-5 text-justify">
                         <small>
                            JOIN OUR COMMUNITY
                            <br><br>
                            Sign up and become a part of the Reyada Community.
                            <br><br>
-                           <p  class="arrow-text" id="modalsignup1" data-toggle="modal" data-target="#modalsignup" >SIGN UP <i class="arr wh right"></i></p>
+                           <p  class="btn custom-button-wh" id="modalsignup1" data-toggle="modal" data-target="#modalsignup" >SIGN UP</p>
                         </small>
                      </h6>
                   </div>
@@ -135,9 +135,7 @@
                            </div>
                            <a href="<?= base_url('main/forgot_password') ?>" class="text-p text-secondary float-right">Forgot password?</a>
                            <br><br><br>
-                           <button type="submit" style="border:0px;background-color:transparent;color:black;outline:none;" id="loginButtonForm" ><span class="align-middle" data-toggle="modal"
-                              data-target="#modalLoginsuccess">LOGIN</span> <i
-                              class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
+                           <button type="submit" style="outline:none;" id="loginButtonForm" class="btn custom-button-bl" >LOGIN</span></button>
                         </form>
                      </div>
                   </div>
@@ -193,7 +191,7 @@
       <div class="modal-content">
          <div class="modal-body p-0">
             <div class="row">
-               <div class="col-md-4 bg-black" style="height:450px;">
+               <div class="col-md-4 bg-black" style="height:500px;">
                   <img src="<?= base_url();?>image/modalimg/a1.png" class="img-fluid pull-right" width="170" height="150" style="position:relative;top:60px;">
                   <h6 style="color:white; font-modal-childsize: 20px; padding-top: 25%"class="px-2 m-4 mb-5 text-justify" id="loctionDrp">
                      <small style="color:white; font-size: 14px;">
@@ -206,20 +204,32 @@
                         </div>
                      </small>
                   </h6>
-                  <h6 style="color:white;font-size: 14px;position:absolute;top:60%;" class="p-5 text-justify">
+                  <?php if($is_logged_in == 1){?>
+                     <h6 style="color:white;font-size: 14px;position:absolute;top:60%;"  class="p-5 text-justify">
                      <small>
-                        WELCOME BACK!
                         <br><br>
-                        Sign in and see what you’ve missed!
                         <br><br>
-                        <p class="arrow-text" id="backlogin"data-toggle="modal" data-target="#modalLogin" >LOGIN <i class="arr wh right"></i></p>
+                        <a class="btn custom-button-wh" onclick="menuClickFunction()" href="<?= base_url() ?>main/logout" >Logout</a>
                      </small>
                   </h6>
+                  <?php }
+                  else{?>
+                  <h6 style="color:white;font-size: 14px;position:absolute;top:60%;"  class="p-5 text-justify">
+                        <small>
+                           WELCOME BACK!
+                           <br><br>
+                           Sign in and see what you’ve missed!
+                           <br><br>
+                           <p class="btn custom-button-wh" id="backlogin"  data-toggle="modal" data-target="#modalLogin" >LOGIN</p>
+                        </small>
+                     </h6>
+                  <?php }?>
+                 
                </div>
-               <div class="col-md-8 bg-white memb-height" style="background:url('<?= base_url();?>image/modalimg/A15.jpg') center  no-repeat;background-size: cover;">
+               <div class="col-md-8 bg-white memb-height" style="background:url('<?= base_url();?>image/modalimg/A15.jpg') center  no-repeat;background-size: cover;height:500px;">
                   <button type="button" class="close p-4" style="outline:none;" data-dismiss="modal">&#10006</button>
                   <div>
-                     <form style="width:85%;position:relative;margin-top:12%;">
+                     <form style="width:85%;position:relative;margin-top:22%;">
                         <div class="firstSignup">
                            <h6 style="color:black;" class="text-center">REGISTER</h6>
                            <br>
@@ -283,8 +293,8 @@
                                  <p id="error_msg_signup" style="display:none" class="text text-danger" ></p>
                               </div>
                               <br><br>
-                              <div class="col-md-12">
-                                 <p class="arrow-text" id="continuebtn" >CONTINUE <i class="arr bl right"></i></p>
+                              <div class="col-md-12 text-center">
+                                 <p class="btn custom-button-bl" id="continuebtn" style="width:90px;font-size:14px;line-height:1.4rem;">SUBMIT</p>
                                  <div class="text-right">
                                     <a href="#" style="color:black;" id="first"><span class="align-middle">1</span> <span
                                        style="border-bottom: 1px solid black;width:20px;height:3px; display: inline-block;vertical-align: middle;"></span></a>
@@ -293,7 +303,7 @@
                               </div>
                            </div>
                         </div>
-                        <div class="secondSignup" style="position:relative;margin-top:-15%;">
+                        <div class="secondSignup" style="position:relative;margin-top:-26%;">
                            <h6 style="color:black;" class="text-center m-0">Select subscription plan</h6>
                            <br>
                            <div class="row">
@@ -331,7 +341,7 @@
                                  <br>
                               </div>
                               <div class="col-md-12">
-                                 <p class="arrow-text" id="signUpBtn" >CONTINUE <i class="arr bl right"></i></p>
+                                 <p class="btn custom-button-bl" id="signUpBtn" style="width:90px;font-size:14px;line-height:1.4rem;">CONTINUE</i></p>
                                  <div class="text-right">
                                     <a href="#" style="color:black;" id="first"><span class="align-middle">2</span> <span
                                        style="border-bottom: 1px solid black;width:20px;height:3px; display: inline-block;vertical-align: middle;"></span></a>
@@ -366,7 +376,7 @@
                         +(965) 2297 0270<br>
                         info@reyada.co
                         <br><br>
-                        <a href="./" style="color:black;outline:none;"><span class="align-middle" id="homeModal">HOME</span> <i
+                        <a href="./" style="outline:none;"><span class="custom-button-bl" id="homeModal">HOME</span> <i
                            class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
                         </small>
                      </h6>
@@ -393,7 +403,7 @@
                         +(965) 2297 0270<br>
                         info@reyada.co
                         <br><br>
-                        <a href="<?= base_url()?>" style="color:black;outline:none;"><span class="align-middle" id ="homeModal">HOME</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
+                        <a href="<?= base_url()?>" class="btn custom-button-bl" style="outline:none;">HOME</a>
                         </small>
                      </h6>
                   </div>
@@ -416,7 +426,8 @@
                         Thank you for your application.<br><br>
                         We will contact you shortly.
                         <br><br>
-                        <a  style="color:black;outline:none;cursor:pointer;" data-dismiss="modal"><span class="align-middle" id ="homeModal">OK</span></a>
+                        <a href="#" class="btn custom-button-bl" data-dismiss="modal" style="outline:none;">OK</a>
+                        <!-- <a  style="color:black;outline:none;cursor:pointer;" data-dismiss="modal"><span class="align-middle" id ="homeModal">OK</span></a> -->
                         </small>
                      </h3>
                   </div>
@@ -455,7 +466,7 @@
                         <!-- <div class="g-recaptcha" data-sitekey="6LeLH7kUAAAAAOrLMybD7bI52vunWgLhIJVzwYtm" required></div> -->
                         <div class="g-recaptcha" data-sitekey="6LcdBrkUAAAAAGJCngHt8FhPPfwaYbKvNL5Zjv6s" required></div>
                         <br>
-                        <button type="submit" style="border:0px;background-color:transparent;color:black;position:relative;left:40%;outline:none;" id="partnersubmit" ><span class="align-middle text-center">Submit</span><i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
+                        <button type="submit" class="btn custom-button-bl" style="position:relative;left:40%;outline:none;" id="partnersubmit" >Submit</button>
                      </div>
                   </div>
                </form>
@@ -551,6 +562,7 @@
    });
    
    $(document).on("click", "#continuebtn", function () {
+     
      $('.whole_div').show();
      var check_passowrd = validate_sign_up_form($('[name="password"]').val(),$('[name="confirm_password"]').val(), $('[name="complete_name"]').val(),
      $('[name="company_name"]').val(),$('[name="signup_email"]').val(),$('[name="profile_website"]').val(),$('[name="mobile_phone"]').val(),$('[name="business_area"]').val());
@@ -614,6 +626,7 @@
        post_array = {
          "tariff_guid": tariff_guid,
          "selected_date": selected_date,
+         "location_id": $('[name="location_id"]').val(),
          "InvoiceNow": true
        }
        $.ajax({ 
@@ -668,7 +681,7 @@
                   $('.whole_div').hide();
                   toastr.success('Logged in successfully');
                   setTimeout(function() {
-                     window.location.replace('<?= $this->session->userdata('last_page');?>');
+                     window.location.replace(base_url + 'main/invoice');
                   }, 2000);
                   
                }

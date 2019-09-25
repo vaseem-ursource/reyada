@@ -1,6 +1,13 @@
 <?php include('account_master_start.php');?>
 <div style="border-bottom:1px solid #707070"> 
-   <span class="text-left h4" style="color:#000000;">Invoice and Payments</span>  
+   <span class="text-left h4" style="color:#000000;">Invoice and Payments for
+   <?php if($this->session->userdata('location')== 'reyada'){
+      echo '<b>Reyada - Crystal Tower<b>';
+   }
+   else{
+      echo '<b>Reyada - Mabanee Building</b>';
+   }?>
+   </span>  
 </div>
 <div class="pt-5 mt-2">
    <?php if(!empty($invoices)){ ?>
@@ -26,13 +33,7 @@
             <?php }else{ ?>
             <td style="color:#b8340c";><i class="fa fa-exclamation-circle" ></i> Pending</td>
             <td>
-               <button 
-                  class="pay-hesabe" 
-                  data-invoiceid="<?= $invoice->Id ?>" 
-                  data-invoiceamt="<?= $invoice->TotalAmount ?>" 
-                  style="border: 0px;background-color: transparent;outline:none;" >
-               Pay Hesabe <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i>
-               </button>
+               <button class="btn custom-button-bl pay-hesabe" style="width:100px;" data-invoiceid="<?= $invoice->Id ?>" data-invoiceamt="<?= $invoice->TotalAmount ?>" >Pay Hesabe </button>
             </td>
             <?php } ?>
          </tr>

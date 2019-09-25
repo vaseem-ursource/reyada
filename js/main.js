@@ -28,7 +28,7 @@
 
   // Header scroll class
   $(window).scroll(function() {
-    if ($(this).scrollTop() > 10) {
+    if ($(this).scrollTop() > 100) {
       $('#header').addClass('header-scrolled');
       
     } else {
@@ -36,7 +36,7 @@
     }
   });
 
-  if ($(window).scrollTop() > 10) {
+  if ($(window).scrollTop() > 100) {
     $('#header').addClass('header-scrolled');
   }
 

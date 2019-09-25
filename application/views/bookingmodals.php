@@ -200,7 +200,7 @@
                            <div class="col-md-6">
                               <div class="group" style="text-align: right;">
                                 <!-- <button class="btn btn sm custom-button-bl" >Submit</button> -->
-                                 <p class="arrow-text pull-right" id="pricesubmit" >Submit <i class="arr bl right"></i></p>
+                                 <p class="btn custom-button-bl pull-right" id="pricesubmit" >Submit</p>
                               </div>
                            </div>
                         </div>
@@ -222,8 +222,8 @@
                   <br><br>
                   You can make bookings much quicker if you log in with the account details you were sent when you registered on the site or made your last booking.
                   <br><br>
-                  <p class="arrow-text" id="yesModal" style="float:left;outline:none;">YES <i class="arr bl right"></i></p>
-                  <p class="arrow-text" id="noModal" style="float:left;position:relative;left:20px;outline:none;">NO <i class="arr bl right"></i></p>
+                  <p class="btn custom-button-bl" id="yesModal" style="float:left;outline:none;">YES</p>
+                  <p class="btn custom-button-bl" id="noModal" style="float:left;position:relative;left:20px;outline:none;">NO</p>
                </small>
             </h6>
          </div>
@@ -240,7 +240,7 @@
                      <form style="width:80%; padding-top: 90px;">
                         <h6 style="color:black;" class="text-center">THANK YOU FOR YOUR BOOKING</h6>
                         <h6 style="color:black;" class="text-center" id="confirmBooking"><b></b></h6>
-                        <a href="<?= base_url("main/invoice") ?>"  style="border: 0px;background-color: transparent;color:black;outline:none;" class="text-center">Proceed to payment <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></a>
+                        <a href="<?= base_url("main/invoice") ?>"  class="btn custom-button-bl text-center" style="width:150px;">Proceed to payment</a>
                      </form>
                   </div>
                </div>
@@ -301,18 +301,15 @@
                               <input name="area" id="area"  placeholder="Area" value="test" required type="text"><span class="highlight"></span><span class="bar"></span>
                            </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                            <div class="group">
                               <input name="phone" id="phone"  placeholder="Phone" required type="text"><span class="highlight"></span><span class="bar"></span>
                            </div>
                         </div>
                         <div class="col-md-6">
-                           <div class="group" style="text-align: right; padding-top: 10%;">
+                           <div class="group" style="padding-top: 10%;">
                               <!-- <span id="pickDate" class="arrow-button">Pick date and time&nbsp;<i class="arrow fa fa-angle-right"></i></span> -->
-                              <a href="#" id="pickDate"  style="color:black;outline:none;"><span
-                                 class="align-middle">Pick date and time</span>
-                              <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i>
-                              </a>
+                              <a href="#" id="pickDate" class="btn custom-button-bl" style="width:150px;outline:none;">Pick date and time</a>
                            </div>
                         </div>
                         <div class="col-md-12">
@@ -350,6 +347,7 @@
            $("#loc_imgs").show(); 
            $("#description").show();
            get_locations();
+        
        });
        $(document).on("click","#mr_book",function(){
            $('#confirmBooking').empty();
@@ -613,7 +611,6 @@
                var toTime   = date+'T'+ time2 +'Z';
    
                if(is_logged_in == 1 ){
-                   
                    post_array =
                    {
                        "CoworkerId": user_info.Id,
@@ -622,10 +619,10 @@
                        "FromTime":fromTime,
                        "ToTime": toTime,
                        "InvoiceNow":true,
+                       "loc_url":loc_url,
+                       "loc_id":$('[name="b_location_id"]').val(),
                        
-                   };
-                   myJSON = JSON.stringify(post_array);
-                   create_booking(myJSON);
+                   }
                }
                else
                {
@@ -644,30 +641,30 @@
                        "loc_url":loc_url,
                        "loc_id":$('[name="b_location_id"]').val(),
                    }
-                   $.ajax({
-                       type: 'POST',
-                       dataType: 'json',
-                       url: base_url + 'main/guest_booking',
-                       data: post_array,
-                       success: function(data){
-                           if(data.Status == 200){
-                               $('.whole_div').hide();
-                               $("#bookingmodal").modal("hide");
-                               $('#bookingpricemodal').modal('hide');
-                               $('#thankyouforRegmodal').modal('show');
-                           }
-                           else{
-                               $('.whole_div').hide(); 
-                               toastr.error(data.Message);
-                           }
-                       },
-                       error: function(data){
-                           console.log(data);
-                           $('.whole_div').hide();
-                           toastr.error(data.Message);
-                       }
-                   })
                }
+                $.ajax({
+                    type: 'POST',
+                    dataType: 'json',
+                    url: base_url + 'main/guest_booking',
+                    data: post_array,
+                    success: function(data){
+                        if(data.Status == 200){
+                            $('.whole_div').hide();
+                            $("#bookingmodal").modal("hide");
+                            $('#bookingpricemodal').modal('hide');
+                            $('#thankyouforRegmodal').modal('show');
+                        }
+                        else{
+                            $('.whole_div').hide(); 
+                            toastr.error(data.Message);
+                        }
+                    },
+                    error: function(data){
+                        console.log(data);
+                        $('.whole_div').hide();
+                        toastr.error(data.Message);
+                    }
+                })
        })
    
        $("#pricesubmit").click(function(e) {

@@ -83,7 +83,7 @@ bottom: 0px;
                     </div>
                     <div class="col-12">
                         <div class="group text-center mt-2" style="">
-                            <button type="submit" name="change-password" value="change-password" style="color:black;border: 0px;background-color: transparent;outline:none;"><span id="findAvailable">Send</span> <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>                  
+                            <button type="submit" name="change-password" value="change-password" class="btn custom-button-bl">Send</button>                  
                         </div>
                     </div>
                     <div class="col-12">

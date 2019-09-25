@@ -9,7 +9,7 @@ class main extends CI_Controller
     {
         parent::__construct();
         // $this->lang->load('auth');
-        $this->load->model("Main_model", 'Main_model');
+        $this->load->model("Main_model");
         $this->load->library('pagination');
     }
 
@@ -239,6 +239,7 @@ class main extends CI_Controller
 
     public function purchase_tickets(){
         $post_data = $this->input->post();
+        $logged_in = $this->session->userdata('is_logged_in');
         
         for($attendee = 0; $attendee < count($post_data['attendee_name']); $attendee++){
             $attendees[$attendee] = new StdClass;
@@ -249,8 +250,8 @@ class main extends CI_Controller
         }
 
         $j_data['attendees'] = $attendees;
-        $user_data['fullName'] = $post_data['username'];
-        $user_data['email'] = $post_data['useremail'];
+        $user_data['fullName'] = ($logged_in) ? "" : $post_data['p_name'];
+        $user_data['email'] = ($logged_in) ? "" : $post_data['p_email'];
         $user_data['createUser'] = true;
         $user_data['errors'] = [];
         $product['Currency'] = new StdClass;
@@ -259,13 +260,13 @@ class main extends CI_Controller
         $product['Currency']->Format = "د.ك.‏0.00";
         $product['Currency']->Id = 3549554;
         $product['Currency']->IdString = "3549554";
-        $product['Currency']->UpdatedOn = "";
-        $product['Currency']->CreatedOn ="";
+        $product['Currency']->UpdatedOn = "/Date(1369493356000)/";
+        $product['Currency']->CreatedOn ="/Date(1369493356000)/";
         $product['Currency']->UniqueId = "4f9da52f-3f8e-4a51-a0c2-fe46234477f0";
         $product['Currency']->IsNull = false;
         $product['Currency']->Context = null;
         $product['Name'] = $post_data['event_Name'];
-        $product['Description'] = "";
+        $product['Description'] = $post_data['desc'];
         $product['Price'] = intval($post_data['Price']);
         $product['StartDateFormatted'] = "";
         $product['EndDateFormatted'] = "";
@@ -282,73 +283,61 @@ class main extends CI_Controller
         $product['Quantity'] = intval($post_data['qty']);
         $product['Id'] = intval($post_data['Id']);
         $product['IdString'] = $post_data['Id'];
-        $product['UpdatedOn'] = "";
-        $product['CreatedOn'] = "";
-        $product['UniqueId'] = "";
+        $product['UpdatedOn'] = "/Date(1369493356000)/";
+        $product['CreatedOn'] = "/Date(1369493356000)/";
+        $product['UniqueId'] = "be79107a-5010-49b0-98e8-2fa04dcae731";
         $product['IsNull'] = false;
         $product['Context'] =null;
-        $product['qtys'] = [];
+
+        if(!empty($post_data['qty']) && $post_data['qty'] > 0){
+            $qty_array = array();
+            for($i=1; $i <= $post_data['qty'];$i++){
+                $qty_array[] = $i;
+            }
+        }
+
+        $product['qtys'] = $qty_array;
         $data[] = $product;
-        $cur_url = $this->session->set_userdata('last_page', current_url());
+        $cur_url = $this->session->userdata('last_page');
+        $location = $post_data['loc_url'];
         $this->session->set_userdata('location', $post_data['loc_url']);
-        if($this->session->userdata('is_logged_in')){
+        $s_data = json_encode(array('discountCode' => "", 'redirectUrl' => "/en/events/payment",'products' => $data,'coworker' => $user_data,'attendees' => $j_data['attendees']));
+        $url = "https://$location.spaces.nexudus.com/en/events/purchase?_depth=25";
+        if ($this->session->userdata('is_logged_in')) {
             $user = $this->session->userdata('user_info');
             $username = $user['Email'];
-            if(!empty($user['Password'])){
-                $password = $user['Password'];
-            }
-            
-        }
-        else{
-            $cowerker = new StdClass;
-            $cowerker->FullName = $post_data['p_name'];
-            $cowerker->Businesses = $post_data['loc_id'];
-            $cowerker->Email = $post_data['p_email'];
-            $cowerker->CountryId = 1113;
-            $cowerker->SimpleTimeZoneId = 2029;
-            $cowerker->CreateUser = true;
-            $cowerker->Password = $this->randomPassword();
-            $cowerker->PasswordConfirm = $cowerker->Password;
-            if($this->create_cowerker($cowerker)){
-                $username = $cowerker->Email;
-                $password = $cowerker->Password;
-            }
-            else{
-                $this->session->set_flashdata('success', 'There is a user with this email address already.');
-                redirect($this->session->userdata('main/book_events')); 
-            }
-            
-        }
-        
-        $s_data = json_encode(array('discountCode' => "", 'redirectUrl' => "",'products' => $data,'coworker' => $user_data,'attendees' => $j_data['attendees']));
-        $url = "https://reyada.spaces.nexudus.com/en/events/purchase?_depth=25";
-
-        if(empty($password)){
-           $accesstoken =  $this->session->userdata('access_token');
-            $headers = array(
-                'Content-Type: application/json',
-                'Authorization:' . $accesstoken,
-            );  
-        }
-        else{
+            $password = $user['Password'];
             $headers = array(
                 'Content-Type: application/json',
                 'Authorization: Basic ' . base64_encode("$username:$password"),
             );
         }
-        
+        else{
+            $headers = array(
+                'Content-Type: application/json',
+            );
+        }
         $output = $this->post_with_curl($url, $s_data, $headers);
-        if($output['WasSuccessful'] == true){
-            if(!$this->session->userdata('is_logged_in')){
-                $this->signin($cowerker->Email,$cowerker->Password);
+        if(!empty($output)){
+            if($output['WasSuccessful'] == true){
+                if(!$this->session->userdata('is_logged_in')){
+                    $this->session->set_flashdata('success', 'Created Successfully, for payment please login with the credentials received in the email.');
+                    redirect($cur_url);
+                }
+                else{
+                    redirect('main/invoice'); 
+                }
             }
-            $this->session->set_flashdata('success', 'Tickets successfully purchased, please proceed with payment');
-            redirect('main/invoice');
+            else{
+                $this->session->set_flashdata('error', 'Some error occured please try again');
+                redirect($cur_url);
+            }
         }
         else{
             $this->session->set_flashdata('error', 'Some error occured please try again');
-            redirect($this->session->userdata('main/book_events'));
+            redirect($cur_url);
         }
+            
 
      }
 
@@ -399,19 +388,27 @@ class main extends CI_Controller
         $Booking['ToTime'] = $p_data['ToTime'];
         $Booking['InvoiceNow'] = true;
         $Booking['Id'] = 0;
-        $cowerker = new StdClass;
-        $cowerker->FullName = $p_data['FullName'];
-        $cowerker->Businesses = $p_data['loc_id'];
-        $cowerker->Email = $p_data['Email'];
-        $cowerker->CountryId = 1113;
-        $cowerker->SimpleTimeZoneId = 2029;
-        $cowerker->CreateUser = true;
-        $cowerker->Password = $this->randomPassword();
-        $cowerker->PasswordConfirm = $cowerker->Password;
-        if($this->create_cowerker($cowerker)){
-            $username = $cowerker->Email;
-            $password = $cowerker->Password;
+        if ($this->session->userdata('is_logged_in')) {
+            $user = $this->session->userdata('user_info');
+            $username = $user['Email'];
+            $password = $user['Password'];
         }
+        else{
+            $cowerker = new StdClass;
+            $cowerker->FullName = $p_data['FullName'];
+            $cowerker->Businesses = $p_data['loc_id'];
+            $cowerker->Email = $p_data['Email'];
+            $cowerker->CountryId = 1113;
+            $cowerker->SimpleTimeZoneId = 2029;
+            $cowerker->CreateUser = true;
+            $cowerker->Password = $this->randomPassword();
+            $cowerker->PasswordConfirm = $cowerker->Password;
+            if($this->create_cowerker($cowerker)){
+                $username = $cowerker->Email;
+                $password = $cowerker->Password;
+            }
+        }
+        // $s_data = json_encode(array('Booking' => $Booking,'Coworker' => $cowerker,'Products' => []));
         $s_data = json_encode(array('Booking' => $Booking,'Products' => []));
         if(!empty($p_data['loc_url'])){
             $loc_url =  $p_data['loc_url'];
@@ -424,7 +421,9 @@ class main extends CI_Controller
         );
         $output = $this->post_with_curl($url, $s_data , $headers);
         if($output['Status'] == 200){
-            $this->signin( $username,$password,$loc_url);
+            if(!$this->session->userdata('is_logged_in')){
+                $this->signin($cowerker->Email,$cowerker->PasswordConfirm,$loc_url);
+            }
         }
         print_r(json_encode($output));
     }
@@ -455,36 +454,29 @@ class main extends CI_Controller
 
    
 
-    public function signin($username = null, $password = null, $loc_url = null)
+    public function signin($username = null, $password = null, $loc_url = "reyada")
     {
-        if(empty($loc_url) || $loc_url == null ){
-            $loc_url = "reyada";
-        }
         $url = "https://$loc_url.spaces.nexudus.com/en/profile?_resource=Coworker";
         $user_url = "https://$loc_url.spaces.nexudus.com/en/profile?_resource=User";
-        
-        
+    
         $json['message'] = 'some error occured while processing your request';
         $json['status'] = 500;
 
         if (empty($username) && empty($password)) {
             $p_data = $this->input->post();
-
             $username = $p_data['email'];
             $password = $p_data['password'];
             if(!empty($p_data['loc_url'])){
-                $guest_loc_url =  $p_data['loc_url'];
-                $url = "https://$guest_loc_url.spaces.nexudus.com/en/profile?_resource=Coworker";
-                $user_url = "https://$guest_loc_url.spaces.nexudus.com/en/profile?_resource=User";
+                $loc_url =  $p_data['loc_url'];
+                $url = "https://$loc_url.spaces.nexudus.com/en/profile?_resource=Coworker";
+                $user_url = "https://$loc_url.spaces.nexudus.com/en/profile?_resource=User";
             }
             $headers = array(
                 'Content-Type: application/json',
                 'Authorization: Basic ' . base64_encode("$username:$password"),
             );
-
             $output = $this->post_with_curl($url, null, $headers);
             $user_output = $this->post_with_curl($user_url, null, $headers);
-
             if (!empty($output)) {
                 $this->session->set_userdata('location',$loc_url);
                 $output['Password'] = $password;
@@ -496,19 +488,16 @@ class main extends CI_Controller
                 $this->session->set_userdata('user_info_extra', $user_output);
                 $this->session->set_userdata('is_logged_in', true);
             }
-
             print_r(json_encode($json));
         } else {
-
             $headers = array(
                 'Content-Type: application/json',
                 'Authorization: Basic ' . base64_encode("$username:$password"),
             );
-
             $output = $this->post_with_curl($url, null, $headers);
             $user_output = $this->post_with_curl($user_url, null, $headers);
 
-            if (!empty($output)) {
+            if (!empty($user_output)) {
                 $output['Password'] = $password;
                 $json['message'] = 'Logged in successfully';
                 $json['status'] = 200;
@@ -581,6 +570,7 @@ class main extends CI_Controller
     public function subscription_plan()
     {
         $p_data = $this->input->post();
+        $location = $p_data['location_id'];
         if ($this->session->userdata('is_logged_in')) {
             $user = $this->session->userdata('user_info');
             $username = $user['Email'];
@@ -590,22 +580,24 @@ class main extends CI_Controller
             $username = $this->session->userdata('username');
             $password = $this->session->userdata('password');
         }
-        
-        $access_token = $this->get_access_token($username, $password);
-        if (!empty($access_token)) {
-            $url = $this->config->item('api_base_url').'en/profile/newcontract?tariffguid=' . $p_data['tariff_guid'] . '&startdate=' . $p_data['selected_date'];
-            $headers = array(
-                'content-type: application/json',
-                'Authorization: Basic ' . base64_encode("$username:$password"),
-            );
-            $output = $this->post_with_curl($url, null, $headers);
-            if (!empty($output)) {
-                $json['message'] = 'registered successfully';
-                $json['status'] = 200;
-            } else {
-                $json['message'] = 'some error occured while processing your request';
-                $json['status'] = 500;
-            }
+        if($location == 95265170){
+            $url = 'https://reyada.spaces.nexudus.com/en/profile/newcontract?tariffguid=' . $p_data['tariff_guid'] . '&startdate=' . $p_data['selected_date'];
+            $loc_url = 'reyada';
+            $this->session->set_userdata('location',$loc_url);
+        }
+        else{
+            $url = 'https://reyadamabane.spaces.nexudus.com/en/profile/newcontract?tariffguid=' . $p_data['tariff_guid'] . '&startdate=' . $p_data['selected_date'];
+            $loc_url = 'reyadamabane'; 
+            $this->session->set_userdata('location',$loc_url);
+        }
+        $headers = array(
+            'content-type: application/json',
+            'Authorization: Basic ' . base64_encode("$username:$password"),
+        );
+        $output = $this->post_with_curl($url, null, $headers);
+        if (!empty($output)) {
+            $json['message'] = 'registered successfully';
+            $json['status'] = 200;
         } else {
             $json['message'] = 'some error occured while processing your request';
             $json['status'] = 500;
@@ -993,7 +985,9 @@ class main extends CI_Controller
     public function plan()
     {
         if ($this->session->userdata('is_logged_in')) {
-            $url = $this->config->item('api_base_url')."en/allowances?_depth=3";
+            // $url = "https://$webaddress.spaces.nexudus.com/en/signup?createuser=true&_resource=,&_depth=1";
+            $webaddress = $this->session->userdata('location');
+            $url = "https://$webaddress.spaces.nexudus.com/en/allowances?_depth=3";
             // $username = 'aeraf@ursource.org';
             // $password = 'view1Sonic!';
             
@@ -1006,10 +1000,12 @@ class main extends CI_Controller
                 'Authorization: Basic ' . base64_encode("$username:$password"),
             );
             $allowances = $this->post_with_curl($url, null, $headers);
-            $data['coworker_plans'] = $allowances['NonCancelledContracts'];
-            $data['future_plan'] = $allowances['ActiveContracts'];
-            $data['other_time_passes'] = $allowances['OtherTimePasses'];
-            $data['other_extra_services'] = $allowances['OtherExtraServices'];
+            if(!empty($allowances)){
+                $data['coworker_plans'] = $allowances['NonCancelledContracts'];
+                $data['future_plan'] = $allowances['ActiveContracts'];
+                $data['other_time_passes'] = $allowances['OtherTimePasses'];
+                $data['other_extra_services'] = $allowances['OtherExtraServices'];
+            }
             $data['folder_name'] = 'main';
             $data['file_name'] = 'Account';
             $data['header_name'] = 'header_account';
@@ -1339,20 +1335,6 @@ class main extends CI_Controller
         $data['file_name'] = 'InvoiceAndPayment';
         $data['header_name'] = 'header_account';
         $this->load->view('index', $data);
-    }
-
-    public function refresh_token($id){
-        $auth = new StdClass;
-        $auth->validityInMinutes = 30;
-        $url = "https://spaces.nexudus.com/api/sys/users/$id/token/refresh";
-        $headers = array(
-            'Content-Type: application/json'
-        );
-        
-        $s_data = json_encode(array($auth));
-        $output = $this->post_with_curl($url, null, $headers);
-
-
     }
 
     public function booking()

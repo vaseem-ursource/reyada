@@ -75,10 +75,9 @@ body.modal-open-noscroll
             <span class='k'>ريادة  </span>
            </div>
 
-          <div class="col-md-6 col-sm-12 pl-5" id="mission">
+          <div class="col-md-6 col-sm-12 pl-5">
             <div class="about-content">
             <h4><b>Mission</b></h4>
-              
               <p class="text-justify">Reyada Collaborative Workspace aims to provide for the rising generation of innovative thinkers. Our goal is to build a community of like-minded entrepreneurs and facilitate them with the necessities that a business needs to thrive. At Reyada, workspaces are designed to promote connectivity, enhance creativity and aid the growth of its community. Reyada’s collaborative environment generates endless opportunities for its members. 
               #TOGETHERWECREATE
               </p>
@@ -186,7 +185,7 @@ body.modal-open-noscroll
                   <h2 class="px-5 position-relative">HOT DESK</h2>
                   <div class="text-center position-relative"><img src="<?= base_url()?>image/membership/m2.png"  style="margin: 25%" width="25%" class="position-relative"></div>
                   <div style="bottom: 30px;left:50px;position: absolute;">
-                  <a href="<?= base_url('main/Services#hotdesk')?>" class="btn btn-default custom-button-wh">View</a>
+                  <a href="<?= base_url('main/Services#hotdesk')?>" class="btn btn-default custom-button-wh">VIEW</a>
 
                   <!-- <a href="<?= base_url('main/Services#hotdesk')?>"><h4 class="px-5 position-relative pt-5 text-white"><span class="align-middle" style="position:relative;top:1.5px;">View</span></h4></a> -->
                   </div>
@@ -199,7 +198,7 @@ body.modal-open-noscroll
                   <h2 class="px-5 position-relative">PRIVATE OFFICE</h2>
                   <div class="text-center position-relative"><img src="<?= base_url()?>image/membership/m3.png" style="margin: 25%" width="25%" class="position-relative"></div>
                   <div style="bottom: 30px;left:50px;position: absolute;">
-                  <a href="<?= base_url('main/Services#privateoffice')?>" class="btn btn-default custom-button-wh">View</a>
+                  <a href="<?= base_url('main/Services#privateoffice')?>" class="btn btn-default custom-button-wh">VIEW</a>
 
                   <!-- <a href="<?= base_url('main/Services#privateoffice')?>"><h4 class="px-5 position-relative pt-5 text-white"><span class="align-middle" style="position:relative;top:1.5px;">See </span><i class="fa fa-angle-right fa-2x align-middle"></i></h4></a> -->
                   </div>

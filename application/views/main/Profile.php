@@ -350,7 +350,7 @@ ul.tools li i:after{
           <span>Contact us to change your email</span>
         </div>
           <div class="col-md-12 group pt-1 pl-0">
-                <button type="submit"  style="border: 0px;background-color: transparent;outline:none;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
+                <button type="submit"  style=";outline:none;" class="btn custom-button-bl float-right">Save</button>
           </div>
 
 
@@ -398,7 +398,7 @@ ul.tools li i:after{
           <div class="col-md-12 group pt-4 ">
               <input type="checkbox" name="u_membership2" id="membership2" value="u_membership2" style="width:15px;height:15px;">
               <span style="color:#999; font-size: 18px;">My Billing Details are diffrent than my personal details</span><br>
-              <button type="submit"  style="border: 0px;background-color: transparent;outline:none;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
+              <button type="submit"  style="outline:none;" class="btn custom-button-bl float-right">Save</button>
             </div>
       </div>
 </div>
@@ -441,7 +441,7 @@ ul.tools li i:after{
           </div>
         </div>
           <div class="col-md-12 group pt-4 ">
-              <button type="submit"  style="border: 0px;background-color: transparent;outline:none;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
+              <button type="submit"  style="outline:none;" class="btn custom-button-bl float-right">Save</button>
             </div>
       </div>
 </div>
@@ -581,7 +581,7 @@ ul.tools li i:after{
   
   <div class="col-md-12 group pt-4 pl-0">
       <input type="hidden" name="membership" id="membership" value="true" >
-      <button type="submit"  style="border: 0px;background-color: transparent;outline:none;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
+      <button type="submit"  style="outline:none;" class="btn custom-button-bl float-right">Save</button>
   </div>
 
   <div class="col-12 pt-5 mt-5 p-0" id="social">
@@ -622,7 +622,7 @@ ul.tools li i:after{
 
       <div class="col-2"></div>
     </div><br>
-    <button type="submit"  style="border: 0px;background-color: transparent;outline:none;" class="float-right">Save <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
+    <button type="submit"  style="outline:none;" class="btn custom-button-bl float-right">Save</button>
   </div>
 
   <div class="col-12 pt-5 mt-5 p-0" id="password">
@@ -667,7 +667,7 @@ ul.tools li i:after{
     </div>
   </div>
   <br>
-  <button type="submit" style="border: 0px;background-color: transparent; font-size:15px;outline:none;" class="float-right">Save<i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
+  <button type="submit" style="outline:none;" class="btn custom-button-bl float-right">Save</button>
 
   <div class="col-12 pt-5 mt-5 p-0" id="notification">
       <div style="border-bottom:1px solid black">
@@ -683,7 +683,7 @@ ul.tools li i:after{
       <input type="radio" <?= ($coworker['SignUpToNewsletter']) ? '' : 'checked' ?> value="No" name="SignUpToNewsletter" style="width:15px;height:15px;">
       <span style="color:#707070; font-size: 18px;">No</span><br>
   </div>
-  <button type="submit"  style="border: 0px;background-color: transparent; font-size:15px;outline:none;" class="float-right">Save<i class="fa fa-angle-right fa-2x pl-1 align-middle"></i></button>
+  <button type="submit"  style="outline:none;" class="btn custom-button-bl float-right">Save</button>
 </div>
 </form>
 

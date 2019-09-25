@@ -34,7 +34,7 @@
     </div>
     <div>
         <h6 style="color:#000000;">This list shows bookings in the upcoming 90 days, use the calender to see all the bookings</h6>
-        <a href="#" style="color:#000000;"><span class="pl-3 h6" id="bookingbutton">Calendar</span><i class="fa fa-angle-right fa-2x pl-1 pb-2 align-middle"></i></a>
+        <a href="#" class="btn custom-button-bl" id="bookingbutton">Calendar</a>
     </div>
 <?php include('account_master_end.php');?>
        

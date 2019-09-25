@@ -442,7 +442,8 @@
                             </div>
                             <div class="border-right border-secondary p-3 text-right">
                                 <span class="pt-3 pl-3">From KWD 10 per month</span><br>
-                                <span><i class="fa fa-angle-right fa-2x pt-3 pl-3 planshow"></i></span>
+                                <span class="btn custom-button-bl pull-right planshow">INQUIRE</span>
+                                <!-- <span><i class="fa fa-angle-right fa-2x pt-3 pl-3 planshow"></i></span> -->
                             </div>
                         </div>
                         <!-- <div class="border-left border-secondary p-3">
@@ -455,7 +456,8 @@
                     <img src="<?= base_url()?>image/membership/bg1.jpg" class="w-100 " alt="">
                     <div class="border-left border-secondary p-3">
                         <span class="pt-3 pl-3">From KWD 10 per month</span><br>
-                        <span><i class="fa fa-angle-right fa-2x pt-3 pl-3 "></i></span>
+                        <span class="btn custom-button-bl pull-right">INQUIRE</span>
+                        <!-- <span><i class="fa fa-angle-right fa-2x pt-3 pl-3 "></i></span> -->
                     </div>
                </div>
             </div>
@@ -491,7 +493,8 @@
                     </div>
                     <div class="border-right border-secondary p-3 text-right">
                         <span class="pt-3 pl-3">From KWD 50 per month</span><br>
-                        <span><i class="fa fa-angle-right fa-2x pt-3 pl-3 planshow"></i></span>
+                        <span class="btn custom-button-bl pull-right planshow">INQUIRE</span>
+                        <!-- <span><i class="fa fa-angle-right fa-2x pt-3 pl-3 planshow"></i></span> -->
                     </div>
                 </div>
                <div class="col-md-6 pt-4 mt-4">
@@ -568,8 +571,8 @@
                         </a>
                     </div>
                     <div class="border-left border-secondary p-3">
-                        <span class="pt-3 pl-3">Call for Inquiries</span><br>
-                        <span><i class="fa fa-angle-right fa-2x pt-3 pl-3 planshow"></i></span>
+                        <span class="pull-right">Call for Inquiries</span><br>
+                        <span class="btn custom-button-bl pull-right planshow">INQUIRE</span>
                     </div>
                 </div>
             </div>
@@ -610,7 +613,7 @@
                             <h5 class="card-title"><b><?= $coworking->Price?>.00 <?= $coworking->CurrencyCode?>&nbsp;(<?= ($coworking->InvoiceEvery === 1) ? 'Monthly' : (($coworking->InvoiceEvery === 4) ? 'Quarterly' : ($coworking->InvoiceEvery === 12) ? 'Annually' :"every '$coworking->InvoiceEvery' months"); ?>)</b></h5><br>
                             <h6 class="card-title" style="position: relative;margin-top:-20px;margin-left:0px;">Features:</h6>
                             <div class="card-text text-justify plan-desc" style="min-height:200px;"><?= $coworking->Description ?></div><br>
-                            <a href="#" class="text-center text-dark planshow" data-toggle="modal" data-target="#modalsignup" ><h4><?= ($is_logged_in == 1) ? 'Continue' :'Sign Up' ?>&nbsp;&nbsp;<i class="fa fa-angle-right"></i></h4></a>
+                            <a href="#" class="btn custom-button-bl text-center planshow" data-toggle="modal" data-target="#modalsignup" ><h6><?= ($is_logged_in == 1) ? 'Continue' :'Sign Up' ?></h6></a>
                         </div>
                     </div>
                 </div>
