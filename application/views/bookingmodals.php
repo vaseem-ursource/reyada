@@ -260,7 +260,7 @@
                      <form style="width:80%; padding-top: 90px;">
                         <h6 style="color:black;" class="text-center" id="bookingPrice"><b></b></h6>
                      </form>
-                     <p class="arrow-text text-center" id="meetSubmit" >Proceed <i class="arr bl right"></i></p>
+                     <p class="btn custom-button-bl text-center" id="meetSubmit" >Proceed</p>
                   </div>
                </div>
             </section>
@@ -963,8 +963,7 @@
                            $(".location").append("<option value ='0'>" + 'Select Location' + "</option>");
                            $(".location").append("<option value ='"+location[2].WebAddress+"'>" + location[2].Name + "</option>");
                            $(".location").append("<option value ='"+location[1].WebAddress+"'>" + location[1].Name + "</option>");
-                    //    get_location_bookings(location[2].Id,cur_date_time,yesterday);
-                    //    get_resources(location[2].Id);
+                   
                    } else {
                        $(".location-drp-dwn").append("<option value ='0'>" +'No Locations' + "</option>");
                    }

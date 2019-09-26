@@ -396,7 +396,7 @@ class main extends CI_Controller
         else{
             $cowerker = new StdClass;
             $cowerker->FullName = $p_data['FullName'];
-            $cowerker->Businesses = $p_data['loc_id'];
+            $cowerker->Businesses = [95265170,906856952];
             $cowerker->Email = $p_data['Email'];
             $cowerker->CountryId = 1113;
             $cowerker->SimpleTimeZoneId = 2029;
