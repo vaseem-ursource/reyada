@@ -207,13 +207,12 @@ class main extends CI_Controller
         if($location == 95265170){
             $url = 'https://reyada.spaces.nexudus.com/en/signup?_resource=,&_depth=1';
             $loc_url = 'reyada';
-            $this->session->set_userdata('location',$loc_url);
         }
         else{
             $url = 'https://reyadamabane.spaces.nexudus.com/en/signup?_resource=,&_depth=1';
             $loc_url = 'reyadamabane'; 
-            $this->session->set_userdata('location',$loc_url);
         }
+        $this->session->set_userdata('location',$loc_url); 
         $headers = array(
             'Content-Type: application/json',
             'Content-Length: ' . strlen($s_data),
@@ -786,9 +785,13 @@ class main extends CI_Controller
             'message' => $this->input->post('notes'),
             'posted_date' => date('Y-m-d H:i:s'),
         );
-        $this->Main_model->insert_contactus_db($data);
-        $this->session->set_flashdata('contact', 'true');
-        redirect('./');
+
+        if ($this->Main_model->insert_contactus_db($data)) {
+            $json['status'] = 'OK';
+        } else {
+            $json['status'] = 'Error';
+        }
+        print_r(json_encode($json));
     }
 
     private function display_status($status, $success, $fail, $redirect)

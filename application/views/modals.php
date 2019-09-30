@@ -24,7 +24,7 @@
                            <br><br>
                         </h6>
                      </div>
-                     <form action="<?= base_url('Main/contactus')?>" style="width:95%; padding-top:5px; padding-left:10%" method="post" class="m-0">
+                     <form id="contact-us-form"  style="width:95%; padding-top:5px; padding-left:10%" method="post" class="m-0">
                         <div class="col-md-12 col-sm-12 col-xs-12 row">
                            <div class="col-md-6" style="color:black; padding-right:10%" style="font-size: 16px;height:500px;">
                               <h6 style="color:black;" style="font-size: 16px;" class="text-justify">
@@ -37,7 +37,7 @@
                                  <input type="email" placeholder="Email" name="email" id="email3" required><span class="highlight"></span><span class="bar"></span>
                               </div>
                               <div class="group">
-                                 <input type="number" placeholder="Phone Number" name="phone" id="phone2" required><span class="highlight"></span><span class="bar"></span>
+                                 <input type="text" placeholder="Phone Number" maxlength="8"  name="phone" id="phone2" required><span class="highlight"></span><span class="bar"></span>
                               </div>
                               <div class="group">
                                  <input type="text" placeholder="Company Name" name="company" id="company2" required><span class="highlight"></span><span class="bar"></span>
@@ -403,7 +403,7 @@
                         +(965) 2297 0270<br>
                         info@reyada.co
                         <br><br>
-                        <a href="<?= base_url()?>" class="btn custom-button-bl" style="outline:none;">HOME</a>
+                        <a href="#" class="btn custom-button-bl" data-dismiss="modal" style="outline:none;">HOME</a>
                         </small>
                      </h6>
                   </div>
@@ -458,7 +458,7 @@
                            <input type="email" placeholder="Email" name="p_email" required><span class="highlight"></span><span class="bar"></span>
                         </div>
                         <div class="group">
-                           <input type="number" placeholder="Phone Number" name="p_phone" maxlength="8" required><span class="highlight"></span><span class="bar"></span>
+                           <input type="text" placeholder="Phone Number" name="p_phone" maxlength="8" required><span class="highlight"></span><span class="bar"></span>
                         </div>
                         <div class="group" >
                            <textarea name="p_services" style="width:100%" required placeholder="Services You Offer"></textarea>
@@ -502,12 +502,49 @@
    var username = '<?= $this->config->item('username')?>'
    var password = '<?= $this->config->item('password')?>'
    var base_url = '<?= base_url(); ?>';
-   
+   var digit_pattern = new RegExp('^[2-9][0-9]*$');
    $(".secondSignup").hide();
    
    $(".continuebtn").click(function () {
      $(".secondSignup").show();
    });
+   $('#contact-us-form').submit(function(e){
+      $('.whole_div').show();
+      e.preventDefault();
+      if (!($('[name="phone"]').val()).match(digit_pattern)) {
+         alert("Invalid Mobile number");
+         $('.whole_div').hide();
+         return false;
+      }
+      else if($('[name="phone"]').val().length > 8){
+         $('.whole_div').hide();
+         alert("Mobile number should be 8 digits only");
+      }
+      else{
+         $('.whole_div').hide();
+         var form_data = $(this).serialize();
+               $.ajax({
+               type: 'POST',
+               dataType: 'json',
+               url: base_url + 'Main/contactus',
+               data: form_data,
+               success: function(data) {
+                 $('.whole_div').hide();
+                   if(data.status == 'OK'){
+                     $("#modalcontact").modal("hide");
+                     $('#contact_thankyou').modal('show');
+                   }
+               },
+               error: function(jqxhr, status, error) {
+                 $('.whole_div').hide();
+                 $('.whole_div').hide();
+                 console.log(jqxhr);
+                 console.log(status);
+                 console.log(error);
+               }
+           });
+      }
+   })
 
    $('#partnerform').submit(function(e){
      $('.whole_div').show();
@@ -516,6 +553,11 @@
            $('.whole_div').hide();
              alert("Please check the reCAPTCHA");
          } 
+         else if (!($('[name="p_phone"]').val()).match(digit_pattern)) {
+            alert("Invalid Mobile number");
+            $('.whole_div').hide();
+            return false;
+         }
          else if($('[name="p_phone"]').val().length > 8){
            $('.whole_div').hide();
            alert("Phone should be 8 digits");
