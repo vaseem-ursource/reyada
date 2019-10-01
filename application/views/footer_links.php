@@ -38,3 +38,14 @@
    });
 </script>
 <?php endif; ?>
+<?php
+if(isset($_GET['src']) && $_GET['src'] == 'email'){?>
+    <script>
+    $("#modalLogin").modal("show"); 
+</script>
+<?php } else { ?>
+    <script>
+       $("#modalLogin").modal("hide"); 
+   </script>
+<?php }
+?>
