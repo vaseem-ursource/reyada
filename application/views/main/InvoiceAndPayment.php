@@ -1,15 +1,21 @@
 <?php include('account_master_start.php');?>
-<div style="border-bottom:1px solid #707070"> 
-   <span class="text-left h4" style="color:#000000;">Invoice and Payments for
-   <?php if($this->session->userdata('location')== 'reyada'){
-      echo '<b>Reyada - Crystal Tower<b>';
-   }
-   else{
-      echo '<b>Reyada - Mabanee Building</b>';
+<div style="border-bottom:1px solid black;"> 
+   <span class="text-left h3" style="color:#000000;">Invoice and Payments for 
+   <?php if(!empty($location_name)){
+         echo $location_name;
    }?>
+      <div class="dropdown invoice-location-pos">
+         <button type="button" style="width:150px;border:none;background-color:white;color:black;outline:none;" class="btn custom-button-bl dropdown-toggle pull-right" data-toggle="dropdown">
+            Change Location
+         </button>
+         <div class="dropdown-menu">
+            <a class="dropdown-item" href="<?=base_url()?>main/invoice/reyada">Reyada Crystal Tower</a>
+            <a class="dropdown-item" href="<?= base_url()?>main/invoice/reyadamabane">Reyada Mabane Building</a>
+         </div>
+      </div>
    </span>  
 </div>
-<div class="pt-5 mt-2">
+<div class="pt-5 mt-2 table-responsive">
    <?php if(!empty($invoices)){ ?>
    <table class="table table-striped h6 table-borderless" style="color:#000000;">
       <thead>
@@ -33,7 +39,7 @@
             <?php }else{ ?>
             <td style="color:#b8340c";><i class="fa fa-exclamation-circle" ></i> Pending</td>
             <td>
-               <button class="btn custom-button-bl pay-hesabe" style="width:100px;" data-invoiceid="<?= $invoice->Id ?>" data-invoiceamt="<?= $invoice->TotalAmount ?>" >Pay Hesabe </button>
+               <button class="btn custom-button-bl pay-hesabe pull-right" style="width:100px;" data-invoiceid="<?= $invoice->Id ?>" data-invoiceamt="<?= $invoice->TotalAmount ?>" >Pay Hesabe </button>
             </td>
             <?php } ?>
          </tr>

@@ -29,17 +29,17 @@ body.modal-open-noscroll
           <li data-target="#homecarousel" data-slide-to="3"></li>
       </ul>
       <div class="carousel-inner">
-          <div class="carousel-item active">
-          <img src="<?= base_url()?>image/home2.jpg"   class="img-responsive slider-height" alt="slider1">
+          <div class="carousel-item active" style="background:url('<?= base_url()?>image/home2.jpg') center  no-repeat;background-size: cover;height:106vh;">
+          <!-- <img src="<?= base_url()?>image/home2.jpg"   class="img-responsive slider-height" alt="slider1"> -->
           </div>
-          <div class="carousel-item">
-          <img src="<?= base_url()?>image/home3.jpg"  class="img-responsive  slider-height" alt="slider2">
+          <div class="carousel-item" style="background:url('<?= base_url()?>image/home3.jpg') center  no-repeat;background-size: cover;height:106vh">
+          <!-- <img src="<?= base_url()?>image/home3.jpg"  class="img-responsive  slider-height" alt="slider2"> -->
           </div>
-          <div class="carousel-item">
-          <img src="<?= base_url()?>image/home1.jpg" class="img-responsive  slider-height" alt="slider3">
+          <div class="carousel-item" style="background:url('<?= base_url()?>image/home1.jpg') center  no-repeat;background-size: cover;height:106vh">
+          <!-- <img src="<?= base_url()?>image/home1.jpg" class="img-responsive  slider-height" alt="slider3"> -->
           </div>
-          <div class="carousel-item">
-          <img src="<?= base_url()?>image/home4.jpg"  class="img-responsive  slider-height" alt="slider4">
+          <div class="carousel-item" style="background:url('<?= base_url()?>image/home4.jpg') center  no-repeat;background-size: cover;height:106vh">
+          <!-- <img src="<?= base_url()?>image/home4.jpg"  class="img-responsive  slider-height" alt="slider4"> -->
           </div>
       </div>
       <a class="carousel-control-prev" href="#homecarousel" data-slide="prev">

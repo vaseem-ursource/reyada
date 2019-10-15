@@ -599,7 +599,7 @@ ul.tools li i:after{
           </div>
       </div>
 
-      <div class="col-md-5 pl-5">
+      <div class="col-md-5">
           <div class="group">
             <label><b><i class="fa fa-facebook text-dark pl-0" style="font-size: 15px"></i></b></label><br>
               <input type="text" name="facebook" value="<?= (isset($coworker['Facebook']) && !empty($coworker['Facebook'])) ? $coworker['Facebook'] : ''; ?>" placeholder="Facebook"><span class="highlight"></span><span class="bar"></span>
@@ -613,7 +613,7 @@ ul.tools li i:after{
           </div>
       </div>
 
-      <div class="col-md-5 pl-5">
+      <div class="col-md-5">
           <div class="group">
             <label><b><i class="fa fa-instagram text-dark pl-0" style="font-size: 15px"></i></b></label><br>
               <input type="text" name="instagram" value="<?= (isset($coworker['Instagram']) && !empty($coworker['Instagram'])) ? $coworker['Instagram'] : ''; ?>" placeholder="Instagram"><span class="highlight"></span><span class="bar"></span>
@@ -638,7 +638,7 @@ ul.tools li i:after{
         <label>Checkin & internet pincode</label>
       </div>
     </div>
-    <div class="col-md-5 pl-4">
+    <div class="col-md-5">
       <div class="group">
         <input type="password" name="old_password"><span class="highlight"></span><span class="bar"></span>
         <label>Old password</label>
@@ -650,7 +650,7 @@ ul.tools li i:after{
         <label>New password</label>
       </div>
     </div>
-    <div class="col-md-5 pl-4">
+    <div class="col-md-5">
       <div class="group">
         <input type="password" name="r_new_password"><span class="highlight"></span><span class="bar"></span>
         <label>Repeat New password</label>

@@ -18,7 +18,7 @@
          <div class="modal-body p-0 m-0">
             <section>
                <div class="row">
-                  <div class="col-md-9">
+                  <div class="col-md-9 col-sm-9 col-xs-9">
                      <div class="col-md-12 col-sm-12 col-xs-12 row" style="padding-top:10%; padding-left:8%;" class="px-5">
                         <h6 style="color:black;" style="font-size: 16px;" class="text-justify ml-5 m-0">LET US REACH YOU!
                            <br><br>
@@ -43,35 +43,32 @@
                                  <input type="text" placeholder="Company Name" name="company" id="company2" required><span class="highlight"></span><span class="bar"></span>
                               </div>
                            </div>
-                           <div class="col-md-6" style="color:black; padding-left: 10%;" style="font-size: 16px;">
+                           <div class="col-md-6" style="color:black; padding-left: 10%;" style="font-size: 17px;height:500px;">
                               <h6 style="color:black;" class="text-left"><small>Subject of inquiry: (membership – workspaces – packages - other)</small></h6>
-                              <div style="position:relative;top:11px;">
-                                 <div class="group">
-                                    <input type="checkbox" name="membership" id="membership2">
-                                    <span style="color:#999; font-size: 11px;">About membership</span>
-                                 </div>
-                                 <div class="group">
-                                    <input type="checkbox" name="workspace" id="workspace">
-                                    <span style="color:#999; font-size: 11px;"> Finding workspace</span>
-                                 </div>
-                                 <div class="group">
-                                    <input type="checkbox" name="somethingelse" id="somethingelse">
-                                    <span style="color:#999; font-size: 11px;" required>something else</span>
-                                 </div>
-                                 <div class="group">
-                                    <input type="text" placeholder="Notes" name="notes" id="notes" ><span class="highlight"></span><span class="bar"></span>
-                                 </div>
+                              <div class="group">
+                                 <input type="checkbox" name="membership" id="membership2">
+                                 <span style="color:#999; font-size: 11px;">About membership</span>
                               </div>
-                              <br><br>
-                              <button type="submit"  style="outline:none;" class="float-right btn custom-button-bl">Submit</button>
+                              <div class="group">
+                                 <input type="checkbox" name="workspace" id="workspace">
+                                 <span style="color:#999; font-size: 11px;"> Finding workspace</span>
+                              </div>
+                              <div class="group">
+                                 <input type="checkbox" name="somethingelse" id="somethingelse">
+                                 <span style="color:#999; font-size: 11px;" required>something else</span>
+                              </div>
+                              <div class="group" style="padding-top:9px;">
+                                 <input type="text" placeholder="Notes" name="notes" id="notes" >
+                              </div>
+                              <button type="submit"  style="outline:none;margin-top:15px;" class="float-right btn custom-button-bl">Submit</button>
                            </div>
                         </div>
                      </form>
                   </div>
-                  <div class="col-md-3 bg-black" style="padding-left:0px;padding-right:0px;height:500px;">
+                  <div class="col-md-3  col-sm-3 col-xs-3 bg-black" style="padding-left:30px;padding-right:30px;height:500px;">
                      <button type="button" class="close p-4 text-white" style="outline:none;" data-dismiss="modal">&#10006</button>
-                     <div class="container" style="padding:60px;">
-                        <h5 style="color:white;position:relative;margin-top:40px;" class="text-justify">CALL US.</h5>
+                     <div class="container" style="position:relative;top:80px;">
+                        <h5 style="color:white;" class="text-justify">CALL US.</h5>
                         <br>
                         <small style="color:white;font-size: 14px;">
                         Give us a call during our office hours and inquire about our services.
@@ -463,10 +460,10 @@
                         <div class="group" >
                            <textarea name="p_services" style="width:100%" required placeholder="Services You Offer"></textarea>
                         </div>
-                        <!-- <div class="g-recaptcha" data-sitekey="6LeLH7kUAAAAAOrLMybD7bI52vunWgLhIJVzwYtm" required></div> -->
-                        <div class="g-recaptcha" data-sitekey="6LcdBrkUAAAAAGJCngHt8FhPPfwaYbKvNL5Zjv6s" required></div>
+                        <!-- <div data-size="compact" class="g-recaptcha" data-sitekey="6LeLH7kUAAAAAOrLMybD7bI52vunWgLhIJVzwYtm" required></div> -->
+                        <div  data-size="compact" class="g-recaptcha text-center" data-sitekey="6LcdBrkUAAAAAGJCngHt8FhPPfwaYbKvNL5Zjv6s" required></div>
                         <br>
-                        <button type="submit" class="btn custom-button-bl" style="position:relative;left:40%;outline:none;" id="partnersubmit" >Submit</button>
+                        <button type="submit" class="btn custom-button-bl" style="position:relative;left:40%;outline:none;">Submit</button>
                      </div>
                   </div>
                </form>
@@ -568,7 +565,7 @@
                $.ajax({
                type: 'POST',
                dataType: 'json',
-               url: base_url + 'main/send_email',
+               url: base_url + 'main/partnership_request',
                data: form_data,
                success: function(data) {
                  $('.whole_div').hide();

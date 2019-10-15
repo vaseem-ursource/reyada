@@ -2,7 +2,17 @@
 
     <!-- <span class="text-left text-dark pt-2 pl-2 h4">Your plan</span>  -->
     <div style="border-bottom:1px solid #707070"> 
-        <span class="text-left h3" style="color:#000000;">Your Booking</span>  
+        <span class="text-left h3" style="color:#000000;">Your Bookings at <?= $location_name ?>
+            <div class="dropdown" style="float:right;position:relative;top:-10px;">
+            <button type="button" style="width:150px;border:none;" class="btn custom-button-bl dropdown-toggle pull-right" data-toggle="dropdown">
+                Change Location
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="<?=base_url()?>main/booking/reyada">Reyada Crystal Tower</a>
+                <a class="dropdown-item" href="<?= base_url()?>main/booking/reyadamabane">Reyada Mabane Building</a>
+            </div>
+        </div>
+      </span>  
     </div>
     <div class="pt-5 mt-2">
     <table class="table table-striped table-borderless" style="color:#000000;">

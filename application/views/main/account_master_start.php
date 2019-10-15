@@ -114,7 +114,7 @@ bottom: 0px;
 <section id="team" class="pb-1 mt-5"> 
     <div class="container"> 
         <div class="row"> 
-            <div class="col-12 row mb-4">
+            <div class="col-12 row">
                 <!-- <div class="col-3"></div>
                 <div class="col-9 p-0">
                     <img src="<?= base_url('image/location.png');?>" alt="" width="25px"><span> CRYSTAL TOWER</span>

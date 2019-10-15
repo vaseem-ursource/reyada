@@ -21,7 +21,7 @@
       <div class="logo float-left lap">
          <h1 class="text-light"><a href="<?= base_url()?>main" class="scrollto/"><span><img src="<?= base_url()?>image/logo_black.png"></span></a></h1>
       </div>
-      <div class="logo text-center mob">
+      <div class="logo mob">
          <h1 class="text-light"><a href="<?= base_url()?>main" class="scrollto/"><span><img src="<?= base_url()?>image/logo_black.png"></span></a></h1>
       </div>
       <nav class="main-nav float-right d-none d-lg-block" id="myMenu">
@@ -43,19 +43,31 @@
    </div>
 </header>
 <script>
-   $(function () {
+   $(document).ready(function(){
+      var st = $(this).scrollTop();
+      if (st == 0) {
+         $('.mobile-nav-toggle i').addClass('text-dark');
+       }
+       else {
+         $('.mobile-nav-toggle i').removeClass('text-dark');
+       }
+     $(function () {
      var lastScrollTop = 0;
      var $navbar = $('#header');
-   
      $(window).scroll(function(event){
-       var st = $(this).scrollTop();
+      var st = $(this).scrollTop();
        if (st == 0) {
+         console.log('inside if');
          $('#header').css('background-color','white');
+         $('.mobile-nav-toggle i').addClass('text-dark');
          $('#myMenu ul li a').addClass('text-dark');
          $('#myMenu ul li a').removeClass('text-white');
          $('.logo h1 a span img').attr("src","<?= base_url()?>image/logo_black.png");
        }
        else {
+         console.log('inside else');
+         // $('.mobile-nav-toggle i').css('color','white');
+         $('.mobile-nav-toggle i').removeClass('text-dark');
          $('#myMenu ul li a').addClass('text-white');
          $('#header').css('background-color','black');
          $('#myMenu ul li a').removeClass('text-dark');
@@ -64,4 +76,6 @@
        lastScrollTop = st;
      });
    });
+   });
+  
 </script>

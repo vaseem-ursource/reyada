@@ -41,7 +41,9 @@
                   </li>
                   <?php
                   if($this->session->userdata('role') == 'admin' || $this->session->userdata('role') == 'Admin'){ ?>
-                  <li><a href="<?= base_url('ContactUs');?>"><i class="fa fa-phone"></i> Contactus</a>
+                  <li><a href="<?= base_url('ContactUs');?>"><i class="fa fa-phone"></i> Contact us</a>
+                  </li>
+                  <li><a href="<?= base_url('Dashboard/send_new_password');?>"><i class="fa fa-lock"></i> Send New Password</a>
                   </li>
                   <?php } ?>
                   <li><a href="<?= base_url('Login/Logout');?>"><i class="fa fa-sign-out"></i>Log out</a>

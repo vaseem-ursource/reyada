@@ -405,11 +405,11 @@
                     Get access of 1 - hour meeting room credit. Additional charge of 7.5 kd per hour.</span>
                     <div class="col-md-12 row px-0 py-3 m-0">
                         <div class="col-md-4 text-center p-1"  style="width:33.33%">
-                            <span class="text-center badge w-100 pt-4 pb-4">9am - 9pm <b style="font-size:small">Access</b></span>
+                            <span class="text-center badge w-100 pt-4 pb-4">9am - 9pm <b style="font-size:11px;">Access</b></span>
                              
                         </div>
                         <div class="col-md-4 text-center p-1" style="width:33.33%">
-                            <span class="text-center badge w-100 pt-4 pb-4">1 h <b style="font-size:small">Meeting Room Credit</b></span>
+                            <span class="text-center badge w-100 pt-4 pb-4">1 h <b style="font-size:11px;">Meeting Room Credit</b></span>
                              
                         </div>
                         <div class="col-md-4 text-center p-1" style="width:33.33%">
@@ -504,11 +504,11 @@
                     Perfect for the rising entrepreneur. Get daily access to the co-working space with 3 - hours of meeting room credit. Additional charge of 7.5 kd per hour.</span>
                     <div class="col-md-12 row px-0 py-3 mt-3">
                         <div class="col-md-4 text-center p-1 py-1" style="width:33.33%">
-                            <span class="text-center badge w-100 pt-4 pb-4">9am - 9pm <b style="font-size:small">Access</b></span>
+                            <span class="text-center badge w-100 pt-4 pb-4">9am - 9pm <b style="font-size:11px;">Access</b></span>
                             
                         </div>
                         <div class="col-md-4 text-center p-1 py-1" style="width:33.33%">
-                            <span class="text-center badge w-100 pt-4 pb-4">3 h <b style="font-size:small">Meeting Room Credit</b></span>
+                            <span class="text-center badge w-100 pt-4 pb-4">3 h <b style="font-size:11px;">Meeting Room Credit</b></span>
                             
                         </div>
                         <div class="col-md-4 text-center p-1" style="width:33.33%">
@@ -536,11 +536,11 @@
                     Ideal workspace for stable businesses, freelancers and entrepreneurs. Get 24/7 access to your office with a minimum of 5 - hours of meeting room credit. Additional charge of 7.5 per hour.</span>
                     <div class="col-md-12 row px-0 py-3 mt-3">
                         <div class="col-md-4 text-center p-1" style="width:33.33%">
-                            <span class="text-center badge w-100 pt-4 pb-4">24/7 <b style="font-size:small">Access</b> </span>
+                            <span class="text-center badge w-100 pt-4 pb-4">24/7 <b style="font-size:11px;">Access</b> </span>
                             
                         </div>
                         <div class="col-md-4 text-center p-1" style="width:33.33%">
-                            <span class="text-center badge w-100 pt-4 pb-4">5 h <b style="font-size:small">Meeting Room Credit</b></span>
+                            <span class="text-center badge w-100 pt-4 pb-4">5 h <b style="font-size:11px;">Meeting Room Credit</b></span>
                              
                         </div>
                         <div class="col-md-4 text-center p-1" style="width:33.33%">

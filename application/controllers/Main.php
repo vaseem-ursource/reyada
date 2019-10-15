@@ -212,11 +212,13 @@ class main extends CI_Controller
             $url = 'https://reyadamabane.spaces.nexudus.com/en/signup?_resource=,&_depth=1';
             $loc_url = 'reyadamabane'; 
         }
+
         $this->session->set_userdata('location',$loc_url); 
         $headers = array(
             'Content-Type: application/json',
             'Content-Length: ' . strlen($s_data),
         );
+        
         $output = $this->post_with_curl($url, $s_data, $headers);
 
         if (!empty($output)) {
@@ -397,6 +399,7 @@ class main extends CI_Controller
             $cowerker->FullName = $p_data['FullName'];
             $cowerker->Businesses = [95265170,906856952];
             $cowerker->Email = $p_data['Email'];
+            $cowerker->MobilePhone = $p_data['MobilePhone'];
             $cowerker->CountryId = 1113;
             $cowerker->SimpleTimeZoneId = 2029;
             $cowerker->CreateUser = true;
@@ -1243,7 +1246,7 @@ class main extends CI_Controller
                     $message = 'Your profile has been updated.';
                 }
 
-                if ($this->signin($username, $password)) {
+                if ($this->signin($username,$password,$loc_url)) {
                     $json['status'] = 200;
                     $json['message'] = $message;
                 } else {
@@ -1290,13 +1293,12 @@ class main extends CI_Controller
         echo json_encode($data);
     }
 
-    public function invoice()
+    public function invoice($loc_url = null)
     {
         $this->session->set_userdata('last_page', current_url());
         if ($this->session->userdata('is_logged_in')) {
-            $loc_url = $this->session->userdata('location');
             if(empty($loc_url)){
-                $loc_url = "reyada";
+                $loc_url = $this->session->userdata('location');
             }
             $pay_url = "https://$loc_url.spaces.nexudus.com/en/bookings/pay";
             $url = "https://$loc_url.spaces.nexudus.com/en/invoices";
@@ -1332,20 +1334,30 @@ class main extends CI_Controller
             $this->session->set_flashdata('warning', 'Please Login First');
             redirect();
         }
+        if($loc_url != 'reyada'){
+            $data['location_name'] = '<b>Reyada Mabane Building</b>';
+        }
+        else{
+            $data['location_name'] = '<b>Reyada Crystal Tower</b>';
+        }
 
         $data['invoices'] = $invoices;
         $data['folder_name'] = 'main';
         $data['file_name'] = 'InvoiceAndPayment';
         $data['header_name'] = 'header_account';
         $this->load->view('index', $data);
+        
     }
 
-    public function booking()
+    public function booking($loc_url = null)
     {
 
         if ($this->session->userdata('is_logged_in')) {
-            $url = $this->config->item('api_base_url')."en/bookings/my";
-
+            if(empty($loc_url)){
+                $loc_url = $this->session->userdata('location');
+            }
+            $url = "https://$loc_url.spaces.nexudus.com/en/bookings/my";
+            // $url = $this->config->item('api_base_url')."en/bookings/my";
             $user = $this->session->userdata('user_info');
             $username = $user['Email'];
             $password = $user['Password'];
@@ -1362,7 +1374,10 @@ class main extends CI_Controller
             $this->session->set_flashdata('warning', 'Please Login First');
             redirect();
         }
-
+        $data['location_name'] = '<b>Reyada Crystal Tower</b>';
+        if($loc_url != 'reyada'){
+            $data['location_name'] = '<b>Reyada Mabane Building</b>';
+        }
         $data['folder_name'] = 'main';
         $data['file_name'] = 'MyBooking';
         $data['header_name'] = 'header_account';
@@ -1492,46 +1507,52 @@ class main extends CI_Controller
     public function forgot_password()
     {
         $this->session->set_userdata('last_page', current_url());
-        if($this->input->post('change-password')){
+        if(!empty($this->input->post('email'))){
             $email = $this->input->post('email');
 
             if(!empty(($email))){
-                $url = 'https://spaces.nexudus.com/api/sys/users/resetPassword?email='.$email;
-                // $t_url = $this->config->item('api_base_url').'en/users/resetPassword?email='.$email;
+                $url = 'https://spaces.nexudus.com/api/spaces/coworkers?Coworker_Email='.$email;
                 $username = $this->config->item('username');
                 $password = $this->config->item('password');
 
-                $headers = array("post");
+                $headers = array(
+                    'Content-Type: application/json',
+                    'Authorization: Basic ' . base64_encode("$username:$password"),
+                );
                 $output = $this->post_with_curl($url, null, $headers);
 
-                if(!empty($output)){
-                    $this->session->set_flashdata('success', $output['Message']);
+                if(!empty($output['Records'])){
+                    $from = $email;
+                    $data['userdata'] = $output['Records'];
+                    $data['email'] = $email;
+                    $subject = 'Change Password request';
+                    $message =  $this->load->view('emailutils/reset_pass_email', $data, true);
+                    if ($this->send_email($from,$subject,$message)) {
+                        $json['status'] = 'OK';
+                    } else {
+                        $json['status'] = 'Error';
+                    }
                 }else{
-                    $this->session->set_flashdata('error', 'Please enter your valid email Id');
+                    $json['status'] = 'Error';
                 }
             }else{
-                $this->session->set_flashdata('error', 'Please enter your valid email Id');
+                $json['status'] = 'Error';
             }
-
+            print_r(json_encode($json));
         }
-        $data['folder_name'] = 'main';
-        $data['file_name'] = 'forgot_password';
-        $data['header_name'] = 'header_account';
-        // $data['MyAccount'] = $this->Main_model->get_recent_articles();
-        $this->load->view('index', $data);
+        else{
+            $data['folder_name'] = 'main';
+            $data['file_name'] = 'forgot_password';
+            $data['header_name'] = 'header_account';
+            $this->load->view('index', $data);
+        }
+        
     }
 
-    function reset_password(){
-        $username = $this->config->item('username');
-        $password = $this->config->item('password');
-        $url = 'https://spaces.nexudus.com/api/sys/users/resetPassword?email='.$email;
-    }
-
-    public function send_email(){
+    public function partnership_request(){
         $post_data = $this->input->post();
-        $this->email->from($post_data['p_email']);
-        $this->email->to('vaseem@ursource.org');
-        $this->email->subject('Partnership Request');
+        $from = $post_data['p_email'];
+        $subject = 'Partnership Request';
         $message = '';
         $message .= "<b>Details:</b><br>";
         $message .= "<b>Company Name -</b> ".$post_data['p_company_name']."<br>";
@@ -1539,13 +1560,24 @@ class main extends CI_Controller
         $message .= "<b>Mobile -</b> ".$post_data['p_phone']."<br>";
         $message .= "<b>Mobile -</b> ".$post_data['p_email']."<br>";
         $message .= "<b>Services Offered -</b> ".$post_data['p_services']."<br><br>";
-        $this->email->message($message);
-        if ($this->email->send()) {
+        if ($this->send_email($from,$subject,$message)) {
             $json['status'] = 'OK';
         } else {
             $json['status'] = 'Error';
         }
         print_r(json_encode($json));
+    }
+
+    public function send_email($from,$subject,$message){
+        $this->email->from($from);
+        $this->email->to('nilofer@ursource.org');
+        $this->email->subject($subject);
+        $this->email->message($message);
+        if ($this->email->send()) {
+           return true;
+        } else {
+            return false;
+        }
     }
 
 }

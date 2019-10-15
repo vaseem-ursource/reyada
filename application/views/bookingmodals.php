@@ -1,12 +1,20 @@
 <style>
-   .loc-desc{
+.loc-desc{
    color:white; 
    position: relative;
    left:0px;
    right:20px; 
    bottom:5%; 
    font-size: 11px;
-   }
+}
+.meetformheight{
+  height:600px;
+}
+@media (max-width: 768px) {
+    .meetformheight{
+    height:800px;
+  }
+}
 </style>
 <div class="modal fade" id="bookingmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
    <div class="modal-dialog  modal-lg" role="document">
@@ -52,7 +60,7 @@
                      </div>
                   </h6>
                </div>
-               <div class="col-md-7 col-xs-7 bg-white" style="height:600px;">
+               <div class="col-md-7 col-xs-7 bg-white meetformheight">
                   <button type="button" class="close lap" data-dismiss="modal" aria-label="Close">
                   <button type="button" class="close p-4" style="outline:none;" data-dismiss="modal">&#10006</button>
                   </button>
@@ -104,7 +112,7 @@
                         </script>
                      </div>
                      <br>
-                     <div id="meetFormReg" height="600px" style="position:relative;top:20px;">
+                     <div id="meetFormReg" class="meetformheight" style="position:relative;top:20px;">
                         <div class="row text-left">
                            <div class="col-md-6">
                               <input name="cowerker_id" id="cowerker_id"  type="hidden">

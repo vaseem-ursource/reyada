@@ -12,13 +12,10 @@
 </style>
 <header id="header">
    <div class="container">
-      <div class="logo float-left mob">
-         <a href="#" id="addClassMob"><i class="fa fa-search fa-2x text-white pt-2"></i></a>
-      </div>
       <div class="logo float-left lap">
          <h1 class="text-light"><a href="<?= base_url()?>main" class="scrollto/"><span><img src="<?= base_url()?>image/logo.png"></span></a></h1>
       </div>
-      <div class="logo text-center mob">
+      <div class="logo mob">
          <h1 class="text-light"><a href="<?= base_url()?>main" class="scrollto/"><span><img src="<?= base_url()?>image/logo.png"></span></a></h1>
       </div>
       <nav class="main-nav float-right d-none d-lg-block" id="myMenu">
@@ -28,7 +25,7 @@
             <!-- <li><a href="<?= base_url()?>main/communityBooking">Find a Room</a></li> -->
             <li><a href="<?= base_url()?>main/services">Memberships</a></li>
             <li class="lap"><a href="#contact" data-toggle="modal" data-target="#modalcontact">Contact</a></li>
-            <li class="mob"><a href="#contact" onclick="menuClickFunction()" data-toggle="modal" data-target="#mobModalcontact">Contact</a></li>
+            <li class="mob"><a href="#contact" onclick="menuClickFunction()" data-toggle="modal" data-target="#modalcontact">Contact</a></li>
             <li><a href="#" disabled="disabled" onclick="return false;">Blog</a></li>
             <li class="lap"><a href="#login"   data-toggle="modal" data-target="#partnermodal">Partner With Us</a></li>
             <?php if($this->session->userdata('is_logged_in')){ ?>
@@ -38,7 +35,8 @@
             <?php }else{ ?>
             <li class="lap"><a href="#login" id="login_location"  data-toggle="modal" data-target="#modalLogin">Login</a></li>
             <li class="mob"><a href="#" onclick="menuClickFunction()" data-toggle="modal" data-target="#modalLogin">Login</a></li>
-            <!-- <li class="mob"><a href="#" onclick="menuClickFunction()" data-toggle="modal" data-target="#partnermodal">Partner</a></li> -->
+
+            <li class="mob"><a href="#" onclick="menuClickFunction()" data-toggle="modal" data-target="#partnermodal">Partner</a></li>
             <?php } ?>
             <!-- <li class="lap"><a href="#" id="addClass"><i class="fa fa-search"></i></a></li> -->
          </ul>
