@@ -14,10 +14,16 @@ body.modal-open-noscroll
 .slider-height{
   width:115%;
 }
+.partner-log{
+  width:45% !important;
+}
 @media (max-width: 991px) {
   .slider-height{
     width:1500px;
   }
+  .partner-log{
+  width:100% !important;
+}
 }
 </style>
   <section>
@@ -283,11 +289,48 @@ body.modal-open-noscroll
         </header>
     </div>
 </section>
+<?php if($partner_stat->status == 1){ ?>
+  <div class="container">
+  <h1 class="text-center">Our Partners</h1>
+    <div id="owl-example" class="owl-carousel">
+      <?php foreach($partners as $partner){?>
+        <div>
+          <a <?php if(!empty($partner->url)){?> target="_blank" href="<?= $partner->url ?>" <?php } ?>><img class="partner-log" src="<?= base_url().'admin/'.$partner->image_url?>" /></a>
+          <!-- <span> <?= $partner->description ?></span><br> -->
+        </div>
+      <?php }?> 
+    </div>
+  </div>
+<?php } ?>
+
   </main>
 
 <script>
 $(document).on("click", "#bookingmodal", function () {
   $("#bookingmodal").modal("show"); 
+});
+$(document).ready(function() {
+ 
+//  $("#owl-example").owlCarousel();
+$('#owl-example').owlCarousel({
+    loop:true,
+    margin:5,
+    autoplaySpeed:1000,
+    autoplay:true,
+    // nav:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:3
+        },
+        1000:{
+            items:4
+        }
+    }
+})
+
 });
 </script>
 

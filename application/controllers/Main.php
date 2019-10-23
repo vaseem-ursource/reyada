@@ -10,6 +10,8 @@ class main extends CI_Controller
         parent::__construct();
         // $this->lang->load('auth');
         $this->load->model("Main_model");
+        $this->load->model("Partners_model");
+        $this->load->model("Articles_model");
         $this->load->library('pagination');
     }
 
@@ -20,6 +22,9 @@ class main extends CI_Controller
         $data['header_name'] = 'header';
         $this->session->set_userdata('last_page', current_url());
         $data['RecentArticle'] = $this->Main_model->get_recent_articles();
+        $data['blog'] = $this->Articles_model->get_section_status(1);
+        $data['partner_stat'] = $this->Partners_model->get_section_status(2);
+        $data['partners'] = $this->Partners_model->get_all_partners();
         $this->load->view('index', $data);
 
     }
@@ -44,6 +49,7 @@ class main extends CI_Controller
         $data['file_name'] = 'Services';
         $data['header_name'] = 'header_blog';
         $data['RecentArticle'] = $this->Main_model->get_recent_articles();
+        $data['blog'] = $this->Articles_model->get_section_status(1);
         $url = 'https://spaces.nexudus.com/api/billing/tariffs';
         $this->session->set_userdata('last_page', current_url());
         $username = $this->config->item('username');
@@ -397,7 +403,7 @@ class main extends CI_Controller
         else{
             $cowerker = new StdClass;
             $cowerker->FullName = $p_data['FullName'];
-            $cowerker->Businesses = [95265170,906856952];
+            $cowerker->Businesses = [906856952,95265170];
             $cowerker->Email = $p_data['Email'];
             $cowerker->MobilePhone = $p_data['MobilePhone'];
             $cowerker->CountryId = 1113;
@@ -654,11 +660,11 @@ class main extends CI_Controller
 
     public function blog()
     {
+        $this->load->library("pagination");
         $data['search'] = "";
         if ($this->input->post('term')) {
             $data['search'] = $this->input->post('term');
         }
-
         $data_api = "https://api.instagram.com/v1/users/self/media/recent/?access_token=4530291888.3b9b4cb.ced3f183a852496ea52cd426ee560c0f";
         // $data_response = $this->fetchSimpleData($data_api);
         // $data['insta_post'] = json_decode($data_response);
@@ -666,9 +672,37 @@ class main extends CI_Controller
 
         $user_api = "https://api.instagram.com/v1/users/self/?access_token=4530291888.3b9b4cb.ced3f183a852496ea52cd426ee560c0f";
         $user_response = $this->fetchSimpleData($user_api);
+
+        $config['base_url'] = base_url('main/blog');
+        $config['per_page'] = 6;
+        $config['total_rows'] = $this->Main_model->get_rows();
+        $config['full_tag_open'] = "<ul class='pagination pagination-sm'>";
+        $config['full_tag_close'] = '</ul>';
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+        $config['cur_tag_open'] = '<li class="active"><a href="#">';
+        $config['cur_tag_close'] = '</a></li>';
+        $config['prev_tag_open'] = '<li>';
+        $config['prev_tag_close'] = '</li>';
+        $config['first_tag_open'] = '<li>';
+        $config['first_tag_close'] = '</li>';
+        $config['last_tag_open'] = '<li>';
+        $config['last_tag_close'] = '</li>';
+
+        $config['next_link'] = 'Next Page';
+        $config['next_tag_open'] = '<li>';
+        $config['next_tag_close'] = '</li>';
+
+        $config['prev_link'] = 'Previous Page';
+        $config['prev_tag_open'] = '<li>';
+        $config['prev_tag_close'] = '</li>';
+        $this->pagination->initialize($config);
+        $data['Article'] = $this->Main_model->get_all_article($config['per_page'],$this->uri->segment(3));
+        $data["links"] = $this->pagination->create_links();
         $data['insta_user'] = json_decode($user_response);
+        $data['blog'] = $this->Articles_model->get_section_status(1);
         $this->session->set_userdata('last_page', current_url());
-        $data['Article'] = $this->Main_model->get_all_article();
+        // $data['Article'] = $this->Main_model->get_all_article();
         $data['folder_name'] = 'main';
         $data['file_name'] = 'Blog';
         $data['header_name'] = 'header_blog';
@@ -691,13 +725,20 @@ class main extends CI_Controller
     {
         $this->session->set_userdata('last_page', current_url());
         $cat_id = $this->input->get('id');
+        $user_api = "https://api.instagram.com/v1/users/self/?access_token=4530291888.3b9b4cb.ced3f183a852496ea52cd426ee560c0f";
+        $data_api = "https://api.instagram.com/v1/users/self/media/recent/?access_token=4530291888.3b9b4cb.ced3f183a852496ea52cd426ee560c0f";
+        $data['insta_post'] = array('img/ins/ins (1).jpg', 'img/ins/ins (2).jpg', 'img/ins/ins (3).jpg', 'img/ins/ins (4).jpg', 'img/ins/ins (5).jpg', 'img/ins/ins (6).jpg');
+        $user_response = $this->fetchSimpleData($user_api);
+        $data['insta_user'] = json_decode($user_response);
         $data['search'] = "";
         $data['folder_name'] = 'main';
         $data['file_name'] = 'Blog';
         $data['header_name'] = 'header_blog';
+        $data['blog'] = $this->Articles_model->get_section_status(1);
         $data['Article'] = $this->Main_model->get_article_by_category($cat_id);
         $data['PopularArticle'] = $this->Main_model->get_popular_article();
         $data['Categories'] = $this->Main_model->get_all_categories();
+        $data['links'] = null;
         $this->load->view('index', $data);
 
     }
@@ -713,6 +754,7 @@ class main extends CI_Controller
         // $data['Comments'] = $this->Main_model->get_comments($article_id);
         $data['Categories'] = $this->Main_model->get_all_categories();
         $data['PopularArticle'] = $this->Main_model->get_popular_article();
+        $data['blog'] = $this->Articles_model->get_section_status(1);
         $data_api = "https://api.instagram.com/v1/users/self/media/recent/?access_token=4530291888.3b9b4cb.ced3f183a852496ea52cd426ee560c0f";
         // $data_response = $this->fetchSimpleData($data_api);
         // $data['insta_post'] = json_decode($data_response);
@@ -1570,7 +1612,7 @@ class main extends CI_Controller
 
     public function send_email($from,$subject,$message){
         $this->email->from($from);
-        $this->email->to('nilofer@ursource.org');
+        $this->email->to('info@reyada.co');
         $this->email->subject($subject);
         $this->email->message($message);
         if ($this->email->send()) {

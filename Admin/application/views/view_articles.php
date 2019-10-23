@@ -3,7 +3,15 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Articles<small>View</small></h2>
+                    <h2>Articles<small>View</small>
+                    <?php if($section->status == 1){ 
+                      $status_color = 'text-success'; 
+                      $title = "This section is now visible on website (click to deactivate it)";
+                    }else{ 
+                      $status_color = 'text-danger'; 
+                      $title = "This section is now hidden on website (click to activate it)";
+                    }?> 
+                    <a  href="<?= base_url(($section->status == 1) ?'Articles/section_status/1/0':'Articles/section_status/1/1') ?>" data-toggle="tooltip" data-placement="top" title="<?= $title ?>"><i class="fa fa-toggle-on fa-lg <?= $status_color ?>"></i></a></h2>
                     <ul class="nav navbar-right panel_toolbox">
                      <a href="<?= base_url('Articles/Add');?>" class="btn btn-primary">Add <i class="fa fa-plus-square"></i></a>
                     </ul>

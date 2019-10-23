@@ -32,10 +32,6 @@
                           <input type="text" class="form-control" name="companyName" id="companyName" required="true">
                    </div>
                    <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">                    
-                        <label class="">Address</label>
-                          <textarea class="form-control" name="address" id="address" required="true"></textarea>
-                   </div>
-                   <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">                    
                         <label class="">Phone</label>
                           <input type="text" class="form-control" name="phone" id="phone" maxlength="20" required="true">
                    </div>
@@ -47,6 +43,23 @@
                         <label class="">Email</label>
                           <input type="email" class="form-control" name="email" id="email" required="true">
                    </div>
+                   <div class="form-group has-feedback col-md-12 col-sm-12 col-xs-12">
+                        <label class="">Image</label>
+                        <input class="btn btn-default form-control" type="file" name="image_url" id="image_url" accept="image/png, image/jpeg" required>
+                   </div>
+                   <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">                    
+                        <label class="">URL (optional)</label>
+                          <input type="text" class="form-control"  name="url" id="phone">
+                   </div>
+                   
+                   <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">                    
+                        <label class="">Description (optional)</label>
+                          <textarea class="form-control" name="description"  maxlength="120" id="comments"></textarea>
+                   </div>
+                   <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">                    
+                        <label class="">Address</label>
+                          <textarea class="form-control" name="address" id="address" required="true"></textarea>
+                   </div>
                    <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">                    
                         <label class="">Password</label>
                           <input type="password" class="form-control" name="password" id="password" required="true">
@@ -56,7 +69,7 @@
                           <input type="password" class="form-control" name="cnf_password" id="cnf_password" required="true">
                    </div>
                    <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">                    
-                        <label class="">Comments</label>
+                        <label class="">Comments (optional)</label>
                           <textarea class="form-control" name="comments" id="comments"></textarea>
                    </div>
                    <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
@@ -68,7 +81,7 @@
                         </select>
                    </div>
                   <div class="form-group">
-                    <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3 col-sm-offset-3">
+                    <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-2">
                       <a href="<?= base_url('Partners');?>"><button type="button" class="btn btn-primary">Cancel</button></a>
                         <button class="btn btn-primary" type="reset">Reset</button>
                         <button type="submit" name="save" class="btn btn-success">Save & Add</button>

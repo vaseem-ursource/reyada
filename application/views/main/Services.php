@@ -1,8 +1,15 @@
-<!--==========================
-    Intro Section
-  ============================-->
+<style>
+.partner-log{
+  width:45% !important;
+}
+@media (max-width: 991px) {
+  .partner-log{
+  width:50% !important;
+}
+}
+</style>
 
-  <section id="intro" class="clearfix align-middle " style="background:url('<?= base_url()?>image/services/service4.jpg') center  no-repeat;background-size: cover;height:60vh;">
+  <section id="intro" class="clearfix align-middle " style="background:url('<?= base_url()?>image/services/banner.jpg') center  no-repeat;background-size: cover;height:70vh;">
         <div class="intro-info order-md-first order-last position-absolute" style="bottom:0px;left:10%;">
           <h2 class="text-white text-left">Services</h2>
         </div>
@@ -181,208 +188,214 @@
     <div class="section-header pb-1 col-md-6 pl-0"> 
         <h5 class="text-left text-dark">Becoming a Reyada member comes along with many perks and services. Some of these services include:</h5> 
     </div> 
-
     <div class="owl-carousel clients-carousel">
         <div class="col-md-2 ml-4" onclick="openTabmob('b1mob');"> 
-                <img src="<?= base_url()?>image/amenities/mob/f9.png" width="75%" class="img-fluid position-relative" alt="Card Back"> 
-                <h4 id="b1mobh4"class="text-center text-dark position-relative pt-2 hed" style="font-size:inherit;display:block;" ><b>Location</b></h4> 
+                <img src="<?= base_url()?>image/amenities/mob/f9.png"  class="img-fluid position-relative partner-log" alt="Card Back"> 
+                <h4 id="b1mobh4"class="text-dark position-relative pt-2 hed" style="font-size:inherit;display:block;" ><b>&nbsp;&nbsp;Location</b></h4> 
         </div> 
         <div class="col-md-2 ml-4" onclick="openTabmob('b2mob');" > 
-                <img src="<?= base_url()?>image/amenities/mob/f1.png" width="75%" class="img-fluid position-relative" alt="Card Back"> 
-                <h4 id="b2mobh4" class="text-center text-dark position-relative pt-2 hed" style="font-size:inherit"><b>Fully Furnished</b></h4> 
+                <img src="<?= base_url()?>image/amenities/mob/f1.png" class="img-fluid position-relative partner-log" alt="Card Back"> 
+                <h4 id="b2mobh4" class="text-dark position-relative pt-2 hed" style="font-size:inherit"><b>Fully Furnished</b></h4> 
         </div> 
         <div class="col-md-2 ml-4" onclick="openTabmob('b3mob');" > 
-                <img src="<?= base_url()?>image/amenities/mob/f5.png" width="75%" class="img-fluid position-relative" alt="Card Back"> 
-                <h4 id="b3mobh4" class="text-center text-dark position-relative pt-2 hed" style="font-size:inherit"><b>Beverages</b></h4> 
+                <img src="<?= base_url()?>image/amenities/mob/f5.png" class="img-fluid position-relative partner-log" alt="Card Back"> 
+                <h4 id="b3mobh4" class="text-dark position-relative pt-2 hed" style="font-size:inherit"><b>&nbsp;&nbsp;Beverages</b></h4> 
         </div> 
         <div class="col-md-2 ml-4" onclick="openTabmob('b4mob');" > 
-                <img src="<?= base_url()?>image/amenities/mob/f6.png" width="75%" class="img-fluid position-relative" alt="Card Back"> 
-                <h4  id="b4mobh4"class="text-center text-dark position-relative pt-2 hed" style="font-size:inherit"><b>Access</b></h4> 
+                <img src="<?= base_url()?>image/amenities/mob/f6.png" class="img-fluid position-relative partner-log" alt="Card Back"> 
+                <h4  id="b4mobh4"class="text-dark position-relative pt-2 hed" style="font-size:inherit"><b>&nbsp;&nbsp;&nbsp;&nbsp;Access</b></h4> 
         </div> 
         <div class="col-md-2 ml-4" onclick="openTabmob('b5mob');" > 
-                <img src="<?= base_url()?>image/amenities/mob/f7.png" width="75%" class="img-fluid position-relative" alt="Card Back"> 
-                <h4 id="b5mobh4" class="text-center text-dark position-relative pt-2 hed" style="font-size:inherit"><b>Meeting</b></h4> 
+                <img src="<?= base_url()?>image/amenities/mob/f7.png" class="img-fluid position-relative partner-log" alt="Card Back"> 
+                <h4 id="b5mobh4" class="text-dark position-relative pt-2 hed" style="font-size:inherit"><b>&nbsp;&nbsp;Meeting</b></h4> 
         </div> 
     </div> 
-
     <div class="container"> 
-        
-
-    <div class="row"> 
-        <div id="b1mob" class="containerTab col-md-12 row first" style="display:none;"> 
         <div class="row"> 
-            <div class="col-md-1 mr-0"> 
-                <!-- <hr width="1" size="800" class ="hr1"style ="height:300px;position:absolute;top:-42%;border:1.2px solid #343a40"> --> 
+            <div id="b1mob" class="containerTab col-md-12 row first" style="display:none;"> 
+            <div class="row"> 
+                <div class="col-md-1 mr-0"> 
+                    <!-- <hr width="1" size="800" class ="hr1"style ="height:300px;position:absolute;top:-42%;border:1.2px solid #343a40"> --> 
+                </div> 
+                <div class="col-md-1 mr-0" style="padding-left:25px"> 
+                    <!-- <hr width="1" size="800" class ="hr1"style ="height:300px;position:absolute;top:-19%;border:1px solid #343a40;background-color:#343a40">  -->
+                </div> 
+                    
+                <div class="col-md-10 pt-2 pr-0 align-self-center row"> 
+                    <div class="col-md-12"> 
+                        <h2>Location</h2> 
+                    </div> 
+                    <div class="col-md-6 pr-0"> 
+                        <h5 class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</h5> 
+                        <h4 class="text-uppercase"><i class="fa fa-map-marker"></i> CRYSTAL TOWER</h4>
+                        <h5 class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim piscing elit, sed do eiusmod</h5> 
+                        <h4 class="text-uppercase"><i class="fa fa-map-marker"></i> THE OTHER</h4> 
+                        <!-- <h6 class="align-middle">Book a </i></h6>  -->
+                    </div> 
+                </div> 
             </div> 
-            <div class="col-md-1 mr-0" style="padding-left:25px"> 
-                <!-- <hr width="1" size="800" class ="hr1"style ="height:300px;position:absolute;top:-19%;border:1px solid #343a40;background-color:#343a40">  -->
             </div> 
                 
-            <div class="col-md-10 pt-2 pr-0 align-self-center row"> 
-                <div class="col-md-12"> 
-                    <h2>Location</h2> 
+            <div id="b2mob" class="containerTab col-md-12 row first" style="display:none;"> 
+            <div class="row"> 
+                <!-- <div class="col-md-3 mr-0" > 
                 </div> 
-                <div class="col-md-6 pr-0"> 
-                    <h5 class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</h5> 
-                    <h4 class="text-uppercase"><i class="fa fa-map-marker"></i> CRYSTAL TOWER</h4>
-                    <h5 class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim piscing elit, sed do eiusmod</h5> 
-                    <h4 class="text-uppercase"><i class="fa fa-map-marker"></i> THE OTHER</h4> 
-                    <!-- <h6 class="align-middle">Book a </i></h6>  -->
-                </div> 
-            </div> 
-        </div> 
-        </div> 
-            
-        <div id="b2mob" class="containerTab col-md-12 row first" style="display:none;"> 
-        <div class="row"> 
-            <!-- <div class="col-md-3 mr-0" > 
-            </div> 
-            <div class="col-md-1 mr-0" style="padding-left:5%">  -->
-                <!-- <hr width="1" size="800" class ="hr1"style ="height:300px;position:absolute;top:-18%;border:1px solid #343a40;background-color:#343a40">  -->
-            <!-- </div>  -->
-            <div class="col-md-8 pt-3  align-self-center row"> 
-                <div class="col-md-12"> 
-                    <h2>Fully Furnished</h2> 
-                </div> 
-                <div class="col-md-12 pr-0"> 
-                   
-                </div> 
+                <div class="col-md-1 mr-0" style="padding-left:5%">  -->
+                    <!-- <hr width="1" size="800" class ="hr1"style ="height:300px;position:absolute;top:-18%;border:1px solid #343a40;background-color:#343a40">  -->
+                <!-- </div>  -->
+                <div class="col-md-8 pt-3  align-self-center row"> 
+                    <div class="col-md-12"> 
+                        <h2>Fully Furnished</h2> 
+                    </div> 
+                    <div class="col-md-12 pr-0"> 
                     
+                    </div> 
+                        
+                </div> 
             </div> 
-        </div> 
-        </div> 
+            </div> 
 
 
-        <div id="b3mob" class="containerTab col-md-12 row first" style="display:none;"> 
-        <div class="row"> 
-            
-            
-            <div class="col-md-6 pt-3  align-self-center row"> 
-                <div class="col-md-12"> 
-                    <h2 class="text-left">Beverages</h2> 
-                </div> 
-                <div class="col-md-12 pr-0"> 
-                    <h5 class="text-uppercase text-right"><img src="<?= base_url()?>image/services/clock.png" width="25px" height="25px" alt=""> Open From 9 AM to 9 PM</h5> 
-                    
-                </div> 
-                    
-            </div> 
+            <div id="b3mob" class="containerTab col-md-12 row first" style="display:none;"> 
+            <div class="row"> 
                 
-            <div class="col-md-2 mr-0" style="padding-left:2%"> 
-                <!-- <hr width="1" size="800" class ="hr1"style ="height:300px;position:absolute;top:-14%;border:1px solid #343a40;background-color:#343a40">  -->
-            </div> 
-            <div class="col-md-4 mr-0" > 
-            </div> 
-        </div> 
-        </div> 
-
-        <div id="b4mob" class="containerTab col-md-12 row first" style="display:none;"> 
-        <div class="row"> 
-            
-        
-            <div class="col-md-8 pt-3  align-self-center row"> 
-                <div class="col-md-12"> 
-                    <h2 class="text-left">Access</h2> 
-                </div> 
-                <div class="col-md-12">
-                    <h5 class="text-uppercase text-right"><img src="<?= base_url()?>image/services/clock.png" width="25px" height="25px" alt=""> Open From 9 AM to 9 PM</h5> 
-                </div> 
-                    
-            </div> 
-            <div class="col-md-1 mr-0" style="padding-left:5%"> 
-                <!-- <hr width="1" size="800" class ="hr1"style ="height:300px;position:absolute;top:-16.5%;border:1px solid #343a40;background-color:#343a40"   >  -->
-            </div> 
-            <div class="col-md-3 mr-0"> 
-                <!-- <hr width="1" size="800" class ="hr1"style ="height:300px;position:absolute;top:-32.5%;border:1.2px solid #343a40"> --> 
-            </div> 
-            
-        </div> 
-        </div> 
-
-        <div id="b5mob" class="containerTab col-md-12 row first" style="display:none;"> 
-        <div class="row"> 
-            
-            <div class="col-md-2 mr-0" > 
-            </div> 
-            <div class="col-md-8 pt-3  align-self-center row"> 
-                <div class="col-md-12"> 
-                    <h2 class="text-left">Meeting Room</h2> 
-                </div> 
-                <div class="col-md-12"> 
-                    <h5 class="text-left"><img src="<?= base_url()?>image/services/clock.png" width="25px" height="25px" alt=""> Open From 9 AM to 9 PM</h5> 
-                    <h5 class="text-left"><img src="<?= base_url()?>image/services/range.png" width="25px" height="25px" alt=""> Flexible date and time usage</h5> 
-                    <!-- <h5 class="text-right" id="bookingmodal">Book a meeting room<i class="fa fa-angle-right align-middle"></i></h5>  -->
-                </div> 
-                    
-            </div> 
                 
-            <div class="col-md-2 mr-0" style="padding-left:7%"> 
-                <!-- <hr width="1" size="800" class ="hr1"style ="height:300px;position:absolute;top:-14%;border:1px solid #343a40;background-color:#343a40">  -->
+                <div class="col-md-6 pt-3  align-self-center row"> 
+                    <div class="col-md-12"> 
+                        <h2 class="text-left">Beverages</h2> 
+                    </div> 
+                    <div class="col-md-12 pr-0"> 
+                        <h5 class="text-uppercase text-right"><img src="<?= base_url()?>image/services/clock.png" width="25px" height="25px" alt=""> Open From 9 AM to 9 PM</h5> 
+                        
+                    </div> 
+                        
+                </div> 
+                    
+                <div class="col-md-2 mr-0" style="padding-left:2%"> 
+                    <!-- <hr width="1" size="800" class ="hr1"style ="height:300px;position:absolute;top:-14%;border:1px solid #343a40;background-color:#343a40">  -->
+                </div> 
+                <div class="col-md-4 mr-0" > 
+                </div> 
+            </div> 
+            </div> 
+
+            <div id="b4mob" class="containerTab col-md-12 row first" style="display:none;"> 
+            <div class="row"> 
+                
+            
+                <div class="col-md-8 pt-3  align-self-center row"> 
+                    <div class="col-md-12"> 
+                        <h2 class="text-left">Access</h2> 
+                    </div> 
+                    <div class="col-md-12">
+                        <h5 class="text-uppercase text-right"><img src="<?= base_url()?>image/services/clock.png" width="25px" height="25px" alt=""> Open From 9 AM to 9 PM</h5> 
+                    </div> 
+                        
+                </div> 
+                <div class="col-md-1 mr-0" style="padding-left:5%"> 
+                    <!-- <hr width="1" size="800" class ="hr1"style ="height:300px;position:absolute;top:-16.5%;border:1px solid #343a40;background-color:#343a40"   >  -->
+                </div> 
+                <div class="col-md-3 mr-0"> 
+                    <!-- <hr width="1" size="800" class ="hr1"style ="height:300px;position:absolute;top:-32.5%;border:1.2px solid #343a40"> --> 
+                </div> 
+                
+            </div> 
+            </div> 
+
+            <div id="b5mob" class="containerTab col-md-12 row first" style="display:none;"> 
+            <div class="row"> 
+                
+                <div class="col-md-2 mr-0" > 
+                </div> 
+                <div class="col-md-8 pt-3  align-self-center row"> 
+                    <div class="col-md-12"> 
+                        <h2 class="text-left">Meeting Room</h2> 
+                    </div> 
+                    <div class="col-md-12"> 
+                        <h5 class="text-left"><img src="<?= base_url()?>image/services/clock.png" width="25px" height="25px" alt=""> Open From 9 AM to 9 PM</h5> 
+                        <h5 class="text-left"><img src="<?= base_url()?>image/services/range.png" width="25px" height="25px" alt=""> Flexible date and time usage</h5> 
+                        <!-- <h5 class="text-right" id="bookingmodal">Book a meeting room<i class="fa fa-angle-right align-middle"></i></h5>  -->
+                    </div> 
+                        
+                </div> 
+                    
+                <div class="col-md-2 mr-0" style="padding-left:7%"> 
+                    <!-- <hr width="1" size="800" class ="hr1"style ="height:300px;position:absolute;top:-14%;border:1px solid #343a40;background-color:#343a40">  -->
+                </div> 
+                
+            </div> 
             </div> 
             
+            
         </div> 
-        </div> 
-        
-        
-    </div> 
-
-
     </div> 
 </section><!-- #team --> 
 
-
-    <script> 
-        function openTabmob(tabName) { 
-        var i, x; 
-        var h = tabName+'h4'; 
-        x = document.getElementsByClassName("containerTab"); 
-        for (i = 0; i < x.length; i++) { 
-            x[i].style.display = "none"; 
+<script> 
+    function openTabmob(tabName) { 
+    var i, x; 
+    var h = tabName+'h4'; 
+    x = document.getElementsByClassName("containerTab"); 
+    for (i = 0; i < x.length; i++) { 
+        x[i].style.display = "none"; 
+    } 
+    document.getElementById(tabName).style.display = "block"; 
+    var y = document.getElementsByClassName("hed"); 
+    for (i = 0; i < y.length; i++) { 
+        var z =  y[i].id; 
+        if(h == z ){y[i].style.display = "none";} 
+        else{ 
+            y[i].style.display = "block"; 
         } 
-        document.getElementById(tabName).style.display = "block"; 
-        var y = document.getElementsByClassName("hed"); 
-        for (i = 0; i < y.length; i++) { 
-            var z =  y[i].id; 
-            if(h == z ){y[i].style.display = "none";} 
-            else{ 
-                y[i].style.display = "block"; 
-            } 
-             
-        } 
-        // document.getElementById(h).style.display = "none"; 
-        } 
+            
+    } 
+    // document.getElementById(h).style.display = "none"; 
+    } 
+    $('#owl-example').owlCarousel({
+    loop:true,
+    margin:5,
+    autoplaySpeed:1000,
+    autoplay:true,
+    // nav:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:3
+        },
+        1000:{
+            items:4
+        }
+    }
+})
 
 </script>
-
-
-
-
-
-    <script> 
-        function openTab(tabName) { 
-        var i, x; 
-        var h = tabName+'h4'; 
-        x = document.getElementsByClassName("containerTab"); 
-        for (i = 0; i < x.length; i++) { 
-            x[i].style.display = "none"; 
+<script> 
+    function openTab(tabName) { 
+    var i, x; 
+    var h = tabName+'h4'; 
+    x = document.getElementsByClassName("containerTab"); 
+    for (i = 0; i < x.length; i++) { 
+        x[i].style.display = "none"; 
+    } 
+    document.getElementById(tabName).style.display = "block"; 
+    var y = document.getElementsByClassName("hed"); 
+    for (i = 0; i < y.length; i++) { 
+        var z =  y[i].id; 
+        if(h == z ){y[i].style.display = "none";} 
+        else{ 
+            y[i].style.display = "block"; 
         } 
-        document.getElementById(tabName).style.display = "block"; 
-        var y = document.getElementsByClassName("hed"); 
-        for (i = 0; i < y.length; i++) { 
-            var z =  y[i].id; 
-            if(h == z ){y[i].style.display = "none";} 
-            else{ 
-                y[i].style.display = "block"; 
-            } 
-             
-        } 
-        // document.getElementById(h).style.display = "none"; 
-        } 
-    </script>
+            
+    } 
+    // document.getElementById(h).style.display = "none"; 
+    } 
+</script>
 
-<section id="services" class="section-bg mt-5">
-    <div class="container my-5 py-5">
-        <header class="section-header">
+<section  class="section-bg mt-5">
+    <div class="container my-5">
+        <header class="section-header"><br>
           <h3 class="text-dark">Membership</h3>
           <p class="text-dark" style="font-size:large">Reyada memberships are designed to accommodate business teams of all sizes, as well as individuals and freelancers. 
                             <br>Our memberships include services that come along with it, but are not limited to, printing, address, mail and package handling, front desk services, priority event access and more. </p>
@@ -584,7 +597,7 @@
     </div>
 </section><!-- #Feature -->
 <section id="mem-services" >
-    <div class="my-5 py-5 memb-bg">
+    <div class="py-5 memb-bg">
         <header class="section-header">
             <h3 class="text-dark">Choose a Membership Package</h3>
             <div class="text-center">
@@ -594,7 +607,7 @@
         </header>
     </div>
     <?php if(!empty($coworkings)){?>
-        <div class="container" id="coworkings" style="position:relative;margin-top:-350px;">
+        <div class="container" id="coworkings">
             <div class="row">
             <?php foreach($coworkings as $coworking){?>
                 
@@ -622,7 +635,7 @@
         </div>
     <?php } ?> 
     <?php if(!empty($meetingrooms)){ ?> 
-        <div class="container" id="meetingrooms" style="position:relative;margin-top:-350px;display:none;">
+        <div class="container" id="meetingrooms" style="display:none;">
             <div class="row">
             <?php foreach($meetingrooms as $meetingroom){?>
                 <div class="col-lg-4 col-md-4 col-xs-4 fadeInUp p-1" style="visibility: visible; animation-name: fadeInUp;">
@@ -640,7 +653,7 @@
                             <h5 class="card-title"><b><?= $meetingroom->Price?>.<?= $meetingroom->CurrencyCode?><br>(<?= ($coworking->InvoiceEvery === 1) ? 'Monthly' : (($coworking->InvoiceEvery === 4) ? 'Quarterly' : ($coworking->InvoiceEvery === 12) ? 'Annually' :"every '$coworking->InvoiceEvery' months"); ?>)</b></h4><br>
                             <h6 class="card-title">Features</h6>
                             <div class="card-text text-justify" style="min-height:200px;"><?= $meetingroom->Description ?></div><br>
-                            <a href="#" class="text-center text-dark planshow" data-toggle="modal" data-target="#modalsignup"><h4><?= ($is_logged_in === 1) ? 'Continue' :'Sign Up' ?>&nbsp;&nbsp;<i style="font-size:12px;" class="fa fa-angle-right"></i></h5></a>
+                            <a href="#" class="btn custom-button-bl text-center planshow" data-toggle="modal" data-target="#modalsignup" ><h6><?= ($is_logged_in == 1) ? 'Continue' :'Sign Up' ?></h6></a>
                         </div>
                     </div>
                 </div>
@@ -655,7 +668,7 @@
         <h2 class="text-center" style="position:relative;top:10px;">Quick Look</h2> 
          <div class="col-md-12 row p-0 m-0">
             <div class="col-md-4 p-0 m-0">
-               <img src="<?= base_url()?>image/services/service1.jpg" class="w-100">
+               <img src="<?= base_url()?>image/services/service.jpg" class="w-100">
             </div>
             <div class="col-md-4 p-0 m-0">
                 <img src="<?= base_url()?>image/services/service5.jpg" class="w-100">

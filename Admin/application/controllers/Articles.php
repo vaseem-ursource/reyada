@@ -6,6 +6,7 @@ class Articles extends CI_Controller {
 	{
 		$data['title'] = 'Articles';
 		$data['Articles'] = $this->Articles_model->get_all_articles();
+		$data['section'] = $this->Articles_model->get_section_status(1);
 		$this->load->view('view_articles',$data);
     }
 
@@ -142,6 +143,14 @@ class Articles extends CI_Controller {
 				'Article Status Changed','Failed to Change Status Article',1,0
 			);
 		}
+
+		public function section_status($id,$status){ 
+			$data = array( 
+				'status' => $status 
+			); 
+			$this->Articles_model->update_section($id,$data);
+			return redirect('Articles');
+		}
 				
 		public function ViewComments()
 		{
@@ -179,7 +188,7 @@ class Articles extends CI_Controller {
 					}
 					else
 					{
-						$data = $this->upload->data();
+					$data = $this->upload->data();
 					 $config['image_library'] = 'gd2';
 					 $config['source_image'] =  base_url().'uploads/articles/'.$data['file_name'];
 					 $config['create_thumb'] = 'TRUE';

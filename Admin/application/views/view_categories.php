@@ -36,7 +36,6 @@
                         <tr>
                           <!-- <th>Parent Category</th> -->
                           <th>Title</th>
-                          <th>Is Deleted</th>
                           <th>Is Active</th>
                           <th>Action</th>
                         </tr>
@@ -46,7 +45,6 @@
                     <?php foreach ($Categories->result() as $row){ ?> 
                         <tr>
                           <td><?= $row->title;?></td>
-                          <td><?= $row->is_deleted;?></td>
                           <td><?= $row->is_active;?></td>
                           <td>
                              <a href="<?=base_url('Categories/Edit?id='.$row->cat_id.'"')?>" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit fa-lg"></i></a>

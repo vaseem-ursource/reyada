@@ -96,6 +96,18 @@ class AdminUsers extends CI_Controller {
 				'Admin User Updated Successfully','Failed to Update Admin User',1,0
 		);
 		}
+
+		public function Delete(){
+			$admin_user_id=$this->input->get('id');
+			$data = array(
+				'is_deleted' => 'Yes',
+				'status' =>'Inactive'
+			);
+			$this->AdminUsers_model->update_admin_users_db($admin_user_id,$data);
+			$this->session->set_flashdata('success', 'User Deleted Successfully.');
+			redirect('AdminUsers');
+		}
+
 		private function display_status($status,$success,$fail,$redirect,$admin_user_id)
 		{
 				if($status)

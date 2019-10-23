@@ -6,7 +6,7 @@ class Members extends CI_Controller {
 	{
 		$data['title'] = 'Members';
 		$this->load->view('view_members',$data);
-		}
+	}
         
         
     public function __construct()

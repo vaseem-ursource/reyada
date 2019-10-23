@@ -115,10 +115,7 @@
   box-shadow: 1px 1px 5px 1px rgb(236, 236, 236);
   background-color:white;
 }
-.memb-bg {
-  background: #F8F8F8;
-  height:80vh;
-}
+
 .custom-button:hover{
   color:white;
   background-color:rgba(0,0,0,0.2);
@@ -1299,4 +1296,22 @@ span.k {
     top:-50px !important;
   }
 }
+
+
+@media screen and (max-width: 992px) {
+  .memb-bg {
+    background-color: #F8F8F8;
+    height:15vh;
+  }
+}
+
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width:  600px) {
+  .memb-bg {
+    background-color: #F8F8F8;
+    height:35vh;
+  }
+}
+
+
 

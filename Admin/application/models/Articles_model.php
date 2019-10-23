@@ -51,6 +51,19 @@
                         ->where('comment_id',$comment_id)
                         ->update('comments',$data);
         }
-       
+
+        public function get_section_status($id){
+            $query = $this->db
+                        ->select('sections.*')
+                        ->where('id',$id)
+                        ->get('sections');
+            return $query->row();
+        }
+
+        public function update_section($id,$data){
+            $this->db->where('id',$id)
+                     ->update('sections',$data);
+                     
+        } 
 }
 ?>

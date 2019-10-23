@@ -4,12 +4,28 @@
         //     return $this->db->insert('admin_users', $data);
         // }
 
-        public function get_all_article(){
-            return $this->db
-                        ->where('is_deleted','No')
+        public function get_all_article($limit,$offset){
+            $query = $this->db
+                        ->where('is_deleted','no')
                         ->where('is_active','Active')
-                         ->order_by('posted_date','desc')
+                        ->order_by('posted_date','desc')
+                        ->limit($limit,$offset)
                         ->get('articles');
+            return $query->result();
+        }
+
+        function get_rows()
+        {
+            $this->db->select('*');
+            $this->db->from('articles');
+            $this->db->order_by('article_id', 'DESC');
+            $query = $this->db->get();
+
+            if ($query->num_rows() < 1) {
+                return null;
+            } else {
+                return $query->num_rows();
+            }
         }
 
         public function get_popular_article(){
@@ -44,10 +60,12 @@
         }
 
         public function get_article_by_category($cat_id){
-            return $this->db
+            $query = $this->db
                         ->where('cat_id',$cat_id)
-                         ->order_by('posted_date','desc')
+                        ->where('is_deleted','no')
+                        ->order_by('posted_date','desc')
                         ->get('articles');
+            return $query->result();
         }
 
         // Fetch records

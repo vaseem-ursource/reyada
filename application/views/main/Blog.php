@@ -10,88 +10,9 @@ span.dot{
     Intro Section
   ============================-->
   <section id="intro" class="clearfix align-middle filter" style="background:url('<?= base_url()?>image/articles/article2.jpg') center  no-repeat;background-size: cover;height:60vh;">
-    <div class="container d-flex h-100">
-        <div class="row align-self-center">
-        <div class="col-md-6 intro-info order-md-first order-last">
-        <div class="slideshow-container1" style="right:0px;">
-        <div class="mySlides1 align-self-center" style="right:0px;">
-              <div class="row">
-                  <div class="col-md-12 col-sm-12 col-xs-12 text-justify">
-                      <h5 class="text-left text-uppercase">Latest New</h5>
-                      <q>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard  </q><br>
-                      <p class="py-2">22, Jan.19</p>
-                    </div>
-                    <div class="col-md-12 col-sm-12 col-xs-12" style="text-align:start">
-                        <a class="prev1" style="left:0px" onclick="plusSlides1(-1)">❮</a>
-                        <a class="next1"style="left:40px" onclick="plusSlides1(1)">❯</a>
-                    </div>
-                 </div>
-            </div>
-            
-          <div class="mySlides1 align-self-center" style="right:0px;">
-              <div class="row">
-                  <div class="col-md-12 col-sm-12 col-xs-12 text-justify">
-                      <h5 class="text-left text-uppercase">News</h5>
-                      <q>ext of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</q><br>
-                      <p class="py-2">22, Jan.19</p>
-                    </div>
-                    <div class="col-md-12 col-sm-12 col-xs-12" style="text-align:start">
-                        <a class="prev1" style="left:0px" onclick="plusSlides1(-1)">❮</a>
-                        <a class="next1"style="left:40px" onclick="plusSlides1(1)">❯</a>
-                    </div>
-                </div>
-            </div>
-            
-          <div class="mySlides1 align-self-center" style="right:0px;">
-              <div class="row">
-                  <div class="col-md-12 col-sm-12 col-xs-12 text-justify">
-                      <h5 class="text-left text-uppercase">News</h5>
-                      <q>Lorem Ipsum is simply ing industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</q><br>
-                      <p class="py-2">22, Jan.19</p>
-                    </div>
-                    <div class="col-md-12 col-sm-12 col-xs-12" style="text-align:start">
-                        <a class="prev1" style="left:0px" onclick="plusSlides1(-1)">❮</a>
-                        <a class="next1"style="left:40px" onclick="plusSlides1(1)">❯</a>
-                    </div>
-                </div>
-            </div>
-            <div class="dot-container text-left ml-3" style="background-color:transparent;">
-                  <span class="dot active" onclick="currentSlide1(1)"></span> 
-                  <span class="dot" onclick="currentSlide1(2)"></span> 
-                  <span class="dot" onclick="currentSlide1(3)"></span> 
-                </div>
-            </div>
-            <script>
-                var slideIndex = 1;
-                showSlides1(slideIndex);
-                
-                function plusSlides1(n) {
-                showSlides1(slideIndex += n);
-                }
-                
-                function currentSlide1(n) {
-                showSlides1(slideIndex = n);
-                }
-                
-                function showSlides1(n) {
-                var i;
-                var slides = document.getElementsByClassName("mySlides1");
-                var dots = document.getElementsByClassName("dot");
-                if (n > slides.length) {slideIndex = 1}    
-                if (n < 1) {slideIndex = slides.length}
-                for (i = 0; i < slides.length; i++) {
-                    slides[i].style.display = "none";  
-                }
-                for (i = 0; i < dots.length; i++) {
-                    dots[i].className = dots[i].className.replace("active", "");
-                }
-                slides[slideIndex-1].style.display = "block";  
-                dots[slideIndex-1].className += " active";
-                }
-            </script>
-        </div>
+    <div class="intro-info order-md-first order-last position-absolute" style="bottom:0px;left:10%;">
+      <h2 class="text-white text-left">Blogs</h2>
     </div>
-
   </section><!-- #intro -->
 
   
@@ -107,11 +28,34 @@ span.dot{
              <div class="col-lg-9 col-md-9 wow fadeInUp px-3 text-justify">
              <input type="text" name="main_search" id="main_search" value="<?= $search;?>" hidden>
                 <div class="row" id="list1">
+                  <?php 
+                  if(!empty($Article)){
+                    foreach($Article as $article){?>
+                      <div class="col-lg-6 col-md-6 wow fadeInUp p-1 d-flex w-100">
+                          <div class="card shadow-sm w-100">
+                              <img class="card-img-top" src="<?= base_url().'admin/'.$article->image_url ?>" height="250px" alt="Card image cap">
+                              <div class="card-body">
+                                  <small><?= date('d, M Y',strtotime($article->posted_date)) ?></small>
+                                  <h6 class="card-title pt-1"><b><?= $article->title ?></b></h6>
+                                  <h6 class="card-title"><b><?= $article->sub_title ?></b></h6>
+                                  <div class="card-text text-justify lap" style="height:250px;overflow:hidden"><?= $article->description ?></div><br>
+                                  <a href="<?=base_url().'Main/Article?id='.$article->article_id ?>" class="btn custom-button-bl" >View</a>
+                              </div>
+                          </div>
+                      </div>
+                    <?php }
+                  }
+                  else{
+                    echo 'No Blogs to display';
+                  }
+                  ?>
+                </div>
+                <?php if(!empty($links)){ ?>
+                  <div class="center pt-5">
+                     <?= $links; ?>
+                  </div> 
+                <?php }?>
                                  
-                </div>
-                <div class="center pt-5">
-                    <div id='pagination' class="pagination1"></div>
-                </div>
                 <!-- <div class="center pt-5">
                     <ul class="pagination">
                         <li><a id="prev">❮</a></li>
@@ -148,7 +92,7 @@ span.dot{
                               <?php } ?>
                             </div>
                           </li>
-                          <li><input type="checkbox" checked=""><i></i>
+                          <!-- <li><input type="checkbox" checked=""><i></i>
                             <h6><span style="border-left:2px solid #343a40;padding:4px"></span> Popular Tags</h6>
                             <div class="artlist">
                               <div class="artlist_content">
@@ -159,10 +103,10 @@ span.dot{
                                 <a href="#"><span class="btn border border-secondary rounded text-uppercase mb-1 p-2">START UPS</span></a>
                               </div>
                             </div>
-                          </li>
+                          </li> -->
                           <li><input type="checkbox" checked=""><i></i>
                             <h6><span style="border-left:2px solid #343a40;padding:4px"></span> Instagram</h6>
-                            <div class="row" >
+                            <div class="row artlist">
                               <div class="col-md-12" >
                                 <?php if(isset($insta_user->data) && !empty($insta_user->data)){ ?>
                                   <table class="table" >
@@ -210,7 +154,7 @@ span.dot{
                                     $i = 1;
 
                                     foreach ($insta_post as $post) { ?>
-                                    <a href="<?= $post ?>" target="_blank">
+                                    <a href="https://www.instagram.com/reyada_co/" target="_blank">
                                       <div class="insta-post-single" style="background-image:url('<?= base_url($post) ?>')" >
                                           
                                       </div>
@@ -283,7 +227,7 @@ span.dot{
               postedday=posteddate[2].split(' ');
             articleList = articleList+'<div class="col-lg-6 col-md-6 wow fadeInUp p-1 d-flex w-100">'+
                         '<div class="card shadow-sm w-100">'+
-                            '<img class="card-img-top" src="<?= base_url()?>Admin/'+value.image_url+'" height="250px" alt="Card image cap">'+
+                            '<img class="card-img-top" src="<?= base_url()?>admin/'+value.image_url+'" height="250px" alt="Card image cap">'+
                             '<div class="card-body">'+
                                 '<small>'+postedday[0]+', '+GetMonthName(posteddate[1])+' '+posteddate[0]+'</small>'+
                                 '<h6 class="card-title pt-1"><b>'+value.title+'</b></h6>'+
@@ -320,7 +264,7 @@ span.dot{
        loadPagination(pageno,'');
      });
  
-     loadPagination(0,'');
+    //  loadPagination(0,'');
 
     
 
@@ -332,6 +276,7 @@ span.dot{
          dataType: 'json',
          data:{'search_text':search_text},
          success: function(response){
+          console.log(response);
             $('#pagination').html(response.pagination);
             // createTable(response.result,response.row);
             var articleList="";
@@ -341,13 +286,13 @@ span.dot{
               postedday=posteddate[2].split(' ');
             articleList = articleList+'<div class="col-lg-6 col-md-6 wow fadeInUp p-1 d-flex w-100">'+
                         '<div class="card shadow-sm w-100">'+
-                            '<img class="card-img-top" src="<?= base_url()?>Admin/'+value.image_url+'" height="250px" alt="Card image cap">'+
+                            '<img class="card-img-top" src="<?= base_url()?>admin/'+value.image_url+'" height="250px" alt="Card image cap">'+
                             '<div class="card-body">'+
                                 '<small>'+postedday[0]+', '+GetMonthName(posteddate[1])+' '+posteddate[0]+'</small>'+
                                 '<h6 class="card-title pt-1"><b>'+value.title+'</b></h6>'+
                                 '<h6 class="card-title"><b>'+value.sub_title+'</b></h6>'+
                                 '<div class="card-text text-justify lap" style="height:250px;overflow:hidden">'+value.description+'</div><br>'+
-                                '<a href="<?=base_url()?>Main/Article?id='+value.article_id+'"><i class="fa fa-angle-right fa-2x no-bottom position-absolute pb-1 text-dark"></i></a>'+
+                                '<a href="<?=base_url()?>Main/Article?id='+value.article_id+'" class="btn custom-button-bl" >'+'view'+'</a>'+
                             '</div>'+
                         '</div>'+
                    '</div>'
@@ -379,13 +324,13 @@ span.dot{
               postedday=posteddate[2].split(' ');
               articleList = articleList+'<div class="col-lg-6 col-md-6 wow fadeInUp p-1 d-flex w-100">'+
                         '<div class="card shadow-sm w-100">'+
-                            '<img class="card-img-top" src="<?= base_url()?>Admin/'+value.image_url+'" height="250px" alt="Card image cap">'+
+                            '<img class="card-img-top" src="<?= base_url()?>admin/'+value.image_url+'" height="250px" alt="Card image cap">'+
                             '<div class="card-body">'+
                                 '<small>'+postedday[0]+', '+GetMonthName(posteddate[1])+' '+posteddate[0]+'</small>'+
                                 '<h6 class="card-title pt-1"><b>'+value.title+'</b></h6>'+
                                 '<h6 class="card-title"><b>'+value.sub_title+'</b></h6>'+
                                 '<div class="card-text text-justify lap" style="height:250px;overflow:hidden">'+value.description+'</div><br>'+
-                                '<a href="<?=base_url()?>Main/Article?id='+value.article_id+'"><i class="fa fa-angle-right fa-2x no-bottom position-absolute pb-1 text-dark"></i></a>'+
+                                '<a href="<?=base_url()?>Main/Article?id='+value.article_id+'" class="btn custom-button-bl" >'+'view'+'</a>'+
                             '</div>'+
                         '</div>'+
                    '</div>'

@@ -37,7 +37,7 @@
                   <li><a href="<?= base_url('AdminUsers');?>"><i class="fa fa-user"></i> Admin Users</a>
                   </li>
                   <?php } ?>
-                  <li><a href="<?= base_url('Members');?>"><i class="fa fa-group"></i> Members</a>
+                  <li><a href="<?= base_url('Members');?>" id="membersshow"><i class="fa fa-group"></i> Members</a>
                   </li>
                   <?php
                   if($this->session->userdata('role') == 'admin' || $this->session->userdata('role') == 'Admin'){ ?>

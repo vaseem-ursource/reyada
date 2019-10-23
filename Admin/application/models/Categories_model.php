@@ -5,7 +5,8 @@
         }
 
         public function get_all_categories(){
-            return $this->db->get('categories');
+            return $this->db->where('is_deleted','No')
+                            ->get('categories');
         }
 
         public function get_categories_on_id($category_id){

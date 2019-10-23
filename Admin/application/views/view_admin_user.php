@@ -56,6 +56,7 @@
                              ?> 
                              <a href="<?=base_url('AdminUsers/Change?id='.$row->admin_id.'"')?>" data-toggle="tooltip" data-placement="top" title="Change Password"><i class="fa fa-key fa-lg"></i></a>
                              <a href="<?=base_url('AdminUsers/Status?id='.$row->admin_id.'"')?>" data-toggle="tooltip" data-placement="top" title="Change Status (Active/Deactive)"><i class="fa fa-toggle-on fa-lg <?=$status_color?>"></i></a>
+                             <a href="<?=base_url('AdminUsers/Delete?id='.$row->admin_id.'"')?>" data-toggle="tooltip" data-placement="top" title="Delete User"><i class="fa fa-trash fa-lg"></i></a>
                           </td>
                         </tr>
                     <?php } ?>

@@ -31,8 +31,8 @@
                           <th>Name</th>
                           <th>Email</th>
                           <th>Phone</th>                        
-                          <th>Company Name</th>                          
-                          <th>Subject</th>
+                          <th>Company Name</th>   
+                          <th>Subject</th>                            
                           <th>Message</th>
                           <th>Posted Date</th>
                           <th>Action</th>
@@ -50,7 +50,9 @@
                           <td><?= $row->message;?></td>
                           <td><?= $row->posted_date;?></td>
                           <td>
-                             <a href="<?=base_url('ContactUs/View?id='.$row->email.'"')?>" data-toggle="tooltip" data-placement="top" title="View"><i class="fa fa-eye fa-lg"></i></a>
+                             <a href="<?=base_url('ContactUs/View?id='.$row->id.'"')?>" data-toggle="tooltip" data-placement="top" title="View"><i class="fa fa-eye fa-lg"></i></a>
+                             <a href="<?=base_url('ContactUs/delete?id='.$row->id.'"')?>" data-toggle="tooltip" data-placement="top" title="delete"><i class="fa fa-trash fa-lg"></i></a>
+
                           </td>
                         </tr>
                     <?php } ?>

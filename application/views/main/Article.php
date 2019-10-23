@@ -355,7 +355,7 @@ button {
             <div class="col-lg-9 col-md-9 wow fadeInUp p-3 text-justify">
                 <p><?= $Article->description;?></p>
 
-                <img class="card-img-top py-1" style="max-height:500px" src="<?= base_url().'Admin/'.$Article->image_url;?>" alt="Card image cap">
+                <img class="card-img-top py-1" style="max-height:500px" src="<?= base_url().'admin/'.$Article->image_url;?>" alt="Card image cap">
                 
                 <!-- <p>Nam a turpis enim. Sed tempus at urna eu ultrices. Vivamus nibh orci, lobortis ut porttitor et, venenatis efficitur dolor. Vestibulum volutpat ac neque eu accumsan. Nam quis nunc vitae ex pellentesque pulvinar. Etiam lacinia dolor sed magna sagittis mollis. Proin ex tortor, pretium et iaculis sed, posuere et purus. Nulla facilisi. Morbi vitae metus id nibh dictum mollis sed ac metus.</p> -->
 
@@ -388,24 +388,24 @@ button {
                 this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
                 };
                 */
-                (function() { // DON'T EDIT BELOW THIS LINE
-                var d = document, s = d.createElement('script');
-                s.src = 'https://sainxo.disqus.com/embed.js';
-                s.setAttribute('data-timestamp', +new Date());
-                (d.head || d.body).appendChild(s);
-                })();
-                </script>
-                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                // (function() { // DON'T EDIT BELOW THIS LINE
+                // var d = document, s = d.createElement('script');
+                // s.src = 'https://sainxo.disqus.com/embed.js';
+                // s.setAttribute('data-timestamp', +new Date());
+                // (d.head || d.body).appendChild(s);
+                // })();
+                // </script>
+                <!-- <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript> -->
 
-                <h3 class="text-center pt-3">Share this Article</h3>
-                <div id="share" class="text-center pb-4"></div>
+                <!-- <h3 class="text-center pt-3">Share this Article</h3> -->
+                <!-- <div id="share" class="text-center pb-4"></div> -->
                 <!-- <h4 class="text-center text-dark pb-5">
                     <a href="#"><i class="fa fa-facebook px-3 text-dark"></i></a>
                     <a href="#"><i class="fa fa-linkedin px-3 text-dark"></i></a>
                     <a href="#"><i class="fa fa-twitter px-3 text-dark"></i></a>
                     
                 </h4> -->
-               <span class="mb-1">Tags : </span>
+               <!-- <span class="mb-1">Tags : </span>
                <span class="btn border border-secondary rounded text-uppercase mb-1 p-2">START UPS</span>
                <span class="btn border border-secondary rounded text-uppercase mb-1 p-2">Tips</span>
                <span class="btn border border-secondary rounded text-uppercase mb-1 p-2">FreeLance</span>
@@ -417,7 +417,7 @@ button {
                <span class="btn border border-secondary rounded text-uppercase mb-1 p-2">FreeLance</span>
                <span class="btn border border-secondary rounded text-uppercase mb-1 p-2">News</span>
                <span class="btn border border-secondary rounded text-uppercase mb-1 p-2">START UPS</span>
-               <span class="btn border border-secondary rounded text-uppercase mb-1 p-2">FreeLance</span>
+               <span class="btn border border-secondary rounded text-uppercase mb-1 p-2">FreeLance</span> -->
             </div>
 
             <div class="col-lg-3 col-md-3 wow fadeInUp p-1 lap">
@@ -443,7 +443,7 @@ button {
                               <?php } ?>
                             </div>
                           </li>
-                          <li><input type="checkbox" checked=""><i></i>
+                          <!-- <li><input type="checkbox" checked=""><i></i>
                             <h6><span style="border-left:2px solid #343a40;padding:4px"></span> Popular Tags</h6>
                             <div class="artlist">
                               <div class="artlist_content">
@@ -454,71 +454,71 @@ button {
                                 <a href="#"><span class="btn border border-secondary rounded text-uppercase mb-1 p-2">START UPS</span></a>
                               </div>
                             </div>
-                          </li>
+                          </li> -->
                           <li><input type="checkbox" checked=""><i></i>
                             <h6><span style="border-left:2px solid #343a40;padding:4px"></span> Instagram</h6>
-                            <div class="row" >
-                              <div class="col-md-12" >
-                                <?php if(isset($insta_user->data) && !empty($insta_user->data)){ ?>
-                                  <table class="table" >
-                                    <tr>
-                                      <td>
-                                        <img style="width:50px;" class="insta-profile border border-secondary" src="<?= base_url('img/ins/dp.jpg') ?>" />
-                                      </td>
-                                      <td>
-                                        <span>
-                                          <!-- <?= $insta_user->data->username ?> -->
-                                          reyada_co
-                                        </span>
-                                        <br>
-                                        <span>
-                                          <!-- <?= $insta_user->data->counts->media ?> -->
-                                          674
-                                        </span>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <span>
-                                          <!-- <?= $insta_user->data->counts->followed_by ?> -->
-                                          4,735
-                                        </span>
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td colspan="2" >
-                                        <span>
-                                          <!-- <?= $insta_user->data->bio; ?> -->
-                                          Reyada | ريادة
-                                          ‎نوفر مساحات و مكاتب للعمل المشترك لتطوير اعمالك
-                                          A collaborative workspace offering business support for creative enterprises
-                                          WA: 22970270
-                                        </span>
-                                        <br>
-                                        <a href="https://www.instagram.com/reyada_co/"><span>www.reyada.co</span></a>
-                                      </td>
-                                    </tr>
-                                  </table>
-                                <?php } ?>
-                              </div>
-                              <div class="col-md-12" >
-                                <?php
-                                if(isset($insta_post) && !empty($insta_post)){
-                                    $max_post = 8;
-                                    $i = 1;
+                              <div class="row">
+                                <div class="col-md-12" >
+                                  <?php if(isset($insta_user->data) && !empty($insta_user->data)){ ?>
+                                    <table class="table" >
+                                      <tr>
+                                        <td>
+                                          <img style="width:50px;" class="insta-profile border border-secondary" src="<?= base_url('img/ins/dp.jpg') ?>" />
+                                        </td>
+                                        <td>
+                                          <span>
+                                            <!-- <?= $insta_user->data->username ?> -->
+                                            reyada_co
+                                          </span>
+                                          <br>
+                                          <span>
+                                            <!-- <?= $insta_user->data->counts->media ?> -->
+                                            674
+                                          </span>
+                                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                          <span>
+                                            <!-- <?= $insta_user->data->counts->followed_by ?> -->
+                                            4,735
+                                          </span>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td colspan="2" >
+                                          <span>
+                                            <!-- <?= $insta_user->data->bio; ?> -->
+                                            Reyada | ريادة
+                                            ‎نوفر مساحات و مكاتب للعمل المشترك لتطوير اعمالك
+                                            A collaborative workspace offering business support for creative enterprises
+                                            WA: 22970270
+                                          </span>
+                                          <br>
+                                          <a href="https://www.instagram.com/reyada_co/"><span>www.reyada.co</span></a>
+                                        </td>
+                                      </tr>
+                                    </table>
+                                  <?php } ?>
+                                </div>
+                                <div class="col-md-12" >
+                                  <?php
+                                  if(isset($insta_post) && !empty($insta_post)){
+                                      $max_post = 8;
+                                      $i = 1;
 
-                                    foreach ($insta_post as $post) { ?>
-                                    <a href="<?= $post ?>" target="_blank">
-                                      <div class="insta-post-single" style="background-image:url('<?= base_url($post) ?>')" >
-                                          
-                                      </div>
-                                    </a>
+                                      foreach ($insta_post as $post) { ?>
+                                      <a href="<?= $post ?>" target="_blank">
+                                        <div class="insta-post-single" style="background-image:url('<?= base_url($post) ?>')" >
+                                            
+                                        </div>
+                                      </a>
 
-                                    <?php
-                                        $i++;
-                                        if($i > $max_post){ break; }
+                                      <?php
+                                          $i++;
+                                          if($i > $max_post){ break; }
+                                      }
                                     }
-                                  }
-                                ?>
+                                  ?>
+                                </div>
                               </div>
-                            </div>
                           </li>
                         </ul>
                       </div>

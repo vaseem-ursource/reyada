@@ -50,12 +50,12 @@
                                  <span style="color:#999; font-size: 11px;">About membership</span>
                               </div>
                               <div class="group">
-                                 <input type="checkbox" name="workspace" id="workspace">
+                                 <input type="checkbox" name="workspace" id="workspace" >
                                  <span style="color:#999; font-size: 11px;"> Finding workspace</span>
                               </div>
                               <div class="group">
                                  <input type="checkbox" name="somethingelse" id="somethingelse">
-                                 <span style="color:#999; font-size: 11px;" required>something else</span>
+                                 <span style="color:#999; font-size: 11px;">something else</span>
                               </div>
                               <div class="group" style="padding-top:9px;">
                                  <input type="text" placeholder="Notes" name="notes" id="notes" >
@@ -460,8 +460,12 @@
                         <div class="group" >
                            <textarea name="p_services" style="width:100%" required placeholder="Services You Offer"></textarea>
                         </div>
+                        <!-- live key -->
+                        <div data-size="compact" class="g-recaptcha" data-sitekey="6Le-trkUAAAAAB7vF415w5N326ZuhKHqgj9Q7RXe" required></div> 
+                        <!-- staging key -->
                         <!-- <div data-size="compact" class="g-recaptcha" data-sitekey="6LeLH7kUAAAAAOrLMybD7bI52vunWgLhIJVzwYtm" required></div> -->
-                        <div  data-size="compact" class="g-recaptcha text-center" data-sitekey="6LcdBrkUAAAAAGJCngHt8FhPPfwaYbKvNL5Zjv6s" required></div>
+                        <!-- local key -->
+                        <!-- <div  data-size="compact" class="g-recaptcha text-center" data-sitekey="6LcdBrkUAAAAAGJCngHt8FhPPfwaYbKvNL5Zjv6s" required></div> -->
                         <br>
                         <button type="submit" class="btn custom-button-bl" style="position:relative;left:40%;outline:none;">Submit</button>
                      </div>
@@ -500,12 +504,17 @@
    var password = '<?= $this->config->item('password')?>'
    var base_url = '<?= base_url(); ?>';
    var digit_pattern = new RegExp('^[2-9][0-9]*$');
+   var emailReg = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
+
    $(".secondSignup").hide();
    
    $(".continuebtn").click(function () {
      $(".secondSignup").show();
    });
    $('#contact-us-form').submit(function(e){
+      email = $('[name="email"]').val();
+      subject = $('[name="membership"]').val();
+      console.log(subject);
       $('.whole_div').show();
       e.preventDefault();
       if (!($('[name="phone"]').val()).match(digit_pattern)) {
@@ -516,6 +525,14 @@
       else if($('[name="phone"]').val().length > 8){
          $('.whole_div').hide();
          alert("Mobile number should be 8 digits only");
+      }
+      else if (!(email).match(emailReg)) {
+         alert("Invalid Email");
+         $('.whole_div').hide();
+      }
+      else if (!$('[name="membership"]').prop('checked') && !$('[name="workspace"]').prop('checked') && !$('[name="somethingelse"]').prop('checked')) {
+         alert("Please select anyone subject of enquiry to proceed.");
+         $('.whole_div').hide();
       }
       else{
          $('.whole_div').hide();
@@ -559,6 +576,7 @@
            $('.whole_div').hide();
            alert("Phone should be 8 digits");
          }
+         
          else 
          {
            var form_data = $(this).serialize();
@@ -569,7 +587,6 @@
                data: form_data,
                success: function(data) {
                  $('.whole_div').hide();
-                 console.log(data);
                    if(data.status == 'OK'){
                      $("#partnermodal").modal("hide");
                      $('#partner_thankyou').modal('show');

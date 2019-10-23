@@ -1,5 +1,8 @@
 <?php include('header.php');?>    
 <div class="row top_tiles">
+<div class="whole_div img-rounded"
+                style="width:100%;height:100%;border-radius:5%;display: none;position: fixed;z-index: 99999;background-color:rgba(0,0,0,0.1); background:url(<?= base_url() ?>assets/images/loading2.gif) no-repeat center center;">
+          </div>
               <a href="<?= base_url('Categories')?>">
               <div class="animated flipInY col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <div class="tile-stats">

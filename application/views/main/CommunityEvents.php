@@ -2,7 +2,7 @@
   .evnt-heading{
     color:#000000;
     position:relative;
-    margin-top:-5px;
+    margin-top:-7px;
   }
   @media (max-width: 991px) {
   .evnt-heading{
@@ -31,7 +31,7 @@
         <a href="<?=base_url()?>main/communityEvents?type=all&location=reyada" style="color:#000000;"><?= $locations[0]->Name ?></a>&nbsp;&nbsp;|&nbsp;&nbsp;
         <a href="<?=base_url()?>main/communityEvents?type=all&location=reyadamabane" style="color:#000000;"><?= $locations[1]->Name ?></a>
       </div>
-      <div class="col-md-4 col-xs-4 text-center evnt-heading"><h2>Events at <?= $place ?></h2></div>
+      <div class="col-md-4 col-xs-4 text-center evnt-heading"><h2>Events</h2></div>
       <div class="col-md-4 col-xs-4 text-center">
         <a href="<?=base_url()?>main/communityEvents?type=all" style="color:#000000;" >All Events</a>&nbsp;&nbsp;|&nbsp;&nbsp;
         <a href="<?=base_url()?>main/communityEvents?type=past" style="color:#000000;" >Past Events</a>&nbsp;&nbsp;|&nbsp;&nbsp;
