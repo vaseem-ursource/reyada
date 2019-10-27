@@ -51,7 +51,9 @@
           </thead>
 
         <tbody>
-        <?php foreach ($Partners as $row){ ?> 
+        <?php 
+        if(!empty($Partners)){
+          foreach ($Partners as $row){ ?> 
             <tr>
               <td><?= $row->company_name;?></td>
               <td><?= $row->address;?></td>
@@ -76,7 +78,8 @@
                   <?php   } ?> 
               </td>
             </tr>
-        <?php } ?>
+        <?php } } ?>
+        
         </tbody>
         </table>
       </div>

@@ -2,7 +2,7 @@
   .evnt-heading{
     color:#000000;
     position:relative;
-    margin-top:-7px;
+    margin-top:-8px;
   }
   @media (max-width: 991px) {
   .evnt-heading{

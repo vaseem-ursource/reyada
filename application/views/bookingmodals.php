@@ -10,10 +10,22 @@
 .meetformheight{
   height:600px;
 }
+.booking-font{
+    color:white;
+    font-size:12px;
+}
 @media (max-width: 768px) {
-    .meetformheight{
-    height:800px;
-  }
+.meetformheight{
+height:800px;
+}
+.mt-btn{
+    position:relative;
+    top:5px;
+}
+.booking-font{
+    color:white;
+    font-size:10px;
+}
 }
 </style>
 <div class="modal fade" id="bookingmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -41,21 +53,34 @@
                      </small>
                   </h6>
                   <h6 style="color:white; font-size: 14px;" class="text-justify bg-black px-2 m-4 mb-3">
-                     <div class="col-md-12 col-sm-12 col-xs-12 row" id="resources" style="display:none;">
-                     </div>
+
+                    <div class="col-md-12 text-center">
+                        <div class="row" id="resources" style="display:none;">
+                            
+                        </div>
+                    </div>
+                        
                      <br>
-                     <div class="col-md-12 col-sm-12 col-xs-12 row booking-div" id="bookings" style="display:none;">
+                     <div class="booking-div table-responsive" id="bookings" style="display:none;position:relative;top:-20px;">
+                        <table class="table table-bordered text-center">
+                            <thead id="head">
+                                
+                            </thead>
+                            <tbody id="body">
+                                
+                            </tbody>
+                        </table>
                      </div>
                      <div class="col-md-12 col-sm-12 col-xs-12" style="top:-25px;" id="loc_imgs" style="display:none;">
                         <img src="<?= base_url('image/services/room2.jpg')?>"  width="100%" />
                      </div>
                      <div class="container">
-                        <div class="row text-justify booking-option">
-                           <div class="col-md-12">
-                              <a href="#" style="color:white;"><span class="pull-left" id="toor_book">Book a tour</span></a>
-                              <a href="#" style="color:white;"><span class="pull-right" id="mr_book">Book a meeting room</span></a>
+                        <div class="row booking-option">
+                           <div class="col-md-12 text-center">
+                              <p href="#" class="col-md-4 btn tr-mt-btn"><span id="toor_book">Book a tour</span></p>
+                              <p href="#" class="col-md-7 btn tr-mt-btn"><span id="mr_book">Book a meeting room</span></p>
                            </div>
-                           <h6 class="p-3" style="position:relative;top:50px;"><small><b>Reyada</b> | Collaborative workplace</small></h6>
+                           <h6 class="p-3" style="position:relative;top:20px;"><small><b>Reyada</b> | Collaborative workplace</small></h6>
                         </div>
                      </div>
                   </h6>
@@ -985,7 +1010,7 @@
        function get_resources(location_id) {
            $("#resources").empty();
            $("#select-resource").empty();
-           $("#bookings").empty();
+        //    $("#bookings").empty();
            $.ajax({
                type: 'GET',
                url: 'https://spaces.nexudus.com/api/spaces/resources?Resource_Business=' +location_id,
@@ -1002,9 +1027,13 @@
                        $("#select-resource").append("<option value ='0'>" + 'Select Your Room' + "</option>");
                        $.each(resources, (key, resource) => {
                            if(resource.Visible === true){
-                               var resources = "<div class='col-md-6 col-sm-6 row p-0 m-0' style='margin-top:10px !important;' >" +
-                                   "<span  class='resource' style='color:white;font-size:12px;cursor:pointer' data-id ='" +resource.Id +"'>" + resource.Name + "</span>" +
-                                   "</div>";
+                               var resources = 
+                               "<div class='col-md-6' style='padding:0' >"+
+                                    "<p href='#'  class='btn tr-mt-btn resource' style='font-size:10px;width:97%;height:30px;' data-id ='" +resource.Id +"' >"+"<span >"+resource.Name+"</span>"+"</p>"+
+                                "</div>";
+                                // "<div class='col-md-5 col-sm-5'>" +
+                                //    "<span  class='resource btn tr-mt-btn' style='font-size:11px;cursor:pointer' data-id ='" +resource.Id +"'>" +  + "</span>" +
+                                // "</div>";
                                $("#resources").append(resources);
                                $("#select-resource").append("<option value ='" +resource.Id + " '>" + resource.Name + "</option>");
                            }
@@ -1024,55 +1053,59 @@
        }
    
        function get_bookings(res_id,cur_date,yesterday) {
-           $("#bookings").empty();
-           $.ajax({
-               type: 'GET',
-               url: 'https://spaces.nexudus.com/api/spaces/bookings?Booking_Resource=' + res_id + '&size=' + size + '&To_Booking_FromTime=' + cur_date + '&From_Booking_ToTime=' + yesterday,
-               beforeSend: function(xhr) {
-                   xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" +
-                       password));
-               },
-               dataType: 'json',
-               success: function(bookings) {
-                   $('.whole_div').hide();
-                   var Bookings = bookings.Records;
-                   if (Bookings.length != '0') {
-                        var bookings = "<div class='col-md-12 col-sm-12 p-0 m-0'>"+ 
-                                            "<small style='font-size:13px;'>" + "<br>" + 'Scheduled Bookings' + "</small>"+
-                                        "</div>";
-                       $("#bookings").append(bookings);
-                       $.each(Bookings, (key, booking) => {
-                           var fromtime = moment.tz(booking.FromTime, "Asia/Kuwait");
-                           var totime =   moment.tz(booking.ToTime, "Asia/Kuwait");
-                           var bookings = 
-                           "<div class='col-md-6 col-sm-6 p-0 m-0'>"+ 
-                               "<span style='color: #fff; font-size: 13px;'>"+"<br>"+ moment(fromtime).format('h:mm a')+" - "+"</span>"+
-                               "<span style='color: #fff; font-size: 13px;'>"+moment(totime).format('h:mm a')+"<br>"+"</span>"+
-                           "</div>"+
-                           "<div class='col-md-6 col-sm-6 p-0 m-0'>"+
-                               "<span style='color: #fff; font-size: 13px;'>"+"<br>"+moment(fromtime).format('YYYY-MM-DD')+"<br>"+"</span>"+
-                               "<span style='color: #fff; font-size: 13px;'>"+ booking.ResourceName +"<br>"+"</span>"+
-                               // "<span style='color: #fff; font-size: 12px;'>"+ booking.CoworkerFullName +"<br>"+"</span>"+
-                           "</div>";
-                           $("#bookings").append(bookings);
-                       })
-                   } else {
-                       $('.whole_div').hide();
-                       var bookings = "<small>" + "<br>" + 'No Bookings' + "</small>";
-                       $("#bookings").append(bookings);
-                   }
-   
-               },
-               error: function() {
-                   $('.whole_div').hide();
-                   var bookings = "<small>" + "<br>" + 'No Bookings' + "</small>";
-                   $("#bookings").append(bookings);
-               }
-           })
+        $("#head").empty();
+        $("#body").empty();
+        $.ajax({
+            type: 'GET',
+            url: 'https://spaces.nexudus.com/api/spaces/bookings?Booking_Resource=' + res_id + '&size=' + size + '&To_Booking_FromTime=' + cur_date + '&From_Booking_ToTime=' + yesterday,
+            beforeSend: function(xhr) {
+                xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" +
+                    password));
+            },
+            dataType: 'json',
+            success: function(bookings) {
+                $('.whole_div').hide();
+                var Bookings = bookings.Records;
+                if (Bookings.length != '0') {
+                        var head = 
+                        "<tr>"+
+                            "<th colspan='3' scope='col' style='color:white;' class='text-center' >"+ 'Scheduled Bookings' +"</th>"+
+                        "</tr>";
+                    $("#head").append(head);
+                    $.each(Bookings, (key, booking) => {
+                        var fromtime = moment.tz(booking.FromTime, "Asia/Kuwait");
+                        var totime =   moment.tz(booking.ToTime, "Asia/Kuwait");
+                        var body =   "<tr class='booking-font'>"+
+                                        "<td>"+ booking.ResourceName +"<br>"+ moment(fromtime).format('YYYY-MM-DD') + "</td>"+
+                                        "<td>" + moment(fromtime).format('h:mma')+"-"+ moment(totime).format('h:mma') + "</td>"+
+                                    "</tr>";
+                        
+                        $("#body").append(body);
+                    })
+                } else {
+                    $('.whole_div').hide();
+                    var head = 
+                        "<tr>"+
+                            "<th colspan='3' scope='col' style='color:white;' class='text-center' >"+ 'No Bookings' +"</th>"+
+                        "</tr>";
+                    $("#head").append(head);
+                }
+
+            },
+            error: function() {
+                $('.whole_div').hide();
+                    var head = 
+                        "<tr>"+
+                            "<th colspan='3' scope='col' style='color:white;' class='text-center' >"+ 'No Bookings' +"</th>"+
+                        "</tr>";
+                    $("#head").append(head);
+            }
+        })
        }
    
        function get_location_bookings(loc_id,cur_date,yesterday){
-           $("#bookings").empty();
+           $("#head").empty();
+           $("#body").empty();
            $.ajax({
                type: 'GET',
                url: 'https://spaces.nexudus.com/api/spaces/bookings?Booking_Resource_Business=' + loc_id + '&size=' + size + '&To_Booking_FromTime=' + cur_date + '&From_Booking_ToTime=' + yesterday,
@@ -1085,35 +1118,39 @@
                    $('.whole_div').hide();
                    var Bookings = bookings.Records;
                    if (Bookings.length != '0') {
-                        var bookings = "<div class='col-md-12 col-sm-12 p-0 m-0'>"+ 
-                                            "<small style='font-size:13px;'>" + "<br>" + 'Scheduled Bookings' + "</small>"+
-                                        "</div>";
-                       $("#bookings").append(bookings);
+                      var head = 
+                        "<tr>"+
+                            "<th colspan='3' scope='col' style='color:white;' class='text-center'>"+ 'Scheduled Bookings' +"</th>"+
+                        "</tr>";
+                       $("#head").append(head);
                        $.each(Bookings, (key, booking) => {
                            var fromtime = moment.tz(booking.FromTime, "Asia/Kuwait");
                            var totime =   moment.tz(booking.ToTime, "Asia/Kuwait");
-                           var bookings = 
-                           "<div class='col-md-6 col-sm-6 p-0 m-0'>"+ 
-                               "<span style='color: #fff; font-size: 13px;'>"+"<br>"+ moment(fromtime).format('h:mm a')+" - "+"</span>"+
-                               "<span style='color: #fff; font-size: 13px;'>"+moment(totime).format('h:mm a')+"<br>"+"</span>"+
-                           "</div>"+
-                           "<div class='col-md-6 col-sm-6 p-0 m-0'>"+
-                               "<span style='color: #fff; font-size: 13px;'>"+"<br>"+moment(fromtime).format('YYYY-MM-DD')+"<br>"+"</span>"+
-                               "<span style='color: #fff; font-size: 13px;'>"+ booking.ResourceName +"<br>"+"</span>"+
-                           "</div>";
-                           $("#bookings").append(bookings);
+                            var body =  "<tr class='booking-font'>"+
+                                            "<td>"+ booking.ResourceName +"<br>"+ moment(fromtime).format('YYYY-MM-DD') + "</td>"+
+                                            "<td style='position:relative;top:50%;'>" + moment(fromtime).format('h:mma')+" - "+ moment(totime).format('h:mma') + "</td>"+
+                                        "</tr>";
+                            
+                            $("#body").append(body);
                        })
+                    
                    } else {
                        $('.whole_div').hide();
-                       var bookings = "<small>" + "<br>" + 'No Bookings' + "</small>";
-                       $("#bookings").append(bookings);
+                       var head = 
+                        "<tr>"+
+                            "<th colspan='3' scope='col' style='color:white;' class='text-center' >"+ 'No Bookings' +"</th>"+
+                        "</tr>";
+                        $("#head").append(head);
                    }
    
                },
                error: function() {
                    $('.whole_div').hide();
-                   var bookings = "<small>" + "<br>" + 'No Bookings' + "</small>";
-                   $("#bookings").append(bookings);
+                   var head = 
+                        "<tr>"+
+                            "<th colspan='3' scope='col' style='color:white;' class='text-center' >"+ 'No Bookings' +"</th>"+
+                        "</tr>";
+                    $("#head").append(head);
                }
            }) 
        }
