@@ -61,7 +61,7 @@ body.modal-open-noscroll
 <div class="overlay">
 <h1>Together We Create</h1>
 <h3>Work. Innovate. Collaborate.</h3>
-<button class="custom-button" id="bookingbutton"><span class="btn-text">Booking</span></button>
+<button class="custom-button" id="bookingbutton"><span class="btn-text">Make a Booking</span></button>
 </div>
     <section id="about">
       <div class="container p-0 m-0">
@@ -168,7 +168,7 @@ body.modal-open-noscroll
     <section id="services" class="p-0">
       <div class="container-fluid">
         <header class="section-header pb-4">
-        <h3 style="color:#343a40">Membership</h3>
+        <h3 style="color:#343a40">Memberships</h3>
         </header>
             <div class="row">
               <div class="col-md-4 memberbox m-0 p-0">

@@ -74,14 +74,24 @@ height:800px;
                      <div class="col-md-12 col-sm-12 col-xs-12" style="top:-25px;" id="loc_imgs" style="display:none;">
                         <img src="<?= base_url('image/services/room2.jpg')?>"  width="100%" />
                      </div>
-                     <div class="container">
+                     <div>
+                     <div class="col-md-12 text-center">
                         <div class="row booking-option">
+                            <div class="col-md-6" style="padding:0">
+                                <p href="#"  class="btn tr-mt-btn" style="font-size:13px;width:97%;"><span id="toor_book">Book a tour</span></p>
+                            </div>
+                            <div class="col-md-6" style="padding:0">
+                                <p href="#"  class="btn tr-mt-btn" style="font-size:13px;width:97%;"><span id="mr_book">Book a meeting room</span></p>
+                            </div>
+                        </div>
+                    </div>
+                        <!-- <div class="row booking-option">
                            <div class="col-md-12 text-center">
-                              <p href="#" class="col-md-4 btn tr-mt-btn"><span id="toor_book">Book a tour</span></p>
-                              <p href="#" class="col-md-7 btn tr-mt-btn"><span id="mr_book">Book a meeting room</span></p>
+                              <p href="#" class="col-md-5 btn tr-mt-btn"><span id="toor_book">Book a tour</span></p>
+                              <p href="#" class="col-md-5 btn tr-mt-btn"><span id="mr_book">Book a meeting room</span></p>
                            </div>
                            <h6 class="p-3" style="position:relative;top:20px;"><small><b>Reyada</b> | Collaborative workplace</small></h6>
-                        </div>
+                        </div> -->
                      </div>
                   </h6>
                </div>
@@ -982,7 +992,7 @@ height:800px;
            $(".location-drp-dwn").empty();
            $.ajax({
                type: 'GET',
-               url: 'https://spaces.nexudus.com/api/sys/businesses?dir=' +'Descending',
+               url: 'https://spaces.nexudus.com/api/sys/businesses?orderby=' +'Name',
                beforeSend: function(xhr) {
                    xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + password));
                },
@@ -991,10 +1001,10 @@ height:800px;
                    var location = locations.Records;
                    if (location.length != 0) {
                            $(".location-drp-dwn").append("<option value ='0'>" + 'Select Location' + "</option>");
-                           $(".location-drp-dwn").append("<option value ='"+location[2].Id+"'>" + location[2].Name + "</option>");
+                           $(".location-drp-dwn").append("<option value ='"+location[0].Id+"'>" + location[0].Name + "</option>");
                            $(".location-drp-dwn").append("<option value ='"+location[1].Id+"'>" + location[1].Name + "</option>");
                            $(".location").append("<option value ='0'>" + 'Select Location' + "</option>");
-                           $(".location").append("<option value ='"+location[2].WebAddress+"'>" + location[2].Name + "</option>");
+                           $(".location").append("<option value ='"+location[0].WebAddress+"'>" + location[0].Name + "</option>");
                            $(".location").append("<option value ='"+location[1].WebAddress+"'>" + location[1].Name + "</option>");
                    
                    } else {

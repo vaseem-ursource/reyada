@@ -112,33 +112,26 @@ span.dot{
                                   <table class="table" >
                                     <tr>
                                       <td>
-                                        <img style="width:50px;" class="insta-profile border border-secondary" src="<?= base_url('img/ins/dp.jpg') ?>" />
+                                        <img style="width:50px;" class="insta-profile border border-secondary" src="<?= $insta_user->data->profile_picture ?>" />
                                       </td>
                                       <td>
                                         <span>
-                                          <!-- <?= $insta_user->data->username ?> -->
-                                          reyada_co
+                                          <?= $insta_user->data->username ?>
                                         </span>
                                         <br>
                                         <span>
-                                          <!-- <?= $insta_user->data->counts->media ?> -->
-                                          674
+                                          <?= $insta_user->data->counts->media ?>
                                         </span>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         <span>
-                                          <!-- <?= $insta_user->data->counts->followed_by ?> -->
-                                          4,735
+                                          <?= $insta_user->data->counts->followed_by ?>
                                         </span>
                                       </td>
                                     </tr>
                                     <tr>
                                       <td colspan="2" >
                                         <span>
-                                          <!-- <?= $insta_user->data->bio; ?> -->
-                                          Reyada | ريادة
-                                          ‎نوفر مساحات و مكاتب للعمل المشترك لتطوير اعمالك
-                                          A collaborative workspace offering business support for creative enterprises
-                                          WA: 22970270
+                                          <?= $insta_user->data->bio; ?>
                                         </span>
                                         <br>
                                         <a href="https://www.instagram.com/reyada_co/"><span>www.reyada.co</span></a>
@@ -149,13 +142,13 @@ span.dot{
                               </div>
                               <div class="col-md-12" >
                                 <?php
-                                if(isset($insta_post) && !empty($insta_post)){
+                                if(isset($insta_data->data) && !empty($insta_data->data)){
                                     $max_post = 8;
                                     $i = 1;
 
-                                    foreach ($insta_post as $post) { ?>
-                                    <a href="https://www.instagram.com/reyada_co/" target="_blank">
-                                      <div class="insta-post-single" style="background-image:url('<?= base_url($post) ?>')" >
+                                    foreach ($insta_data->data as $post) { ?>
+                                    <a href="<?= $post->link?>" target="_blank">
+                                      <div class="insta-post-single" style="background-image:url('<?= $post->images->low_resolution->url; ?>')" >
                                           
                                       </div>
                                     </a>

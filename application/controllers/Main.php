@@ -36,7 +36,7 @@ class main extends CI_Controller
             'Content-Type: application/json',
             'Authorization: Basic ' . base64_encode("$username:$password"),
         ); 
-        $url ='https://spaces.nexudus.com/api/sys/businesses';
+        $url ='https://spaces.nexudus.com/api/sys/businesses?orderby=Name';
         $output = $this->post_with_curl($url, null , $headers);
         if(!empty($output['Records'])){
             return $output['Records'];
@@ -50,7 +50,7 @@ class main extends CI_Controller
         $data['header_name'] = 'header_blog';
         $data['RecentArticle'] = $this->Main_model->get_recent_articles();
         $data['blog'] = $this->Articles_model->get_section_status(1);
-        $url = 'https://spaces.nexudus.com/api/billing/tariffs';
+        $url = 'https://spaces.nexudus.com/api/billing/tariffs?Tariff_Visible=true&orderby=Price&dir=Ascending';
         $this->session->set_userdata('last_page', current_url());
         $username = $this->config->item('username');
         $password = $this->config->item('password');
@@ -244,10 +244,11 @@ class main extends CI_Controller
         print_r(json_encode($json));
     }
 
-    public function purchase_tickets(){
+    public function purchase_tickets()
+    {
         $post_data = $this->input->post();
         $logged_in = $this->session->userdata('is_logged_in');
-        
+
         for($attendee = 0; $attendee < count($post_data['attendee_name']); $attendee++){
             $attendees[$attendee] = new StdClass;
             $attendees[$attendee]->productId = intval($post_data['Id']);
@@ -257,10 +258,6 @@ class main extends CI_Controller
         }
 
         $j_data['attendees'] = $attendees;
-        $user_data['fullName'] = ($logged_in) ? "" : $post_data['p_name'];
-        $user_data['email'] = ($logged_in) ? "" : $post_data['p_email'];
-        $user_data['createUser'] = true;
-        $user_data['errors'] = [];
         $product['Currency'] = new StdClass;
         $product['Currency']->Name = "Kuwaiti Dinar (KWD)";
         $product['Currency']->Code = "KWD";
@@ -306,10 +303,28 @@ class main extends CI_Controller
         $product['qtys'] = $qty_array;
         $data[] = $product;
         $cur_url = $this->session->userdata('last_page');
-        $location = $post_data['loc_url'];
-        $this->session->set_userdata('location', $post_data['loc_url']);
-        $s_data = json_encode(array('discountCode' => "", 'redirectUrl' => "/en/events/payment",'products' => $data,'coworker' => $user_data,'attendees' => $j_data['attendees']));
-        $url = "https://$location.spaces.nexudus.com/en/events/purchase?_depth=25";
+        $loc_url = $post_data['loc_url'];
+        $this->session->set_userdata('location', $loc_url);
+        $s_data = json_encode(array('discountCode' => "", 'redirectUrl' => "/en/events/payment",'products' => $data,'attendees' => $j_data['attendees']));
+        $url = "https://$loc_url.spaces.nexudus.com/en/events/purchase?_depth=25";
+
+        if(!$this->session->userdata('is_logged_in')){
+            $user_data['fullName'] = $post_data['p_name'];
+            $user_data['email'] = $post_data['p_email'];
+            $user_data['MobilePhone'] = $post_data['e_mobile'];
+            $user_data['createUser'] = true;
+            $user_data['Businesses'] =  [906856952,95265170];
+            $user_data['SimpleTimeZoneId'] = 2029;
+            $user_data['CountryId'] = 1113;
+            $user_data['Password'] = $this->randomPassword();
+            $user_data['PasswordConfirm'] = $user_data['Password'];
+            $user_data['errors'] = [];
+            
+            if($this->create_cowerker($user_data)){
+                $this->signin($user_data['email'],$user_data['PasswordConfirm'] ,$loc_url);
+            }
+        }
+        
         if ($this->session->userdata('is_logged_in')) {
             $user = $this->session->userdata('user_info');
             $username = $user['Email'];
@@ -327,13 +342,7 @@ class main extends CI_Controller
         $output = $this->post_with_curl($url, $s_data, $headers);
         if(!empty($output)){
             if($output['WasSuccessful'] == true){
-                if(!$this->session->userdata('is_logged_in')){
-                    $this->session->set_flashdata('success', 'Created Successfully, for payment please login with the credentials received in the email.');
-                    redirect($cur_url);
-                }
-                else{
-                    redirect('main/invoice'); 
-                }
+                redirect('main/invoice'); 
             }
             else{
                 $this->session->set_flashdata('error', 'Some error occured please try again');
@@ -665,13 +674,12 @@ class main extends CI_Controller
         if ($this->input->post('term')) {
             $data['search'] = $this->input->post('term');
         }
-        $data_api = "https://api.instagram.com/v1/users/self/media/recent/?access_token=4530291888.3b9b4cb.ced3f183a852496ea52cd426ee560c0f";
-        // $data_response = $this->fetchSimpleData($data_api);
-        // $data['insta_post'] = json_decode($data_response);
-        $data['insta_post'] = array('img/ins/ins (1).jpg', 'img/ins/ins (2).jpg', 'img/ins/ins (3).jpg', 'img/ins/ins (4).jpg', 'img/ins/ins (5).jpg', 'img/ins/ins (6).jpg');
-
-        $user_api = "https://api.instagram.com/v1/users/self/?access_token=4530291888.3b9b4cb.ced3f183a852496ea52cd426ee560c0f";
+        $data_api = "https://api.instagram.com/v1/users/self/media/recent/?access_token=2172803998.1677ed0.6c698b7964d948d8bd7045e0e0953222";
+        $data_response = $this->fetchSimpleData($data_api);
+        $data['insta_data'] = json_decode($data_response);
+        $user_api = "https://api.instagram.com/v1/users/self/?access_token=2172803998.1677ed0.6c698b7964d948d8bd7045e0e0953222";
         $user_response = $this->fetchSimpleData($user_api);
+        $data['insta_user'] = json_decode($user_response);
 
         $config['base_url'] = base_url('main/blog');
         $config['per_page'] = 6;
@@ -725,9 +733,10 @@ class main extends CI_Controller
     {
         $this->session->set_userdata('last_page', current_url());
         $cat_id = $this->input->get('id');
-        $user_api = "https://api.instagram.com/v1/users/self/?access_token=4530291888.3b9b4cb.ced3f183a852496ea52cd426ee560c0f";
-        $data_api = "https://api.instagram.com/v1/users/self/media/recent/?access_token=4530291888.3b9b4cb.ced3f183a852496ea52cd426ee560c0f";
-        $data['insta_post'] = array('img/ins/ins (1).jpg', 'img/ins/ins (2).jpg', 'img/ins/ins (3).jpg', 'img/ins/ins (4).jpg', 'img/ins/ins (5).jpg', 'img/ins/ins (6).jpg');
+        $data_api = "https://api.instagram.com/v1/users/self/media/recent/?access_token=2172803998.1677ed0.6c698b7964d948d8bd7045e0e0953222";
+        $data_response = $this->fetchSimpleData($data_api);
+        $data['insta_data'] = json_decode($data_response);
+        $user_api = "https://api.instagram.com/v1/users/self/?access_token=2172803998.1677ed0.6c698b7964d948d8bd7045e0e0953222";
         $user_response = $this->fetchSimpleData($user_api);
         $data['insta_user'] = json_decode($user_response);
         $data['search'] = "";
@@ -755,12 +764,10 @@ class main extends CI_Controller
         $data['Categories'] = $this->Main_model->get_all_categories();
         $data['PopularArticle'] = $this->Main_model->get_popular_article();
         $data['blog'] = $this->Articles_model->get_section_status(1);
-        $data_api = "https://api.instagram.com/v1/users/self/media/recent/?access_token=4530291888.3b9b4cb.ced3f183a852496ea52cd426ee560c0f";
-        // $data_response = $this->fetchSimpleData($data_api);
-        // $data['insta_post'] = json_decode($data_response);
-        $data['insta_post'] = array('img/ins/ins (1).jpg', 'img/ins/ins (2).jpg', 'img/ins/ins (3).jpg', 'img/ins/ins (4).jpg', 'img/ins/ins (5).jpg', 'img/ins/ins (6).jpg');
-
-        $user_api = "https://api.instagram.com/v1/users/self/?access_token=4530291888.3b9b4cb.ced3f183a852496ea52cd426ee560c0f";
+        $data_api = "https://api.instagram.com/v1/users/self/media/recent/?access_token=2172803998.1677ed0.6c698b7964d948d8bd7045e0e0953222";
+        $data_response = $this->fetchSimpleData($data_api);
+        $data['insta_data'] = json_decode($data_response);
+        $user_api = "https://api.instagram.com/v1/users/self/?access_token=2172803998.1677ed0.6c698b7964d948d8bd7045e0e0953222";
         $user_response = $this->fetchSimpleData($user_api);
         $data['insta_user'] = json_decode($user_response);
         $this->load->view('index', $data);
@@ -805,20 +812,20 @@ class main extends CI_Controller
     {
         $subject = "";
         if ($this->input->post('membership')) {
-            $subject = $subject . 'About membership';
+            $subject = $subject . 'Membership Inquiry';
         }
         if ($this->input->post('workspace')) {
             if ($subject != '') {
-                $subject = $subject . ', Finding workspace';
+                $subject = $subject . ', Packages Inquiry';
             } else {
-                $subject = $subject . 'Finding workspace';
+                $subject = $subject . 'Packages Inquiry';
             }
         }
         if ($this->input->post('somethingelse')) {
             if ($subject != '') {
-                $subject = $subject . ', Something else';
+                $subject = $subject . ', Others';
             } else {
-                $subject = $subject . 'Something else';
+                $subject = $subject . 'Others';
             }
         }
         $data = array(
@@ -1018,26 +1025,11 @@ class main extends CI_Controller
         $this->load->view('index', $data);
 
     }
-
-    // My Account
-    // function account()
-    // {
-    //     $data['folder_name'] = 'main';
-    //     $data['file_name'] = 'MyAccount';
-    //     $data['header_name'] = 'header_account';
-    //     // $data['MyAccount'] = $this->Main_model->get_recent_articles();
-    //     $this->load->view('index', $data);
-    // }
-
-    // Plan and Benifits
     public function plan()
     {
         if ($this->session->userdata('is_logged_in')) {
-            // $url = "https://$webaddress.spaces.nexudus.com/en/signup?createuser=true&_resource=,&_depth=1";
             $webaddress = $this->session->userdata('location');
             $url = "https://$webaddress.spaces.nexudus.com/en/allowances?_depth=3";
-            // $username = 'aeraf@ursource.org';
-            // $password = 'view1Sonic!';
             
             $user = $this->session->userdata('user_info');
             $username = $user['Email'];
@@ -1498,7 +1490,7 @@ class main extends CI_Controller
          $this->load->view('index', $data);
      }
 
-     function book_events($id , $slug){
+     function book_events($l, $c, $f, $id , $slug){
         $location = $this->session->userdata('location'); 
         if( $location == null){
             $location =  'reyada';

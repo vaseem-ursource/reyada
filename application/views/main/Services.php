@@ -396,9 +396,9 @@
 <section  class="section-bg mt-5">
     <div class="container my-5">
         <header class="section-header"><br>
-          <h3 class="text-dark">Membership</h3>
+          <h3 class="text-dark">Memberships</h3>
           <p class="text-dark" style="font-size:large">Reyada memberships are designed to accommodate business teams of all sizes, as well as individuals and freelancers. 
-                            <br>Our memberships include services that come along with it, but are not limited to, printing, address, mail and package handling, front desk services, priority event access and more. </p>
+            <br>Our memberships include services that come along with it, but are not limited to, printing, address, mail and package handling, front desk services, priority event access and more. </p>
         </header>
     </div>
 </section><!-- #Memebership -->
@@ -601,8 +601,8 @@
         <header class="section-header">
             <h3 class="text-dark">Choose a Membership Package</h3>
             <div class="text-center">
-                <div  name="coWorking"  class="btn btn-default membership membership-active">Co-Working</div>
-                <div  name="meetingRoom"  class="btn btn-default membership">Meeting Room</div>
+                <div  name="coWorking"  class="btn btn-default membership membership-active plans_type">Co-Working</div>
+                <div  name="meetingRoom"  class="btn btn-default membership plans_type">Conference Rooms Memberships</div>
             </div>
         </header>
     </div>
@@ -661,7 +661,8 @@
             </div>
         </div>
     <?php }?>
-</section><br>
+</section>
+<br>
 <section id="services" class="section-bg p-0 m-0">
     <div class="container-fluid p-0 m-0">
         <header class="section-header">

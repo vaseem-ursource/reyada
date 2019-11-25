@@ -54,6 +54,11 @@
                 <input name="p_email" placeholder="Email" id="e_email" type="email"><span class="highlight"></span><span class="bar"></span>
             </div>
         </div>
+        <div class="col-md-12" <?= ($this->session->userdata('is_logged_in')) ? 'style="display:none;"' : ''; ?>>
+            <div class="group">
+                <input name="e_mobile" placeholder="Mobile" id="e_mobile" type="number"><span class="highlight"></span><span class="bar"></span>
+            </div>
+        </div>
         <div class="col-md-12" id="e_qty">
             <div class="group time">
                 <select class="select-fontsize"  name="qty" id="qty" style="padding:5px !important;color:black !important;">
@@ -121,13 +126,21 @@ $('#qty').on('change',function(){
 $(document).ready(function(){
     $('#checkemail').click(function(){
         $('#attendee_form').empty();
+        var digit_pattern = new RegExp('^[2-9][0-9]*$');
         var name = $('#e_name').val();
         var email = $('#e_email').val();
+        var mobile = $('#e_mobile').val();
         var qty = $('#qty').val();
         var base_url = '<?= base_url()?>';
         var loc = '<?= $location?>';
         if($('#e_name').val() == ''){
             toastr.error('Please enter the name');
+        }
+        else if(mobile == ''){
+            toastr.error('Please enter the Phone Number');
+        }
+        else if(!mobile.match(digit_pattern)){
+            toastr.error("Invalid Mobile number");
         }
         else if(email == ''){
             toastr.error('Please enter the email');

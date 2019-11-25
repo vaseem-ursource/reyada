@@ -44,18 +44,19 @@
                               </div>
                            </div>
                            <div class="col-md-6" style="color:black; padding-left: 10%;" style="font-size: 17px;height:500px;">
-                              <h6 style="color:black;" class="text-left"><small>Subject of inquiry: (membership – workspaces – packages - other)</small></h6>
+                           <!-- : (membership – workspaces – packages - other) -->
+                              <h6 style="color:black;" class="text-left"><small>Subject of inquiry</small></h6>
                               <div class="group">
                                  <input type="checkbox" name="membership" id="membership2">
-                                 <span style="color:#999; font-size: 11px;">About membership</span>
+                                 <span style="color:#999; font-size: 11px;">Membership Inquiry</span>
                               </div>
                               <div class="group">
                                  <input type="checkbox" name="workspace" id="workspace" >
-                                 <span style="color:#999; font-size: 11px;"> Finding workspace</span>
+                                 <span style="color:#999; font-size: 11px;"> Packages Inquiry</span>
                               </div>
                               <div class="group">
                                  <input type="checkbox" name="somethingelse" id="somethingelse">
-                                 <span style="color:#999; font-size: 11px;">something else</span>
+                                 <span style="color:#999; font-size: 11px;">Others</span>
                               </div>
                               <div class="group" style="padding-top:9px;">
                                  <input type="text" placeholder="Notes" name="notes" id="notes" >
@@ -311,8 +312,8 @@
                                  </label>
                               </div>
                               <div class="col-md-6">
-                                 <label class="test_container">Meeting Room Memberships
-                                 <input type="radio"  class="plans_type" id="meetroom"  value="Meeting Room Memberships" name="radio">
+                                 <label class="test_container">Conference Room Memberships
+                                 <input type="radio"  class="plans_type" id="meetroom"  value="Conference Rooms Memberships" name="radio">
                                  <span class="checkmark"></span>
                                  </label>
                               </div>
@@ -461,9 +462,9 @@
                            <textarea name="p_services" style="width:100%" required placeholder="Services You Offer"></textarea>
                         </div>
                         <!-- live key -->
-                        <div data-size="compact" class="g-recaptcha" data-sitekey="6Le-trkUAAAAAB7vF415w5N326ZuhKHqgj9Q7RXe" required></div> 
+                        <!-- <div data-size="compact" class="g-recaptcha" data-sitekey="6Le-trkUAAAAAB7vF415w5N326ZuhKHqgj9Q7RXe" required></div>  -->
                         <!-- staging key -->
-                        <!-- <div data-size="compact" class="g-recaptcha" data-sitekey="6LeLH7kUAAAAAOrLMybD7bI52vunWgLhIJVzwYtm" required></div> -->
+                        <div data-size="compact" class="g-recaptcha" data-sitekey="6LeLH7kUAAAAAOrLMybD7bI52vunWgLhIJVzwYtm" required></div>
                         <!-- local key -->
                         <!-- <div  data-size="compact" class="g-recaptcha text-center" data-sitekey="6LcdBrkUAAAAAGJCngHt8FhPPfwaYbKvNL5Zjv6s" required></div> -->
                         <br>
@@ -755,7 +756,7 @@
          $(".login_location").empty();
          $.ajax({
              type: 'GET',
-             url: 'https://spaces.nexudus.com/api/sys/businesses?dir=' +'Descending',
+             url: 'https://spaces.nexudus.com/api/sys/businesses?orderby=' +'Name',
              beforeSend: function(xhr) {
                  xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + password));
              },
@@ -764,10 +765,10 @@
                  var location = locations.Records;
                  if (location.length != 0) {
                          $(".login_location").append("<option value ='0'>" + 'Select Location' + "</option>");
-                         $(".login_location").append("<option value ='"+location[2].Id+"'>" + location[2].Name + "</option>");
+                         $(".login_location").append("<option value ='"+location[0].Id+"'>" + location[0].Name + "</option>");
                          $(".login_location").append("<option value ='"+location[1].Id+"'>" + location[1].Name + "</option>");
                          $(".sign_in_location").append("<option value ='0'>" + 'Select Location' + "</option>");
-                         $(".sign_in_location").append("<option value ='"+location[2].WebAddress+"'>" + location[2].Name + "</option>");
+                         $(".sign_in_location").append("<option value ='"+location[0].WebAddress+"'>" + location[0].Name + "</option>");
                          $(".sign_in_location").append("<option value ='"+location[1].WebAddress+"'>" + location[1].Name + "</option>");
                          
                  } else {
