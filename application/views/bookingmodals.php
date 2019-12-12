@@ -135,11 +135,10 @@ height:800px;
                                    var selected_date = myCalendar01.getDays();
                                    var test_date = selected_date[0];
                                    var DateCreated = new Date(Date.parse(test_date)).format("yyyy-mm-dd");
-                                   
-                                   $('#new-date').empty();
-                                   $('#new-date').append(test_date);
-                                   $('#new-date').val(test_date);
-                                   $('#selected_date').val(DateCreated);
+                                    $('#new-date').empty();
+                                    $('#new-date').append(test_date);
+                                    $('#new-date').val(test_date);
+                                    $('#selected_date').val(DateCreated);                                   
                                },
                                onClear: () => {
                                }
@@ -379,9 +378,8 @@ height:800px;
        var base_url = '<?= base_url(); ?>';
        var is_logged_in = '<?= $is_logged_in ?>';
        var user_info = <?php echo json_encode($user_info); ?>; 
-   
+       get_locations();
        $(document).on("click", "#bookingbutton", function() {
-           
            $("#bookingmodal").modal("show");
            $(".booking-option").show();
            $("#meetFormReg").hide();
@@ -389,7 +387,7 @@ height:800px;
            $("#bookings").hide();
            $("#loc_imgs").show(); 
            $("#description").show();
-           get_locations();
+        //    get_locations();
         
        });
        $(document).on("click","#mr_book",function(){
@@ -441,6 +439,7 @@ height:800px;
        $("#bookingmodal").modal("hide");
        $("#yesnomodal").modal("hide");
        $("#modalLogin").modal("show");
+       $.session.set("booking", "booking");
        });
    
        $(document).on("click", "#noModalTour", function() {
@@ -643,8 +642,8 @@ height:800px;
                    var date = $('#selected_date').val(); 
                }
                if(is_logged_in == 1 ){
-                   var time1 = ConvertTimeformat(moment(start_time, 'h:mm A').subtract(3,'hours').format('h:mm A'));
-                   var time2 = ConvertTimeformat(moment(end_time, 'h:mm A').subtract(3,'hours').format('h:mm A'));
+                   var time1 = ConvertTimeformat(start_time);
+                   var time2 =ConvertTimeformat(end_time);
                }else{
                    var time1 = ConvertTimeformat(start_time);
                    var time2 = ConvertTimeformat(end_time);

@@ -14,6 +14,7 @@
 <script src="<?= base_url()?>contactform/contactform.js"></script>
 <!-- Template Main Javascript File -->
 <script src="<?= base_url()?>js/main.js"></script>
+<script src="<?= base_url()?>js/session.js"></script>
 <script type="text/javascript" src="<?= base_url() ?>js/toastr.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.12.0/jquery.validate.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.12.0/additional-methods.js"></script>

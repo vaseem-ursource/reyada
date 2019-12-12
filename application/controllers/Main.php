@@ -810,22 +810,22 @@ class main extends CI_Controller
 
     public function contactus()
     {
-        $subject = "";
+        $enquiry = "";
         if ($this->input->post('membership')) {
-            $subject = $subject . 'Membership Inquiry';
+            $enquiry = $enquiry . 'Membership Inquiry';
         }
         if ($this->input->post('workspace')) {
-            if ($subject != '') {
-                $subject = $subject . ', Packages Inquiry';
+            if ($enquiry != '') {
+                $enquiry = $enquiry . ', Packages Inquiry';
             } else {
-                $subject = $subject . 'Packages Inquiry';
+                $enquiry = $enquiry . 'Packages Inquiry';
             }
         }
         if ($this->input->post('somethingelse')) {
-            if ($subject != '') {
-                $subject = $subject . ', Others';
+            if ($enquiry != '') {
+                $enquiry = $enquiry . ', Others';
             } else {
-                $subject = $subject . 'Others';
+                $enquiry = $enquiry . 'Others';
             }
         }
         $data = array(
@@ -833,13 +833,24 @@ class main extends CI_Controller
             'email' => $this->input->post('email'),
             'phone' => $this->input->post('phone'),
             'company_name' => $this->input->post('company'),
-            'subject' => $subject,
+            'subject' => $enquiry,
             'message' => $this->input->post('notes'),
             'posted_date' => date('Y-m-d H:i:s'),
         );
 
         if ($this->Main_model->insert_contactus_db($data)) {
-            $json['status'] = 'OK';
+            $from = $this->input->post('email');
+            $data['userdata'] = $this->input->post();
+            $data['enquiry'] = $enquiry;
+            $subject = 'Contact Us request';
+            $message =  $this->load->view('emailutils/contact_us_email', $data, true);
+
+
+            if ($this->send_email($from,$subject,$message)) {
+                $json['status'] = 'OK';
+            } else {
+                $json['status'] = 'Error';
+            }
         } else {
             $json['status'] = 'Error';
         }
@@ -1441,7 +1452,7 @@ class main extends CI_Controller
             $url = "https://$loc_url.spaces.nexudus.com/en/events?pastevents=true&page=1";
         }
         elseif($type == 'all'){
-            $url = "https://$loc_url.spaces.nexudus.com/en/events";
+            $url = "https://$loc_url.spaces.nexudus.com/en/events?_depth=25";
         }
         else{
             $url = "https://$loc_url.spaces.nexudus.com/en/events?pastevents=false&page=1";
@@ -1490,7 +1501,9 @@ class main extends CI_Controller
          $this->load->view('index', $data);
      }
 
-     function book_events($l, $c, $f, $id , $slug){
+     function book_events(){
+
+        $ticketUrl = $this->input->get('ticketUrl');
         $location = $this->session->userdata('location'); 
         if( $location == null){
             $location =  'reyada';
@@ -1500,17 +1513,22 @@ class main extends CI_Controller
         $data['folder_name'] = 'main';
         $data['file_name'] = 'BookEvents';
         $data['header_name'] = 'header_account';
-        $url = "https://$location.spaces.nexudus.com/en/events/tickets/$id/$slug?_depth=25";
+        $url = "https://$location.spaces.nexudus.com$ticketUrl?_depth=25";
         $headers = array(
             'Content-Type: application/json',
             'Authorization: Basic ' . base64_encode("$username:$password"),
         );
         $output = $this->post_with_curl($url,null, $headers);
-        $this->session->set_userdata('last_page', current_url());
-        $data['location'] = $location;
-        $data['events'] = $output['Event'];
-        $data['product_id'] = $data['events']->EventProducts[0]->Id;
-        $this->load->view('index', $data);
+        if(!empty($output)){
+            $this->session->set_userdata('last_page', current_url());
+            $data['location'] = $location;
+            $data['events'] = $output['Event'];
+            $data['product_id'] = $output['EventProductId'];
+            $this->load->view('index', $data);
+        }
+        else{
+            redirect('main/community_events');
+        }
      }
 
      function get_available_rooms(){
@@ -1587,13 +1605,9 @@ class main extends CI_Controller
         $post_data = $this->input->post();
         $from = $post_data['p_email'];
         $subject = 'Partnership Request';
-        $message = '';
-        $message .= "<b>Details:</b><br>";
-        $message .= "<b>Company Name -</b> ".$post_data['p_company_name']."<br>";
-        $message .= "<b>Name -</b> ".$post_data['p_full_name']."<br>";
-        $message .= "<b>Mobile -</b> ".$post_data['p_phone']."<br>";
-        $message .= "<b>Mobile -</b> ".$post_data['p_email']."<br>";
-        $message .= "<b>Services Offered -</b> ".$post_data['p_services']."<br><br>";
+        $data['userdata'] = $this->input->post();
+        $message =  $this->load->view('emailutils/partner_request_mail', $data, true);
+
         if ($this->send_email($from,$subject,$message)) {
             $json['status'] = 'OK';
         } else {
@@ -1605,6 +1619,8 @@ class main extends CI_Controller
     public function send_email($from,$subject,$message){
         $this->email->from($from);
         $this->email->to('info@reyada.co');
+        // $this->email->to('vaseem@ursource.org');
+        // $this->email->to('nilofer@ursource.org');
         $this->email->subject($subject);
         $this->email->message($message);
         if ($this->email->send()) {

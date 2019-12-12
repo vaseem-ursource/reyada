@@ -506,7 +506,21 @@
    var base_url = '<?= base_url(); ?>';
    var digit_pattern = new RegExp('^[2-9][0-9]*$');
    var emailReg = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
-
+   var user_info = <?php echo json_encode($user_info); ?>; 
+   if($.session.get("booking") == 'booking'){
+      $("#bookingmodal").modal("show");
+      $('#fname').val(user_info.FullName);
+      $('#femail').val(user_info.Email);
+      $('#cowerker_id').val(user_info.Id);
+      $('#confirmBooking').append('<b>'+ user_info.FullName +'<br>'+ '+965 ' + user_info.MobilePhone + '</b>'); 
+      $("#meetFormReg").show();
+      $("#resources").show();
+      $("#bookings").show();
+      $("#loc_imgs").hide(); 
+      $(".booking-option").hide();
+      $("#description").hide();
+      $.session.clear();
+   }
    $(".secondSignup").hide();
    
    $(".continuebtn").click(function () {
@@ -738,7 +752,12 @@
                   $('.whole_div').hide();
                   toastr.success('Logged in successfully');
                   setTimeout(function() {
-                     window.location.replace(base_url + 'main/invoice');
+                     if($.session.get("booking") == 'booking'){
+                        window.location.replace(base_url + 'main');
+                     }
+                     else{
+                        window.location.replace(base_url + 'main/invoice');
+                     }
                   }, 2000);
                   
                }

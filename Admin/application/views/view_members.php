@@ -66,7 +66,7 @@ $(document).ready(function() {
 
       $.ajax({
         type: 'GET',
-        url: 'https://spaces.nexudus.com/api/spaces/coworkers',
+        url: 'https://spaces.nexudus.com/api/spaces/coworkers?Coworker_Tariff=notnull&size=300',
         beforeSend: function (xhr) {
             xhr.setRequestHeader ("Authorization", "Basic " + btoa(username + ":" + password));
         },
