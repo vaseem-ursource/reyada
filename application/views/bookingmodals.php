@@ -1044,7 +1044,7 @@ height:800px;
                                 //    "<span  class='resource btn tr-mt-btn' style='font-size:11px;cursor:pointer' data-id ='" +resource.Id +"'>" +  + "</span>" +
                                 // "</div>";
                                $("#resources").append(resources);
-                               $("#select-resource").append("<option value ='" +resource.Id + " '>" + resource.Name + "</option>");
+                               $("#select-resource").append("<option value ='"+resource.Id+" '>" + resource.Name + "</option>");
                            }
                            
                        })

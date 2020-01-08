@@ -69,18 +69,25 @@
                     </tr>
                 </thead>
                 <tbody>
-                    
                     <?php foreach($other_time_passes as $passes){ ?>
                         <tr class="border-top border-secondary">
                             <td><u><?= $passes->CreditName ?></td>
                             <td><?= $passes->Count ?> passes</td>
                             <td><?= $passes->PassesLeft ?> passes left</td>
                         </tr>
+                    <?php } if(!empty($other_extra_services)){ ?>
+                            <?php foreach($other_extra_services as $services){ ?>
+                                <tr class="border-top border-secondary">
+                                    <td><u><?= $services->CreditName ?></td>
+                                    <td><?= $services->TotalHours ?> hours</td>
+                                    <td><?= $services->HoursLeft ?> hours</td>
+                                </tr>
+                            <?php } ?>
                     <?php } ?>
-                    
                 </tbody>
             </table>
-        <?php } else{ ?>
+        <?php }
+        else{ ?>
             <table class="table table-striped h6 table-borderless" style="color:#000000;">
                 <thead>
                     <tr style="background-color:#F5F5F5";>
