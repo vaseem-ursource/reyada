@@ -282,7 +282,11 @@ height:800px;
                      <form style="width:80%; padding-top: 90px;">
                         <h6 style="color:black;" class="text-center">THANK YOU FOR YOUR BOOKING</h6>
                         <h6 style="color:black;" class="text-center" id="confirmBooking"><b></b></h6>
-                        <a href="<?= base_url("main/invoice") ?>"  class="btn custom-button-bl text-center" style="width:150px;">Proceed to payment</a>
+                        <?php if($has_credit == 1){?>
+                            <a href="<?= base_url("main/plan#benefits") ?>"  class="btn custom-button-bl text-center" style="width:150px;">Check Credits</a>
+                        <?php } else{?>
+                            <a href="<?= base_url("main/invoice") ?>"  class="btn custom-button-bl text-center" style="width:150px;">Proceed to payment</a>
+                        <?php }?>
                      </form>
                   </div>
                </div>
@@ -752,7 +756,7 @@ height:800px;
                            $('.whole_div').hide();
                            $('#bookingPrice').empty();
                            if(data.IsAvailable === true){
-                               $('#bookingPrice').append('<b>'+ 'this booking will cost you ' + data.Price +'</b>');
+                               $('#bookingPrice').append('<b>'+ data.append +'</b>');
                                $('#meetSubmit').show();
                            }
                            else{
@@ -805,7 +809,7 @@ height:800px;
                                    $('.whole_div').hide();
                                    $('#bookingPrice').empty();
                                    if(data.IsAvailable === true){
-                                       $('#bookingPrice').append('<b>'+ 'this booking will cost you ' + data.Price +'</b>');
+                                       $('#bookingPrice').append('<b>'+ data.append +'</b>');
                                        $('#meetSubmit').show();
                                    }
                                    else{

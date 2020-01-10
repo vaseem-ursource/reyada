@@ -394,7 +394,14 @@ class main extends CI_Controller
             'Content-Type: application/json'
         );
         $output = $this->post_with_curl($url, $s_data , $headers);
-        print_r(json_encode($output));
+        $json['IsAvailable'] = $output['IsAvailable'];
+        $json['append'] = 'this booking will cost you ' . $output['Price'];
+        $json['Message'] = $output['Message'];
+        $json['has_credit'] =  $this->session->userdata('has_credit');
+        if($json['has_credit'] == true){
+            $json['append'] = 'Charges will be deducted from your credits.';
+        }
+        print_r(json_encode($json));
     }
 
     public function guest_booking(){
@@ -402,7 +409,6 @@ class main extends CI_Controller
         $Booking['Resource']['Id'] = $p_data['ResourceId'];
         $Booking['FromTime'] = $p_data['FromTime'];
         $Booking['ToTime'] = $p_data['ToTime'];
-        $Booking['InvoiceNow'] = true;
         $Booking['Id'] = 0;
         if ($this->session->userdata('is_logged_in')) {
             $user = $this->session->userdata('user_info');
@@ -427,6 +433,7 @@ class main extends CI_Controller
         }
         // $s_data = json_encode(array('Booking' => $Booking,'Coworker' => $cowerker,'Products' => []));
         $s_data = json_encode(array('Booking' => $Booking,'Products' => []));
+       
         if(!empty($p_data['loc_url'])){
             $loc_url =  $p_data['loc_url'];
             $this->session->set_userdata('location',$loc_url);
@@ -475,6 +482,7 @@ class main extends CI_Controller
     {
         $url = "https://$loc_url.spaces.nexudus.com/en/profile?_resource=Coworker";
         $user_url = "https://$loc_url.spaces.nexudus.com/en/profile?_resource=User";
+        
     
         $json['message'] = 'some error occured while processing your request';
         $json['status'] = 500;
@@ -487,12 +495,14 @@ class main extends CI_Controller
                 $loc_url =  $p_data['loc_url'];
                 $url = "https://$loc_url.spaces.nexudus.com/en/profile?_resource=Coworker";
                 $user_url = "https://$loc_url.spaces.nexudus.com/en/profile?_resource=User";
+                $allowanceurl = "https://$loc_url.spaces.nexudus.com/en/allowances?_depth=3";
             }
             $headers = array(
                 'Content-Type: application/json',
                 'Authorization: Basic ' . base64_encode("$username:$password"),
             );
             $output = $this->post_with_curl($url, null, $headers);
+            $allowances = $this->post_with_curl($allowanceurl, null, $headers);
             $user_output = $this->post_with_curl($user_url, null, $headers);
             if (!empty($output)) {
                 $this->session->set_userdata('location',$loc_url);
@@ -504,6 +514,12 @@ class main extends CI_Controller
                 $this->session->set_userdata('user_info', $output);
                 $this->session->set_userdata('user_info_extra', $user_output);
                 $this->session->set_userdata('is_logged_in', true);
+                if(!empty($allowances['OtherExtraServices'])){
+                    $this->session->set_userdata('has_credit',true);
+                }
+                else{
+                    $this->session->unset_userdata('has_credit'); 
+                }
             }
             print_r(json_encode($json));
         } else {
@@ -664,6 +680,7 @@ class main extends CI_Controller
     public function logout()
     {
         $this->session->sess_destroy();
+        $this->session->unset_userdata('has_credit');
         redirect('main');
     }
 

@@ -16,6 +16,7 @@
 
     <?php $user_info = $this->session->userdata('user_info') ?>
     <?php $is_logged_in = $this->session->userdata('is_logged_in') ?>
+    <?php $has_credit = $this->session->userdata('has_credit')?>
 
     <?php include $header_name . '.php'; ?>
     <div class="content-wrapper">

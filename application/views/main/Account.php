@@ -59,7 +59,7 @@
         <h6 class="pt-4 mt-2" style="color:#000000;">
             Bookings will be charged to your account as they end. Any credit available at the time the booking ends will be used to pay for it.
         </h6>
-        <?php if(!empty($other_time_passes)){ ?>
+        <?php if(!empty($other_time_passes) || !empty($other_extra_services)){ ?>
             <table class="table table-striped h6 table-borderless" style="color:#000000;">
                 <thead>
                     <tr>
