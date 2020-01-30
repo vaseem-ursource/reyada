@@ -285,7 +285,7 @@ class main extends CI_Controller
         $product['Future'] = false;
         $product['IsAvailableNow'] = true;
         $product['Quantity'] = intval($post_data['qty']);
-        $product['Id'] = intval($post_data['Id']);
+        $product['Id'] = 1234270063;
         $product['IdString'] = $post_data['Id'];
         $product['UpdatedOn'] = "/Date(1369493356000)/";
         $product['CreatedOn'] = "/Date(1369493356000)/";
@@ -346,12 +346,12 @@ class main extends CI_Controller
             }
             else{
                 $this->session->set_flashdata('error', 'Some error occured please try again');
-                redirect($cur_url);
+                redirect('home');
             }
         }
         else{
             $this->session->set_flashdata('error', 'Some error occured please try again');
-            redirect($cur_url);
+            redirect('home');
         }
             
 
@@ -1477,15 +1477,25 @@ class main extends CI_Controller
         $headers = array(
             'Content-Type: application/json'
         );
-    
         $output = $this->post_with_curl($url,null, $headers);
-        $data['events'] = $output['CalendarEvents'];
-        $data['locations'] = $this->get_location();
-        $data['folder_name'] = 'main';
-        $data['file_name'] = 'CommunityEvents';
-        $data['header_name'] = 'header_account';
-        $data['img_loc'] = $loc_url;
-        $this->load->view('index', $data);
+        if(!empty($output)){
+            $data['events'] = $output['CalendarEvents'];
+            $data['locations'] = $this->get_location();
+            $data['folder_name'] = 'main';
+            $data['file_name'] = 'CommunityEvents';
+            $data['header_name'] = 'header_account';
+            $data['img_loc'] = $loc_url;
+            $this->load->view('index', $data);
+        }
+        else{
+            $data['locations'] = $this->get_location();
+            $data['folder_name'] = 'main';
+            $data['file_name'] = 'CommunityEvents';
+            $data['header_name'] = 'header_account';
+            $data['img_loc'] = $loc_url;
+            $this->load->view('index', $data);
+        }
+       
      }
 
      function check_email_exist(){
@@ -1541,6 +1551,9 @@ class main extends CI_Controller
             $data['location'] = $location;
             $data['events'] = $output['Event'];
             $data['product_id'] = $output['EventProductId'];
+            if($data['product_id'] == null){
+                $data['product_id'] = $output['Event']->MostExpensiveProduct->Id;
+            }
             $this->load->view('index', $data);
         }
         else{
