@@ -346,12 +346,12 @@ class main extends CI_Controller
             }
             else{
                 $this->session->set_flashdata('error', 'Some error occured please try again');
-                redirect('home');
+                redirect('main');
             }
         }
         else{
             $this->session->set_flashdata('error', 'Some error occured please try again');
-            redirect('home');
+            redirect('main');
         }
             
 
@@ -1648,9 +1648,9 @@ class main extends CI_Controller
 
     public function send_email($from,$subject,$message){
         $this->email->from($from);
-        $this->email->to('info@reyada.co');
+        // $this->email->to('info@reyada.co');
         // $this->email->to('vaseem@ursource.org');
-        // $this->email->to('nilofer@ursource.org');
+        $this->email->to('nilofer@ursource.org');
         $this->email->subject($subject);
         $this->email->message($message);
         if ($this->email->send()) {
