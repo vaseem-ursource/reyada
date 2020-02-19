@@ -244,6 +244,108 @@ class main extends CI_Controller
         print_r(json_encode($json));
     }
 
+    public function purchase_tickets_hesabe(){
+        $p_data = $this->input->post();
+        $json['result'] = 'FAIL';
+        
+        if(!empty($p_data)){
+            $name = $p_data['name'];
+            $email = $p_data['email'];
+            $mobile = $p_data['mobile'];
+            $qty = $p_data['qty'];
+            $attendee_names = $p_data['attendee_names'];
+            $attendee_emails = $p_data['attendee_emails'];
+            $event_id = $p_data['event_id'];
+            $ticket_url = $p_data['ticket_url'];
+            $location = $this->session->userdata('location'); 
+            if( $location == null){
+                $location =  'reyada';
+            }
+            $username = $this->config->item('username');
+            $password = $this->config->item('password');
+            $url = "https://$location.spaces.nexudus.com$ticket_url?_depth=25";
+            $headers = array(
+                'Content-Type: application/json',
+                'Authorization: Basic ' . base64_encode("$username:$password"),
+            );
+            $output = $this->post_with_curl($url,null, $headers);
+            if(!empty($output)){
+                $events = $output['Event'];
+                $product_id = $output['EventProductId'];
+                if($product_id == null){
+                    $product_id = $events->MostExpensiveProduct->Id;
+                }
+                $ticket_data = array(
+                    'event_name' => $events->Name,
+                    'event_price' => $events->MostExpensivePrice,
+                    'event_desc' => $events->LongDescription,
+                    'event_id' => $product_id,
+                    'name' => $name,
+                    'email' => $email,
+                    'mobile' => $mobile,
+                    'no_of_attendees' => $qty,
+                    'created_date' => date('Y-m-d H:i:s')
+                );
+                $ticket_id = $this->Main_model->create_event_tickets($ticket_data);
+                if($ticket_id){
+                    if(count($attendee_emails) > 0){
+                        for ($i=0; $i < count($attendee_emails); $i++) { 
+                            $atte_data = array(
+                                'event_ticket_id' => $ticket_id,
+                                'name' => $attendee_names[$i],
+                                'email' => $attendee_emails[$i],
+                                'created_date' => date('Y-m-d H:i:s')
+                            );
+                            $this->Main_model->create_event_tickets_attendee($atte_data);
+                        }
+                    }
+                    $ticket_data['ticket_id'] = $ticket_id;
+                    $pay_url = $this->pay_hesabe($ticket_data);
+                    if(!empty($pay_url)){
+                        $json['result'] = 'OK';
+                        $json['pay_url'] = $pay_url;
+                    }
+                }
+            }
+        }
+
+        print_r($json);
+        
+    }
+
+    public function pay_hesabe($ticket_data){
+        $invoiceamt = $ticket_data['event_price'] * $ticket_data['no_of_attendees'];
+        $success_url = base_url('payment/success_checkout');
+        $error_url = base_url('payment/error_checkout');
+        $url = $this->config->item('hesabe_request_url');
+        $pay_url = null;
+        $data = array(
+            'MerchantCode' => $merchant_code, 
+            'Amount' => number_format($invoiceamt, 3), 
+            'SuccessUrl' => $success_url, 
+            'FailureUrl' => $error_url,
+            'Variable1' => $invoiceid
+        );
+        $options = array(
+            'http' => array(
+                'header' => "Content-type: application/x-www-form-urlencoded\r\n",
+                'method' => 'POST',
+                'content' => http_build_query($data),
+            ),
+        );
+
+        $context = stream_context_create($options);
+        $result = file_get_contents($url, false, $context);
+        $json = json_decode($result);
+        if ($json->status === 'success') {
+            $token = $json->data->token;
+            $paymenturl = $json->data->paymenturl;
+            $pay_url = $paymenturl . $token;
+        }
+
+        return $pay_url;
+    }
+
     public function purchase_tickets()
     {
         $post_data = $this->input->post();

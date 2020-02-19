@@ -112,9 +112,20 @@
         }
 
 
-        public function insert_contactus_db($data){
-            return $this->db->insert('contact_us', $data);
-        }
+    public function insert_contactus_db($data){
+        return $this->db->insert('contact_us', $data);
+    }
+
+    public function create_event_tickets($data){
+        $this->db->insert('event_tickets', $data);
+        return $this->db->insert_id();
+    }
+
+    public function create_event_tickets_attendee($data){
+        $this->db->insert('event_tickets_attendee', $data);
+        return $this->db->insert_id();
+    }
+
 	public function get_recent_articles(){
             return $this->db
                         ->where('is_deleted','No')

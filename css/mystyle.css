@@ -65,6 +65,17 @@
   outline:none;
 }
 
+.custom-button-b2{
+  height:35px;
+  border-radius:5%;
+  color:rgb(255, 255, 255);
+  background-color:black;
+  border:2px solid rgb(0, 0, 0);
+  font-size:15px;
+  outline:none;
+  
+}
+
 .tr-mt-btn{
   height:35px;
   border-radius:5%;
