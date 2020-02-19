@@ -134,8 +134,8 @@
 
     public function get_event_tickets($id) {
         $this->db->select('*');
-        $this->db->where('id',$id);
         $this->db->from('event_tickets');
+        $this->db->where('id',$id);
         $query = $this->db->get();
         if ($query->num_rows() < 1) {
             return null;
@@ -146,10 +146,14 @@
 
     public function get_event_attendee($id) {
         $this->db->select('*');
-        $this->db->where('event_ticket_id',$id);
         $this->db->from('event_tickets_attendee');
+        $this->db->where('event_ticket_id',$id);
         $query = $this->db->get();
-        $query->result();
+        if ($query->num_rows() < 1) {
+            return null;
+        } else {
+            return $query->result();
+        }
     }
 
 	public function get_recent_articles(){

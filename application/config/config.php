@@ -29,7 +29,7 @@ $config['api_base_url2'] = 'https://reyadamabane.spaces.nexudus.com/';
 // $config['base_url'] = 'http://reyada.ursource.org/';
 $config['username'] = 'info@reyada.co';
 $config['password'] = 'Reyada12345';
-$config['admin_email'] = 'nilofer@ursource.org'; //info@reyada.co //arsalan@ursource.org
+$config['admin_email'] = 'arsalan@ursource.org';// 'nilofer@ursource.org'; //info@reyada.co //arsalan@ursource.org
 date_default_timezone_set('Asia/Kuwait');
 
 

@@ -344,7 +344,7 @@ class main extends CI_Controller
 
     public function email_ticket_purchase($ticket_id){
         $event['ticket'] = $this->Main_model->get_event_tickets($ticket_id);
-        // $event['attendee'] = $this->Main_model->get_event_attendee($ticket_id);
+        $event['attendee'] = $this->Main_model->get_event_attendee($ticket_id);
         $ret = false;
         if(!empty($event['ticket'])){
 
@@ -355,6 +355,19 @@ class main extends CI_Controller
             $to = $event['ticket']->email;
 
             if($this->send_email($from,$subject,$message, $to)){
+
+                //for attendees
+                if(count($event['attendee']) > 0){
+                    foreach($event['attendee'] as $attendee){
+                        $from = $this->config->item('admin_email');
+                        $subject = "Reyada.co - Event Booking Confirmation for " . $event['ticket']->event_name;
+                        $attendee_data['attendee'] = $attendee;
+                        $attendee_data['ticket'] = $event['ticket'];
+                        $message = $this->load->view('emailutils/event_ticket_attendee', $attendee_data, true);
+                        $to = $attendee->email;
+                        $this->send_email($from,$subject,$message, $to);
+                    }
+                }
                 
                 //for admin
                 $from = $event['ticket']->email;
