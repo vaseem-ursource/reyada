@@ -29,9 +29,6 @@
     </div>
     <div class="container">
         <form id="event-form" class="event-form" method="post" action="">
-            <input type="hidden" name="event_name" value="<?= $events->Name?>"/>
-            <input type="hidden" name="event_price" value="<?= $events->MostExpensivePrice?>"/>
-            <input type="hidden" name="event_desc" value="<?= $events->LongDescription?>"/>
             <input type="hidden" id="event_id" value="<?= $product_id ?>"/>
             <input type="hidden" id="ticket_url" name="ticket_url" value="<?= $this->input->get('ticketUrl') ?>" />
 
@@ -108,12 +105,13 @@
                     <div class="tmodal">
                         <div>
                             <h6 style="color:black;bottom:30px; font-size: 18px;" class="p-5 text-justify text-left">
-                                <small>TOTAL PAYMENT IS <span id="total-amount-span" ></span>
+                                <small><span id="pop-up-text" ></span>
                                 <br><br>
-                                <a href="javascript:void(0)" class="btn custom-button-bl" data-dismiss="modal" style="outline:none;">CANCEL</a>
-                                <a href="javascript:void(0)" class="btn custom-button-b2" id="pay-now" style="outline:none;">PAY NOW</a>
+                                <a href="javascript:void(0)" id="pop-cancel" class="btn custom-button-bl" data-dismiss="modal" style="outline:none;">CANCEL</a>
+                                <a href="javascript:void(0)" id="pop-ok" class="btn custom-button-b2" style="outline:none;"></a>
                                 </small>
                             </h6>
+
                         </div>
                     </div>
                     </section>
@@ -126,6 +124,8 @@
 
 <script>
     var price = '<?= $events->MostExpensivePrice?>';
+    var event_name = '<?= $events->Name ?>';
+    var event_date = '<?= date("Y-m-d h:i a", strtotime($events->StartDate)) ?>';
     
     $(document).ready(function(){
 
@@ -186,48 +186,68 @@
             }
         });
 
-        $('#pay-now').click(function(){
-            
-            attendee_names = $("input[name='attendee_name\\[\\]']")
-              .map(function(){return $(this).val();}).get();
-
-            attendee_emails = $("input[name='attendee_email\\[\\]']")
-              .map(function(){return $(this).val();}).get();
-              
-            var form_data = {
-                'name': name,
-                'email': email,
-                'mobile': mobile,
-                'qty': qty,
-                'attendee_names': attendee_names,
-                'attendee_emails': attendee_emails,
-                'event_id': event_id,
-                'ticket_url': ticket_url
-            };
-
-            $('.whole_div').show();
-            $.ajax({
-                type: 'POST',
-                dataType: 'json',
-                url: base_url + 'main/purchase_tickets_hesabe',
-                data: form_data,
-                success: function(data) {
-                    $('.whole_div').hide();
-                    if(data.status == 'OK'){
-                        
-                    }
-                },
-                error: function(data) {
-                    $('.whole_div').hide();
-                    toastr.error('Unexpected error.');
-                }
-            });
-
+        $('#pop-ok').click(function(){
+            saveData();
         });
 
     });
 
+    function saveData(){
+        attendee_names = $("input[name='attendee_name\\[\\]']")
+            .map(function(){return $(this).val();}).get();
+
+        attendee_emails = $("input[name='attendee_email\\[\\]']")
+            .map(function(){return $(this).val();}).get();
+            
+        var form_data = {
+            'name': name,
+            'email': email,
+            'mobile': mobile,
+            'qty': qty,
+            'attendee_names': attendee_names,
+            'attendee_emails': attendee_emails,
+            'event_id': event_id,
+            'ticket_url': ticket_url
+        };
+
+        $('.whole_div').show();
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            url: base_url + 'main/purchase_tickets_new',
+            data: form_data,
+            success: function(data) {
+                $('.whole_div').hide();
+                if(data.result == 'OKPD'){
+                    window.location.href = data.pay_url;
+                }else if(data.result == "OKFR"){
+                    toastr.success("Successfully completed, please check email for Ticket details.");
+                    $('#modal-confirmation').modal('hide');
+                }else{
+                    $('#modal-confirmation').modal('hide');
+                    toastr.error('Invalid Data');    
+                }
+            },
+            error: function(data) {
+                console.log(data);
+                $('.whole_div').hide();
+                toastr.error('Unexpected error.');
+            }
+        });
+    }
+
     function showPayment(){
+        $('#pop-up-text').empty();
+        $('#pop-ok').empty();
+
+        if(price > 0){
+            var text = "You have chosen to purchase "+qty+" ticket(s) for "+event_name+" for "+event_date+". Total Cost is KD "+total_amount;
+            $('#pop-ok').html("PAY NOW");
+        }else{
+            var text = "You have chosen to purchase "+qty+" ticket(s) for "+event_name+" for "+event_date+". Total Cost is KD 0.000. Click OK to proceed.";
+            $('#pop-ok').html("OK");
+        }
+        $('#pop-up-text').html(text);
         $('#modal-confirmation').modal('show');
     }
 

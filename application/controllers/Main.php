@@ -244,7 +244,7 @@ class main extends CI_Controller
         print_r(json_encode($json));
     }
 
-    public function purchase_tickets_hesabe(){
+    public function purchase_tickets_new(){
         $p_data = $this->input->post();
         $json['result'] = 'FAIL';
         
@@ -300,23 +300,49 @@ class main extends CI_Controller
                         }
                     }
                     $ticket_data['ticket_id'] = $ticket_id;
-                    $pay_url = $this->pay_hesabe($ticket_data);
-                    if(!empty($pay_url)){
-                        $json['result'] = 'OK';
-                        $json['pay_url'] = $pay_url;
+                    if($events->MostExpensivePrice > 0){
+                        $pay_url = $this->pay_hesabe($ticket_data);
+                        if(!empty($pay_url)){
+                            $json['result'] = 'OKPD';
+                            $json['pay_url'] = $pay_url;
+                        }
+                    }else{
+                        $json['result'] = 'OKFR';
                     }
                 }
             }
         }
 
-        print_r($json);
+        print_r(json_encode($json));
         
     }
 
+    public function payment_result_ticket(){
+        $status = $this->input->get('Status');
+        if ($status == '1') {
+            $ticket_id = urldecode($this->input->get('Variable1'));
+            $this->session->set_flashdata('success', 'Payment completed');
+        }else{
+            $this->session->set_flashdata('error', "Error: Payment Unsuccessful");
+        }
+        redirect('main/communityEvents');
+    }
+
     public function pay_hesabe($ticket_data){
+        // for live site un-comment the below line
+
+        // if($invoice_details['BusinessId'] == 906856952){
+        //     $merchant_code = $this->config->item('hesabe_merchant_code2');
+        // }
+        // else{
+        //     $merchant_code = $this->config->item('hesabe_merchant_code1');
+        // }
+
+        // for staging
+        $merchant_code = $this->config->item('hesabe_merchant_code');
         $invoiceamt = $ticket_data['event_price'] * $ticket_data['no_of_attendees'];
-        $success_url = base_url('payment/success_checkout');
-        $error_url = base_url('payment/error_checkout');
+        $success_url = base_url('main/payment_result_ticket');
+        $error_url = base_url('main/payment_result_ticket');
         $url = $this->config->item('hesabe_request_url');
         $pay_url = null;
         $data = array(
@@ -324,7 +350,7 @@ class main extends CI_Controller
             'Amount' => number_format($invoiceamt, 3), 
             'SuccessUrl' => $success_url, 
             'FailureUrl' => $error_url,
-            'Variable1' => $invoiceid
+            'Variable1' => $ticket_data['ticket_id']
         );
         $options = array(
             'http' => array(
@@ -332,7 +358,7 @@ class main extends CI_Controller
                 'method' => 'POST',
                 'content' => http_build_query($data),
             ),
-        );
+        );  
 
         $context = stream_context_create($options);
         $result = file_get_contents($url, false, $context);
