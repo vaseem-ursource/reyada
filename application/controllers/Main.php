@@ -279,6 +279,7 @@ class main extends CI_Controller
                     'event_name' => $events->Name,
                     'event_price' => $events->MostExpensivePrice,
                     'event_desc' => $events->LongDescription,
+                    'event_location' => $events->Location,
                     'event_id' => $product_id,
                     'name' => $name,
                     'email' => $email,
@@ -307,6 +308,7 @@ class main extends CI_Controller
                             $json['pay_url'] = $pay_url;
                         }
                     }else{
+                        $this->email_ticket_purchase($ticket_id);
                         $json['result'] = 'OKFR';
                     }
                 }
@@ -319,13 +321,53 @@ class main extends CI_Controller
 
     public function payment_result_ticket(){
         $status = $this->input->get('Status');
+        $pay_data = $this->input->get();
         if ($status == '1') {
             $ticket_id = urldecode($this->input->get('Variable1'));
-            $this->session->set_flashdata('success', 'Payment completed');
+            $u_data = array(
+                'payment_status' => true,
+                'payment_trans' => $pay_data['PaymentId']
+            );
+            $result = $this->Main_model->update_event_tickets($ticket_id, $u_data);
+            if($this->email_ticket_purchase($ticket_id)){
+                $this->session->set_flashdata('success', 'Payment completed, Please check email for more details.');
+            }else{
+                $this->session->set_flashdata('success', 'Payment completed.');
+                $this->session->set_flashdata('error', "Error: Email sending failed");
+            }
+            
         }else{
             $this->session->set_flashdata('error', "Error: Payment Unsuccessful");
         }
         redirect('main/communityEvents');
+    }
+
+    public function email_ticket_purchase($ticket_id){
+        $event['ticket'] = $this->Main_model->get_event_tickets($ticket_id);
+        // $event['attendee'] = $this->Main_model->get_event_attendee($ticket_id);
+        $ret = false;
+        if(!empty($event['ticket'])){
+
+            //for user
+            $from = $this->config->item('admin_email');
+            $subject = "Reyada.co - Event Booking Confirmation for " . $event['ticket']->event_name;
+            $message = $this->load->view('emailutils/event_ticket_user', $event, true);
+            $to = $event['ticket']->email;
+
+            if($this->send_email($from,$subject,$message, $to)){
+                
+                //for admin
+                $from = $event['ticket']->email;
+                $subject = "Reyada.co - You have a new booking for " . $event['ticket']->event_name;
+                $message = $this->load->view('emailutils/event_ticket_admin', $event, true);
+                $to = $this->config->item('admin_email');
+                $this->send_email($from,$subject,$message, $to);
+                $ret = true;
+            }
+        }
+
+        return $ret;
+        
     }
 
     public function pay_hesabe($ticket_data){
@@ -347,7 +389,7 @@ class main extends CI_Controller
         $pay_url = null;
         $data = array(
             'MerchantCode' => $merchant_code, 
-            'Amount' => number_format($invoiceamt, 3), 
+            'Amount' => $invoiceamt, 
             'SuccessUrl' => $success_url, 
             'FailureUrl' => $error_url,
             'Variable1' => $ticket_data['ticket_id']
@@ -1774,11 +1816,13 @@ class main extends CI_Controller
         print_r(json_encode($json));
     }
 
-    public function send_email($from,$subject,$message){
+    public function send_email($from,$subject,$message, $to = null){
         $this->email->from($from);
-        // $this->email->to('info@reyada.co');
-        // $this->email->to('vaseem@ursource.org');
-        $this->email->to('nilofer@ursource.org');
+        if(empty($to)){
+            $this->email->to($this->config->item('admin_email'));
+        }else{
+            $this->email->to($to);
+        }
         $this->email->subject($subject);
         $this->email->message($message);
         if ($this->email->send()) {

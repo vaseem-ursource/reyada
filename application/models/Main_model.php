@@ -126,6 +126,32 @@
         return $this->db->insert_id();
     }
 
+    public function update_event_tickets($id, $data){
+        return $this->db
+                ->where('id',$id)
+                ->update('event_tickets',$data);
+    }
+
+    public function get_event_tickets($id) {
+        $this->db->select('*');
+        $this->db->where('id',$id);
+        $this->db->from('event_tickets');
+        $query = $this->db->get();
+        if ($query->num_rows() < 1) {
+            return null;
+        } else {
+            return $query->row();
+        }
+    }
+
+    public function get_event_attendee($id) {
+        $this->db->select('*');
+        $this->db->where('event_ticket_id',$id);
+        $this->db->from('event_tickets_attendee');
+        $query = $this->db->get();
+        $query->result();
+    }
+
 	public function get_recent_articles(){
             return $this->db
                         ->where('is_deleted','No')

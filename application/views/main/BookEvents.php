@@ -125,7 +125,7 @@
 <script>
     var price = '<?= $events->MostExpensivePrice?>';
     var event_name = '<?= $events->Name ?>';
-    var event_date = '<?= date("Y-m-d h:i a", strtotime($events->StartDate)) ?>';
+    var event_date = '<?= date("Y-m-d \a\\t h:i a", strtotime($events->StartDate)) ?>';
     
     $(document).ready(function(){
 
