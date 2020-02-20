@@ -221,8 +221,7 @@
                 if(data.result == 'OKPD'){
                     window.location.href = data.pay_url;
                 }else if(data.result == "OKFR"){
-                    toastr.success("Successfully completed, please check email for Ticket details.");
-                    $('#modal-confirmation').modal('hide');
+                    window.location.href = data.pay_url;
                 }else{
                     $('#modal-confirmation').modal('hide');
                     toastr.error('Invalid Data');    

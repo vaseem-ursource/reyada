@@ -308,7 +308,8 @@ class main extends CI_Controller
                             $json['pay_url'] = $pay_url;
                         }
                     }else{
-                        $this->email_ticket_purchase($ticket_id);
+                        $free_url = base_url()."main/free_ticket/".$ticket_id;
+                        $json['pay_url'] = $free_url;
                         $json['result'] = 'OKFR';
                     }
                 }
@@ -319,8 +320,49 @@ class main extends CI_Controller
         
     }
 
+    public function free_ticket($ticket_id){
+        if($ticket_id > 0){
+            //for admin
+            $event['ticket'] = $this->Main_model->get_event_tickets($ticket_id);
+            $event['attendee'] = $this->Main_model->get_event_attendee($ticket_id);
+            $from = $event['ticket']->email;
+            $subject = "Reyada.co - You have a new booking for " . $event['ticket']->event_name;
+            $message = $this->load->view('emailutils/event_ticket_admin', $event, true);
+            $to = $this->config->item('admin_email');
+            $this->send_email($from,$subject,$message, $to);
+
+            // for user
+            $from = $this->config->item('admin_email');
+            $subject = "Reyada.co - Event Booking Confirmation for " . $event['ticket']->event_name;
+            $message = $this->load->view('emailutils/event_ticket_user', $event, true);
+            $to = $event['ticket']->email;
+            $this->send_email($from,$subject,$message, $to);
+
+            //for attendees
+            if(count($event['attendee']) > 0){
+                foreach($event['attendee'] as $attendee){
+                    $from = $this->config->item('admin_email');
+                    $subject = "Reyada.co - Event Booking Confirmation for " . $event['ticket']->event_name;
+                    $attendee_data['attendee'] = $attendee;
+                    $attendee_data['ticket'] = $event['ticket'];
+                    $message = $this->load->view('emailutils/event_ticket_attendee', $attendee_data, true);
+                    $to = $attendee->email;
+                    $this->send_email($from,$subject,$message, $to);
+                }
+            }
+
+            $data['p_status'] = "free";
+            $data['ticket_id'] = $ticket_id;
+            $data['folder_name'] = 'main';
+            $data['file_name'] = 'ticket_result';
+            $data['header_name'] = 'header_account';
+            $this->load->view('index', $data);
+        }
+    }
+
     public function payment_result_ticket(){
         $status = $this->input->get('Status');
+        $ticket_id = 0;
         $pay_data = $this->input->get();
         if ($status == '1') {
             $ticket_id = urldecode($this->input->get('Variable1'));
@@ -329,17 +371,43 @@ class main extends CI_Controller
                 'payment_trans' => $pay_data['PaymentId']
             );
             $result = $this->Main_model->update_event_tickets($ticket_id, $u_data);
-            if($this->email_ticket_purchase($ticket_id)){
-                $this->session->set_flashdata('success', 'Payment completed, Please check email for more details.');
-            }else{
-                $this->session->set_flashdata('success', 'Payment completed.');
-                $this->session->set_flashdata('error', "Error: Email sending failed");
+
+            //for admin
+            $event['ticket'] = $this->Main_model->get_event_tickets($ticket_id);
+            $event['attendee'] = $this->Main_model->get_event_attendee($ticket_id);
+            $from = $event['ticket']->email;
+            $subject = "Reyada.co - You have a new booking for " . $event['ticket']->event_name;
+            $message = $this->load->view('emailutils/event_ticket_admin', $event, true);
+            $to = $this->config->item('admin_email');
+            $this->send_email($from,$subject,$message, $to);
+
+            // for user
+            $from = $this->config->item('admin_email');
+            $subject = "Reyada.co - Event Booking Confirmation for " . $event['ticket']->event_name;
+            $message = $this->load->view('emailutils/event_ticket_user', $event, true);
+            $to = $event['ticket']->email;
+            $this->send_email($from,$subject,$message, $to);
+
+            //for attendees
+            if(count($event['attendee']) > 0){
+                foreach($event['attendee'] as $attendee){
+                    $from = $this->config->item('admin_email');
+                    $subject = "Reyada.co - Event Booking Confirmation for " . $event['ticket']->event_name;
+                    $attendee_data['attendee'] = $attendee;
+                    $attendee_data['ticket'] = $event['ticket'];
+                    $message = $this->load->view('emailutils/event_ticket_attendee', $attendee_data, true);
+                    $to = $attendee->email;
+                    $this->send_email($from,$subject,$message, $to);
+                }
             }
-            
-        }else{
-            $this->session->set_flashdata('error', "Error: Payment Unsuccessful");
         }
-        redirect('main/communityEvents');
+
+        $data['p_status'] = $status;
+        $data['ticket_id'] = $ticket_id;
+        $data['folder_name'] = 'main';
+        $data['file_name'] = 'ticket_result';
+        $data['header_name'] = 'header_account';
+        $this->load->view('index', $data);
     }
 
     public function email_ticket_purchase($ticket_id){
@@ -348,34 +416,37 @@ class main extends CI_Controller
         
         if(!empty($event['ticket'])){
 
-            //for user
-            $from = $this->config->item('admin_email');
-            $subject = "Reyada.co - Event Booking Confirmation for " . $event['ticket']->event_name;
-            $message = $this->load->view('emailutils/event_ticket_user', $event, true);
-            $to = $event['ticket']->email;
+            //for admin
+            $from = $event['ticket']->email;
+            $subject = "Reyada.co - You have a new booking for " . $event['ticket']->event_name;
+            $message = $this->load->view('emailutils/event_ticket_admin', $event, true);
+            $to = $this->config->item('admin_email');
             if($this->send_email($from,$subject,$message, $to)){
+                return true;
 
-                //for admin
-                $from = $event['ticket']->email;
-                $subject = "Reyada.co - You have a new booking for " . $event['ticket']->event_name;
-                $message = $this->load->view('emailutils/event_ticket_admin', $event, true);
-                $to = $this->config->item('admin_email');
-                if($this->send_email($from,$subject,$message, $to)){
+                //for user
+                // $from = $this->config->item('admin_email');
+                // $subject = "Reyada.co - Event Booking Confirmation for " . $event['ticket']->event_name;
+                // $message = $this->load->view('emailutils/event_ticket_user', $event, true);
+                // $to = $event['ticket']->email;
+                // if($this->send_email($from,$subject,$message, $to)){
 
-                    //for attendees
-                    if(count($event['attendee']) > 0){
-                        foreach($event['attendee'] as $attendee){
-                            $from = $this->config->item('admin_email');
-                            $subject = "Reyada.co - Event Booking Confirmation for " . $event['ticket']->event_name;
-                            $attendee_data['attendee'] = $attendee;
-                            $attendee_data['ticket'] = $event['ticket'];
-                            $message = $this->load->view('emailutils/event_ticket_attendee', $attendee_data, true);
-                            $to = $attendee->email;
-                            $this->send_email($from,$subject,$message, $to);
-                        }
-                    }
+                //     //for attendees
+                //     if(count($event['attendee']) > 0){
+                //         foreach($event['attendee'] as $attendee){
+                //             $from = $this->config->item('admin_email');
+                //             $subject = "Reyada.co - Event Booking Confirmation for " . $event['ticket']->event_name;
+                //             $attendee_data['attendee'] = $attendee;
+                //             $attendee_data['ticket'] = $event['ticket'];
+                //             $message = $this->load->view('emailutils/event_ticket_attendee', $attendee_data, true);
+                //             $to = $attendee->email;
+                //             $this->send_email($from,$subject,$message, $to);
+                //         }
+                //     }
 
-                }
+                // }
+            }else{
+                return false;
             }
 
             
@@ -413,6 +484,37 @@ class main extends CI_Controller
             $pay_url = $paymenturl . $token;
         }
 
+        return $pay_url;
+    }
+
+    public function pay_hesabe_sms($ticket_data){
+
+        $merchant_code = $this->config->item('hesabe_merchant_code');
+        $invoiceamt = $ticket_data['event_price'] * $ticket_data['no_of_attendees'];
+    
+        $s_data = json_encode(array(
+            'Merchant_id' => $merchant_code, 
+            'MerchantCustomerName' => $ticket_data['name'], 
+            'MerchantCountry' => "11",
+            'MerchantMobileNo' => $ticket_data['mobile'],
+            'MerchantAmount' => $invoiceamt,
+            'MerchantDescription' => $ticket_data['event_name'],
+            'MerchantReferenceNo' => $ticket_data['mobile'],
+            'MerchantCustomeremail' => $ticket_data['email'],
+            'invoice_type' => "1"
+        ));
+
+        $headers = array(
+            'Content-Type: application/json'
+        );
+        
+        $url = "https://hesabe.com/post_single_generate_url";
+        $pay_output = $this->post_with_curl($url,$s_data, $headers);
+        if(isset($pay_output['status']) && $pay_output['status'] == "success"){
+            $pay_url = "https://hesabe.com/smspay/".$pay_output['data']->token;
+        }else{
+            $pay_url = null;
+        }
         return $pay_url;
     }
 
@@ -529,7 +631,8 @@ class main extends CI_Controller
 
      }
 
-    public function create_cowerker($cowerker){
+    
+     public function create_cowerker($cowerker){
         $username = $this->config->item('username');
         $password = $this->config->item('password');
         $s_data = json_encode($cowerker);
@@ -647,8 +750,6 @@ class main extends CI_Controller
             return false;
         }
     }
-
-   
 
     public function signin($username = null, $password = null, $loc_url = "reyada")
     {
