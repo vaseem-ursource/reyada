@@ -345,7 +345,7 @@ class main extends CI_Controller
     public function email_ticket_purchase($ticket_id){
         $event['ticket'] = $this->Main_model->get_event_tickets($ticket_id);
         $event['attendee'] = $this->Main_model->get_event_attendee($ticket_id);
-        $ret = false;
+        
         if(!empty($event['ticket'])){
 
             //for user
@@ -353,48 +353,36 @@ class main extends CI_Controller
             $subject = "Reyada.co - Event Booking Confirmation for " . $event['ticket']->event_name;
             $message = $this->load->view('emailutils/event_ticket_user', $event, true);
             $to = $event['ticket']->email;
-
             if($this->send_email($from,$subject,$message, $to)){
 
-                //for attendees
-                if(count($event['attendee']) > 0){
-                    foreach($event['attendee'] as $attendee){
-                        $from = $this->config->item('admin_email');
-                        $subject = "Reyada.co - Event Booking Confirmation for " . $event['ticket']->event_name;
-                        $attendee_data['attendee'] = $attendee;
-                        $attendee_data['ticket'] = $event['ticket'];
-                        $message = $this->load->view('emailutils/event_ticket_attendee', $attendee_data, true);
-                        $to = $attendee->email;
-                        if($this->send_email($from,$subject,$message, $to)){
-                            continue;
+                //for admin
+                $from = $event['ticket']->email;
+                $subject = "Reyada.co - You have a new booking for " . $event['ticket']->event_name;
+                $message = $this->load->view('emailutils/event_ticket_admin', $event, true);
+                $to = $this->config->item('admin_email');
+                if($this->send_email($from,$subject,$message, $to)){
+
+                    //for attendees
+                    if(count($event['attendee']) > 0){
+                        foreach($event['attendee'] as $attendee){
+                            $from = $this->config->item('admin_email');
+                            $subject = "Reyada.co - Event Booking Confirmation for " . $event['ticket']->event_name;
+                            $attendee_data['attendee'] = $attendee;
+                            $attendee_data['ticket'] = $event['ticket'];
+                            $message = $this->load->view('emailutils/event_ticket_attendee', $attendee_data, true);
+                            $to = $attendee->email;
+                            $this->send_email($from,$subject,$message, $to);
                         }
                     }
+
                 }
             }
-            //for admin
-            $from = $event['ticket']->email;
-            $subject = "Reyada.co - You have a new booking for " . $event['ticket']->event_name;
-            $message = $this->load->view('emailutils/event_ticket_admin', $event, true);
-            $to = $this->config->item('admin_email');
-            $this->send_email($from,$subject,$message, $to);
-            $ret = true;
-        }
 
-        return $ret;
-        
+            
+        }
     }
 
     public function pay_hesabe($ticket_data){
-        // for live site un-comment the below line
-
-        // if($invoice_details['BusinessId'] == 906856952){
-        //     $merchant_code = $this->config->item('hesabe_merchant_code2');
-        // }
-        // else{
-        //     $merchant_code = $this->config->item('hesabe_merchant_code1');
-        // }
-
-        // for staging
         $merchant_code = $this->config->item('hesabe_merchant_code');
         $invoiceamt = $ticket_data['event_price'] * $ticket_data['no_of_attendees'];
         $success_url = base_url('main/payment_result_ticket');

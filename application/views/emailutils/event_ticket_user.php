@@ -30,7 +30,15 @@
                                         <b>Mobile:</b> <?= $ticket->mobile ?><br><br>                                    
                                         <b>Quantity Purchased:</b> <?= $ticket->no_of_attendees ?><br><br>
                                         <b>Total Cost:</b> <?= $ticket->event_price * $ticket->no_of_attendees ?><br><br>
-                                        <b>Payment Confirmation:</b> <?= ($ticket->payment_status) ? "Paid" : "Not Paid" ?><br><br>
+                                        <b>Payment Confirmation:</b> 
+                                            <?php if($ticket->payment_status && $ticket->event_price > 0){ ?>
+                                                Paid
+                                            <?php }elseif($ticket->event_price == 0){ ?>
+                                                Free
+                                            <?php }elseif(!$ticket->payment_status && $ticket->event_price > 0){ ?>
+                                                Not Paid
+                                            <?php } ?>
+                                        <br><br>
                                         <b>Event Name:</b> <?= $ticket->event_name ?><br><br>
                                         <b>Date:</b> <?= $ticket->created_date ?><br><br>
                                         <b>Location:</b> <?= $ticket->event_location ?><br><br>
