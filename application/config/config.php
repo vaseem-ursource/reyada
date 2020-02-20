@@ -37,9 +37,10 @@ date_default_timezone_set('Asia/Kuwait');
 // Hesabe merchant details
 $config['hesabe_request_url']      = "http://demo.hesabe.com/authpost";
 $config['hesabe_checkout_url']     = "http://demo.hesabe.com/checkout/";
+$config['hesabe_merchant_code']    = "642616";
 // $config['hesabe_merchant_code1']    = "481016"; 
 // $config['hesabe_merchant_code2']    = "12540719";
-$config['hesabe_merchant_code']    = "642616";
+
 /*
 |--------------------------------------------------------------------------
 | Index File

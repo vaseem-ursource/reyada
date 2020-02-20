@@ -365,18 +365,19 @@ class main extends CI_Controller
                         $attendee_data['ticket'] = $event['ticket'];
                         $message = $this->load->view('emailutils/event_ticket_attendee', $attendee_data, true);
                         $to = $attendee->email;
-                        $this->send_email($from,$subject,$message, $to);
+                        if($this->send_email($from,$subject,$message, $to)){
+                            continue;
+                        }
                     }
                 }
-                
-                //for admin
-                $from = $event['ticket']->email;
-                $subject = "Reyada.co - You have a new booking for " . $event['ticket']->event_name;
-                $message = $this->load->view('emailutils/event_ticket_admin', $event, true);
-                $to = $this->config->item('admin_email');
-                $this->send_email($from,$subject,$message, $to);
-                $ret = true;
             }
+            //for admin
+            $from = $event['ticket']->email;
+            $subject = "Reyada.co - You have a new booking for " . $event['ticket']->event_name;
+            $message = $this->load->view('emailutils/event_ticket_admin', $event, true);
+            $to = $this->config->item('admin_email');
+            $this->send_email($from,$subject,$message, $to);
+            $ret = true;
         }
 
         return $ret;
