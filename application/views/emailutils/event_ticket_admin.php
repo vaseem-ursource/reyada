@@ -34,6 +34,17 @@
                                         <b>Event Name:</b> <?= $ticket->event_name ?><br><br>
                                         <b>Date:</b> <?= $ticket->created_date ?><br><br>
                                         <b>Location:</b> <?= $ticket->event_location ?><br><br>
+
+                                        <b>Attendee Details: </b><br><br>
+                                        <?php if(count($attendee) > 0){ ?>
+                                            <?php $i = 1 ?>
+                                            <?php foreach($attendee as $atten){ ?>
+                                                <b>== Attendee <?= $i ?> ==</b><br>
+                                                <b>Name:</b> <?= $atten->name ?><br><br>
+                                                <b>Email:</b> <?= $atten->email ?><br><br>
+                                                <?php $i++; ?>
+                                            <?php } ?>
+                                        <?php } ?>
                                     </td>
                                 </tr>
                             </table>
