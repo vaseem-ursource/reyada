@@ -32,7 +32,7 @@
                                         <b>Total Cost:</b> <?= $ticket->event_price * $ticket->no_of_attendees ?><br><br>
                                         <b>Payment Confirmation:</b> 
                                             <?php if($ticket->payment_status && $ticket->event_price > 0){ ?>
-                                                Paid
+                                                <?= $ticket->payment_trans ?> (Paid)
                                             <?php }elseif($ticket->event_price == 0){ ?>
                                                 Free
                                             <?php }elseif(!$ticket->payment_status && $ticket->event_price > 0){ ?>

@@ -29,7 +29,7 @@
     </div>
     <div class="container">
         <form id="event-form" class="event-form" method="post" action="">
-            <input type="hidden" id="event_id" value="<?= $product_id ?>"/>
+            <input type="hidden" id="event_id" value="<?= $events->Id ?>"/>
             <input type="hidden" id="ticket_url" name="ticket_url" value="<?= $this->input->get('ticketUrl') ?>" />
 
             <div class="row">

@@ -271,16 +271,13 @@ class main extends CI_Controller
             $output = $this->post_with_curl($url,null, $headers);
             if(!empty($output)){
                 $events = $output['Event'];
-                $product_id = $output['EventProductId'];
-                if($product_id == null){
-                    $product_id = $events->MostExpensiveProduct->Id;
-                }
+                
                 $ticket_data = array(
                     'event_name' => $events->Name,
                     'event_price' => $events->MostExpensivePrice,
                     'event_desc' => $events->LongDescription,
                     'event_location' => $events->Location,
-                    'event_id' => $product_id,
+                    'event_id' => $events->Id,
                     'name' => $name,
                     'email' => $email,
                     'mobile' => $mobile,
@@ -321,6 +318,7 @@ class main extends CI_Controller
     }
 
     public function free_ticket($ticket_id){
+        ini_set('max_execution_time', 300);
         if($ticket_id > 0){
             //for admin
             $event['ticket'] = $this->Main_model->get_event_tickets($ticket_id);
@@ -361,6 +359,7 @@ class main extends CI_Controller
     }
 
     public function payment_result_ticket(){
+        ini_set('max_execution_time', 300);
         $status = $this->input->get('Status');
         $ticket_id = 0;
         $pay_data = $this->input->get();
@@ -1731,9 +1730,8 @@ class main extends CI_Controller
         $location = $this->session->userdata('location');
         if($location != null){
             $loc_url = $location;
-        }
-        else{
-            $loc_url = 'reyada'; 
+        } else{
+            $loc_url = 'reyada';
         }
         $type = $this->input->get('type');
         $start = $type == "upcoming" ? date("Y-m-d") : date("Y-m-d", strtotime('-1 year'));
@@ -1759,8 +1757,7 @@ class main extends CI_Controller
             $data['header_name'] = 'header_account';
             $data['img_loc'] = $loc_url;
             $this->load->view('index', $data);
-        }
-        else{
+        } else{
             $data['locations'] = $this->get_location();
             $data['folder_name'] = 'main';
             $data['file_name'] = 'CommunityEvents';
@@ -1819,18 +1816,13 @@ class main extends CI_Controller
             'Authorization: Basic ' . base64_encode("$username:$password"),
         );
         $output = $this->post_with_curl($url,null, $headers);
-        if(!empty($output)){
+        if(isset($output['Event']) && !empty($output['Event'])){
             $this->session->set_userdata('last_page', current_url());
             $data['location'] = $location;
             $data['events'] = $output['Event'];
-            $data['product_id'] = $output['EventProductId'];
-            if($data['product_id'] == null){
-                $data['product_id'] = $output['Event']->MostExpensiveProduct->Id;
-            }
             $this->load->view('index', $data);
-        }
-        else{
-            redirect('main/community_events');
+        } else{
+            redirect(base_url('main/communityEvents'));
         }
      }
 

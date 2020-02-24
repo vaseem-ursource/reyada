@@ -52,7 +52,11 @@
             <h6 class="card-text pt-1"><b><?=$event->Name?></b></h6>
             <span class="card-text h6"><?=$event->Location?></span>
             <h6 class="card-text"><?= $event->MostExpensivePrice ?> KD</h6>
-            <a class="btn custom-button-bl" style="width:100px;" href="<?= base_url() ?>main/book_events?ticketUrl=<?= $event->TicketsPage ?>"  style="color:black;" class="float-left">Get Tickets</a>
+            <?php if($event->HasTickets && !empty($event->TicketsPage)) { ?>
+              <a class="btn custom-button-bl" style="width:100px;" href="<?= base_url() ?>main/book_events?ticketUrl=<?= $event->TicketsPage ?>"  style="color:black;" class="float-left">Get Tickets</a>
+            <?php }else{ ?>
+              <p class="text-warning" ><i class="fa fa-warning" ></i>Tickets not available</p>
+            <?php } ?>
           </div>
         </div>
       </div>

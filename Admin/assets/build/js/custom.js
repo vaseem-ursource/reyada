@@ -2554,6 +2554,10 @@ if (typeof NProgress != 'undefined') {
 
 				$('#datatable').dataTable();
 
+				$('#datatable-sort').dataTable();
+
+				$('.datatable-sort').dataTable();
+
 				$('#datatable-keytable').DataTable({
 				  keys: true
 				});

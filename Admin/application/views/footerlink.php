@@ -39,7 +39,7 @@
     <script src="<?= base_url()?>assets/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
 
     <!-- Custom Theme Scripts -->
-    <script src="<?= base_url()?>assets/build/js/custom.min.js"></script>
+    <script src="<?= base_url()?>assets/build/js/custom.js"></script>
 
      <!-- PNotify -->
      <script src="<?= base_url('assets/vendors/pnotify/dist/pnotify.js');?>"></script>

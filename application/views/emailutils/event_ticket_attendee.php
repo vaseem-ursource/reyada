@@ -28,6 +28,16 @@
                                         <b>Name:</b> <?= $attendee->name ?><br><br>
                                         <b>Email:</b> <?= $attendee->email ?><br><br>
                                         <b>Event Name:</b> <?= $ticket->event_name ?><br><br>
+                                        <b>Event Price:</b> <?= $ticket->event_price ?><br><br>
+                                        <b>Payment:</b> 
+                                            <?php if($ticket->payment_status && $ticket->event_price > 0){ ?>
+                                                <?= $ticket->payment_trans ?> (Paid)
+                                            <?php }elseif($ticket->event_price == 0){ ?>
+                                                Free
+                                            <?php }elseif(!$ticket->payment_status && $ticket->event_price > 0){ ?>
+                                                Not Paid
+                                            <?php } ?>
+                                        <br><br>
                                         <b>Date:</b> <?= $ticket->created_date ?><br><br>
                                         <b>Location:</b> <?= $ticket->event_location ?><br><br>
                                     </td>

@@ -19,7 +19,7 @@
               </div>
             </div>
             <!-- /menu profile quick info -->
-            <br />
+            <br />  
 
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
@@ -31,6 +31,10 @@
                   <li><a href="<?= base_url('Categories');?>"><i class="fa fa-list-alt"></i> Categories</a>
                   </li>
                   <li><a href="<?= base_url('Articles');?>"><i class="fa fa-newspaper-o"></i> Articles</a>
+                  </li>
+                  <li><a href="<?= base_url('Events');?>"><i class="fa fa-newspaper-o"></i> Events</a>
+                  </li>
+                  <li><a href="<?= base_url('Events/tickets');?>"><i class="fa fa-newspaper-o"></i> Event Tickets</a>
                   </li>
                   <li><a href="<?= base_url('Partners');?>"><i class="fa fa-share-alt"></i> Partners</a>
                   </li>
