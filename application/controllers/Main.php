@@ -1722,6 +1722,7 @@ class main extends CI_Controller
      // Community events
      function communityEvents($type = null, $location = null)
      {
+        ini_set('max_execution_time', 300);
         $this->session->set_userdata('last_page', current_url());
         if(!empty($this->input->get('location'))){
             $url = $this->input->get('location');
