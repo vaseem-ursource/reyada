@@ -1115,9 +1115,9 @@ if (typeof NProgress != 'undefined') {
 			});	
 		});
  
-		
-        window.prettyPrint;
-        prettyPrint();
+		init_ToolbarBootstrapBindings();
+		window.prettyPrint && prettyPrint();
+
 	
     };
 	  

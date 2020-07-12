@@ -63,7 +63,6 @@
             </div>
 
             <div class="col-lg-3 col-md-3 wow fadeInUp p-1 lap">
-                  <img class="" width="100%" height="200px" src="<?= base_url()?>image/articles/a2.jpg" alt="Card image cap">
                     <div class="container mt-3">
                       <div class="accordian">
                         <ul>

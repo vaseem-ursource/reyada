@@ -14,7 +14,7 @@
    font-style:normal;
    }
    body.h1,h2,h3,h4,h5,h6,span,div,q,a {
-   font-family: METRIC-REGULAR !important;
+   font-family: 'METRIC-REGULAR';
    }
 </style>
 <link href="<?= base_url()?>lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
@@ -33,6 +33,7 @@
 <script src="<?= base_url()?>js/moment-timezone-with-data-10-year-range.min.js"></script>
 <script type="text/javascript"  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="<?= base_url()?>js/date-format.js"></script>
+
 <style>
    #myMenu ul li a i:before, ul li a i:after{
    background-color:transparent;

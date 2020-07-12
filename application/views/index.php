@@ -7,8 +7,9 @@
     <meta charset="utf-8">
     <title>Reyada | Collaborative Workspace</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
+    <meta content="Together We Create" name="description">
+    <meta content="Work, Innovate, Collaborate." name="keywords">
+
     <?php include("header_links.php");?>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
@@ -36,7 +37,7 @@
           <div class="copyright text-right pr-5">
             <a href="https://www.facebook.com/reyadaspaces/?view_public_for=999326720117412" target="_blank"><i class="fa fa-facebook px-2 text-dark" style="font-size: 22px"></i></a>
             <a href="https://www.instagram.com/reyada.co/?hl=en" target="_blank"><i class="fa fa-instagram px-2 text-dark" style="font-size: 22px"></i></a>
-            <a href="https://twitter.com/reyada_co" target="_blank"><i class="fa fa-twitter px-2 text-dark" style="font-size: 22px"></i></a>
+            <a href="http://www.twitter.com/reyadakwt" target="_blank"><i class="fa fa-twitter px-2 text-dark" style="font-size: 22px"></i></a>
       </div>
       </div>
     </div>

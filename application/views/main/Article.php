@@ -5,9 +5,19 @@
 }
 
 a {
-  color: #343a40;
+  color: #007bff;
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
+  font-family: inherit !important;
+}
+
+a:hover{
+  color: #007bff;
+}
+
+p{
+  margin: 0 0 0 0 !important;
+  margin-bottom:0rem !important;
 }
 
 .v-btn {
@@ -325,6 +335,10 @@ button {
   .comments {
     padding: 32px;
   }
+  .image-responsive{
+    float:none !important;
+    text-align:center !important;
+  }
 }
 </style>
 <!--==========================
@@ -341,87 +355,24 @@ button {
         <div class="section-header pb-1 col-md-9 pl-0">
           <h3 class="text-left text-dark"><?= $Article->title;?></h3>
           <h5 class="text-left text-dark"><b><?= $Article->sub_title;?></b></h5>
+          <img class="card-img-top py-4" style="max-height:500px" src="<?= base_url().'admin/'.$Article->image_url;?>" alt="Card image cap">
           <?php 
           $date = explode("-",$Article->posted_date);
           $day = explode(" ",$date[2]);
           $dateObj   = DateTime::createFromFormat('!m', $date[1]); 
           $monthName = $dateObj->format('F');
           ?>
-          <small><?= $day[0].', '.$monthName.' '.$date[0]?></small>
-          <small class="pull-right"><?= $Article->author;?></small>
+          <small style="font-size:15px;font-weight: 600;"><?= $day[0].', '.$monthName.' '.$date[0]?></small>
+          <small class="pull-right" style="font-size:15px;font-weight: 600;"><?= $Article->author;?></small>
         </div>
         <div class="section-header p-1 col-md-9"></div>
-        <div class="pt-4 row">
-            <div class="col-lg-9 col-md-9 wow fadeInUp p-3 text-justify">
+        <div class="pt-1 row">
+            <div class="col-lg-9 col-md-9 wow fadeInUp p-3">
                 <p><?= $Article->description;?></p>
-
-                <img class="card-img-top py-1" style="max-height:500px" src="<?= base_url().'admin/'.$Article->image_url;?>" alt="Card image cap">
-                
-                <!-- <p>Nam a turpis enim. Sed tempus at urna eu ultrices. Vivamus nibh orci, lobortis ut porttitor et, venenatis efficitur dolor. Vestibulum volutpat ac neque eu accumsan. Nam quis nunc vitae ex pellentesque pulvinar. Etiam lacinia dolor sed magna sagittis mollis. Proin ex tortor, pretium et iaculis sed, posuere et purus. Nulla facilisi. Morbi vitae metus id nibh dictum mollis sed ac metus.</p> -->
-
-                <!-- <ul>
-                    <li type="circle" class="py-3">
-                        Aliquam pellentesque vitae ex vel viverra.
-                    </li>
-                    <li type="circle" class="py-3">
-                        porttitor vehicula justo
-                    </li>
-                    <li type="circle" class="py-3">
-                        Nunc egestas aliquam felis
-                    </li>
-                </ul>
-                <p>Curabitur luctus vehicula est vel viverra. Aliquam pellentesque vitae ex vel viverra. Sed ac felis erat. Nulla vulputate rutrum blandit. Nam a ante vitae velit mollis feugiat. Pellentesque ut ipsum id dolor malesuada cursus. Proin non nulla maximus, sodales justo vel, iaculis nisl.</p>
-
-                <p>Sed turpis sem, pulvinar eget risus a, porttitor vehicula justo. Pellentesque bibendum varius velit quis dictum. Ut eget tellus mauris. Proin eleifend eros vel lacinia pretium. Aenean pretium, est non vehicula dictum, mauris lorem consequat tortor, et condimentum velit ex nec sapien. Nunc egestas aliquam felis eu dignissim. Suspendisse lobortis aliquam finibus.</p> -->
-
-
-
                 <div id="disqus_thread" class="mt-5"></div>
-                <script>
-
-                /**
-                *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-                *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-                /*
-                var disqus_config = function () {
-                this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-                this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-                };
-                */
-                // (function() { // DON'T EDIT BELOW THIS LINE
-                // var d = document, s = d.createElement('script');
-                // s.src = 'https://sainxo.disqus.com/embed.js';
-                // s.setAttribute('data-timestamp', +new Date());
-                // (d.head || d.body).appendChild(s);
-                // })();
-                // </script>
-                <!-- <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript> -->
-
-                <!-- <h3 class="text-center pt-3">Share this Article</h3> -->
-                <!-- <div id="share" class="text-center pb-4"></div> -->
-                <!-- <h4 class="text-center text-dark pb-5">
-                    <a href="#"><i class="fa fa-facebook px-3 text-dark"></i></a>
-                    <a href="#"><i class="fa fa-linkedin px-3 text-dark"></i></a>
-                    <a href="#"><i class="fa fa-twitter px-3 text-dark"></i></a>
-                    
-                </h4> -->
-               <!-- <span class="mb-1">Tags : </span>
-               <span class="btn border border-secondary rounded text-uppercase mb-1 p-2">START UPS</span>
-               <span class="btn border border-secondary rounded text-uppercase mb-1 p-2">Tips</span>
-               <span class="btn border border-secondary rounded text-uppercase mb-1 p-2">FreeLance</span>
-               <span class="btn border border-secondary rounded text-uppercase mb-1 p-2">News</span>
-               <span class="btn border border-secondary rounded text-uppercase mb-1 p-2">START UPS</span>
-               <span class="btn border border-secondary rounded text-uppercase mb-1 p-2">FreeLance</span>
-               <span class="btn border border-secondary rounded text-uppercase mb-1 p-2">START UPS</span>
-               <span class="btn border border-secondary rounded text-uppercase mb-1 p-2">Tips</span>
-               <span class="btn border border-secondary rounded text-uppercase mb-1 p-2">FreeLance</span>
-               <span class="btn border border-secondary rounded text-uppercase mb-1 p-2">News</span>
-               <span class="btn border border-secondary rounded text-uppercase mb-1 p-2">START UPS</span>
-               <span class="btn border border-secondary rounded text-uppercase mb-1 p-2">FreeLance</span> -->
             </div>
 
             <div class="col-lg-3 col-md-3 wow fadeInUp p-1 lap">
-                  <img class="" width="100%" height="200px" src="<?= base_url()?>image/articles/a2.jpg" alt="Card image cap">
                     <div class="container mt-3">
                       <div class="accordian">
                         <ul>
@@ -434,7 +385,7 @@ button {
                             </div>
                           </li>
                           <li><input type="checkbox" checked=""><i></i>
-                            <h6><span style="border-left:2px solid #343a40;padding:4px"></span> Popular Article</h6>
+                            <h6><span style="border-left:2px solid #343a40;padding:4px"></span> Popular Articles</h6>
                             <div class="artlist">
                             <?php $i=0; 
                             foreach($PopularArticle->result() as $row){ ?>
@@ -443,21 +394,9 @@ button {
                               <?php } ?>
                             </div>
                           </li>
-                          <!-- <li><input type="checkbox" checked=""><i></i>
-                            <h6><span style="border-left:2px solid #343a40;padding:4px"></span> Popular Tags</h6>
-                            <div class="artlist">
-                              <div class="artlist_content">
-                                <a href="#"><span class="btn border border-secondary rounded text-uppercase mb-1 p-2">START UPS</span></a>
-                                <a href="#"><span class="btn border border-secondary rounded text-uppercase mb-1 p-2">Tips</span></a>
-                                <a href="#"><span class="btn border border-secondary rounded text-uppercase mb-1 p-2">FreeLance</span></a>
-                                <a href="#"><span class="btn border border-secondary rounded text-uppercase mb-1 p-2">News</span></a>
-                                <a href="#"><span class="btn border border-secondary rounded text-uppercase mb-1 p-2">START UPS</span></a>
-                              </div>
-                            </div>
-                          </li> -->
                           <li><input type="checkbox" checked=""><i></i>
                             <h6><span style="border-left:2px solid #343a40;padding:4px"></span> Instagram</h6>
-                              <div class="row">
+                              <div class="row artlist">
                                 <div class="col-md-12" >
                                   <?php if(isset($insta_user->data) && !empty($insta_user->data)){ ?>
                                     <table class="table" >
@@ -518,3 +457,9 @@ button {
 
       </div>
     </section><!-- #team -->
+    <script>
+      $(document).ready(function(){
+        $('img').addClass('img-fluid');
+        $('.image').addClass('image-responsive');
+      });
+    </script>

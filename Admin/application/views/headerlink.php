@@ -1,6 +1,6 @@
-<link rel="icon" href="<?= base_url('assets/images/favicon.png')?>" type="image/png" sizes="16x16">
- <!-- Bootstrap -->
- <link href="<?= base_url()?>assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+   <link rel="icon" href="<?= base_url('assets/images/favicon.png')?>" type="image/png" sizes="16x16">
+   <!-- Bootstrap -->
+   <link href="<?= base_url()?>assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="<?= base_url()?>assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
@@ -38,3 +38,5 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js" ></script>
    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js" ></script>
    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js" ></script>
+  
+   

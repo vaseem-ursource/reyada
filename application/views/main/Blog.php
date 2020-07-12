@@ -11,7 +11,7 @@ span.dot{
   ============================-->
   <section id="intro" class="clearfix align-middle filter" style="background:url('<?= base_url()?>image/articles/article2.jpg') center  no-repeat;background-size: cover;height:60vh;">
     <div class="intro-info order-md-first order-last position-absolute" style="bottom:0px;left:10%;">
-      <h2 class="text-white text-left">Blogs</h2>
+      <!-- <h2 class="text-white text-left">Blogs</h2> -->
     </div>
   </section><!-- #intro -->
 
@@ -21,9 +21,9 @@ span.dot{
     ============================-->
     <section id="team" class="">
       <div class="container">
-        <div class="section-header col-md-9 pl-0">
+        <!-- <div class="section-header col-md-9 pl-0">
           <h4 class="text-left text-dark">Last News</h4>
-        </div>
+        </div> -->
         <div class="row">
              <div class="col-lg-9 col-md-9 wow fadeInUp px-3 text-justify">
              <input type="text" name="main_search" id="main_search" value="<?= $search;?>" hidden>
@@ -36,10 +36,9 @@ span.dot{
                               <img class="card-img-top" src="<?= base_url().'admin/'.$article->image_url ?>" height="250px" alt="Card image cap">
                               <div class="card-body">
                                   <small><?= date('d, M Y',strtotime($article->posted_date)) ?></small>
-                                  <h6 class="card-title pt-1"><b><?= $article->title ?></b></h6>
-                                  <h6 class="card-title"><b><?= $article->sub_title ?></b></h6>
-                                  <div class="card-text text-justify lap" style="height:250px;overflow:hidden"><?= $article->description ?></div><br>
-                                  <a href="<?=base_url().'Main/Article?id='.$article->article_id ?>" class="btn custom-button-bl" >View</a>
+                                  <div class="card-title pt-1"><b style="font-weight:4000 !important;font-size:18px;"><?= $article->title ?></b></div>
+                                  <h6 class="card-title"  style="max-height:90px;font-size:16px !important;font-family:inherit;"><?= $article->sub_title ?></h6><br>
+                                  <a href="<?=base_url().'Main/Article?id='.$article->article_id ?>" class="btn custom-button-bl" style="position:absolute;bottom:10px;">View</a>
                               </div>
                           </div>
                       </div>
@@ -50,11 +49,15 @@ span.dot{
                   }
                   ?>
                 </div>
-                <?php if(!empty($links)){ ?>
-                  <div class="center pt-5">
-                     <?= $links; ?>
-                  </div> 
-                <?php }?>
+                <?php 
+                if(count($Article) > 6){
+                  if(!empty($links)){ ?>
+                    <div class="center pt-5">
+                       <?= $links; ?>
+                    </div> 
+                  <?php }
+                }
+                ?>
                                  
                 <!-- <div class="center pt-5">
                     <ul class="pagination">
@@ -70,7 +73,6 @@ span.dot{
             </div>
 
             <div class="col-lg-3 col-md-3 wow fadeInUp p-1 lap">
-                  <img class="" width="100%" height="200px" src="<?= base_url()?>image/articles/a2.jpg" alt="Card image cap">
                     <div class="container mt-3">
                       <div class="accordian">
                         <ul>
@@ -83,7 +85,7 @@ span.dot{
                             </div>
                           </li>
                           <li><input type="checkbox" checked=""><i></i>
-                            <h6><span style="border-left:2px solid #343a40;padding:4px"></span> Popular Article</h6>
+                            <h6><span style="border-left:2px solid #343a40;padding:4px"></span> Popular Articles</h6>
                             <div class="artlist"> 
                             <?php $i=0; 
                             foreach($PopularArticle->result() as $row){ ?>
