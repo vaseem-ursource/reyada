@@ -5,9 +5,11 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Reyada | Collaborative Workspace</title>
+    <title><?= $title ;?></title>
+    <meta property="og:title" content="<?= $title; ?>" />
+    <meta property="og:description" content="<?= $content ;?>" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Together We Create" name="description">
+    <meta content="<?= $content ;?>" name="description">
     <meta content="Work, Innovate, Collaborate." name="keywords">
 
     <?php include("header_links.php");?>

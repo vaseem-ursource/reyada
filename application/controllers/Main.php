@@ -25,6 +25,8 @@ class main extends CI_Controller
         $data['blog'] = $this->Articles_model->get_section_status(1);
         $data['partner_stat'] = $this->Partners_model->get_section_status(2);
         $data['partners'] = $this->Partners_model->get_all_partners();
+        $data['title'] =  'Reyada | Collaborative Workspace';
+        $data['content'] =  'Together We Create';
         $this->load->view('index', $data);
 
     }
@@ -74,6 +76,8 @@ class main extends CI_Controller
             }
         }
         $data['locations'] = $this->get_location();
+        $data['title'] =  'Reyada | Services';
+        $data['content'] =  'Together We Create';
         $this->load->view('index', $data);
 
     }
@@ -354,6 +358,8 @@ class main extends CI_Controller
             $data['folder_name'] = 'main';
             $data['file_name'] = 'ticket_result';
             $data['header_name'] = 'header_account';
+            $data['title'] =  'Reyada | Tickets';
+            $data['content'] =  'Together We Create';
             $this->load->view('index', $data);
         }
     }
@@ -406,6 +412,8 @@ class main extends CI_Controller
         $data['folder_name'] = 'main';
         $data['file_name'] = 'ticket_result';
         $data['header_name'] = 'header_account';
+        $data['title'] =  'Reyada | Tickets';
+        $data['content'] =  'Together We Create';
         $this->load->view('index', $data);
     }
 
@@ -819,8 +827,6 @@ class main extends CI_Controller
 
     }
 
-
-
     public function get_access_token($username, $password)
     {
         $p_data['email'] = $username;
@@ -1005,6 +1011,8 @@ class main extends CI_Controller
         $data['header_name'] = 'header_blog';
         $data['Categories'] = $this->Main_model->get_all_categories();
         $data['PopularArticle'] = $this->Main_model->get_popular_article();
+        $data['title'] =  'Reyada | Blogs';
+        $data['content'] =  'Together We Create';
         $this->load->view('index', $data);
     }
 
@@ -1037,6 +1045,8 @@ class main extends CI_Controller
         $data['PopularArticle'] = $this->Main_model->get_popular_article();
         $data['Categories'] = $this->Main_model->get_all_categories();
         $data['links'] = null;
+        $data['title'] =  'Reyada | Blogs';
+        $data['content'] =  'Together We Create';
         $this->load->view('index', $data);
 
     }
@@ -1059,6 +1069,8 @@ class main extends CI_Controller
         $user_api = "https://api.instagram.com/v1/users/self/?access_token=2172803998.1677ed0.6c698b7964d948d8bd7045e0e0953222";
         $user_response = $this->fetchSimpleData($user_api);
         $data['insta_user'] = json_decode($user_response);
+        $data['title'] =  $data['Article']->title;
+        $data['content'] =  $data['Article']->sub_title;
         $this->load->view('index', $data);
 
     }
@@ -1322,6 +1334,8 @@ class main extends CI_Controller
         $data['file_name'] = 'joinCommunity';
         $data['header_name'] = 'header';
         $data['RecentArticle'] = $this->Main_model->get_recent_articles();
+        $data['title'] =  'Reyada | Community';
+        $data['content'] =  'Together We Create';
         $this->load->view('index', $data);
 
     }
@@ -1350,6 +1364,8 @@ class main extends CI_Controller
             $data['file_name'] = 'Account';
             $data['header_name'] = 'header_account';
             $data['locations'] = $this->get_location();
+            $data['title'] =  'Reyada | Plans';
+            $data['content'] =  'Together We Create';
             // $data['MyAccount'] = $this->Main_model->get_recent_articles();
             $this->load->view('index', $data);
         } else {
@@ -1364,7 +1380,8 @@ class main extends CI_Controller
         $data['folder_name'] = 'main';
         $data['file_name'] = 'Member';
         $data['header_name'] = 'header_account';
-
+        $data['title'] =  'Reyada | Members';
+        $data['content'] =  'Together We Create';
         // $data['MyAccount'] = $this->Main_model->get_recent_articles();
         $this->load->view('index', $data);
     }
@@ -1389,7 +1406,8 @@ class main extends CI_Controller
         $data['folder_name'] = 'main';
         $data['file_name'] = 'Profile';
         $data['header_name'] = 'header_account';
-
+        $data['title'] =  'Reyada | Profile';
+        $data['content'] =  'Together We Create';
         // $data['MyAccount'] = $this->Main_model->get_recent_articles();
         $this->load->view('index', $data);
     }
@@ -1679,6 +1697,8 @@ class main extends CI_Controller
         $data['folder_name'] = 'main';
         $data['file_name'] = 'InvoiceAndPayment';
         $data['header_name'] = 'header_account';
+        $data['title'] =  'Reyada | Invoice';
+        $data['content'] =  'Together We Create';
         $this->load->view('index', $data);
         
     }
@@ -1715,6 +1735,8 @@ class main extends CI_Controller
         $data['folder_name'] = 'main';
         $data['file_name'] = 'MyBooking';
         $data['header_name'] = 'header_account';
+        $data['title'] =  'Reyada | Bookings';
+        $data['content'] =  'Together We Create';
         $data['locations'] = $this->get_location();
         $this->load->view('index', $data);
      }
@@ -1750,6 +1772,8 @@ class main extends CI_Controller
             'Content-Type: application/json'
         );
         $output = $this->post_with_curl($url,null, $headers);
+        $data['title'] =  'Reyada | Community Events';
+        $data['content'] =  'Together We Create';
         if(!empty($output)){
             $data['events'] = $output['CalendarEvents'];
             $data['locations'] = $this->get_location();
@@ -1757,16 +1781,14 @@ class main extends CI_Controller
             $data['file_name'] = 'CommunityEvents';
             $data['header_name'] = 'header_account';
             $data['img_loc'] = $loc_url;
-            $this->load->view('index', $data);
         } else{
             $data['locations'] = $this->get_location();
             $data['folder_name'] = 'main';
             $data['file_name'] = 'CommunityEvents';
             $data['header_name'] = 'header_account';
             $data['img_loc'] = $loc_url;
-            $this->load->view('index', $data);
         }
-       
+        $this->load->view('index', $data);
      }
 
      function check_email_exist(){
@@ -1795,6 +1817,8 @@ class main extends CI_Controller
          $data['file_name'] = 'CommunityBooking';
          $data['header_name'] = 'header_account';
          $data['locations'] = $this->get_location();
+         $data['title'] =  'Reyada | Community Bookings';
+         $data['content'] =  'Together We Create';
          // $data['MyAccount'] = $this->Main_model->get_recent_articles();  
          $this->load->view('index', $data);
      }
@@ -1821,6 +1845,8 @@ class main extends CI_Controller
             $this->session->set_userdata('last_page', current_url());
             $data['location'] = $location;
             $data['events'] = $output['Event'];
+            $data['title'] =  'Reyada | Book Events';
+            $data['content'] =  'Together We Create';
             $this->load->view('index', $data);
         } else{
             redirect(base_url('main/communityEvents'));
@@ -1892,6 +1918,8 @@ class main extends CI_Controller
             $data['folder_name'] = 'main';
             $data['file_name'] = 'forgot_password';
             $data['header_name'] = 'header_account';
+            $data['title'] =  'Reyada | Forgot Password';
+            $data['content'] =  'Together We Create';
             $this->load->view('index', $data);
         }
         

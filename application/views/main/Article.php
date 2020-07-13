@@ -371,7 +371,6 @@ button {
                 <p><?= $Article->description;?></p>
                 <div id="disqus_thread" class="mt-5"></div>
             </div>
-
             <div class="col-lg-3 col-md-3 wow fadeInUp p-1 lap">
                     <div class="container mt-3">
                       <div class="accordian">
@@ -457,6 +456,12 @@ button {
 
       </div>
     </section><!-- #team -->
+    <!-- live -->
+    <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5f0aad50b9410d0019e80ab7&product=sticky-share-buttons&cms=sop' async='async'></script>
+
+    <!-- staging -->
+    <!-- <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5f042096ee78680012322ea8&product=sticky-share-buttons&cms=sop' async='async'></script> -->
+		<div class="sharethis-inline-share-buttons pb-4" style="margin-top:20px;" data-title="<?= $title?>" data-description="<?= $content ?>"></div>
     <script>
       $(document).ready(function(){
         $('img').addClass('img-fluid');
