@@ -455,13 +455,17 @@ button {
         </div>
 
       </div>
-    </section><!-- #team -->
+    </section>
+
+    <!-- #team -->
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false" data-src="<?= base_url().'admin/'.$image ;?>">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <!-- live -->
-    <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5f0aad50b9410d0019e80ab7&product=sticky-share-buttons&cms=sop' async='async'></script>
+    <!-- <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5f0aad50b9410d0019e80ab7&product=sticky-share-buttons&cms=sop' async='async'></script>
+    <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5f0aad50b9410d0019e80ab7&product=image-share-buttons&cms=sop' async='async'></script> -->
 
     <!-- staging -->
-    <!-- <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5f042096ee78680012322ea8&product=sticky-share-buttons&cms=sop' async='async'></script> -->
-		<div class="sharethis-inline-share-buttons pb-4" style="margin-top:20px;" data-title="<?= $title?>" data-description="<?= $content ?>"></div>
+    <!-- <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5f042096ee78680012322ea8&product=sticky-share-buttons&cms=sop' async='async'></script>
+		<div class="sharethis-inline-share-buttons pb-4" style="margin-top:20px;" data-title="<?= $title?>" data-description="<?= $content ?>" data-src="<?= base_url().'admin/'.$image ;?>"></div> -->
     <script>
       $(document).ready(function(){
         $('img').addClass('img-fluid');

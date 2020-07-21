@@ -6,12 +6,18 @@
 <head>
     <meta charset="utf-8">
     <title><?= $title ;?></title>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@reyadakwt">
+    <meta name="twitter:creator" content="@reyadakwt">
+    <meta name="twitter:title" content="<?= $title; ?>">
+    <meta name="twitter:description" content="<?= $content ;?>">
+    <meta content="Work, Innovate, Collaborate." name="keywords">
     <meta property="og:title" content="<?= $title; ?>" />
     <meta property="og:description" content="<?= $content ;?>" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="<?= $content ;?>" name="description">
-    <meta content="Work, Innovate, Collaborate." name="keywords">
-
+    <?php if(isset($image)){?>
+    <meta name="twitter:image" content="<?= base_url().'admin/'.$image ;?>">
+    <meta property="og:image" content="<?= base_url().'admin/'.$image ;?>" />
+    <?php }?>
     <?php include("header_links.php");?>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>

@@ -1071,6 +1071,7 @@ class main extends CI_Controller
         $data['insta_user'] = json_decode($user_response);
         $data['title'] =  $data['Article']->title;
         $data['content'] =  $data['Article']->sub_title;
+        $data['image'] =  $data['Article']->image_url;
         $this->load->view('index', $data);
 
     }
