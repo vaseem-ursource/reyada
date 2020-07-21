@@ -11,13 +11,16 @@
     <meta name="twitter:creator" content="@reyadakwt">
     <meta name="twitter:title" content="<?= $title; ?>">
     <meta name="twitter:description" content="<?= $content ;?>">
-    <meta content="Work, Innovate, Collaborate." name="keywords">
+    <?php if(isset($image)){?>
+    <meta name="twitter:image" content="<?= base_url().'admin/'.$image ;?>">
+    <?php }?>
     <meta property="og:title" content="<?= $title; ?>" />
     <meta property="og:description" content="<?= $content ;?>" />
     <?php if(isset($image)){?>
-    <meta name="twitter:image" content="<?= base_url().'admin/'.$image ;?>">
     <meta property="og:image" content="<?= base_url().'admin/'.$image ;?>" />
     <?php }?>
+    <meta content="Work, Innovate, Collaborate." name="keywords">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <?php include("header_links.php");?>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
