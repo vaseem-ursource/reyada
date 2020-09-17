@@ -95,17 +95,17 @@ bottom: 0px;
 
 @media screen and (min-width: 767px) {
   .sidenav_fixed{
-    position:fixed;
+    position:relative;
     max-height: 65%;
     overflow: auto;
     overflow-x: hidden;
+
   }
 }
 
 @media screen and (max-width: 768px) {
   .sidenav_fixed{
     position:inherit;
-    
   }
 }
 
@@ -158,8 +158,9 @@ bottom: 0px;
                           <a href="<?= base_url("main/booking") ?>"> <li> <h6><span style="border-left:1px solid #AF0E17;padding:4px"></span> Your Bookings </h6></a>
                           
                           </li>
-                         
-                          <li><a href="<?= base_url() ?>main/logout" class=""> Sign Out <i class="fa fa-angle-right custom pull-right"></i> </a></li>
+                          <a href="<?= base_url() ?>main/logout"> <li> <h6><span style="border-left:1px solid #AF0E17;padding:4px"></span> Sign Out </h6></a>
+
+                          <!-- <li><a href="<?= base_url() ?>main/logout" class=""> Sign Out </a></li> -->
                           </div>
                           </div>
                           </div>

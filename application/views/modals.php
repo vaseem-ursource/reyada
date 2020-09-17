@@ -820,7 +820,7 @@
      return false;
      }
      if (!(mobile_phone).match(new RegExp('^[2-9][0-9]*$')) || mobile_phone.length != 8) {
-         $('#error_msg_signup').append('Invalid MObile Number(must be 8 digits only)');
+         $('#error_msg_signup').append('Invalid Mobile Number(must be 8 digits only)');
          $('#error_msg_signup').fadeIn().delay(5000).fadeOut();
          $('.whole_div').hide();
          return false;

@@ -28,17 +28,33 @@ class Articles extends CI_Controller {
 				$redirect=0;
 			}
 			$config['upload_path'] = './uploads/articles/';
+			$config['thumb_nail'] = './uploads/articles/thumb_nail/';
 			$config['allowed_types'] = 'jpeg|jpg|png';
 			$config['overwrite'] = FALSE;
 			$config['encrypt_name'] = FALSE;
 			$config['remove_spaces'] = TRUE;
-			if ( ! is_dir($config['upload_path']) ) die("THE UPLOAD DIRECTORY DOES NOT EXIST");
+			$image_url = "";
+			if (!is_dir($config['upload_path']) ) die("THE UPLOAD DIRECTORY DOES NOT EXIST");
 			$this->load->library('upload', $config);
-			if ( ! $this->upload->do_upload('image_url')) {
-				$image_url = "";
+			if (!$this->upload->do_upload('image_url')) {
+				$redirect=0;
+				return $this->display_status(false,'Category Inserted Successfully','Failed to Insert Category',$redirect,0);
 			} else {
 				$image_url =  $this->upload->data();
-				$image_url = 'uploads/articles/'.$image_url["file_name"];
+				$thumb_url =  $this->upload->data();
+				$newFile = $config['upload_path'] .$image_url["file_name"];
+				$image_path = $config['upload_path'].$image_url["file_name"];
+				$image_res = $this->compress_image($newFile, $image_path, 500);
+				if($image_res){
+					$image_url = 'uploads/articles/'.$image_url["file_name"];
+
+					$thumbFile = $config['upload_path'] .$thumb_url["file_name"];
+					$thumb_nail_path = $config['thumb_nail'].$thumb_url["file_name"];
+					$thumb_res = $this->compress_image($thumbFile, $thumb_nail_path, 250);
+					if($thumb_res){
+						$thumb_nail = 'uploads/articles/thumb_nail/'.$thumb_url["file_name"];
+					}
+				}
 			}
 
 			$post_data = $this->input->post();
@@ -49,6 +65,7 @@ class Articles extends CI_Controller {
 			'author' => $this->input->post('author'),
 			'description' => str_replace('../../','', $this->input->post('content')),
 			'image_url' => $image_url,
+			'thumb_nail' => $thumb_nail,
 			'cat_id' => $this->input->post('category'),
 			'posted_date' => date('Y-m-d H:i:s'),
 			'created_date' => date('Y-m-d H:i:s'),
@@ -74,18 +91,33 @@ class Articles extends CI_Controller {
 		public function Update(){ 
 			$article_id=$this->input->post('article_id');
 			$config['upload_path'] = './uploads/articles/';
+			$config['thumb_nail'] = './uploads/articles/thumb_nail/';
+
 			$config['allowed_types'] = 'jpeg|jpg|png';
 			$config['overwrite'] = FALSE;
 			$config['encrypt_name'] = FALSE;
 			$config['remove_spaces'] = TRUE;
-			if ( ! is_dir($config['upload_path']) ) die("THE UPLOAD DIRECTORY DOES NOT EXIST");
+			if (! is_dir($config['upload_path']) ) die("THE UPLOAD DIRECTORY DOES NOT EXIST");
 			$this->load->library('upload', $config);
-			if ( ! $this->upload->do_upload('image_url')) {
-
+			if (! $this->upload->do_upload('image_url')) {
 				$image_url = $this->Articles_model->get_articles_on_id($article_id)->image_url;
+				$thumb_nail = $this->Articles_model->get_articles_on_id($article_id)->thumb_nail;
 			} else {
 				$image_url =  $this->upload->data();
-				$image_url = 'uploads/articles/'.$image_url["file_name"];
+				$thumb_url =  $this->upload->data();
+				$newFile = $config['upload_path'] .$image_url["file_name"];
+				$image_path = $config['upload_path'].$image_url["file_name"];
+				$image_res = $this->compress_image($newFile, $image_path, 500);
+				if($image_res){
+					$image_url = 'uploads/articles/'.$image_url["file_name"];
+
+					$thumbFile = $config['upload_path'] .$thumb_url["file_name"];
+					$thumb_nail_path = $config['thumb_nail'].$thumb_url["file_name"];
+					$thumb_res = $this->compress_image($thumbFile, $thumb_nail_path, 250);
+					if($thumb_res){
+						$thumb_nail = 'uploads/articles/thumb_nail/'.$thumb_url["file_name"];
+					}
+				}
 			}
 			$post_data = $this->input->post();
 			$data = array(
@@ -94,6 +126,7 @@ class Articles extends CI_Controller {
 				'author' => $this->input->post('author'),
 				'description' => str_replace('../../','', $this->input->post('content')),
 				'image_url' => $image_url,
+				'thumb_nail' => $thumb_nail,
 				'cat_id' => $this->input->post('category'),
 				'posted_date' => date('Y-m-d H:i:s'),
 				'modified_date' => date('Y-m-d H:i:s'),
@@ -116,6 +149,24 @@ class Articles extends CI_Controller {
 				$this->Articles_model->update_articles_db($article_id,$data),
 				'Image Deleted Successfully','Failed to Deleted Image',2,$article_id
 		);
+		}
+
+		function compress_image($source_file, $destination_file, $width) {
+			$info = getimagesize($source_file);
+			$config['image_library'] = 'gd2';
+			$config['source_image'] = $source_file;
+			$config['create_thumb'] = FALSE;
+			$config['maintain_ratio'] = TRUE;
+			$config['quality'] = '80%';
+			$config['width']         = $width;
+			$config['height']       = $width;
+			$config['new_image'] = $destination_file;
+	
+			$this->load->library('image_lib', $config);
+			$this->image_lib->initialize($config);
+			$res = $this->image_lib->resize();
+			$this->image_lib->clear();
+			return $res;
 		}
 
 		public function Delete(){
@@ -180,48 +231,14 @@ class Articles extends CI_Controller {
 			);
 		}
 
-
-		private function resize_image($image){
-			$config['upload_path'] = base_url().'uploads/articles/';
-					 $config['allowed_types'] = 'png|jpg|jpeg';
-					 $this->load->library('upload',$config);
-					if(!$this->upload->do_upload($image))
-					{		     
-						 $image_path = "";
-					}
-					else
-					{
-					$data = $this->upload->data();
-					 $config['image_library'] = 'gd2';
-					 $config['source_image'] =  base_url().'uploads/articles/'.$data['file_name'];
-					 $config['create_thumb'] = 'TRUE';
-					 $config['maintain_ratio'] = 'TRUE';	
-					 $config['quality'] = '80%';					 
-					 $config['width'] = '300';					 
-					 $config['height'] = '300';		
-					 $config['new_image'] =  base_url().'uploads/articles/'.$data['file_name'];				 			 
-			
-					 $this->load->library('image_lib', $config); 
-					 $this->image_lib->clear();
-					 $this->image_lib->initialize($config);
-					 $this->image_lib->rotate();
-					 $this->image_lib->resize();  
-					 $image_path = 'uploads/articles/'.$data["file_name"];
-					//  $newPath = $data['new_image'];           
-					//  $image_thumb = 'uploads/articles/'.substr($data['file_name'], 0, -4)."_thumb".$data['file_ext'];  
-				}
-				$image_data = $image_path;
-				return  $image_data;
-	}
-
 		private function display_status($status,$success,$fail,$redirect,$article_id)
 		{
 				if($status)
 				{
-						$this->session->set_flashdata('success', $success);
+					$this->session->set_flashdata('success', $success);
 				}
 				else{
-						$this->session->set_flashdata('warning', $fail);
+					$this->session->set_flashdata('warning', $fail);
 				}
 				if($redirect==1)
 				{

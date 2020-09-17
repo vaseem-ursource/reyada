@@ -232,7 +232,7 @@ class main extends CI_Controller
         $output = $this->post_with_curl($url, $s_data, $headers);
 
         if (!empty($output)) {
-            if ($this->signin($p_data['Email'], $p_data['Password'],$loc_url) && $output['RedirectTo'] == "/en/Profile/Tariff") {
+            if ($this->signin($p_data['Email'], $p_data['Password'],$loc_url) &&  $output['Status'] == 302) {
                 $this->session->set_userdata('username', $p_data['Email']);
                 $this->session->set_userdata('password', $p_data['Password']);
                 $json['message'] = 'registered successfully';
@@ -1072,6 +1072,7 @@ class main extends CI_Controller
         $data['title'] =  $data['Article']->title;
         $data['content'] =  $data['Article']->sub_title;
         $data['image'] =  $data['Article']->image_url;
+        $data['thumb_nail'] =  $data['Article']->thumb_nail;
         $this->load->view('index', $data);
 
     }

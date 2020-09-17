@@ -231,7 +231,7 @@
       <div class="modal-content">
          <div class="modal-body p-0">
             <div class="row">
-               <div class="col-md-5 bg-black"  style="height:600px;" >
+               <div class="col-md-5 bg-black"  style="height:650px;" >
                   <button type="button" class="close mob text-white" style="opacity:1;" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                   </button>
@@ -252,10 +252,10 @@
                   <br><br>
                   <h6 style="color:white; font-size: 14px;" class="text-justify bg-black">
                   <h6 style="color:white;font-size: 14px; border-bottom:1px solid #fff" class="mx-5 text-justify">BOOK A TOUR</h6>
-                  <h6 style="color:white;position:relative;top:200px;" class="p-5"><small><b>Reyada</b> | Collaborative workplace</small>
+                  <h6 style="color:white;position:relative;top:250px;" class="p-5"><small><b>Reyada</b> | Collaborative workplace</small>
                   </h6>
                </div>
-               <div class="col-md-7 bg-white"  style="height:600px;" >
+               <div class="col-md-7 bg-white"  style="height:650px;" >
                   <button type="button" class="close lap" data-dismiss="modal" aria-label="Close">
                   <button type="button" class="close p-4" style="outline:none;" data-dismiss="modal">&#10006</button>
                   </button>
@@ -349,9 +349,9 @@
                            </div>
                            <div class="col-md-6">
                               <div class="group" style="text-align: right;outline:none;">
-                                 <a href="#" id="toursubmit" style="color:black;"><span class="align-middle">Submit</span>
-                                 <i class="fa fa-angle-right fa-2x pl-1 align-middle"></i>
-                                 </a>
+                              <p class="btn custom-button-bl pull-right" id="toursubmit" >Submit</p>
+                                 <!-- <a href="#" id="toursubmit" style="color:black;"><span class="align-middle">Submit</span>
+                                 </a> -->
                               </div>
                            </div>
                         </div>

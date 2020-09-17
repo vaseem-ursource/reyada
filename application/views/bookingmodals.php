@@ -10,14 +10,41 @@
 .meetformheight{
   height:600px;
 }
+
+.bookingList{
+    height:600px;
+}
+
+.bookingListReg{
+    height:650px;
+}
+
+.meetformbookheight{
+  height:650px;
+}
+
 .booking-font{
     color:white;
     font-size:12px;
 }
 @media (max-width: 768px) {
+
 .meetformheight{
-height:800px;
+    height:800px;
 }
+
+.meetformbookheight{
+  height:800px;
+}
+
+.bookingListReg{
+    height:600px;
+}
+
+.bookingList{
+    height:600px;
+}
+
 .mt-btn{
     position:relative;
     top:5px;
@@ -33,7 +60,7 @@ height:800px;
       <div class="modal-content">
          <div class="modal-body p-0">
             <div class="row">
-               <div class="col-md-5 bg-black" style="height:600px;">
+               <div  id="bookingList" class="col-md-5 bg-black bookingList">
                   <button type="button" class="close mob text-white" style="opacity:1;" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                   </button>
@@ -95,7 +122,7 @@ height:800px;
                      </div>
                   </h6>
                </div>
-               <div class="col-md-7 col-xs-7 bg-white meetformheight">
+               <div id="registerBooking" class="col-md-7 col-xs-7 bg-white meetformheight">
                   <button type="button" class="close lap" data-dismiss="modal" aria-label="Close">
                   <button type="button" class="close p-4" style="outline:none;" data-dismiss="modal">&#10006</button>
                   </button>
@@ -264,8 +291,8 @@ height:800px;
                   <br><br>
                   You can make bookings much quicker if you log in with the account details you were sent when you registered on the site or made your last booking.
                   <br><br>
-                  <p class="btn custom-button-bl" id="yesModal" style="float:left;outline:none;">YES</p>
-                  <p class="btn custom-button-bl" id="noModal" style="float:left;position:relative;left:20px;outline:none;">NO</p>
+                  <p class="btn custom-button-bl" id="yesModal" style="float:left;outline:none;"><span style="position:relative;bottom:3px;">YES</span></p>
+                  <p class="btn custom-button-bl" id="noModal" style="float:left;position:relative;left:20px;outline:none;"><span style="position:relative;bottom:3px;">NO</span></p>
                </small>
             </h6>
          </div>
@@ -384,13 +411,19 @@ height:800px;
        var user_info = <?php echo json_encode($user_info); ?>; 
        get_locations();
        $(document).on("click", "#bookingbutton", function() {
-           $("#bookingmodal").modal("show");
-           $(".booking-option").show();
-           $("#meetFormReg").hide();
-           $("#resources").hide();
-           $("#bookings").hide();
-           $("#loc_imgs").show(); 
-           $("#description").show();
+            $("#bookingmodal").modal("show");
+            $(".booking-option").show();
+            $("#meetFormReg").hide();
+            $("#resources").hide();
+            $("#bookings").hide();
+            $("#loc_imgs").show(); 
+            $("#description").show();
+
+            $('#bookingList').addClass('bookingList');
+            $('#bookingList').removeClass('bookingListReg');
+            
+            $('#registerBooking').addClass('meetformheight');
+            $('#registerBooking').removeClass('meetformbookheight');
         //    get_locations();
         
        });
@@ -513,6 +546,7 @@ height:800px;
            var valiadte_form = form_validation($("#fullname").val(),$("#email").val(),$("#fulladdress").val(),$("#area").val(),$("#phone").val(),id)
            if (valiadte_form == true)
            {
+             
                $('#fname').val($("#fullname").val());
                $('#femail').val($("#email").val());
                $('#address').val($("#fulladdress").val());
@@ -522,6 +556,12 @@ height:800px;
                $("#bookingmodal").modal("show");
                $("#meetFormReg").show();
                $(".booking-option").hide();
+               
+               $('#bookingList').removeClass('bookingList');
+               $('#bookingList').addClass('bookingListReg');
+               
+               $('#registerBooking').removeClass('meetformheight');
+               $('#registerBooking').addClass('meetformbookheight');
            }
            else{
                e.preventDefault();

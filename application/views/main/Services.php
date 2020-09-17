@@ -215,10 +215,8 @@
             <div id="b1mob" class="containerTab col-md-12 row first" style="display:none;"> 
             <div class="row"> 
                 <div class="col-md-1 mr-0"> 
-                    <!-- <hr width="1" size="800" class ="hr1"style ="height:300px;position:absolute;top:-42%;border:1.2px solid #343a40"> --> 
                 </div> 
                 <div class="col-md-1 mr-0" style="padding-left:25px"> 
-                    <!-- <hr width="1" size="800" class ="hr1"style ="height:300px;position:absolute;top:-19%;border:1px solid #343a40;background-color:#343a40">  -->
                 </div> 
                     
                 <div class="col-md-10 pt-2 pr-0 align-self-center row"> 
@@ -230,7 +228,6 @@
                         <h4 class="text-uppercase"><i class="fa fa-map-marker"></i> CRYSTAL TOWER</h4>
                         <h5 class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim piscing elit, sed do eiusmod</h5> 
                         <h4 class="text-uppercase"><i class="fa fa-map-marker"></i> THE OTHER</h4> 
-                        <!-- <h6 class="align-middle">Book a </i></h6>  -->
                     </div> 
                 </div> 
             </div> 
@@ -238,19 +235,13 @@
                 
             <div id="b2mob" class="containerTab col-md-12 row first" style="display:none;"> 
             <div class="row"> 
-                <!-- <div class="col-md-3 mr-0" > 
-                </div> 
-                <div class="col-md-1 mr-0" style="padding-left:5%">  -->
-                    <!-- <hr width="1" size="800" class ="hr1"style ="height:300px;position:absolute;top:-18%;border:1px solid #343a40;background-color:#343a40">  -->
-                <!-- </div>  -->
                 <div class="col-md-8 pt-3  align-self-center row"> 
                     <div class="col-md-12"> 
                         <h2>Fully Furnished</h2> 
                     </div> 
                     <div class="col-md-12 pr-0"> 
                     
-                    </div> 
-                        
+                    </div>    
                 </div> 
             </div> 
             </div> 
@@ -258,21 +249,15 @@
 
             <div id="b3mob" class="containerTab col-md-12 row first" style="display:none;"> 
             <div class="row"> 
-                
-                
                 <div class="col-md-6 pt-3  align-self-center row"> 
                     <div class="col-md-12"> 
                         <h2 class="text-left">Beverages</h2> 
                     </div> 
                     <div class="col-md-12 pr-0"> 
                         <h5 class="text-uppercase text-right"><img src="<?= base_url()?>image/services/clock.png" width="25px" height="25px" alt=""> Open From 9 AM to 9 PM</h5> 
-                        
-                    </div> 
-                        
-                </div> 
-                    
+                    </div>      
+                </div>  
                 <div class="col-md-2 mr-0" style="padding-left:2%"> 
-                    <!-- <hr width="1" size="800" class ="hr1"style ="height:300px;position:absolute;top:-14%;border:1px solid #343a40;background-color:#343a40">  -->
                 </div> 
                 <div class="col-md-4 mr-0" > 
                 </div> 
@@ -280,121 +265,44 @@
             </div> 
 
             <div id="b4mob" class="containerTab col-md-12 row first" style="display:none;"> 
-            <div class="row"> 
-                
-            
-                <div class="col-md-8 pt-3  align-self-center row"> 
-                    <div class="col-md-12"> 
-                        <h2 class="text-left">Access</h2> 
+                <div class="row"> 
+                    <div class="col-md-8 pt-3  align-self-center row"> 
+                        <div class="col-md-12"> 
+                            <h2 class="text-left">Access</h2> 
+                        </div> 
+                        <div class="col-md-12">
+                            <h5 class="text-uppercase text-right"><img src="<?= base_url()?>image/services/clock.png" width="25px" height="25px" alt=""> Open From 9 AM to 9 PM</h5> 
+                        </div> 
                     </div> 
-                    <div class="col-md-12">
-                        <h5 class="text-uppercase text-right"><img src="<?= base_url()?>image/services/clock.png" width="25px" height="25px" alt=""> Open From 9 AM to 9 PM</h5> 
+                    <div class="col-md-1 mr-0" style="padding-left:5%"> 
                     </div> 
-                        
+                    <div class="col-md-3 mr-0"> 
+                    </div> 
                 </div> 
-                <div class="col-md-1 mr-0" style="padding-left:5%"> 
-                    <!-- <hr width="1" size="800" class ="hr1"style ="height:300px;position:absolute;top:-16.5%;border:1px solid #343a40;background-color:#343a40"   >  -->
-                </div> 
-                <div class="col-md-3 mr-0"> 
-                    <!-- <hr width="1" size="800" class ="hr1"style ="height:300px;position:absolute;top:-32.5%;border:1.2px solid #343a40"> --> 
-                </div> 
-                
-            </div> 
             </div> 
 
             <div id="b5mob" class="containerTab col-md-12 row first" style="display:none;"> 
-            <div class="row"> 
-                
-                <div class="col-md-2 mr-0" > 
-                </div> 
-                <div class="col-md-8 pt-3  align-self-center row"> 
-                    <div class="col-md-12"> 
-                        <h2 class="text-left">Meeting Room</h2> 
+                <div class="row"> 
+                    <div class="col-md-2 mr-0" > 
                     </div> 
-                    <div class="col-md-12"> 
-                        <h5 class="text-left"><img src="<?= base_url()?>image/services/clock.png" width="25px" height="25px" alt=""> Open From 9 AM to 9 PM</h5> 
-                        <h5 class="text-left"><img src="<?= base_url()?>image/services/range.png" width="25px" height="25px" alt=""> Flexible date and time usage</h5> 
-                        <!-- <h5 class="text-right" id="bookingmodal">Book a meeting room<i class="fa fa-angle-right align-middle"></i></h5>  -->
+                    <div class="col-md-8 pt-3  align-self-center row"> 
+                        <div class="col-md-12"> 
+                            <h2 class="text-left">Meeting Room</h2> 
+                        </div> 
+                        <div class="col-md-12"> 
+                            <h5 class="text-left"><img src="<?= base_url()?>image/services/clock.png" width="25px" height="25px" alt=""> Open From 9 AM to 9 PM</h5> 
+                            <h5 class="text-left"><img src="<?= base_url()?>image/services/range.png" width="25px" height="25px" alt=""> Flexible date and time usage</h5> 
+                        </div>  
+                    </div>  
+                    <div class="col-md-2 mr-0" style="padding-left:7%"> 
                     </div> 
-                        
                 </div> 
-                    
-                <div class="col-md-2 mr-0" style="padding-left:7%"> 
-                    <!-- <hr width="1" size="800" class ="hr1"style ="height:300px;position:absolute;top:-14%;border:1px solid #343a40;background-color:#343a40">  -->
-                </div> 
-                
             </div> 
-            </div> 
-            
-            
         </div> 
     </div> 
 </section><!-- #team --> 
-
-<script> 
-    function openTabmob(tabName) { 
-    var i, x; 
-    var h = tabName+'h4'; 
-    x = document.getElementsByClassName("containerTab"); 
-    for (i = 0; i < x.length; i++) { 
-        x[i].style.display = "none"; 
-    } 
-    document.getElementById(tabName).style.display = "block"; 
-    var y = document.getElementsByClassName("hed"); 
-    for (i = 0; i < y.length; i++) { 
-        var z =  y[i].id; 
-        if(h == z ){y[i].style.display = "none";} 
-        else{ 
-            y[i].style.display = "block"; 
-        } 
-            
-    } 
-    // document.getElementById(h).style.display = "none"; 
-    } 
-    $('#owl-example').owlCarousel({
-    loop:true,
-    margin:5,
-    autoplaySpeed:1000,
-    autoplay:true,
-    // nav:true,
-    responsive:{
-        0:{
-            items:1
-        },
-        600:{
-            items:3
-        },
-        1000:{
-            items:4
-        }
-    }
-})
-
-</script>
-<script> 
-    function openTab(tabName) { 
-    var i, x; 
-    var h = tabName+'h4'; 
-    x = document.getElementsByClassName("containerTab"); 
-    for (i = 0; i < x.length; i++) { 
-        x[i].style.display = "none"; 
-    } 
-    document.getElementById(tabName).style.display = "block"; 
-    var y = document.getElementsByClassName("hed"); 
-    for (i = 0; i < y.length; i++) { 
-        var z =  y[i].id; 
-        if(h == z ){y[i].style.display = "none";} 
-        else{ 
-            y[i].style.display = "block"; 
-        } 
-            
-    } 
-    // document.getElementById(h).style.display = "none"; 
-    } 
-</script>
-
 <section  class="section-bg mt-5">
-    <div class="container my-5">
+    <div class="container">
         <header class="section-header"><br>
           <h3 class="text-dark">Memberships</h3>
           <p class="text-dark" style="font-size:large">Reyada memberships are designed to accommodate business teams of all sizes, as well as individuals and freelancers. 
@@ -403,7 +311,8 @@
     </div>
 </section><!-- #Memebership -->
 
-<section id="services" class="">
+<!-- services mobile -->
+<section id="services" class="mob">
     <div class="container">
         <header class="section-header">
          <div class="col-md-12 row p-0 m-0" id="payasyougo">
@@ -411,28 +320,28 @@
                <img src="<?= base_url()?>image/membership/m1.png" class="w-50 lap"  alt="">
             </div>
             <div class="col-md-8 row">
-                <div class="col-md-6 pt-5">
+                <div class="col-md-12">
                     <span class="pull-right">1 <span style="border-bottom: 1px solid black;width:20px;height:3px; display: inline-block;vertical-align: middle;"></span> 3</span><br>
                     <span class="pull-right">PAY AS YOU GO</span><br>
                     <span class="pull-right text-justify pt-4">Designed for those always on the move. Get 1 – day access of co-working space credit and pay 5 kd for any additional day. 
                     Get access of 1 - hour meeting room credit. Additional charge of 7.5 kd per hour.</span>
-                    <div class="col-md-12 row px-0 py-3 m-0">
-                        <div class="col-md-4 text-center p-1"  style="width:33.33%">
-                            <span class="text-center badge w-100 pt-4 pb-4">9am - 9pm <b style="font-size:11px;">Access</b></span>
+                    <div class="col-md-12 row px-0 py-3 mt-3">
+                        <div class="col-md-4" >
+                            <span>- 9am - 9pm <b style="font-size:11px;">Access</b></span>
                              
                         </div>
-                        <div class="col-md-4 text-center p-1" style="width:33.33%">
-                            <span class="text-center badge w-100 pt-4 pb-4">1 h <b style="font-size:11px;">Meeting Room Credit</b></span>
+                        <div class="col-md-4">
+                            <span>- 1 h <b style="font-size:11px;">Meeting Room Credit</b></span>
                              
                         </div>
-                        <div class="col-md-4 text-center p-1" style="width:33.33%">
-                            <span class="text-center badge w-100 pt-4 pb-4" style="position:relative;left:20px;">Full <b style="font-size:small;">Amenities</b></span>
+                        <div class="col-md-4">
+                            <span>- Full <b style="font-size:small;">Amenities</b></span>
                              
                         </div>
                     </div>
                </div>
-               <div class="col-md-6 lap">
-                   <div class="position-absolute" style="top:-30%">
+               <div class="col-md-12">
+                   <div>
                         <div id="demo1" class="carousel slide" data-ride="carousel">
                                 <ul class="carousel-indicators">
                                     <li data-target="#demo1" data-slide-to="0" class="active"></li>
@@ -453,36 +362,180 @@
                                     <span class="carousel-control-next-icon"></span>
                                 </a>
                             </div>
-                            <div class="border-right border-secondary p-3 text-right">
-                                <span class="pt-3 pl-3">From KWD 10 per month</span><br>
-                                <span class="btn custom-button-bl pull-right planshow">INQUIRE</span>
-                                <!-- <span><i class="fa fa-angle-right fa-2x pt-3 pl-3 planshow"></i></span> -->
+                        </div>
+                    </div>
+               </div>
+            </div>
+        <div>
+        <div class="col-md-12 row pr-0 pt-3" id="hotdesk">
+            <div class="col-md-2">
+               
+            </div>
+            <div class="col-md-8 row pr-0">
+                <div class="col-md-12 pt-0 mt-4">
+                    <span class="pull-left">2 <span style="border-bottom: 1px solid black;width:20px;height:3px; display: inline-block;vertical-align: middle;"></span> 3</span><br>
+                    <span class="pull-left">HOT DESK</span><br>
+                    <span class="pull-left text-justify pt-4">Perfect for the rising entrepreneur
+                    Perfect for the rising entrepreneur. Get daily access to the co-working space with 3 - hours of meeting room credit. Additional charge of 7.5 kd per hour.</span>
+                    <div class="col-md-12 row px-0 py-3 mt-3">
+                        <div class="col-md-4 py-1">
+                            <span>- 9am - 9pm <b style="font-size:11px;">Access</b></span>
+                            
+                        </div>
+                        <div class="col-md-4 py-1">
+                            <span>- 3 h <b style="font-size:11px;">Meeting Room Credit</b></span>
+                            
+                        </div>
+                        <div class="col-md-4">
+                            <span>- Full <b style="font-size:small">Amenities</b> </span>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div id="demo2" class="carousel slide" data-ride="carousel">
+                        <ul class="carousel-indicators">
+                            <li data-target="#demo2" data-slide-to="0" class="active"></li>
+                            <li data-target="#demo2" data-slide-to="1"></li>
+                        </ul>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                            <img src="<?= base_url()?>image/membership/bg2.jpg" class="w-100 mt-4" alt="">
+                            </div>
+                            <div class="carousel-item">
+                            <img src="<?= base_url()?>image/membership/bg4.jpg" class="w-100 mt-4" alt="">
                             </div>
                         </div>
-                        <!-- <div class="border-left border-secondary p-3">
-                            <span class="pt-3 pl-3">From KWD 10 per month</span><br>
-                            <span><i class="fa fa-angle-right fa-2x pt-3 pl-3 planshow"></i></span>
-                        </div> -->
+                        <a class="carousel-control-prev" href="#demo2" data-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </a>
+                        <a class="carousel-control-next" href="#demo2" data-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </a>
                     </div>
-               </div>
-               <div class="col-md-6 mob">
-                    <img src="<?= base_url()?>image/membership/bg1.jpg" class="w-100 " alt="">
-                    <div class="border-left border-secondary p-3">
-                        <span class="pt-3 pl-3">From KWD 10 per month</span><br>
-                        <span class="btn custom-button-bl pull-right">INQUIRE</span>
-                        <!-- <span><i class="fa fa-angle-right fa-2x pt-3 pl-3 "></i></span> -->
+                </div>
+            </div>
+        <div class="my-1">
+        <div class="col-md-12 row pr-0" id="privateoffice">
+            <div class="col-md-2 mt-2">
+               <img src="<?= base_url()?>image/membership/m3.png" class="w-50 lap" alt="">
+            </div>
+            <div class="col-md-8 row pr-0 pt-4">
+                <div class="col-md-12">
+                    <span class="pull-right">3 <span style="border-bottom: 1px solid black;width:20px;height:3px; display: inline-block;vertical-align: middle;"></span> 3</span><br>
+                    <span class="pull-right">PRIVATE OFFICE</span><br>
+                    <span class="pull-right text-justify pt-4">Ideal workspace for stable businesses, freelancers and entrepreneurs.
+                    Ideal workspace for stable businesses, freelancers and entrepreneurs. Get 24/7 access to your office with a minimum of 5 - hours of meeting room credit. Additional charge of 7.5 per hour.</span>
+                    <div class="col-md-12 row px-0 py-3 mt-3">
+                        <div class="col-md-4">
+                            <span>- 24/7 <b style="font-size:11px;">Access</b> </span>
+                        </div>
+                        <div class="col-md-4">
+                            <span>- 5 h <b style="font-size:11px;">Meeting Room Credit</b></span>
+                        </div>
+                        <div class="col-md-4">
+                            <span>- Full <b style="font-size:small">Amenities</b></span>
+                        </div>
                     </div>
-               </div>
+                </div>
+                <div class="col-md-12">
+                    <div id="demo3" class="carousel slide" data-ride="carousel">
+                        <ul class="carousel-indicators">
+                            <li data-target="#demo3" data-slide-to="0" class="active"></li>
+                            <li data-target="#demo3" data-slide-to="1"></li>
+                        </ul>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                            <img src="<?= base_url()?>image/membership/bg3.jpg" class="w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                            <img src="<?= base_url()?>image/membership/bg5.jpg" class="w-100" alt="">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#demo3" data-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </a>
+                        <a class="carousel-control-next" href="#demo3" data-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </a>
+                    </div>
+                </div>
             </div>
             <div class="col-md-2">
                
             </div>
         <div>
-        <div class="col-md-12 row pr-0 my-5 pt-5" id="hotdesk">
+        </header>
+    </div>
+</section>
+<!-- services mobile end -->
+
+<!-- services desktop -->
+<section id="services" class="lap">
+    <div class="container">
+        <header class="section-header">
+         <div class="col-md-12 row p-0 m-0" id="payasyougo">
+            <div class="col-md-2">
+               <img src="<?= base_url()?>image/membership/m1.png" class="w-50 lap"  alt="">
+            </div>
+            <div class="col-md-8 row">
+                <div class="col-md-6">
+                    <span class="pull-right">1 <span style="border-bottom: 1px solid black;width:20px;height:3px; display: inline-block;vertical-align: middle;"></span> 3</span><br>
+                    <span class="pull-right">PAY AS YOU GO</span><br>
+                    <span class="pull-right text-justify pt-4">Designed for those always on the move. Get 1 – day access of co-working space credit and pay 5 kd for any additional day. 
+                    Get access of 1 - hour meeting room credit. Additional charge of 7.5 kd per hour.</span>
+                    <div class="col-md-12 row px-0 py-3 m-0">
+                        <div class="col-md-4 text-center p-1"  style="width:33.33%">
+                            <span class="text-center badge w-100 pt-4 pb-4">9am - 9pm <b style="font-size:11px;">Access</b></span>
+                             
+                        </div>
+                        <div class="col-md-4 text-center p-1" style="width:33.33%">
+                            <span class="text-center badge w-100 pt-4 pb-4">1 h <b style="font-size:11px;">Meeting Room Credit</b></span>
+                             
+                        </div>
+                        <div class="col-md-4 text-center p-1" style="width:33.33%">
+                            <span class="text-center badge w-100 pt-4 pb-4" style="position:relative;left:20px;">Full <b style="font-size:small;">Amenities</b></span>
+                             
+                        </div>
+                    </div>
+               </div>
+               <div class="col-md-6">
+                   <div>
+                        <div id="demo1" class="carousel slide" data-ride="carousel">
+                                <ul class="carousel-indicators">
+                                    <li data-target="#demo1" data-slide-to="0" class="active"></li>
+                                    <li data-target="#demo1" data-slide-to="1"></li>
+                                </ul>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                    <img src="<?= base_url()?>image/membership/bg1.jpg" class="w-100 " alt="">
+                                    </div>
+                                    <div class="carousel-item">
+                                    <img src="<?= base_url()?>image/membership/bg6.jpg" class="w-100 " alt="">
+                                    </div>
+                                </div>
+                                <a class="carousel-control-prev" href="#demo1" data-slide="prev">
+                                    <span class="carousel-control-prev-icon"></span>
+                                </a>
+                                <a class="carousel-control-next" href="#demo1" data-slide="next">
+                                    <span class="carousel-control-next-icon"></span>
+                                </a>
+                            </div>
+                            <!-- <div class="border-right border-secondary p-3 text-right">
+                                <span class="pt-3 pl-3">From KWD 10 per month</span><br>
+                                <span class="btn custom-button-bl pull-right planshow">INQUIRE</span>
+                                <span><i class="fa fa-angle-right fa-2x pt-3 pl-3 planshow"></i></span>
+                            </div> -->
+                        </div>
+                    </div>
+               </div>
+            </div>
+        <div>
+        <div class="col-md-12 row pr-0 pt-3" id="hotdesk">
             <div class="col-md-2">
                
             </div>
-            <div class="col-md-8 row pt-4 pr-0">
+            <div class="col-md-8 row pr-0">
                 <div class="col-md-6">
                 <div id="demo2" class="carousel slide" data-ride="carousel">
                         <ul class="carousel-indicators">
@@ -504,13 +557,8 @@
                             <span class="carousel-control-next-icon"></span>
                         </a>
                     </div>
-                    <div class="border-right border-secondary p-3 text-right">
-                        <span class="pt-3 pl-3">From KWD 50 per month</span><br>
-                        <span class="btn custom-button-bl pull-right planshow">INQUIRE</span>
-                        <!-- <span><i class="fa fa-angle-right fa-2x pt-3 pl-3 planshow"></i></span> -->
-                    </div>
                 </div>
-               <div class="col-md-6 pt-4 mt-4">
+               <div class="col-md-6 pt-0 mt-4">
                     <span class="pull-left">2 <span style="border-bottom: 1px solid black;width:20px;height:3px; display: inline-block;vertical-align: middle;"></span> 3</span><br>
                     <span class="pull-left">HOT DESK</span><br>
                     <span class="pull-left text-justify pt-4">Perfect for the rising entrepreneur
@@ -531,18 +579,13 @@
                     </div>
                </div>
             </div>
-            
-            <div class="col-md-2 mb-5">
-                <img src="<?= base_url()?>image/membership/m2.png" class="w-50 position-absolute lap" style="bottom:0px;right:0px" alt="">
-            </div>
-        <div>
-        <div class="col-md-12 row pt-4 pr-0 mr-0 my-5 pt-5" id="privateoffice">
-        
+        <div class="my-1">
+        <div class="col-md-12 row pr-0" id="privateoffice">
             <div class="col-md-2 mt-2">
                <img src="<?= base_url()?>image/membership/m3.png" class="w-50 lap" alt="">
             </div>
-            <div class="col-md-8 row pr-0">
-                <div class="col-md-6 pt-5">
+            <div class="col-md-8 row pr-0 pt-4">
+                <div class="col-md-6">
                     <span class="pull-right">3 <span style="border-bottom: 1px solid black;width:20px;height:3px; display: inline-block;vertical-align: middle;"></span> 3</span><br>
                     <span class="pull-right">PRIVATE OFFICE</span><br>
                     <span class="pull-right text-justify pt-4">Ideal workspace for stable businesses, freelancers and entrepreneurs.
@@ -583,10 +626,6 @@
                             <span class="carousel-control-next-icon"></span>
                         </a>
                     </div>
-                    <div class="border-left border-secondary p-3">
-                        <span class="pull-right">Call for Inquiries</span><br>
-                        <span class="btn custom-button-bl pull-right planshow">INQUIRE</span>
-                    </div>
                 </div>
             </div>
             <div class="col-md-2">
@@ -595,7 +634,10 @@
         <div>
         </header>
     </div>
-</section><!-- #Feature -->
+</section>
+<!-- services desktop end -->
+
+<!-- #Feature -->
 <section id="mem-services" >
     <div class="py-5 memb-bg">
         <header class="section-header">
@@ -713,4 +755,64 @@ $(function(){
         $(this).addClass('membership-active');
     });
 });
+</script>
+<script> 
+    function openTabmob(tabName) { 
+    var i, x; 
+    var h = tabName+'h4'; 
+    x = document.getElementsByClassName("containerTab"); 
+    for (i = 0; i < x.length; i++) { 
+        x[i].style.display = "none"; 
+    } 
+    document.getElementById(tabName).style.display = "block"; 
+    var y = document.getElementsByClassName("hed"); 
+    for (i = 0; i < y.length; i++) { 
+        var z =  y[i].id; 
+        if(h == z ){y[i].style.display = "none";} 
+        else{ 
+            y[i].style.display = "block"; 
+        } 
+            
+    } 
+    // document.getElementById(h).style.display = "none"; 
+    } 
+    $('#owl-example').owlCarousel({
+    loop:true,
+    margin:5,
+    autoplaySpeed:1000,
+    autoplay:true,
+    // nav:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:3
+        },
+        1000:{
+            items:4
+        }
+    }
+})
+
+</script>
+<script> 
+    function openTab(tabName) { 
+    var i, x; 
+    var h = tabName+'h4'; 
+    x = document.getElementsByClassName("containerTab"); 
+    for (i = 0; i < x.length; i++) { 
+        x[i].style.display = "none"; 
+    } 
+    document.getElementById(tabName).style.display = "block"; 
+    var y = document.getElementsByClassName("hed"); 
+    for (i = 0; i < y.length; i++) { 
+        var z =  y[i].id; 
+        if(h == z ){y[i].style.display = "none";} 
+        else{ 
+            y[i].style.display = "block"; 
+        } 
+            
+    } 
+    } 
 </script>

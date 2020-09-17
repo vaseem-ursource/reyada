@@ -36,7 +36,7 @@ span.dot{
                               <img class="card-img-top" src="<?= base_url().'admin/'.$article->image_url ?>" height="250px" alt="Card image cap">
                               <div class="card-body">
                                   <small><?= date('d, M Y',strtotime($article->posted_date)) ?></small>
-                                  <div class="card-title pt-1"><b style="font-weight:4000 !important;font-size:18px;"><?= $article->title ?></b></div>
+                                  <div class="card-title pt-1"><b style="font-weight:4000 !important;font-size:17px;"><?= $article->title ?></b></div>
                                   <h6 class="card-title"  style="max-height:90px;font-size:16px !important;font-family:inherit;"><?= $article->sub_title ?></h6><br>
                                   <a href="<?=base_url().'Main/Article?id='.$article->article_id ?>" class="btn custom-button-bl" style="position:absolute;bottom:10px;">View</a>
                               </div>

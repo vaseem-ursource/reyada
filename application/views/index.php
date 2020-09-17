@@ -16,8 +16,8 @@
     <?php }?>
     <meta property="og:title" content="<?= $title; ?>" />
     <meta property="og:description" content="<?= $content ;?>" />
-    <?php if(isset($image)){?>
-    <meta property="og:image" content="<?= base_url().'admin/'.$image ;?>" />
+    <?php if(isset($thumb_nail)){?>
+    <meta property="og:image" content="<?= base_url().'admin/'.$thumb_nail ;?>" />
     <?php }?>
     <meta content="Work, Innovate, Collaborate." name="keywords">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -45,7 +45,7 @@
           </div>
       </div>
       <div class="col-md-6">
-          <div class="copyright text-right pr-5">
+          <div class="copyright footer-pos pr-5">
             <a href="https://www.facebook.com/reyadaspaces/?view_public_for=999326720117412" target="_blank"><i class="fa fa-facebook px-2 text-dark" style="font-size: 22px"></i></a>
             <a href="https://www.instagram.com/reyada.co/?hl=en" target="_blank"><i class="fa fa-instagram px-2 text-dark" style="font-size: 22px"></i></a>
             <a href="http://www.twitter.com/reyadakwt" target="_blank"><i class="fa fa-twitter px-2 text-dark" style="font-size: 22px"></i></a>
