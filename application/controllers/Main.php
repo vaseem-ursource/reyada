@@ -37,7 +37,7 @@ class main extends CI_Controller
         $headers = array(
             'Content-Type: application/json',
             'Authorization: Basic ' . base64_encode("$username:$password"),
-        ); 
+        );
         $url ='https://spaces.nexudus.com/api/sys/businesses?orderby=Name';
         $output = $this->post_with_curl($url, null , $headers);
         if(!empty($output['Records'])){
@@ -72,7 +72,7 @@ class main extends CI_Controller
                         $data['meetingrooms'][] = $package;
                     }
                 }
-                
+
             }
         }
         $data['locations'] = $this->get_location();
@@ -212,7 +212,7 @@ class main extends CI_Controller
         $j_data['isPayingMember'] = false;
         $j_data['ProfileTagsArray'] = [];
         $location = $p_data['location_id'];
-        
+
         $s_data = json_encode(array('base64avatar' => null, 'Coworker' => $j_data, 'Team' => new stdClass()));
         if($location == 95265170){
             $url = 'https://reyada.spaces.nexudus.com/en/signup?_resource=,&_depth=1';
@@ -220,15 +220,15 @@ class main extends CI_Controller
         }
         else{
             $url = 'https://reyadamabane.spaces.nexudus.com/en/signup?_resource=,&_depth=1';
-            $loc_url = 'reyadamabane'; 
+            $loc_url = 'reyadamabane';
         }
 
-        $this->session->set_userdata('location',$loc_url); 
+        $this->session->set_userdata('location',$loc_url);
         $headers = array(
             'Content-Type: application/json',
             'Content-Length: ' . strlen($s_data),
         );
-        
+
         $output = $this->post_with_curl($url, $s_data, $headers);
 
         if (!empty($output)) {
@@ -251,7 +251,7 @@ class main extends CI_Controller
     public function purchase_tickets_new(){
         $p_data = $this->input->post();
         $json['result'] = 'FAIL';
-        
+
         if(!empty($p_data)){
             $name = $p_data['name'];
             $email = $p_data['email'];
@@ -261,7 +261,7 @@ class main extends CI_Controller
             $attendee_emails = $p_data['attendee_emails'];
             $event_id = $p_data['event_id'];
             $ticket_url = $p_data['ticket_url'];
-            $location = $this->session->userdata('location'); 
+            $location = $this->session->userdata('location');
             if( $location == null){
                 $location =  'reyada';
             }
@@ -275,7 +275,7 @@ class main extends CI_Controller
             $output = $this->post_with_curl($url,null, $headers);
             if(!empty($output)){
                 $events = $output['Event'];
-                
+
                 $ticket_data = array(
                     'event_name' => $events->Name,
                     'event_price' => $events->MostExpensivePrice,
@@ -291,7 +291,7 @@ class main extends CI_Controller
                 $ticket_id = $this->Main_model->create_event_tickets($ticket_data);
                 if($ticket_id){
                     if(count($attendee_emails) > 0){
-                        for ($i=0; $i < count($attendee_emails); $i++) { 
+                        for ($i=0; $i < count($attendee_emails); $i++) {
                             $atte_data = array(
                                 'event_ticket_id' => $ticket_id,
                                 'name' => $attendee_names[$i],
@@ -318,7 +318,7 @@ class main extends CI_Controller
         }
 
         print_r(json_encode($json));
-        
+
     }
 
     public function free_ticket($ticket_id){
@@ -420,7 +420,7 @@ class main extends CI_Controller
     public function email_ticket_purchase($ticket_id){
         $event['ticket'] = $this->Main_model->get_event_tickets($ticket_id);
         $event['attendee'] = $this->Main_model->get_event_attendee($ticket_id);
-        
+
         if(!empty($event['ticket'])){
 
             //for admin
@@ -456,7 +456,7 @@ class main extends CI_Controller
                 return false;
             }
 
-            
+
         }
     }
 
@@ -468,9 +468,9 @@ class main extends CI_Controller
         $url = $this->config->item('hesabe_request_url');
         $pay_url = null;
         $data = array(
-            'MerchantCode' => $merchant_code, 
-            'Amount' => $invoiceamt, 
-            'SuccessUrl' => $success_url, 
+            'MerchantCode' => $merchant_code,
+            'Amount' => $invoiceamt,
+            'SuccessUrl' => $success_url,
             'FailureUrl' => $error_url,
             'Variable1' => $ticket_data['ticket_id']
         );
@@ -480,7 +480,7 @@ class main extends CI_Controller
                 'method' => 'POST',
                 'content' => http_build_query($data),
             ),
-        );  
+        );
 
         $context = stream_context_create($options);
         $result = file_get_contents($url, false, $context);
@@ -498,10 +498,10 @@ class main extends CI_Controller
 
         $merchant_code = $this->config->item('hesabe_merchant_code');
         $invoiceamt = $ticket_data['event_price'] * $ticket_data['no_of_attendees'];
-    
+
         $s_data = json_encode(array(
-            'Merchant_id' => $merchant_code, 
-            'MerchantCustomerName' => $ticket_data['name'], 
+            'Merchant_id' => $merchant_code,
+            'MerchantCustomerName' => $ticket_data['name'],
             'MerchantCountry' => "11",
             'MerchantMobileNo' => $ticket_data['mobile'],
             'MerchantAmount' => $invoiceamt,
@@ -514,7 +514,7 @@ class main extends CI_Controller
         $headers = array(
             'Content-Type: application/json'
         );
-        
+
         $url = "https://hesabe.com/post_single_generate_url";
         $pay_output = $this->post_with_curl($url,$s_data, $headers);
         if(isset($pay_output['status']) && $pay_output['status'] == "success"){
@@ -600,12 +600,12 @@ class main extends CI_Controller
             $user_data['Password'] = $this->randomPassword();
             $user_data['PasswordConfirm'] = $user_data['Password'];
             $user_data['errors'] = [];
-            
+
             if($this->create_cowerker($user_data)){
                 $this->signin($user_data['email'],$user_data['PasswordConfirm'] ,$loc_url);
             }
         }
-        
+
         if ($this->session->userdata('is_logged_in')) {
             $user = $this->session->userdata('user_info');
             $username = $user['Email'];
@@ -623,7 +623,7 @@ class main extends CI_Controller
         $output = $this->post_with_curl($url, $s_data, $headers);
         if(!empty($output)){
             if($output['WasSuccessful'] == true){
-                redirect('main/invoice'); 
+                redirect('main/invoice');
             }
             else{
                 $this->session->set_flashdata('error', 'Some error occured please try again');
@@ -634,11 +634,10 @@ class main extends CI_Controller
             $this->session->set_flashdata('error', 'Some error occured please try again');
             redirect('main');
         }
-            
+
 
      }
 
-    
      public function create_cowerker($cowerker){
         $username = $this->config->item('username');
         $password = $this->config->item('password');
@@ -654,7 +653,7 @@ class main extends CI_Controller
             return true;
         }
         else{
-            return false; 
+            return false;
         }
 
     }
@@ -715,7 +714,7 @@ class main extends CI_Controller
         }
         // $s_data = json_encode(array('Booking' => $Booking,'Coworker' => $cowerker,'Products' => []));
         $s_data = json_encode(array('Booking' => $Booking,'Products' => []));
-       
+
         if(!empty($p_data['loc_url'])){
             $loc_url =  $p_data['loc_url'];
             $this->session->set_userdata('location',$loc_url);
@@ -762,8 +761,8 @@ class main extends CI_Controller
     {
         $url = "https://$loc_url.spaces.nexudus.com/en/profile?_resource=Coworker";
         $user_url = "https://$loc_url.spaces.nexudus.com/en/profile?_resource=User";
-        
-    
+
+
         $json['message'] = 'some error occured while processing your request';
         $json['status'] = 500;
 
@@ -798,7 +797,7 @@ class main extends CI_Controller
                     $this->session->set_userdata('has_credit',true);
                 }
                 else{
-                    $this->session->unset_userdata('has_credit'); 
+                    $this->session->unset_userdata('has_credit');
                 }
             }
             print_r(json_encode($json));
@@ -851,29 +850,29 @@ class main extends CI_Controller
         //enforce min length 8
         if($len < 9)
             $len = 9;
-    
+
         //define character libraries - remove ambiguous characters like iIl|1 0oO
         $sets = array();
         $sets[] = 'ABCDEFGHJKLMNPQRSTUVWXYZ';
         $sets[] = 'abcdefghjkmnpqrstuvwxyz';
         $sets[] = '23456789';
-    
+
         $password = '';
-        
+
         //append a character from each set - gets first 4 characters
         foreach ($sets as $set) {
             $password .= $set[array_rand(str_split($set))];
         }
-    
+
         //use all characters to fill up to $len
         while(strlen($password) < $len) {
             //get a random set
             $randomSet = $sets[array_rand($sets)];
-            
+
             //add a random char from the random set
-            $password .= $randomSet[array_rand(str_split($randomSet))]; 
+            $password .= $randomSet[array_rand(str_split($randomSet))];
         }
-        
+
         //shuffle the password string before returning!
         return str_shuffle($password);
     }
@@ -898,7 +897,7 @@ class main extends CI_Controller
         }
         else{
             $url = 'https://reyadamabane.spaces.nexudus.com/en/profile/newcontract?tariffguid=' . $p_data['tariff_guid'] . '&startdate=' . $p_data['selected_date'];
-            $loc_url = 'reyadamabane'; 
+            $loc_url = 'reyadamabane';
             $this->session->set_userdata('location',$loc_url);
         }
         $headers = array(
@@ -931,7 +930,7 @@ class main extends CI_Controller
                 $json['msg'] = $api_url;
             }
         }
-        
+
         print_r(json_encode($json));
     }
 
@@ -1022,7 +1021,7 @@ class main extends CI_Controller
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_TIMEOUT, 20);
         $result = curl_exec($ch);
-        curl_close($ch); 
+        curl_close($ch);
         return $result;
     }
 
@@ -1321,9 +1320,9 @@ class main extends CI_Controller
         }
         else{
             $json['body'] = $s_data;
-            $json['message'] = 'We could not update your profile, please try again later.'; 
+            $json['message'] = 'We could not update your profile, please try again later.';
         }
-        
+
 
         print_r(json_encode($json));
     }
@@ -1346,7 +1345,7 @@ class main extends CI_Controller
         if ($this->session->userdata('is_logged_in')) {
             $webaddress = $this->session->userdata('location');
             $url = "https://$webaddress.spaces.nexudus.com/en/allowances?_depth=3";
-            
+
             $user = $this->session->userdata('user_info');
             $username = $user['Email'];
             $password = $user['Password'];
@@ -1572,14 +1571,14 @@ class main extends CI_Controller
             if(!empty($user['Password'])){
                 $password = $user['Password'];
             }
-            
+
             if(empty($password)){
                $accesstoken =  $this->session->userdata('access_token');
                 $headers = array(
                     'Content-Type: application/json',
                     'Content-Length: ' . strlen($s_data),
                     'Authorization:' . $accesstoken,
-                );  
+                );
             }
             else{
                 $headers = array(
@@ -1617,7 +1616,7 @@ class main extends CI_Controller
                 }
             }
 
-        } 
+        }
         else {
             $json['status'] = 500;
             $json['message'] = 'Please login first';
@@ -1668,7 +1667,7 @@ class main extends CI_Controller
                 $headers = array(
                     'Content-Type: application/json',
                     'Authorization:' . $accesstoken,
-                );  
+                );
             }
             else{
                 $headers = array(
@@ -1702,7 +1701,7 @@ class main extends CI_Controller
         $data['title'] =  'Reyada | Invoice';
         $data['content'] =  'Together We Create';
         $this->load->view('index', $data);
-        
+
     }
 
     public function booking($loc_url = null)
@@ -1814,21 +1813,21 @@ class main extends CI_Controller
 
      // Community Booking
      function communityBooking()
-     {         
+     {
          $data['folder_name'] = 'main';
          $data['file_name'] = 'CommunityBooking';
          $data['header_name'] = 'header_account';
          $data['locations'] = $this->get_location();
          $data['title'] =  'Reyada | Community Bookings';
          $data['content'] =  'Together We Create';
-         // $data['MyAccount'] = $this->Main_model->get_recent_articles();  
+         // $data['MyAccount'] = $this->Main_model->get_recent_articles();
          $this->load->view('index', $data);
      }
 
      function book_events(){
 
         $ticketUrl = $this->input->get('ticketUrl');
-        $location = $this->session->userdata('location'); 
+        $location = $this->session->userdata('location');
         if( $location == null){
             $location =  'reyada';
         }
@@ -1859,7 +1858,7 @@ class main extends CI_Controller
         $this->session->set_userdata('last_page', current_url());
         $p_data = $this->input->post();
         if(empty($p_data)){
-            $p_data = $this->input->get(); 
+            $p_data = $this->input->get();
         }
         $fromtime = $p_data['start_time'];
         $totime = $p_data['end_time'];
@@ -1876,7 +1875,7 @@ class main extends CI_Controller
         else{
             $json['status'] = 'Error';
         }
-        
+
         print_r(json_encode($json));
     }
 
@@ -1924,7 +1923,7 @@ class main extends CI_Controller
             $data['content'] =  'Together We Create';
             $this->load->view('index', $data);
         }
-        
+
     }
 
     public function partnership_request(){
