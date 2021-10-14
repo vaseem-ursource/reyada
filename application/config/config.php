@@ -35,11 +35,27 @@ date_default_timezone_set('Asia/Kuwait');
 
 
 // Hesabe merchant details
-$config['hesabe_request_url']      = "http://demo.hesabe.com/authpost";
-$config['hesabe_checkout_url']     = "http://demo.hesabe.com/checkout/";
-$config['hesabe_merchant_code']    = "642616";
-// $config['hesabe_merchant_code1']    = "481016"; 
-// $config['hesabe_merchant_code2']    = "12540719";
+
+// $config['hesabe_merchant_code']    = "842217";
+$config['hesabe_merchant_code1']    = "481016";
+$config['hesabe_merchant_code2']    = "12540719";
+// $config['hesabe_base_url'] = "https://sandbox.hesabe.com/";
+$config['hesabe_base_url'] = "https://api.hesabe.com/";
+$config['version'] = "2.0";
+
+// for staging
+$config['access_code'] = "c333729b-d060-4b74-a49d-7686a8353481";
+$config['merchant_iv'] = "5NVdrlPVNnjo2Jy9";
+$config['merchant_key'] = "PkW64zMe5NVdrlPVNnjo2Jy9nOb7v1Xg";
+
+// for live
+$config['access_code_1'] = "1c0afd51-21a8-4c95-a36c-689ea7022b7b";
+$config['merchant_iv_1'] = "yKe9j8DVJbwa5dX6";
+$config['merchant_key_1'] = "Q4xOZgvNyKe9j8DVJbwa5dX6YP0Gq1r7";
+
+$config['access_code_2'] = "5fd35740-0e1d-48d9-8e7f-a7cf48146648";
+$config['merchant_iv_2'] = "ZEnwaW0pA6poYgXr";
+$config['merchant_key_2'] = "v60zByOVZEnwaW0pA6poYgXrNb1jp23L";
 
 /*
 |--------------------------------------------------------------------------

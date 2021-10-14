@@ -1,6 +1,6 @@
 <?php include('account_master_start.php');?>
-<div style="border-bottom:1px solid black;"> 
-   <span class="text-left h3" style="color:#000000;">Invoice and Payments for 
+<div style="border-bottom:1px solid black;">
+   <span class="text-left h3" style="color:#000000;">Invoice and Payments for
    <?php if(!empty($location_name)){
          echo $location_name;
    }?>
@@ -13,7 +13,7 @@
             <a class="dropdown-item" href="<?= base_url()?>main/invoice/reyadamabane">Reyada Mabane Building</a>
          </div>
       </div>
-   </span>  
+   </span>
 </div>
 <div class="pt-5 mt-2 table-responsive">
    <?php if(!empty($invoices)){ ?>
@@ -39,7 +39,7 @@
             <?php }else{ ?>
             <td style="color:#b8340c";><i class="fa fa-exclamation-circle" ></i> Pending</td>
             <td>
-               <button class="btn custom-button-bl pay-hesabe pull-right" style="width:100px;" data-invoiceid="<?= $invoice->Id ?>" data-invoiceamt="<?= $invoice->TotalAmount ?>" >Pay Hesabe </button>
+               <button class="btn custom-button-bl pay-hesabe pull-right" data-invoiceid="<?= $invoice->Id ?>" data-invoiceamt="<?= $invoice->TotalAmount ?>" >Pay Hesabe </button>
             </td>
             <?php } ?>
          </tr>
@@ -85,18 +85,18 @@
                }
            });
        });
-   
+
        $('.gen-invoice').click(function(e){
            e.preventDefault();
            $('.whole_div').show();
            var base_url = '<?= base_url(); ?>';
            var data_url = $(this).attr('href');
-           
+
            $.ajax({
                type: 'POST',
                url: base_url + 'main/get_invoice_pdf',
                data: 'post_url='+data_url,
-               dataType: 'json', 
+               dataType: 'json',
                success: function(data){
                    if(data.msg == 500){
                        toastr.error("Please login with authentic user.");
@@ -111,7 +111,7 @@
                    console.log(status);
                    console.log(error);
                }
-           }); 
+           });
        });
    });
 </script>

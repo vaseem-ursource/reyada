@@ -79,7 +79,7 @@
                         <br>
                         <h5 style="color:white;">FIND US</h5>
                         <p><a style="color:white;font-size:13px;" href="https://www.google.com/maps/place/Reyada+%7C+Collaborative+Workspace/@29.3769156,47.9756613,17z/data=!3m1!4b1!4m5!3m4!1s0x3fcf84ec4226df39:0x267ba39977cfa42e!8m2!3d29.3769156!4d47.97785" target="_blank"><img src="<?= base_url()?>image/location_white.png" width="10%" />&nbsp;&nbsp;CRYSTAL TOWER</a></p>
-                        <p><a style="color:white;position:relative;top:-15px;font-size:13px;" href="https://www.google.com/maps/place/Reyada+%7C+Collaborative+Workspace/@29.3681039,47.9687861,17z/data=!3m1!4b1!4m5!3m4!1s0x3fcf85e8f50d9f6d:0x30e75da11a5d5bf7!8m2!3d29.3681039!4d47.9709748" target="_blank"><img src="<?= base_url()?>image/location_white.png" width="10%" />&nbsp;&nbsp;MABANEE 1</a></p>
+                        <p><a style="color:white;position:relative;top:15px;font-size:13px;" href="https://www.google.com/maps/place/Reyada+%7C+Collaborative+Workspace/@29.3681039,47.9687861,17z/data=!3m1!4b1!4m5!3m4!1s0x3fcf85e8f50d9f6d:0x30e75da11a5d5bf7!8m2!3d29.3681039!4d47.9709748" target="_blank"><img src="<?= base_url()?>image/location_white.png" width="10%" />&nbsp;&nbsp;MABANEE 1</a></p>
                      </div>
                   </div>
                </div>
@@ -157,7 +157,7 @@
             <a href="<?= base_url('main/#mission')?>" class="text-dark col">ABOUT</a>
             <a href="<?= base_url('main/#faq')?>" class="text-dark col">FAQ</a>
          </div>
-         <div class="col-12  text-center py-1"> 
+         <div class="col-12  text-center py-1">
             <a href="#signup" id="modalsignup1"  data-toggle="modal" data-target="#modalsignup" class="text-dark col">SIGN UP</a>
             <a href="<?= base_url('main/services#membership')?>" class="text-dark col">MEMBERSHIP</a>
             <a href="#contact" data-toggle="modal" data-target="#modalcontact" class="text-dark col">CONTACT</a>
@@ -222,7 +222,7 @@
                         </small>
                      </h6>
                   <?php }?>
-                 
+
                </div>
                <div class="col-md-8 bg-white memb-height" style="background:url('<?= base_url();?>image/modalimg/A15.jpg') center  no-repeat;background-size: cover;height:500px;">
                   <button type="button" class="close p-4" style="outline:none;" data-dismiss="modal">&#10006</button>
@@ -482,17 +482,17 @@
      $("#addClass").click(function () {
        $('#qnimate').addClass('popup-box-on');
      });
-   
+
      $("#removeClass").click(function () {
        $('#qnimate').removeClass('popup-box-on');
      });
    })
-   
+
    $(function () {
      $("#addClassMob").click(function () {
        $('#qnimate').addClass('popup-box-on');
      });
-   
+
      $("#removeClass").click(function () {
        $('#qnimate').removeClass('popup-box-on');
      });
@@ -506,23 +506,23 @@
    var base_url = '<?= base_url(); ?>';
    var digit_pattern = new RegExp('^[2-9][0-9]*$');
    var emailReg = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
-   var user_info = <?php echo json_encode($user_info); ?>; 
+   var user_info = <?php echo json_encode($user_info); ?>;
    if($.session.get("booking") == 'booking'){
       $("#bookingmodal").modal("show");
       $('#fname').val(user_info.FullName);
       $('#femail').val(user_info.Email);
       $('#cowerker_id').val(user_info.Id);
-      $('#confirmBooking').append('<b>'+ user_info.FullName +'<br>'+ '+965 ' + user_info.MobilePhone + '</b>'); 
+      $('#confirmBooking').append('<b>'+ user_info.FullName +'<br>'+ '+965 ' + user_info.MobilePhone + '</b>');
       $("#meetFormReg").show();
       $("#resources").show();
       $("#bookings").show();
-      $("#loc_imgs").hide(); 
+      $("#loc_imgs").hide();
       $(".booking-option").hide();
       $("#description").hide();
       $.session.clear();
    }
    $(".secondSignup").hide();
-   
+
    $(".continuebtn").click(function () {
      $(".secondSignup").show();
    });
@@ -581,7 +581,7 @@
          if (grecaptcha.getResponse() == ""){
            $('.whole_div').hide();
              alert("Please check the reCAPTCHA");
-         } 
+         }
          else if (!($('[name="p_phone"]').val()).match(digit_pattern)) {
             alert("Invalid Mobile number");
             $('.whole_div').hide();
@@ -591,8 +591,8 @@
            $('.whole_div').hide();
            alert("Phone should be 8 digits");
          }
-         
-         else 
+
+         else
          {
            var form_data = $(this).serialize();
                $.ajax({
@@ -617,23 +617,23 @@
            });
          }
      })
-   
+
    var price_plan = $("input[name='radio']:checked").val();
-   
+
    get_price_plans(price_plan);
-   
+
    $(".plans_type").click(function(){
      $('.whole_div').show();
      get_price_plans($(this).val());
    });
-   
+
    $(".price_plans").change(function(){
      $('.whole_div').show();
      get_price_details($(this).val());
    });
-   
+
    $(document).on("click", "#continuebtn", function () {
-     
+
      $('.whole_div').show();
      var check_passowrd = validate_sign_up_form($('[name="password"]').val(),$('[name="confirm_password"]').val(), $('[name="complete_name"]').val(),
      $('[name="company_name"]').val(),$('[name="signup_email"]').val(),$('[name="profile_website"]').val(),$('[name="mobile_phone"]').val(),$('[name="business_area"]').val());
@@ -652,7 +652,7 @@
            "BusinessArea": "",
            "SignUpToNewsletter": ""
        }
-   
+
        $.ajax({
            type: 'POST',
            dataType: 'json',
@@ -679,7 +679,7 @@
        });
      }
    });
-   
+
    $(document).on("click", "#signUpBtn", function () {
      $('.whole_div').show();
      var selected_date = $('#datetimepicker1').val();
@@ -700,7 +700,7 @@
          "location_id": $('[name="location_id"]').val(),
          "InvoiceNow": true
        }
-       $.ajax({ 
+       $.ajax({
          type: 'POST',
          dataType: 'json',
          url: base_url + 'main/subscription_plan',
@@ -711,7 +711,7 @@
              toastr.success('Plan Added Successfully');
              setTimeout(function(){
                window.location.replace(base_url + 'main/invoice');
-             }, 3000) 
+             }, 3000)
            }
          },
          error: function(jqxhr, status, error) {
@@ -724,7 +724,7 @@
        });
      }
    });
-   
+
    $(document).on("submit", "#login-form", function (e) {
      e.preventDefault();
      $('.whole_div').show();
@@ -759,7 +759,7 @@
                         window.location.replace(base_url + 'main/invoice');
                      }
                   }, 2000);
-                  
+
                }
             },
             error: function(data) {
@@ -770,7 +770,7 @@
       });
      }
    });
-   
+
    function get_locations(){
          $(".login_location").empty();
          $.ajax({
@@ -789,7 +789,7 @@
                          $(".sign_in_location").append("<option value ='0'>" + 'Select Location' + "</option>");
                          $(".sign_in_location").append("<option value ='"+location[0].WebAddress+"'>" + location[0].Name + "</option>");
                          $(".sign_in_location").append("<option value ='"+location[1].WebAddress+"'>" + location[1].Name + "</option>");
-                         
+
                  } else {
                      $(".login_location").append("<option value ='0'>" +'No Locations' + "</option>");
                  }
@@ -799,7 +799,7 @@
              }
          });
      }
-   
+
    function validate_sign_up_form(password,confirm_password,complete_name,company_name,signup_email,profile_website,mobile_phone,business_area){
      $('#error_msg_signup').empty();
      if($('.login_location').val() == '0'){
@@ -852,9 +852,9 @@
      else{
        return true;
      }
-   
+
    }
-   
+
    function get_price_plans(plan_name = null){
      $(".price_plans").empty();
      $.ajax({
@@ -863,7 +863,7 @@
          beforeSend: function(xhr) {
              xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + password));
          },
-         dataType: 'json', 
+         dataType: 'json',
          success: function(data){
            var price_plans = data.Records;
            $.each(price_plans, (key, price_plan) => {
@@ -871,7 +871,7 @@
              if(price_plan.Visible === true){
                $('.price_plans').append("<option value ='"+price_plan.UniqueId +"'>" + price_plan.Name + "</option>");
              }
-             
+
            })
            get_price_details(price_plans[0].UniqueId);
          },
@@ -883,7 +883,7 @@
          }
      })
    }
-   
+
    function get_price_details(plan_id = null){
      $('.plan_heading').empty();
      $('.plan_desc').empty();
@@ -893,7 +893,7 @@
          beforeSend: function(xhr) {
              xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + password));
          },
-         dataType: 'json', 
+         dataType: 'json',
          success: function(data){
            $('.whole_div').hide();
            var price_detail = data.Records;
@@ -910,15 +910,15 @@
              duration = 'every ' + price_detail[0].InvoiceEvery +'  months' ;
            }
              var desc_head = price_detail[0].Description.split(".");
-             var desc = price_detail[0].Description.replace(/<p>/g, "<span style='color: #000; font-size: 14px;line-height:20px;'>");  
-             desc = desc.replace(/<\/p>/g,"</span><br>"); 
+             var desc = price_detail[0].Description.replace(/<p>/g, "<span style='color: #000; font-size: 14px;line-height:20px;'>");
+             desc = desc.replace(/<\/p>/g,"</span><br>");
              desc = desc.split(".");
            var price_head = "<span style='color: #000; font-size: 12px;'>" + duration + '  ('+ price_detail[0].Price + ' ' + price_detail[0].CurrencyCode + ')'+ "</span>"+
                             "<span style='color: #000; font-size: 13px;'>" + desc_head[0] + "</span>";
-          
+
            $('.plan_heading').append(price_head);
            $('.plan_desc').html(desc.slice(1));
-                          
+
          },
          error: function(jqxhr, status, error) {
            $('.whole_div').hide();
@@ -928,9 +928,9 @@
          }
      })
    }
-   
+
    get_locations();
-   
+
    });
-   
+
 </script>

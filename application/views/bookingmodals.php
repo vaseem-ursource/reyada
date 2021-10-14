@@ -1,10 +1,10 @@
 <style>
 .loc-desc{
-   color:white; 
+   color:white;
    position: relative;
    left:0px;
-   right:20px; 
-   bottom:5%; 
+   right:20px;
+   bottom:5%;
    font-size: 11px;
 }
 .meetformheight{
@@ -83,18 +83,18 @@
 
                     <div class="col-md-12 text-center">
                         <div class="row" id="resources" style="display:none;">
-                            
+
                         </div>
                     </div>
-                        
+
                      <br>
                      <div class="booking-div table-responsive" id="bookings" style="display:none;position:relative;top:-20px;">
                         <table class="table table-bordered text-center">
                             <thead id="head">
-                                
+
                             </thead>
                             <tbody id="body">
-                                
+
                             </tbody>
                         </table>
                      </div>
@@ -131,7 +131,7 @@
                         <script>
                            const prev = document.querySelector('.demo-prev');
                            const next = document.querySelector('.demo-next');
-                           
+
                            const myCalendar01 = new HelloWeek({
                                selector: '.hello-week01',
                                lang: 'en',
@@ -165,7 +165,7 @@
                                     $('#new-date').empty();
                                     $('#new-date').append(test_date);
                                     $('#new-date').val(test_date);
-                                    $('#selected_date').val(DateCreated);                                   
+                                    $('#selected_date').val(DateCreated);
                                },
                                onClear: () => {
                                }
@@ -310,9 +310,9 @@
                         <h6 style="color:black;" class="text-center">THANK YOU FOR YOUR BOOKING</h6>
                         <h6 style="color:black;" class="text-center" id="confirmBooking"><b></b></h6>
                         <?php if($has_credit == 1){?>
-                            <a href="<?= base_url("main/plan#benefits") ?>"  class="btn custom-button-bl text-center" style="width:150px;">Check Credits</a>
+                            <a href="<?= base_url("main/plan#benefits") ?>"  class="btn custom-button-bl text-center">Check Credits</a>
                         <?php } else{?>
-                            <a href="<?= base_url("main/invoice") ?>"  class="btn custom-button-bl text-center" style="width:150px;">Proceed to payment</a>
+                            <a href="<?= base_url("main/invoice") ?>"  class="btn custom-button-bl text-center" >Proceed to payment</a>
                         <?php }?>
                      </form>
                   </div>
@@ -408,7 +408,7 @@
        var yesterday = '<?php echo date('Y-m-d',strtotime("-1 days")) ?>'+'T20:59:59';
        var base_url = '<?= base_url(); ?>';
        var is_logged_in = '<?= $is_logged_in ?>';
-       var user_info = <?php echo json_encode($user_info); ?>; 
+       var user_info = <?php echo json_encode($user_info); ?>;
        get_locations();
        $(document).on("click", "#bookingbutton", function() {
             $("#bookingmodal").modal("show");
@@ -416,16 +416,16 @@
             $("#meetFormReg").hide();
             $("#resources").hide();
             $("#bookings").hide();
-            $("#loc_imgs").show(); 
+            $("#loc_imgs").show();
             $("#description").show();
 
             $('#bookingList').addClass('bookingList');
             $('#bookingList').removeClass('bookingListReg');
-            
+
             $('#registerBooking').addClass('meetformheight');
             $('#registerBooking').removeClass('meetformbookheight');
         //    get_locations();
-        
+
        });
        $(document).on("click","#mr_book",function(){
            $('#confirmBooking').empty();
@@ -437,11 +437,11 @@
                     $('#fname').val(user_info.FullName);
                     $('#femail').val(user_info.Email);
                     $('#cowerker_id').val(user_info.Id);
-                    $('#confirmBooking').append('<b>'+ user_info.FullName +'<br>'+ '+965 ' + user_info.MobilePhone + '</b>'); 
+                    $('#confirmBooking').append('<b>'+ user_info.FullName +'<br>'+ '+965 ' + user_info.MobilePhone + '</b>');
                     $("#meetFormReg").show();
                     $("#resources").show();
                     $("#bookings").show();
-                    $("#loc_imgs").hide(); 
+                    $("#loc_imgs").hide();
                     $(".booking-option").hide();
                     $("#description").hide();
                 }
@@ -454,13 +454,13 @@
                 else{
                     $("#yesnomodal").modal("show");
                 }
-           } 
+           }
        });
        $(document).on("click","#toor_book",function(){
-            $('#confirmtour').empty();          
+            $('#confirmtour').empty();
             $("#bookingmodal").modal("hide");
             $("#pickdatemodalfortour").modal('show');
-            $("#tourFormReg").show(); 
+            $("#tourFormReg").show();
        });
        $(document).on("click", "#noModal", function() {
            $("#bookingmodal").modal("hide");
@@ -471,14 +471,14 @@
            $("#loc_imgs").hide();
            $("#description").hide();
        });
-   
+
        $(document).on("click", "#yesModal", function() {
        $("#bookingmodal").modal("hide");
        $("#yesnomodal").modal("hide");
        $("#modalLogin").modal("show");
        $.session.set("booking", "booking");
        });
-   
+
        $(document).on("click", "#noModalTour", function() {
            $("#bookingmodal").modal("hide");
            $("#yesnomodalfortour").modal("hide");
@@ -489,7 +489,7 @@
            var location_id = $(".location-drp-dwn").val();
            var selected_date = $('#new-date').val();
            if(selected_date == ''|| selected_date == null){
-               var new_date = cur_date_time;  
+               var new_date = cur_date_time;
            }
            else{
                var new_date = moment(selected_date).format('YYYY-MM-DD')+'T21:00:01';
@@ -501,8 +501,8 @@
     //    var location_id = $(".location-drp-dwn").val();
     //    get_resources(location_id);
     //    get_location_bookings(location_id,cur_date_time,yesterday);
-   
-       $(".location-drp-dwn").change(function() {   
+
+       $(".location-drp-dwn").change(function() {
            $('.whole_div').show();
            $('#loc_imgs').empty();
            var location_id = $(this).val();
@@ -516,7 +516,7 @@
                $('#loc_imgs').append(img);
            }
            if(selected_date == ''|| selected_date == null){
-               var new_date = cur_date_time;  
+               var new_date = cur_date_time;
            }
            else{
                var new_date = moment(selected_date).format('YYYY-MM-DD')+'T21:00:01';
@@ -525,13 +525,13 @@
            get_resources(location_id);
            get_location_bookings(location_id,new_date,past_day);
        });
-   
+
        $(document).on('click','.resource',function() {
            $('.whole_div').show();
            var resource_id = $(this).attr("data-id");
            var selected_date = $('#new-date').val();
            if(selected_date == ''|| selected_date == null){
-               var new_date = cur_date_time;  
+               var new_date = cur_date_time;
            }
            else{
                var new_date = moment(selected_date).format('YYYY-MM-DD')+'T21:00:01';
@@ -539,14 +539,14 @@
            var past_day =     moment(new_date, 'YYYY-MM-DD').subtract(1,'days').format('YYYY-MM-DD')+'T20:59:59';
            get_bookings(resource_id,new_date,past_day);
        });
-   
+
        $("#pickDate").click(function(e) {
            $('#confirmBooking').empty();
            var id = 'message';
            var valiadte_form = form_validation($("#fullname").val(),$("#email").val(),$("#fulladdress").val(),$("#area").val(),$("#phone").val(),id)
            if (valiadte_form == true)
            {
-             
+
                $('#fname').val($("#fullname").val());
                $('#femail').val($("#email").val());
                $('#address').val($("#fulladdress").val());
@@ -556,24 +556,24 @@
                $("#bookingmodal").modal("show");
                $("#meetFormReg").show();
                $(".booking-option").hide();
-               
+
                $('#bookingList').removeClass('bookingList');
                $('#bookingList').addClass('bookingListReg');
-               
+
                $('#registerBooking').removeClass('meetformheight');
                $('#registerBooking').addClass('meetformbookheight');
            }
            else{
                e.preventDefault();
                e.stopImmediatePropagation();
-               return false;  
+               return false;
            }
        })
-   
+
        $("#pickDateTour").click(function(e) {
            $('#confirmtour').empty();
            var id = 't_message';
-           
+
            var valiadte_form = form_validation($("#t_name").val(),$("#t_email").val(),$("#t_address").val(),$("#t_area").val(),$("#t_mobile").val(),id)
            if (valiadte_form == true)
            {
@@ -589,11 +589,11 @@
            else{
                e.preventDefault();
                e.stopImmediatePropagation();
-               return false;  
+               return false;
            }
-           
+
        })
-       
+
        function form_validation(fullname,email,fulladdress,area,phone,id) {
            $('#'+id).empty();
            var emailReg = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
@@ -601,7 +601,7 @@
            if (fullname === '' || email === '' || fulladdress === '' || area === '' || phone === '') {
                $('#'+id).append('Please fill out all the fields');
                $('#'+id).fadeIn().delay(5000).fadeOut();
-   
+
            return false;
            } else if (!(email).match(emailReg)) {
                $('#'+id).append('Invalid Email...!!!!!!');
@@ -615,18 +615,18 @@
                return true;
            }
        }
-   
+
        $('#toursubmit').click(function(e){
            $('.whole_div').show();
            if(tour_validation()){
                if($('#tour_selected_date').val() == ""){
-                   var date = cur_date; 
+                   var date = cur_date;
                }
                else{
-                   var date = $('#tour_selected_date').val(); 
+                   var date = $('#tour_selected_date').val();
                }
                var time1 = ConvertTimeformat($("#tourtime").val());
-               var fromTime = date +'T'+  time1  + 'Z'; 
+               var fromTime = date +'T'+  time1  + 'Z';
            post_array =
            {
                "FullName": $("#tour_fname").val(),
@@ -638,13 +638,13 @@
                "Address": $("#tour_address").val(),
                "FromTime":fromTime,
                "location":$('#tour_location').val(),
-   
+
            }
            $.ajax({
                type: 'POST',
                dataType: 'json',
                url: base_url + 'main/book_a_tour',
-               data: post_array, 
+               data: post_array,
                    success: function(data) {
                        $('#confirmtour').empty();
                        if(data.status != 200){
@@ -665,9 +665,9 @@
                        console.log(msg);
                    }
                })
-           }   
+           }
        });
-   
+
        $("#meetSubmit").click(function(e) {
            $('.whole_div').show();
                var locations = $(".location-drp-dwn").val();
@@ -680,10 +680,10 @@
                var start_time = $("#fromtime").val();
                var end_time = $("#totime").val();
                if($('#selected_date').val() == ""){
-                   var date = cur_date; 
+                   var date = cur_date;
                }
                else{
-                   var date = $('#selected_date').val(); 
+                   var date = $('#selected_date').val();
                }
                if(is_logged_in == 1 ){
                    var time1 = ConvertTimeformat(start_time);
@@ -692,10 +692,10 @@
                    var time1 = ConvertTimeformat(start_time);
                    var time2 = ConvertTimeformat(end_time);
                }
-               
-               var fromTime = date+'T'+ time1 +'Z'; 
+
+               var fromTime = date+'T'+ time1 +'Z';
                var toTime   = date+'T'+ time2 +'Z';
-   
+
                if(is_logged_in == 1 ){
                    post_array =
                    {
@@ -707,7 +707,7 @@
                        "InvoiceNow":true,
                        "loc_url":loc_url,
                        "loc_id":$('[name="b_location_id"]').val(),
-                       
+
                    }
                }
                else
@@ -741,7 +741,7 @@
                             $('#thankyouforRegmodal').modal('show');
                         }
                         else{
-                            $('.whole_div').hide(); 
+                            $('.whole_div').hide();
                             toastr.error(data.Message);
                         }
                     },
@@ -752,7 +752,7 @@
                     }
                 })
        })
-   
+
        $("#pricesubmit").click(function(e) {
            $('.whole_div').show();
            if (booking_validation())
@@ -767,14 +767,14 @@
                var start_time = $("#fromtime").val();
                var end_time = $("#totime").val();
                if($('#selected_date').val() == ""){
-                   var date = cur_date; 
+                   var date = cur_date;
                }
                else{
-                   var date = $('#selected_date').val(); 
+                   var date = $('#selected_date').val();
                }
                var time1 = ConvertTimeformat(start_time);
                var time2 = ConvertTimeformat(end_time);
-               var FromTime = date+'T'+ time1 +'Z'; 
+               var FromTime = date+'T'+ time1 +'Z';
                var toTime   = date+'T'+ time2 +'Z';
                if(is_logged_in != 1 ){
                    check_email_exist($("#femail").val(),loc_url,$("#select-resource").val(),FromTime,toTime);
@@ -811,15 +811,15 @@
                        }
                    });
                }
-           }   
+           }
            else{
                $('.whole_div').hide();
                e.preventDefault();
                e.stopImmediatePropagation();
-               return false;  
+               return false;
            }
        });
-   
+
        function check_email_exist(email,loc,resource = null,FromTime = null,toTime = null){
            post_array =
                {
@@ -873,16 +873,16 @@
                    error: function(data){
                        $('.whole_div').hide();
                    }
-               }) 
+               })
        }
-   
+
        function booking_validation() {
            $('#validation_message').empty();
            if($('#selected_date').val() == ""){
-               var date = cur_date; 
+               var date = cur_date;
            }
            else{
-               var date = $('#selected_date').val(); 
+               var date = $('#selected_date').val();
            }
            var dt = new Date();
            var cur_time = dt.getHours() + ":" + dt.getMinutes();
@@ -935,14 +935,14 @@
                return true;
            }
        }
-   
+
        function tour_validation() {
            $('#tour_validation_message').empty();
            if($('#tour_selected_date').val() == ""){
-               var date = cur_date; 
+               var date = cur_date;
            }
            else{
-               var date = $('#tour_selected_date').val(); 
+               var date = $('#tour_selected_date').val();
            }
            var dt = new Date();
            var cur_time = dt.getHours() + ":" + dt.getMinutes();
@@ -995,7 +995,7 @@
                return true;
            }
        }
-   
+
        function addDay(date) {
            var result = date.substr(8);
            var day = '1';
@@ -1003,14 +1003,14 @@
            var new_result = date.substr(0,8) + sh;
            return new_result;
        }
-   
+
        function subtract_day(date) {
            var day = '1';
            var sh = parseInt(date) - parseInt(day);
            // var new_result = date.substr(0,8) + sh;
            return sh;
        }
-   
+
        function ConvertTimeformat(time) {
            var hours = Number(time.match(/^(\d+)/)[1]);
            var minutes = Number(time.match(/:(\d+)/)[1]);
@@ -1024,7 +1024,7 @@
            var selected_time = sHours + ":" + sMinutes;
            return selected_time;
        }
-       
+
        function get_minutes(time)
        {
            var timeArr = time.split(":");
@@ -1049,7 +1049,7 @@
                            $(".location").append("<option value ='0'>" + 'Select Location' + "</option>");
                            $(".location").append("<option value ='"+location[0].WebAddress+"'>" + location[0].Name + "</option>");
                            $(".location").append("<option value ='"+location[1].WebAddress+"'>" + location[1].Name + "</option>");
-                   
+
                    } else {
                        $(".location-drp-dwn").append("<option value ='0'>" +'No Locations' + "</option>");
                    }
@@ -1059,7 +1059,7 @@
                }
            });
        }
-   
+
        function get_resources(location_id) {
            $("#resources").empty();
            $("#select-resource").empty();
@@ -1080,7 +1080,7 @@
                        $("#select-resource").append("<option value ='0'>" + 'Select Your Room' + "</option>");
                        $.each(resources, (key, resource) => {
                            if(resource.Visible === true){
-                               var resources = 
+                               var resources =
                                "<div class='col-md-6' style='padding:0' >"+
                                     "<p href='#'  class='btn tr-mt-btn resource' style='font-size:10px;width:97%;height:30px;' data-id ='" +resource.Id +"' >"+"<span >"+resource.Name+"</span>"+"</p>"+
                                 "</div>";
@@ -1090,7 +1090,7 @@
                                $("#resources").append(resources);
                                $("#select-resource").append("<option value ='"+resource.Id+" '>" + resource.Name + "</option>");
                            }
-                           
+
                        })
                    } else {
                        $('.whole_div').hide();
@@ -1104,7 +1104,7 @@
                }
            });
        }
-   
+
        function get_bookings(res_id,cur_date,yesterday) {
         $("#head").empty();
         $("#body").empty();
@@ -1120,7 +1120,7 @@
                 $('.whole_div').hide();
                 var Bookings = bookings.Records;
                 if (Bookings.length != '0') {
-                        var head = 
+                        var head =
                         "<tr>"+
                             "<th colspan='3' scope='col' style='color:white;' class='text-center' >"+ 'Scheduled Bookings' +"</th>"+
                         "</tr>";
@@ -1132,12 +1132,12 @@
                                         "<td>"+ booking.ResourceName +"<br>"+ moment(fromtime).format('YYYY-MM-DD') + "</td>"+
                                         "<td>" + moment(fromtime).format('h:mma')+"-"+ moment(totime).format('h:mma') + "</td>"+
                                     "</tr>";
-                        
+
                         $("#body").append(body);
                     })
                 } else {
                     $('.whole_div').hide();
-                    var head = 
+                    var head =
                         "<tr>"+
                             "<th colspan='3' scope='col' style='color:white;' class='text-center' >"+ 'No Bookings' +"</th>"+
                         "</tr>";
@@ -1147,7 +1147,7 @@
             },
             error: function() {
                 $('.whole_div').hide();
-                    var head = 
+                    var head =
                         "<tr>"+
                             "<th colspan='3' scope='col' style='color:white;' class='text-center' >"+ 'No Bookings' +"</th>"+
                         "</tr>";
@@ -1155,7 +1155,7 @@
             }
         })
        }
-   
+
        function get_location_bookings(loc_id,cur_date,yesterday){
            $("#head").empty();
            $("#body").empty();
@@ -1171,7 +1171,7 @@
                    $('.whole_div').hide();
                    var Bookings = bookings.Records;
                    if (Bookings.length != '0') {
-                      var head = 
+                      var head =
                         "<tr>"+
                             "<th colspan='3' scope='col' style='color:white;' class='text-center'>"+ 'Scheduled Bookings' +"</th>"+
                         "</tr>";
@@ -1181,33 +1181,33 @@
                            var totime =   moment.tz(booking.ToTime, "Asia/Kuwait");
                             var body =  "<tr class='booking-font'>"+
                                             "<td>"+ booking.ResourceName +"<br>"+ moment(fromtime).format('YYYY-MM-DD') + "</td>"+
-                                            "<td style='position:relative;top:50%;'>" + moment(fromtime).format('h:mma')+" - "+ moment(totime).format('h:mma') + "</td>"+
+                                            "<td>" + moment(fromtime).format('h:mma')+" - "+ moment(totime).format('h:mma') + "</td>"+
                                         "</tr>";
-                            
+
                             $("#body").append(body);
                        })
-                    
+
                    } else {
                        $('.whole_div').hide();
-                       var head = 
+                       var head =
                         "<tr>"+
                             "<th colspan='3' scope='col' style='color:white;' class='text-center' >"+ 'No Bookings' +"</th>"+
                         "</tr>";
                         $("#head").append(head);
                    }
-   
+
                },
                error: function() {
                    $('.whole_div').hide();
-                   var head = 
+                   var head =
                         "<tr>"+
                             "<th colspan='3' scope='col' style='color:white;' class='text-center' >"+ 'No Bookings' +"</th>"+
                         "</tr>";
                     $("#head").append(head);
                }
-           }) 
+           })
        }
-   
+
        function create_booking(data){
            $.ajax({
                type: 'POST',
@@ -1219,7 +1219,7 @@
                    xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + password),'Content-Type','application/json');
                },
                data: data,
-               dataType: 'json', 
+               dataType: 'json',
                success: function(data){
                    if(data.Status == 200){
                        $('.whole_div').hide();
@@ -1228,13 +1228,13 @@
                        $('#thankyouforRegmodal').modal('show');
                    }
                    else{
-                       $('.whole_div').hide(); 
+                       $('.whole_div').hide();
                        toastr.error('some error occured while processing');
                    }
                },
                error: function(data){
                    var message = data.responseJSON.Message.split(".");
-                   $('.whole_div').hide(); 
+                   $('.whole_div').hide();
                    toastr.error(message[0] + message[1] + '.');
                }
            })

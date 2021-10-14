@@ -465,31 +465,48 @@ class main extends CI_Controller
         $invoiceamt = $ticket_data['event_price'] * $ticket_data['no_of_attendees'];
         $success_url = base_url('main/payment_result_ticket');
         $error_url = base_url('main/payment_result_ticket');
-        $url = $this->config->item('hesabe_request_url');
         $pay_url = null;
         $data = array(
-            'MerchantCode' => $merchant_code,
-            'Amount' => $invoiceamt,
-            'SuccessUrl' => $success_url,
-            'FailureUrl' => $error_url,
-            'Variable1' => $ticket_data['ticket_id']
-        );
-        $options = array(
-            'http' => array(
-                'header' => "Content-type: application/x-www-form-urlencoded\r\n",
-                'method' => 'POST',
-                'content' => http_build_query($data),
-            ),
+            "merchantCode" => $merchant_code,
+            "amount" => (string)number_format($invoiceamt, 3),
+            "paymentType" => 0,
+            "orderReferenceNumber" => $ticket_data['ticket_id'],
+            "responseUrl" => $success_url,
+            "failureUrl" => $success_url,
+            "version" => 2.0,
+            "variable1" => $ticket_data['ticket_id'],
         );
 
-        $context = stream_context_create($options);
-        $result = file_get_contents($url, false, $context);
-        $json = json_decode($result);
-        if ($json->status === 'success') {
-            $token = $json->data->token;
-            $paymenturl = $json->data->paymenturl;
-            $pay_url = $paymenturl . $token;
+        $json_encode = json_encode($data);
+        $encrypted = encrypt($json_encode, $this->config->item("merchant_key"), $this->config->item("merchant_iv"));
+        $params = array(
+            'data' => $encrypted
+        );
+        $checkout_url = $this->config->item("hesabe_base_url")."checkout";
+        $header = array("accessCode: ".$this->config->item("access_code"));
+        $checkout_response = $this->request($checkout_url, $params, $header);
+        $decrypted = decrypt($checkout_response, $this->config->item("merchant_key"), $this->config->item("merchant_iv"));
+        $json_decode = json_decode($decrypted);
+        if($json_decode && isset($json_decode->response->data)){
+            $payment_url = $this->config->item("hesabe_base_url")."payment?data=".$json_decode->response->data;
         }
+
+        // $options = array(
+        //     'http' => array(
+        //         'header' => "Content-type: application/x-www-form-urlencoded\r\n",
+        //         'method' => 'POST',
+        //         'content' => http_build_query($data),
+        //     ),
+        // );
+
+        // $context = stream_context_create($options);
+        // $result = file_get_contents($url, false, $context);
+        // $json = json_decode($result);
+        // if ($json->status === 'success') {
+        //     $token = $json->data->token;
+        //     $paymenturl = $json->data->paymenturl;
+        //     $pay_url = $paymenturl . $token;
+        // }
 
         return $pay_url;
     }
